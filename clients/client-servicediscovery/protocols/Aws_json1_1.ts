@@ -138,6 +138,7 @@ import {
   OperationFilter,
   OperationNotFound,
   OperationSummary,
+  OperationTargetType,
   RegisterInstanceRequest,
   RegisterInstanceResponse,
   ResourceInUse,
@@ -2332,10 +2333,13 @@ const serializeAws_json1_1Attributes = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1CreateHttpNamespaceRequest = (
@@ -2756,10 +2760,13 @@ const deserializeAws_json1_1Attributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1CreateHttpNamespaceResponse = (
@@ -3130,10 +3137,16 @@ const deserializeAws_json1_1InstanceHealthStatusMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: HealthStatus | string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: HealthStatus | string },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1InstanceNotFound = (
@@ -3470,10 +3483,16 @@ const deserializeAws_json1_1OperationTargetsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [OperationTargetType | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1RegisterInstanceResponse = (

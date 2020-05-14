@@ -172,6 +172,8 @@ import {
   DeactivatingLastSystemUserException,
   DocumentLockedForCommentsException,
   DocumentMetadata,
+  DocumentSourceType,
+  DocumentThumbnailType,
   DocumentVersionMetadata,
   DraftUploadOutOfSyncException,
   EntityAlreadyExistsException,
@@ -7291,10 +7293,13 @@ const serializeAws_restJson1_1CustomMetadataMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1NotificationOptions = (
@@ -7490,10 +7495,13 @@ const deserializeAws_restJson1_1CustomMetadataMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1DocumentMetadata = (
@@ -7552,20 +7560,32 @@ const deserializeAws_restJson1_1DocumentSourceUrlMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [DocumentSourceType | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1DocumentThumbnailUrlMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [DocumentThumbnailType | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1DocumentVersionMetadata = (
@@ -7938,10 +7958,13 @@ const deserializeAws_restJson1_1SignedHeaderMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1StorageRuleType = (

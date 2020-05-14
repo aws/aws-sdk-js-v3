@@ -464,20 +464,26 @@ const deserializeAws_restJson1_1Exprs = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Facets = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: BucketInfo } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1BucketInfo(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: BucketInfo }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1BucketInfo(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1FieldStats = (
@@ -526,20 +532,26 @@ const deserializeAws_restJson1_1Fields = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1FieldValue(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Highlights = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Hit = (
@@ -617,10 +629,13 @@ const deserializeAws_restJson1_1Stats = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FieldStats } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1FieldStats(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: FieldStats }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1FieldStats(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1SuggestModel = (

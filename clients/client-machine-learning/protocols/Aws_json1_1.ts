@@ -151,6 +151,7 @@ import {
   DescribeMLModelsOutput,
   DescribeTagsInput,
   DescribeTagsOutput,
+  DetailsAttributes,
   Evaluation,
   GetBatchPredictionInput,
   GetBatchPredictionOutput,
@@ -3544,10 +3545,13 @@ const serializeAws_json1_1Record = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1RedshiftDataSpec = (
@@ -3650,10 +3654,13 @@ const serializeAws_json1_1TrainingParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1UpdateBatchPredictionInput = (
@@ -4193,10 +4200,16 @@ const deserializeAws_json1_1DetailsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [DetailsAttributes | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Evaluation = (
@@ -4837,10 +4850,13 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1PredictOutput = (
@@ -5037,10 +5053,13 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Tag = (
@@ -5084,10 +5103,13 @@ const deserializeAws_json1_1TrainingParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1UpdateBatchPredictionOutput = (

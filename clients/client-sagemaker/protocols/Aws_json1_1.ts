@@ -11392,10 +11392,13 @@ const serializeAws_json1_1CollectionParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1CompressionTypes = (
@@ -13075,10 +13078,13 @@ const serializeAws_json1_1EnvironmentMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ExperimentConfig = (
@@ -13194,10 +13200,13 @@ const serializeAws_json1_1HookParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1HumanLoopActivationConditionsConfig = (
@@ -13543,10 +13552,13 @@ const serializeAws_json1_1HyperParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1InferenceSpecification = (
@@ -14787,10 +14799,13 @@ const serializeAws_json1_1MonitoringEnvironmentMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1MonitoringInput = (
@@ -15175,10 +15190,13 @@ const serializeAws_json1_1ProcessingEnvironmentMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ProcessingInput = (
@@ -15445,10 +15463,13 @@ const serializeAws_json1_1RuleParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1S3DataSource = (
@@ -15935,10 +15956,13 @@ const serializeAws_json1_1TransformEnvironmentMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1TransformInput = (
@@ -16065,10 +16089,16 @@ const serializeAws_json1_1TrialComponentArtifacts = (
   input: { [key: string]: TrialComponentArtifact },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1TrialComponentArtifact(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: TrialComponentArtifact },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1TrialComponentArtifact(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1TrialComponentParameterValue = (
@@ -16085,13 +16115,16 @@ const serializeAws_json1_1TrialComponentParameters = (
   input: { [key: string]: TrialComponentParameterValue },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1TrialComponentParameterValue(
-      input[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: TrialComponentParameterValue },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1TrialComponentParameterValue(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1TrialComponentStatus = (
@@ -17470,10 +17503,13 @@ const deserializeAws_json1_1CollectionParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1CompilationJobSummaries = (
@@ -20316,10 +20352,13 @@ const deserializeAws_json1_1EnvironmentMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Experiment = (
@@ -20639,10 +20678,13 @@ const deserializeAws_json1_1HookParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1HumanLoopActivationConditionsConfig = (
@@ -21274,10 +21316,13 @@ const deserializeAws_json1_1HyperParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1InferenceSpecification = (
@@ -22823,10 +22868,13 @@ const deserializeAws_json1_1MonitoringEnvironmentMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1MonitoringExecutionSummary = (
@@ -23514,10 +23562,13 @@ const deserializeAws_json1_1ProcessingEnvironmentMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ProcessingInput = (
@@ -24048,10 +24099,13 @@ const deserializeAws_json1_1RuleParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1S3DataSource = (
@@ -24802,10 +24856,13 @@ const deserializeAws_json1_1TransformEnvironmentMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1TransformInput = (
@@ -25171,13 +25228,16 @@ const deserializeAws_json1_1TrialComponentArtifacts = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: TrialComponentArtifact } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1TrialComponentArtifact(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: TrialComponentArtifact },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1TrialComponentArtifact(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1TrialComponentMetricSummaries = (
@@ -25249,13 +25309,16 @@ const deserializeAws_json1_1TrialComponentParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: TrialComponentParameterValue } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1TrialComponentParameterValue(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: TrialComponentParameterValue },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1TrialComponentParameterValue(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1TrialComponentSimpleSummaries = (

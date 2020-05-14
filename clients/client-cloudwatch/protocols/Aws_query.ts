@@ -3096,9 +3096,9 @@ const serializeAws_queryAnomalyDetectorConfiguration = (
       input.ExcludedTimeRanges,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedTimeRanges.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricTimezone !== undefined) {
@@ -3115,8 +3115,8 @@ const serializeAws_queryAnomalyDetectorExcludedTimeRanges = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryRange(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -3159,9 +3159,9 @@ const serializeAws_queryDeleteAlarmsInput = (
       input.AlarmNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3177,9 +3177,9 @@ const serializeAws_queryDeleteAnomalyDetectorInput = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -3204,9 +3204,9 @@ const serializeAws_queryDeleteDashboardsInput = (
       input.DashboardNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DashboardNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3222,9 +3222,9 @@ const serializeAws_queryDeleteInsightRulesInput = (
       input.RuleNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3266,9 +3266,9 @@ const serializeAws_queryDescribeAlarmsForMetricInput = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ExtendedStatistic !== undefined) {
@@ -3308,9 +3308,9 @@ const serializeAws_queryDescribeAlarmsInput = (
       input.AlarmNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxRecords !== undefined) {
@@ -3335,9 +3335,9 @@ const serializeAws_queryDescribeAnomalyDetectorsInput = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxResults !== undefined) {
@@ -3405,8 +3405,8 @@ const serializeAws_queryDimensionFilters = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryDimensionFilter(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -3421,8 +3421,8 @@ const serializeAws_queryDimensions = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryDimension(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -3439,9 +3439,9 @@ const serializeAws_queryDisableAlarmActionsInput = (
       input.AlarmNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3457,9 +3457,9 @@ const serializeAws_queryDisableInsightRulesInput = (
       input.RuleNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3475,9 +3475,9 @@ const serializeAws_queryEnableAlarmActionsInput = (
       input.AlarmNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3493,9 +3493,9 @@ const serializeAws_queryEnableInsightRulesInput = (
       input.RuleNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RuleNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3541,9 +3541,9 @@ const serializeAws_queryGetInsightRuleReportInput = (
       input.Metrics,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.OrderBy !== undefined) {
@@ -3577,9 +3577,9 @@ const serializeAws_queryGetMetricDataInput = (
       input.MetricDataQueries,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricDataQueries.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.NextToken !== undefined) {
@@ -3604,9 +3604,9 @@ const serializeAws_queryGetMetricStatisticsInput = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.EndTime !== undefined) {
@@ -3617,9 +3617,9 @@ const serializeAws_queryGetMetricStatisticsInput = (
       input.ExtendedStatistics,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExtendedStatistics.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -3639,9 +3639,9 @@ const serializeAws_queryGetMetricStatisticsInput = (
       input.Statistics,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Statistics.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Unit !== undefined) {
@@ -3714,9 +3714,9 @@ const serializeAws_queryListMetricsInput = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -3752,9 +3752,9 @@ const serializeAws_queryMetric = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -3774,8 +3774,8 @@ const serializeAws_queryMetricData = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryMetricDatum(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -3790,8 +3790,8 @@ const serializeAws_queryMetricDataQueries = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryMetricDataQuery(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -3817,9 +3817,9 @@ const serializeAws_queryMetricDataQuery = (
       input.MetricStat,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricStat.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Period !== undefined) {
@@ -3838,9 +3838,9 @@ const serializeAws_queryMetricDatum = (
   const entries: any = {};
   if (input.Counts !== undefined) {
     const memberEntries = serializeAws_queryCounts(input.Counts, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Counts.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Dimensions !== undefined) {
@@ -3848,9 +3848,9 @@ const serializeAws_queryMetricDatum = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -3861,9 +3861,9 @@ const serializeAws_queryMetricDatum = (
       input.StatisticValues,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StatisticValues.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.StorageResolution !== undefined) {
@@ -3880,9 +3880,9 @@ const serializeAws_queryMetricDatum = (
   }
   if (input.Values !== undefined) {
     const memberEntries = serializeAws_queryValues(input.Values, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3895,9 +3895,9 @@ const serializeAws_queryMetricStat = (
   const entries: any = {};
   if (input.Metric !== undefined) {
     const memberEntries = serializeAws_queryMetric(input.Metric, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metric.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Period !== undefined) {
@@ -3922,9 +3922,9 @@ const serializeAws_queryPutAnomalyDetectorInput = (
       input.Configuration,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Configuration.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Dimensions !== undefined) {
@@ -3932,9 +3932,9 @@ const serializeAws_queryPutAnomalyDetectorInput = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -3993,9 +3993,9 @@ const serializeAws_queryPutMetricAlarmInput = (
       input.AlarmActions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlarmActions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.AlarmDescription !== undefined) {
@@ -4015,9 +4015,9 @@ const serializeAws_queryPutMetricAlarmInput = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.EvaluateLowSampleCountPercentile !== undefined) {
@@ -4035,9 +4035,9 @@ const serializeAws_queryPutMetricAlarmInput = (
       input.InsufficientDataActions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InsufficientDataActions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -4048,9 +4048,9 @@ const serializeAws_queryPutMetricAlarmInput = (
       input.Metrics,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Namespace !== undefined) {
@@ -4061,9 +4061,9 @@ const serializeAws_queryPutMetricAlarmInput = (
       input.OKActions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OKActions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Period !== undefined) {
@@ -4074,9 +4074,9 @@ const serializeAws_queryPutMetricAlarmInput = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Threshold !== undefined) {
@@ -4104,9 +4104,9 @@ const serializeAws_queryPutMetricDataInput = (
       input.MetricData,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricData.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Namespace !== undefined) {
@@ -4227,8 +4227,8 @@ const serializeAws_queryTagList = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -4245,9 +4245,9 @@ const serializeAws_queryTagResourceInput = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4263,9 +4263,9 @@ const serializeAws_queryUntagResourceInput = (
   }
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6038,13 +6038,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

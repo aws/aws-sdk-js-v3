@@ -277,10 +277,13 @@ const serializeAws_restJson1_1Context = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1InputList = (

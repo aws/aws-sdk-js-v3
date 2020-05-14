@@ -5806,10 +5806,16 @@ const deserializeAws_json1_1AssessmentRunFindingCounts = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: number },
+      [key, value]: [Severity | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1AssessmentRunInProgressArnList = (
@@ -6371,10 +6377,13 @@ const deserializeAws_json1_1ExclusionMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Exclusion } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1Exclusion(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: Exclusion }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1Exclusion(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ExclusionPreview = (
@@ -6436,10 +6445,16 @@ const deserializeAws_json1_1FailedItems = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FailedItemDetails } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1FailedItemDetails(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: FailedItemDetails },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1FailedItemDetails(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Finding = (

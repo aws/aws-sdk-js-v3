@@ -489,18 +489,22 @@ import {
   Principal,
   ProductViewAggregationValue,
   ProductViewDetail,
+  ProductViewFilterBy,
   ProductViewSummary,
+  PropertyKey,
   ProvisionProductInput,
   ProvisionProductOutput,
   ProvisionedProductAttribute,
   ProvisionedProductDetail,
   ProvisionedProductPlanDetails,
   ProvisionedProductPlanSummary,
+  ProvisionedProductViewFilterBy,
   ProvisioningArtifact,
   ProvisioningArtifactDetail,
   ProvisioningArtifactParameter,
   ProvisioningArtifactPreferences,
   ProvisioningArtifactProperties,
+  ProvisioningArtifactPropertyName,
   ProvisioningArtifactSummary,
   ProvisioningArtifactView,
   ProvisioningParameter,
@@ -527,6 +531,7 @@ import {
   SearchProvisionedProductsInput,
   SearchProvisionedProductsOutput,
   ServiceActionAssociation,
+  ServiceActionDefinitionKey,
   ServiceActionDetail,
   ServiceActionSummary,
   ShareDetails,
@@ -9275,13 +9280,13 @@ const serializeAws_json1_1ExecutionParameterMap = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1ExecutionParameterValueList(
-      input[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1ExecutionParameterValueList(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ExecutionParameterValueList = (
@@ -9586,10 +9591,16 @@ const serializeAws_json1_1ProductViewFilters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1ProductViewFilterValues(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string[] },
+      [key, value]: [ProductViewFilterBy | string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1ProductViewFilterValues(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ProvisionProductInput = (
@@ -9637,23 +9648,35 @@ const serializeAws_json1_1ProvisionedProductFilters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1ProvisionedProductViewFilterValues(
-      input[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string[] },
+      [key, value]: [ProvisionedProductViewFilterBy | string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1ProvisionedProductViewFilterValues(
+        value,
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ProvisionedProductProperties = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [PropertyKey | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ProvisionedProductViewFilterValues = (
@@ -9667,10 +9690,13 @@ const serializeAws_json1_1ProvisioningArtifactInfo = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ProvisioningArtifactProperties = (
@@ -9871,10 +9897,16 @@ const serializeAws_json1_1ServiceActionDefinitionMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [ServiceActionDefinitionKey | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1SourceProvisioningArtifactProperties = (
@@ -9890,10 +9922,16 @@ const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [ProvisioningArtifactPropertyName | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1StackSetAccounts = (
@@ -11883,13 +11921,16 @@ const deserializeAws_json1_1ProductViewAggregations = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ProductViewAggregationValue[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1ProductViewAggregationValues(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: ProductViewAggregationValue[] },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1ProductViewAggregationValues(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ProductViewDetail = (
@@ -12263,10 +12304,16 @@ const deserializeAws_json1_1ProvisionedProductProperties = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [PropertyKey | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ProvisioningArtifact = (
@@ -12342,10 +12389,13 @@ const deserializeAws_json1_1ProvisioningArtifactInfo = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ProvisioningArtifactParameter = (
@@ -12893,10 +12943,16 @@ const deserializeAws_json1_1ServiceActionDefinitionMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [ServiceActionDefinitionKey | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ServiceActionDetail = (

@@ -2779,10 +2779,13 @@ const deserializeAws_json1_1Attributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1BillExpirationException = (
@@ -4006,10 +4009,13 @@ const deserializeAws_json1_1Metrics = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MetricValue } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1MetricValue(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MetricValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1MetricValue(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ModifyRecommendationDetail = (

@@ -2022,10 +2022,13 @@ const serializeAws_json1_1CostFilters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1DimensionValues(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1DimensionValues(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1CostTypes = (
@@ -2290,10 +2293,13 @@ const serializeAws_json1_1PlannedBudgetLimits = (
   input: { [key: string]: Spend },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1Spend(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: Spend }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1Spend(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1Spend = (
@@ -2564,10 +2570,13 @@ const deserializeAws_json1_1CostFilters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1DimensionValues(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1DimensionValues(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1CostTypes = (
@@ -2906,10 +2915,13 @@ const deserializeAws_json1_1PlannedBudgetLimits = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Spend } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1Spend(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: Spend }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1Spend(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Spend = (

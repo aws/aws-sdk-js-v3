@@ -3288,13 +3288,13 @@ const deserializeAws_json1_1SecretVersionsToStagesMapType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1SecretVersionStagesType(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1SecretVersionStagesType(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Tag = (

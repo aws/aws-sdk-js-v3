@@ -13482,10 +13482,13 @@ const serializeAws_restJson1_1IdentityMap = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1IdentityNameList(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1IdentityNameList(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1IdentityNameList = (
@@ -13580,10 +13583,13 @@ const serializeAws_restJson1_1LogicalTableMap = (
   input: { [key: string]: LogicalTable },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1LogicalTable(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: LogicalTable }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1LogicalTable(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1LogicalTableSource = (
@@ -13691,10 +13697,13 @@ const serializeAws_restJson1_1PhysicalTableMap = (
   input: { [key: string]: PhysicalTable },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1PhysicalTable(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: PhysicalTable }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1PhysicalTable(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1PostgreSqlParameters = (
@@ -15262,10 +15271,13 @@ const deserializeAws_restJson1_1IdentityMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1IdentityNameList(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1IdentityNameList(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1IdentityNameList = (
@@ -15429,10 +15441,13 @@ const deserializeAws_restJson1_1LogicalTableMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: LogicalTable } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1LogicalTable(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: LogicalTable }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1LogicalTable(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1LogicalTableSource = (
@@ -15566,10 +15581,13 @@ const deserializeAws_restJson1_1PhysicalTableMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: PhysicalTable } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1PhysicalTable(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: PhysicalTable }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1PhysicalTable(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1PostgreSqlParameters = (

@@ -5723,10 +5723,13 @@ const deserializeAws_json1_1ReportStatusCounts = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Reports = (

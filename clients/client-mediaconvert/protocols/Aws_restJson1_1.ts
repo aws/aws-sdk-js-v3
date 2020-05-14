@@ -7421,40 +7421,55 @@ const serializeAws_restJson1_1__mapOfAudioSelector = (
   input: { [key: string]: AudioSelector },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1AudioSelector(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: AudioSelector }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1AudioSelector(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1__mapOfAudioSelectorGroup = (
   input: { [key: string]: AudioSelectorGroup },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1AudioSelectorGroup(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: AudioSelectorGroup },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1AudioSelectorGroup(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1__mapOfCaptionSelector = (
   input: { [key: string]: CaptionSelector },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1CaptionSelector(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: CaptionSelector }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1CaptionSelector(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1AacSettings = (
@@ -12604,43 +12619,55 @@ const deserializeAws_restJson1_1__mapOfAudioSelector = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AudioSelector } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1AudioSelector(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: AudioSelector }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1AudioSelector(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1__mapOfAudioSelectorGroup = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AudioSelectorGroup } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1AudioSelectorGroup(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: AudioSelectorGroup },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1AudioSelectorGroup(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1__mapOfCaptionSelector = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: CaptionSelector } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1CaptionSelector(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: CaptionSelector }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1CaptionSelector(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -355,11 +355,13 @@ import {
   DeviceFilter,
   DeviceInstance,
   DeviceMinutes,
+  DevicePlatform,
   DevicePool,
   DevicePoolCompatibilityResult,
   DeviceSelectionConfiguration,
   DeviceSelectionResult,
   ExecutionConfiguration,
+  ExecutionResult,
   GetAccountSettingsRequest,
   GetAccountSettingsResult,
   GetDeviceInstanceRequest,
@@ -10134,10 +10136,13 @@ const serializeAws_json1_1TestParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -11946,10 +11951,13 @@ const deserializeAws_json1_1MaxSlotMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1MonetaryAmount = (
@@ -12144,10 +12152,13 @@ const deserializeAws_json1_1OfferingStatusMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: OfferingStatus } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1OfferingStatus(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: OfferingStatus }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1OfferingStatus(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1OfferingTransaction = (
@@ -12320,10 +12331,16 @@ const deserializeAws_json1_1PurchasedDevicesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: number },
+      [key, value]: [DevicePlatform | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1Radios = (
@@ -13174,10 +13191,16 @@ const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: UniqueProblem[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1UniqueProblems(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: UniqueProblem[] },
+      [key, value]: [ExecutionResult | string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1UniqueProblems(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (

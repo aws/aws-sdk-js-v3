@@ -6131,10 +6131,13 @@ const serializeAws_restJson1_1Criterion = (
   input: { [key: string]: Condition },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1Condition(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: Condition }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1Condition(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1DestinationProperties = (
@@ -6225,10 +6228,13 @@ const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1AccessKeyDetails = (
@@ -6393,10 +6399,13 @@ const deserializeAws_restJson1_1CountBySeverity = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Country = (
@@ -6420,10 +6429,13 @@ const deserializeAws_restJson1_1Criterion = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Condition } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1Condition(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: Condition }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1Condition(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Destination = (
@@ -7296,10 +7308,13 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Tags = (

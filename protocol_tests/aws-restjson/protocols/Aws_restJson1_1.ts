@@ -3042,10 +3042,13 @@ const serializeAws_restJson1_1JsonMapsInputOutputMap = (
   input: { [key: string]: GreetingStruct },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1GreetingStruct(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: GreetingStruct }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1GreetingStruct(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1NestedPayload = (
@@ -3125,10 +3128,16 @@ const serializeAws_restJson1_1FooEnumMap = (
   input: { [key: string]: FooEnum | string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: FooEnum | string },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1FooEnumSet = (
@@ -3199,10 +3208,13 @@ const deserializeAws_restJson1_1JsonMapsInputOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1GreetingStruct(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: GreetingStruct }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1GreetingStruct(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1NestedPayload = (
@@ -3302,10 +3314,16 @@ const deserializeAws_restJson1_1FooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: FooEnum | string },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1FooEnumSet = (

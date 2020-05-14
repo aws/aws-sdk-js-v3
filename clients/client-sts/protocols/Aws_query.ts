@@ -1015,9 +1015,9 @@ const serializeAws_queryAssumeRoleRequest = (
       input.PolicyArns,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.RoleArn !== undefined) {
@@ -1031,9 +1031,9 @@ const serializeAws_queryAssumeRoleRequest = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TokenCode !== undefined) {
@@ -1044,9 +1044,9 @@ const serializeAws_queryAssumeRoleRequest = (
       input.TransitiveTagKeys,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitiveTagKeys.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -1068,9 +1068,9 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
       input.PolicyArns,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PrincipalArn !== undefined) {
@@ -1101,9 +1101,9 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
       input.PolicyArns,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ProviderId !== undefined) {
@@ -1170,16 +1170,16 @@ const serializeAws_queryGetFederationTokenRequest = (
       input.PolicyArns,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyArns.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -1235,8 +1235,8 @@ const serializeAws_querypolicyDescriptorListType = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -1264,8 +1264,8 @@ const serializeAws_querytagListType = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -1738,13 +1738,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

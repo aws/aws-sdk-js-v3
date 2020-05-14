@@ -633,6 +633,7 @@ import {
   IsVpcPeeredResult,
   KeyPair,
   LoadBalancer,
+  LoadBalancerAttributeName,
   LoadBalancerTlsCertificate,
   LoadBalancerTlsCertificateDomainValidationOption,
   LoadBalancerTlsCertificateDomainValidationRecord,
@@ -15922,10 +15923,13 @@ const serializeAws_json1_1AttachedDiskMap = (
   input: { [key: string]: DiskMap[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1DiskMapList(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: DiskMap[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1DiskMapList(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1AutoSnapshotAddOnRequest = (
@@ -16574,10 +16578,13 @@ const serializeAws_json1_1DomainEntryOptions = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1DomainNameList = (
@@ -18722,10 +18729,13 @@ const deserializeAws_json1_1DomainEntryOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1DomainList = (
@@ -20280,10 +20290,16 @@ const deserializeAws_json1_1LoadBalancerConfigurationOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [LoadBalancerAttributeName | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1LoadBalancerList = (

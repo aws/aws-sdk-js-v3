@@ -18843,106 +18843,139 @@ const serializeAws_restJson1_1MapOfActivity = (
   input: { [key: string]: Activity },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1Activity(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: Activity }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1Activity(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfAddressConfiguration = (
   input: { [key: string]: AddressConfiguration },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1AddressConfiguration(
-      input[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: AddressConfiguration },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1AddressConfiguration(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfAttributeDimension = (
   input: { [key: string]: AttributeDimension },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1AttributeDimension(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: AttributeDimension },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1AttributeDimension(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfEndpointSendConfiguration = (
   input: { [key: string]: EndpointSendConfiguration },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1EndpointSendConfiguration(
-      input[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: EndpointSendConfiguration },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1EndpointSendConfiguration(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfEvent = (
   input: { [key: string]: Event },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1Event(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: Event }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1Event(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfEventsBatch = (
   input: { [key: string]: EventsBatch },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1EventsBatch(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: EventsBatch }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1EventsBatch(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfListOf__string = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1ListOf__string(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1ListOf__string(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfMetricDimension = (
   input: { [key: string]: MetricDimension },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1MetricDimension(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: MetricDimension }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1MetricDimension(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOf__double = (
   input: { [key: string]: number },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1Message = (
@@ -22318,142 +22351,184 @@ const deserializeAws_restJson1_1MapOfActivity = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Activity } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1Activity(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: Activity }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1Activity(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfAttributeDimension = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeDimension } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1AttributeDimension(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: AttributeDimension },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1AttributeDimension(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfChannelResponse = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ChannelResponse } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1ChannelResponse(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: ChannelResponse }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1ChannelResponse(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfEndpointMessageResult = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: EndpointMessageResult } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1EndpointMessageResult(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: EndpointMessageResult },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1EndpointMessageResult(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfEventItemResponse = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: EventItemResponse } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1EventItemResponse(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: EventItemResponse },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1EventItemResponse(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfItemResponse = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ItemResponse } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1ItemResponse(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: ItemResponse }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1ItemResponse(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfListOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1ListOf__string(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1ListOf__string(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfMapOfEndpointMessageResult = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: { [key: string]: EndpointMessageResult } } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1MapOfEndpointMessageResult(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: { [key: string]: EndpointMessageResult } },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1MapOfEndpointMessageResult(
+        value,
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfMessageResult = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MessageResult } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1MessageResult(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MessageResult }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1MessageResult(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfMetricDimension = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MetricDimension } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1MetricDimension(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MetricDimension }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1MetricDimension(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOf__double = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOf__integer = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Message = (

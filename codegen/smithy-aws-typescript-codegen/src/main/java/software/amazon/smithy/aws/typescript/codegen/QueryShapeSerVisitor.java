@@ -135,8 +135,8 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         QueryMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation);
         // Map entries that supply entry lists need to have them joined properly.
         writer.write("const memberEntries = $L;", target.accept(inputVisitor));
-        writer.openBlock("Object.keys(memberEntries).forEach(key => {", "});",
-                () -> writer.write("entries[`$L.$${key}`] = memberEntries[key];", entryWrapper));
+        writer.openBlock("Object.entries(memberEntries).forEach(([key, value]) => {", "});",
+                () -> writer.write("entries[`$L.$${key}`] = value;", entryWrapper));
     }
 
     @Override
@@ -228,7 +228,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         writer.write("const memberEntries = $L;", target.accept(inputVisitor));
 
         // Consolidate every entry in the list.
-        writer.openBlock("Object.keys(memberEntries).forEach(key => {", "});", () -> {
+        writer.openBlock("Object.entries(memberEntries).forEach(([key, value]) => {", "});", () -> {
             // Remove the last segment for any flattened entities.
             if (isFlattened) {
                 writer.write("const loc = `$L.$${key.substring(key.indexOf('.') + 1)}`;", locationName);
@@ -236,7 +236,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
                 writer.write("const loc = `$L.$${key}`;", locationName);
             }
 
-            writer.write("entries[loc] = memberEntries[key];");
+            writer.write("entries[loc] = value;");
         });
     }
 

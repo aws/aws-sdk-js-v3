@@ -5139,9 +5139,9 @@ const serializeAws_queryAttachInstancesQuery = (
       input.InstanceIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5160,9 +5160,9 @@ const serializeAws_queryAttachLoadBalancerTargetGroupsType = (
       input.TargetGroupARNs,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5181,9 +5181,9 @@ const serializeAws_queryAttachLoadBalancersType = (
       input.LoadBalancerNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5212,9 +5212,9 @@ const serializeAws_queryAutoScalingGroupNamesType = (
       input.AutoScalingGroupNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoScalingGroupNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxRecords !== undefined) {
@@ -5265,9 +5265,9 @@ const serializeAws_queryBatchDeleteScheduledActionType = (
       input.ScheduledActionNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledActionNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5286,9 +5286,9 @@ const serializeAws_queryBatchPutScheduledUpdateGroupActionType = (
       input.ScheduledUpdateGroupActions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledUpdateGroupActions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5304,9 +5304,9 @@ const serializeAws_queryBlockDeviceMapping = (
   }
   if (input.Ebs !== undefined) {
     const memberEntries = serializeAws_queryEbs(input.Ebs, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ebs.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.NoDevice !== undefined) {
@@ -5326,8 +5326,8 @@ const serializeAws_queryBlockDeviceMappings = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryBlockDeviceMapping(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -5383,9 +5383,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       input.AvailabilityZones,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.DefaultCooldown !== undefined) {
@@ -5411,9 +5411,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       input.LaunchTemplate,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplate.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.LifecycleHookSpecificationList !== undefined) {
@@ -5421,9 +5421,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       input.LifecycleHookSpecificationList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LifecycleHookSpecificationList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.LoadBalancerNames !== undefined) {
@@ -5431,9 +5431,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       input.LoadBalancerNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxInstanceLifetime !== undefined) {
@@ -5450,9 +5450,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       input.MixedInstancesPolicy,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MixedInstancesPolicy.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.NewInstancesProtectedFromScaleIn !== undefined) {
@@ -5467,9 +5467,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TargetGroupARNs !== undefined) {
@@ -5477,9 +5477,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       input.TargetGroupARNs,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TerminationPolicies !== undefined) {
@@ -5487,9 +5487,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
       input.TerminationPolicies,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TerminationPolicies.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.VPCZoneIdentifier !== undefined) {
@@ -5511,9 +5511,9 @@ const serializeAws_queryCreateLaunchConfigurationType = (
       input.BlockDeviceMappings,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMappings.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ClassicLinkVPCId !== undefined) {
@@ -5524,9 +5524,9 @@ const serializeAws_queryCreateLaunchConfigurationType = (
       input.ClassicLinkVPCSecurityGroups,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClassicLinkVPCSecurityGroups.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.EbsOptimized !== undefined) {
@@ -5546,9 +5546,9 @@ const serializeAws_queryCreateLaunchConfigurationType = (
       input.InstanceMonitoring,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceMonitoring.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.InstanceType !== undefined) {
@@ -5574,9 +5574,9 @@ const serializeAws_queryCreateLaunchConfigurationType = (
       input.SecurityGroups,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.SpotPrice !== undefined) {
@@ -5595,9 +5595,9 @@ const serializeAws_queryCreateOrUpdateTagsType = (
   const entries: any = {};
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5613,9 +5613,9 @@ const serializeAws_queryCustomizedMetricSpecification = (
       input.Dimensions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MetricName !== undefined) {
@@ -5710,9 +5710,9 @@ const serializeAws_queryDeleteTagsType = (
   const entries: any = {};
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5728,9 +5728,9 @@ const serializeAws_queryDescribeAutoScalingInstancesType = (
       input.InstanceIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxRecords !== undefined) {
@@ -5755,9 +5755,9 @@ const serializeAws_queryDescribeLifecycleHooksType = (
       input.LifecycleHookNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LifecycleHookNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5807,9 +5807,9 @@ const serializeAws_queryDescribeNotificationConfigurationsType = (
       input.AutoScalingGroupNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoScalingGroupNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxRecords !== undefined) {
@@ -5840,9 +5840,9 @@ const serializeAws_queryDescribePoliciesType = (
       input.PolicyNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PolicyTypes !== undefined) {
@@ -5850,9 +5850,9 @@ const serializeAws_queryDescribePoliciesType = (
       input.PolicyTypes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypes.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5868,9 +5868,9 @@ const serializeAws_queryDescribeScalingActivitiesType = (
       input.ActivityIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActivityIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.AutoScalingGroupName !== undefined) {
@@ -5907,9 +5907,9 @@ const serializeAws_queryDescribeScheduledActionsType = (
       input.ScheduledActionNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledActionNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.StartTime !== undefined) {
@@ -5925,9 +5925,9 @@ const serializeAws_queryDescribeTagsType = (
   const entries: any = {};
   if (input.Filters !== undefined) {
     const memberEntries = serializeAws_queryFilters(input.Filters, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxRecords !== undefined) {
@@ -5952,9 +5952,9 @@ const serializeAws_queryDetachInstancesQuery = (
       input.InstanceIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ShouldDecrementDesiredCapacity !== undefined) {
@@ -5977,9 +5977,9 @@ const serializeAws_queryDetachLoadBalancerTargetGroupsType = (
       input.TargetGroupARNs,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5998,9 +5998,9 @@ const serializeAws_queryDetachLoadBalancersType = (
       input.LoadBalancerNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6016,9 +6016,9 @@ const serializeAws_queryDisableMetricsCollectionQuery = (
   }
   if (input.Metrics !== undefined) {
     const memberEntries = serializeAws_queryMetrics(input.Metrics, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6060,9 +6060,9 @@ const serializeAws_queryEnableMetricsCollectionQuery = (
   }
   if (input.Metrics !== undefined) {
     const memberEntries = serializeAws_queryMetrics(input.Metrics, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metrics.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6081,9 +6081,9 @@ const serializeAws_queryEnterStandbyQuery = (
       input.InstanceIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ShouldDecrementDesiredCapacity !== undefined) {
@@ -6129,9 +6129,9 @@ const serializeAws_queryExitStandbyQuery = (
       input.InstanceIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6147,9 +6147,9 @@ const serializeAws_queryFilter = (
   }
   if (input.Values !== undefined) {
     const memberEntries = serializeAws_queryValues(input.Values, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6163,8 +6163,8 @@ const serializeAws_queryFilters = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryFilter(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -6256,9 +6256,9 @@ const serializeAws_queryLaunchConfigurationNamesType = (
       input.LaunchConfigurationNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchConfigurationNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxRecords !== undefined) {
@@ -6280,16 +6280,16 @@ const serializeAws_queryLaunchTemplate = (
       input.LaunchTemplateSpecification,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateSpecification.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Overrides !== undefined) {
     const memberEntries = serializeAws_queryOverrides(input.Overrides, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Overrides.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6379,8 +6379,8 @@ const serializeAws_queryLifecycleHookSpecifications = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -6422,8 +6422,8 @@ const serializeAws_queryMetricDimensions = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryMetricDimension(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -6453,9 +6453,9 @@ const serializeAws_queryMixedInstancesPolicy = (
       input.InstancesDistribution,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstancesDistribution.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.LaunchTemplate !== undefined) {
@@ -6463,9 +6463,9 @@ const serializeAws_queryMixedInstancesPolicy = (
       input.LaunchTemplate,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplate.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6482,8 +6482,8 @@ const serializeAws_queryOverrides = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -6588,9 +6588,9 @@ const serializeAws_queryPutNotificationConfigurationType = (
       input.NotificationTypes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationTypes.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TopicARN !== undefined) {
@@ -6639,9 +6639,9 @@ const serializeAws_queryPutScalingPolicyType = (
       input.StepAdjustments,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StepAdjustments.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TargetTrackingConfiguration !== undefined) {
@@ -6649,9 +6649,9 @@ const serializeAws_queryPutScalingPolicyType = (
       input.TargetTrackingConfiguration,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetTrackingConfiguration.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6725,9 +6725,9 @@ const serializeAws_queryScalingProcessQuery = (
       input.ScalingProcesses,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingProcesses.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -6786,8 +6786,8 @@ const serializeAws_queryScheduledUpdateGroupActionRequests = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -6854,9 +6854,9 @@ const serializeAws_querySetInstanceProtectionQuery = (
       input.InstanceIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ProtectedFromScaleIn !== undefined) {
@@ -6890,8 +6890,8 @@ const serializeAws_queryStepAdjustments = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryStepAdjustment(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -6923,8 +6923,8 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -6954,9 +6954,9 @@ const serializeAws_queryTargetTrackingConfiguration = (
       input.CustomizedMetricSpecification,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomizedMetricSpecification.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.DisableScaleIn !== undefined) {
@@ -6967,9 +6967,9 @@ const serializeAws_queryTargetTrackingConfiguration = (
       input.PredefinedMetricSpecification,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PredefinedMetricSpecification.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TargetValue !== undefined) {
@@ -7019,9 +7019,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
       input.AvailabilityZones,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.DefaultCooldown !== undefined) {
@@ -7044,9 +7044,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
       input.LaunchTemplate,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplate.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxInstanceLifetime !== undefined) {
@@ -7063,9 +7063,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
       input.MixedInstancesPolicy,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MixedInstancesPolicy.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.NewInstancesProtectedFromScaleIn !== undefined) {
@@ -7083,9 +7083,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
       input.TerminationPolicies,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TerminationPolicies.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.VPCZoneIdentifier !== undefined) {
@@ -9478,13 +9478,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

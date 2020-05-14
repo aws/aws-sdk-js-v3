@@ -5,6 +5,7 @@ import {
 import {
   Entitlement,
   EntitlementValue,
+  GetEntitlementFilterName,
   GetEntitlementsRequest,
   GetEntitlementsResult,
   InternalServiceErrorException,
@@ -186,10 +187,16 @@ const serializeAws_json1_1GetEntitlementFilters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1FilterValueList(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string[] },
+      [key, value]: [GetEntitlementFilterName | string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1FilterValueList(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1GetEntitlementsRequest = (

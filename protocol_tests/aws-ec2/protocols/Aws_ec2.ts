@@ -1273,9 +1273,9 @@ const serializeAws_ec2NestedStructuresInput = (
   const entries: any = {};
   if (input.Nested !== undefined) {
     const memberEntries = serializeAws_ec2StructArg(input.Nested, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Nested.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -1305,16 +1305,16 @@ const serializeAws_ec2QueryListsInput = (
       input.ComplexListArg,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexListArg.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ListArg !== undefined) {
     const memberEntries = serializeAws_ec2StringList(input.ListArg, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ListArgWithXmlName !== undefined) {
@@ -1322,9 +1322,9 @@ const serializeAws_ec2QueryListsInput = (
       input.ListArgWithXmlName,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ListArgWithXmlNameMember !== undefined) {
@@ -1332,11 +1332,11 @@ const serializeAws_ec2QueryListsInput = (
       input.ListArgWithXmlNameMember,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArgWithXmlNameMember.${key.substring(
         key.indexOf(".") + 1
       )}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -1411,9 +1411,9 @@ const serializeAws_ec2StructArg = (
       input.RecursiveArg,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RecursiveArg.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.StringArg !== undefined) {
@@ -1430,8 +1430,8 @@ const serializeAws_ec2GreetingList = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_ec2GreetingStruct(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`Member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -2152,13 +2152,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

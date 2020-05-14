@@ -15348,9 +15348,9 @@ const serializeAws_queryContextEntry = (
       input.ContextKeyValues,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextKeyValues.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -15364,8 +15364,8 @@ const serializeAws_queryContextEntryListType = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryContextEntry(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -15462,9 +15462,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
       input.ClientIDList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientIDList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ThumbprintList !== undefined) {
@@ -15472,9 +15472,9 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
       input.ThumbprintList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Url !== undefined) {
@@ -15545,9 +15545,9 @@ const serializeAws_queryCreateRoleRequest = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -15611,9 +15611,9 @@ const serializeAws_queryCreateUserRequest = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.UserName !== undefined) {
@@ -16024,9 +16024,9 @@ const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
       input.Filter,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Marker !== undefined) {
@@ -16048,9 +16048,9 @@ const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
       input.PolicyInputList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -16066,9 +16066,9 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
       input.PolicyInputList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PolicySourceArn !== undefined) {
@@ -16566,9 +16566,9 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
       input.ServiceNamespaces,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceNamespaces.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -17012,9 +17012,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       input.ActionNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.CallerArn !== undefined) {
@@ -17025,9 +17025,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       input.ContextEntries,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Marker !== undefined) {
@@ -17041,9 +17041,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       input.PolicyInputList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ResourceArns !== undefined) {
@@ -17051,9 +17051,9 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       input.ResourceArns,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ResourceHandlingOption !== undefined) {
@@ -17078,9 +17078,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       input.ActionNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.CallerArn !== undefined) {
@@ -17091,9 +17091,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       input.ContextEntries,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Marker !== undefined) {
@@ -17107,9 +17107,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       input.PolicyInputList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PolicySourceArn !== undefined) {
@@ -17120,9 +17120,9 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       input.ResourceArns,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ResourceHandlingOption !== undefined) {
@@ -17171,9 +17171,9 @@ const serializeAws_queryTagRoleRequest = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -17186,9 +17186,9 @@ const serializeAws_queryTagUserRequest = (
   const entries: any = {};
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.UserName !== undefined) {
@@ -17210,9 +17210,9 @@ const serializeAws_queryUntagRoleRequest = (
       input.TagKeys,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -17228,9 +17228,9 @@ const serializeAws_queryUntagUserRequest = (
       input.TagKeys,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.UserName !== undefined) {
@@ -17352,9 +17352,9 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
       input.ThumbprintList,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -17601,8 +17601,8 @@ const serializeAws_querytagListType = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -22003,13 +22003,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

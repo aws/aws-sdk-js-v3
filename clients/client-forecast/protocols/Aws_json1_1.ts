@@ -3248,10 +3248,13 @@ const serializeAws_json1_1FeaturizationMethodParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1FeaturizationPipeline = (
@@ -3534,10 +3537,13 @@ const serializeAws_json1_1TrainingParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1UpdateDatasetGroupRequest = (
@@ -4334,10 +4340,13 @@ const deserializeAws_json1_1FeaturizationMethodParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1FeaturizationPipeline = (
@@ -4362,10 +4371,13 @@ const deserializeAws_json1_1FieldStatistics = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Statistics } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1Statistics(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: Statistics }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1Statistics(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ForecastDimensions = (
@@ -5076,10 +5088,13 @@ const deserializeAws_json1_1TrainingParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1UpdateDatasetGroupResponse = (
