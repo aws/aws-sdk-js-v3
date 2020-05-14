@@ -78,8 +78,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 writer.openBlock("return node.reduce((acc: __XmlNode, workingNode: any) => {", "}", () -> {
                     // Add @xmlNamespace value of the target member.
                     AwsProtocolUtils.writeXmlNamespace(context, memberShape, "workingNode");
-                    writer.write("acc.addChildNode(workingNode);");
-                    writer.write("return acc;");
+                    writer.write("return acc.addChildNode(workingNode);");
                 });
                 writer.write(", new __XmlNode($S));", locationName);
             } else {
@@ -134,8 +133,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                     writer.openBlock("node.reduce((acc: __XmlNode, workingNode: any) => {", "}", () -> {
                         // Add @xmlNamespace value of the value member.
                         AwsProtocolUtils.writeXmlNamespace(context, valueMember, "workingNode");
-                        writer.write("acc.addChildNode(workingNode);");
-                        writer.write("return acc;");
+                        writer.write("return acc.addChildNode(workingNode);");
                     });
                     writer.write(", new __XmlNode($S));", valueName);
                 });
