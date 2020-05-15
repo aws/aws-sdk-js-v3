@@ -3,7 +3,7 @@ const {
   GetObjectCommand,
   PutObjectCommand
 } = require("../../../clients/client-s3");
-const { streamCollector } = require("../../../packages/stream-collector-node");
+const { streamCollector } = require("../../../packages/node-http-handler");
 const { toUtf8 } = require("../../../packages/util-utf8-node");
 const { Md5 } = require("../../../packages/md5-js");
 
