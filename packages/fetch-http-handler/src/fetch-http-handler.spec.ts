@@ -50,7 +50,6 @@ describe("httpHandler", () => {
     let response = await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
-    console.log(response.response.body, typeof response.response.body);
     expect(await blobToText(response.response.body)).toBe("FOO");
   });
 
