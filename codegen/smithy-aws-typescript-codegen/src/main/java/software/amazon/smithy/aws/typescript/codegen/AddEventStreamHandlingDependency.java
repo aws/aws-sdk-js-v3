@@ -41,7 +41,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
                                 "EventStream", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> AddEventStreamHandlingDependency.hasEventStreamInput(m, s))
+                        .operationPredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
                         .build()
         );
     }
@@ -124,5 +124,10 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
             }
         }
         return false;
+    }
+
+    private static boolean hasEventStreamInput(Model model, ServiceShape service, OperationShape operation) {
+        EventStreamIndex eventStreamIndex = model.getKnowledge(EventStreamIndex.class);
+        return eventStreamIndex.getInputInfo(operation).isPresent();
     }
 }

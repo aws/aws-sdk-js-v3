@@ -5,7 +5,7 @@ export function getChunkedStream(
   let currentMessagePendingLength = 0;
   let currentMessage: Uint8Array | null = null;
   let messageLengthBuffer: Uint8Array | null = null;
-  const allocateMessage = function (size: number) {
+  const allocateMessage = (size: number) => {
     if (typeof size !== "number") {
       throw new Error(
         "Attempted to allocate an event message where size was not a number: " +
@@ -21,17 +21,15 @@ export function getChunkedStream(
 
   const iterator = async function* () {
     const sourceIterator = source[Symbol.asyncIterator]();
-    let complete = false;
-    while (!complete) {
+    while (true) {
       const { value, done } = await sourceIterator.next();
-      complete = done || false;
       if (done) {
-        if (currentMessageTotalLength) {
-          if (currentMessageTotalLength === currentMessagePendingLength) {
-            yield currentMessage as Uint8Array;
-          } else {
-            throw new Error("Truncated event message received.");
-          }
+        if (!currentMessageTotalLength) {
+          return;
+        } else if (currentMessageTotalLength === currentMessagePendingLength) {
+          yield currentMessage as Uint8Array;
+        } else {
+          throw new Error("Truncated event message received.");
         }
         return;
       }

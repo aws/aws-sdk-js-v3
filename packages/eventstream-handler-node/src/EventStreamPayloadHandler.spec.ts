@@ -20,9 +20,11 @@ describe("EventStreamPayloadHandler", () => {
   const mockUtf8Decoder: Decoder = jest.fn();
   const mockUtf8encoder: Encoder = jest.fn();
   const mockNextHandler: FinalizeHandler<any, any> = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
+
   it("should throw if request payload is not a stream", () => {
     const handler = new EventStreamPayloadHandler({
       eventSigner: () => Promise.resolve(mockSigner),
@@ -36,6 +38,7 @@ describe("EventStreamPayloadHandler", () => {
       })
     ).rejects.toThrow("Eventstream payload must be a Readable stream.");
   });
+
   it("should close the request payload if downstream middleware throws", async () => {
     (mockNextHandler as any).mockImplementationOnce(() =>
       Promise.reject(new Error())
@@ -62,6 +65,7 @@ describe("EventStreamPayloadHandler", () => {
       mockRequest.body.write("");
     }).toThrowError("write after end");
   });
+
   it("should call event signer with request signature from signing middleware", async () => {
     const authorization =
       "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
@@ -83,6 +87,7 @@ describe("EventStreamPayloadHandler", () => {
       "1234567890"
     );
   });
+
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {
     const authorization =
       "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";

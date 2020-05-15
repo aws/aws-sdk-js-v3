@@ -17,7 +17,8 @@
     "pretest:all": "yarn build:all",
     "test:all": "jest --coverage --passWithNoTests && lerna run test --scope @aws-sdk/fetch-http-handler --scope @aws-sdk/hash-blob-browser",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
-    "test:integration": "cucumber-js --fail-fast && jest --config jest.config.integ.js --passWithNoTests",
+    "test:integration-legacy": "cucumber-js --fail-fast",
+    "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-*'"
   },
   "repository": {

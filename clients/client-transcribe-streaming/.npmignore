@@ -3,3 +3,4 @@
 /test/
 tsconfig.test.json
 *.tsbuildinfo
+jest.config.js
