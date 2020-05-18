@@ -1,4 +1,3 @@
-import { Readable } from "stream";
 import { streamCollector } from "./index";
 import { ReadFromBuffers } from "./readable.mock";
 

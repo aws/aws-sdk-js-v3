@@ -3,9 +3,8 @@ import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credentia
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
-import { NodeHttpHandler } from "@aws-sdk/node-http-handler";
+import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
-import { streamCollector } from "@aws-sdk/stream-collector-node";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";

@@ -40,7 +40,7 @@ describe("httpHandler", () => {
           ["bizz", "bazz"]
         ])
       },
-      body: "FOO" //should be a ReadableStream in real life.
+      blob: jest.fn().mockResolvedValue(new Blob(["FOO"])),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
@@ -50,7 +50,7 @@ describe("httpHandler", () => {
     let response = await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
-    expect(response.response.body).toBe("FOO");
+    expect(await blobToText(response.response.body)).toBe("FOO");
   });
 
   it("properly constructs url", async () => {
@@ -61,7 +61,7 @@ describe("httpHandler", () => {
           ["bizz", "bazz"]
         ])
       },
-      body: ""
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
@@ -92,8 +92,7 @@ describe("httpHandler", () => {
           ["bizz", "bazz"]
         ])
       },
-      blob: jest.fn().mockResolvedValue(""),
-      body: "test"
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
@@ -119,8 +118,7 @@ describe("httpHandler", () => {
           ["bizz", "bazz"]
         ])
       },
-      blob: jest.fn().mockResolvedValue(""),
-      body: "test"
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
     (global as any).fetch = mockFetch;
@@ -145,8 +143,7 @@ describe("httpHandler", () => {
           ["bizz", "bazz"]
         ])
       },
-      blob: jest.fn().mockResolvedValue(""),
-      body: "test"
+      blob: jest.fn().mockResolvedValue(new Blob()),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
     (global as any).fetch = mockFetch;
@@ -207,4 +204,20 @@ describe("httpHandler", () => {
       expect(httpHandler.destroy()).toBeUndefined();
     });
   });
+
+  // The Blob implementation does not implement Blob.text, so we deal with it here.
+  async function blobToText(blob: Blob): Promise<string> {
+    const reader = new FileReader();
+
+    return new Promise((resolve) => {
+      // This fires after the blob has been read/loaded.
+      reader.addEventListener('loadend', (e) => {
+        const text = e.target!.result as string;
+        resolve(text);
+      });
+
+      // Start reading the blob as text.
+      reader.readAsText(blob);
+    });
+  }
 });

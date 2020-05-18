@@ -3,14 +3,39 @@ import { fromBase64 } from "@aws-sdk/util-base64-browser";
 
 //reference: https://snack.expo.io/r1JCSWRGU
 export const streamCollector: StreamCollector = (
-  stream: Blob
+  stream: Blob | ReadableStream
 ): Promise<Uint8Array> => {
-  return readToBase64(stream)
-    .then(base64 => fromBase64(base64))
-    .then(arrayBuffer => new Uint8Array(arrayBuffer));
+  if (stream instanceof Blob) {
+    return collectBlob(stream);
+  }
+
+  return collectStream(stream);
 };
 
-const readToBase64 = (blob: Blob): Promise<string> => {
+async function collectBlob(blob: Blob): Promise<Uint8Array> {
+  const base64 = await readToBase64(blob);
+  const arrayBuffer = fromBase64(base64);
+  return new Uint8Array(arrayBuffer);
+}
+
+async function collectStream(stream: ReadableStream): Promise<Uint8Array> {
+  let res = new Uint8Array(0);
+  const reader = stream.getReader();
+  let isDone = false;
+  while (!isDone) {
+    const { done, value } = await reader.read();
+    if (value) {
+      const prior = res;
+      res = new Uint8Array(prior.length + value.length);
+      res.set(prior);
+      res.set(value, prior.length);
+    }
+    isDone = done;
+  }
+  return res;
+}
+
+function readToBase64(blob: Blob): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onloadend = () => {
@@ -25,7 +50,7 @@ const readToBase64 = (blob: Blob): Promise<string> => {
     };
     reader.onabort = () => reject(new Error("Read aborted"));
     reader.onerror = () => reject(reader.error);
-    // reader.readAsArrayBuffer is not available in RN
+    // reader.readAsArrayBuffer is not always available
     reader.readAsDataURL(blob);
   });
-};
+}

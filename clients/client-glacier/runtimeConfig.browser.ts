@@ -1,9 +1,8 @@
 import { name, version } from "./package.json";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-browser";
-import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
+import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
-import { streamCollector } from "@aws-sdk/stream-collector-browser";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
