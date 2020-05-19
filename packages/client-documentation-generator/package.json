@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-documentation-generator",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-gamma.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",

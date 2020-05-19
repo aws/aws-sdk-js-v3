@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-buffer-from",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-gamma.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -12,7 +12,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "1.0.0-beta.2",
+    "@aws-sdk/is-array-buffer": "1.0.0-gamma.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
