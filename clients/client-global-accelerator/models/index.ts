@@ -69,7 +69,9 @@ export interface Accelerator {
 export namespace Accelerator {
   export const filterSensitiveLog = (obj: Accelerator): any => ({
     ...obj,
-    ...(obj.IpSets && { IpSets: obj.IpSets.map(IpSet.filterSensitiveLog) })
+    ...(obj.IpSets && {
+      IpSets: obj.IpSets.map(item => IpSet.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Accelerator => __isa(o, "Accelerator");
 }
@@ -341,8 +343,8 @@ export namespace CreateEndpointGroupRequest {
   export const filterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
     ...obj,
     ...(obj.EndpointConfigurations && {
-      EndpointConfigurations: obj.EndpointConfigurations.map(
-        EndpointConfiguration.filterSensitiveLog
+      EndpointConfigurations: obj.EndpointConfigurations.map(item =>
+        EndpointConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -415,7 +417,7 @@ export namespace CreateListenerRequest {
   export const filterSensitiveLog = (obj: CreateListenerRequest): any => ({
     ...obj,
     ...(obj.PortRanges && {
-      PortRanges: obj.PortRanges.map(PortRange.filterSensitiveLog)
+      PortRanges: obj.PortRanges.map(item => PortRange.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateListenerRequest =>
@@ -823,8 +825,8 @@ export namespace EndpointGroup {
   export const filterSensitiveLog = (obj: EndpointGroup): any => ({
     ...obj,
     ...(obj.EndpointDescriptions && {
-      EndpointDescriptions: obj.EndpointDescriptions.map(
-        EndpointDescription.filterSensitiveLog
+      EndpointDescriptions: obj.EndpointDescriptions.map(item =>
+        EndpointDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -1043,7 +1045,9 @@ export namespace ListAcceleratorsResponse {
   export const filterSensitiveLog = (obj: ListAcceleratorsResponse): any => ({
     ...obj,
     ...(obj.Accelerators && {
-      Accelerators: obj.Accelerators.map(Accelerator.filterSensitiveLog)
+      Accelerators: obj.Accelerators.map(item =>
+        Accelerator.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListAcceleratorsResponse =>
@@ -1093,7 +1097,9 @@ export namespace ListEndpointGroupsResponse {
   export const filterSensitiveLog = (obj: ListEndpointGroupsResponse): any => ({
     ...obj,
     ...(obj.EndpointGroups && {
-      EndpointGroups: obj.EndpointGroups.map(EndpointGroup.filterSensitiveLog)
+      EndpointGroups: obj.EndpointGroups.map(item =>
+        EndpointGroup.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListEndpointGroupsResponse =>
@@ -1143,7 +1149,7 @@ export namespace ListListenersResponse {
   export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
     ...obj,
     ...(obj.Listeners && {
-      Listeners: obj.Listeners.map(Listener.filterSensitiveLog)
+      Listeners: obj.Listeners.map(item => Listener.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListListenersResponse =>
@@ -1191,7 +1197,7 @@ export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
     ...obj,
     ...(obj.PortRanges && {
-      PortRanges: obj.PortRanges.map(PortRange.filterSensitiveLog)
+      PortRanges: obj.PortRanges.map(item => PortRange.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Listener => __isa(o, "Listener");
@@ -1416,8 +1422,8 @@ export namespace UpdateEndpointGroupRequest {
   export const filterSensitiveLog = (obj: UpdateEndpointGroupRequest): any => ({
     ...obj,
     ...(obj.EndpointConfigurations && {
-      EndpointConfigurations: obj.EndpointConfigurations.map(
-        EndpointConfiguration.filterSensitiveLog
+      EndpointConfigurations: obj.EndpointConfigurations.map(item =>
+        EndpointConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -1484,7 +1490,7 @@ export namespace UpdateListenerRequest {
   export const filterSensitiveLog = (obj: UpdateListenerRequest): any => ({
     ...obj,
     ...(obj.PortRanges && {
-      PortRanges: obj.PortRanges.map(PortRange.filterSensitiveLog)
+      PortRanges: obj.PortRanges.map(item => PortRange.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is UpdateListenerRequest =>

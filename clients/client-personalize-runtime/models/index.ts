@@ -57,8 +57,8 @@ export namespace GetPersonalizedRankingResponse {
   ): any => ({
     ...obj,
     ...(obj.personalizedRanking && {
-      personalizedRanking: obj.personalizedRanking.map(
-        PredictedItem.filterSensitiveLog
+      personalizedRanking: obj.personalizedRanking.map(item =>
+        PredictedItem.filterSensitiveLog(item)
       )
     })
   });
@@ -120,7 +120,7 @@ export namespace GetRecommendationsResponse {
   export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
     ...obj,
     ...(obj.itemList && {
-      itemList: obj.itemList.map(PredictedItem.filterSensitiveLog)
+      itemList: obj.itemList.map(item => PredictedItem.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetRecommendationsResponse =>

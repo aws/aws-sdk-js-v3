@@ -432,7 +432,9 @@ export namespace CreateCertificateAuthorityRequest {
         obj.RevocationConfiguration
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateCertificateAuthorityRequest =>
     __isa(o, "CreateCertificateAuthorityRequest");
@@ -1334,8 +1336,8 @@ export namespace ListCertificateAuthoritiesResponse {
   ): any => ({
     ...obj,
     ...(obj.CertificateAuthorities && {
-      CertificateAuthorities: obj.CertificateAuthorities.map(
-        CertificateAuthority.filterSensitiveLog
+      CertificateAuthorities: obj.CertificateAuthorities.map(item =>
+        CertificateAuthority.filterSensitiveLog(item)
       )
     })
   });
@@ -1397,7 +1399,9 @@ export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
     ...obj,
     ...(obj.Permissions && {
-      Permissions: obj.Permissions.map(Permission.filterSensitiveLog)
+      Permissions: obj.Permissions.map(item =>
+        Permission.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListPermissionsResponse =>
@@ -1456,7 +1460,9 @@ export interface ListTagsResponse {
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsResponse =>
     __isa(o, "ListTagsResponse");
@@ -1810,7 +1816,9 @@ export namespace TagCertificateAuthorityRequest {
     obj: TagCertificateAuthorityRequest
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagCertificateAuthorityRequest =>
     __isa(o, "TagCertificateAuthorityRequest");
@@ -1858,7 +1866,9 @@ export namespace UntagCertificateAuthorityRequest {
     obj: UntagCertificateAuthorityRequest
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UntagCertificateAuthorityRequest =>
     __isa(o, "UntagCertificateAuthorityRequest");

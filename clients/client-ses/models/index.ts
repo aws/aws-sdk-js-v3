@@ -307,7 +307,9 @@ export namespace BulkEmailDestination {
       Destination: Destination.filterSensitiveLog(obj.Destination)
     }),
     ...(obj.ReplacementTags && {
-      ReplacementTags: obj.ReplacementTags.map(MessageTag.filterSensitiveLog)
+      ReplacementTags: obj.ReplacementTags.map(item =>
+        MessageTag.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BulkEmailDestination =>
@@ -540,8 +542,8 @@ export namespace CloudWatchDestination {
   export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
     ...obj,
     ...(obj.DimensionConfigurations && {
-      DimensionConfigurations: obj.DimensionConfigurations.map(
-        CloudWatchDimensionConfiguration.filterSensitiveLog
+      DimensionConfigurations: obj.DimensionConfigurations.map(item =>
+        CloudWatchDimensionConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -1758,7 +1760,9 @@ export namespace DescribeActiveReceiptRuleSetResponse {
     ...(obj.Metadata && {
       Metadata: ReceiptRuleSetMetadata.filterSensitiveLog(obj.Metadata)
     }),
-    ...(obj.Rules && { Rules: obj.Rules.map(ReceiptRule.filterSensitiveLog) })
+    ...(obj.Rules && {
+      Rules: obj.Rules.map(item => ReceiptRule.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeActiveReceiptRuleSetResponse =>
     __isa(o, "DescribeActiveReceiptRuleSetResponse");
@@ -1843,8 +1847,8 @@ export namespace DescribeConfigurationSetResponse {
       DeliveryOptions: DeliveryOptions.filterSensitiveLog(obj.DeliveryOptions)
     }),
     ...(obj.EventDestinations && {
-      EventDestinations: obj.EventDestinations.map(
-        EventDestination.filterSensitiveLog
+      EventDestinations: obj.EventDestinations.map(item =>
+        EventDestination.filterSensitiveLog(item)
       )
     }),
     ...(obj.ReputationOptions && {
@@ -1956,7 +1960,9 @@ export namespace DescribeReceiptRuleSetResponse {
     ...(obj.Metadata && {
       Metadata: ReceiptRuleSetMetadata.filterSensitiveLog(obj.Metadata)
     }),
-    ...(obj.Rules && { Rules: obj.Rules.map(ReceiptRule.filterSensitiveLog) })
+    ...(obj.Rules && {
+      Rules: obj.Rules.map(item => ReceiptRule.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeReceiptRuleSetResponse =>
     __isa(o, "DescribeReceiptRuleSetResponse");
@@ -2662,7 +2668,9 @@ export namespace GetSendStatisticsResponse {
   export const filterSensitiveLog = (obj: GetSendStatisticsResponse): any => ({
     ...obj,
     ...(obj.SendDataPoints && {
-      SendDataPoints: obj.SendDataPoints.map(SendDataPoint.filterSensitiveLog)
+      SendDataPoints: obj.SendDataPoints.map(item =>
+        SendDataPoint.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetSendStatisticsResponse =>
@@ -3364,8 +3372,8 @@ export namespace ListConfigurationSetsResponse {
   ): any => ({
     ...obj,
     ...(obj.ConfigurationSets && {
-      ConfigurationSets: obj.ConfigurationSets.map(
-        ConfigurationSet.filterSensitiveLog
+      ConfigurationSets: obj.ConfigurationSets.map(item =>
+        ConfigurationSet.filterSensitiveLog(item)
       )
     })
   });
@@ -3435,7 +3443,7 @@ export namespace ListCustomVerificationEmailTemplatesResponse {
     ...obj,
     ...(obj.CustomVerificationEmailTemplates && {
       CustomVerificationEmailTemplates: obj.CustomVerificationEmailTemplates.map(
-        CustomVerificationEmailTemplate.filterSensitiveLog
+        item => CustomVerificationEmailTemplate.filterSensitiveLog(item)
       )
     })
   });
@@ -3585,7 +3593,7 @@ export namespace ListReceiptFiltersResponse {
   export const filterSensitiveLog = (obj: ListReceiptFiltersResponse): any => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(ReceiptFilter.filterSensitiveLog)
+      Filters: obj.Filters.map(item => ReceiptFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListReceiptFiltersResponse =>
@@ -3640,7 +3648,9 @@ export namespace ListReceiptRuleSetsResponse {
   ): any => ({
     ...obj,
     ...(obj.RuleSets && {
-      RuleSets: obj.RuleSets.map(ReceiptRuleSetMetadata.filterSensitiveLog)
+      RuleSets: obj.RuleSets.map(item =>
+        ReceiptRuleSetMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListReceiptRuleSetsResponse =>
@@ -3691,8 +3701,8 @@ export namespace ListTemplatesResponse {
   export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
     ...obj,
     ...(obj.TemplatesMetadata && {
-      TemplatesMetadata: obj.TemplatesMetadata.map(
-        TemplateMetadata.filterSensitiveLog
+      TemplatesMetadata: obj.TemplatesMetadata.map(item =>
+        TemplateMetadata.filterSensitiveLog(item)
       )
     })
   });
@@ -3803,8 +3813,8 @@ export namespace MessageDsn {
   export const filterSensitiveLog = (obj: MessageDsn): any => ({
     ...obj,
     ...(obj.ExtensionFields && {
-      ExtensionFields: obj.ExtensionFields.map(
-        ExtensionField.filterSensitiveLog
+      ExtensionFields: obj.ExtensionFields.map(item =>
+        ExtensionField.filterSensitiveLog(item)
       )
     })
   });
@@ -4233,7 +4243,7 @@ export namespace ReceiptRule {
   export const filterSensitiveLog = (obj: ReceiptRule): any => ({
     ...obj,
     ...(obj.Actions && {
-      Actions: obj.Actions.map(ReceiptAction.filterSensitiveLog)
+      Actions: obj.Actions.map(item => ReceiptAction.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ReceiptRule => __isa(o, "ReceiptRule");
@@ -4342,8 +4352,8 @@ export namespace RecipientDsnFields {
   export const filterSensitiveLog = (obj: RecipientDsnFields): any => ({
     ...obj,
     ...(obj.ExtensionFields && {
-      ExtensionFields: obj.ExtensionFields.map(
-        ExtensionField.filterSensitiveLog
+      ExtensionFields: obj.ExtensionFields.map(item =>
+        ExtensionField.filterSensitiveLog(item)
       )
     })
   });
@@ -4690,8 +4700,8 @@ export namespace SendBounceRequest {
   export const filterSensitiveLog = (obj: SendBounceRequest): any => ({
     ...obj,
     ...(obj.BouncedRecipientInfoList && {
-      BouncedRecipientInfoList: obj.BouncedRecipientInfoList.map(
-        BouncedRecipientInfo.filterSensitiveLog
+      BouncedRecipientInfoList: obj.BouncedRecipientInfoList.map(item =>
+        BouncedRecipientInfo.filterSensitiveLog(item)
       )
     }),
     ...(obj.MessageDsn && {
@@ -4844,11 +4854,13 @@ export namespace SendBulkTemplatedEmailRequest {
   ): any => ({
     ...obj,
     ...(obj.DefaultTags && {
-      DefaultTags: obj.DefaultTags.map(MessageTag.filterSensitiveLog)
+      DefaultTags: obj.DefaultTags.map(item =>
+        MessageTag.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(
-        BulkEmailDestination.filterSensitiveLog
+      Destinations: obj.Destinations.map(item =>
+        BulkEmailDestination.filterSensitiveLog(item)
       )
     })
   });
@@ -4871,7 +4883,9 @@ export namespace SendBulkTemplatedEmailResponse {
   ): any => ({
     ...obj,
     ...(obj.Status && {
-      Status: obj.Status.map(BulkEmailDestinationStatus.filterSensitiveLog)
+      Status: obj.Status.map(item =>
+        BulkEmailDestinationStatus.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SendBulkTemplatedEmailResponse =>
@@ -5080,7 +5094,9 @@ export namespace SendEmailRequest {
       Destination: Destination.filterSensitiveLog(obj.Destination)
     }),
     ...(obj.Message && { Message: Message.filterSensitiveLog(obj.Message) }),
-    ...(obj.Tags && { Tags: obj.Tags.map(MessageTag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => MessageTag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is SendEmailRequest =>
     __isa(o, "SendEmailRequest");
@@ -5254,7 +5270,9 @@ export namespace SendRawEmailRequest {
     ...(obj.RawMessage && {
       RawMessage: RawMessage.filterSensitiveLog(obj.RawMessage)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(MessageTag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => MessageTag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is SendRawEmailRequest =>
     __isa(o, "SendRawEmailRequest");
@@ -5400,7 +5418,9 @@ export namespace SendTemplatedEmailRequest {
     ...(obj.Destination && {
       Destination: Destination.filterSensitiveLog(obj.Destination)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(MessageTag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => MessageTag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is SendTemplatedEmailRequest =>
     __isa(o, "SendTemplatedEmailRequest");

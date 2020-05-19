@@ -276,7 +276,9 @@ export namespace GetLifecyclePoliciesResponse {
   ): any => ({
     ...obj,
     ...(obj.Policies && {
-      Policies: obj.Policies.map(LifecyclePolicySummary.filterSensitiveLog)
+      Policies: obj.Policies.map(item =>
+        LifecyclePolicySummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetLifecyclePoliciesResponse =>
@@ -592,10 +594,10 @@ export namespace PolicyDetails {
       Parameters: _Parameters.filterSensitiveLog(obj.Parameters)
     }),
     ...(obj.Schedules && {
-      Schedules: obj.Schedules.map(Schedule.filterSensitiveLog)
+      Schedules: obj.Schedules.map(item => Schedule.filterSensitiveLog(item))
     }),
     ...(obj.TargetTags && {
-      TargetTags: obj.TargetTags.map(Tag.filterSensitiveLog)
+      TargetTags: obj.TargetTags.map(item => Tag.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is PolicyDetails => __isa(o, "PolicyDetails");
@@ -727,8 +729,8 @@ export namespace Schedule {
       CreateRule: CreateRule.filterSensitiveLog(obj.CreateRule)
     }),
     ...(obj.CrossRegionCopyRules && {
-      CrossRegionCopyRules: obj.CrossRegionCopyRules.map(
-        CrossRegionCopyRule.filterSensitiveLog
+      CrossRegionCopyRules: obj.CrossRegionCopyRules.map(item =>
+        CrossRegionCopyRule.filterSensitiveLog(item)
       )
     }),
     ...(obj.FastRestoreRule && {
@@ -738,10 +740,10 @@ export namespace Schedule {
       RetainRule: RetainRule.filterSensitiveLog(obj.RetainRule)
     }),
     ...(obj.TagsToAdd && {
-      TagsToAdd: obj.TagsToAdd.map(Tag.filterSensitiveLog)
+      TagsToAdd: obj.TagsToAdd.map(item => Tag.filterSensitiveLog(item))
     }),
     ...(obj.VariableTags && {
-      VariableTags: obj.VariableTags.map(Tag.filterSensitiveLog)
+      VariableTags: obj.VariableTags.map(item => Tag.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Schedule => __isa(o, "Schedule");

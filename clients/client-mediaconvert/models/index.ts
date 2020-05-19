@@ -1226,8 +1226,8 @@ export namespace ChannelMapping {
   export const filterSensitiveLog = (obj: ChannelMapping): any => ({
     ...obj,
     ...(obj.OutputChannels && {
-      OutputChannels: obj.OutputChannels.map(
-        OutputChannelMapping.filterSensitiveLog
+      OutputChannels: obj.OutputChannels.map(item =>
+        OutputChannelMapping.filterSensitiveLog(item)
       )
     })
   });
@@ -1435,8 +1435,8 @@ export namespace CmafGroupSettings {
   export const filterSensitiveLog = (obj: CmafGroupSettings): any => ({
     ...obj,
     ...(obj.AdditionalManifests && {
-      AdditionalManifests: obj.AdditionalManifests.map(
-        CmafAdditionalManifest.filterSensitiveLog
+      AdditionalManifests: obj.AdditionalManifests.map(item =>
+        CmafAdditionalManifest.filterSensitiveLog(item)
       )
     }),
     ...(obj.DestinationSettings && {
@@ -2140,8 +2140,8 @@ export namespace DashIsoGroupSettings {
   export const filterSensitiveLog = (obj: DashIsoGroupSettings): any => ({
     ...obj,
     ...(obj.AdditionalManifests && {
-      AdditionalManifests: obj.AdditionalManifests.map(
-        DashAdditionalManifest.filterSensitiveLog
+      AdditionalManifests: obj.AdditionalManifests.map(item =>
+        DashAdditionalManifest.filterSensitiveLog(item)
       )
     }),
     ...(obj.DestinationSettings && {
@@ -2369,7 +2369,7 @@ export namespace DescribeEndpointsResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
     ...obj,
     ...(obj.Endpoints && {
-      Endpoints: obj.Endpoints.map(Endpoint.filterSensitiveLog)
+      Endpoints: obj.Endpoints.map(item => Endpoint.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeEndpointsResponse =>
@@ -4682,13 +4682,13 @@ export namespace HlsGroupSettings {
   export const filterSensitiveLog = (obj: HlsGroupSettings): any => ({
     ...obj,
     ...(obj.AdditionalManifests && {
-      AdditionalManifests: obj.AdditionalManifests.map(
-        HlsAdditionalManifest.filterSensitiveLog
+      AdditionalManifests: obj.AdditionalManifests.map(item =>
+        HlsAdditionalManifest.filterSensitiveLog(item)
       )
     }),
     ...(obj.CaptionLanguageMappings && {
-      CaptionLanguageMappings: obj.CaptionLanguageMappings.map(
-        HlsCaptionLanguageMapping.filterSensitiveLog
+      CaptionLanguageMappings: obj.CaptionLanguageMappings.map(item =>
+        HlsCaptionLanguageMapping.filterSensitiveLog(item)
       )
     }),
     ...(obj.DestinationSettings && {
@@ -4841,8 +4841,8 @@ export namespace ImageInserter {
   export const filterSensitiveLog = (obj: ImageInserter): any => ({
     ...obj,
     ...(obj.InsertableImages && {
-      InsertableImages: obj.InsertableImages.map(
-        InsertableImage.filterSensitiveLog
+      InsertableImages: obj.InsertableImages.map(item =>
+        InsertableImage.filterSensitiveLog(item)
       )
     })
   });
@@ -5014,7 +5014,9 @@ export namespace Input {
       ImageInserter: ImageInserter.filterSensitiveLog(obj.ImageInserter)
     }),
     ...(obj.InputClippings && {
-      InputClippings: obj.InputClippings.map(InputClipping.filterSensitiveLog)
+      InputClippings: obj.InputClippings.map(item =>
+        InputClipping.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Position && {
       Position: Rectangle.filterSensitiveLog(obj.Position)
@@ -5233,7 +5235,9 @@ export namespace InputTemplate {
       ImageInserter: ImageInserter.filterSensitiveLog(obj.ImageInserter)
     }),
     ...(obj.InputClippings && {
-      InputClippings: obj.InputClippings.map(InputClipping.filterSensitiveLog)
+      InputClippings: obj.InputClippings.map(item =>
+        InputClipping.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Position && {
       Position: Rectangle.filterSensitiveLog(obj.Position)
@@ -5474,8 +5478,8 @@ export namespace Job {
       Messages: JobMessages.filterSensitiveLog(obj.Messages)
     }),
     ...(obj.OutputGroupDetails && {
-      OutputGroupDetails: obj.OutputGroupDetails.map(
-        OutputGroupDetail.filterSensitiveLog
+      OutputGroupDetails: obj.OutputGroupDetails.map(item =>
+        OutputGroupDetail.filterSensitiveLog(item)
       )
     }),
     ...(obj.Settings && {
@@ -5573,7 +5577,9 @@ export namespace JobSettings {
       AvailBlanking: AvailBlanking.filterSensitiveLog(obj.AvailBlanking)
     }),
     ...(obj.Esam && { Esam: EsamSettings.filterSensitiveLog(obj.Esam) }),
-    ...(obj.Inputs && { Inputs: obj.Inputs.map(Input.filterSensitiveLog) }),
+    ...(obj.Inputs && {
+      Inputs: obj.Inputs.map(item => Input.filterSensitiveLog(item))
+    }),
     ...(obj.MotionImageInserter && {
       MotionImageInserter: MotionImageInserter.filterSensitiveLog(
         obj.MotionImageInserter
@@ -5585,7 +5591,9 @@ export namespace JobSettings {
       )
     }),
     ...(obj.OutputGroups && {
-      OutputGroups: obj.OutputGroups.map(OutputGroup.filterSensitiveLog)
+      OutputGroups: obj.OutputGroups.map(item =>
+        OutputGroup.filterSensitiveLog(item)
+      )
     }),
     ...(obj.TimecodeConfig && {
       TimecodeConfig: TimecodeConfig.filterSensitiveLog(obj.TimecodeConfig)
@@ -5753,7 +5761,7 @@ export namespace JobTemplateSettings {
     }),
     ...(obj.Esam && { Esam: EsamSettings.filterSensitiveLog(obj.Esam) }),
     ...(obj.Inputs && {
-      Inputs: obj.Inputs.map(InputTemplate.filterSensitiveLog)
+      Inputs: obj.Inputs.map(item => InputTemplate.filterSensitiveLog(item))
     }),
     ...(obj.MotionImageInserter && {
       MotionImageInserter: MotionImageInserter.filterSensitiveLog(
@@ -5766,7 +5774,9 @@ export namespace JobTemplateSettings {
       )
     }),
     ...(obj.OutputGroups && {
-      OutputGroups: obj.OutputGroups.map(OutputGroup.filterSensitiveLog)
+      OutputGroups: obj.OutputGroups.map(item =>
+        OutputGroup.filterSensitiveLog(item)
+      )
     }),
     ...(obj.TimecodeConfig && {
       TimecodeConfig: TimecodeConfig.filterSensitiveLog(obj.TimecodeConfig)
@@ -6028,7 +6038,9 @@ export namespace ListJobTemplatesResponse {
   export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
     ...obj,
     ...(obj.JobTemplates && {
-      JobTemplates: obj.JobTemplates.map(JobTemplate.filterSensitiveLog)
+      JobTemplates: obj.JobTemplates.map(item =>
+        JobTemplate.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListJobTemplatesResponse =>
@@ -6087,7 +6099,9 @@ export interface ListJobsResponse {
 export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
-    ...(obj.Jobs && { Jobs: obj.Jobs.map(Job.filterSensitiveLog) })
+    ...(obj.Jobs && {
+      Jobs: obj.Jobs.map(item => Job.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListJobsResponse =>
     __isa(o, "ListJobsResponse");
@@ -6145,7 +6159,9 @@ export interface ListPresetsResponse {
 export namespace ListPresetsResponse {
   export const filterSensitiveLog = (obj: ListPresetsResponse): any => ({
     ...obj,
-    ...(obj.Presets && { Presets: obj.Presets.map(Preset.filterSensitiveLog) })
+    ...(obj.Presets && {
+      Presets: obj.Presets.map(item => Preset.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListPresetsResponse =>
     __isa(o, "ListPresetsResponse");
@@ -6198,7 +6214,9 @@ export interface ListQueuesResponse {
 export namespace ListQueuesResponse {
   export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
     ...obj,
-    ...(obj.Queues && { Queues: obj.Queues.map(Queue.filterSensitiveLog) })
+    ...(obj.Queues && {
+      Queues: obj.Queues.map(item => Queue.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListQueuesResponse =>
     __isa(o, "ListQueuesResponse");
@@ -7347,8 +7365,8 @@ export namespace MsSmoothGroupSettings {
   export const filterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
     ...obj,
     ...(obj.AdditionalManifests && {
-      AdditionalManifests: obj.AdditionalManifests.map(
-        MsSmoothAdditionalManifest.filterSensitiveLog
+      AdditionalManifests: obj.AdditionalManifests.map(item =>
+        MsSmoothAdditionalManifest.filterSensitiveLog(item)
       )
     }),
     ...(obj.DestinationSettings && {
@@ -7605,13 +7623,13 @@ export namespace Output {
   export const filterSensitiveLog = (obj: Output): any => ({
     ...obj,
     ...(obj.AudioDescriptions && {
-      AudioDescriptions: obj.AudioDescriptions.map(
-        AudioDescription.filterSensitiveLog
+      AudioDescriptions: obj.AudioDescriptions.map(item =>
+        AudioDescription.filterSensitiveLog(item)
       )
     }),
     ...(obj.CaptionDescriptions && {
-      CaptionDescriptions: obj.CaptionDescriptions.map(
-        CaptionDescription.filterSensitiveLog
+      CaptionDescriptions: obj.CaptionDescriptions.map(item =>
+        CaptionDescription.filterSensitiveLog(item)
       )
     }),
     ...(obj.ContainerSettings && {
@@ -7710,7 +7728,9 @@ export namespace OutputGroup {
         obj.OutputGroupSettings
       )
     }),
-    ...(obj.Outputs && { Outputs: obj.Outputs.map(Output.filterSensitiveLog) })
+    ...(obj.Outputs && {
+      Outputs: obj.Outputs.map(item => Output.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is OutputGroup => __isa(o, "OutputGroup");
 }
@@ -7730,7 +7750,9 @@ export namespace OutputGroupDetail {
   export const filterSensitiveLog = (obj: OutputGroupDetail): any => ({
     ...obj,
     ...(obj.OutputDetails && {
-      OutputDetails: obj.OutputDetails.map(OutputDetail.filterSensitiveLog)
+      OutputDetails: obj.OutputDetails.map(item =>
+        OutputDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is OutputGroupDetail =>
@@ -7935,13 +7957,13 @@ export namespace PresetSettings {
   export const filterSensitiveLog = (obj: PresetSettings): any => ({
     ...obj,
     ...(obj.AudioDescriptions && {
-      AudioDescriptions: obj.AudioDescriptions.map(
-        AudioDescription.filterSensitiveLog
+      AudioDescriptions: obj.AudioDescriptions.map(item =>
+        AudioDescription.filterSensitiveLog(item)
       )
     }),
     ...(obj.CaptionDescriptions && {
-      CaptionDescriptions: obj.CaptionDescriptions.map(
-        CaptionDescriptionPreset.filterSensitiveLog
+      CaptionDescriptions: obj.CaptionDescriptions.map(item =>
+        CaptionDescriptionPreset.filterSensitiveLog(item)
       )
     }),
     ...(obj.ContainerSettings && {
@@ -8769,7 +8791,9 @@ export namespace TimedMetadataInsertion {
   export const filterSensitiveLog = (obj: TimedMetadataInsertion): any => ({
     ...obj,
     ...(obj.Id3Insertions && {
-      Id3Insertions: obj.Id3Insertions.map(Id3Insertion.filterSensitiveLog)
+      Id3Insertions: obj.Id3Insertions.map(item =>
+        Id3Insertion.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is TimedMetadataInsertion =>

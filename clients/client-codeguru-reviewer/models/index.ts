@@ -309,7 +309,7 @@ export namespace ListRepositoryAssociationsResponse {
     ...obj,
     ...(obj.RepositoryAssociationSummaries && {
       RepositoryAssociationSummaries: obj.RepositoryAssociationSummaries.map(
-        RepositoryAssociationSummary.filterSensitiveLog
+        item => RepositoryAssociationSummary.filterSensitiveLog(item)
       )
     })
   });

@@ -65,8 +65,8 @@ export namespace DescribeSavingsPlansOfferingRatesRequest {
   ): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(
-        SavingsPlanOfferingRateFilterElement.filterSensitiveLog
+      filters: obj.filters.map(item =>
+        SavingsPlanOfferingRateFilterElement.filterSensitiveLog(item)
       )
     })
   });
@@ -94,8 +94,8 @@ export namespace DescribeSavingsPlansOfferingRatesResponse {
   ): any => ({
     ...obj,
     ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(
-        SavingsPlanOfferingRate.filterSensitiveLog
+      searchResults: obj.searchResults.map(item =>
+        SavingsPlanOfferingRate.filterSensitiveLog(item)
       )
     })
   });
@@ -178,8 +178,8 @@ export namespace DescribeSavingsPlansOfferingsRequest {
   ): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(
-        SavingsPlanOfferingFilterElement.filterSensitiveLog
+      filters: obj.filters.map(item =>
+        SavingsPlanOfferingFilterElement.filterSensitiveLog(item)
       )
     })
   });
@@ -207,8 +207,8 @@ export namespace DescribeSavingsPlansOfferingsResponse {
   ): any => ({
     ...obj,
     ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(
-        SavingsPlanOffering.filterSensitiveLog
+      searchResults: obj.searchResults.map(item =>
+        SavingsPlanOffering.filterSensitiveLog(item)
       )
     })
   });
@@ -325,8 +325,8 @@ export namespace SavingsPlanOffering {
   export const filterSensitiveLog = (obj: SavingsPlanOffering): any => ({
     ...obj,
     ...(obj.properties && {
-      properties: obj.properties.map(
-        SavingsPlanOfferingProperty.filterSensitiveLog
+      properties: obj.properties.map(item =>
+        SavingsPlanOfferingProperty.filterSensitiveLog(item)
       )
     })
   });
@@ -446,8 +446,8 @@ export namespace SavingsPlanOfferingRate {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingRate): any => ({
     ...obj,
     ...(obj.properties && {
-      properties: obj.properties.map(
-        SavingsPlanOfferingRateProperty.filterSensitiveLog
+      properties: obj.properties.map(item =>
+        SavingsPlanOfferingRateProperty.filterSensitiveLog(item)
       )
     }),
     ...(obj.savingsPlanOffering && {
@@ -664,7 +664,9 @@ export namespace DescribeSavingsPlanRatesRequest {
   ): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(SavingsPlanRateFilter.filterSensitiveLog)
+      filters: obj.filters.map(item =>
+        SavingsPlanRateFilter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlanRatesRequest =>
@@ -696,7 +698,9 @@ export namespace DescribeSavingsPlanRatesResponse {
   ): any => ({
     ...obj,
     ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(SavingsPlanRate.filterSensitiveLog)
+      searchResults: obj.searchResults.map(item =>
+        SavingsPlanRate.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlanRatesResponse =>
@@ -743,7 +747,9 @@ export namespace DescribeSavingsPlansRequest {
   ): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(SavingsPlanFilter.filterSensitiveLog)
+      filters: obj.filters.map(item =>
+        SavingsPlanFilter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlansRequest =>
@@ -770,7 +776,9 @@ export namespace DescribeSavingsPlansResponse {
   ): any => ({
     ...obj,
     ...(obj.savingsPlans && {
-      savingsPlans: obj.savingsPlans.map(SavingsPlan.filterSensitiveLog)
+      savingsPlans: obj.savingsPlans.map(item =>
+        SavingsPlan.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlansResponse =>
@@ -1026,7 +1034,9 @@ export namespace SavingsPlanRate {
   export const filterSensitiveLog = (obj: SavingsPlanRate): any => ({
     ...obj,
     ...(obj.properties && {
-      properties: obj.properties.map(SavingsPlanRateProperty.filterSensitiveLog)
+      properties: obj.properties.map(item =>
+        SavingsPlanRateProperty.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SavingsPlanRate =>

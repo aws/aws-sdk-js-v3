@@ -144,7 +144,9 @@ export interface CreateAgentRequest {
 export namespace CreateAgentRequest {
   export const filterSensitiveLog = (obj: CreateAgentRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateAgentRequest =>
     __isa(o, "CreateAgentRequest");
@@ -234,7 +236,9 @@ export namespace CreateLocationEfsRequest {
     ...(obj.Ec2Config && {
       Ec2Config: Ec2Config.filterSensitiveLog(obj.Ec2Config)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateLocationEfsRequest =>
     __isa(o, "CreateLocationEfsRequest");
@@ -324,7 +328,9 @@ export namespace CreateLocationNfsRequest {
     ...(obj.OnPremConfig && {
       OnPremConfig: OnPremConfig.filterSensitiveLog(obj.OnPremConfig)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateLocationNfsRequest =>
     __isa(o, "CreateLocationNfsRequest");
@@ -396,7 +402,9 @@ export namespace CreateLocationS3Request {
     ...(obj.S3Config && {
       S3Config: S3Config.filterSensitiveLog(obj.S3Config)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateLocationS3Request =>
     __isa(o, "CreateLocationS3Request");
@@ -500,7 +508,9 @@ export namespace CreateLocationSmbRequest {
       MountOptions: SmbMountOptions.filterSensitiveLog(obj.MountOptions)
     }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateLocationSmbRequest =>
     __isa(o, "CreateLocationSmbRequest");
@@ -600,13 +610,15 @@ export namespace CreateTaskRequest {
   export const filterSensitiveLog = (obj: CreateTaskRequest): any => ({
     ...obj,
     ...(obj.Excludes && {
-      Excludes: obj.Excludes.map(FilterRule.filterSensitiveLog)
+      Excludes: obj.Excludes.map(item => FilterRule.filterSensitiveLog(item))
     }),
     ...(obj.Options && { Options: Options.filterSensitiveLog(obj.Options) }),
     ...(obj.Schedule && {
       Schedule: TaskSchedule.filterSensitiveLog(obj.Schedule)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateTaskRequest =>
     __isa(o, "CreateTaskRequest");
@@ -1204,10 +1216,10 @@ export namespace DescribeTaskExecutionResponse {
   ): any => ({
     ...obj,
     ...(obj.Excludes && {
-      Excludes: obj.Excludes.map(FilterRule.filterSensitiveLog)
+      Excludes: obj.Excludes.map(item => FilterRule.filterSensitiveLog(item))
     }),
     ...(obj.Includes && {
-      Includes: obj.Includes.map(FilterRule.filterSensitiveLog)
+      Includes: obj.Includes.map(item => FilterRule.filterSensitiveLog(item))
     }),
     ...(obj.Options && { Options: Options.filterSensitiveLog(obj.Options) }),
     ...(obj.Result && {
@@ -1347,7 +1359,7 @@ export namespace DescribeTaskResponse {
   export const filterSensitiveLog = (obj: DescribeTaskResponse): any => ({
     ...obj,
     ...(obj.Excludes && {
-      Excludes: obj.Excludes.map(FilterRule.filterSensitiveLog)
+      Excludes: obj.Excludes.map(item => FilterRule.filterSensitiveLog(item))
     }),
     ...(obj.Options && { Options: Options.filterSensitiveLog(obj.Options) }),
     ...(obj.Schedule && {
@@ -1516,7 +1528,7 @@ export namespace ListAgentsResponse {
   export const filterSensitiveLog = (obj: ListAgentsResponse): any => ({
     ...obj,
     ...(obj.Agents && {
-      Agents: obj.Agents.map(AgentListEntry.filterSensitiveLog)
+      Agents: obj.Agents.map(item => AgentListEntry.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListAgentsResponse =>
@@ -1569,7 +1581,9 @@ export namespace ListLocationsResponse {
   export const filterSensitiveLog = (obj: ListLocationsResponse): any => ({
     ...obj,
     ...(obj.Locations && {
-      Locations: obj.Locations.map(LocationListEntry.filterSensitiveLog)
+      Locations: obj.Locations.map(item =>
+        LocationListEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListLocationsResponse =>
@@ -1628,7 +1642,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1685,8 +1701,8 @@ export namespace ListTaskExecutionsResponse {
   export const filterSensitiveLog = (obj: ListTaskExecutionsResponse): any => ({
     ...obj,
     ...(obj.TaskExecutions && {
-      TaskExecutions: obj.TaskExecutions.map(
-        TaskExecutionListEntry.filterSensitiveLog
+      TaskExecutions: obj.TaskExecutions.map(item =>
+        TaskExecutionListEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -1739,7 +1755,9 @@ export interface ListTasksResponse {
 export namespace ListTasksResponse {
   export const filterSensitiveLog = (obj: ListTasksResponse): any => ({
     ...obj,
-    ...(obj.Tasks && { Tasks: obj.Tasks.map(TaskListEntry.filterSensitiveLog) })
+    ...(obj.Tasks && {
+      Tasks: obj.Tasks.map(item => TaskListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTasksResponse =>
     __isa(o, "ListTasksResponse");
@@ -2170,7 +2188,7 @@ export namespace StartTaskExecutionRequest {
   export const filterSensitiveLog = (obj: StartTaskExecutionRequest): any => ({
     ...obj,
     ...(obj.Includes && {
-      Includes: obj.Includes.map(FilterRule.filterSensitiveLog)
+      Includes: obj.Includes.map(item => FilterRule.filterSensitiveLog(item))
     }),
     ...(obj.OverrideOptions && {
       OverrideOptions: Options.filterSensitiveLog(obj.OverrideOptions)
@@ -2244,7 +2262,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(TagListEntry.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => TagListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -2562,7 +2582,7 @@ export namespace UpdateTaskRequest {
   export const filterSensitiveLog = (obj: UpdateTaskRequest): any => ({
     ...obj,
     ...(obj.Excludes && {
-      Excludes: obj.Excludes.map(FilterRule.filterSensitiveLog)
+      Excludes: obj.Excludes.map(item => FilterRule.filterSensitiveLog(item))
     }),
     ...(obj.Options && { Options: Options.filterSensitiveLog(obj.Options) }),
     ...(obj.Schedule && {

@@ -41,7 +41,9 @@ export interface ActiveTrustedSigners {
 export namespace ActiveTrustedSigners {
   export const filterSensitiveLog = (obj: ActiveTrustedSigners): any => ({
     ...obj,
-    ...(obj.Items && { Items: obj.Items.map(Signer.filterSensitiveLog) })
+    ...(obj.Items && {
+      Items: obj.Items.map(item => Signer.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ActiveTrustedSigners =>
     __isa(o, "ActiveTrustedSigners");
@@ -425,7 +427,9 @@ export interface CacheBehaviors {
 export namespace CacheBehaviors {
   export const filterSensitiveLog = (obj: CacheBehaviors): any => ({
     ...obj,
-    ...(obj.Items && { Items: obj.Items.map(CacheBehavior.filterSensitiveLog) })
+    ...(obj.Items && {
+      Items: obj.Items.map(item => CacheBehavior.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CacheBehaviors =>
     __isa(o, "CacheBehaviors");
@@ -610,8 +614,8 @@ export namespace CloudFrontOriginAccessIdentityList {
   ): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(
-        CloudFrontOriginAccessIdentitySummary.filterSensitiveLog
+      Items: obj.Items.map(item =>
+        CloudFrontOriginAccessIdentitySummary.filterSensitiveLog(item)
       )
     })
   });
@@ -734,7 +738,7 @@ export namespace ContentTypeProfiles {
   export const filterSensitiveLog = (obj: ContentTypeProfiles): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(ContentTypeProfile.filterSensitiveLog)
+      Items: obj.Items.map(item => ContentTypeProfile.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ContentTypeProfiles =>
@@ -1486,7 +1490,7 @@ export namespace CustomErrorResponses {
   export const filterSensitiveLog = (obj: CustomErrorResponses): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(CustomErrorResponse.filterSensitiveLog)
+      Items: obj.Items.map(item => CustomErrorResponse.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CustomErrorResponses =>
@@ -1516,7 +1520,7 @@ export namespace CustomHeaders {
   export const filterSensitiveLog = (obj: CustomHeaders): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(OriginCustomHeader.filterSensitiveLog)
+      Items: obj.Items.map(item => OriginCustomHeader.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CustomHeaders => __isa(o, "CustomHeaders");
@@ -2033,8 +2037,8 @@ export namespace Distribution {
       )
     }),
     ...(obj.AliasICPRecordals && {
-      AliasICPRecordals: obj.AliasICPRecordals.map(
-        AliasICPRecordal.filterSensitiveLog
+      AliasICPRecordals: obj.AliasICPRecordals.map(item =>
+        AliasICPRecordal.filterSensitiveLog(item)
       )
     }),
     ...(obj.DistributionConfig && {
@@ -2360,7 +2364,7 @@ export namespace DistributionList {
   export const filterSensitiveLog = (obj: DistributionList): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(DistributionSummary.filterSensitiveLog)
+      Items: obj.Items.map(item => DistributionSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DistributionList =>
@@ -2499,8 +2503,8 @@ export namespace DistributionSummary {
   export const filterSensitiveLog = (obj: DistributionSummary): any => ({
     ...obj,
     ...(obj.AliasICPRecordals && {
-      AliasICPRecordals: obj.AliasICPRecordals.map(
-        AliasICPRecordal.filterSensitiveLog
+      AliasICPRecordals: obj.AliasICPRecordals.map(item =>
+        AliasICPRecordal.filterSensitiveLog(item)
       )
     }),
     ...(obj.Aliases && { Aliases: Aliases.filterSensitiveLog(obj.Aliases) }),
@@ -2554,7 +2558,7 @@ export namespace EncryptionEntities {
   export const filterSensitiveLog = (obj: EncryptionEntities): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(EncryptionEntity.filterSensitiveLog)
+      Items: obj.Items.map(item => EncryptionEntity.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is EncryptionEntities =>
@@ -2716,7 +2720,9 @@ export namespace FieldLevelEncryptionList {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionList): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(FieldLevelEncryptionSummary.filterSensitiveLog)
+      Items: obj.Items.map(item =>
+        FieldLevelEncryptionSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is FieldLevelEncryptionList =>
@@ -2838,8 +2844,8 @@ export namespace FieldLevelEncryptionProfileList {
   ): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(
-        FieldLevelEncryptionProfileSummary.filterSensitiveLog
+      Items: obj.Items.map(item =>
+        FieldLevelEncryptionProfileSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -3935,7 +3941,7 @@ export namespace InvalidationList {
   export const filterSensitiveLog = (obj: InvalidationList): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(InvalidationSummary.filterSensitiveLog)
+      Items: obj.Items.map(item => InvalidationSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is InvalidationList =>
@@ -4091,7 +4097,9 @@ export namespace LambdaFunctionAssociations {
   export const filterSensitiveLog = (obj: LambdaFunctionAssociations): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(LambdaFunctionAssociation.filterSensitiveLog)
+      Items: obj.Items.map(item =>
+        LambdaFunctionAssociation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is LambdaFunctionAssociations =>
@@ -4897,7 +4905,7 @@ export namespace OriginGroupMembers {
   export const filterSensitiveLog = (obj: OriginGroupMembers): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(OriginGroupMember.filterSensitiveLog)
+      Items: obj.Items.map(item => OriginGroupMember.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is OriginGroupMembers =>
@@ -4923,7 +4931,9 @@ export interface OriginGroups {
 export namespace OriginGroups {
   export const filterSensitiveLog = (obj: OriginGroups): any => ({
     ...obj,
-    ...(obj.Items && { Items: obj.Items.map(OriginGroup.filterSensitiveLog) })
+    ...(obj.Items && {
+      Items: obj.Items.map(item => OriginGroup.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is OriginGroups => __isa(o, "OriginGroups");
 }
@@ -4976,7 +4986,9 @@ export interface Origins {
 export namespace Origins {
   export const filterSensitiveLog = (obj: Origins): any => ({
     ...obj,
-    ...(obj.Items && { Items: obj.Items.map(Origin.filterSensitiveLog) })
+    ...(obj.Items && {
+      Items: obj.Items.map(item => Origin.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Origins => __isa(o, "Origins");
 }
@@ -5106,7 +5118,7 @@ export namespace PublicKeyList {
   export const filterSensitiveLog = (obj: PublicKeyList): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(PublicKeySummary.filterSensitiveLog)
+      Items: obj.Items.map(item => PublicKeySummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is PublicKeyList => __isa(o, "PublicKeyList");
@@ -5236,7 +5248,7 @@ export namespace QueryArgProfiles {
   export const filterSensitiveLog = (obj: QueryArgProfiles): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(QueryArgProfile.filterSensitiveLog)
+      Items: obj.Items.map(item => QueryArgProfile.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is QueryArgProfiles =>
@@ -5667,7 +5679,9 @@ export namespace StreamingDistributionList {
   export const filterSensitiveLog = (obj: StreamingDistributionList): any => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(StreamingDistributionSummary.filterSensitiveLog)
+      Items: obj.Items.map(item =>
+        StreamingDistributionSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is StreamingDistributionList =>
@@ -5894,7 +5908,9 @@ export interface Tags {
 export namespace Tags {
   export const filterSensitiveLog = (obj: Tags): any => ({
     ...obj,
-    ...(obj.Items && { Items: obj.Items.map(Tag.filterSensitiveLog) })
+    ...(obj.Items && {
+      Items: obj.Items.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Tags => __isa(o, "Tags");
 }

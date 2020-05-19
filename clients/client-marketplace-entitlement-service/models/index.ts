@@ -164,7 +164,9 @@ export namespace GetEntitlementsResult {
   export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
     ...obj,
     ...(obj.Entitlements && {
-      Entitlements: obj.Entitlements.map(Entitlement.filterSensitiveLog)
+      Entitlements: obj.Entitlements.map(item =>
+        Entitlement.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetEntitlementsResult =>

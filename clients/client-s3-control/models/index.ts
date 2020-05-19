@@ -664,7 +664,9 @@ export namespace JobDescriptor {
   export const filterSensitiveLog = (obj: JobDescriptor): any => ({
     ...obj,
     ...(obj.FailureReasons && {
-      FailureReasons: obj.FailureReasons.map(JobFailure.filterSensitiveLog)
+      FailureReasons: obj.FailureReasons.map(item =>
+        JobFailure.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Manifest && {
       Manifest: JobManifest.filterSensitiveLog(obj.Manifest)
@@ -1094,7 +1096,9 @@ export namespace ListAccessPointsResult {
   export const filterSensitiveLog = (obj: ListAccessPointsResult): any => ({
     ...obj,
     ...(obj.AccessPointList && {
-      AccessPointList: obj.AccessPointList.map(AccessPoint.filterSensitiveLog)
+      AccessPointList: obj.AccessPointList.map(item =>
+        AccessPoint.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListAccessPointsResult =>
@@ -1150,7 +1154,7 @@ export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
     ...obj,
     ...(obj.Jobs && {
-      Jobs: obj.Jobs.map(JobListDescriptor.filterSensitiveLog)
+      Jobs: obj.Jobs.map(item => JobListDescriptor.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListJobsResult =>
@@ -1375,7 +1379,9 @@ export interface S3AccessControlList {
 export namespace S3AccessControlList {
   export const filterSensitiveLog = (obj: S3AccessControlList): any => ({
     ...obj,
-    ...(obj.Grants && { Grants: obj.Grants.map(S3Grant.filterSensitiveLog) }),
+    ...(obj.Grants && {
+      Grants: obj.Grants.map(item => S3Grant.filterSensitiveLog(item))
+    }),
     ...(obj.Owner && { Owner: S3ObjectOwner.filterSensitiveLog(obj.Owner) })
   });
   export const isa = (o: any): o is S3AccessControlList =>
@@ -1512,8 +1518,8 @@ export namespace S3CopyObjectOperation {
   export const filterSensitiveLog = (obj: S3CopyObjectOperation): any => ({
     ...obj,
     ...(obj.AccessControlGrants && {
-      AccessControlGrants: obj.AccessControlGrants.map(
-        S3Grant.filterSensitiveLog
+      AccessControlGrants: obj.AccessControlGrants.map(item =>
+        S3Grant.filterSensitiveLog(item)
       )
     }),
     ...(obj.NewObjectMetadata && {
@@ -1522,7 +1528,9 @@ export namespace S3CopyObjectOperation {
       )
     }),
     ...(obj.NewObjectTagging && {
-      NewObjectTagging: obj.NewObjectTagging.map(S3Tag.filterSensitiveLog)
+      NewObjectTagging: obj.NewObjectTagging.map(item =>
+        S3Tag.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is S3CopyObjectOperation =>
@@ -1781,7 +1789,9 @@ export namespace S3SetObjectTaggingOperation {
     obj: S3SetObjectTaggingOperation
   ): any => ({
     ...obj,
-    ...(obj.TagSet && { TagSet: obj.TagSet.map(S3Tag.filterSensitiveLog) })
+    ...(obj.TagSet && {
+      TagSet: obj.TagSet.map(item => S3Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is S3SetObjectTaggingOperation =>
     __isa(o, "S3SetObjectTaggingOperation");

@@ -886,7 +886,7 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
     ...(obj.Datasets && {
-      Datasets: obj.Datasets.map(Dataset.filterSensitiveLog)
+      Datasets: obj.Datasets.map(item => Dataset.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListDatasetsResponse =>
@@ -951,8 +951,8 @@ export namespace ListIdentityPoolUsageResponse {
   ): any => ({
     ...obj,
     ...(obj.IdentityPoolUsages && {
-      IdentityPoolUsages: obj.IdentityPoolUsages.map(
-        IdentityPoolUsage.filterSensitiveLog
+      IdentityPoolUsages: obj.IdentityPoolUsages.map(item =>
+        IdentityPoolUsage.filterSensitiveLog(item)
       )
     })
   });
@@ -1063,7 +1063,9 @@ export interface ListRecordsResponse {
 export namespace ListRecordsResponse {
   export const filterSensitiveLog = (obj: ListRecordsResponse): any => ({
     ...obj,
-    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
+    ...(obj.Records && {
+      Records: obj.Records.map(item => _Record.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListRecordsResponse =>
     __isa(o, "ListRecordsResponse");
@@ -1561,7 +1563,9 @@ export namespace UpdateRecordsRequest {
   export const filterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
     ...obj,
     ...(obj.RecordPatches && {
-      RecordPatches: obj.RecordPatches.map(RecordPatch.filterSensitiveLog)
+      RecordPatches: obj.RecordPatches.map(item =>
+        RecordPatch.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is UpdateRecordsRequest =>
@@ -1582,7 +1586,9 @@ export interface UpdateRecordsResponse {
 export namespace UpdateRecordsResponse {
   export const filterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
     ...obj,
-    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
+    ...(obj.Records && {
+      Records: obj.Records.map(item => _Record.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UpdateRecordsResponse =>
     __isa(o, "UpdateRecordsResponse");

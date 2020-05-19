@@ -168,7 +168,9 @@ export interface BatchGetTracesResult {
 export namespace BatchGetTracesResult {
   export const filterSensitiveLog = (obj: BatchGetTracesResult): any => ({
     ...obj,
-    ...(obj.Traces && { Traces: obj.Traces.map(Trace.filterSensitiveLog) })
+    ...(obj.Traces && {
+      Traces: obj.Traces.map(item => Trace.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is BatchGetTracesResult =>
     __isa(o, "BatchGetTracesResult");
@@ -369,10 +371,12 @@ export interface Edge {
 export namespace Edge {
   export const filterSensitiveLog = (obj: Edge): any => ({
     ...obj,
-    ...(obj.Aliases && { Aliases: obj.Aliases.map(Alias.filterSensitiveLog) }),
+    ...(obj.Aliases && {
+      Aliases: obj.Aliases.map(item => Alias.filterSensitiveLog(item))
+    }),
     ...(obj.ResponseTimeHistogram && {
-      ResponseTimeHistogram: obj.ResponseTimeHistogram.map(
-        HistogramEntry.filterSensitiveLog
+      ResponseTimeHistogram: obj.ResponseTimeHistogram.map(item =>
+        HistogramEntry.filterSensitiveLog(item)
       )
     }),
     ...(obj.SummaryStatistics && {
@@ -485,7 +489,9 @@ export namespace ErrorRootCause {
   export const filterSensitiveLog = (obj: ErrorRootCause): any => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(ErrorRootCauseService.filterSensitiveLog)
+      Services: obj.Services.map(item =>
+        ErrorRootCauseService.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ErrorRootCause =>
@@ -518,7 +524,9 @@ export namespace ErrorRootCauseEntity {
   export const filterSensitiveLog = (obj: ErrorRootCauseEntity): any => ({
     ...obj,
     ...(obj.Exceptions && {
-      Exceptions: obj.Exceptions.map(RootCauseException.filterSensitiveLog)
+      Exceptions: obj.Exceptions.map(item =>
+        RootCauseException.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ErrorRootCauseEntity =>
@@ -565,7 +573,9 @@ export namespace ErrorRootCauseService {
   export const filterSensitiveLog = (obj: ErrorRootCauseService): any => ({
     ...obj,
     ...(obj.EntityPath && {
-      EntityPath: obj.EntityPath.map(ErrorRootCauseEntity.filterSensitiveLog)
+      EntityPath: obj.EntityPath.map(item =>
+        ErrorRootCauseEntity.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ErrorRootCauseService =>
@@ -618,7 +628,9 @@ export namespace FaultRootCause {
   export const filterSensitiveLog = (obj: FaultRootCause): any => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(FaultRootCauseService.filterSensitiveLog)
+      Services: obj.Services.map(item =>
+        FaultRootCauseService.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is FaultRootCause =>
@@ -651,7 +663,9 @@ export namespace FaultRootCauseEntity {
   export const filterSensitiveLog = (obj: FaultRootCauseEntity): any => ({
     ...obj,
     ...(obj.Exceptions && {
-      Exceptions: obj.Exceptions.map(RootCauseException.filterSensitiveLog)
+      Exceptions: obj.Exceptions.map(item =>
+        RootCauseException.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is FaultRootCauseEntity =>
@@ -698,7 +712,9 @@ export namespace FaultRootCauseService {
   export const filterSensitiveLog = (obj: FaultRootCauseService): any => ({
     ...obj,
     ...(obj.EntityPath && {
-      EntityPath: obj.EntityPath.map(FaultRootCauseEntity.filterSensitiveLog)
+      EntityPath: obj.EntityPath.map(item =>
+        FaultRootCauseEntity.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is FaultRootCauseService =>
@@ -835,7 +851,7 @@ export namespace GetGroupsResult {
   export const filterSensitiveLog = (obj: GetGroupsResult): any => ({
     ...obj,
     ...(obj.Groups && {
-      Groups: obj.Groups.map(GroupSummary.filterSensitiveLog)
+      Groups: obj.Groups.map(item => GroupSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetGroupsResult =>
@@ -875,8 +891,8 @@ export namespace GetSamplingRulesResult {
   export const filterSensitiveLog = (obj: GetSamplingRulesResult): any => ({
     ...obj,
     ...(obj.SamplingRuleRecords && {
-      SamplingRuleRecords: obj.SamplingRuleRecords.map(
-        SamplingRuleRecord.filterSensitiveLog
+      SamplingRuleRecords: obj.SamplingRuleRecords.map(item =>
+        SamplingRuleRecord.filterSensitiveLog(item)
       )
     })
   });
@@ -922,8 +938,8 @@ export namespace GetSamplingStatisticSummariesResult {
   ): any => ({
     ...obj,
     ...(obj.SamplingStatisticSummaries && {
-      SamplingStatisticSummaries: obj.SamplingStatisticSummaries.map(
-        SamplingStatisticSummary.filterSensitiveLog
+      SamplingStatisticSummaries: obj.SamplingStatisticSummaries.map(item =>
+        SamplingStatisticSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -943,8 +959,8 @@ export namespace GetSamplingTargetsRequest {
   export const filterSensitiveLog = (obj: GetSamplingTargetsRequest): any => ({
     ...obj,
     ...(obj.SamplingStatisticsDocuments && {
-      SamplingStatisticsDocuments: obj.SamplingStatisticsDocuments.map(
-        SamplingStatisticsDocument.filterSensitiveLog
+      SamplingStatisticsDocuments: obj.SamplingStatisticsDocuments.map(item =>
+        SamplingStatisticsDocument.filterSensitiveLog(item)
       )
     })
   });
@@ -977,13 +993,13 @@ export namespace GetSamplingTargetsResult {
   export const filterSensitiveLog = (obj: GetSamplingTargetsResult): any => ({
     ...obj,
     ...(obj.SamplingTargetDocuments && {
-      SamplingTargetDocuments: obj.SamplingTargetDocuments.map(
-        SamplingTargetDocument.filterSensitiveLog
+      SamplingTargetDocuments: obj.SamplingTargetDocuments.map(item =>
+        SamplingTargetDocument.filterSensitiveLog(item)
       )
     }),
     ...(obj.UnprocessedStatistics && {
-      UnprocessedStatistics: obj.UnprocessedStatistics.map(
-        UnprocessedStatistics.filterSensitiveLog
+      UnprocessedStatistics: obj.UnprocessedStatistics.map(item =>
+        UnprocessedStatistics.filterSensitiveLog(item)
       )
     })
   });
@@ -1062,7 +1078,7 @@ export namespace GetServiceGraphResult {
   export const filterSensitiveLog = (obj: GetServiceGraphResult): any => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(Service.filterSensitiveLog)
+      Services: obj.Services.map(item => Service.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetServiceGraphResult =>
@@ -1145,8 +1161,8 @@ export namespace GetTimeSeriesServiceStatisticsResult {
   ): any => ({
     ...obj,
     ...(obj.TimeSeriesServiceStatistics && {
-      TimeSeriesServiceStatistics: obj.TimeSeriesServiceStatistics.map(
-        TimeSeriesServiceStatistics.filterSensitiveLog
+      TimeSeriesServiceStatistics: obj.TimeSeriesServiceStatistics.map(item =>
+        TimeSeriesServiceStatistics.filterSensitiveLog(item)
       )
     })
   });
@@ -1192,7 +1208,7 @@ export namespace GetTraceGraphResult {
   export const filterSensitiveLog = (obj: GetTraceGraphResult): any => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(Service.filterSensitiveLog)
+      Services: obj.Services.map(item => Service.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetTraceGraphResult =>
@@ -1285,7 +1301,9 @@ export namespace GetTraceSummariesResult {
   export const filterSensitiveLog = (obj: GetTraceSummariesResult): any => ({
     ...obj,
     ...(obj.TraceSummaries && {
-      TraceSummaries: obj.TraceSummaries.map(TraceSummary.filterSensitiveLog)
+      TraceSummaries: obj.TraceSummaries.map(item =>
+        TraceSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetTraceSummariesResult =>
@@ -1539,8 +1557,8 @@ export namespace PutTelemetryRecordsRequest {
   export const filterSensitiveLog = (obj: PutTelemetryRecordsRequest): any => ({
     ...obj,
     ...(obj.TelemetryRecords && {
-      TelemetryRecords: obj.TelemetryRecords.map(
-        TelemetryRecord.filterSensitiveLog
+      TelemetryRecords: obj.TelemetryRecords.map(item =>
+        TelemetryRecord.filterSensitiveLog(item)
       )
     })
   });
@@ -1589,8 +1607,8 @@ export namespace PutTraceSegmentsResult {
   export const filterSensitiveLog = (obj: PutTraceSegmentsResult): any => ({
     ...obj,
     ...(obj.UnprocessedTraceSegments && {
-      UnprocessedTraceSegments: obj.UnprocessedTraceSegments.map(
-        UnprocessedTraceSegment.filterSensitiveLog
+      UnprocessedTraceSegments: obj.UnprocessedTraceSegments.map(item =>
+        UnprocessedTraceSegment.filterSensitiveLog(item)
       )
     })
   });
@@ -1633,8 +1651,8 @@ export namespace ResponseTimeRootCause {
   export const filterSensitiveLog = (obj: ResponseTimeRootCause): any => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(
-        ResponseTimeRootCauseService.filterSensitiveLog
+      Services: obj.Services.map(item =>
+        ResponseTimeRootCauseService.filterSensitiveLog(item)
       )
     })
   });
@@ -1716,8 +1734,8 @@ export namespace ResponseTimeRootCauseService {
   ): any => ({
     ...obj,
     ...(obj.EntityPath && {
-      EntityPath: obj.EntityPath.map(
-        ResponseTimeRootCauseEntity.filterSensitiveLog
+      EntityPath: obj.EntityPath.map(item =>
+        ResponseTimeRootCauseEntity.filterSensitiveLog(item)
       )
     })
   });
@@ -2241,14 +2259,16 @@ export namespace Service {
   export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
     ...(obj.DurationHistogram && {
-      DurationHistogram: obj.DurationHistogram.map(
-        HistogramEntry.filterSensitiveLog
+      DurationHistogram: obj.DurationHistogram.map(item =>
+        HistogramEntry.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Edges && { Edges: obj.Edges.map(Edge.filterSensitiveLog) }),
+    ...(obj.Edges && {
+      Edges: obj.Edges.map(item => Edge.filterSensitiveLog(item))
+    }),
     ...(obj.ResponseTimeHistogram && {
-      ResponseTimeHistogram: obj.ResponseTimeHistogram.map(
-        HistogramEntry.filterSensitiveLog
+      ResponseTimeHistogram: obj.ResponseTimeHistogram.map(item =>
+        HistogramEntry.filterSensitiveLog(item)
       )
     }),
     ...(obj.SummaryStatistics && {
@@ -2446,8 +2466,8 @@ export namespace TimeSeriesServiceStatistics {
       )
     }),
     ...(obj.ResponseTimeHistogram && {
-      ResponseTimeHistogram: obj.ResponseTimeHistogram.map(
-        HistogramEntry.filterSensitiveLog
+      ResponseTimeHistogram: obj.ResponseTimeHistogram.map(item =>
+        HistogramEntry.filterSensitiveLog(item)
       )
     }),
     ...(obj.ServiceSummaryStatistics && {
@@ -2487,7 +2507,7 @@ export namespace Trace {
   export const filterSensitiveLog = (obj: Trace): any => ({
     ...obj,
     ...(obj.Segments && {
-      Segments: obj.Segments.map(Segment.filterSensitiveLog)
+      Segments: obj.Segments.map(item => Segment.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Trace => __isa(o, "Trace");
@@ -2616,45 +2636,51 @@ export namespace TraceSummary {
       Annotations: Object.entries(obj.Annotations).reduce(
         (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => ({
           ...acc,
-          [key]: value.map(ValueWithServiceIds.filterSensitiveLog)
+          [key]: value.map(item => ValueWithServiceIds.filterSensitiveLog(item))
         }),
         {}
       )
     }),
     ...(obj.AvailabilityZones && {
-      AvailabilityZones: obj.AvailabilityZones.map(
-        AvailabilityZoneDetail.filterSensitiveLog
+      AvailabilityZones: obj.AvailabilityZones.map(item =>
+        AvailabilityZoneDetail.filterSensitiveLog(item)
       )
     }),
     ...(obj.EntryPoint && {
       EntryPoint: ServiceId.filterSensitiveLog(obj.EntryPoint)
     }),
     ...(obj.ErrorRootCauses && {
-      ErrorRootCauses: obj.ErrorRootCauses.map(
-        ErrorRootCause.filterSensitiveLog
+      ErrorRootCauses: obj.ErrorRootCauses.map(item =>
+        ErrorRootCause.filterSensitiveLog(item)
       )
     }),
     ...(obj.FaultRootCauses && {
-      FaultRootCauses: obj.FaultRootCauses.map(
-        FaultRootCause.filterSensitiveLog
+      FaultRootCauses: obj.FaultRootCauses.map(item =>
+        FaultRootCause.filterSensitiveLog(item)
       )
     }),
     ...(obj.Http && { Http: Http.filterSensitiveLog(obj.Http) }),
     ...(obj.InstanceIds && {
-      InstanceIds: obj.InstanceIds.map(InstanceIdDetail.filterSensitiveLog)
+      InstanceIds: obj.InstanceIds.map(item =>
+        InstanceIdDetail.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResourceARNs && {
-      ResourceARNs: obj.ResourceARNs.map(ResourceARNDetail.filterSensitiveLog)
+      ResourceARNs: obj.ResourceARNs.map(item =>
+        ResourceARNDetail.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResponseTimeRootCauses && {
-      ResponseTimeRootCauses: obj.ResponseTimeRootCauses.map(
-        ResponseTimeRootCause.filterSensitiveLog
+      ResponseTimeRootCauses: obj.ResponseTimeRootCauses.map(item =>
+        ResponseTimeRootCause.filterSensitiveLog(item)
       )
     }),
     ...(obj.ServiceIds && {
-      ServiceIds: obj.ServiceIds.map(ServiceId.filterSensitiveLog)
+      ServiceIds: obj.ServiceIds.map(item => ServiceId.filterSensitiveLog(item))
     }),
-    ...(obj.Users && { Users: obj.Users.map(TraceUser.filterSensitiveLog) })
+    ...(obj.Users && {
+      Users: obj.Users.map(item => TraceUser.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TraceSummary => __isa(o, "TraceSummary");
 }
@@ -2679,7 +2705,7 @@ export namespace TraceUser {
   export const filterSensitiveLog = (obj: TraceUser): any => ({
     ...obj,
     ...(obj.ServiceIds && {
-      ServiceIds: obj.ServiceIds.map(ServiceId.filterSensitiveLog)
+      ServiceIds: obj.ServiceIds.map(item => ServiceId.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is TraceUser => __isa(o, "TraceUser");
@@ -2854,7 +2880,7 @@ export namespace ValueWithServiceIds {
       AnnotationValue: AnnotationValue.filterSensitiveLog(obj.AnnotationValue)
     }),
     ...(obj.ServiceIds && {
-      ServiceIds: obj.ServiceIds.map(ServiceId.filterSensitiveLog)
+      ServiceIds: obj.ServiceIds.map(item => ServiceId.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ValueWithServiceIds =>

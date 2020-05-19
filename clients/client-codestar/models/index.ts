@@ -236,7 +236,7 @@ export namespace CreateProjectRequest {
     ...(obj.description && { description: SENSITIVE_STRING }),
     ...(obj.name && { name: SENSITIVE_STRING }),
     ...(obj.sourceCode && {
-      sourceCode: obj.sourceCode.map(Code.filterSensitiveLog)
+      sourceCode: obj.sourceCode.map(item => Code.filterSensitiveLog(item))
     }),
     ...(obj.toolchain && {
       toolchain: Toolchain.filterSensitiveLog(obj.toolchain)
@@ -781,7 +781,9 @@ export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
     ...(obj.projects && {
-      projects: obj.projects.map(ProjectSummary.filterSensitiveLog)
+      projects: obj.projects.map(item =>
+        ProjectSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListProjectsResult =>
@@ -833,7 +835,7 @@ export namespace ListResourcesResult {
   export const filterSensitiveLog = (obj: ListResourcesResult): any => ({
     ...obj,
     ...(obj.resources && {
-      resources: obj.resources.map(Resource.filterSensitiveLog)
+      resources: obj.resources.map(item => Resource.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListResourcesResult =>
@@ -932,7 +934,9 @@ export namespace ListTeamMembersResult {
   export const filterSensitiveLog = (obj: ListTeamMembersResult): any => ({
     ...obj,
     ...(obj.teamMembers && {
-      teamMembers: obj.teamMembers.map(TeamMember.filterSensitiveLog)
+      teamMembers: obj.teamMembers.map(item =>
+        TeamMember.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListTeamMembersResult =>
@@ -979,7 +983,9 @@ export namespace ListUserProfilesResult {
   export const filterSensitiveLog = (obj: ListUserProfilesResult): any => ({
     ...obj,
     ...(obj.userProfiles && {
-      userProfiles: obj.userProfiles.map(UserProfileSummary.filterSensitiveLog)
+      userProfiles: obj.userProfiles.map(item =>
+        UserProfileSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListUserProfilesResult =>

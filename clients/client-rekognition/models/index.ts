@@ -423,7 +423,9 @@ export namespace CompareFacesResponse {
   export const filterSensitiveLog = (obj: CompareFacesResponse): any => ({
     ...obj,
     ...(obj.FaceMatches && {
-      FaceMatches: obj.FaceMatches.map(CompareFacesMatch.filterSensitiveLog)
+      FaceMatches: obj.FaceMatches.map(item =>
+        CompareFacesMatch.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SourceImageFace && {
       SourceImageFace: ComparedSourceImageFace.filterSensitiveLog(
@@ -431,7 +433,9 @@ export namespace CompareFacesResponse {
       )
     }),
     ...(obj.UnmatchedFaces && {
-      UnmatchedFaces: obj.UnmatchedFaces.map(ComparedFace.filterSensitiveLog)
+      UnmatchedFaces: obj.UnmatchedFaces.map(item =>
+        ComparedFace.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CompareFacesResponse =>
@@ -477,7 +481,7 @@ export namespace ComparedFace {
       BoundingBox: BoundingBox.filterSensitiveLog(obj.BoundingBox)
     }),
     ...(obj.Landmarks && {
-      Landmarks: obj.Landmarks.map(Landmark.filterSensitiveLog)
+      Landmarks: obj.Landmarks.map(item => Landmark.filterSensitiveLog(item))
     }),
     ...(obj.Pose && { Pose: Pose.filterSensitiveLog(obj.Pose) }),
     ...(obj.Quality && {
@@ -1011,8 +1015,8 @@ export namespace DescribeProjectVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.ProjectVersionDescriptions && {
-      ProjectVersionDescriptions: obj.ProjectVersionDescriptions.map(
-        ProjectVersionDescription.filterSensitiveLog
+      ProjectVersionDescriptions: obj.ProjectVersionDescriptions.map(item =>
+        ProjectVersionDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -1064,8 +1068,8 @@ export namespace DescribeProjectsResponse {
   export const filterSensitiveLog = (obj: DescribeProjectsResponse): any => ({
     ...obj,
     ...(obj.ProjectDescriptions && {
-      ProjectDescriptions: obj.ProjectDescriptions.map(
-        ProjectDescription.filterSensitiveLog
+      ProjectDescriptions: obj.ProjectDescriptions.map(item =>
+        ProjectDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -1236,7 +1240,9 @@ export namespace DetectCustomLabelsResponse {
   export const filterSensitiveLog = (obj: DetectCustomLabelsResponse): any => ({
     ...obj,
     ...(obj.CustomLabels && {
-      CustomLabels: obj.CustomLabels.map(CustomLabel.filterSensitiveLog)
+      CustomLabels: obj.CustomLabels.map(item =>
+        CustomLabel.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DetectCustomLabelsResponse =>
@@ -1302,7 +1308,9 @@ export namespace DetectFacesResponse {
   export const filterSensitiveLog = (obj: DetectFacesResponse): any => ({
     ...obj,
     ...(obj.FaceDetails && {
-      FaceDetails: obj.FaceDetails.map(FaceDetail.filterSensitiveLog)
+      FaceDetails: obj.FaceDetails.map(item =>
+        FaceDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DetectFacesResponse =>
@@ -1375,7 +1383,9 @@ export interface DetectLabelsResponse {
 export namespace DetectLabelsResponse {
   export const filterSensitiveLog = (obj: DetectLabelsResponse): any => ({
     ...obj,
-    ...(obj.Labels && { Labels: obj.Labels.map(Label.filterSensitiveLog) })
+    ...(obj.Labels && {
+      Labels: obj.Labels.map(item => Label.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DetectLabelsResponse =>
     __isa(o, "DetectLabelsResponse");
@@ -1452,8 +1462,8 @@ export namespace DetectModerationLabelsResponse {
       )
     }),
     ...(obj.ModerationLabels && {
-      ModerationLabels: obj.ModerationLabels.map(
-        ModerationLabel.filterSensitiveLog
+      ModerationLabels: obj.ModerationLabels.map(item =>
+        ModerationLabel.filterSensitiveLog(item)
       )
     })
   });
@@ -1494,7 +1504,9 @@ export namespace DetectTextResponse {
   export const filterSensitiveLog = (obj: DetectTextResponse): any => ({
     ...obj,
     ...(obj.TextDetections && {
-      TextDetections: obj.TextDetections.map(TextDetection.filterSensitiveLog)
+      TextDetections: obj.TextDetections.map(item =>
+        TextDetection.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DetectTextResponse =>
@@ -1790,7 +1802,7 @@ export namespace FaceDetail {
       BoundingBox: BoundingBox.filterSensitiveLog(obj.BoundingBox)
     }),
     ...(obj.Emotions && {
-      Emotions: obj.Emotions.map(Emotion.filterSensitiveLog)
+      Emotions: obj.Emotions.map(item => Emotion.filterSensitiveLog(item))
     }),
     ...(obj.Eyeglasses && {
       Eyeglasses: Eyeglasses.filterSensitiveLog(obj.Eyeglasses)
@@ -1798,7 +1810,7 @@ export namespace FaceDetail {
     ...(obj.EyesOpen && { EyesOpen: EyeOpen.filterSensitiveLog(obj.EyesOpen) }),
     ...(obj.Gender && { Gender: Gender.filterSensitiveLog(obj.Gender) }),
     ...(obj.Landmarks && {
-      Landmarks: obj.Landmarks.map(Landmark.filterSensitiveLog)
+      Landmarks: obj.Landmarks.map(item => Landmark.filterSensitiveLog(item))
     }),
     ...(obj.MouthOpen && {
       MouthOpen: MouthOpen.filterSensitiveLog(obj.MouthOpen)
@@ -1992,7 +2004,9 @@ export namespace Geometry {
     ...(obj.BoundingBox && {
       BoundingBox: BoundingBox.filterSensitiveLog(obj.BoundingBox)
     }),
-    ...(obj.Polygon && { Polygon: obj.Polygon.map(Point.filterSensitiveLog) })
+    ...(obj.Polygon && {
+      Polygon: obj.Polygon.map(item => Point.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Geometry => __isa(o, "Geometry");
 }
@@ -2109,7 +2123,9 @@ export namespace GetCelebrityRecognitionResponse {
   ): any => ({
     ...obj,
     ...(obj.Celebrities && {
-      Celebrities: obj.Celebrities.map(CelebrityRecognition.filterSensitiveLog)
+      Celebrities: obj.Celebrities.map(item =>
+        CelebrityRecognition.filterSensitiveLog(item)
+      )
     }),
     ...(obj.VideoMetadata && {
       VideoMetadata: VideoMetadata.filterSensitiveLog(obj.VideoMetadata)
@@ -2202,8 +2218,8 @@ export namespace GetContentModerationResponse {
   ): any => ({
     ...obj,
     ...(obj.ModerationLabels && {
-      ModerationLabels: obj.ModerationLabels.map(
-        ContentModerationDetection.filterSensitiveLog
+      ModerationLabels: obj.ModerationLabels.map(item =>
+        ContentModerationDetection.filterSensitiveLog(item)
       )
     }),
     ...(obj.VideoMetadata && {
@@ -2277,7 +2293,7 @@ export namespace GetFaceDetectionResponse {
   export const filterSensitiveLog = (obj: GetFaceDetectionResponse): any => ({
     ...obj,
     ...(obj.Faces && {
-      Faces: obj.Faces.map(FaceDetection.filterSensitiveLog)
+      Faces: obj.Faces.map(item => FaceDetection.filterSensitiveLog(item))
     }),
     ...(obj.VideoMetadata && {
       VideoMetadata: VideoMetadata.filterSensitiveLog(obj.VideoMetadata)
@@ -2361,7 +2377,7 @@ export namespace GetFaceSearchResponse {
   export const filterSensitiveLog = (obj: GetFaceSearchResponse): any => ({
     ...obj,
     ...(obj.Persons && {
-      Persons: obj.Persons.map(PersonMatch.filterSensitiveLog)
+      Persons: obj.Persons.map(item => PersonMatch.filterSensitiveLog(item))
     }),
     ...(obj.VideoMetadata && {
       VideoMetadata: VideoMetadata.filterSensitiveLog(obj.VideoMetadata)
@@ -2450,7 +2466,7 @@ export namespace GetLabelDetectionResponse {
   export const filterSensitiveLog = (obj: GetLabelDetectionResponse): any => ({
     ...obj,
     ...(obj.Labels && {
-      Labels: obj.Labels.map(LabelDetection.filterSensitiveLog)
+      Labels: obj.Labels.map(item => LabelDetection.filterSensitiveLog(item))
     }),
     ...(obj.VideoMetadata && {
       VideoMetadata: VideoMetadata.filterSensitiveLog(obj.VideoMetadata)
@@ -2532,7 +2548,7 @@ export namespace GetPersonTrackingResponse {
   export const filterSensitiveLog = (obj: GetPersonTrackingResponse): any => ({
     ...obj,
     ...(obj.Persons && {
-      Persons: obj.Persons.map(PersonDetection.filterSensitiveLog)
+      Persons: obj.Persons.map(item => PersonDetection.filterSensitiveLog(item))
     }),
     ...(obj.VideoMetadata && {
       VideoMetadata: VideoMetadata.filterSensitiveLog(obj.VideoMetadata)
@@ -2934,10 +2950,14 @@ export namespace IndexFacesResponse {
   export const filterSensitiveLog = (obj: IndexFacesResponse): any => ({
     ...obj,
     ...(obj.FaceRecords && {
-      FaceRecords: obj.FaceRecords.map(FaceRecord.filterSensitiveLog)
+      FaceRecords: obj.FaceRecords.map(item =>
+        FaceRecord.filterSensitiveLog(item)
+      )
     }),
     ...(obj.UnindexedFaces && {
-      UnindexedFaces: obj.UnindexedFaces.map(UnindexedFace.filterSensitiveLog)
+      UnindexedFaces: obj.UnindexedFaces.map(item =>
+        UnindexedFace.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is IndexFacesResponse =>
@@ -3155,9 +3175,11 @@ export namespace Label {
   export const filterSensitiveLog = (obj: Label): any => ({
     ...obj,
     ...(obj.Instances && {
-      Instances: obj.Instances.map(Instance.filterSensitiveLog)
+      Instances: obj.Instances.map(item => Instance.filterSensitiveLog(item))
     }),
-    ...(obj.Parents && { Parents: obj.Parents.map(Parent.filterSensitiveLog) })
+    ...(obj.Parents && {
+      Parents: obj.Parents.map(item => Parent.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Label => __isa(o, "Label");
 }
@@ -3380,7 +3402,9 @@ export interface ListFacesResponse {
 export namespace ListFacesResponse {
   export const filterSensitiveLog = (obj: ListFacesResponse): any => ({
     ...obj,
-    ...(obj.Faces && { Faces: obj.Faces.map(Face.filterSensitiveLog) })
+    ...(obj.Faces && {
+      Faces: obj.Faces.map(item => Face.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListFacesResponse =>
     __isa(o, "ListFacesResponse");
@@ -3430,8 +3454,8 @@ export namespace ListStreamProcessorsResponse {
   ): any => ({
     ...obj,
     ...(obj.StreamProcessors && {
-      StreamProcessors: obj.StreamProcessors.map(
-        StreamProcessor.filterSensitiveLog
+      StreamProcessors: obj.StreamProcessors.map(item =>
+        StreamProcessor.filterSensitiveLog(item)
       )
     })
   });
@@ -3685,7 +3709,9 @@ export namespace PersonMatch {
   export const filterSensitiveLog = (obj: PersonMatch): any => ({
     ...obj,
     ...(obj.FaceMatches && {
-      FaceMatches: obj.FaceMatches.map(FaceMatch.filterSensitiveLog)
+      FaceMatches: obj.FaceMatches.map(item =>
+        FaceMatch.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Person && { Person: PersonDetail.filterSensitiveLog(obj.Person) })
   });
@@ -3992,11 +4018,13 @@ export namespace RecognizeCelebritiesResponse {
   ): any => ({
     ...obj,
     ...(obj.CelebrityFaces && {
-      CelebrityFaces: obj.CelebrityFaces.map(Celebrity.filterSensitiveLog)
+      CelebrityFaces: obj.CelebrityFaces.map(item =>
+        Celebrity.filterSensitiveLog(item)
+      )
     }),
     ...(obj.UnrecognizedFaces && {
-      UnrecognizedFaces: obj.UnrecognizedFaces.map(
-        ComparedFace.filterSensitiveLog
+      UnrecognizedFaces: obj.UnrecognizedFaces.map(item =>
+        ComparedFace.filterSensitiveLog(item)
       )
     })
   });
@@ -4213,7 +4241,9 @@ export namespace SearchFacesByImageResponse {
   export const filterSensitiveLog = (obj: SearchFacesByImageResponse): any => ({
     ...obj,
     ...(obj.FaceMatches && {
-      FaceMatches: obj.FaceMatches.map(FaceMatch.filterSensitiveLog)
+      FaceMatches: obj.FaceMatches.map(item =>
+        FaceMatch.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SearchedFaceBoundingBox && {
       SearchedFaceBoundingBox: BoundingBox.filterSensitiveLog(
@@ -4283,7 +4313,9 @@ export namespace SearchFacesResponse {
   export const filterSensitiveLog = (obj: SearchFacesResponse): any => ({
     ...obj,
     ...(obj.FaceMatches && {
-      FaceMatches: obj.FaceMatches.map(FaceMatch.filterSensitiveLog)
+      FaceMatches: obj.FaceMatches.map(item =>
+        FaceMatch.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SearchFacesResponse =>
@@ -5033,7 +5065,9 @@ export interface TestingData {
 export namespace TestingData {
   export const filterSensitiveLog = (obj: TestingData): any => ({
     ...obj,
-    ...(obj.Assets && { Assets: obj.Assets.map(Asset.filterSensitiveLog) })
+    ...(obj.Assets && {
+      Assets: obj.Assets.map(item => Asset.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TestingData => __isa(o, "TestingData");
 }
@@ -5163,7 +5197,9 @@ export interface TrainingData {
 export namespace TrainingData {
   export const filterSensitiveLog = (obj: TrainingData): any => ({
     ...obj,
-    ...(obj.Assets && { Assets: obj.Assets.map(Asset.filterSensitiveLog) })
+    ...(obj.Assets && {
+      Assets: obj.Assets.map(item => Asset.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TrainingData => __isa(o, "TrainingData");
 }

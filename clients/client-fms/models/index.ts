@@ -619,8 +619,8 @@ export namespace ListComplianceStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.PolicyComplianceStatusList && {
-      PolicyComplianceStatusList: obj.PolicyComplianceStatusList.map(
-        PolicyComplianceStatus.filterSensitiveLog
+      PolicyComplianceStatusList: obj.PolicyComplianceStatusList.map(item =>
+        PolicyComplianceStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -734,7 +734,9 @@ export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
     ...obj,
     ...(obj.PolicyList && {
-      PolicyList: obj.PolicyList.map(PolicySummary.filterSensitiveLog)
+      PolicyList: obj.PolicyList.map(item =>
+        PolicySummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListPoliciesResponse =>
@@ -770,7 +772,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -865,7 +869,9 @@ export namespace Policy {
   export const filterSensitiveLog = (obj: Policy): any => ({
     ...obj,
     ...(obj.ResourceTags && {
-      ResourceTags: obj.ResourceTags.map(ResourceTag.filterSensitiveLog)
+      ResourceTags: obj.ResourceTags.map(item =>
+        ResourceTag.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SecurityServicePolicyData && {
       SecurityServicePolicyData: SecurityServicePolicyData.filterSensitiveLog(
@@ -929,7 +935,9 @@ export namespace PolicyComplianceDetail {
   export const filterSensitiveLog = (obj: PolicyComplianceDetail): any => ({
     ...obj,
     ...(obj.Violators && {
-      Violators: obj.Violators.map(ComplianceViolator.filterSensitiveLog)
+      Violators: obj.Violators.map(item =>
+        ComplianceViolator.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PolicyComplianceDetail =>
@@ -986,8 +994,8 @@ export namespace PolicyComplianceStatus {
   export const filterSensitiveLog = (obj: PolicyComplianceStatus): any => ({
     ...obj,
     ...(obj.EvaluationResults && {
-      EvaluationResults: obj.EvaluationResults.map(
-        EvaluationResult.filterSensitiveLog
+      EvaluationResults: obj.EvaluationResults.map(item =>
+        EvaluationResult.filterSensitiveLog(item)
       )
     })
   });
@@ -1094,7 +1102,9 @@ export namespace PutPolicyRequest {
   export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
     ...obj,
     ...(obj.Policy && { Policy: Policy.filterSensitiveLog(obj.Policy) }),
-    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutPolicyRequest =>
     __isa(o, "PutPolicyRequest");
@@ -1287,7 +1297,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

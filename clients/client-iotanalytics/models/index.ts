@@ -501,7 +501,7 @@ export namespace ContainerDatasetAction {
       )
     }),
     ...(obj.variables && {
-      variables: obj.variables.map(Variable.filterSensitiveLog)
+      variables: obj.variables.map(item => Variable.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ContainerDatasetAction =>
@@ -543,7 +543,9 @@ export namespace CreateChannelRequest {
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateChannelRequest =>
     __isa(o, "CreateChannelRequest");
@@ -665,19 +667,23 @@ export namespace CreateDatasetRequest {
   export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
     ...obj,
     ...(obj.actions && {
-      actions: obj.actions.map(DatasetAction.filterSensitiveLog)
+      actions: obj.actions.map(item => DatasetAction.filterSensitiveLog(item))
     }),
     ...(obj.contentDeliveryRules && {
-      contentDeliveryRules: obj.contentDeliveryRules.map(
-        DatasetContentDeliveryRule.filterSensitiveLog
+      contentDeliveryRules: obj.contentDeliveryRules.map(item =>
+        DatasetContentDeliveryRule.filterSensitiveLog(item)
       )
     }),
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.triggers && {
-      triggers: obj.triggers.map(DatasetTrigger.filterSensitiveLog)
+      triggers: obj.triggers.map(item =>
+        DatasetTrigger.filterSensitiveLog(item)
+      )
     }),
     ...(obj.versioningConfiguration && {
       versioningConfiguration: VersioningConfiguration.filterSensitiveLog(
@@ -755,7 +761,9 @@ export namespace CreateDatastoreRequest {
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateDatastoreRequest =>
     __isa(o, "CreateDatastoreRequest");
@@ -829,11 +837,13 @@ export namespace CreatePipelineRequest {
   export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
     ...obj,
     ...(obj.pipelineActivities && {
-      pipelineActivities: obj.pipelineActivities.map(
-        PipelineActivity.filterSensitiveLog
+      pipelineActivities: obj.pipelineActivities.map(item =>
+        PipelineActivity.filterSensitiveLog(item)
       )
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreatePipelineRequest =>
     __isa(o, "CreatePipelineRequest");
@@ -1061,18 +1071,20 @@ export namespace Dataset {
   export const filterSensitiveLog = (obj: Dataset): any => ({
     ...obj,
     ...(obj.actions && {
-      actions: obj.actions.map(DatasetAction.filterSensitiveLog)
+      actions: obj.actions.map(item => DatasetAction.filterSensitiveLog(item))
     }),
     ...(obj.contentDeliveryRules && {
-      contentDeliveryRules: obj.contentDeliveryRules.map(
-        DatasetContentDeliveryRule.filterSensitiveLog
+      contentDeliveryRules: obj.contentDeliveryRules.map(item =>
+        DatasetContentDeliveryRule.filterSensitiveLog(item)
       )
     }),
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
     }),
     ...(obj.triggers && {
-      triggers: obj.triggers.map(DatasetTrigger.filterSensitiveLog)
+      triggers: obj.triggers.map(item =>
+        DatasetTrigger.filterSensitiveLog(item)
+      )
     }),
     ...(obj.versioningConfiguration && {
       versioningConfiguration: VersioningConfiguration.filterSensitiveLog(
@@ -1380,10 +1392,14 @@ export namespace DatasetSummary {
   export const filterSensitiveLog = (obj: DatasetSummary): any => ({
     ...obj,
     ...(obj.actions && {
-      actions: obj.actions.map(DatasetActionSummary.filterSensitiveLog)
+      actions: obj.actions.map(item =>
+        DatasetActionSummary.filterSensitiveLog(item)
+      )
     }),
     ...(obj.triggers && {
-      triggers: obj.triggers.map(DatasetTrigger.filterSensitiveLog)
+      triggers: obj.triggers.map(item =>
+        DatasetTrigger.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DatasetSummary =>
@@ -2160,7 +2176,7 @@ export namespace GetDatasetContentResponse {
   export const filterSensitiveLog = (obj: GetDatasetContentResponse): any => ({
     ...obj,
     ...(obj.entries && {
-      entries: obj.entries.map(DatasetEntry.filterSensitiveLog)
+      entries: obj.entries.map(item => DatasetEntry.filterSensitiveLog(item))
     }),
     ...(obj.status && {
       status: DatasetContentStatus.filterSensitiveLog(obj.status)
@@ -2301,8 +2317,8 @@ export namespace ListChannelsResponse {
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
     ...obj,
     ...(obj.channelSummaries && {
-      channelSummaries: obj.channelSummaries.map(
-        ChannelSummary.filterSensitiveLog
+      channelSummaries: obj.channelSummaries.map(item =>
+        ChannelSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2369,8 +2385,8 @@ export namespace ListDatasetContentsResponse {
   ): any => ({
     ...obj,
     ...(obj.datasetContentSummaries && {
-      datasetContentSummaries: obj.datasetContentSummaries.map(
-        DatasetContentSummary.filterSensitiveLog
+      datasetContentSummaries: obj.datasetContentSummaries.map(item =>
+        DatasetContentSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2418,8 +2434,8 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
     ...(obj.datasetSummaries && {
-      datasetSummaries: obj.datasetSummaries.map(
-        DatasetSummary.filterSensitiveLog
+      datasetSummaries: obj.datasetSummaries.map(item =>
+        DatasetSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2467,8 +2483,8 @@ export namespace ListDatastoresResponse {
   export const filterSensitiveLog = (obj: ListDatastoresResponse): any => ({
     ...obj,
     ...(obj.datastoreSummaries && {
-      datastoreSummaries: obj.datastoreSummaries.map(
-        DatastoreSummary.filterSensitiveLog
+      datastoreSummaries: obj.datastoreSummaries.map(item =>
+        DatastoreSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2516,8 +2532,8 @@ export namespace ListPipelinesResponse {
   export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
     ...obj,
     ...(obj.pipelineSummaries && {
-      pipelineSummaries: obj.pipelineSummaries.map(
-        PipelineSummary.filterSensitiveLog
+      pipelineSummaries: obj.pipelineSummaries.map(item =>
+        PipelineSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2554,7 +2570,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -2687,11 +2705,13 @@ export namespace Pipeline {
   export const filterSensitiveLog = (obj: Pipeline): any => ({
     ...obj,
     ...(obj.activities && {
-      activities: obj.activities.map(PipelineActivity.filterSensitiveLog)
+      activities: obj.activities.map(item =>
+        PipelineActivity.filterSensitiveLog(item)
+      )
     }),
     ...(obj.reprocessingSummaries && {
-      reprocessingSummaries: obj.reprocessingSummaries.map(
-        ReprocessingSummary.filterSensitiveLog
+      reprocessingSummaries: obj.reprocessingSummaries.map(item =>
+        ReprocessingSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2830,8 +2850,8 @@ export namespace PipelineSummary {
   export const filterSensitiveLog = (obj: PipelineSummary): any => ({
     ...obj,
     ...(obj.reprocessingSummaries && {
-      reprocessingSummaries: obj.reprocessingSummaries.map(
-        ReprocessingSummary.filterSensitiveLog
+      reprocessingSummaries: obj.reprocessingSummaries.map(item =>
+        ReprocessingSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -3286,7 +3306,7 @@ export namespace SqlQueryDatasetAction {
   export const filterSensitiveLog = (obj: SqlQueryDatasetAction): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(QueryFilter.filterSensitiveLog)
+      filters: obj.filters.map(item => QueryFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SqlQueryDatasetAction =>
@@ -3378,7 +3398,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -3526,18 +3548,20 @@ export namespace UpdateDatasetRequest {
   export const filterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
     ...obj,
     ...(obj.actions && {
-      actions: obj.actions.map(DatasetAction.filterSensitiveLog)
+      actions: obj.actions.map(item => DatasetAction.filterSensitiveLog(item))
     }),
     ...(obj.contentDeliveryRules && {
-      contentDeliveryRules: obj.contentDeliveryRules.map(
-        DatasetContentDeliveryRule.filterSensitiveLog
+      contentDeliveryRules: obj.contentDeliveryRules.map(item =>
+        DatasetContentDeliveryRule.filterSensitiveLog(item)
       )
     }),
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
     }),
     ...(obj.triggers && {
-      triggers: obj.triggers.map(DatasetTrigger.filterSensitiveLog)
+      triggers: obj.triggers.map(item =>
+        DatasetTrigger.filterSensitiveLog(item)
+      )
     }),
     ...(obj.versioningConfiguration && {
       versioningConfiguration: VersioningConfiguration.filterSensitiveLog(
@@ -3620,8 +3644,8 @@ export namespace UpdatePipelineRequest {
   export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
     ...obj,
     ...(obj.pipelineActivities && {
-      pipelineActivities: obj.pipelineActivities.map(
-        PipelineActivity.filterSensitiveLog
+      pipelineActivities: obj.pipelineActivities.map(item =>
+        PipelineActivity.filterSensitiveLog(item)
       )
     })
   });
@@ -3777,7 +3801,7 @@ export namespace BatchPutMessageRequest {
   export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
     ...obj,
     ...(obj.messages && {
-      messages: obj.messages.map(Message.filterSensitiveLog)
+      messages: obj.messages.map(item => Message.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchPutMessageRequest =>
@@ -3796,8 +3820,8 @@ export namespace BatchPutMessageResponse {
   export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
     ...obj,
     ...(obj.batchPutMessageErrorEntries && {
-      batchPutMessageErrorEntries: obj.batchPutMessageErrorEntries.map(
-        BatchPutMessageErrorEntry.filterSensitiveLog
+      batchPutMessageErrorEntries: obj.batchPutMessageErrorEntries.map(item =>
+        BatchPutMessageErrorEntry.filterSensitiveLog(item)
       )
     })
   });

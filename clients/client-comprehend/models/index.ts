@@ -30,7 +30,9 @@ export namespace BatchDetectDominantLanguageItemResult {
   ): any => ({
     ...obj,
     ...(obj.Languages && {
-      Languages: obj.Languages.map(DominantLanguage.filterSensitiveLog)
+      Languages: obj.Languages.map(item =>
+        DominantLanguage.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchDetectDominantLanguageItemResult =>
@@ -82,11 +84,13 @@ export namespace BatchDetectDominantLanguageResponse {
   ): any => ({
     ...obj,
     ...(obj.ErrorList && {
-      ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
+      ErrorList: obj.ErrorList.map(item =>
+        BatchItemError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResultList && {
-      ResultList: obj.ResultList.map(
-        BatchDetectDominantLanguageItemResult.filterSensitiveLog
+      ResultList: obj.ResultList.map(item =>
+        BatchDetectDominantLanguageItemResult.filterSensitiveLog(item)
       )
     })
   });
@@ -119,7 +123,7 @@ export namespace BatchDetectEntitiesItemResult {
   ): any => ({
     ...obj,
     ...(obj.Entities && {
-      Entities: obj.Entities.map(Entity.filterSensitiveLog)
+      Entities: obj.Entities.map(item => Entity.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchDetectEntitiesItemResult =>
@@ -176,11 +180,13 @@ export namespace BatchDetectEntitiesResponse {
   ): any => ({
     ...obj,
     ...(obj.ErrorList && {
-      ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
+      ErrorList: obj.ErrorList.map(item =>
+        BatchItemError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResultList && {
-      ResultList: obj.ResultList.map(
-        BatchDetectEntitiesItemResult.filterSensitiveLog
+      ResultList: obj.ResultList.map(item =>
+        BatchDetectEntitiesItemResult.filterSensitiveLog(item)
       )
     })
   });
@@ -213,7 +219,7 @@ export namespace BatchDetectKeyPhrasesItemResult {
   ): any => ({
     ...obj,
     ...(obj.KeyPhrases && {
-      KeyPhrases: obj.KeyPhrases.map(KeyPhrase.filterSensitiveLog)
+      KeyPhrases: obj.KeyPhrases.map(item => KeyPhrase.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchDetectKeyPhrasesItemResult =>
@@ -272,11 +278,13 @@ export namespace BatchDetectKeyPhrasesResponse {
   ): any => ({
     ...obj,
     ...(obj.ErrorList && {
-      ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
+      ErrorList: obj.ErrorList.map(item =>
+        BatchItemError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResultList && {
-      ResultList: obj.ResultList.map(
-        BatchDetectKeyPhrasesItemResult.filterSensitiveLog
+      ResultList: obj.ResultList.map(item =>
+        BatchDetectKeyPhrasesItemResult.filterSensitiveLog(item)
       )
     })
   });
@@ -373,11 +381,13 @@ export namespace BatchDetectSentimentResponse {
   ): any => ({
     ...obj,
     ...(obj.ErrorList && {
-      ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
+      ErrorList: obj.ErrorList.map(item =>
+        BatchItemError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResultList && {
-      ResultList: obj.ResultList.map(
-        BatchDetectSentimentItemResult.filterSensitiveLog
+      ResultList: obj.ResultList.map(item =>
+        BatchDetectSentimentItemResult.filterSensitiveLog(item)
       )
     })
   });
@@ -408,7 +418,9 @@ export namespace BatchDetectSyntaxItemResult {
   ): any => ({
     ...obj,
     ...(obj.SyntaxTokens && {
-      SyntaxTokens: obj.SyntaxTokens.map(SyntaxToken.filterSensitiveLog)
+      SyntaxTokens: obj.SyntaxTokens.map(item =>
+        SyntaxToken.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchDetectSyntaxItemResult =>
@@ -463,11 +475,13 @@ export namespace BatchDetectSyntaxResponse {
   export const filterSensitiveLog = (obj: BatchDetectSyntaxResponse): any => ({
     ...obj,
     ...(obj.ErrorList && {
-      ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
+      ErrorList: obj.ErrorList.map(item =>
+        BatchItemError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResultList && {
-      ResultList: obj.ResultList.map(
-        BatchDetectSyntaxItemResult.filterSensitiveLog
+      ResultList: obj.ResultList.map(item =>
+        BatchDetectSyntaxItemResult.filterSensitiveLog(item)
       )
     })
   });
@@ -680,10 +694,10 @@ export namespace ClassifyDocumentResponse {
   export const filterSensitiveLog = (obj: ClassifyDocumentResponse): any => ({
     ...obj,
     ...(obj.Classes && {
-      Classes: obj.Classes.map(DocumentClass.filterSensitiveLog)
+      Classes: obj.Classes.map(item => DocumentClass.filterSensitiveLog(item))
     }),
     ...(obj.Labels && {
-      Labels: obj.Labels.map(DocumentLabel.filterSensitiveLog)
+      Labels: obj.Labels.map(item => DocumentLabel.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ClassifyDocumentResponse =>
@@ -800,7 +814,9 @@ export namespace CreateDocumentClassifierRequest {
         obj.OutputDataConfig
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.VpcConfig && {
       VpcConfig: VpcConfig.filterSensitiveLog(obj.VpcConfig)
     })
@@ -862,7 +878,9 @@ export interface CreateEndpointRequest {
 export namespace CreateEndpointRequest {
   export const filterSensitiveLog = (obj: CreateEndpointRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateEndpointRequest =>
     __isa(o, "CreateEndpointRequest");
@@ -954,7 +972,9 @@ export namespace CreateEntityRecognizerRequest {
         obj.InputDataConfig
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.VpcConfig && {
       VpcConfig: VpcConfig.filterSensitiveLog(obj.VpcConfig)
     })
@@ -1487,7 +1507,9 @@ export namespace DetectDominantLanguageResponse {
   ): any => ({
     ...obj,
     ...(obj.Languages && {
-      Languages: obj.Languages.map(DominantLanguage.filterSensitiveLog)
+      Languages: obj.Languages.map(item =>
+        DominantLanguage.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DetectDominantLanguageResponse =>
@@ -1532,7 +1554,7 @@ export namespace DetectEntitiesResponse {
   export const filterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
     ...obj,
     ...(obj.Entities && {
-      Entities: obj.Entities.map(Entity.filterSensitiveLog)
+      Entities: obj.Entities.map(item => Entity.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DetectEntitiesResponse =>
@@ -1577,7 +1599,7 @@ export namespace DetectKeyPhrasesResponse {
   export const filterSensitiveLog = (obj: DetectKeyPhrasesResponse): any => ({
     ...obj,
     ...(obj.KeyPhrases && {
-      KeyPhrases: obj.KeyPhrases.map(KeyPhrase.filterSensitiveLog)
+      KeyPhrases: obj.KeyPhrases.map(item => KeyPhrase.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DetectKeyPhrasesResponse =>
@@ -1670,7 +1692,9 @@ export namespace DetectSyntaxResponse {
   export const filterSensitiveLog = (obj: DetectSyntaxResponse): any => ({
     ...obj,
     ...(obj.SyntaxTokens && {
-      SyntaxTokens: obj.SyntaxTokens.map(SyntaxToken.filterSensitiveLog)
+      SyntaxTokens: obj.SyntaxTokens.map(item =>
+        SyntaxToken.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DetectSyntaxResponse =>
@@ -2761,7 +2785,9 @@ export namespace EntityRecognizerInputDataConfig {
       EntityList: EntityRecognizerEntityList.filterSensitiveLog(obj.EntityList)
     }),
     ...(obj.EntityTypes && {
-      EntityTypes: obj.EntityTypes.map(EntityTypesListItem.filterSensitiveLog)
+      EntityTypes: obj.EntityTypes.map(item =>
+        EntityTypesListItem.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is EntityRecognizerInputDataConfig =>
@@ -2798,8 +2824,8 @@ export namespace EntityRecognizerMetadata {
   export const filterSensitiveLog = (obj: EntityRecognizerMetadata): any => ({
     ...obj,
     ...(obj.EntityTypes && {
-      EntityTypes: obj.EntityTypes.map(
-        EntityRecognizerMetadataEntityTypesListItem.filterSensitiveLog
+      EntityTypes: obj.EntityTypes.map(item =>
+        EntityRecognizerMetadataEntityTypesListItem.filterSensitiveLog(item)
       )
     }),
     ...(obj.EvaluationMetrics && {
@@ -3428,7 +3454,7 @@ export namespace ListDocumentClassificationJobsResponse {
     ...obj,
     ...(obj.DocumentClassificationJobPropertiesList && {
       DocumentClassificationJobPropertiesList: obj.DocumentClassificationJobPropertiesList.map(
-        DocumentClassificationJobProperties.filterSensitiveLog
+        item => DocumentClassificationJobProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3488,7 +3514,7 @@ export namespace ListDocumentClassifiersResponse {
     ...obj,
     ...(obj.DocumentClassifierPropertiesList && {
       DocumentClassifierPropertiesList: obj.DocumentClassifierPropertiesList.map(
-        DocumentClassifierProperties.filterSensitiveLog
+        item => DocumentClassifierProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3548,7 +3574,7 @@ export namespace ListDominantLanguageDetectionJobsResponse {
     ...obj,
     ...(obj.DominantLanguageDetectionJobPropertiesList && {
       DominantLanguageDetectionJobPropertiesList: obj.DominantLanguageDetectionJobPropertiesList.map(
-        DominantLanguageDetectionJobProperties.filterSensitiveLog
+        item => DominantLanguageDetectionJobProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3601,8 +3627,8 @@ export namespace ListEndpointsResponse {
   export const filterSensitiveLog = (obj: ListEndpointsResponse): any => ({
     ...obj,
     ...(obj.EndpointPropertiesList && {
-      EndpointPropertiesList: obj.EndpointPropertiesList.map(
-        EndpointProperties.filterSensitiveLog
+      EndpointPropertiesList: obj.EndpointPropertiesList.map(item =>
+        EndpointProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3662,7 +3688,7 @@ export namespace ListEntitiesDetectionJobsResponse {
     ...obj,
     ...(obj.EntitiesDetectionJobPropertiesList && {
       EntitiesDetectionJobPropertiesList: obj.EntitiesDetectionJobPropertiesList.map(
-        EntitiesDetectionJobProperties.filterSensitiveLog
+        item => EntitiesDetectionJobProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3721,7 +3747,7 @@ export namespace ListEntityRecognizersResponse {
     ...obj,
     ...(obj.EntityRecognizerPropertiesList && {
       EntityRecognizerPropertiesList: obj.EntityRecognizerPropertiesList.map(
-        EntityRecognizerProperties.filterSensitiveLog
+        item => EntityRecognizerProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3781,7 +3807,7 @@ export namespace ListKeyPhrasesDetectionJobsResponse {
     ...obj,
     ...(obj.KeyPhrasesDetectionJobPropertiesList && {
       KeyPhrasesDetectionJobPropertiesList: obj.KeyPhrasesDetectionJobPropertiesList.map(
-        KeyPhrasesDetectionJobProperties.filterSensitiveLog
+        item => KeyPhrasesDetectionJobProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3841,7 +3867,7 @@ export namespace ListSentimentDetectionJobsResponse {
     ...obj,
     ...(obj.SentimentDetectionJobPropertiesList && {
       SentimentDetectionJobPropertiesList: obj.SentimentDetectionJobPropertiesList.map(
-        SentimentDetectionJobProperties.filterSensitiveLog
+        item => SentimentDetectionJobProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -3884,7 +3910,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -3942,7 +3970,7 @@ export namespace ListTopicsDetectionJobsResponse {
     ...obj,
     ...(obj.TopicsDetectionJobPropertiesList && {
       TopicsDetectionJobPropertiesList: obj.TopicsDetectionJobPropertiesList.map(
-        TopicsDetectionJobProperties.filterSensitiveLog
+        item => TopicsDetectionJobProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -5378,7 +5406,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

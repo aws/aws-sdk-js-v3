@@ -1109,7 +1109,9 @@ export interface CreateRoleRequest {
 export namespace CreateRoleRequest {
   export const filterSensitiveLog = (obj: CreateRoleRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateRoleRequest =>
     __isa(o, "CreateRoleRequest");
@@ -1344,7 +1346,9 @@ export interface CreateUserRequest {
 export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateUserRequest =>
     __isa(o, "CreateUserRequest");
@@ -2068,7 +2072,9 @@ export namespace DeletionTaskFailureReasonType {
   ): any => ({
     ...obj,
     ...(obj.RoleUsageList && {
-      RoleUsageList: obj.RoleUsageList.map(RoleUsageType.filterSensitiveLog)
+      RoleUsageList: obj.RoleUsageList.map(item =>
+        RoleUsageType.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DeletionTaskFailureReasonType =>
@@ -2481,7 +2487,9 @@ export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
     ...obj,
     ...(obj.MatchedStatements && {
-      MatchedStatements: obj.MatchedStatements.map(Statement.filterSensitiveLog)
+      MatchedStatements: obj.MatchedStatements.map(item =>
+        Statement.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OrganizationsDecisionDetail && {
       OrganizationsDecisionDetail: OrganizationsDecisionDetail.filterSensitiveLog(
@@ -2489,8 +2497,8 @@ export namespace EvaluationResult {
       )
     }),
     ...(obj.ResourceSpecificResults && {
-      ResourceSpecificResults: obj.ResourceSpecificResults.map(
-        ResourceSpecificResult.filterSensitiveLog
+      ResourceSpecificResults: obj.ResourceSpecificResults.map(item =>
+        ResourceSpecificResult.filterSensitiveLog(item)
       )
     })
   });
@@ -2761,16 +2769,24 @@ export namespace GetAccountAuthorizationDetailsResponse {
   ): any => ({
     ...obj,
     ...(obj.GroupDetailList && {
-      GroupDetailList: obj.GroupDetailList.map(GroupDetail.filterSensitiveLog)
+      GroupDetailList: obj.GroupDetailList.map(item =>
+        GroupDetail.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Policies && {
-      Policies: obj.Policies.map(ManagedPolicyDetail.filterSensitiveLog)
+      Policies: obj.Policies.map(item =>
+        ManagedPolicyDetail.filterSensitiveLog(item)
+      )
     }),
     ...(obj.RoleDetailList && {
-      RoleDetailList: obj.RoleDetailList.map(RoleDetail.filterSensitiveLog)
+      RoleDetailList: obj.RoleDetailList.map(item =>
+        RoleDetail.filterSensitiveLog(item)
+      )
     }),
     ...(obj.UserDetailList && {
-      UserDetailList: obj.UserDetailList.map(UserDetail.filterSensitiveLog)
+      UserDetailList: obj.UserDetailList.map(item =>
+        UserDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetAccountAuthorizationDetailsResponse =>
@@ -3093,7 +3109,9 @@ export namespace GetGroupResponse {
   export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
     ...obj,
     ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) }),
-    ...(obj.Users && { Users: obj.Users.map(User.filterSensitiveLog) })
+    ...(obj.Users && {
+      Users: obj.Users.map(item => User.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetGroupResponse =>
     __isa(o, "GetGroupResponse");
@@ -3357,7 +3375,9 @@ export namespace GetOrganizationsAccessReportResponse {
   ): any => ({
     ...obj,
     ...(obj.AccessDetails && {
-      AccessDetails: obj.AccessDetails.map(AccessDetail.filterSensitiveLog)
+      AccessDetails: obj.AccessDetails.map(item =>
+        AccessDetail.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ErrorDetails && {
       ErrorDetails: ErrorDetails.filterSensitiveLog(obj.ErrorDetails)
@@ -3799,8 +3819,8 @@ export namespace GetServiceLastAccessedDetailsResponse {
     ...obj,
     ...(obj.Error && { Error: ErrorDetails.filterSensitiveLog(obj.Error) }),
     ...(obj.ServicesLastAccessed && {
-      ServicesLastAccessed: obj.ServicesLastAccessed.map(
-        ServiceLastAccessed.filterSensitiveLog
+      ServicesLastAccessed: obj.ServicesLastAccessed.map(item =>
+        ServiceLastAccessed.filterSensitiveLog(item)
       )
     })
   });
@@ -3919,8 +3939,8 @@ export namespace GetServiceLastAccessedDetailsWithEntitiesResponse {
   ): any => ({
     ...obj,
     ...(obj.EntityDetailsList && {
-      EntityDetailsList: obj.EntityDetailsList.map(
-        EntityDetails.filterSensitiveLog
+      EntityDetailsList: obj.EntityDetailsList.map(item =>
+        EntityDetails.filterSensitiveLog(item)
       )
     }),
     ...(obj.Error && { Error: ErrorDetails.filterSensitiveLog(obj.Error) })
@@ -4204,12 +4224,14 @@ export namespace GroupDetail {
   export const filterSensitiveLog = (obj: GroupDetail): any => ({
     ...obj,
     ...(obj.AttachedManagedPolicies && {
-      AttachedManagedPolicies: obj.AttachedManagedPolicies.map(
-        AttachedPolicy.filterSensitiveLog
+      AttachedManagedPolicies: obj.AttachedManagedPolicies.map(item =>
+        AttachedPolicy.filterSensitiveLog(item)
       )
     }),
     ...(obj.GroupPolicyList && {
-      GroupPolicyList: obj.GroupPolicyList.map(PolicyDetail.filterSensitiveLog)
+      GroupPolicyList: obj.GroupPolicyList.map(item =>
+        PolicyDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GroupDetail => __isa(o, "GroupDetail");
@@ -4281,7 +4303,9 @@ export interface InstanceProfile {
 export namespace InstanceProfile {
   export const filterSensitiveLog = (obj: InstanceProfile): any => ({
     ...obj,
-    ...(obj.Roles && { Roles: obj.Roles.map(Role.filterSensitiveLog) })
+    ...(obj.Roles && {
+      Roles: obj.Roles.map(item => Role.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is InstanceProfile =>
     __isa(o, "InstanceProfile");
@@ -4501,8 +4525,8 @@ export namespace ListAccessKeysResponse {
   export const filterSensitiveLog = (obj: ListAccessKeysResponse): any => ({
     ...obj,
     ...(obj.AccessKeyMetadata && {
-      AccessKeyMetadata: obj.AccessKeyMetadata.map(
-        AccessKeyMetadata.filterSensitiveLog
+      AccessKeyMetadata: obj.AccessKeyMetadata.map(item =>
+        AccessKeyMetadata.filterSensitiveLog(item)
       )
     })
   });
@@ -4664,8 +4688,8 @@ export namespace ListAttachedGroupPoliciesResponse {
   ): any => ({
     ...obj,
     ...(obj.AttachedPolicies && {
-      AttachedPolicies: obj.AttachedPolicies.map(
-        AttachedPolicy.filterSensitiveLog
+      AttachedPolicies: obj.AttachedPolicies.map(item =>
+        AttachedPolicy.filterSensitiveLog(item)
       )
     })
   });
@@ -4758,8 +4782,8 @@ export namespace ListAttachedRolePoliciesResponse {
   ): any => ({
     ...obj,
     ...(obj.AttachedPolicies && {
-      AttachedPolicies: obj.AttachedPolicies.map(
-        AttachedPolicy.filterSensitiveLog
+      AttachedPolicies: obj.AttachedPolicies.map(item =>
+        AttachedPolicy.filterSensitiveLog(item)
       )
     })
   });
@@ -4852,8 +4876,8 @@ export namespace ListAttachedUserPoliciesResponse {
   ): any => ({
     ...obj,
     ...(obj.AttachedPolicies && {
-      AttachedPolicies: obj.AttachedPolicies.map(
-        AttachedPolicy.filterSensitiveLog
+      AttachedPolicies: obj.AttachedPolicies.map(item =>
+        AttachedPolicy.filterSensitiveLog(item)
       )
     })
   });
@@ -4976,13 +5000,19 @@ export namespace ListEntitiesForPolicyResponse {
   ): any => ({
     ...obj,
     ...(obj.PolicyGroups && {
-      PolicyGroups: obj.PolicyGroups.map(PolicyGroup.filterSensitiveLog)
+      PolicyGroups: obj.PolicyGroups.map(item =>
+        PolicyGroup.filterSensitiveLog(item)
+      )
     }),
     ...(obj.PolicyRoles && {
-      PolicyRoles: obj.PolicyRoles.map(PolicyRole.filterSensitiveLog)
+      PolicyRoles: obj.PolicyRoles.map(item =>
+        PolicyRole.filterSensitiveLog(item)
+      )
     }),
     ...(obj.PolicyUsers && {
-      PolicyUsers: obj.PolicyUsers.map(PolicyUser.filterSensitiveLog)
+      PolicyUsers: obj.PolicyUsers.map(item =>
+        PolicyUser.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListEntitiesForPolicyResponse =>
@@ -5136,7 +5166,9 @@ export interface ListGroupsForUserResponse {
 export namespace ListGroupsForUserResponse {
   export const filterSensitiveLog = (obj: ListGroupsForUserResponse): any => ({
     ...obj,
-    ...(obj.Groups && { Groups: obj.Groups.map(Group.filterSensitiveLog) })
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListGroupsForUserResponse =>
     __isa(o, "ListGroupsForUserResponse");
@@ -5216,7 +5248,9 @@ export interface ListGroupsResponse {
 export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
-    ...(obj.Groups && { Groups: obj.Groups.map(Group.filterSensitiveLog) })
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListGroupsResponse =>
     __isa(o, "ListGroupsResponse");
@@ -5297,8 +5331,8 @@ export namespace ListInstanceProfilesForRoleResponse {
   ): any => ({
     ...obj,
     ...(obj.InstanceProfiles && {
-      InstanceProfiles: obj.InstanceProfiles.map(
-        InstanceProfile.filterSensitiveLog
+      InstanceProfiles: obj.InstanceProfiles.map(item =>
+        InstanceProfile.filterSensitiveLog(item)
       )
     })
   });
@@ -5386,8 +5420,8 @@ export namespace ListInstanceProfilesResponse {
   ): any => ({
     ...obj,
     ...(obj.InstanceProfiles && {
-      InstanceProfiles: obj.InstanceProfiles.map(
-        InstanceProfile.filterSensitiveLog
+      InstanceProfiles: obj.InstanceProfiles.map(item =>
+        InstanceProfile.filterSensitiveLog(item)
       )
     })
   });
@@ -5466,7 +5500,7 @@ export namespace ListMFADevicesResponse {
   export const filterSensitiveLog = (obj: ListMFADevicesResponse): any => ({
     ...obj,
     ...(obj.MFADevices && {
-      MFADevices: obj.MFADevices.map(MFADevice.filterSensitiveLog)
+      MFADevices: obj.MFADevices.map(item => MFADevice.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListMFADevicesResponse =>
@@ -5505,8 +5539,8 @@ export namespace ListOpenIDConnectProvidersResponse {
   ): any => ({
     ...obj,
     ...(obj.OpenIDConnectProviderList && {
-      OpenIDConnectProviderList: obj.OpenIDConnectProviderList.map(
-        OpenIDConnectProviderListEntry.filterSensitiveLog
+      OpenIDConnectProviderList: obj.OpenIDConnectProviderList.map(item =>
+        OpenIDConnectProviderListEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -5546,7 +5580,9 @@ export namespace ListPoliciesGrantingServiceAccessEntry {
   ): any => ({
     ...obj,
     ...(obj.Policies && {
-      Policies: obj.Policies.map(PolicyGrantingServiceAccess.filterSensitiveLog)
+      Policies: obj.Policies.map(item =>
+        PolicyGrantingServiceAccess.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListPoliciesGrantingServiceAccessEntry =>
@@ -5626,7 +5662,7 @@ export namespace ListPoliciesGrantingServiceAccessResponse {
     ...obj,
     ...(obj.PoliciesGrantingServiceAccess && {
       PoliciesGrantingServiceAccess: obj.PoliciesGrantingServiceAccess.map(
-        ListPoliciesGrantingServiceAccessEntry.filterSensitiveLog
+        item => ListPoliciesGrantingServiceAccessEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -5736,7 +5772,7 @@ export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
     ...obj,
     ...(obj.Policies && {
-      Policies: obj.Policies.map(Policy.filterSensitiveLog)
+      Policies: obj.Policies.map(item => Policy.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListPoliciesResponse =>
@@ -5817,7 +5853,7 @@ export namespace ListPolicyVersionsResponse {
   export const filterSensitiveLog = (obj: ListPolicyVersionsResponse): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(PolicyVersion.filterSensitiveLog)
+      Versions: obj.Versions.map(item => PolicyVersion.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListPolicyVersionsResponse =>
@@ -5964,7 +6000,9 @@ export interface ListRoleTagsResponse {
 export namespace ListRoleTagsResponse {
   export const filterSensitiveLog = (obj: ListRoleTagsResponse): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListRoleTagsResponse =>
     __isa(o, "ListRoleTagsResponse");
@@ -6044,7 +6082,9 @@ export interface ListRolesResponse {
 export namespace ListRolesResponse {
   export const filterSensitiveLog = (obj: ListRolesResponse): any => ({
     ...obj,
-    ...(obj.Roles && { Roles: obj.Roles.map(Role.filterSensitiveLog) })
+    ...(obj.Roles && {
+      Roles: obj.Roles.map(item => Role.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListRolesResponse =>
     __isa(o, "ListRolesResponse");
@@ -6079,8 +6119,8 @@ export namespace ListSAMLProvidersResponse {
   export const filterSensitiveLog = (obj: ListSAMLProvidersResponse): any => ({
     ...obj,
     ...(obj.SAMLProviderList && {
-      SAMLProviderList: obj.SAMLProviderList.map(
-        SAMLProviderListEntry.filterSensitiveLog
+      SAMLProviderList: obj.SAMLProviderList.map(item =>
+        SAMLProviderListEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -6161,8 +6201,8 @@ export namespace ListSSHPublicKeysResponse {
   export const filterSensitiveLog = (obj: ListSSHPublicKeysResponse): any => ({
     ...obj,
     ...(obj.SSHPublicKeys && {
-      SSHPublicKeys: obj.SSHPublicKeys.map(
-        SSHPublicKeyMetadata.filterSensitiveLog
+      SSHPublicKeys: obj.SSHPublicKeys.map(item =>
+        SSHPublicKeyMetadata.filterSensitiveLog(item)
       )
     })
   });
@@ -6251,7 +6291,7 @@ export namespace ListServerCertificatesResponse {
     ...obj,
     ...(obj.ServerCertificateMetadataList && {
       ServerCertificateMetadataList: obj.ServerCertificateMetadataList.map(
-        ServerCertificateMetadata.filterSensitiveLog
+        item => ServerCertificateMetadata.filterSensitiveLog(item)
       )
     })
   });
@@ -6302,8 +6342,8 @@ export namespace ListServiceSpecificCredentialsResponse {
   ): any => ({
     ...obj,
     ...(obj.ServiceSpecificCredentials && {
-      ServiceSpecificCredentials: obj.ServiceSpecificCredentials.map(
-        ServiceSpecificCredentialMetadata.filterSensitiveLog
+      ServiceSpecificCredentials: obj.ServiceSpecificCredentials.map(item =>
+        ServiceSpecificCredentialMetadata.filterSensitiveLog(item)
       )
     })
   });
@@ -6386,7 +6426,9 @@ export namespace ListSigningCertificatesResponse {
   ): any => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(SigningCertificate.filterSensitiveLog)
+      Certificates: obj.Certificates.map(item =>
+        SigningCertificate.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListSigningCertificatesResponse =>
@@ -6533,7 +6575,9 @@ export interface ListUserTagsResponse {
 export namespace ListUserTagsResponse {
   export const filterSensitiveLog = (obj: ListUserTagsResponse): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListUserTagsResponse =>
     __isa(o, "ListUserTagsResponse");
@@ -6613,7 +6657,9 @@ export interface ListUsersResponse {
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
-    ...(obj.Users && { Users: obj.Users.map(User.filterSensitiveLog) })
+    ...(obj.Users && {
+      Users: obj.Users.map(item => User.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");
@@ -6695,8 +6741,8 @@ export namespace ListVirtualMFADevicesResponse {
   ): any => ({
     ...obj,
     ...(obj.VirtualMFADevices && {
-      VirtualMFADevices: obj.VirtualMFADevices.map(
-        VirtualMFADevice.filterSensitiveLog
+      VirtualMFADevices: obj.VirtualMFADevices.map(item =>
+        VirtualMFADevice.filterSensitiveLog(item)
       )
     })
   });
@@ -6902,8 +6948,8 @@ export namespace ManagedPolicyDetail {
   export const filterSensitiveLog = (obj: ManagedPolicyDetail): any => ({
     ...obj,
     ...(obj.PolicyVersionList && {
-      PolicyVersionList: obj.PolicyVersionList.map(
-        PolicyVersion.filterSensitiveLog
+      PolicyVersionList: obj.PolicyVersionList.map(item =>
+        PolicyVersion.filterSensitiveLog(item)
       )
     })
   });
@@ -7875,7 +7921,9 @@ export namespace ResourceSpecificResult {
   export const filterSensitiveLog = (obj: ResourceSpecificResult): any => ({
     ...obj,
     ...(obj.MatchedStatements && {
-      MatchedStatements: obj.MatchedStatements.map(Statement.filterSensitiveLog)
+      MatchedStatements: obj.MatchedStatements.map(item =>
+        Statement.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ResourceSpecificResult =>
@@ -8010,7 +8058,9 @@ export namespace Role {
     ...(obj.RoleLastUsed && {
       RoleLastUsed: RoleLastUsed.filterSensitiveLog(obj.RoleLastUsed)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Role => __isa(o, "Role");
 }
@@ -8103,13 +8153,13 @@ export namespace RoleDetail {
   export const filterSensitiveLog = (obj: RoleDetail): any => ({
     ...obj,
     ...(obj.AttachedManagedPolicies && {
-      AttachedManagedPolicies: obj.AttachedManagedPolicies.map(
-        AttachedPolicy.filterSensitiveLog
+      AttachedManagedPolicies: obj.AttachedManagedPolicies.map(item =>
+        AttachedPolicy.filterSensitiveLog(item)
       )
     }),
     ...(obj.InstanceProfileList && {
-      InstanceProfileList: obj.InstanceProfileList.map(
-        InstanceProfile.filterSensitiveLog
+      InstanceProfileList: obj.InstanceProfileList.map(item =>
+        InstanceProfile.filterSensitiveLog(item)
       )
     }),
     ...(obj.PermissionsBoundary && {
@@ -8121,9 +8171,13 @@ export namespace RoleDetail {
       RoleLastUsed: RoleLastUsed.filterSensitiveLog(obj.RoleLastUsed)
     }),
     ...(obj.RolePolicyList && {
-      RolePolicyList: obj.RolePolicyList.map(PolicyDetail.filterSensitiveLog)
+      RolePolicyList: obj.RolePolicyList.map(item =>
+        PolicyDetail.filterSensitiveLog(item)
+      )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is RoleDetail => __isa(o, "RoleDetail");
 }
@@ -8878,7 +8932,9 @@ export namespace SimulateCustomPolicyRequest {
   ): any => ({
     ...obj,
     ...(obj.ContextEntries && {
-      ContextEntries: obj.ContextEntries.map(ContextEntry.filterSensitiveLog)
+      ContextEntries: obj.ContextEntries.map(item =>
+        ContextEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SimulateCustomPolicyRequest =>
@@ -8918,8 +8974,8 @@ export namespace SimulatePolicyResponse {
   export const filterSensitiveLog = (obj: SimulatePolicyResponse): any => ({
     ...obj,
     ...(obj.EvaluationResults && {
-      EvaluationResults: obj.EvaluationResults.map(
-        EvaluationResult.filterSensitiveLog
+      EvaluationResults: obj.EvaluationResults.map(item =>
+        EvaluationResult.filterSensitiveLog(item)
       )
     })
   });
@@ -9128,7 +9184,9 @@ export namespace SimulatePrincipalPolicyRequest {
   ): any => ({
     ...obj,
     ...(obj.ContextEntries && {
-      ContextEntries: obj.ContextEntries.map(ContextEntry.filterSensitiveLog)
+      ContextEntries: obj.ContextEntries.map(item =>
+        ContextEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SimulatePrincipalPolicyRequest =>
@@ -9234,7 +9292,9 @@ export interface TagRoleRequest {
 export namespace TagRoleRequest {
   export const filterSensitiveLog = (obj: TagRoleRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagRoleRequest =>
     __isa(o, "TagRoleRequest");
@@ -9259,7 +9319,9 @@ export interface TagUserRequest {
 export namespace TagUserRequest {
   export const filterSensitiveLog = (obj: TagUserRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagUserRequest =>
     __isa(o, "TagUserRequest");
@@ -10320,7 +10382,9 @@ export namespace User {
         obj.PermissionsBoundary
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is User => __isa(o, "User");
 }
@@ -10397,8 +10461,8 @@ export namespace UserDetail {
   export const filterSensitiveLog = (obj: UserDetail): any => ({
     ...obj,
     ...(obj.AttachedManagedPolicies && {
-      AttachedManagedPolicies: obj.AttachedManagedPolicies.map(
-        AttachedPolicy.filterSensitiveLog
+      AttachedManagedPolicies: obj.AttachedManagedPolicies.map(item =>
+        AttachedPolicy.filterSensitiveLog(item)
       )
     }),
     ...(obj.PermissionsBoundary && {
@@ -10406,9 +10470,13 @@ export namespace UserDetail {
         obj.PermissionsBoundary
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.UserPolicyList && {
-      UserPolicyList: obj.UserPolicyList.map(PolicyDetail.filterSensitiveLog)
+      UserPolicyList: obj.UserPolicyList.map(item =>
+        PolicyDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is UserDetail => __isa(o, "UserDetail");

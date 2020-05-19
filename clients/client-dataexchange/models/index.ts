@@ -403,7 +403,9 @@ export namespace CreateJobResponse {
     ...(obj.Details && {
       Details: ResponseDetails.filterSensitiveLog(obj.Details)
     }),
-    ...(obj.Errors && { Errors: obj.Errors.map(JobError.filterSensitiveLog) })
+    ...(obj.Errors && {
+      Errors: obj.Errors.map(item => JobError.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateJobResponse =>
     __isa(o, "CreateJobResponse");
@@ -642,7 +644,7 @@ export namespace Details {
     }),
     ...(obj.ImportAssetsFromS3JobErrorDetails && {
       ImportAssetsFromS3JobErrorDetails: obj.ImportAssetsFromS3JobErrorDetails.map(
-        AssetSourceEntry.filterSensitiveLog
+        item => AssetSourceEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -748,8 +750,8 @@ export namespace ExportAssetsToS3RequestDetails {
   ): any => ({
     ...obj,
     ...(obj.AssetDestinations && {
-      AssetDestinations: obj.AssetDestinations.map(
-        AssetDestinationEntry.filterSensitiveLog
+      AssetDestinations: obj.AssetDestinations.map(item =>
+        AssetDestinationEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -784,8 +786,8 @@ export namespace ExportAssetsToS3ResponseDetails {
   ): any => ({
     ...obj,
     ...(obj.AssetDestinations && {
-      AssetDestinations: obj.AssetDestinations.map(
-        AssetDestinationEntry.filterSensitiveLog
+      AssetDestinations: obj.AssetDestinations.map(item =>
+        AssetDestinationEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -1032,7 +1034,9 @@ export namespace GetJobResponse {
     ...(obj.Details && {
       Details: ResponseDetails.filterSensitiveLog(obj.Details)
     }),
-    ...(obj.Errors && { Errors: obj.Errors.map(JobError.filterSensitiveLog) })
+    ...(obj.Errors && {
+      Errors: obj.Errors.map(item => JobError.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetJobResponse =>
     __isa(o, "GetJobResponse");
@@ -1242,7 +1246,9 @@ export namespace ImportAssetsFromS3RequestDetails {
   ): any => ({
     ...obj,
     ...(obj.AssetSources && {
-      AssetSources: obj.AssetSources.map(AssetSourceEntry.filterSensitiveLog)
+      AssetSources: obj.AssetSources.map(item =>
+        AssetSourceEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ImportAssetsFromS3RequestDetails =>
@@ -1276,7 +1282,9 @@ export namespace ImportAssetsFromS3ResponseDetails {
   ): any => ({
     ...obj,
     ...(obj.AssetSources && {
-      AssetSources: obj.AssetSources.map(AssetSourceEntry.filterSensitiveLog)
+      AssetSources: obj.AssetSources.map(item =>
+        AssetSourceEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ImportAssetsFromS3ResponseDetails =>
@@ -1357,7 +1365,9 @@ export namespace JobEntry {
     ...(obj.Details && {
       Details: ResponseDetails.filterSensitiveLog(obj.Details)
     }),
-    ...(obj.Errors && { Errors: obj.Errors.map(JobError.filterSensitiveLog) })
+    ...(obj.Errors && {
+      Errors: obj.Errors.map(item => JobError.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is JobEntry => __isa(o, "JobEntry");
 }
@@ -1479,7 +1489,9 @@ export namespace ListDataSetRevisionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Revisions && {
-      Revisions: obj.Revisions.map(RevisionEntry.filterSensitiveLog)
+      Revisions: obj.Revisions.map(item =>
+        RevisionEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDataSetRevisionsResponse =>
@@ -1529,7 +1541,7 @@ export namespace ListDataSetsResponse {
   export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
     ...obj,
     ...(obj.DataSets && {
-      DataSets: obj.DataSets.map(DataSetEntry.filterSensitiveLog)
+      DataSets: obj.DataSets.map(item => DataSetEntry.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListDataSetsResponse =>
@@ -1583,7 +1595,9 @@ export interface ListJobsResponse {
 export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
-    ...(obj.Jobs && { Jobs: obj.Jobs.map(JobEntry.filterSensitiveLog) })
+    ...(obj.Jobs && {
+      Jobs: obj.Jobs.map(item => JobEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListJobsResponse =>
     __isa(o, "ListJobsResponse");
@@ -1636,7 +1650,9 @@ export interface ListRevisionAssetsResponse {
 export namespace ListRevisionAssetsResponse {
   export const filterSensitiveLog = (obj: ListRevisionAssetsResponse): any => ({
     ...obj,
-    ...(obj.Assets && { Assets: obj.Assets.map(AssetEntry.filterSensitiveLog) })
+    ...(obj.Assets && {
+      Assets: obj.Assets.map(item => AssetEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListRevisionAssetsResponse =>
     __isa(o, "ListRevisionAssetsResponse");

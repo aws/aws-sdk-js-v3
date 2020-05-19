@@ -404,7 +404,7 @@ export namespace ListGroupResourcesInput {
   export const filterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(ResourceFilter.filterSensitiveLog)
+      Filters: obj.Filters.map(item => ResourceFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListGroupResourcesInput =>
@@ -435,11 +435,13 @@ export namespace ListGroupResourcesOutput {
   export const filterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
     ...obj,
     ...(obj.QueryErrors && {
-      QueryErrors: obj.QueryErrors.map(QueryError.filterSensitiveLog)
+      QueryErrors: obj.QueryErrors.map(item =>
+        QueryError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResourceIdentifiers && {
-      ResourceIdentifiers: obj.ResourceIdentifiers.map(
-        ResourceIdentifier.filterSensitiveLog
+      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
+        ResourceIdentifier.filterSensitiveLog(item)
       )
     })
   });
@@ -476,7 +478,7 @@ export namespace ListGroupsInput {
   export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(GroupFilter.filterSensitiveLog)
+      Filters: obj.Filters.map(item => GroupFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListGroupsInput =>
@@ -505,11 +507,13 @@ export namespace ListGroupsOutput {
   export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
     ...obj,
     ...(obj.GroupIdentifiers && {
-      GroupIdentifiers: obj.GroupIdentifiers.map(
-        GroupIdentifier.filterSensitiveLog
+      GroupIdentifiers: obj.GroupIdentifiers.map(item =>
+        GroupIdentifier.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Groups && { Groups: obj.Groups.map(Group.filterSensitiveLog) })
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListGroupsOutput =>
     __isa(o, "ListGroupsOutput");
@@ -756,11 +760,13 @@ export namespace SearchResourcesOutput {
   export const filterSensitiveLog = (obj: SearchResourcesOutput): any => ({
     ...obj,
     ...(obj.QueryErrors && {
-      QueryErrors: obj.QueryErrors.map(QueryError.filterSensitiveLog)
+      QueryErrors: obj.QueryErrors.map(item =>
+        QueryError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ResourceIdentifiers && {
-      ResourceIdentifiers: obj.ResourceIdentifiers.map(
-        ResourceIdentifier.filterSensitiveLog
+      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
+        ResourceIdentifier.filterSensitiveLog(item)
       )
     })
   });

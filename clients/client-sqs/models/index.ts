@@ -139,8 +139,8 @@ export namespace ChangeMessageVisibilityBatchRequest {
   ): any => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(
-        ChangeMessageVisibilityBatchRequestEntry.filterSensitiveLog
+      Entries: obj.Entries.map(item =>
+        ChangeMessageVisibilityBatchRequestEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -226,11 +226,13 @@ export namespace ChangeMessageVisibilityBatchResult {
   ): any => ({
     ...obj,
     ...(obj.Failed && {
-      Failed: obj.Failed.map(BatchResultErrorEntry.filterSensitiveLog)
+      Failed: obj.Failed.map(item =>
+        BatchResultErrorEntry.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Successful && {
-      Successful: obj.Successful.map(
-        ChangeMessageVisibilityBatchResultEntry.filterSensitiveLog
+      Successful: obj.Successful.map(item =>
+        ChangeMessageVisibilityBatchResultEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -522,8 +524,8 @@ export namespace DeleteMessageBatchRequest {
   export const filterSensitiveLog = (obj: DeleteMessageBatchRequest): any => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(
-        DeleteMessageBatchRequestEntry.filterSensitiveLog
+      Entries: obj.Entries.map(item =>
+        DeleteMessageBatchRequestEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -588,11 +590,13 @@ export namespace DeleteMessageBatchResult {
   export const filterSensitiveLog = (obj: DeleteMessageBatchResult): any => ({
     ...obj,
     ...(obj.Failed && {
-      Failed: obj.Failed.map(BatchResultErrorEntry.filterSensitiveLog)
+      Failed: obj.Failed.map(item =>
+        BatchResultErrorEntry.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Successful && {
-      Successful: obj.Successful.map(
-        DeleteMessageBatchResultEntry.filterSensitiveLog
+      Successful: obj.Successful.map(item =>
+        DeleteMessageBatchResultEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -1633,7 +1637,7 @@ export namespace ReceiveMessageResult {
   export const filterSensitiveLog = (obj: ReceiveMessageResult): any => ({
     ...obj,
     ...(obj.Messages && {
-      Messages: obj.Messages.map(Message.filterSensitiveLog)
+      Messages: obj.Messages.map(item => Message.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ReceiveMessageResult =>
@@ -1690,7 +1694,9 @@ export namespace SendMessageBatchRequest {
   export const filterSensitiveLog = (obj: SendMessageBatchRequest): any => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(SendMessageBatchRequestEntry.filterSensitiveLog)
+      Entries: obj.Entries.map(item =>
+        SendMessageBatchRequestEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SendMessageBatchRequest =>
@@ -1889,11 +1895,13 @@ export namespace SendMessageBatchResult {
   export const filterSensitiveLog = (obj: SendMessageBatchResult): any => ({
     ...obj,
     ...(obj.Failed && {
-      Failed: obj.Failed.map(BatchResultErrorEntry.filterSensitiveLog)
+      Failed: obj.Failed.map(item =>
+        BatchResultErrorEntry.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Successful && {
-      Successful: obj.Successful.map(
-        SendMessageBatchResultEntry.filterSensitiveLog
+      Successful: obj.Successful.map(item =>
+        SendMessageBatchResultEntry.filterSensitiveLog(item)
       )
     })
   });

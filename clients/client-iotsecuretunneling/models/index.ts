@@ -178,7 +178,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -227,7 +229,9 @@ export namespace ListTunnelsResponse {
   export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
     ...obj,
     ...(obj.tunnelSummaries && {
-      tunnelSummaries: obj.tunnelSummaries.map(TunnelSummary.filterSensitiveLog)
+      tunnelSummaries: obj.tunnelSummaries.map(item =>
+        TunnelSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListTunnelsResponse =>
@@ -265,7 +269,9 @@ export namespace OpenTunnelRequest {
         obj.destinationConfig
       )
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.timeoutConfig && {
       timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
     })
@@ -372,7 +378,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -493,7 +501,9 @@ export namespace Tunnel {
         obj.sourceConnectionState
       )
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.timeoutConfig && {
       timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
     })

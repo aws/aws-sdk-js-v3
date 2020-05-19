@@ -269,12 +269,14 @@ export namespace GetPendingJobExecutionsResponse {
   ): any => ({
     ...obj,
     ...(obj.inProgressJobs && {
-      inProgressJobs: obj.inProgressJobs.map(
-        JobExecutionSummary.filterSensitiveLog
+      inProgressJobs: obj.inProgressJobs.map(item =>
+        JobExecutionSummary.filterSensitiveLog(item)
       )
     }),
     ...(obj.queuedJobs && {
-      queuedJobs: obj.queuedJobs.map(JobExecutionSummary.filterSensitiveLog)
+      queuedJobs: obj.queuedJobs.map(item =>
+        JobExecutionSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetPendingJobExecutionsResponse =>

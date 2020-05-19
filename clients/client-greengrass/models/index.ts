@@ -105,7 +105,9 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
-      ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
+      ErrorDetails: obj.ErrorDetails.map(item =>
+        ErrorDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -220,7 +222,9 @@ export namespace BulkDeploymentResult {
   export const filterSensitiveLog = (obj: BulkDeploymentResult): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
-      ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
+      ErrorDetails: obj.ErrorDetails.map(item =>
+        ErrorDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BulkDeploymentResult =>
@@ -313,7 +317,7 @@ export namespace ConnectorDefinitionVersion {
   export const filterSensitiveLog = (obj: ConnectorDefinitionVersion): any => ({
     ...obj,
     ...(obj.Connectors && {
-      Connectors: obj.Connectors.map(Connector.filterSensitiveLog)
+      Connectors: obj.Connectors.map(item => Connector.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ConnectorDefinitionVersion =>
@@ -367,7 +371,9 @@ export interface CoreDefinitionVersion {
 export namespace CoreDefinitionVersion {
   export const filterSensitiveLog = (obj: CoreDefinitionVersion): any => ({
     ...obj,
-    ...(obj.Cores && { Cores: obj.Cores.map(Core.filterSensitiveLog) })
+    ...(obj.Cores && {
+      Cores: obj.Cores.map(item => Core.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CoreDefinitionVersion =>
     __isa(o, "CoreDefinitionVersion");
@@ -483,7 +489,7 @@ export namespace CreateConnectorDefinitionVersionRequest {
   ): any => ({
     ...obj,
     ...(obj.Connectors && {
-      Connectors: obj.Connectors.map(Connector.filterSensitiveLog)
+      Connectors: obj.Connectors.map(item => Connector.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateConnectorDefinitionVersionRequest =>
@@ -635,7 +641,9 @@ export namespace CreateCoreDefinitionVersionRequest {
     obj: CreateCoreDefinitionVersionRequest
   ): any => ({
     ...obj,
-    ...(obj.Cores && { Cores: obj.Cores.map(Core.filterSensitiveLog) })
+    ...(obj.Cores && {
+      Cores: obj.Cores.map(item => Core.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateCoreDefinitionVersionRequest =>
     __isa(o, "CreateCoreDefinitionVersionRequest");
@@ -840,7 +848,9 @@ export namespace CreateDeviceDefinitionVersionRequest {
     obj: CreateDeviceDefinitionVersionRequest
   ): any => ({
     ...obj,
-    ...(obj.Devices && { Devices: obj.Devices.map(Device.filterSensitiveLog) })
+    ...(obj.Devices && {
+      Devices: obj.Devices.map(item => Device.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateDeviceDefinitionVersionRequest =>
     __isa(o, "CreateDeviceDefinitionVersionRequest");
@@ -1000,7 +1010,7 @@ export namespace CreateFunctionDefinitionVersionRequest {
       DefaultConfig: FunctionDefaultConfig.filterSensitiveLog(obj.DefaultConfig)
     }),
     ...(obj.Functions && {
-      Functions: obj.Functions.map(Function.filterSensitiveLog)
+      Functions: obj.Functions.map(item => Function.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateFunctionDefinitionVersionRequest =>
@@ -1357,7 +1367,9 @@ export namespace CreateLoggerDefinitionVersionRequest {
     obj: CreateLoggerDefinitionVersionRequest
   ): any => ({
     ...obj,
-    ...(obj.Loggers && { Loggers: obj.Loggers.map(Logger.filterSensitiveLog) })
+    ...(obj.Loggers && {
+      Loggers: obj.Loggers.map(item => Logger.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateLoggerDefinitionVersionRequest =>
     __isa(o, "CreateLoggerDefinitionVersionRequest");
@@ -1506,7 +1518,7 @@ export namespace CreateResourceDefinitionVersionRequest {
   ): any => ({
     ...obj,
     ...(obj.Resources && {
-      Resources: obj.Resources.map(Resource.filterSensitiveLog)
+      Resources: obj.Resources.map(item => Resource.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateResourceDefinitionVersionRequest =>
@@ -1735,7 +1747,9 @@ export namespace CreateSubscriptionDefinitionVersionRequest {
   ): any => ({
     ...obj,
     ...(obj.Subscriptions && {
-      Subscriptions: obj.Subscriptions.map(Subscription.filterSensitiveLog)
+      Subscriptions: obj.Subscriptions.map(item =>
+        Subscription.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (
@@ -2177,7 +2191,9 @@ export interface DeviceDefinitionVersion {
 export namespace DeviceDefinitionVersion {
   export const filterSensitiveLog = (obj: DeviceDefinitionVersion): any => ({
     ...obj,
-    ...(obj.Devices && { Devices: obj.Devices.map(Device.filterSensitiveLog) })
+    ...(obj.Devices && {
+      Devices: obj.Devices.map(item => Device.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DeviceDefinitionVersion =>
     __isa(o, "DeviceDefinitionVersion");
@@ -2403,8 +2419,8 @@ export namespace FunctionConfigurationEnvironment {
       Execution: FunctionExecutionConfig.filterSensitiveLog(obj.Execution)
     }),
     ...(obj.ResourceAccessPolicies && {
-      ResourceAccessPolicies: obj.ResourceAccessPolicies.map(
-        ResourceAccessPolicy.filterSensitiveLog
+      ResourceAccessPolicies: obj.ResourceAccessPolicies.map(item =>
+        ResourceAccessPolicy.filterSensitiveLog(item)
       )
     })
   });
@@ -2488,7 +2504,7 @@ export namespace FunctionDefinitionVersion {
       DefaultConfig: FunctionDefaultConfig.filterSensitiveLog(obj.DefaultConfig)
     }),
     ...(obj.Functions && {
-      Functions: obj.Functions.map(Function.filterSensitiveLog)
+      Functions: obj.Functions.map(item => Function.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is FunctionDefinitionVersion =>
@@ -2650,7 +2666,9 @@ export namespace GetBulkDeploymentStatusResponse {
       )
     }),
     ...(obj.ErrorDetails && {
-      ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
+      ErrorDetails: obj.ErrorDetails.map(item =>
+        ErrorDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetBulkDeploymentStatusResponse =>
@@ -2692,8 +2710,8 @@ export namespace GetConnectivityInfoResponse {
   ): any => ({
     ...obj,
     ...(obj.ConnectivityInfo && {
-      ConnectivityInfo: obj.ConnectivityInfo.map(
-        ConnectivityInfo.filterSensitiveLog
+      ConnectivityInfo: obj.ConnectivityInfo.map(item =>
+        ConnectivityInfo.filterSensitiveLog(item)
       )
     })
   });
@@ -3037,7 +3055,9 @@ export namespace GetDeploymentStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
-      ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
+      ErrorDetails: obj.ErrorDetails.map(item =>
+        ErrorDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetDeploymentStatusResponse =>
@@ -4185,7 +4205,9 @@ export namespace InternalServerErrorException {
   ): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
-      ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
+      ErrorDetails: obj.ErrorDetails.map(item =>
+        ErrorDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is InternalServerErrorException =>
@@ -4239,7 +4261,9 @@ export namespace ListBulkDeploymentDetailedReportsResponse {
   ): any => ({
     ...obj,
     ...(obj.Deployments && {
-      Deployments: obj.Deployments.map(BulkDeploymentResult.filterSensitiveLog)
+      Deployments: obj.Deployments.map(item =>
+        BulkDeploymentResult.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListBulkDeploymentDetailedReportsResponse =>
@@ -4286,8 +4310,8 @@ export namespace ListBulkDeploymentsResponse {
   ): any => ({
     ...obj,
     ...(obj.BulkDeployments && {
-      BulkDeployments: obj.BulkDeployments.map(
-        BulkDeployment.filterSensitiveLog
+      BulkDeployments: obj.BulkDeployments.map(item =>
+        BulkDeployment.filterSensitiveLog(item)
       )
     })
   });
@@ -4342,7 +4366,9 @@ export namespace ListConnectorDefinitionVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListConnectorDefinitionVersionsResponse =>
@@ -4391,7 +4417,9 @@ export namespace ListConnectorDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Definitions && {
-      Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
+      Definitions: obj.Definitions.map(item =>
+        DefinitionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListConnectorDefinitionsResponse =>
@@ -4445,7 +4473,9 @@ export namespace ListCoreDefinitionVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListCoreDefinitionVersionsResponse =>
@@ -4492,7 +4522,9 @@ export namespace ListCoreDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Definitions && {
-      Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
+      Definitions: obj.Definitions.map(item =>
+        DefinitionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListCoreDefinitionsResponse =>
@@ -4542,7 +4574,9 @@ export namespace ListDeploymentsResponse {
   export const filterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
     ...obj,
     ...(obj.Deployments && {
-      Deployments: obj.Deployments.map(Deployment.filterSensitiveLog)
+      Deployments: obj.Deployments.map(item =>
+        Deployment.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDeploymentsResponse =>
@@ -4596,7 +4630,9 @@ export namespace ListDeviceDefinitionVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDeviceDefinitionVersionsResponse =>
@@ -4645,7 +4681,9 @@ export namespace ListDeviceDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Definitions && {
-      Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
+      Definitions: obj.Definitions.map(item =>
+        DefinitionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDeviceDefinitionsResponse =>
@@ -4699,7 +4737,9 @@ export namespace ListFunctionDefinitionVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListFunctionDefinitionVersionsResponse =>
@@ -4748,7 +4788,9 @@ export namespace ListFunctionDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Definitions && {
-      Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
+      Definitions: obj.Definitions.map(item =>
+        DefinitionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListFunctionDefinitionsResponse =>
@@ -4787,8 +4829,8 @@ export namespace ListGroupCertificateAuthoritiesResponse {
   ): any => ({
     ...obj,
     ...(obj.GroupCertificateAuthorities && {
-      GroupCertificateAuthorities: obj.GroupCertificateAuthorities.map(
-        GroupCertificateAuthorityProperties.filterSensitiveLog
+      GroupCertificateAuthorities: obj.GroupCertificateAuthorities.map(item =>
+        GroupCertificateAuthorityProperties.filterSensitiveLog(item)
       )
     })
   });
@@ -4839,7 +4881,9 @@ export namespace ListGroupVersionsResponse {
   export const filterSensitiveLog = (obj: ListGroupVersionsResponse): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListGroupVersionsResponse =>
@@ -4884,7 +4928,7 @@ export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
     ...(obj.Groups && {
-      Groups: obj.Groups.map(GroupInformation.filterSensitiveLog)
+      Groups: obj.Groups.map(item => GroupInformation.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListGroupsResponse =>
@@ -4938,7 +4982,9 @@ export namespace ListLoggerDefinitionVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListLoggerDefinitionVersionsResponse =>
@@ -4987,7 +5033,9 @@ export namespace ListLoggerDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Definitions && {
-      Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
+      Definitions: obj.Definitions.map(item =>
+        DefinitionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListLoggerDefinitionsResponse =>
@@ -5041,7 +5089,9 @@ export namespace ListResourceDefinitionVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListResourceDefinitionVersionsResponse =>
@@ -5090,7 +5140,9 @@ export namespace ListResourceDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Definitions && {
-      Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
+      Definitions: obj.Definitions.map(item =>
+        DefinitionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListResourceDefinitionsResponse =>
@@ -5144,7 +5196,9 @@ export namespace ListSubscriptionDefinitionVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
+      Versions: obj.Versions.map(item =>
+        VersionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (
@@ -5195,7 +5249,9 @@ export namespace ListSubscriptionDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Definitions && {
-      Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
+      Definitions: obj.Definitions.map(item =>
+        DefinitionInformation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListSubscriptionDefinitionsResponse =>
@@ -5356,7 +5412,9 @@ export interface LoggerDefinitionVersion {
 export namespace LoggerDefinitionVersion {
   export const filterSensitiveLog = (obj: LoggerDefinitionVersion): any => ({
     ...obj,
-    ...(obj.Loggers && { Loggers: obj.Loggers.map(Logger.filterSensitiveLog) })
+    ...(obj.Loggers && {
+      Loggers: obj.Loggers.map(item => Logger.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is LoggerDefinitionVersion =>
     __isa(o, "LoggerDefinitionVersion");
@@ -5566,7 +5624,7 @@ export namespace ResourceDefinitionVersion {
   export const filterSensitiveLog = (obj: ResourceDefinitionVersion): any => ({
     ...obj,
     ...(obj.Resources && {
-      Resources: obj.Resources.map(Resource.filterSensitiveLog)
+      Resources: obj.Resources.map(item => Resource.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ResourceDefinitionVersion =>
@@ -5834,7 +5892,9 @@ export namespace SubscriptionDefinitionVersion {
   ): any => ({
     ...obj,
     ...(obj.Subscriptions && {
-      Subscriptions: obj.Subscriptions.map(Subscription.filterSensitiveLog)
+      Subscriptions: obj.Subscriptions.map(item =>
+        Subscription.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SubscriptionDefinitionVersion =>
@@ -5919,8 +5979,8 @@ export namespace UpdateConnectivityInfoRequest {
   ): any => ({
     ...obj,
     ...(obj.ConnectivityInfo && {
-      ConnectivityInfo: obj.ConnectivityInfo.map(
-        ConnectivityInfo.filterSensitiveLog
+      ConnectivityInfo: obj.ConnectivityInfo.map(item =>
+        ConnectivityInfo.filterSensitiveLog(item)
       )
     })
   });

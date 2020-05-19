@@ -957,7 +957,9 @@ export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
     ...(obj.destinations && {
-      destinations: obj.destinations.map(LogDestination.filterSensitiveLog)
+      destinations: obj.destinations.map(item =>
+        LogDestination.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is LoggingConfiguration =>
@@ -1510,7 +1512,9 @@ export interface CreateActivityInput {
 export namespace CreateActivityInput {
   export const filterSensitiveLog = (obj: CreateActivityInput): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateActivityInput =>
     __isa(o, "CreateActivityInput");
@@ -1605,7 +1609,9 @@ export namespace CreateStateMachineInput {
         obj.loggingConfiguration
       )
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateStateMachineInput =>
     __isa(o, "CreateStateMachineInput");
@@ -2233,7 +2239,7 @@ export namespace GetExecutionHistoryOutput {
   export const filterSensitiveLog = (obj: GetExecutionHistoryOutput): any => ({
     ...obj,
     ...(obj.events && {
-      events: obj.events.map(HistoryEvent.filterSensitiveLog)
+      events: obj.events.map(item => HistoryEvent.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetExecutionHistoryOutput =>
@@ -2403,7 +2409,9 @@ export namespace ListActivitiesOutput {
   export const filterSensitiveLog = (obj: ListActivitiesOutput): any => ({
     ...obj,
     ...(obj.activities && {
-      activities: obj.activities.map(ActivityListItem.filterSensitiveLog)
+      activities: obj.activities.map(item =>
+        ActivityListItem.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListActivitiesOutput =>
@@ -2463,7 +2471,9 @@ export namespace ListExecutionsOutput {
   export const filterSensitiveLog = (obj: ListExecutionsOutput): any => ({
     ...obj,
     ...(obj.executions && {
-      executions: obj.executions.map(ExecutionListItem.filterSensitiveLog)
+      executions: obj.executions.map(item =>
+        ExecutionListItem.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListExecutionsOutput =>
@@ -2509,8 +2519,8 @@ export namespace ListStateMachinesOutput {
   export const filterSensitiveLog = (obj: ListStateMachinesOutput): any => ({
     ...obj,
     ...(obj.stateMachines && {
-      stateMachines: obj.stateMachines.map(
-        StateMachineListItem.filterSensitiveLog
+      stateMachines: obj.stateMachines.map(item =>
+        StateMachineListItem.filterSensitiveLog(item)
       )
     })
   });
@@ -2545,7 +2555,9 @@ export interface ListTagsForResourceOutput {
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -3023,7 +3035,9 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");

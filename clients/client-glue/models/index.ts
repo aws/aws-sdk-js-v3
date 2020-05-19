@@ -501,8 +501,8 @@ export namespace BatchCreatePartitionRequest {
   ): any => ({
     ...obj,
     ...(obj.PartitionInputList && {
-      PartitionInputList: obj.PartitionInputList.map(
-        PartitionInput.filterSensitiveLog
+      PartitionInputList: obj.PartitionInputList.map(item =>
+        PartitionInput.filterSensitiveLog(item)
       )
     })
   });
@@ -524,7 +524,7 @@ export namespace BatchCreatePartitionResponse {
   ): any => ({
     ...obj,
     ...(obj.Errors && {
-      Errors: obj.Errors.map(PartitionError.filterSensitiveLog)
+      Errors: obj.Errors.map(item => PartitionError.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchCreatePartitionResponse =>
@@ -621,8 +621,8 @@ export namespace BatchDeletePartitionRequest {
   ): any => ({
     ...obj,
     ...(obj.PartitionsToDelete && {
-      PartitionsToDelete: obj.PartitionsToDelete.map(
-        PartitionValueList.filterSensitiveLog
+      PartitionsToDelete: obj.PartitionsToDelete.map(item =>
+        PartitionValueList.filterSensitiveLog(item)
       )
     })
   });
@@ -644,7 +644,7 @@ export namespace BatchDeletePartitionResponse {
   ): any => ({
     ...obj,
     ...(obj.Errors && {
-      Errors: obj.Errors.map(PartitionError.filterSensitiveLog)
+      Errors: obj.Errors.map(item => PartitionError.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchDeletePartitionResponse =>
@@ -690,7 +690,9 @@ export interface BatchDeleteTableResponse {
 export namespace BatchDeleteTableResponse {
   export const filterSensitiveLog = (obj: BatchDeleteTableResponse): any => ({
     ...obj,
-    ...(obj.Errors && { Errors: obj.Errors.map(TableError.filterSensitiveLog) })
+    ...(obj.Errors && {
+      Errors: obj.Errors.map(item => TableError.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is BatchDeleteTableResponse =>
     __isa(o, "BatchDeleteTableResponse");
@@ -747,7 +749,7 @@ export namespace BatchDeleteTableVersionResponse {
   ): any => ({
     ...obj,
     ...(obj.Errors && {
-      Errors: obj.Errors.map(TableVersionError.filterSensitiveLog)
+      Errors: obj.Errors.map(item => TableVersionError.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchDeleteTableVersionResponse =>
@@ -782,8 +784,8 @@ export namespace BatchGetPartitionRequest {
   export const filterSensitiveLog = (obj: BatchGetPartitionRequest): any => ({
     ...obj,
     ...(obj.PartitionsToGet && {
-      PartitionsToGet: obj.PartitionsToGet.map(
-        PartitionValueList.filterSensitiveLog
+      PartitionsToGet: obj.PartitionsToGet.map(item =>
+        PartitionValueList.filterSensitiveLog(item)
       )
     })
   });
@@ -809,11 +811,11 @@ export namespace BatchGetPartitionResponse {
   export const filterSensitiveLog = (obj: BatchGetPartitionResponse): any => ({
     ...obj,
     ...(obj.Partitions && {
-      Partitions: obj.Partitions.map(Partition.filterSensitiveLog)
+      Partitions: obj.Partitions.map(item => Partition.filterSensitiveLog(item))
     }),
     ...(obj.UnprocessedKeys && {
-      UnprocessedKeys: obj.UnprocessedKeys.map(
-        PartitionValueList.filterSensitiveLog
+      UnprocessedKeys: obj.UnprocessedKeys.map(item =>
+        PartitionValueList.filterSensitiveLog(item)
       )
     })
   });
@@ -1474,7 +1476,7 @@ export namespace Database {
     ...obj,
     ...(obj.CreateTableDefaultPermissions && {
       CreateTableDefaultPermissions: obj.CreateTableDefaultPermissions.map(
-        PrincipalPermissions.filterSensitiveLog
+        item => PrincipalPermissions.filterSensitiveLog(item)
       )
     })
   });
@@ -1520,7 +1522,7 @@ export namespace DatabaseInput {
     ...obj,
     ...(obj.CreateTableDefaultPermissions && {
       CreateTableDefaultPermissions: obj.CreateTableDefaultPermissions.map(
-        PrincipalPermissions.filterSensitiveLog
+        item => PrincipalPermissions.filterSensitiveLog(item)
       )
     })
   });
@@ -2005,7 +2007,9 @@ export namespace GetConnectionsResponse {
   export const filterSensitiveLog = (obj: GetConnectionsResponse): any => ({
     ...obj,
     ...(obj.ConnectionList && {
-      ConnectionList: obj.ConnectionList.map(Connection.filterSensitiveLog)
+      ConnectionList: obj.ConnectionList.map(item =>
+        Connection.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetConnectionsResponse =>
@@ -2139,7 +2143,9 @@ export namespace GetDatabasesResponse {
   export const filterSensitiveLog = (obj: GetDatabasesResponse): any => ({
     ...obj,
     ...(obj.DatabaseList && {
-      DatabaseList: obj.DatabaseList.map(Database.filterSensitiveLog)
+      DatabaseList: obj.DatabaseList.map(item =>
+        Database.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetDatabasesResponse =>
@@ -2370,7 +2376,7 @@ export namespace GetPartitionsResponse {
   export const filterSensitiveLog = (obj: GetPartitionsResponse): any => ({
     ...obj,
     ...(obj.Partitions && {
-      Partitions: obj.Partitions.map(Partition.filterSensitiveLog)
+      Partitions: obj.Partitions.map(item => Partition.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetPartitionsResponse =>
@@ -2577,7 +2583,9 @@ export namespace GetTableVersionsResponse {
   export const filterSensitiveLog = (obj: GetTableVersionsResponse): any => ({
     ...obj,
     ...(obj.TableVersions && {
-      TableVersions: obj.TableVersions.map(TableVersion.filterSensitiveLog)
+      TableVersions: obj.TableVersions.map(item =>
+        TableVersion.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetTableVersionsResponse =>
@@ -2641,7 +2649,7 @@ export namespace GetTablesResponse {
   export const filterSensitiveLog = (obj: GetTablesResponse): any => ({
     ...obj,
     ...(obj.TableList && {
-      TableList: obj.TableList.map(Table.filterSensitiveLog)
+      TableList: obj.TableList.map(item => Table.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetTablesResponse =>
@@ -2760,8 +2768,8 @@ export namespace GetUserDefinedFunctionsResponse {
   ): any => ({
     ...obj,
     ...(obj.UserDefinedFunctions && {
-      UserDefinedFunctions: obj.UserDefinedFunctions.map(
-        UserDefinedFunction.filterSensitiveLog
+      UserDefinedFunctions: obj.UserDefinedFunctions.map(item =>
+        UserDefinedFunction.filterSensitiveLog(item)
       )
     })
   });
@@ -3242,10 +3250,14 @@ export namespace SearchTablesRequest {
   export const filterSensitiveLog = (obj: SearchTablesRequest): any => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(PropertyPredicate.filterSensitiveLog)
+      Filters: obj.Filters.map(item =>
+        PropertyPredicate.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(SortCriterion.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item =>
+        SortCriterion.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SearchTablesRequest =>
@@ -3269,7 +3281,7 @@ export namespace SearchTablesResponse {
   export const filterSensitiveLog = (obj: SearchTablesResponse): any => ({
     ...obj,
     ...(obj.TableList && {
-      TableList: obj.TableList.map(Table.filterSensitiveLog)
+      TableList: obj.TableList.map(item => Table.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchTablesResponse =>
@@ -3467,7 +3479,9 @@ export interface StorageDescriptor {
 export namespace StorageDescriptor {
   export const filterSensitiveLog = (obj: StorageDescriptor): any => ({
     ...obj,
-    ...(obj.Columns && { Columns: obj.Columns.map(Column.filterSensitiveLog) }),
+    ...(obj.Columns && {
+      Columns: obj.Columns.map(item => Column.filterSensitiveLog(item))
+    }),
     ...(obj.SerdeInfo && {
       SerdeInfo: SerDeInfo.filterSensitiveLog(obj.SerdeInfo)
     }),
@@ -3475,7 +3489,7 @@ export namespace StorageDescriptor {
       SkewedInfo: SkewedInfo.filterSensitiveLog(obj.SkewedInfo)
     }),
     ...(obj.SortColumns && {
-      SortColumns: obj.SortColumns.map(Order.filterSensitiveLog)
+      SortColumns: obj.SortColumns.map(item => Order.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is StorageDescriptor =>
@@ -3588,7 +3602,9 @@ export namespace Table {
   export const filterSensitiveLog = (obj: Table): any => ({
     ...obj,
     ...(obj.PartitionKeys && {
-      PartitionKeys: obj.PartitionKeys.map(Column.filterSensitiveLog)
+      PartitionKeys: obj.PartitionKeys.map(item =>
+        Column.filterSensitiveLog(item)
+      )
     }),
     ...(obj.StorageDescriptor && {
       StorageDescriptor: StorageDescriptor.filterSensitiveLog(
@@ -3704,7 +3720,9 @@ export namespace TableInput {
   export const filterSensitiveLog = (obj: TableInput): any => ({
     ...obj,
     ...(obj.PartitionKeys && {
-      PartitionKeys: obj.PartitionKeys.map(Column.filterSensitiveLog)
+      PartitionKeys: obj.PartitionKeys.map(item =>
+        Column.filterSensitiveLog(item)
+      )
     }),
     ...(obj.StorageDescriptor && {
       StorageDescriptor: StorageDescriptor.filterSensitiveLog(
@@ -4058,7 +4076,9 @@ export namespace UserDefinedFunction {
   export const filterSensitiveLog = (obj: UserDefinedFunction): any => ({
     ...obj,
     ...(obj.ResourceUris && {
-      ResourceUris: obj.ResourceUris.map(ResourceUri.filterSensitiveLog)
+      ResourceUris: obj.ResourceUris.map(item =>
+        ResourceUri.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is UserDefinedFunction =>
@@ -4100,7 +4120,9 @@ export namespace UserDefinedFunctionInput {
   export const filterSensitiveLog = (obj: UserDefinedFunctionInput): any => ({
     ...obj,
     ...(obj.ResourceUris && {
-      ResourceUris: obj.ResourceUris.map(ResourceUri.filterSensitiveLog)
+      ResourceUris: obj.ResourceUris.map(item =>
+        ResourceUri.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is UserDefinedFunctionInput =>
@@ -4145,7 +4167,9 @@ export namespace BatchGetDevEndpointsResponse {
   ): any => ({
     ...obj,
     ...(obj.DevEndpoints && {
-      DevEndpoints: obj.DevEndpoints.map(DevEndpoint.filterSensitiveLog)
+      DevEndpoints: obj.DevEndpoints.map(item =>
+        DevEndpoint.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchGetDevEndpointsResponse =>
@@ -4827,7 +4851,9 @@ export namespace EncryptionConfiguration {
       )
     }),
     ...(obj.S3Encryption && {
-      S3Encryption: obj.S3Encryption.map(S3Encryption.filterSensitiveLog)
+      S3Encryption: obj.S3Encryption.map(item =>
+        S3Encryption.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is EncryptionConfiguration =>
@@ -4908,7 +4934,9 @@ export namespace GetDevEndpointsResponse {
   export const filterSensitiveLog = (obj: GetDevEndpointsResponse): any => ({
     ...obj,
     ...(obj.DevEndpoints && {
-      DevEndpoints: obj.DevEndpoints.map(DevEndpoint.filterSensitiveLog)
+      DevEndpoints: obj.DevEndpoints.map(item =>
+        DevEndpoint.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetDevEndpointsResponse =>
@@ -5041,8 +5069,8 @@ export namespace GetSecurityConfigurationsResponse {
   ): any => ({
     ...obj,
     ...(obj.SecurityConfigurations && {
-      SecurityConfigurations: obj.SecurityConfigurations.map(
-        SecurityConfiguration.filterSensitiveLog
+      SecurityConfigurations: obj.SecurityConfigurations.map(item =>
+        SecurityConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -5579,7 +5607,9 @@ export namespace CreateMLTransformRequest {
   export const filterSensitiveLog = (obj: CreateMLTransformRequest): any => ({
     ...obj,
     ...(obj.InputRecordTables && {
-      InputRecordTables: obj.InputRecordTables.map(GlueTable.filterSensitiveLog)
+      InputRecordTables: obj.InputRecordTables.map(item =>
+        GlueTable.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Parameters && {
       Parameters: TransformParameters.filterSensitiveLog(obj.Parameters)
@@ -5967,7 +5997,7 @@ export namespace GetMLTaskRunsResponse {
   export const filterSensitiveLog = (obj: GetMLTaskRunsResponse): any => ({
     ...obj,
     ...(obj.TaskRuns && {
-      TaskRuns: obj.TaskRuns.map(TaskRun.filterSensitiveLog)
+      TaskRuns: obj.TaskRuns.map(item => TaskRun.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetMLTaskRunsResponse =>
@@ -6112,13 +6142,15 @@ export namespace GetMLTransformResponse {
       )
     }),
     ...(obj.InputRecordTables && {
-      InputRecordTables: obj.InputRecordTables.map(GlueTable.filterSensitiveLog)
+      InputRecordTables: obj.InputRecordTables.map(item =>
+        GlueTable.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Parameters && {
       Parameters: TransformParameters.filterSensitiveLog(obj.Parameters)
     }),
     ...(obj.Schema && {
-      Schema: obj.Schema.map(SchemaColumn.filterSensitiveLog)
+      Schema: obj.Schema.map(item => SchemaColumn.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetMLTransformResponse =>
@@ -6179,7 +6211,9 @@ export namespace GetMLTransformsResponse {
   export const filterSensitiveLog = (obj: GetMLTransformsResponse): any => ({
     ...obj,
     ...(obj.Transforms && {
-      Transforms: obj.Transforms.map(MLTransform.filterSensitiveLog)
+      Transforms: obj.Transforms.map(item =>
+        MLTransform.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetMLTransformsResponse =>
@@ -6443,13 +6477,15 @@ export namespace MLTransform {
       )
     }),
     ...(obj.InputRecordTables && {
-      InputRecordTables: obj.InputRecordTables.map(GlueTable.filterSensitiveLog)
+      InputRecordTables: obj.InputRecordTables.map(item =>
+        GlueTable.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Parameters && {
       Parameters: TransformParameters.filterSensitiveLog(obj.Parameters)
     }),
     ...(obj.Schema && {
-      Schema: obj.Schema.map(SchemaColumn.filterSensitiveLog)
+      Schema: obj.Schema.map(item => SchemaColumn.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is MLTransform => __isa(o, "MLTransform");
@@ -6948,7 +6984,7 @@ export namespace TransformFilterCriteria {
   export const filterSensitiveLog = (obj: TransformFilterCriteria): any => ({
     ...obj,
     ...(obj.Schema && {
-      Schema: obj.Schema.map(SchemaColumn.filterSensitiveLog)
+      Schema: obj.Schema.map(item => SchemaColumn.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is TransformFilterCriteria =>
@@ -7221,7 +7257,9 @@ export interface BatchGetJobsResponse {
 export namespace BatchGetJobsResponse {
   export const filterSensitiveLog = (obj: BatchGetJobsResponse): any => ({
     ...obj,
-    ...(obj.Jobs && { Jobs: obj.Jobs.map(Job.filterSensitiveLog) })
+    ...(obj.Jobs && {
+      Jobs: obj.Jobs.map(item => Job.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is BatchGetJobsResponse =>
     __isa(o, "BatchGetJobsResponse");
@@ -7260,7 +7298,7 @@ export namespace BatchGetTriggersResponse {
   export const filterSensitiveLog = (obj: BatchGetTriggersResponse): any => ({
     ...obj,
     ...(obj.Triggers && {
-      Triggers: obj.Triggers.map(Trigger.filterSensitiveLog)
+      Triggers: obj.Triggers.map(item => Trigger.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchGetTriggersResponse =>
@@ -7305,7 +7343,7 @@ export namespace BatchGetWorkflowsResponse {
   export const filterSensitiveLog = (obj: BatchGetWorkflowsResponse): any => ({
     ...obj,
     ...(obj.Workflows && {
-      Workflows: obj.Workflows.map(Workflow.filterSensitiveLog)
+      Workflows: obj.Workflows.map(item => Workflow.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchGetWorkflowsResponse =>
@@ -7386,11 +7424,13 @@ export namespace BatchStopJobRunResponse {
   export const filterSensitiveLog = (obj: BatchStopJobRunResponse): any => ({
     ...obj,
     ...(obj.Errors && {
-      Errors: obj.Errors.map(BatchStopJobRunError.filterSensitiveLog)
+      Errors: obj.Errors.map(item =>
+        BatchStopJobRunError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SuccessfulSubmissions && {
-      SuccessfulSubmissions: obj.SuccessfulSubmissions.map(
-        BatchStopJobRunSuccessfulSubmission.filterSensitiveLog
+      SuccessfulSubmissions: obj.SuccessfulSubmissions.map(item =>
+        BatchStopJobRunSuccessfulSubmission.filterSensitiveLog(item)
       )
     })
   });
@@ -7547,7 +7587,9 @@ export interface CrawlerNodeDetails {
 export namespace CrawlerNodeDetails {
   export const filterSensitiveLog = (obj: CrawlerNodeDetails): any => ({
     ...obj,
-    ...(obj.Crawls && { Crawls: obj.Crawls.map(Crawl.filterSensitiveLog) })
+    ...(obj.Crawls && {
+      Crawls: obj.Crawls.map(item => Crawl.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CrawlerNodeDetails =>
     __isa(o, "CrawlerNodeDetails");
@@ -7791,7 +7833,9 @@ export interface CreateTriggerRequest {
 export namespace CreateTriggerRequest {
   export const filterSensitiveLog = (obj: CreateTriggerRequest): any => ({
     ...obj,
-    ...(obj.Actions && { Actions: obj.Actions.map(Action.filterSensitiveLog) }),
+    ...(obj.Actions && {
+      Actions: obj.Actions.map(item => Action.filterSensitiveLog(item))
+    }),
     ...(obj.Predicate && {
       Predicate: Predicate.filterSensitiveLog(obj.Predicate)
     })
@@ -8121,7 +8165,9 @@ export interface GetJobRunsResponse {
 export namespace GetJobRunsResponse {
   export const filterSensitiveLog = (obj: GetJobRunsResponse): any => ({
     ...obj,
-    ...(obj.JobRuns && { JobRuns: obj.JobRuns.map(JobRun.filterSensitiveLog) })
+    ...(obj.JobRuns && {
+      JobRuns: obj.JobRuns.map(item => JobRun.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetJobRunsResponse =>
     __isa(o, "GetJobRunsResponse");
@@ -8164,7 +8210,9 @@ export interface GetJobsResponse {
 export namespace GetJobsResponse {
   export const filterSensitiveLog = (obj: GetJobsResponse): any => ({
     ...obj,
-    ...(obj.Jobs && { Jobs: obj.Jobs.map(Job.filterSensitiveLog) })
+    ...(obj.Jobs && {
+      Jobs: obj.Jobs.map(item => Job.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetJobsResponse =>
     __isa(o, "GetJobsResponse");
@@ -8248,7 +8296,7 @@ export namespace GetTriggersResponse {
   export const filterSensitiveLog = (obj: GetTriggersResponse): any => ({
     ...obj,
     ...(obj.Triggers && {
-      Triggers: obj.Triggers.map(Trigger.filterSensitiveLog)
+      Triggers: obj.Triggers.map(item => Trigger.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetTriggersResponse =>
@@ -8424,7 +8472,9 @@ export interface GetWorkflowRunsResponse {
 export namespace GetWorkflowRunsResponse {
   export const filterSensitiveLog = (obj: GetWorkflowRunsResponse): any => ({
     ...obj,
-    ...(obj.Runs && { Runs: obj.Runs.map(WorkflowRun.filterSensitiveLog) })
+    ...(obj.Runs && {
+      Runs: obj.Runs.map(item => WorkflowRun.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetWorkflowRunsResponse =>
     __isa(o, "GetWorkflowRunsResponse");
@@ -8645,7 +8695,9 @@ export interface JobNodeDetails {
 export namespace JobNodeDetails {
   export const filterSensitiveLog = (obj: JobNodeDetails): any => ({
     ...obj,
-    ...(obj.JobRuns && { JobRuns: obj.JobRuns.map(JobRun.filterSensitiveLog) })
+    ...(obj.JobRuns && {
+      JobRuns: obj.JobRuns.map(item => JobRun.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is JobNodeDetails =>
     __isa(o, "JobNodeDetails");
@@ -8829,7 +8881,9 @@ export namespace JobRun {
       )
     }),
     ...(obj.PredecessorRuns && {
-      PredecessorRuns: obj.PredecessorRuns.map(Predecessor.filterSensitiveLog)
+      PredecessorRuns: obj.PredecessorRuns.map(item =>
+        Predecessor.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is JobRun => __isa(o, "JobRun");
@@ -9275,7 +9329,7 @@ export namespace Predicate {
   export const filterSensitiveLog = (obj: Predicate): any => ({
     ...obj,
     ...(obj.Conditions && {
-      Conditions: obj.Conditions.map(Condition.filterSensitiveLog)
+      Conditions: obj.Conditions.map(item => Condition.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Predicate => __isa(o, "Predicate");
@@ -9601,7 +9655,9 @@ export interface Trigger {
 export namespace Trigger {
   export const filterSensitiveLog = (obj: Trigger): any => ({
     ...obj,
-    ...(obj.Actions && { Actions: obj.Actions.map(Action.filterSensitiveLog) }),
+    ...(obj.Actions && {
+      Actions: obj.Actions.map(item => Action.filterSensitiveLog(item))
+    }),
     ...(obj.Predicate && {
       Predicate: Predicate.filterSensitiveLog(obj.Predicate)
     })
@@ -9684,7 +9740,9 @@ export interface TriggerUpdate {
 export namespace TriggerUpdate {
   export const filterSensitiveLog = (obj: TriggerUpdate): any => ({
     ...obj,
-    ...(obj.Actions && { Actions: obj.Actions.map(Action.filterSensitiveLog) }),
+    ...(obj.Actions && {
+      Actions: obj.Actions.map(item => Action.filterSensitiveLog(item))
+    }),
     ...(obj.Predicate && {
       Predicate: Predicate.filterSensitiveLog(obj.Predicate)
     })
@@ -9887,8 +9945,12 @@ export interface WorkflowGraph {
 export namespace WorkflowGraph {
   export const filterSensitiveLog = (obj: WorkflowGraph): any => ({
     ...obj,
-    ...(obj.Edges && { Edges: obj.Edges.map(Edge.filterSensitiveLog) }),
-    ...(obj.Nodes && { Nodes: obj.Nodes.map(Node.filterSensitiveLog) })
+    ...(obj.Edges && {
+      Edges: obj.Edges.map(item => Edge.filterSensitiveLog(item))
+    }),
+    ...(obj.Nodes && {
+      Nodes: obj.Nodes.map(item => Node.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is WorkflowGraph => __isa(o, "WorkflowGraph");
 }
@@ -10034,7 +10096,7 @@ export namespace BatchGetCrawlersResponse {
   export const filterSensitiveLog = (obj: BatchGetCrawlersResponse): any => ({
     ...obj,
     ...(obj.Crawlers && {
-      Crawlers: obj.Crawlers.map(Crawler.filterSensitiveLog)
+      Crawlers: obj.Crawlers.map(item => Crawler.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchGetCrawlersResponse =>
@@ -10196,7 +10258,9 @@ export interface CodeGenNode {
 export namespace CodeGenNode {
   export const filterSensitiveLog = (obj: CodeGenNode): any => ({
     ...obj,
-    ...(obj.Args && { Args: obj.Args.map(CodeGenNodeArg.filterSensitiveLog) })
+    ...(obj.Args && {
+      Args: obj.Args.map(item => CodeGenNodeArg.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CodeGenNode => __isa(o, "CodeGenNode");
 }
@@ -10507,18 +10571,22 @@ export namespace CrawlerTargets {
   export const filterSensitiveLog = (obj: CrawlerTargets): any => ({
     ...obj,
     ...(obj.CatalogTargets && {
-      CatalogTargets: obj.CatalogTargets.map(CatalogTarget.filterSensitiveLog)
+      CatalogTargets: obj.CatalogTargets.map(item =>
+        CatalogTarget.filterSensitiveLog(item)
+      )
     }),
     ...(obj.DynamoDBTargets && {
-      DynamoDBTargets: obj.DynamoDBTargets.map(
-        DynamoDBTarget.filterSensitiveLog
+      DynamoDBTargets: obj.DynamoDBTargets.map(item =>
+        DynamoDBTarget.filterSensitiveLog(item)
       )
     }),
     ...(obj.JdbcTargets && {
-      JdbcTargets: obj.JdbcTargets.map(JdbcTarget.filterSensitiveLog)
+      JdbcTargets: obj.JdbcTargets.map(item =>
+        JdbcTarget.filterSensitiveLog(item)
+      )
     }),
     ...(obj.S3Targets && {
-      S3Targets: obj.S3Targets.map(S3Target.filterSensitiveLog)
+      S3Targets: obj.S3Targets.map(item => S3Target.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CrawlerTargets =>
@@ -10830,10 +10898,10 @@ export namespace CreateScriptRequest {
   export const filterSensitiveLog = (obj: CreateScriptRequest): any => ({
     ...obj,
     ...(obj.DagEdges && {
-      DagEdges: obj.DagEdges.map(CodeGenEdge.filterSensitiveLog)
+      DagEdges: obj.DagEdges.map(item => CodeGenEdge.filterSensitiveLog(item))
     }),
     ...(obj.DagNodes && {
-      DagNodes: obj.DagNodes.map(CodeGenNode.filterSensitiveLog)
+      DagNodes: obj.DagNodes.map(item => CodeGenNode.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateScriptRequest =>
@@ -11120,7 +11188,9 @@ export namespace GetClassifiersResponse {
   export const filterSensitiveLog = (obj: GetClassifiersResponse): any => ({
     ...obj,
     ...(obj.Classifiers && {
-      Classifiers: obj.Classifiers.map(Classifier.filterSensitiveLog)
+      Classifiers: obj.Classifiers.map(item =>
+        Classifier.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetClassifiersResponse =>
@@ -11171,8 +11241,8 @@ export namespace GetCrawlerMetricsResponse {
   export const filterSensitiveLog = (obj: GetCrawlerMetricsResponse): any => ({
     ...obj,
     ...(obj.CrawlerMetricsList && {
-      CrawlerMetricsList: obj.CrawlerMetricsList.map(
-        CrawlerMetrics.filterSensitiveLog
+      CrawlerMetricsList: obj.CrawlerMetricsList.map(item =>
+        CrawlerMetrics.filterSensitiveLog(item)
       )
     })
   });
@@ -11252,7 +11322,7 @@ export namespace GetCrawlersResponse {
   export const filterSensitiveLog = (obj: GetCrawlersResponse): any => ({
     ...obj,
     ...(obj.Crawlers && {
-      Crawlers: obj.Crawlers.map(Crawler.filterSensitiveLog)
+      Crawlers: obj.Crawlers.map(item => Crawler.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetCrawlersResponse =>
@@ -11292,10 +11362,10 @@ export namespace GetDataflowGraphResponse {
   export const filterSensitiveLog = (obj: GetDataflowGraphResponse): any => ({
     ...obj,
     ...(obj.DagEdges && {
-      DagEdges: obj.DagEdges.map(CodeGenEdge.filterSensitiveLog)
+      DagEdges: obj.DagEdges.map(item => CodeGenEdge.filterSensitiveLog(item))
     }),
     ...(obj.DagNodes && {
-      DagNodes: obj.DagNodes.map(CodeGenNode.filterSensitiveLog)
+      DagNodes: obj.DagNodes.map(item => CodeGenNode.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetDataflowGraphResponse =>
@@ -11326,7 +11396,9 @@ export namespace GetMappingRequest {
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
     }),
-    ...(obj.Sinks && { Sinks: obj.Sinks.map(CatalogEntry.filterSensitiveLog) }),
+    ...(obj.Sinks && {
+      Sinks: obj.Sinks.map(item => CatalogEntry.filterSensitiveLog(item))
+    }),
     ...(obj.Source && { Source: CatalogEntry.filterSensitiveLog(obj.Source) })
   });
   export const isa = (o: any): o is GetMappingRequest =>
@@ -11345,7 +11417,7 @@ export namespace GetMappingResponse {
   export const filterSensitiveLog = (obj: GetMappingResponse): any => ({
     ...obj,
     ...(obj.Mapping && {
-      Mapping: obj.Mapping.map(MappingEntry.filterSensitiveLog)
+      Mapping: obj.Mapping.map(item => MappingEntry.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetMappingResponse =>
@@ -11387,9 +11459,11 @@ export namespace GetPlanRequest {
       Location: Location.filterSensitiveLog(obj.Location)
     }),
     ...(obj.Mapping && {
-      Mapping: obj.Mapping.map(MappingEntry.filterSensitiveLog)
+      Mapping: obj.Mapping.map(item => MappingEntry.filterSensitiveLog(item))
     }),
-    ...(obj.Sinks && { Sinks: obj.Sinks.map(CatalogEntry.filterSensitiveLog) }),
+    ...(obj.Sinks && {
+      Sinks: obj.Sinks.map(item => CatalogEntry.filterSensitiveLog(item))
+    }),
     ...(obj.Source && { Source: CatalogEntry.filterSensitiveLog(obj.Source) })
   });
   export const isa = (o: any): o is GetPlanRequest =>
@@ -11666,10 +11740,16 @@ export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
     ...obj,
     ...(obj.DynamoDB && {
-      DynamoDB: obj.DynamoDB.map(CodeGenNodeArg.filterSensitiveLog)
+      DynamoDB: obj.DynamoDB.map(item =>
+        CodeGenNodeArg.filterSensitiveLog(item)
+      )
     }),
-    ...(obj.Jdbc && { Jdbc: obj.Jdbc.map(CodeGenNodeArg.filterSensitiveLog) }),
-    ...(obj.S3 && { S3: obj.S3.map(CodeGenNodeArg.filterSensitiveLog) })
+    ...(obj.Jdbc && {
+      Jdbc: obj.Jdbc.map(item => CodeGenNodeArg.filterSensitiveLog(item))
+    }),
+    ...(obj.S3 && {
+      S3: obj.S3.map(item => CodeGenNodeArg.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Location => __isa(o, "Location");
 }

@@ -881,7 +881,7 @@ export namespace CreateGraphqlApiRequest {
     ...obj,
     ...(obj.additionalAuthenticationProviders && {
       additionalAuthenticationProviders: obj.additionalAuthenticationProviders.map(
-        AdditionalAuthenticationProvider.filterSensitiveLog
+        item => AdditionalAuthenticationProvider.filterSensitiveLog(item)
       )
     }),
     ...(obj.logConfig && {
@@ -2032,7 +2032,7 @@ export namespace GraphqlApi {
     ...obj,
     ...(obj.additionalAuthenticationProviders && {
       additionalAuthenticationProviders: obj.additionalAuthenticationProviders.map(
-        AdditionalAuthenticationProvider.filterSensitiveLog
+        item => AdditionalAuthenticationProvider.filterSensitiveLog(item)
       )
     }),
     ...(obj.logConfig && {
@@ -2198,7 +2198,9 @@ export interface ListApiKeysResponse {
 export namespace ListApiKeysResponse {
   export const filterSensitiveLog = (obj: ListApiKeysResponse): any => ({
     ...obj,
-    ...(obj.apiKeys && { apiKeys: obj.apiKeys.map(ApiKey.filterSensitiveLog) })
+    ...(obj.apiKeys && {
+      apiKeys: obj.apiKeys.map(item => ApiKey.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListApiKeysResponse =>
     __isa(o, "ListApiKeysResponse");
@@ -2249,7 +2251,9 @@ export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
     ...obj,
     ...(obj.dataSources && {
-      dataSources: obj.dataSources.map(DataSource.filterSensitiveLog)
+      dataSources: obj.dataSources.map(item =>
+        DataSource.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDataSourcesResponse =>
@@ -2301,7 +2305,9 @@ export namespace ListFunctionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
     ...obj,
     ...(obj.functions && {
-      functions: obj.functions.map(FunctionConfiguration.filterSensitiveLog)
+      functions: obj.functions.map(item =>
+        FunctionConfiguration.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListFunctionsResponse =>
@@ -2348,7 +2354,9 @@ export namespace ListGraphqlApisResponse {
   export const filterSensitiveLog = (obj: ListGraphqlApisResponse): any => ({
     ...obj,
     ...(obj.graphqlApis && {
-      graphqlApis: obj.graphqlApis.map(GraphqlApi.filterSensitiveLog)
+      graphqlApis: obj.graphqlApis.map(item =>
+        GraphqlApi.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListGraphqlApisResponse =>
@@ -2407,7 +2415,7 @@ export namespace ListResolversByFunctionResponse {
   ): any => ({
     ...obj,
     ...(obj.resolvers && {
-      resolvers: obj.resolvers.map(Resolver.filterSensitiveLog)
+      resolvers: obj.resolvers.map(item => Resolver.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListResolversByFunctionResponse =>
@@ -2464,7 +2472,7 @@ export namespace ListResolversResponse {
   export const filterSensitiveLog = (obj: ListResolversResponse): any => ({
     ...obj,
     ...(obj.resolvers && {
-      resolvers: obj.resolvers.map(Resolver.filterSensitiveLog)
+      resolvers: obj.resolvers.map(item => Resolver.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListResolversResponse =>
@@ -2554,7 +2562,9 @@ export interface ListTypesResponse {
 export namespace ListTypesResponse {
   export const filterSensitiveLog = (obj: ListTypesResponse): any => ({
     ...obj,
-    ...(obj.types && { types: obj.types.map(Type.filterSensitiveLog) })
+    ...(obj.types && {
+      types: obj.types.map(item => Type.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTypesResponse =>
     __isa(o, "ListTypesResponse");
@@ -3471,7 +3481,7 @@ export namespace UpdateGraphqlApiRequest {
     ...obj,
     ...(obj.additionalAuthenticationProviders && {
       additionalAuthenticationProviders: obj.additionalAuthenticationProviders.map(
-        AdditionalAuthenticationProvider.filterSensitiveLog
+        item => AdditionalAuthenticationProvider.filterSensitiveLog(item)
       )
     }),
     ...(obj.logConfig && {

@@ -356,7 +356,9 @@ export namespace CreateFargateProfileRequest {
   ): any => ({
     ...obj,
     ...(obj.selectors && {
-      selectors: obj.selectors.map(FargateProfileSelector.filterSensitiveLog)
+      selectors: obj.selectors.map(item =>
+        FargateProfileSelector.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CreateFargateProfileRequest =>
@@ -936,7 +938,9 @@ export namespace FargateProfile {
   export const filterSensitiveLog = (obj: FargateProfile): any => ({
     ...obj,
     ...(obj.selectors && {
-      selectors: obj.selectors.map(FargateProfileSelector.filterSensitiveLog)
+      selectors: obj.selectors.map(item =>
+        FargateProfileSelector.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is FargateProfile =>
@@ -1501,7 +1505,9 @@ export namespace Logging {
   export const filterSensitiveLog = (obj: Logging): any => ({
     ...obj,
     ...(obj.clusterLogging && {
-      clusterLogging: obj.clusterLogging.map(LogSetup.filterSensitiveLog)
+      clusterLogging: obj.clusterLogging.map(item =>
+        LogSetup.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is Logging => __isa(o, "Logging");
@@ -1670,7 +1676,9 @@ export interface NodegroupHealth {
 export namespace NodegroupHealth {
   export const filterSensitiveLog = (obj: NodegroupHealth): any => ({
     ...obj,
-    ...(obj.issues && { issues: obj.issues.map(Issue.filterSensitiveLog) })
+    ...(obj.issues && {
+      issues: obj.issues.map(item => Issue.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is NodegroupHealth =>
     __isa(o, "NodegroupHealth");
@@ -1713,8 +1721,8 @@ export namespace NodegroupResources {
   export const filterSensitiveLog = (obj: NodegroupResources): any => ({
     ...obj,
     ...(obj.autoScalingGroups && {
-      autoScalingGroups: obj.autoScalingGroups.map(
-        AutoScalingGroup.filterSensitiveLog
+      autoScalingGroups: obj.autoScalingGroups.map(item =>
+        AutoScalingGroup.filterSensitiveLog(item)
       )
     })
   });
@@ -2118,10 +2126,10 @@ export namespace Update {
   export const filterSensitiveLog = (obj: Update): any => ({
     ...obj,
     ...(obj.errors && {
-      errors: obj.errors.map(ErrorDetail.filterSensitiveLog)
+      errors: obj.errors.map(item => ErrorDetail.filterSensitiveLog(item))
     }),
     ...(obj.params && {
-      params: obj.params.map(UpdateParam.filterSensitiveLog)
+      params: obj.params.map(item => UpdateParam.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Update => __isa(o, "Update");

@@ -234,7 +234,9 @@ export namespace CreateSignalingChannelInput {
         obj.SingleMasterConfiguration
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateSignalingChannelInput =>
     __isa(o, "CreateSignalingChannelInput");
@@ -611,8 +613,8 @@ export namespace GetSignalingChannelEndpointOutput {
   ): any => ({
     ...obj,
     ...(obj.ResourceEndpointList && {
-      ResourceEndpointList: obj.ResourceEndpointList.map(
-        ResourceEndpointListItem.filterSensitiveLog
+      ResourceEndpointList: obj.ResourceEndpointList.map(item =>
+        ResourceEndpointListItem.filterSensitiveLog(item)
       )
     })
   });
@@ -732,7 +734,9 @@ export namespace ListSignalingChannelsOutput {
   ): any => ({
     ...obj,
     ...(obj.ChannelInfoList && {
-      ChannelInfoList: obj.ChannelInfoList.map(ChannelInfo.filterSensitiveLog)
+      ChannelInfoList: obj.ChannelInfoList.map(item =>
+        ChannelInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListSignalingChannelsOutput =>
@@ -792,7 +796,9 @@ export namespace ListStreamsOutput {
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
     ...obj,
     ...(obj.StreamInfoList && {
-      StreamInfoList: obj.StreamInfoList.map(StreamInfo.filterSensitiveLog)
+      StreamInfoList: obj.StreamInfoList.map(item =>
+        StreamInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListStreamsOutput =>
@@ -1171,7 +1177,9 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");

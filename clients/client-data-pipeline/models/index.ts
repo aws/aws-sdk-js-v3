@@ -30,8 +30,8 @@ export namespace ActivatePipelineInput {
   export const filterSensitiveLog = (obj: ActivatePipelineInput): any => ({
     ...obj,
     ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(
-        ParameterValue.filterSensitiveLog
+      parameterValues: obj.parameterValues.map(item =>
+        ParameterValue.filterSensitiveLog(item)
       )
     })
   });
@@ -73,7 +73,9 @@ export interface AddTagsInput {
 export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
@@ -130,7 +132,9 @@ export interface CreatePipelineInput {
 export namespace CreatePipelineInput {
   export const filterSensitiveLog = (obj: CreatePipelineInput): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreatePipelineInput =>
     __isa(o, "CreatePipelineInput");
@@ -278,8 +282,8 @@ export namespace DescribeObjectsOutput {
   export const filterSensitiveLog = (obj: DescribeObjectsOutput): any => ({
     ...obj,
     ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(
-        PipelineObject.filterSensitiveLog
+      pipelineObjects: obj.pipelineObjects.map(item =>
+        PipelineObject.filterSensitiveLog(item)
       )
     })
   });
@@ -322,8 +326,8 @@ export namespace DescribePipelinesOutput {
   export const filterSensitiveLog = (obj: DescribePipelinesOutput): any => ({
     ...obj,
     ...(obj.pipelineDescriptionList && {
-      pipelineDescriptionList: obj.pipelineDescriptionList.map(
-        PipelineDescription.filterSensitiveLog
+      pipelineDescriptionList: obj.pipelineDescriptionList.map(item =>
+        PipelineDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -460,18 +464,18 @@ export namespace GetPipelineDefinitionOutput {
   ): any => ({
     ...obj,
     ...(obj.parameterObjects && {
-      parameterObjects: obj.parameterObjects.map(
-        ParameterObject.filterSensitiveLog
+      parameterObjects: obj.parameterObjects.map(item =>
+        ParameterObject.filterSensitiveLog(item)
       )
     }),
     ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(
-        ParameterValue.filterSensitiveLog
+      parameterValues: obj.parameterValues.map(item =>
+        ParameterValue.filterSensitiveLog(item)
       )
     }),
     ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(
-        PipelineObject.filterSensitiveLog
+      pipelineObjects: obj.pipelineObjects.map(item =>
+        PipelineObject.filterSensitiveLog(item)
       )
     })
   });
@@ -597,7 +601,9 @@ export namespace ListPipelinesOutput {
   export const filterSensitiveLog = (obj: ListPipelinesOutput): any => ({
     ...obj,
     ...(obj.pipelineIdList && {
-      pipelineIdList: obj.pipelineIdList.map(PipelineIdName.filterSensitiveLog)
+      pipelineIdList: obj.pipelineIdList.map(item =>
+        PipelineIdName.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListPipelinesOutput =>
@@ -733,7 +739,9 @@ export namespace ParameterObject {
   export const filterSensitiveLog = (obj: ParameterObject): any => ({
     ...obj,
     ...(obj.attributes && {
-      attributes: obj.attributes.map(ParameterAttribute.filterSensitiveLog)
+      attributes: obj.attributes.map(item =>
+        ParameterAttribute.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ParameterObject =>
@@ -821,8 +829,12 @@ export interface PipelineDescription {
 export namespace PipelineDescription {
   export const filterSensitiveLog = (obj: PipelineDescription): any => ({
     ...obj,
-    ...(obj.fields && { fields: obj.fields.map(Field.filterSensitiveLog) }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.fields && {
+      fields: obj.fields.map(item => Field.filterSensitiveLog(item))
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PipelineDescription =>
     __isa(o, "PipelineDescription");
@@ -898,7 +910,9 @@ export interface PipelineObject {
 export namespace PipelineObject {
   export const filterSensitiveLog = (obj: PipelineObject): any => ({
     ...obj,
-    ...(obj.fields && { fields: obj.fields.map(Field.filterSensitiveLog) })
+    ...(obj.fields && {
+      fields: obj.fields.map(item => Field.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PipelineObject =>
     __isa(o, "PipelineObject");
@@ -994,18 +1008,18 @@ export namespace PutPipelineDefinitionInput {
   export const filterSensitiveLog = (obj: PutPipelineDefinitionInput): any => ({
     ...obj,
     ...(obj.parameterObjects && {
-      parameterObjects: obj.parameterObjects.map(
-        ParameterObject.filterSensitiveLog
+      parameterObjects: obj.parameterObjects.map(item =>
+        ParameterObject.filterSensitiveLog(item)
       )
     }),
     ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(
-        ParameterValue.filterSensitiveLog
+      parameterValues: obj.parameterValues.map(item =>
+        ParameterValue.filterSensitiveLog(item)
       )
     }),
     ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(
-        PipelineObject.filterSensitiveLog
+      pipelineObjects: obj.pipelineObjects.map(item =>
+        PipelineObject.filterSensitiveLog(item)
       )
     })
   });
@@ -1041,13 +1055,13 @@ export namespace PutPipelineDefinitionOutput {
   ): any => ({
     ...obj,
     ...(obj.validationErrors && {
-      validationErrors: obj.validationErrors.map(
-        ValidationError.filterSensitiveLog
+      validationErrors: obj.validationErrors.map(item =>
+        ValidationError.filterSensitiveLog(item)
       )
     }),
     ...(obj.validationWarnings && {
-      validationWarnings: obj.validationWarnings.map(
-        ValidationWarning.filterSensitiveLog
+      validationWarnings: obj.validationWarnings.map(item =>
+        ValidationWarning.filterSensitiveLog(item)
       )
     })
   });
@@ -1070,7 +1084,7 @@ export namespace Query {
   export const filterSensitiveLog = (obj: Query): any => ({
     ...obj,
     ...(obj.selectors && {
-      selectors: obj.selectors.map(Selector.filterSensitiveLog)
+      selectors: obj.selectors.map(item => Selector.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Query => __isa(o, "Query");
@@ -1209,7 +1223,9 @@ export interface ReportTaskProgressInput {
 export namespace ReportTaskProgressInput {
   export const filterSensitiveLog = (obj: ReportTaskProgressInput): any => ({
     ...obj,
-    ...(obj.fields && { fields: obj.fields.map(Field.filterSensitiveLog) })
+    ...(obj.fields && {
+      fields: obj.fields.map(item => Field.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ReportTaskProgressInput =>
     __isa(o, "ReportTaskProgressInput");
@@ -1524,18 +1540,18 @@ export namespace ValidatePipelineDefinitionInput {
   ): any => ({
     ...obj,
     ...(obj.parameterObjects && {
-      parameterObjects: obj.parameterObjects.map(
-        ParameterObject.filterSensitiveLog
+      parameterObjects: obj.parameterObjects.map(item =>
+        ParameterObject.filterSensitiveLog(item)
       )
     }),
     ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(
-        ParameterValue.filterSensitiveLog
+      parameterValues: obj.parameterValues.map(item =>
+        ParameterValue.filterSensitiveLog(item)
       )
     }),
     ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(
-        PipelineObject.filterSensitiveLog
+      pipelineObjects: obj.pipelineObjects.map(item =>
+        PipelineObject.filterSensitiveLog(item)
       )
     })
   });
@@ -1570,13 +1586,13 @@ export namespace ValidatePipelineDefinitionOutput {
   ): any => ({
     ...obj,
     ...(obj.validationErrors && {
-      validationErrors: obj.validationErrors.map(
-        ValidationError.filterSensitiveLog
+      validationErrors: obj.validationErrors.map(item =>
+        ValidationError.filterSensitiveLog(item)
       )
     }),
     ...(obj.validationWarnings && {
-      validationWarnings: obj.validationWarnings.map(
-        ValidationWarning.filterSensitiveLog
+      validationWarnings: obj.validationWarnings.map(item =>
+        ValidationWarning.filterSensitiveLog(item)
       )
     })
   });

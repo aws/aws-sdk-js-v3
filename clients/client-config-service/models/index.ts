@@ -440,8 +440,8 @@ export namespace BatchGetAggregateResourceConfigRequest {
   ): any => ({
     ...obj,
     ...(obj.ResourceIdentifiers && {
-      ResourceIdentifiers: obj.ResourceIdentifiers.map(
-        AggregateResourceIdentifier.filterSensitiveLog
+      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
+        AggregateResourceIdentifier.filterSensitiveLog(item)
       )
     })
   });
@@ -468,13 +468,13 @@ export namespace BatchGetAggregateResourceConfigResponse {
   ): any => ({
     ...obj,
     ...(obj.BaseConfigurationItems && {
-      BaseConfigurationItems: obj.BaseConfigurationItems.map(
-        BaseConfigurationItem.filterSensitiveLog
+      BaseConfigurationItems: obj.BaseConfigurationItems.map(item =>
+        BaseConfigurationItem.filterSensitiveLog(item)
       )
     }),
     ...(obj.UnprocessedResourceIdentifiers && {
       UnprocessedResourceIdentifiers: obj.UnprocessedResourceIdentifiers.map(
-        AggregateResourceIdentifier.filterSensitiveLog
+        item => AggregateResourceIdentifier.filterSensitiveLog(item)
       )
     })
   });
@@ -498,7 +498,9 @@ export namespace BatchGetResourceConfigRequest {
   ): any => ({
     ...obj,
     ...(obj.resourceKeys && {
-      resourceKeys: obj.resourceKeys.map(ResourceKey.filterSensitiveLog)
+      resourceKeys: obj.resourceKeys.map(item =>
+        ResourceKey.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchGetResourceConfigRequest =>
@@ -531,13 +533,13 @@ export namespace BatchGetResourceConfigResponse {
   ): any => ({
     ...obj,
     ...(obj.baseConfigurationItems && {
-      baseConfigurationItems: obj.baseConfigurationItems.map(
-        BaseConfigurationItem.filterSensitiveLog
+      baseConfigurationItems: obj.baseConfigurationItems.map(item =>
+        BaseConfigurationItem.filterSensitiveLog(item)
       )
     }),
     ...(obj.unprocessedResourceKeys && {
-      unprocessedResourceKeys: obj.unprocessedResourceKeys.map(
-        ResourceKey.filterSensitiveLog
+      unprocessedResourceKeys: obj.unprocessedResourceKeys.map(item =>
+        ResourceKey.filterSensitiveLog(item)
       )
     })
   });
@@ -1308,8 +1310,8 @@ export namespace ConfigurationAggregator {
   export const filterSensitiveLog = (obj: ConfigurationAggregator): any => ({
     ...obj,
     ...(obj.AccountAggregationSources && {
-      AccountAggregationSources: obj.AccountAggregationSources.map(
-        AccountAggregationSource.filterSensitiveLog
+      AccountAggregationSources: obj.AccountAggregationSources.map(item =>
+        AccountAggregationSource.filterSensitiveLog(item)
       )
     }),
     ...(obj.OrganizationAggregationSource && {
@@ -1440,7 +1442,9 @@ export namespace ConfigurationItem {
   export const filterSensitiveLog = (obj: ConfigurationItem): any => ({
     ...obj,
     ...(obj.relationships && {
-      relationships: obj.relationships.map(Relationship.filterSensitiveLog)
+      relationships: obj.relationships.map(item =>
+        Relationship.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ConfigurationItem =>
@@ -1662,7 +1666,7 @@ export namespace ConformancePackDetail {
     ...obj,
     ...(obj.ConformancePackInputParameters && {
       ConformancePackInputParameters: obj.ConformancePackInputParameters.map(
-        ConformancePackInputParameter.filterSensitiveLog
+        item => ConformancePackInputParameter.filterSensitiveLog(item)
       )
     })
   });
@@ -2201,8 +2205,8 @@ export namespace DeleteRemediationExceptionsRequest {
   ): any => ({
     ...obj,
     ...(obj.ResourceKeys && {
-      ResourceKeys: obj.ResourceKeys.map(
-        RemediationExceptionResourceKey.filterSensitiveLog
+      ResourceKeys: obj.ResourceKeys.map(item =>
+        RemediationExceptionResourceKey.filterSensitiveLog(item)
       )
     })
   });
@@ -2224,8 +2228,8 @@ export namespace DeleteRemediationExceptionsResponse {
   ): any => ({
     ...obj,
     ...(obj.FailedBatches && {
-      FailedBatches: obj.FailedBatches.map(
-        FailedDeleteRemediationExceptionsBatch.filterSensitiveLog
+      FailedBatches: obj.FailedBatches.map(item =>
+        FailedDeleteRemediationExceptionsBatch.filterSensitiveLog(item)
       )
     })
   });
@@ -2507,7 +2511,7 @@ export namespace DescribeAggregateComplianceByConfigRulesResponse {
     ...obj,
     ...(obj.AggregateComplianceByConfigRules && {
       AggregateComplianceByConfigRules: obj.AggregateComplianceByConfigRules.map(
-        AggregateComplianceByConfigRule.filterSensitiveLog
+        item => AggregateComplianceByConfigRule.filterSensitiveLog(item)
       )
     })
   });
@@ -2564,8 +2568,8 @@ export namespace DescribeAggregationAuthorizationsResponse {
   ): any => ({
     ...obj,
     ...(obj.AggregationAuthorizations && {
-      AggregationAuthorizations: obj.AggregationAuthorizations.map(
-        AggregationAuthorization.filterSensitiveLog
+      AggregationAuthorizations: obj.AggregationAuthorizations.map(item =>
+        AggregationAuthorization.filterSensitiveLog(item)
       )
     })
   });
@@ -2632,8 +2636,8 @@ export namespace DescribeComplianceByConfigRuleResponse {
   ): any => ({
     ...obj,
     ...(obj.ComplianceByConfigRules && {
-      ComplianceByConfigRules: obj.ComplianceByConfigRules.map(
-        ComplianceByConfigRule.filterSensitiveLog
+      ComplianceByConfigRules: obj.ComplianceByConfigRules.map(item =>
+        ComplianceByConfigRule.filterSensitiveLog(item)
       )
     })
   });
@@ -2717,8 +2721,8 @@ export namespace DescribeComplianceByResourceResponse {
   ): any => ({
     ...obj,
     ...(obj.ComplianceByResources && {
-      ComplianceByResources: obj.ComplianceByResources.map(
-        ComplianceByResource.filterSensitiveLog
+      ComplianceByResources: obj.ComplianceByResources.map(item =>
+        ComplianceByResource.filterSensitiveLog(item)
       )
     })
   });
@@ -2793,8 +2797,8 @@ export namespace DescribeConfigRuleEvaluationStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.ConfigRulesEvaluationStatus && {
-      ConfigRulesEvaluationStatus: obj.ConfigRulesEvaluationStatus.map(
-        ConfigRuleEvaluationStatus.filterSensitiveLog
+      ConfigRulesEvaluationStatus: obj.ConfigRulesEvaluationStatus.map(item =>
+        ConfigRuleEvaluationStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -2855,7 +2859,9 @@ export namespace DescribeConfigRulesResponse {
   ): any => ({
     ...obj,
     ...(obj.ConfigRules && {
-      ConfigRules: obj.ConfigRules.map(ConfigRule.filterSensitiveLog)
+      ConfigRules: obj.ConfigRules.map(item =>
+        ConfigRule.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeConfigRulesResponse =>
@@ -2935,8 +2941,8 @@ export namespace DescribeConfigurationAggregatorSourcesStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.AggregatedSourceStatusList && {
-      AggregatedSourceStatusList: obj.AggregatedSourceStatusList.map(
-        AggregatedSourceStatus.filterSensitiveLog
+      AggregatedSourceStatusList: obj.AggregatedSourceStatusList.map(item =>
+        AggregatedSourceStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -2997,8 +3003,8 @@ export namespace DescribeConfigurationAggregatorsResponse {
   ): any => ({
     ...obj,
     ...(obj.ConfigurationAggregators && {
-      ConfigurationAggregators: obj.ConfigurationAggregators.map(
-        ConfigurationAggregator.filterSensitiveLog
+      ConfigurationAggregators: obj.ConfigurationAggregators.map(item =>
+        ConfigurationAggregator.filterSensitiveLog(item)
       )
     })
   });
@@ -3051,8 +3057,8 @@ export namespace DescribeConfigurationRecorderStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.ConfigurationRecordersStatus && {
-      ConfigurationRecordersStatus: obj.ConfigurationRecordersStatus.map(
-        ConfigurationRecorderStatus.filterSensitiveLog
+      ConfigurationRecordersStatus: obj.ConfigurationRecordersStatus.map(item =>
+        ConfigurationRecorderStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -3101,8 +3107,8 @@ export namespace DescribeConfigurationRecordersResponse {
   ): any => ({
     ...obj,
     ...(obj.ConfigurationRecorders && {
-      ConfigurationRecorders: obj.ConfigurationRecorders.map(
-        ConfigurationRecorder.filterSensitiveLog
+      ConfigurationRecorders: obj.ConfigurationRecorders.map(item =>
+        ConfigurationRecorder.filterSensitiveLog(item)
       )
     })
   });
@@ -3173,7 +3179,7 @@ export namespace DescribeConformancePackComplianceResponse {
     ...obj,
     ...(obj.ConformancePackRuleComplianceList && {
       ConformancePackRuleComplianceList: obj.ConformancePackRuleComplianceList.map(
-        ConformancePackRuleCompliance.filterSensitiveLog
+        item => ConformancePackRuleCompliance.filterSensitiveLog(item)
       )
     })
   });
@@ -3228,8 +3234,8 @@ export namespace DescribeConformancePackStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.ConformancePackStatusDetails && {
-      ConformancePackStatusDetails: obj.ConformancePackStatusDetails.map(
-        ConformancePackStatusDetail.filterSensitiveLog
+      ConformancePackStatusDetails: obj.ConformancePackStatusDetails.map(item =>
+        ConformancePackStatusDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -3284,8 +3290,8 @@ export namespace DescribeConformancePacksResponse {
   ): any => ({
     ...obj,
     ...(obj.ConformancePackDetails && {
-      ConformancePackDetails: obj.ConformancePackDetails.map(
-        ConformancePackDetail.filterSensitiveLog
+      ConformancePackDetails: obj.ConformancePackDetails.map(item =>
+        ConformancePackDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -3333,8 +3339,8 @@ export namespace DescribeDeliveryChannelStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.DeliveryChannelsStatus && {
-      DeliveryChannelsStatus: obj.DeliveryChannelsStatus.map(
-        DeliveryChannelStatus.filterSensitiveLog
+      DeliveryChannelsStatus: obj.DeliveryChannelsStatus.map(item =>
+        DeliveryChannelStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -3383,8 +3389,8 @@ export namespace DescribeDeliveryChannelsResponse {
   ): any => ({
     ...obj,
     ...(obj.DeliveryChannels && {
-      DeliveryChannels: obj.DeliveryChannels.map(
-        DeliveryChannel.filterSensitiveLog
+      DeliveryChannels: obj.DeliveryChannels.map(item =>
+        DeliveryChannel.filterSensitiveLog(item)
       )
     })
   });
@@ -3442,7 +3448,7 @@ export namespace DescribeOrganizationConfigRuleStatusesResponse {
     ...obj,
     ...(obj.OrganizationConfigRuleStatuses && {
       OrganizationConfigRuleStatuses: obj.OrganizationConfigRuleStatuses.map(
-        OrganizationConfigRuleStatus.filterSensitiveLog
+        item => OrganizationConfigRuleStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -3499,8 +3505,8 @@ export namespace DescribeOrganizationConfigRulesResponse {
   ): any => ({
     ...obj,
     ...(obj.OrganizationConfigRules && {
-      OrganizationConfigRules: obj.OrganizationConfigRules.map(
-        OrganizationConfigRule.filterSensitiveLog
+      OrganizationConfigRules: obj.OrganizationConfigRules.map(item =>
+        OrganizationConfigRule.filterSensitiveLog(item)
       )
     })
   });
@@ -3560,7 +3566,7 @@ export namespace DescribeOrganizationConformancePackStatusesResponse {
     ...obj,
     ...(obj.OrganizationConformancePackStatuses && {
       OrganizationConformancePackStatuses: obj.OrganizationConformancePackStatuses.map(
-        OrganizationConformancePackStatus.filterSensitiveLog
+        item => OrganizationConformancePackStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -3622,8 +3628,8 @@ export namespace DescribeOrganizationConformancePacksResponse {
   ): any => ({
     ...obj,
     ...(obj.OrganizationConformancePacks && {
-      OrganizationConformancePacks: obj.OrganizationConformancePacks.map(
-        OrganizationConformancePack.filterSensitiveLog
+      OrganizationConformancePacks: obj.OrganizationConformancePacks.map(item =>
+        OrganizationConformancePack.filterSensitiveLog(item)
       )
     })
   });
@@ -3679,8 +3685,8 @@ export namespace DescribePendingAggregationRequestsResponse {
   ): any => ({
     ...obj,
     ...(obj.PendingAggregationRequests && {
-      PendingAggregationRequests: obj.PendingAggregationRequests.map(
-        PendingAggregationRequest.filterSensitiveLog
+      PendingAggregationRequests: obj.PendingAggregationRequests.map(item =>
+        PendingAggregationRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -3722,8 +3728,8 @@ export namespace DescribeRemediationConfigurationsResponse {
   ): any => ({
     ...obj,
     ...(obj.RemediationConfigurations && {
-      RemediationConfigurations: obj.RemediationConfigurations.map(
-        RemediationConfiguration.filterSensitiveLog
+      RemediationConfigurations: obj.RemediationConfigurations.map(item =>
+        RemediationConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -3760,8 +3766,8 @@ export namespace DescribeRemediationExceptionsRequest {
   ): any => ({
     ...obj,
     ...(obj.ResourceKeys && {
-      ResourceKeys: obj.ResourceKeys.map(
-        RemediationExceptionResourceKey.filterSensitiveLog
+      ResourceKeys: obj.ResourceKeys.map(item =>
+        RemediationExceptionResourceKey.filterSensitiveLog(item)
       )
     })
   });
@@ -3788,8 +3794,8 @@ export namespace DescribeRemediationExceptionsResponse {
   ): any => ({
     ...obj,
     ...(obj.RemediationExceptions && {
-      RemediationExceptions: obj.RemediationExceptions.map(
-        RemediationException.filterSensitiveLog
+      RemediationExceptions: obj.RemediationExceptions.map(item =>
+        RemediationException.filterSensitiveLog(item)
       )
     })
   });
@@ -3826,7 +3832,9 @@ export namespace DescribeRemediationExecutionStatusRequest {
   ): any => ({
     ...obj,
     ...(obj.ResourceKeys && {
-      ResourceKeys: obj.ResourceKeys.map(ResourceKey.filterSensitiveLog)
+      ResourceKeys: obj.ResourceKeys.map(item =>
+        ResourceKey.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeRemediationExecutionStatusRequest =>
@@ -3852,8 +3860,8 @@ export namespace DescribeRemediationExecutionStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.RemediationExecutionStatuses && {
-      RemediationExecutionStatuses: obj.RemediationExecutionStatuses.map(
-        RemediationExecutionStatus.filterSensitiveLog
+      RemediationExecutionStatuses: obj.RemediationExecutionStatuses.map(item =>
+        RemediationExecutionStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -3915,8 +3923,8 @@ export namespace DescribeRetentionConfigurationsResponse {
   ): any => ({
     ...obj,
     ...(obj.RetentionConfigurations && {
-      RetentionConfigurations: obj.RetentionConfigurations.map(
-        RetentionConfiguration.filterSensitiveLog
+      RetentionConfigurations: obj.RetentionConfigurations.map(item =>
+        RetentionConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -4157,8 +4165,8 @@ export namespace FailedDeleteRemediationExceptionsBatch {
   ): any => ({
     ...obj,
     ...(obj.FailedItems && {
-      FailedItems: obj.FailedItems.map(
-        RemediationExceptionResourceKey.filterSensitiveLog
+      FailedItems: obj.FailedItems.map(item =>
+        RemediationExceptionResourceKey.filterSensitiveLog(item)
       )
     })
   });
@@ -4186,8 +4194,8 @@ export namespace FailedRemediationBatch {
   export const filterSensitiveLog = (obj: FailedRemediationBatch): any => ({
     ...obj,
     ...(obj.FailedItems && {
-      FailedItems: obj.FailedItems.map(
-        RemediationConfiguration.filterSensitiveLog
+      FailedItems: obj.FailedItems.map(item =>
+        RemediationConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -4217,7 +4225,9 @@ export namespace FailedRemediationExceptionBatch {
   ): any => ({
     ...obj,
     ...(obj.FailedItems && {
-      FailedItems: obj.FailedItems.map(RemediationException.filterSensitiveLog)
+      FailedItems: obj.FailedItems.map(item =>
+        RemediationException.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is FailedRemediationExceptionBatch =>
@@ -4324,8 +4334,8 @@ export namespace GetAggregateComplianceDetailsByConfigRuleResponse {
   ): any => ({
     ...obj,
     ...(obj.AggregateEvaluationResults && {
-      AggregateEvaluationResults: obj.AggregateEvaluationResults.map(
-        AggregateEvaluationResult.filterSensitiveLog
+      AggregateEvaluationResults: obj.AggregateEvaluationResults.map(item =>
+        AggregateEvaluationResult.filterSensitiveLog(item)
       )
     })
   });
@@ -4409,8 +4419,8 @@ export namespace GetAggregateConfigRuleComplianceSummaryResponse {
   ): any => ({
     ...obj,
     ...(obj.AggregateComplianceCounts && {
-      AggregateComplianceCounts: obj.AggregateComplianceCounts.map(
-        AggregateComplianceCount.filterSensitiveLog
+      AggregateComplianceCounts: obj.AggregateComplianceCounts.map(item =>
+        AggregateComplianceCount.filterSensitiveLog(item)
       )
     })
   });
@@ -4492,8 +4502,8 @@ export namespace GetAggregateDiscoveredResourceCountsResponse {
   ): any => ({
     ...obj,
     ...(obj.GroupedResourceCounts && {
-      GroupedResourceCounts: obj.GroupedResourceCounts.map(
-        GroupedResourceCount.filterSensitiveLog
+      GroupedResourceCounts: obj.GroupedResourceCounts.map(item =>
+        GroupedResourceCount.filterSensitiveLog(item)
       )
     })
   });
@@ -4622,8 +4632,8 @@ export namespace GetComplianceDetailsByConfigRuleResponse {
   ): any => ({
     ...obj,
     ...(obj.EvaluationResults && {
-      EvaluationResults: obj.EvaluationResults.map(
-        EvaluationResult.filterSensitiveLog
+      EvaluationResults: obj.EvaluationResults.map(item =>
+        EvaluationResult.filterSensitiveLog(item)
       )
     })
   });
@@ -4698,8 +4708,8 @@ export namespace GetComplianceDetailsByResourceResponse {
   ): any => ({
     ...obj,
     ...(obj.EvaluationResults && {
-      EvaluationResults: obj.EvaluationResults.map(
-        EvaluationResult.filterSensitiveLog
+      EvaluationResults: obj.EvaluationResults.map(item =>
+        EvaluationResult.filterSensitiveLog(item)
       )
     })
   });
@@ -4783,7 +4793,7 @@ export namespace GetComplianceSummaryByResourceTypeResponse {
     ...obj,
     ...(obj.ComplianceSummariesByResourceType && {
       ComplianceSummariesByResourceType: obj.ComplianceSummariesByResourceType.map(
-        ComplianceSummaryByResourceType.filterSensitiveLog
+        item => ComplianceSummaryByResourceType.filterSensitiveLog(item)
       )
     })
   });
@@ -4856,7 +4866,7 @@ export namespace GetConformancePackComplianceDetailsResponse {
     ...obj,
     ...(obj.ConformancePackRuleEvaluationResults && {
       ConformancePackRuleEvaluationResults: obj.ConformancePackRuleEvaluationResults.map(
-        ConformancePackEvaluationResult.filterSensitiveLog
+        item => ConformancePackEvaluationResult.filterSensitiveLog(item)
       )
     })
   });
@@ -4916,7 +4926,7 @@ export namespace GetConformancePackComplianceSummaryResponse {
     ...obj,
     ...(obj.ConformancePackComplianceSummaryList && {
       ConformancePackComplianceSummaryList: obj.ConformancePackComplianceSummaryList.map(
-        ConformancePackComplianceSummary.filterSensitiveLog
+        item => ConformancePackComplianceSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -5026,7 +5036,9 @@ export namespace GetDiscoveredResourceCountsResponse {
   ): any => ({
     ...obj,
     ...(obj.resourceCounts && {
-      resourceCounts: obj.resourceCounts.map(ResourceCount.filterSensitiveLog)
+      resourceCounts: obj.resourceCounts.map(item =>
+        ResourceCount.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetDiscoveredResourceCountsResponse =>
@@ -5091,7 +5103,7 @@ export namespace GetOrganizationConfigRuleDetailedStatusResponse {
     ...obj,
     ...(obj.OrganizationConfigRuleDetailedStatus && {
       OrganizationConfigRuleDetailedStatus: obj.OrganizationConfigRuleDetailedStatus.map(
-        MemberAccountStatus.filterSensitiveLog
+        item => MemberAccountStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -5162,7 +5174,8 @@ export namespace GetOrganizationConformancePackDetailedStatusResponse {
     ...obj,
     ...(obj.OrganizationConformancePackDetailedStatuses && {
       OrganizationConformancePackDetailedStatuses: obj.OrganizationConformancePackDetailedStatuses.map(
-        OrganizationConformancePackDetailedStatus.filterSensitiveLog
+        item =>
+          OrganizationConformancePackDetailedStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -5260,8 +5273,8 @@ export namespace GetResourceConfigHistoryResponse {
   ): any => ({
     ...obj,
     ...(obj.configurationItems && {
-      configurationItems: obj.configurationItems.map(
-        ConfigurationItem.filterSensitiveLog
+      configurationItems: obj.configurationItems.map(item =>
+        ConfigurationItem.filterSensitiveLog(item)
       )
     })
   });
@@ -5759,8 +5772,8 @@ export namespace ListAggregateDiscoveredResourcesResponse {
   ): any => ({
     ...obj,
     ...(obj.ResourceIdentifiers && {
-      ResourceIdentifiers: obj.ResourceIdentifiers.map(
-        AggregateResourceIdentifier.filterSensitiveLog
+      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
+        AggregateResourceIdentifier.filterSensitiveLog(item)
       )
     })
   });
@@ -5851,8 +5864,8 @@ export namespace ListDiscoveredResourcesResponse {
   ): any => ({
     ...obj,
     ...(obj.resourceIdentifiers && {
-      resourceIdentifiers: obj.resourceIdentifiers.map(
-        ResourceIdentifier.filterSensitiveLog
+      resourceIdentifiers: obj.resourceIdentifiers.map(item =>
+        ResourceIdentifier.filterSensitiveLog(item)
       )
     })
   });
@@ -5904,7 +5917,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -6901,7 +6916,7 @@ export namespace OrganizationConformancePack {
     ...obj,
     ...(obj.ConformancePackInputParameters && {
       ConformancePackInputParameters: obj.ConformancePackInputParameters.map(
-        ConformancePackInputParameter.filterSensitiveLog
+        item => ConformancePackInputParameter.filterSensitiveLog(item)
       )
     })
   });
@@ -7454,7 +7469,9 @@ export namespace PutAggregationAuthorizationRequest {
     obj: PutAggregationAuthorizationRequest
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutAggregationAuthorizationRequest =>
     __isa(o, "PutAggregationAuthorizationRequest");
@@ -7504,7 +7521,9 @@ export namespace PutConfigRuleRequest {
     ...(obj.ConfigRule && {
       ConfigRule: ConfigRule.filterSensitiveLog(obj.ConfigRule)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutConfigRuleRequest =>
     __isa(o, "PutConfigRuleRequest");
@@ -7541,8 +7560,8 @@ export namespace PutConfigurationAggregatorRequest {
   ): any => ({
     ...obj,
     ...(obj.AccountAggregationSources && {
-      AccountAggregationSources: obj.AccountAggregationSources.map(
-        AccountAggregationSource.filterSensitiveLog
+      AccountAggregationSources: obj.AccountAggregationSources.map(item =>
+        AccountAggregationSource.filterSensitiveLog(item)
       )
     }),
     ...(obj.OrganizationAggregationSource && {
@@ -7550,7 +7569,9 @@ export namespace PutConfigurationAggregatorRequest {
         obj.OrganizationAggregationSource
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutConfigurationAggregatorRequest =>
     __isa(o, "PutConfigurationAggregatorRequest");
@@ -7651,7 +7672,7 @@ export namespace PutConformancePackRequest {
     ...obj,
     ...(obj.ConformancePackInputParameters && {
       ConformancePackInputParameters: obj.ConformancePackInputParameters.map(
-        ConformancePackInputParameter.filterSensitiveLog
+        item => ConformancePackInputParameter.filterSensitiveLog(item)
       )
     })
   });
@@ -7741,7 +7762,9 @@ export namespace PutEvaluationsRequest {
   export const filterSensitiveLog = (obj: PutEvaluationsRequest): any => ({
     ...obj,
     ...(obj.Evaluations && {
-      Evaluations: obj.Evaluations.map(Evaluation.filterSensitiveLog)
+      Evaluations: obj.Evaluations.map(item =>
+        Evaluation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PutEvaluationsRequest =>
@@ -7764,8 +7787,8 @@ export namespace PutEvaluationsResponse {
   export const filterSensitiveLog = (obj: PutEvaluationsResponse): any => ({
     ...obj,
     ...(obj.FailedEvaluations && {
-      FailedEvaluations: obj.FailedEvaluations.map(
-        Evaluation.filterSensitiveLog
+      FailedEvaluations: obj.FailedEvaluations.map(item =>
+        Evaluation.filterSensitiveLog(item)
       )
     })
   });
@@ -7887,7 +7910,7 @@ export namespace PutOrganizationConformancePackRequest {
     ...obj,
     ...(obj.ConformancePackInputParameters && {
       ConformancePackInputParameters: obj.ConformancePackInputParameters.map(
-        ConformancePackInputParameter.filterSensitiveLog
+        item => ConformancePackInputParameter.filterSensitiveLog(item)
       )
     })
   });
@@ -7927,8 +7950,8 @@ export namespace PutRemediationConfigurationsRequest {
   ): any => ({
     ...obj,
     ...(obj.RemediationConfigurations && {
-      RemediationConfigurations: obj.RemediationConfigurations.map(
-        RemediationConfiguration.filterSensitiveLog
+      RemediationConfigurations: obj.RemediationConfigurations.map(item =>
+        RemediationConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -7950,8 +7973,8 @@ export namespace PutRemediationConfigurationsResponse {
   ): any => ({
     ...obj,
     ...(obj.FailedBatches && {
-      FailedBatches: obj.FailedBatches.map(
-        FailedRemediationBatch.filterSensitiveLog
+      FailedBatches: obj.FailedBatches.map(item =>
+        FailedRemediationBatch.filterSensitiveLog(item)
       )
     })
   });
@@ -7988,8 +8011,8 @@ export namespace PutRemediationExceptionsRequest {
   ): any => ({
     ...obj,
     ...(obj.ResourceKeys && {
-      ResourceKeys: obj.ResourceKeys.map(
-        RemediationExceptionResourceKey.filterSensitiveLog
+      ResourceKeys: obj.ResourceKeys.map(item =>
+        RemediationExceptionResourceKey.filterSensitiveLog(item)
       )
     })
   });
@@ -8011,8 +8034,8 @@ export namespace PutRemediationExceptionsResponse {
   ): any => ({
     ...obj,
     ...(obj.FailedBatches && {
-      FailedBatches: obj.FailedBatches.map(
-        FailedRemediationExceptionBatch.filterSensitiveLog
+      FailedBatches: obj.FailedBatches.map(item =>
+        FailedRemediationExceptionBatch.filterSensitiveLog(item)
       )
     })
   });
@@ -8128,7 +8151,9 @@ export namespace QueryInfo {
   export const filterSensitiveLog = (obj: QueryInfo): any => ({
     ...obj,
     ...(obj.SelectFields && {
-      SelectFields: obj.SelectFields.map(FieldInfo.filterSensitiveLog)
+      SelectFields: obj.SelectFields.map(item =>
+        FieldInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is QueryInfo => __isa(o, "QueryInfo");
@@ -8466,8 +8491,8 @@ export namespace RemediationExecutionStatus {
       ResourceKey: ResourceKey.filterSensitiveLog(obj.ResourceKey)
     }),
     ...(obj.StepDetails && {
-      StepDetails: obj.StepDetails.map(
-        RemediationExecutionStep.filterSensitiveLog
+      StepDetails: obj.StepDetails.map(item =>
+        RemediationExecutionStep.filterSensitiveLog(item)
       )
     })
   });
@@ -9109,7 +9134,9 @@ export namespace Source {
   export const filterSensitiveLog = (obj: Source): any => ({
     ...obj,
     ...(obj.SourceDetails && {
-      SourceDetails: obj.SourceDetails.map(SourceDetail.filterSensitiveLog)
+      SourceDetails: obj.SourceDetails.map(item =>
+        SourceDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is Source => __isa(o, "Source");
@@ -9314,7 +9341,9 @@ export namespace StartRemediationExecutionRequest {
   ): any => ({
     ...obj,
     ...(obj.ResourceKeys && {
-      ResourceKeys: obj.ResourceKeys.map(ResourceKey.filterSensitiveLog)
+      ResourceKeys: obj.ResourceKeys.map(item =>
+        ResourceKey.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is StartRemediationExecutionRequest =>
@@ -9340,7 +9369,9 @@ export namespace StartRemediationExecutionResponse {
   ): any => ({
     ...obj,
     ...(obj.FailedItems && {
-      FailedItems: obj.FailedItems.map(ResourceKey.filterSensitiveLog)
+      FailedItems: obj.FailedItems.map(item =>
+        ResourceKey.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is StartRemediationExecutionResponse =>
@@ -9494,7 +9525,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

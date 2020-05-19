@@ -463,8 +463,8 @@ export namespace ListProfilingGroupsResponse {
   ): any => ({
     ...obj,
     ...(obj.profilingGroups && {
-      profilingGroups: obj.profilingGroups.map(
-        ProfilingGroupDescription.filterSensitiveLog
+      profilingGroups: obj.profilingGroups.map(item =>
+        ProfilingGroupDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -763,7 +763,9 @@ export namespace ListProfileTimesResponse {
   export const filterSensitiveLog = (obj: ListProfileTimesResponse): any => ({
     ...obj,
     ...(obj.profileTimes && {
-      profileTimes: obj.profileTimes.map(ProfileTime.filterSensitiveLog)
+      profileTimes: obj.profileTimes.map(item =>
+        ProfileTime.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListProfileTimesResponse =>

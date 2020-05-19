@@ -129,7 +129,9 @@ export namespace CreateNotificationRuleRequest {
   ): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
+    ...(obj.Targets && {
+      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateNotificationRuleRequest =>
     __isa(o, "CreateNotificationRuleRequest");
@@ -312,11 +314,13 @@ export namespace DescribeNotificationRuleResult {
   ): any => ({
     ...obj,
     ...(obj.EventTypes && {
-      EventTypes: obj.EventTypes.map(EventTypeSummary.filterSensitiveLog)
+      EventTypes: obj.EventTypes.map(item =>
+        EventTypeSummary.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Targets && {
-      Targets: obj.Targets.map(TargetSummary.filterSensitiveLog)
+      Targets: obj.Targets.map(item => TargetSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeNotificationRuleResult =>
@@ -457,7 +461,9 @@ export namespace ListEventTypesRequest {
   export const filterSensitiveLog = (obj: ListEventTypesRequest): any => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(ListEventTypesFilter.filterSensitiveLog)
+      Filters: obj.Filters.map(item =>
+        ListEventTypesFilter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListEventTypesRequest =>
@@ -482,7 +488,9 @@ export namespace ListEventTypesResult {
   export const filterSensitiveLog = (obj: ListEventTypesResult): any => ({
     ...obj,
     ...(obj.EventTypes && {
-      EventTypes: obj.EventTypes.map(EventTypeSummary.filterSensitiveLog)
+      EventTypes: obj.EventTypes.map(item =>
+        EventTypeSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListEventTypesResult =>
@@ -554,7 +562,9 @@ export namespace ListNotificationRulesRequest {
   ): any => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(ListNotificationRulesFilter.filterSensitiveLog)
+      Filters: obj.Filters.map(item =>
+        ListNotificationRulesFilter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListNotificationRulesRequest =>
@@ -580,8 +590,8 @@ export namespace ListNotificationRulesResult {
   ): any => ({
     ...obj,
     ...(obj.NotificationRules && {
-      NotificationRules: obj.NotificationRules.map(
-        NotificationRuleSummary.filterSensitiveLog
+      NotificationRules: obj.NotificationRules.map(item =>
+        NotificationRuleSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -685,7 +695,9 @@ export namespace ListTargetsRequest {
   export const filterSensitiveLog = (obj: ListTargetsRequest): any => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(ListTargetsFilter.filterSensitiveLog)
+      Filters: obj.Filters.map(item =>
+        ListTargetsFilter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListTargetsRequest =>
@@ -710,7 +722,7 @@ export namespace ListTargetsResult {
   export const filterSensitiveLog = (obj: ListTargetsResult): any => ({
     ...obj,
     ...(obj.Targets && {
-      Targets: obj.Targets.map(TargetSummary.filterSensitiveLog)
+      Targets: obj.Targets.map(item => TargetSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListTargetsResult =>
@@ -1044,7 +1056,9 @@ export namespace UpdateNotificationRuleRequest {
   ): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
+    ...(obj.Targets && {
+      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UpdateNotificationRuleRequest =>
     __isa(o, "UpdateNotificationRuleRequest");

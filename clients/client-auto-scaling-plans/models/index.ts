@@ -25,7 +25,7 @@ export namespace ApplicationSource {
   export const filterSensitiveLog = (obj: ApplicationSource): any => ({
     ...obj,
     ...(obj.TagFilters && {
-      TagFilters: obj.TagFilters.map(TagFilter.filterSensitiveLog)
+      TagFilters: obj.TagFilters.map(item => TagFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ApplicationSource =>
@@ -81,8 +81,8 @@ export namespace CreateScalingPlanRequest {
       )
     }),
     ...(obj.ScalingInstructions && {
-      ScalingInstructions: obj.ScalingInstructions.map(
-        ScalingInstruction.filterSensitiveLog
+      ScalingInstructions: obj.ScalingInstructions.map(item =>
+        ScalingInstruction.filterSensitiveLog(item)
       )
     })
   });
@@ -163,7 +163,9 @@ export namespace CustomizedLoadMetricSpecification {
   ): any => ({
     ...obj,
     ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(MetricDimension.filterSensitiveLog)
+      Dimensions: obj.Dimensions.map(item =>
+        MetricDimension.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CustomizedLoadMetricSpecification =>
@@ -226,7 +228,9 @@ export namespace CustomizedScalingMetricSpecification {
   ): any => ({
     ...obj,
     ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(MetricDimension.filterSensitiveLog)
+      Dimensions: obj.Dimensions.map(item =>
+        MetricDimension.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CustomizedScalingMetricSpecification =>
@@ -343,8 +347,8 @@ export namespace DescribeScalingPlanResourcesResponse {
   ): any => ({
     ...obj,
     ...(obj.ScalingPlanResources && {
-      ScalingPlanResources: obj.ScalingPlanResources.map(
-        ScalingPlanResource.filterSensitiveLog
+      ScalingPlanResources: obj.ScalingPlanResources.map(item =>
+        ScalingPlanResource.filterSensitiveLog(item)
       )
     })
   });
@@ -390,8 +394,8 @@ export namespace DescribeScalingPlansRequest {
   ): any => ({
     ...obj,
     ...(obj.ApplicationSources && {
-      ApplicationSources: obj.ApplicationSources.map(
-        ApplicationSource.filterSensitiveLog
+      ApplicationSources: obj.ApplicationSources.map(item =>
+        ApplicationSource.filterSensitiveLog(item)
       )
     })
   });
@@ -419,7 +423,9 @@ export namespace DescribeScalingPlansResponse {
   ): any => ({
     ...obj,
     ...(obj.ScalingPlans && {
-      ScalingPlans: obj.ScalingPlans.map(ScalingPlan.filterSensitiveLog)
+      ScalingPlans: obj.ScalingPlans.map(item =>
+        ScalingPlan.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeScalingPlansResponse =>
@@ -554,7 +560,7 @@ export namespace GetScalingPlanResourceForecastDataResponse {
   ): any => ({
     ...obj,
     ...(obj.Datapoints && {
-      Datapoints: obj.Datapoints.map(Datapoint.filterSensitiveLog)
+      Datapoints: obj.Datapoints.map(item => Datapoint.filterSensitiveLog(item))
     })
   });
   export const isa = (
@@ -1023,8 +1029,8 @@ export namespace ScalingInstruction {
       )
     }),
     ...(obj.TargetTrackingConfigurations && {
-      TargetTrackingConfigurations: obj.TargetTrackingConfigurations.map(
-        TargetTrackingConfiguration.filterSensitiveLog
+      TargetTrackingConfigurations: obj.TargetTrackingConfigurations.map(item =>
+        TargetTrackingConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -1138,8 +1144,8 @@ export namespace ScalingPlan {
       )
     }),
     ...(obj.ScalingInstructions && {
-      ScalingInstructions: obj.ScalingInstructions.map(
-        ScalingInstruction.filterSensitiveLog
+      ScalingInstructions: obj.ScalingInstructions.map(item =>
+        ScalingInstruction.filterSensitiveLog(item)
       )
     })
   });
@@ -1275,7 +1281,9 @@ export namespace ScalingPlanResource {
   export const filterSensitiveLog = (obj: ScalingPlanResource): any => ({
     ...obj,
     ...(obj.ScalingPolicies && {
-      ScalingPolicies: obj.ScalingPolicies.map(ScalingPolicy.filterSensitiveLog)
+      ScalingPolicies: obj.ScalingPolicies.map(item =>
+        ScalingPolicy.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ScalingPlanResource =>
@@ -1482,8 +1490,8 @@ export namespace UpdateScalingPlanRequest {
       )
     }),
     ...(obj.ScalingInstructions && {
-      ScalingInstructions: obj.ScalingInstructions.map(
-        ScalingInstruction.filterSensitiveLog
+      ScalingInstructions: obj.ScalingInstructions.map(item =>
+        ScalingInstruction.filterSensitiveLog(item)
       )
     })
   });

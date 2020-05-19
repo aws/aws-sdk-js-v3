@@ -129,8 +129,8 @@ export namespace AttemptContainerDetail {
   export const filterSensitiveLog = (obj: AttemptContainerDetail): any => ({
     ...obj,
     ...(obj.networkInterfaces && {
-      networkInterfaces: obj.networkInterfaces.map(
-        NetworkInterface.filterSensitiveLog
+      networkInterfaces: obj.networkInterfaces.map(item =>
+        NetworkInterface.filterSensitiveLog(item)
       )
     })
   });
@@ -653,26 +653,34 @@ export namespace ContainerDetail {
   export const filterSensitiveLog = (obj: ContainerDetail): any => ({
     ...obj,
     ...(obj.environment && {
-      environment: obj.environment.map(KeyValuePair.filterSensitiveLog)
+      environment: obj.environment.map(item =>
+        KeyValuePair.filterSensitiveLog(item)
+      )
     }),
     ...(obj.linuxParameters && {
       linuxParameters: LinuxParameters.filterSensitiveLog(obj.linuxParameters)
     }),
     ...(obj.mountPoints && {
-      mountPoints: obj.mountPoints.map(MountPoint.filterSensitiveLog)
+      mountPoints: obj.mountPoints.map(item =>
+        MountPoint.filterSensitiveLog(item)
+      )
     }),
     ...(obj.networkInterfaces && {
-      networkInterfaces: obj.networkInterfaces.map(
-        NetworkInterface.filterSensitiveLog
+      networkInterfaces: obj.networkInterfaces.map(item =>
+        NetworkInterface.filterSensitiveLog(item)
       )
     }),
     ...(obj.resourceRequirements && {
-      resourceRequirements: obj.resourceRequirements.map(
-        ResourceRequirement.filterSensitiveLog
+      resourceRequirements: obj.resourceRequirements.map(item =>
+        ResourceRequirement.filterSensitiveLog(item)
       )
     }),
-    ...(obj.ulimits && { ulimits: obj.ulimits.map(Ulimit.filterSensitiveLog) }),
-    ...(obj.volumes && { volumes: obj.volumes.map(Volume.filterSensitiveLog) })
+    ...(obj.ulimits && {
+      ulimits: obj.ulimits.map(item => Ulimit.filterSensitiveLog(item))
+    }),
+    ...(obj.volumes && {
+      volumes: obj.volumes.map(item => Volume.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ContainerDetail =>
     __isa(o, "ContainerDetail");
@@ -728,11 +736,13 @@ export namespace ContainerOverrides {
   export const filterSensitiveLog = (obj: ContainerOverrides): any => ({
     ...obj,
     ...(obj.environment && {
-      environment: obj.environment.map(KeyValuePair.filterSensitiveLog)
+      environment: obj.environment.map(item =>
+        KeyValuePair.filterSensitiveLog(item)
+      )
     }),
     ...(obj.resourceRequirements && {
-      resourceRequirements: obj.resourceRequirements.map(
-        ResourceRequirement.filterSensitiveLog
+      resourceRequirements: obj.resourceRequirements.map(item =>
+        ResourceRequirement.filterSensitiveLog(item)
       )
     })
   });
@@ -880,21 +890,29 @@ export namespace ContainerProperties {
   export const filterSensitiveLog = (obj: ContainerProperties): any => ({
     ...obj,
     ...(obj.environment && {
-      environment: obj.environment.map(KeyValuePair.filterSensitiveLog)
+      environment: obj.environment.map(item =>
+        KeyValuePair.filterSensitiveLog(item)
+      )
     }),
     ...(obj.linuxParameters && {
       linuxParameters: LinuxParameters.filterSensitiveLog(obj.linuxParameters)
     }),
     ...(obj.mountPoints && {
-      mountPoints: obj.mountPoints.map(MountPoint.filterSensitiveLog)
-    }),
-    ...(obj.resourceRequirements && {
-      resourceRequirements: obj.resourceRequirements.map(
-        ResourceRequirement.filterSensitiveLog
+      mountPoints: obj.mountPoints.map(item =>
+        MountPoint.filterSensitiveLog(item)
       )
     }),
-    ...(obj.ulimits && { ulimits: obj.ulimits.map(Ulimit.filterSensitiveLog) }),
-    ...(obj.volumes && { volumes: obj.volumes.map(Volume.filterSensitiveLog) })
+    ...(obj.resourceRequirements && {
+      resourceRequirements: obj.resourceRequirements.map(item =>
+        ResourceRequirement.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.ulimits && {
+      ulimits: obj.ulimits.map(item => Ulimit.filterSensitiveLog(item))
+    }),
+    ...(obj.volumes && {
+      volumes: obj.volumes.map(item => Volume.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ContainerProperties =>
     __isa(o, "ContainerProperties");
@@ -1035,8 +1053,8 @@ export namespace CreateJobQueueRequest {
   export const filterSensitiveLog = (obj: CreateJobQueueRequest): any => ({
     ...obj,
     ...(obj.computeEnvironmentOrder && {
-      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(
-        ComputeEnvironmentOrder.filterSensitiveLog
+      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(item =>
+        ComputeEnvironmentOrder.filterSensitiveLog(item)
       )
     })
   });
@@ -1219,8 +1237,8 @@ export namespace DescribeComputeEnvironmentsResponse {
   ): any => ({
     ...obj,
     ...(obj.computeEnvironments && {
-      computeEnvironments: obj.computeEnvironments.map(
-        ComputeEnvironmentDetail.filterSensitiveLog
+      computeEnvironments: obj.computeEnvironments.map(item =>
+        ComputeEnvironmentDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -1299,7 +1317,9 @@ export namespace DescribeJobDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.jobDefinitions && {
-      jobDefinitions: obj.jobDefinitions.map(JobDefinition.filterSensitiveLog)
+      jobDefinitions: obj.jobDefinitions.map(item =>
+        JobDefinition.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeJobDefinitionsResponse =>
@@ -1362,7 +1382,9 @@ export namespace DescribeJobQueuesResponse {
   export const filterSensitiveLog = (obj: DescribeJobQueuesResponse): any => ({
     ...obj,
     ...(obj.jobQueues && {
-      jobQueues: obj.jobQueues.map(JobQueueDetail.filterSensitiveLog)
+      jobQueues: obj.jobQueues.map(item =>
+        JobQueueDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeJobQueuesResponse =>
@@ -1396,7 +1418,9 @@ export interface DescribeJobsResponse {
 export namespace DescribeJobsResponse {
   export const filterSensitiveLog = (obj: DescribeJobsResponse): any => ({
     ...obj,
-    ...(obj.jobs && { jobs: obj.jobs.map(JobDetail.filterSensitiveLog) })
+    ...(obj.jobs && {
+      jobs: obj.jobs.map(item => JobDetail.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeJobsResponse =>
     __isa(o, "DescribeJobsResponse");
@@ -1698,13 +1722,15 @@ export namespace JobDetail {
       )
     }),
     ...(obj.attempts && {
-      attempts: obj.attempts.map(AttemptDetail.filterSensitiveLog)
+      attempts: obj.attempts.map(item => AttemptDetail.filterSensitiveLog(item))
     }),
     ...(obj.container && {
       container: ContainerDetail.filterSensitiveLog(obj.container)
     }),
     ...(obj.dependsOn && {
-      dependsOn: obj.dependsOn.map(JobDependency.filterSensitiveLog)
+      dependsOn: obj.dependsOn.map(item =>
+        JobDependency.filterSensitiveLog(item)
+      )
     }),
     ...(obj.nodeDetails && {
       nodeDetails: NodeDetails.filterSensitiveLog(obj.nodeDetails)
@@ -1766,8 +1792,8 @@ export namespace JobQueueDetail {
   export const filterSensitiveLog = (obj: JobQueueDetail): any => ({
     ...obj,
     ...(obj.computeEnvironmentOrder && {
-      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(
-        ComputeEnvironmentOrder.filterSensitiveLog
+      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(item =>
+        ComputeEnvironmentOrder.filterSensitiveLog(item)
       )
     })
   });
@@ -1956,7 +1982,9 @@ export interface LinuxParameters {
 export namespace LinuxParameters {
   export const filterSensitiveLog = (obj: LinuxParameters): any => ({
     ...obj,
-    ...(obj.devices && { devices: obj.devices.map(Device.filterSensitiveLog) })
+    ...(obj.devices && {
+      devices: obj.devices.map(item => Device.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is LinuxParameters =>
     __isa(o, "LinuxParameters");
@@ -2036,7 +2064,9 @@ export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
     ...(obj.jobSummaryList && {
-      jobSummaryList: obj.jobSummaryList.map(JobSummary.filterSensitiveLog)
+      jobSummaryList: obj.jobSummaryList.map(item =>
+        JobSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListJobsResponse =>
@@ -2163,8 +2193,8 @@ export namespace NodeOverrides {
   export const filterSensitiveLog = (obj: NodeOverrides): any => ({
     ...obj,
     ...(obj.nodePropertyOverrides && {
-      nodePropertyOverrides: obj.nodePropertyOverrides.map(
-        NodePropertyOverride.filterSensitiveLog
+      nodePropertyOverrides: obj.nodePropertyOverrides.map(item =>
+        NodePropertyOverride.filterSensitiveLog(item)
       )
     })
   });
@@ -2197,8 +2227,8 @@ export namespace NodeProperties {
   export const filterSensitiveLog = (obj: NodeProperties): any => ({
     ...obj,
     ...(obj.nodeRangeProperties && {
-      nodeRangeProperties: obj.nodeRangeProperties.map(
-        NodeRangeProperty.filterSensitiveLog
+      nodeRangeProperties: obj.nodeRangeProperties.map(item =>
+        NodeRangeProperty.filterSensitiveLog(item)
       )
     })
   });
@@ -2559,7 +2589,9 @@ export namespace SubmitJobRequest {
       )
     }),
     ...(obj.dependsOn && {
-      dependsOn: obj.dependsOn.map(JobDependency.filterSensitiveLog)
+      dependsOn: obj.dependsOn.map(item =>
+        JobDependency.filterSensitiveLog(item)
+      )
     }),
     ...(obj.nodeOverrides && {
       nodeOverrides: NodeOverrides.filterSensitiveLog(obj.nodeOverrides)
@@ -2761,8 +2793,8 @@ export namespace UpdateJobQueueRequest {
   export const filterSensitiveLog = (obj: UpdateJobQueueRequest): any => ({
     ...obj,
     ...(obj.computeEnvironmentOrder && {
-      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(
-        ComputeEnvironmentOrder.filterSensitiveLog
+      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(item =>
+        ComputeEnvironmentOrder.filterSensitiveLog(item)
       )
     })
   });

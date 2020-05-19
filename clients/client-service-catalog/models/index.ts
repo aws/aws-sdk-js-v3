@@ -246,8 +246,8 @@ export namespace ListResourcesForTagOptionOutput {
   ): any => ({
     ...obj,
     ...(obj.ResourceDetails && {
-      ResourceDetails: obj.ResourceDetails.map(
-        ResourceDetail.filterSensitiveLog
+      ResourceDetails: obj.ResourceDetails.map(item =>
+        ResourceDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -330,8 +330,8 @@ export namespace ListTagOptionsOutput {
   export const filterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
     ...obj,
     ...(obj.TagOptionDetails && {
-      TagOptionDetails: obj.TagOptionDetails.map(
-        TagOptionDetail.filterSensitiveLog
+      TagOptionDetails: obj.TagOptionDetails.map(item =>
+        TagOptionDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -832,8 +832,8 @@ export namespace BatchAssociateServiceActionWithProvisioningArtifactInput {
   ): any => ({
     ...obj,
     ...(obj.ServiceActionAssociations && {
-      ServiceActionAssociations: obj.ServiceActionAssociations.map(
-        ServiceActionAssociation.filterSensitiveLog
+      ServiceActionAssociations: obj.ServiceActionAssociations.map(item =>
+        ServiceActionAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -858,7 +858,7 @@ export namespace BatchAssociateServiceActionWithProvisioningArtifactOutput {
     ...obj,
     ...(obj.FailedServiceActionAssociations && {
       FailedServiceActionAssociations: obj.FailedServiceActionAssociations.map(
-        FailedServiceActionAssociation.filterSensitiveLog
+        item => FailedServiceActionAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -901,8 +901,8 @@ export namespace BatchDisassociateServiceActionFromProvisioningArtifactInput {
   ): any => ({
     ...obj,
     ...(obj.ServiceActionAssociations && {
-      ServiceActionAssociations: obj.ServiceActionAssociations.map(
-        ServiceActionAssociation.filterSensitiveLog
+      ServiceActionAssociations: obj.ServiceActionAssociations.map(item =>
+        ServiceActionAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -927,7 +927,7 @@ export namespace BatchDisassociateServiceActionFromProvisioningArtifactOutput {
     ...obj,
     ...(obj.FailedServiceActionAssociations && {
       FailedServiceActionAssociations: obj.FailedServiceActionAssociations.map(
-        FailedServiceActionAssociation.filterSensitiveLog
+        item => FailedServiceActionAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -1378,7 +1378,9 @@ export interface CreatePortfolioInput {
 export namespace CreatePortfolioInput {
   export const filterSensitiveLog = (obj: CreatePortfolioInput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreatePortfolioInput =>
     __isa(o, "CreatePortfolioInput");
@@ -1403,7 +1405,9 @@ export namespace CreatePortfolioOutput {
     ...(obj.PortfolioDetail && {
       PortfolioDetail: PortfolioDetail.filterSensitiveLog(obj.PortfolioDetail)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreatePortfolioOutput =>
     __isa(o, "CreatePortfolioOutput");
@@ -1561,7 +1565,9 @@ export namespace CreateProductInput {
         obj.ProvisioningArtifactParameters
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateProductInput =>
     __isa(o, "CreateProductInput");
@@ -1598,7 +1604,9 @@ export namespace CreateProductOutput {
         obj.ProvisioningArtifactDetail
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateProductOutput =>
     __isa(o, "CreateProductOutput");
@@ -1689,11 +1697,13 @@ export namespace CreateProvisionedProductPlanInput {
   ): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
-      ProvisioningParameters: obj.ProvisioningParameters.map(
-        UpdateProvisioningParameter.filterSensitiveLog
+      ProvisioningParameters: obj.ProvisioningParameters.map(item =>
+        UpdateProvisioningParameter.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateProvisionedProductPlanInput =>
     __isa(o, "CreateProvisionedProductPlanInput");
@@ -2481,15 +2491,19 @@ export namespace DescribePortfolioOutput {
   export const filterSensitiveLog = (obj: DescribePortfolioOutput): any => ({
     ...obj,
     ...(obj.Budgets && {
-      Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
+      Budgets: obj.Budgets.map(item => BudgetDetail.filterSensitiveLog(item))
     }),
     ...(obj.PortfolioDetail && {
       PortfolioDetail: PortfolioDetail.filterSensitiveLog(obj.PortfolioDetail)
     }),
     ...(obj.TagOptions && {
-      TagOptions: obj.TagOptions.map(TagOptionDetail.filterSensitiveLog)
+      TagOptions: obj.TagOptions.map(item =>
+        TagOptionDetail.filterSensitiveLog(item)
+      )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribePortfolioOutput =>
     __isa(o, "DescribePortfolioOutput");
@@ -2625,7 +2639,7 @@ export namespace DescribeProductAsAdminOutput {
   ): any => ({
     ...obj,
     ...(obj.Budgets && {
-      Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
+      Budgets: obj.Budgets.map(item => BudgetDetail.filterSensitiveLog(item))
     }),
     ...(obj.ProductViewDetail && {
       ProductViewDetail: ProductViewDetail.filterSensitiveLog(
@@ -2634,13 +2648,17 @@ export namespace DescribeProductAsAdminOutput {
     }),
     ...(obj.ProvisioningArtifactSummaries && {
       ProvisioningArtifactSummaries: obj.ProvisioningArtifactSummaries.map(
-        ProvisioningArtifactSummary.filterSensitiveLog
+        item => ProvisioningArtifactSummary.filterSensitiveLog(item)
       )
     }),
     ...(obj.TagOptions && {
-      TagOptions: obj.TagOptions.map(TagOptionDetail.filterSensitiveLog)
+      TagOptions: obj.TagOptions.map(item =>
+        TagOptionDetail.filterSensitiveLog(item)
+      )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeProductAsAdminOutput =>
     __isa(o, "DescribeProductAsAdminOutput");
@@ -2703,7 +2721,7 @@ export namespace DescribeProductOutput {
   export const filterSensitiveLog = (obj: DescribeProductOutput): any => ({
     ...obj,
     ...(obj.Budgets && {
-      Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
+      Budgets: obj.Budgets.map(item => BudgetDetail.filterSensitiveLog(item))
     }),
     ...(obj.ProductViewSummary && {
       ProductViewSummary: ProductViewSummary.filterSensitiveLog(
@@ -2711,8 +2729,8 @@ export namespace DescribeProductOutput {
       )
     }),
     ...(obj.ProvisioningArtifacts && {
-      ProvisioningArtifacts: obj.ProvisioningArtifacts.map(
-        ProvisioningArtifact.filterSensitiveLog
+      ProvisioningArtifacts: obj.ProvisioningArtifacts.map(item =>
+        ProvisioningArtifact.filterSensitiveLog(item)
       )
     })
   });
@@ -2777,8 +2795,8 @@ export namespace DescribeProductViewOutput {
       )
     }),
     ...(obj.ProvisioningArtifacts && {
-      ProvisioningArtifacts: obj.ProvisioningArtifacts.map(
-        ProvisioningArtifact.filterSensitiveLog
+      ProvisioningArtifacts: obj.ProvisioningArtifacts.map(item =>
+        ProvisioningArtifact.filterSensitiveLog(item)
       )
     })
   });
@@ -2842,8 +2860,8 @@ export namespace DescribeProvisionedProductOutput {
   ): any => ({
     ...obj,
     ...(obj.CloudWatchDashboards && {
-      CloudWatchDashboards: obj.CloudWatchDashboards.map(
-        CloudWatchDashboard.filterSensitiveLog
+      CloudWatchDashboards: obj.CloudWatchDashboards.map(item =>
+        CloudWatchDashboard.filterSensitiveLog(item)
       )
     }),
     ...(obj.ProvisionedProductDetail && {
@@ -2932,8 +2950,8 @@ export namespace DescribeProvisionedProductPlanOutput {
       )
     }),
     ...(obj.ResourceChanges && {
-      ResourceChanges: obj.ResourceChanges.map(
-        ResourceChange.filterSensitiveLog
+      ResourceChanges: obj.ResourceChanges.map(item =>
+        ResourceChange.filterSensitiveLog(item)
       )
     })
   });
@@ -3105,13 +3123,13 @@ export namespace DescribeProvisioningParametersOutput {
   ): any => ({
     ...obj,
     ...(obj.ConstraintSummaries && {
-      ConstraintSummaries: obj.ConstraintSummaries.map(
-        ConstraintSummary.filterSensitiveLog
+      ConstraintSummaries: obj.ConstraintSummaries.map(item =>
+        ConstraintSummary.filterSensitiveLog(item)
       )
     }),
     ...(obj.ProvisioningArtifactParameters && {
       ProvisioningArtifactParameters: obj.ProvisioningArtifactParameters.map(
-        ProvisioningArtifactParameter.filterSensitiveLog
+        item => ProvisioningArtifactParameter.filterSensitiveLog(item)
       )
     }),
     ...(obj.ProvisioningArtifactPreferences && {
@@ -3120,11 +3138,13 @@ export namespace DescribeProvisioningParametersOutput {
       )
     }),
     ...(obj.TagOptions && {
-      TagOptions: obj.TagOptions.map(TagOptionSummary.filterSensitiveLog)
+      TagOptions: obj.TagOptions.map(item =>
+        TagOptionSummary.filterSensitiveLog(item)
+      )
     }),
     ...(obj.UsageInstructions && {
-      UsageInstructions: obj.UsageInstructions.map(
-        UsageInstruction.filterSensitiveLog
+      UsageInstructions: obj.UsageInstructions.map(item =>
+        UsageInstruction.filterSensitiveLog(item)
       )
     })
   });
@@ -3204,7 +3224,9 @@ export namespace DescribeRecordOutput {
       RecordDetail: RecordDetail.filterSensitiveLog(obj.RecordDetail)
     }),
     ...(obj.RecordOutputs && {
-      RecordOutputs: obj.RecordOutputs.map(RecordOutput.filterSensitiveLog)
+      RecordOutputs: obj.RecordOutputs.map(item =>
+        RecordOutput.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeRecordOutput =>
@@ -3241,8 +3263,8 @@ export namespace DescribeServiceActionExecutionParametersOutput {
   ): any => ({
     ...obj,
     ...(obj.ServiceActionParameters && {
-      ServiceActionParameters: obj.ServiceActionParameters.map(
-        ExecutionParameter.filterSensitiveLog
+      ServiceActionParameters: obj.ServiceActionParameters.map(item =>
+        ExecutionParameter.filterSensitiveLog(item)
       )
     })
   });
@@ -3898,11 +3920,13 @@ export namespace LaunchPathSummary {
   export const filterSensitiveLog = (obj: LaunchPathSummary): any => ({
     ...obj,
     ...(obj.ConstraintSummaries && {
-      ConstraintSummaries: obj.ConstraintSummaries.map(
-        ConstraintSummary.filterSensitiveLog
+      ConstraintSummaries: obj.ConstraintSummaries.map(item =>
+        ConstraintSummary.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is LaunchPathSummary =>
     __isa(o, "LaunchPathSummary");
@@ -4008,8 +4032,8 @@ export namespace ListAcceptedPortfolioSharesOutput {
   ): any => ({
     ...obj,
     ...(obj.PortfolioDetails && {
-      PortfolioDetails: obj.PortfolioDetails.map(
-        PortfolioDetail.filterSensitiveLog
+      PortfolioDetails: obj.PortfolioDetails.map(item =>
+        PortfolioDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -4083,7 +4107,7 @@ export namespace ListBudgetsForResourceOutput {
   ): any => ({
     ...obj,
     ...(obj.Budgets && {
-      Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
+      Budgets: obj.Budgets.map(item => BudgetDetail.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListBudgetsForResourceOutput =>
@@ -4161,8 +4185,8 @@ export namespace ListConstraintsForPortfolioOutput {
   ): any => ({
     ...obj,
     ...(obj.ConstraintDetails && {
-      ConstraintDetails: obj.ConstraintDetails.map(
-        ConstraintDetail.filterSensitiveLog
+      ConstraintDetails: obj.ConstraintDetails.map(item =>
+        ConstraintDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -4232,8 +4256,8 @@ export namespace ListLaunchPathsOutput {
   export const filterSensitiveLog = (obj: ListLaunchPathsOutput): any => ({
     ...obj,
     ...(obj.LaunchPathSummaries && {
-      LaunchPathSummaries: obj.LaunchPathSummaries.map(
-        LaunchPathSummary.filterSensitiveLog
+      LaunchPathSummaries: obj.LaunchPathSummaries.map(item =>
+        LaunchPathSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -4326,8 +4350,8 @@ export namespace ListOrganizationPortfolioAccessOutput {
   ): any => ({
     ...obj,
     ...(obj.OrganizationNodes && {
-      OrganizationNodes: obj.OrganizationNodes.map(
-        OrganizationNode.filterSensitiveLog
+      OrganizationNodes: obj.OrganizationNodes.map(item =>
+        OrganizationNode.filterSensitiveLog(item)
       )
     })
   });
@@ -4457,8 +4481,8 @@ export namespace ListPortfoliosForProductOutput {
   ): any => ({
     ...obj,
     ...(obj.PortfolioDetails && {
-      PortfolioDetails: obj.PortfolioDetails.map(
-        PortfolioDetail.filterSensitiveLog
+      PortfolioDetails: obj.PortfolioDetails.map(item =>
+        PortfolioDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -4523,8 +4547,8 @@ export namespace ListPortfoliosOutput {
   export const filterSensitiveLog = (obj: ListPortfoliosOutput): any => ({
     ...obj,
     ...(obj.PortfolioDetails && {
-      PortfolioDetails: obj.PortfolioDetails.map(
-        PortfolioDetail.filterSensitiveLog
+      PortfolioDetails: obj.PortfolioDetails.map(item =>
+        PortfolioDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -4598,7 +4622,7 @@ export namespace ListPrincipalsForPortfolioOutput {
   ): any => ({
     ...obj,
     ...(obj.Principals && {
-      Principals: obj.Principals.map(Principal.filterSensitiveLog)
+      Principals: obj.Principals.map(item => Principal.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListPrincipalsForPortfolioOutput =>
@@ -4681,8 +4705,8 @@ export namespace ListProvisionedProductPlansOutput {
   ): any => ({
     ...obj,
     ...(obj.ProvisionedProductPlans && {
-      ProvisionedProductPlans: obj.ProvisionedProductPlans.map(
-        ProvisionedProductPlanSummary.filterSensitiveLog
+      ProvisionedProductPlans: obj.ProvisionedProductPlans.map(item =>
+        ProvisionedProductPlanSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -4758,8 +4782,8 @@ export namespace ListProvisioningArtifactsForServiceActionOutput {
   ): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactViews && {
-      ProvisioningArtifactViews: obj.ProvisioningArtifactViews.map(
-        ProvisioningArtifactView.filterSensitiveLog
+      ProvisioningArtifactViews: obj.ProvisioningArtifactViews.map(item =>
+        ProvisioningArtifactView.filterSensitiveLog(item)
       )
     })
   });
@@ -4825,8 +4849,8 @@ export namespace ListProvisioningArtifactsOutput {
   ): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactDetails && {
-      ProvisioningArtifactDetails: obj.ProvisioningArtifactDetails.map(
-        ProvisioningArtifactDetail.filterSensitiveLog
+      ProvisioningArtifactDetails: obj.ProvisioningArtifactDetails.map(item =>
+        ProvisioningArtifactDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -4911,7 +4935,9 @@ export namespace ListRecordHistoryOutput {
   export const filterSensitiveLog = (obj: ListRecordHistoryOutput): any => ({
     ...obj,
     ...(obj.RecordDetails && {
-      RecordDetails: obj.RecordDetails.map(RecordDetail.filterSensitiveLog)
+      RecordDetails: obj.RecordDetails.map(item =>
+        RecordDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListRecordHistoryOutput =>
@@ -5027,8 +5053,8 @@ export namespace ListServiceActionsForProvisioningArtifactOutput {
   ): any => ({
     ...obj,
     ...(obj.ServiceActionSummaries && {
-      ServiceActionSummaries: obj.ServiceActionSummaries.map(
-        ServiceActionSummary.filterSensitiveLog
+      ServiceActionSummaries: obj.ServiceActionSummaries.map(item =>
+        ServiceActionSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -5095,8 +5121,8 @@ export namespace ListServiceActionsOutput {
   export const filterSensitiveLog = (obj: ListServiceActionsOutput): any => ({
     ...obj,
     ...(obj.ServiceActionSummaries && {
-      ServiceActionSummaries: obj.ServiceActionSummaries.map(
-        ServiceActionSummary.filterSensitiveLog
+      ServiceActionSummaries: obj.ServiceActionSummaries.map(item =>
+        ServiceActionSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -5172,7 +5198,9 @@ export namespace ListStackInstancesForProvisionedProductOutput {
   ): any => ({
     ...obj,
     ...(obj.StackInstances && {
-      StackInstances: obj.StackInstances.map(StackInstance.filterSensitiveLog)
+      StackInstances: obj.StackInstances.map(item =>
+        StackInstance.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (
@@ -5587,8 +5615,8 @@ export namespace ProvisionProductInput {
   export const filterSensitiveLog = (obj: ProvisionProductInput): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
-      ProvisioningParameters: obj.ProvisioningParameters.map(
-        ProvisioningParameter.filterSensitiveLog
+      ProvisioningParameters: obj.ProvisioningParameters.map(item =>
+        ProvisioningParameter.filterSensitiveLog(item)
       )
     }),
     ...(obj.ProvisioningPreferences && {
@@ -5596,7 +5624,9 @@ export namespace ProvisionProductInput {
         obj.ProvisioningPreferences
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ProvisionProductInput =>
     __isa(o, "ProvisionProductInput");
@@ -5736,7 +5766,9 @@ export namespace ProvisionedProductAttribute {
     obj: ProvisionedProductAttribute
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ProvisionedProductAttribute =>
     __isa(o, "ProvisionedProductAttribute");
@@ -5931,11 +5963,13 @@ export namespace ProvisionedProductPlanDetails {
   ): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
-      ProvisioningParameters: obj.ProvisioningParameters.map(
-        UpdateProvisioningParameter.filterSensitiveLog
+      ProvisioningParameters: obj.ProvisioningParameters.map(item =>
+        UpdateProvisioningParameter.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ProvisionedProductPlanDetails =>
     __isa(o, "ProvisionedProductPlanDetails");
@@ -6546,10 +6580,12 @@ export namespace RecordDetail {
   export const filterSensitiveLog = (obj: RecordDetail): any => ({
     ...obj,
     ...(obj.RecordErrors && {
-      RecordErrors: obj.RecordErrors.map(RecordError.filterSensitiveLog)
+      RecordErrors: obj.RecordErrors.map(item =>
+        RecordError.filterSensitiveLog(item)
+      )
     }),
     ...(obj.RecordTags && {
-      RecordTags: obj.RecordTags.map(RecordTag.filterSensitiveLog)
+      RecordTags: obj.RecordTags.map(item => RecordTag.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is RecordDetail => __isa(o, "RecordDetail");
@@ -6773,7 +6809,9 @@ export namespace ResourceChange {
   export const filterSensitiveLog = (obj: ResourceChange): any => ({
     ...obj,
     ...(obj.Details && {
-      Details: obj.Details.map(ResourceChangeDetail.filterSensitiveLog)
+      Details: obj.Details.map(item =>
+        ResourceChangeDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ResourceChange =>
@@ -6953,8 +6991,8 @@ export namespace ScanProvisionedProductsOutput {
   ): any => ({
     ...obj,
     ...(obj.ProvisionedProducts && {
-      ProvisionedProducts: obj.ProvisionedProducts.map(
-        ProvisionedProductDetail.filterSensitiveLog
+      ProvisionedProducts: obj.ProvisionedProducts.map(item =>
+        ProvisionedProductDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -7047,8 +7085,8 @@ export namespace SearchProductsAsAdminOutput {
   ): any => ({
     ...obj,
     ...(obj.ProductViewDetails && {
-      ProductViewDetails: obj.ProductViewDetails.map(
-        ProductViewDetail.filterSensitiveLog
+      ProductViewDetails: obj.ProductViewDetails.map(item =>
+        ProductViewDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -7139,14 +7177,16 @@ export namespace SearchProductsOutput {
       ).reduce(
         (acc: any, [key, value]: [string, ProductViewAggregationValue[]]) => ({
           ...acc,
-          [key]: value.map(ProductViewAggregationValue.filterSensitiveLog)
+          [key]: value.map(item =>
+            ProductViewAggregationValue.filterSensitiveLog(item)
+          )
         }),
         {}
       )
     }),
     ...(obj.ProductViewSummaries && {
-      ProductViewSummaries: obj.ProductViewSummaries.map(
-        ProductViewSummary.filterSensitiveLog
+      ProductViewSummaries: obj.ProductViewSummaries.map(item =>
+        ProductViewSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -7253,8 +7293,8 @@ export namespace SearchProvisionedProductsOutput {
   ): any => ({
     ...obj,
     ...(obj.ProvisionedProducts && {
-      ProvisionedProducts: obj.ProvisionedProducts.map(
-        ProvisionedProductAttribute.filterSensitiveLog
+      ProvisionedProducts: obj.ProvisionedProducts.map(item =>
+        ProvisionedProductAttribute.filterSensitiveLog(item)
       )
     })
   });
@@ -7393,7 +7433,9 @@ export namespace ShareDetails {
   export const filterSensitiveLog = (obj: ShareDetails): any => ({
     ...obj,
     ...(obj.ShareErrors && {
-      ShareErrors: obj.ShareErrors.map(ShareError.filterSensitiveLog)
+      ShareErrors: obj.ShareErrors.map(item =>
+        ShareError.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ShareDetails => __isa(o, "ShareDetails");
@@ -7820,7 +7862,9 @@ export interface UpdatePortfolioInput {
 export namespace UpdatePortfolioInput {
   export const filterSensitiveLog = (obj: UpdatePortfolioInput): any => ({
     ...obj,
-    ...(obj.AddTags && { AddTags: obj.AddTags.map(Tag.filterSensitiveLog) })
+    ...(obj.AddTags && {
+      AddTags: obj.AddTags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UpdatePortfolioInput =>
     __isa(o, "UpdatePortfolioInput");
@@ -7845,7 +7889,9 @@ export namespace UpdatePortfolioOutput {
     ...(obj.PortfolioDetail && {
       PortfolioDetail: PortfolioDetail.filterSensitiveLog(obj.PortfolioDetail)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UpdatePortfolioOutput =>
     __isa(o, "UpdatePortfolioOutput");
@@ -7926,7 +7972,9 @@ export interface UpdateProductInput {
 export namespace UpdateProductInput {
   export const filterSensitiveLog = (obj: UpdateProductInput): any => ({
     ...obj,
-    ...(obj.AddTags && { AddTags: obj.AddTags.map(Tag.filterSensitiveLog) })
+    ...(obj.AddTags && {
+      AddTags: obj.AddTags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UpdateProductInput =>
     __isa(o, "UpdateProductInput");
@@ -7953,7 +8001,9 @@ export namespace UpdateProductOutput {
         obj.ProductViewDetail
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UpdateProductOutput =>
     __isa(o, "UpdateProductOutput");
@@ -8035,8 +8085,8 @@ export namespace UpdateProvisionedProductInput {
   ): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
-      ProvisioningParameters: obj.ProvisioningParameters.map(
-        UpdateProvisioningParameter.filterSensitiveLog
+      ProvisioningParameters: obj.ProvisioningParameters.map(item =>
+        UpdateProvisioningParameter.filterSensitiveLog(item)
       )
     }),
     ...(obj.ProvisioningPreferences && {
@@ -8044,7 +8094,9 @@ export namespace UpdateProvisionedProductInput {
         obj.ProvisioningPreferences
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is UpdateProvisionedProductInput =>
     __isa(o, "UpdateProvisionedProductInput");

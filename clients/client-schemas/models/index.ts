@@ -731,7 +731,9 @@ export namespace ListDiscoverersResponse {
   export const filterSensitiveLog = (obj: ListDiscoverersResponse): any => ({
     ...obj,
     ...(obj.Discoverers && {
-      Discoverers: obj.Discoverers.map(DiscovererSummary.filterSensitiveLog)
+      Discoverers: obj.Discoverers.map(item =>
+        DiscovererSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDiscoverersResponse =>
@@ -771,7 +773,9 @@ export namespace ListRegistriesResponse {
   export const filterSensitiveLog = (obj: ListRegistriesResponse): any => ({
     ...obj,
     ...(obj.Registries && {
-      Registries: obj.Registries.map(RegistrySummary.filterSensitiveLog)
+      Registries: obj.Registries.map(item =>
+        RegistrySummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListRegistriesResponse =>
@@ -811,8 +815,8 @@ export namespace ListSchemaVersionsResponse {
   export const filterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
     ...obj,
     ...(obj.SchemaVersions && {
-      SchemaVersions: obj.SchemaVersions.map(
-        SchemaVersionSummary.filterSensitiveLog
+      SchemaVersions: obj.SchemaVersions.map(item =>
+        SchemaVersionSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -853,7 +857,7 @@ export namespace ListSchemasResponse {
   export const filterSensitiveLog = (obj: ListSchemasResponse): any => ({
     ...obj,
     ...(obj.Schemas && {
-      Schemas: obj.Schemas.map(SchemaSummary.filterSensitiveLog)
+      Schemas: obj.Schemas.map(item => SchemaSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListSchemasResponse =>
@@ -920,8 +924,8 @@ export namespace LockServiceLinkedRoleResponse {
   ): any => ({
     ...obj,
     ...(obj.RelatedResources && {
-      RelatedResources: obj.RelatedResources.map(
-        DiscovererSummary.filterSensitiveLog
+      RelatedResources: obj.RelatedResources.map(item =>
+        DiscovererSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -1115,8 +1119,8 @@ export namespace SearchSchemaSummary {
   export const filterSensitiveLog = (obj: SearchSchemaSummary): any => ({
     ...obj,
     ...(obj.SchemaVersions && {
-      SchemaVersions: obj.SchemaVersions.map(
-        SearchSchemaVersionSummary.filterSensitiveLog
+      SchemaVersions: obj.SchemaVersions.map(item =>
+        SearchSchemaVersionSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -1174,7 +1178,9 @@ export namespace SearchSchemasResponse {
   export const filterSensitiveLog = (obj: SearchSchemasResponse): any => ({
     ...obj,
     ...(obj.Schemas && {
-      Schemas: obj.Schemas.map(SearchSchemaSummary.filterSensitiveLog)
+      Schemas: obj.Schemas.map(item =>
+        SearchSchemaSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SearchSchemasResponse =>

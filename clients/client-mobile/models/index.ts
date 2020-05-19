@@ -240,10 +240,14 @@ export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
     ...obj,
     ...(obj.deletedResources && {
-      deletedResources: obj.deletedResources.map(Resource.filterSensitiveLog)
+      deletedResources: obj.deletedResources.map(item =>
+        Resource.filterSensitiveLog(item)
+      )
     }),
     ...(obj.orphanedResources && {
-      orphanedResources: obj.orphanedResources.map(Resource.filterSensitiveLog)
+      orphanedResources: obj.orphanedResources.map(item =>
+        Resource.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DeleteProjectResult =>
@@ -608,7 +612,9 @@ export namespace ListBundlesResult {
   export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
     ...obj,
     ...(obj.bundleList && {
-      bundleList: obj.bundleList.map(BundleDetails.filterSensitiveLog)
+      bundleList: obj.bundleList.map(item =>
+        BundleDetails.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListBundlesResult =>
@@ -675,7 +681,9 @@ export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
     ...(obj.projects && {
-      projects: obj.projects.map(ProjectSummary.filterSensitiveLog)
+      projects: obj.projects.map(item =>
+        ProjectSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListProjectsResult =>
@@ -784,7 +792,7 @@ export namespace ProjectDetails {
   export const filterSensitiveLog = (obj: ProjectDetails): any => ({
     ...obj,
     ...(obj.resources && {
-      resources: obj.resources.map(Resource.filterSensitiveLog)
+      resources: obj.resources.map(item => Resource.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ProjectDetails =>

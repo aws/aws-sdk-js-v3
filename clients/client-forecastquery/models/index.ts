@@ -60,7 +60,7 @@ export namespace Forecast {
       Predictions: Object.entries(obj.Predictions).reduce(
         (acc: any, [key, value]: [string, DataPoint[]]) => ({
           ...acc,
-          [key]: value.map(DataPoint.filterSensitiveLog)
+          [key]: value.map(item => DataPoint.filterSensitiveLog(item))
         }),
         {}
       )

@@ -573,7 +573,9 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
     ...(obj.AccessControlList && {
-      AccessControlList: obj.AccessControlList.map(Grant.filterSensitiveLog)
+      AccessControlList: obj.AccessControlList.map(item =>
+        Grant.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Encryption && {
       Encryption: Encryption.filterSensitiveLog(obj.Encryption)
@@ -923,7 +925,7 @@ export namespace DataRetrievalPolicy {
   export const filterSensitiveLog = (obj: DataRetrievalPolicy): any => ({
     ...obj,
     ...(obj.Rules && {
-      Rules: obj.Rules.map(DataRetrievalRule.filterSensitiveLog)
+      Rules: obj.Rules.map(item => DataRetrievalRule.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DataRetrievalPolicy =>
@@ -2060,7 +2062,9 @@ export namespace ListJobsOutput {
   export const filterSensitiveLog = (obj: ListJobsOutput): any => ({
     ...obj,
     ...(obj.JobList && {
-      JobList: obj.JobList.map(GlacierJobDescription.filterSensitiveLog)
+      JobList: obj.JobList.map(item =>
+        GlacierJobDescription.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListJobsOutput =>
@@ -2132,7 +2136,9 @@ export namespace ListMultipartUploadsOutput {
   export const filterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
     ...obj,
     ...(obj.UploadsList && {
-      UploadsList: obj.UploadsList.map(UploadListElement.filterSensitiveLog)
+      UploadsList: obj.UploadsList.map(item =>
+        UploadListElement.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListMultipartUploadsOutput =>
@@ -2240,7 +2246,7 @@ export namespace ListPartsOutput {
   export const filterSensitiveLog = (obj: ListPartsOutput): any => ({
     ...obj,
     ...(obj.Parts && {
-      Parts: obj.Parts.map(PartListElement.filterSensitiveLog)
+      Parts: obj.Parts.map(item => PartListElement.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListPartsOutput =>
@@ -2282,8 +2288,8 @@ export namespace ListProvisionedCapacityOutput {
   ): any => ({
     ...obj,
     ...(obj.ProvisionedCapacityList && {
-      ProvisionedCapacityList: obj.ProvisionedCapacityList.map(
-        ProvisionedCapacityDescription.filterSensitiveLog
+      ProvisionedCapacityList: obj.ProvisionedCapacityList.map(item =>
+        ProvisionedCapacityDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -2396,7 +2402,9 @@ export namespace ListVaultsOutput {
   export const filterSensitiveLog = (obj: ListVaultsOutput): any => ({
     ...obj,
     ...(obj.VaultList && {
-      VaultList: obj.VaultList.map(DescribeVaultOutput.filterSensitiveLog)
+      VaultList: obj.VaultList.map(item =>
+        DescribeVaultOutput.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListVaultsOutput =>

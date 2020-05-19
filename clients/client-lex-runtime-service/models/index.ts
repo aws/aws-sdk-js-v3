@@ -487,8 +487,8 @@ export namespace GetSessionResponse {
       dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction)
     }),
     ...(obj.recentIntentSummaryView && {
-      recentIntentSummaryView: obj.recentIntentSummaryView.map(
-        IntentSummary.filterSensitiveLog
+      recentIntentSummaryView: obj.recentIntentSummaryView.map(item =>
+        IntentSummary.filterSensitiveLog(item)
       )
     }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
@@ -1336,8 +1336,8 @@ export namespace PutSessionRequest {
       dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction)
     }),
     ...(obj.recentIntentSummaryView && {
-      recentIntentSummaryView: obj.recentIntentSummaryView.map(
-        IntentSummary.filterSensitiveLog
+      recentIntentSummaryView: obj.recentIntentSummaryView.map(item =>
+        IntentSummary.filterSensitiveLog(item)
       )
     }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
@@ -1559,7 +1559,9 @@ export interface GenericAttachment {
 export namespace GenericAttachment {
   export const filterSensitiveLog = (obj: GenericAttachment): any => ({
     ...obj,
-    ...(obj.buttons && { buttons: obj.buttons.map(Button.filterSensitiveLog) })
+    ...(obj.buttons && {
+      buttons: obj.buttons.map(item => Button.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GenericAttachment =>
     __isa(o, "GenericAttachment");
@@ -1593,8 +1595,8 @@ export namespace ResponseCard {
   export const filterSensitiveLog = (obj: ResponseCard): any => ({
     ...obj,
     ...(obj.genericAttachments && {
-      genericAttachments: obj.genericAttachments.map(
-        GenericAttachment.filterSensitiveLog
+      genericAttachments: obj.genericAttachments.map(item =>
+        GenericAttachment.filterSensitiveLog(item)
       )
     })
   });

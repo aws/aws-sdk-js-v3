@@ -122,8 +122,8 @@ export namespace DescribeReportDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.ReportDefinitions && {
-      ReportDefinitions: obj.ReportDefinitions.map(
-        ReportDefinition.filterSensitiveLog
+      ReportDefinitions: obj.ReportDefinitions.map(item =>
+        ReportDefinition.filterSensitiveLog(item)
       )
     })
   });

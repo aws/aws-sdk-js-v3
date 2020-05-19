@@ -113,9 +113,11 @@ export namespace BatchCheckLayerAvailabilityResponse {
   ): any => ({
     ...obj,
     ...(obj.failures && {
-      failures: obj.failures.map(LayerFailure.filterSensitiveLog)
+      failures: obj.failures.map(item => LayerFailure.filterSensitiveLog(item))
     }),
-    ...(obj.layers && { layers: obj.layers.map(Layer.filterSensitiveLog) })
+    ...(obj.layers && {
+      layers: obj.layers.map(item => Layer.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is BatchCheckLayerAvailabilityResponse =>
     __isa(o, "BatchCheckLayerAvailabilityResponse");
@@ -150,7 +152,9 @@ export namespace BatchDeleteImageRequest {
   export const filterSensitiveLog = (obj: BatchDeleteImageRequest): any => ({
     ...obj,
     ...(obj.imageIds && {
-      imageIds: obj.imageIds.map(ImageIdentifier.filterSensitiveLog)
+      imageIds: obj.imageIds.map(item =>
+        ImageIdentifier.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchDeleteImageRequest =>
@@ -174,10 +178,12 @@ export namespace BatchDeleteImageResponse {
   export const filterSensitiveLog = (obj: BatchDeleteImageResponse): any => ({
     ...obj,
     ...(obj.failures && {
-      failures: obj.failures.map(ImageFailure.filterSensitiveLog)
+      failures: obj.failures.map(item => ImageFailure.filterSensitiveLog(item))
     }),
     ...(obj.imageIds && {
-      imageIds: obj.imageIds.map(ImageIdentifier.filterSensitiveLog)
+      imageIds: obj.imageIds.map(item =>
+        ImageIdentifier.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchDeleteImageResponse =>
@@ -218,7 +224,9 @@ export namespace BatchGetImageRequest {
   export const filterSensitiveLog = (obj: BatchGetImageRequest): any => ({
     ...obj,
     ...(obj.imageIds && {
-      imageIds: obj.imageIds.map(ImageIdentifier.filterSensitiveLog)
+      imageIds: obj.imageIds.map(item =>
+        ImageIdentifier.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchGetImageRequest =>
@@ -242,9 +250,11 @@ export namespace BatchGetImageResponse {
   export const filterSensitiveLog = (obj: BatchGetImageResponse): any => ({
     ...obj,
     ...(obj.failures && {
-      failures: obj.failures.map(ImageFailure.filterSensitiveLog)
+      failures: obj.failures.map(item => ImageFailure.filterSensitiveLog(item))
     }),
-    ...(obj.images && { images: obj.images.map(Image.filterSensitiveLog) })
+    ...(obj.images && {
+      images: obj.images.map(item => Image.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is BatchGetImageResponse =>
     __isa(o, "BatchGetImageResponse");
@@ -357,7 +367,9 @@ export namespace CreateRepositoryRequest {
         obj.imageScanningConfiguration
       )
     }),
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateRepositoryRequest =>
     __isa(o, "CreateRepositoryRequest");
@@ -728,7 +740,9 @@ export namespace DescribeImagesRequest {
       filter: DescribeImagesFilter.filterSensitiveLog(obj.filter)
     }),
     ...(obj.imageIds && {
-      imageIds: obj.imageIds.map(ImageIdentifier.filterSensitiveLog)
+      imageIds: obj.imageIds.map(item =>
+        ImageIdentifier.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeImagesRequest =>
@@ -757,7 +771,9 @@ export namespace DescribeImagesResponse {
   export const filterSensitiveLog = (obj: DescribeImagesResponse): any => ({
     ...obj,
     ...(obj.imageDetails && {
-      imageDetails: obj.imageDetails.map(ImageDetail.filterSensitiveLog)
+      imageDetails: obj.imageDetails.map(item =>
+        ImageDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeImagesResponse =>
@@ -840,7 +856,9 @@ export namespace DescribeRepositoriesResponse {
   ): any => ({
     ...obj,
     ...(obj.repositories && {
-      repositories: obj.repositories.map(Repository.filterSensitiveLog)
+      repositories: obj.repositories.map(item =>
+        Repository.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeRepositoriesResponse =>
@@ -912,8 +930,8 @@ export namespace GetAuthorizationTokenResponse {
   ): any => ({
     ...obj,
     ...(obj.authorizationData && {
-      authorizationData: obj.authorizationData.map(
-        AuthorizationData.filterSensitiveLog
+      authorizationData: obj.authorizationData.map(item =>
+        AuthorizationData.filterSensitiveLog(item)
       )
     })
   });
@@ -1032,7 +1050,9 @@ export namespace GetLifecyclePolicyPreviewRequest {
       filter: LifecyclePolicyPreviewFilter.filterSensitiveLog(obj.filter)
     }),
     ...(obj.imageIds && {
-      imageIds: obj.imageIds.map(ImageIdentifier.filterSensitiveLog)
+      imageIds: obj.imageIds.map(item =>
+        ImageIdentifier.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetLifecyclePolicyPreviewRequest =>
@@ -1087,8 +1107,8 @@ export namespace GetLifecyclePolicyPreviewResponse {
   ): any => ({
     ...obj,
     ...(obj.previewResults && {
-      previewResults: obj.previewResults.map(
-        LifecyclePolicyPreviewResult.filterSensitiveLog
+      previewResults: obj.previewResults.map(item =>
+        LifecyclePolicyPreviewResult.filterSensitiveLog(item)
       )
     }),
     ...(obj.summary && {
@@ -1453,7 +1473,7 @@ export namespace ImageScanFinding {
   export const filterSensitiveLog = (obj: ImageScanFinding): any => ({
     ...obj,
     ...(obj.attributes && {
-      attributes: obj.attributes.map(Attribute.filterSensitiveLog)
+      attributes: obj.attributes.map(item => Attribute.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ImageScanFinding =>
@@ -1490,7 +1510,9 @@ export namespace ImageScanFindings {
   export const filterSensitiveLog = (obj: ImageScanFindings): any => ({
     ...obj,
     ...(obj.findings && {
-      findings: obj.findings.map(ImageScanFinding.filterSensitiveLog)
+      findings: obj.findings.map(item =>
+        ImageScanFinding.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ImageScanFindings =>
@@ -2222,7 +2244,9 @@ export namespace ListImagesResponse {
   export const filterSensitiveLog = (obj: ListImagesResponse): any => ({
     ...obj,
     ...(obj.imageIds && {
-      imageIds: obj.imageIds.map(ImageIdentifier.filterSensitiveLog)
+      imageIds: obj.imageIds.map(item =>
+        ImageIdentifier.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListImagesResponse =>
@@ -2259,7 +2283,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -2943,7 +2969,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

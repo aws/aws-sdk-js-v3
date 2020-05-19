@@ -106,8 +106,8 @@ export namespace AssociateNodeRequest {
   export const filterSensitiveLog = (obj: AssociateNodeRequest): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map(
-        EngineAttribute.filterSensitiveLog
+      EngineAttributes: obj.EngineAttributes.map(item =>
+        EngineAttribute.filterSensitiveLog(item)
       )
     })
   });
@@ -368,7 +368,9 @@ export interface CreateBackupRequest {
 export namespace CreateBackupRequest {
   export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateBackupRequest =>
     __isa(o, "CreateBackupRequest");
@@ -669,11 +671,13 @@ export namespace CreateServerRequest {
     ...obj,
     ...(obj.CustomPrivateKey && { CustomPrivateKey: SENSITIVE_STRING }),
     ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map(
-        EngineAttribute.filterSensitiveLog
+      EngineAttributes: obj.EngineAttributes.map(item =>
+        EngineAttribute.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateServerRequest =>
     __isa(o, "CreateServerRequest");
@@ -785,7 +789,9 @@ export namespace DescribeAccountAttributesResponse {
   ): any => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(AccountAttribute.filterSensitiveLog)
+      Attributes: obj.Attributes.map(item =>
+        AccountAttribute.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeAccountAttributesResponse =>
@@ -842,7 +848,9 @@ export interface DescribeBackupsResponse {
 export namespace DescribeBackupsResponse {
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
-    ...(obj.Backups && { Backups: obj.Backups.map(Backup.filterSensitiveLog) })
+    ...(obj.Backups && {
+      Backups: obj.Backups.map(item => Backup.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeBackupsResponse =>
     __isa(o, "DescribeBackupsResponse");
@@ -910,7 +918,9 @@ export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
     ...obj,
     ...(obj.ServerEvents && {
-      ServerEvents: obj.ServerEvents.map(ServerEvent.filterSensitiveLog)
+      ServerEvents: obj.ServerEvents.map(item =>
+        ServerEvent.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeEventsResponse =>
@@ -984,8 +994,8 @@ export namespace DescribeNodeAssociationStatusResponse {
   ): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map(
-        EngineAttribute.filterSensitiveLog
+      EngineAttributes: obj.EngineAttributes.map(item =>
+        EngineAttribute.filterSensitiveLog(item)
       )
     })
   });
@@ -1044,7 +1054,9 @@ export interface DescribeServersResponse {
 export namespace DescribeServersResponse {
   export const filterSensitiveLog = (obj: DescribeServersResponse): any => ({
     ...obj,
-    ...(obj.Servers && { Servers: obj.Servers.map(Server.filterSensitiveLog) })
+    ...(obj.Servers && {
+      Servers: obj.Servers.map(item => Server.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeServersResponse =>
     __isa(o, "DescribeServersResponse");
@@ -1087,8 +1099,8 @@ export namespace DisassociateNodeRequest {
   export const filterSensitiveLog = (obj: DisassociateNodeRequest): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map(
-        EngineAttribute.filterSensitiveLog
+      EngineAttributes: obj.EngineAttributes.map(item =>
+        EngineAttribute.filterSensitiveLog(item)
       )
     })
   });
@@ -1193,8 +1205,8 @@ export namespace ExportServerEngineAttributeRequest {
   ): any => ({
     ...obj,
     ...(obj.InputAttributes && {
-      InputAttributes: obj.InputAttributes.map(
-        EngineAttribute.filterSensitiveLog
+      InputAttributes: obj.InputAttributes.map(item =>
+        EngineAttribute.filterSensitiveLog(item)
       )
     })
   });
@@ -1355,7 +1367,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1674,8 +1688,8 @@ export namespace Server {
   export const filterSensitiveLog = (obj: Server): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map(
-        EngineAttribute.filterSensitiveLog
+      EngineAttributes: obj.EngineAttributes.map(item =>
+        EngineAttribute.filterSensitiveLog(item)
       )
     })
   });
@@ -1752,8 +1766,8 @@ export namespace StartMaintenanceRequest {
   export const filterSensitiveLog = (obj: StartMaintenanceRequest): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
-      EngineAttributes: obj.EngineAttributes.map(
-        EngineAttribute.filterSensitiveLog
+      EngineAttributes: obj.EngineAttributes.map(item =>
+        EngineAttribute.filterSensitiveLog(item)
       )
     })
   });
@@ -1844,7 +1858,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

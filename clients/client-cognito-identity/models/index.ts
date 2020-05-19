@@ -136,8 +136,8 @@ export namespace CreateIdentityPoolInput {
   export const filterSensitiveLog = (obj: CreateIdentityPoolInput): any => ({
     ...obj,
     ...(obj.CognitoIdentityProviders && {
-      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(
-        CognitoIdentityProvider.filterSensitiveLog
+      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(item =>
+        CognitoIdentityProvider.filterSensitiveLog(item)
       )
     })
   });
@@ -214,8 +214,8 @@ export namespace DeleteIdentitiesResponse {
   export const filterSensitiveLog = (obj: DeleteIdentitiesResponse): any => ({
     ...obj,
     ...(obj.UnprocessedIdentityIds && {
-      UnprocessedIdentityIds: obj.UnprocessedIdentityIds.map(
-        UnprocessedIdentityId.filterSensitiveLog
+      UnprocessedIdentityIds: obj.UnprocessedIdentityIds.map(item =>
+        UnprocessedIdentityId.filterSensitiveLog(item)
       )
     })
   });
@@ -775,8 +775,8 @@ export namespace IdentityPool {
   export const filterSensitiveLog = (obj: IdentityPool): any => ({
     ...obj,
     ...(obj.CognitoIdentityProviders && {
-      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(
-        CognitoIdentityProvider.filterSensitiveLog
+      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(item =>
+        CognitoIdentityProvider.filterSensitiveLog(item)
       )
     })
   });
@@ -961,7 +961,9 @@ export namespace ListIdentitiesResponse {
   export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
     ...obj,
     ...(obj.Identities && {
-      Identities: obj.Identities.map(IdentityDescription.filterSensitiveLog)
+      Identities: obj.Identities.map(item =>
+        IdentityDescription.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListIdentitiesResponse =>
@@ -1012,8 +1014,8 @@ export namespace ListIdentityPoolsResponse {
   export const filterSensitiveLog = (obj: ListIdentityPoolsResponse): any => ({
     ...obj,
     ...(obj.IdentityPools && {
-      IdentityPools: obj.IdentityPools.map(
-        IdentityPoolShortDescription.filterSensitiveLog
+      IdentityPools: obj.IdentityPools.map(item =>
+        IdentityPoolShortDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -1381,7 +1383,9 @@ export interface RulesConfigurationType {
 export namespace RulesConfigurationType {
   export const filterSensitiveLog = (obj: RulesConfigurationType): any => ({
     ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map(MappingRule.filterSensitiveLog) })
+    ...(obj.Rules && {
+      Rules: obj.Rules.map(item => MappingRule.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is RulesConfigurationType =>
     __isa(o, "RulesConfigurationType");

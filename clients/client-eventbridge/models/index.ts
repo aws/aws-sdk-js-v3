@@ -933,7 +933,7 @@ export namespace ListEventBusesResponse {
   export const filterSensitiveLog = (obj: ListEventBusesResponse): any => ({
     ...obj,
     ...(obj.EventBuses && {
-      EventBuses: obj.EventBuses.map(EventBus.filterSensitiveLog)
+      EventBuses: obj.EventBuses.map(item => EventBus.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListEventBusesResponse =>
@@ -986,7 +986,9 @@ export namespace ListEventSourcesResponse {
   export const filterSensitiveLog = (obj: ListEventSourcesResponse): any => ({
     ...obj,
     ...(obj.EventSources && {
-      EventSources: obj.EventSources.map(EventSource.filterSensitiveLog)
+      EventSources: obj.EventSources.map(item =>
+        EventSource.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListEventSourcesResponse =>
@@ -1042,8 +1044,8 @@ export namespace ListPartnerEventSourceAccountsResponse {
   ): any => ({
     ...obj,
     ...(obj.PartnerEventSourceAccounts && {
-      PartnerEventSourceAccounts: obj.PartnerEventSourceAccounts.map(
-        PartnerEventSourceAccount.filterSensitiveLog
+      PartnerEventSourceAccounts: obj.PartnerEventSourceAccounts.map(item =>
+        PartnerEventSourceAccount.filterSensitiveLog(item)
       )
     })
   });
@@ -1101,8 +1103,8 @@ export namespace ListPartnerEventSourcesResponse {
   ): any => ({
     ...obj,
     ...(obj.PartnerEventSources && {
-      PartnerEventSources: obj.PartnerEventSources.map(
-        PartnerEventSource.filterSensitiveLog
+      PartnerEventSources: obj.PartnerEventSources.map(item =>
+        PartnerEventSource.filterSensitiveLog(item)
       )
     })
   });
@@ -1213,7 +1215,9 @@ export interface ListRulesResponse {
 export namespace ListRulesResponse {
   export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
     ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map(Rule.filterSensitiveLog) })
+    ...(obj.Rules && {
+      Rules: obj.Rules.map(item => Rule.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListRulesResponse =>
     __isa(o, "ListRulesResponse");
@@ -1248,7 +1252,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1301,7 +1307,9 @@ export interface ListTargetsByRuleResponse {
 export namespace ListTargetsByRuleResponse {
   export const filterSensitiveLog = (obj: ListTargetsByRuleResponse): any => ({
     ...obj,
-    ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
+    ...(obj.Targets && {
+      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTargetsByRuleResponse =>
     __isa(o, "ListTargetsByRuleResponse");
@@ -1409,7 +1417,9 @@ export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(PutEventsRequestEntry.filterSensitiveLog)
+      Entries: obj.Entries.map(item =>
+        PutEventsRequestEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PutEventsRequest =>
@@ -1485,7 +1495,9 @@ export namespace PutEventsResponse {
   export const filterSensitiveLog = (obj: PutEventsResponse): any => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(PutEventsResultEntry.filterSensitiveLog)
+      Entries: obj.Entries.map(item =>
+        PutEventsResultEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PutEventsResponse =>
@@ -1533,7 +1545,9 @@ export namespace PutPartnerEventsRequest {
   export const filterSensitiveLog = (obj: PutPartnerEventsRequest): any => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(PutPartnerEventsRequestEntry.filterSensitiveLog)
+      Entries: obj.Entries.map(item =>
+        PutPartnerEventsRequestEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PutPartnerEventsRequest =>
@@ -1602,7 +1616,9 @@ export namespace PutPartnerEventsResponse {
   export const filterSensitiveLog = (obj: PutPartnerEventsResponse): any => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(PutPartnerEventsResultEntry.filterSensitiveLog)
+      Entries: obj.Entries.map(item =>
+        PutPartnerEventsResultEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PutPartnerEventsResponse =>
@@ -1748,7 +1764,9 @@ export interface PutRuleRequest {
 export namespace PutRuleRequest {
   export const filterSensitiveLog = (obj: PutRuleRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutRuleRequest =>
     __isa(o, "PutRuleRequest");
@@ -1791,7 +1809,9 @@ export interface PutTargetsRequest {
 export namespace PutTargetsRequest {
   export const filterSensitiveLog = (obj: PutTargetsRequest): any => ({
     ...obj,
-    ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
+    ...(obj.Targets && {
+      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutTargetsRequest =>
     __isa(o, "PutTargetsRequest");
@@ -1814,8 +1834,8 @@ export namespace PutTargetsResponse {
   export const filterSensitiveLog = (obj: PutTargetsResponse): any => ({
     ...obj,
     ...(obj.FailedEntries && {
-      FailedEntries: obj.FailedEntries.map(
-        PutTargetsResultEntry.filterSensitiveLog
+      FailedEntries: obj.FailedEntries.map(item =>
+        PutTargetsResultEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -1926,8 +1946,8 @@ export namespace RemoveTargetsResponse {
   export const filterSensitiveLog = (obj: RemoveTargetsResponse): any => ({
     ...obj,
     ...(obj.FailedEntries && {
-      FailedEntries: obj.FailedEntries.map(
-        RemoveTargetsResultEntry.filterSensitiveLog
+      FailedEntries: obj.FailedEntries.map(item =>
+        RemoveTargetsResultEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -2047,8 +2067,8 @@ export namespace RunCommandParameters {
   export const filterSensitiveLog = (obj: RunCommandParameters): any => ({
     ...obj,
     ...(obj.RunCommandTargets && {
-      RunCommandTargets: obj.RunCommandTargets.map(
-        RunCommandTarget.filterSensitiveLog
+      RunCommandTargets: obj.RunCommandTargets.map(item =>
+        RunCommandTarget.filterSensitiveLog(item)
       )
     })
   });
@@ -2143,7 +2163,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

@@ -68,8 +68,8 @@ export namespace AssociateS3ResourcesRequest {
   ): any => ({
     ...obj,
     ...(obj.s3Resources && {
-      s3Resources: obj.s3Resources.map(
-        S3ResourceClassification.filterSensitiveLog
+      s3Resources: obj.s3Resources.map(item =>
+        S3ResourceClassification.filterSensitiveLog(item)
       )
     })
   });
@@ -90,8 +90,8 @@ export namespace AssociateS3ResourcesResult {
   export const filterSensitiveLog = (obj: AssociateS3ResourcesResult): any => ({
     ...obj,
     ...(obj.failedS3Resources && {
-      failedS3Resources: obj.failedS3Resources.map(
-        FailedS3Resource.filterSensitiveLog
+      failedS3Resources: obj.failedS3Resources.map(item =>
+        FailedS3Resource.filterSensitiveLog(item)
       )
     })
   });
@@ -194,8 +194,8 @@ export namespace DisassociateS3ResourcesRequest {
   ): any => ({
     ...obj,
     ...(obj.associatedS3Resources && {
-      associatedS3Resources: obj.associatedS3Resources.map(
-        S3Resource.filterSensitiveLog
+      associatedS3Resources: obj.associatedS3Resources.map(item =>
+        S3Resource.filterSensitiveLog(item)
       )
     })
   });
@@ -218,8 +218,8 @@ export namespace DisassociateS3ResourcesResult {
   ): any => ({
     ...obj,
     ...(obj.failedS3Resources && {
-      failedS3Resources: obj.failedS3Resources.map(
-        FailedS3Resource.filterSensitiveLog
+      failedS3Resources: obj.failedS3Resources.map(item =>
+        FailedS3Resource.filterSensitiveLog(item)
       )
     })
   });
@@ -386,7 +386,9 @@ export namespace ListMemberAccountsResult {
   export const filterSensitiveLog = (obj: ListMemberAccountsResult): any => ({
     ...obj,
     ...(obj.memberAccounts && {
-      memberAccounts: obj.memberAccounts.map(MemberAccount.filterSensitiveLog)
+      memberAccounts: obj.memberAccounts.map(item =>
+        MemberAccount.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListMemberAccountsResult =>
@@ -443,8 +445,8 @@ export namespace ListS3ResourcesResult {
   export const filterSensitiveLog = (obj: ListS3ResourcesResult): any => ({
     ...obj,
     ...(obj.s3Resources && {
-      s3Resources: obj.s3Resources.map(
-        S3ResourceClassification.filterSensitiveLog
+      s3Resources: obj.s3Resources.map(item =>
+        S3ResourceClassification.filterSensitiveLog(item)
       )
     })
   });
@@ -597,8 +599,8 @@ export namespace UpdateS3ResourcesRequest {
   export const filterSensitiveLog = (obj: UpdateS3ResourcesRequest): any => ({
     ...obj,
     ...(obj.s3ResourcesUpdate && {
-      s3ResourcesUpdate: obj.s3ResourcesUpdate.map(
-        S3ResourceClassificationUpdate.filterSensitiveLog
+      s3ResourcesUpdate: obj.s3ResourcesUpdate.map(item =>
+        S3ResourceClassificationUpdate.filterSensitiveLog(item)
       )
     })
   });
@@ -619,8 +621,8 @@ export namespace UpdateS3ResourcesResult {
   export const filterSensitiveLog = (obj: UpdateS3ResourcesResult): any => ({
     ...obj,
     ...(obj.failedS3Resources && {
-      failedS3Resources: obj.failedS3Resources.map(
-        FailedS3Resource.filterSensitiveLog
+      failedS3Resources: obj.failedS3Resources.map(item =>
+        FailedS3Resource.filterSensitiveLog(item)
       )
     })
   });

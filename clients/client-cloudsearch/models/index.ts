@@ -873,8 +873,8 @@ export namespace DescribeAnalysisSchemesResponse {
   ): any => ({
     ...obj,
     ...(obj.AnalysisSchemes && {
-      AnalysisSchemes: obj.AnalysisSchemes.map(
-        AnalysisSchemeStatus.filterSensitiveLog
+      AnalysisSchemes: obj.AnalysisSchemes.map(item =>
+        AnalysisSchemeStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -1020,8 +1020,8 @@ export namespace DescribeDomainsResponse {
   export const filterSensitiveLog = (obj: DescribeDomainsResponse): any => ({
     ...obj,
     ...(obj.DomainStatusList && {
-      DomainStatusList: obj.DomainStatusList.map(
-        DomainStatus.filterSensitiveLog
+      DomainStatusList: obj.DomainStatusList.map(item =>
+        DomainStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -1076,7 +1076,9 @@ export namespace DescribeExpressionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Expressions && {
-      Expressions: obj.Expressions.map(ExpressionStatus.filterSensitiveLog)
+      Expressions: obj.Expressions.map(item =>
+        ExpressionStatus.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeExpressionsResponse =>
@@ -1129,7 +1131,9 @@ export namespace DescribeIndexFieldsResponse {
   ): any => ({
     ...obj,
     ...(obj.IndexFields && {
-      IndexFields: obj.IndexFields.map(IndexFieldStatus.filterSensitiveLog)
+      IndexFields: obj.IndexFields.map(item =>
+        IndexFieldStatus.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeIndexFieldsResponse =>
@@ -1279,7 +1283,9 @@ export namespace DescribeSuggestersResponse {
   export const filterSensitiveLog = (obj: DescribeSuggestersResponse): any => ({
     ...obj,
     ...(obj.Suggesters && {
-      Suggesters: obj.Suggesters.map(SuggesterStatus.filterSensitiveLog)
+      Suggesters: obj.Suggesters.map(item =>
+        SuggesterStatus.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeSuggestersResponse =>

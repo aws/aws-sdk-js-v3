@@ -717,7 +717,9 @@ export interface CreateKeyRequest {
 export namespace CreateKeyRequest {
   export const filterSensitiveLog = (obj: CreateKeyRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateKeyRequest =>
     __isa(o, "CreateKeyRequest");
@@ -1269,8 +1271,8 @@ export namespace DescribeCustomKeyStoresResponse {
   ): any => ({
     ...obj,
     ...(obj.CustomKeyStores && {
-      CustomKeyStores: obj.CustomKeyStores.map(
-        CustomKeyStoresListEntry.filterSensitiveLog
+      CustomKeyStores: obj.CustomKeyStores.map(item =>
+        CustomKeyStoresListEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -3192,7 +3194,7 @@ export namespace ListAliasesResponse {
   export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
     ...obj,
     ...(obj.Aliases && {
-      Aliases: obj.Aliases.map(AliasListEntry.filterSensitiveLog)
+      Aliases: obj.Aliases.map(item => AliasListEntry.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListAliasesResponse =>
@@ -3271,7 +3273,7 @@ export namespace ListGrantsResponse {
   export const filterSensitiveLog = (obj: ListGrantsResponse): any => ({
     ...obj,
     ...(obj.Grants && {
-      Grants: obj.Grants.map(GrantListEntry.filterSensitiveLog)
+      Grants: obj.Grants.map(item => GrantListEntry.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListGrantsResponse =>
@@ -3406,7 +3408,9 @@ export interface ListKeysResponse {
 export namespace ListKeysResponse {
   export const filterSensitiveLog = (obj: ListKeysResponse): any => ({
     ...obj,
-    ...(obj.Keys && { Keys: obj.Keys.map(KeyListEntry.filterSensitiveLog) })
+    ...(obj.Keys && {
+      Keys: obj.Keys.map(item => KeyListEntry.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListKeysResponse =>
     __isa(o, "ListKeysResponse");
@@ -3485,7 +3489,9 @@ export interface ListResourceTagsResponse {
 export namespace ListResourceTagsResponse {
   export const filterSensitiveLog = (obj: ListResourceTagsResponse): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListResourceTagsResponse =>
     __isa(o, "ListResourceTagsResponse");
@@ -4125,7 +4131,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

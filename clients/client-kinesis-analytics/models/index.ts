@@ -366,22 +366,22 @@ export namespace ApplicationDetail {
     ...obj,
     ...(obj.CloudWatchLoggingOptionDescriptions && {
       CloudWatchLoggingOptionDescriptions: obj.CloudWatchLoggingOptionDescriptions.map(
-        CloudWatchLoggingOptionDescription.filterSensitiveLog
+        item => CloudWatchLoggingOptionDescription.filterSensitiveLog(item)
       )
     }),
     ...(obj.InputDescriptions && {
-      InputDescriptions: obj.InputDescriptions.map(
-        InputDescription.filterSensitiveLog
+      InputDescriptions: obj.InputDescriptions.map(item =>
+        InputDescription.filterSensitiveLog(item)
       )
     }),
     ...(obj.OutputDescriptions && {
-      OutputDescriptions: obj.OutputDescriptions.map(
-        OutputDescription.filterSensitiveLog
+      OutputDescriptions: obj.OutputDescriptions.map(item =>
+        OutputDescription.filterSensitiveLog(item)
       )
     }),
     ...(obj.ReferenceDataSourceDescriptions && {
       ReferenceDataSourceDescriptions: obj.ReferenceDataSourceDescriptions.map(
-        ReferenceDataSourceDescription.filterSensitiveLog
+        item => ReferenceDataSourceDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -466,18 +466,22 @@ export namespace ApplicationUpdate {
     ...obj,
     ...(obj.CloudWatchLoggingOptionUpdates && {
       CloudWatchLoggingOptionUpdates: obj.CloudWatchLoggingOptionUpdates.map(
-        CloudWatchLoggingOptionUpdate.filterSensitiveLog
+        item => CloudWatchLoggingOptionUpdate.filterSensitiveLog(item)
       )
     }),
     ...(obj.InputUpdates && {
-      InputUpdates: obj.InputUpdates.map(InputUpdate.filterSensitiveLog)
+      InputUpdates: obj.InputUpdates.map(item =>
+        InputUpdate.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputUpdates && {
-      OutputUpdates: obj.OutputUpdates.map(OutputUpdate.filterSensitiveLog)
+      OutputUpdates: obj.OutputUpdates.map(item =>
+        OutputUpdate.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ReferenceDataSourceUpdates && {
-      ReferenceDataSourceUpdates: obj.ReferenceDataSourceUpdates.map(
-        ReferenceDataSourceUpdate.filterSensitiveLog
+      ReferenceDataSourceUpdates: obj.ReferenceDataSourceUpdates.map(item =>
+        ReferenceDataSourceUpdate.filterSensitiveLog(item)
       )
     })
   });
@@ -730,13 +734,19 @@ export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
     ...obj,
     ...(obj.CloudWatchLoggingOptions && {
-      CloudWatchLoggingOptions: obj.CloudWatchLoggingOptions.map(
-        CloudWatchLoggingOption.filterSensitiveLog
+      CloudWatchLoggingOptions: obj.CloudWatchLoggingOptions.map(item =>
+        CloudWatchLoggingOption.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Inputs && { Inputs: obj.Inputs.map(Input.filterSensitiveLog) }),
-    ...(obj.Outputs && { Outputs: obj.Outputs.map(Output.filterSensitiveLog) }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Inputs && {
+      Inputs: obj.Inputs.map(item => Input.filterSensitiveLog(item))
+    }),
+    ...(obj.Outputs && {
+      Outputs: obj.Outputs.map(item => Output.filterSensitiveLog(item))
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateApplicationRequest =>
     __isa(o, "CreateApplicationRequest");
@@ -1633,8 +1643,8 @@ export namespace InputSchemaUpdate {
   export const filterSensitiveLog = (obj: InputSchemaUpdate): any => ({
     ...obj,
     ...(obj.RecordColumnUpdates && {
-      RecordColumnUpdates: obj.RecordColumnUpdates.map(
-        RecordColumn.filterSensitiveLog
+      RecordColumnUpdates: obj.RecordColumnUpdates.map(item =>
+        RecordColumn.filterSensitiveLog(item)
       )
     }),
     ...(obj.RecordFormatUpdate && {
@@ -2325,8 +2335,8 @@ export namespace ListApplicationsResponse {
   export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
     ...obj,
     ...(obj.ApplicationSummaries && {
-      ApplicationSummaries: obj.ApplicationSummaries.map(
-        ApplicationSummary.filterSensitiveLog
+      ApplicationSummaries: obj.ApplicationSummaries.map(item =>
+        ApplicationSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2363,7 +2373,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -3057,7 +3069,9 @@ export namespace SourceSchema {
   export const filterSensitiveLog = (obj: SourceSchema): any => ({
     ...obj,
     ...(obj.RecordColumns && {
-      RecordColumns: obj.RecordColumns.map(RecordColumn.filterSensitiveLog)
+      RecordColumns: obj.RecordColumns.map(item =>
+        RecordColumn.filterSensitiveLog(item)
+      )
     }),
     ...(obj.RecordFormat && {
       RecordFormat: RecordFormat.filterSensitiveLog(obj.RecordFormat)
@@ -3086,8 +3100,8 @@ export namespace StartApplicationRequest {
   export const filterSensitiveLog = (obj: StartApplicationRequest): any => ({
     ...obj,
     ...(obj.InputConfigurations && {
-      InputConfigurations: obj.InputConfigurations.map(
-        InputConfiguration.filterSensitiveLog
+      InputConfigurations: obj.InputConfigurations.map(item =>
+        InputConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -3185,7 +3199,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

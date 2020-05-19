@@ -411,12 +411,14 @@ export namespace Content {
   export const filterSensitiveLog = (obj: Content): any => ({
     ...obj,
     ...(obj.AudioList && {
-      AudioList: obj.AudioList.map(Audio.filterSensitiveLog)
+      AudioList: obj.AudioList.map(item => Audio.filterSensitiveLog(item))
     }),
     ...(obj.SsmlList && {
-      SsmlList: obj.SsmlList.map(Ssml.filterSensitiveLog)
+      SsmlList: obj.SsmlList.map(item => Ssml.filterSensitiveLog(item))
     }),
-    ...(obj.TextList && { TextList: obj.TextList.map(Text.filterSensitiveLog) })
+    ...(obj.TextList && {
+      TextList: obj.TextList.map(item => Text.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Content => __isa(o, "Content");
 }
@@ -454,7 +456,7 @@ export namespace SendAnnouncementRequest {
     ...obj,
     ...(obj.Content && { Content: Content.filterSensitiveLog(obj.Content) }),
     ...(obj.RoomFilters && {
-      RoomFilters: obj.RoomFilters.map(Filter.filterSensitiveLog)
+      RoomFilters: obj.RoomFilters.map(item => Filter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SendAnnouncementRequest =>
@@ -1160,10 +1162,14 @@ export namespace Contact {
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
     ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map(PhoneNumber.filterSensitiveLog)
+      PhoneNumbers: obj.PhoneNumbers.map(item =>
+        PhoneNumber.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map(SipAddress.filterSensitiveLog)
+      SipAddresses: obj.SipAddresses.map(item =>
+        SipAddress.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is Contact => __isa(o, "Contact");
@@ -1217,10 +1223,14 @@ export namespace ContactData {
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
     ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map(PhoneNumber.filterSensitiveLog)
+      PhoneNumbers: obj.PhoneNumbers.map(item =>
+        PhoneNumber.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map(SipAddress.filterSensitiveLog)
+      SipAddresses: obj.SipAddresses.map(item =>
+        SipAddress.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ContactData => __isa(o, "ContactData");
@@ -1464,10 +1474,14 @@ export namespace CreateContactRequest {
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
     ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map(PhoneNumber.filterSensitiveLog)
+      PhoneNumbers: obj.PhoneNumbers.map(item =>
+        PhoneNumber.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map(SipAddress.filterSensitiveLog)
+      SipAddresses: obj.SipAddresses.map(item =>
+        SipAddress.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CreateContactRequest =>
@@ -1885,7 +1899,9 @@ export interface CreateRoomRequest {
 export namespace CreateRoomRequest {
   export const filterSensitiveLog = (obj: CreateRoomRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateRoomRequest =>
     __isa(o, "CreateRoomRequest");
@@ -1987,7 +2003,9 @@ export interface CreateUserRequest {
 export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateUserRequest =>
     __isa(o, "CreateUserRequest");
@@ -2740,8 +2758,8 @@ export namespace DeviceStatusInfo {
   export const filterSensitiveLog = (obj: DeviceStatusInfo): any => ({
     ...obj,
     ...(obj.DeviceStatusDetails && {
-      DeviceStatusDetails: obj.DeviceStatusDetails.map(
-        DeviceStatusDetail.filterSensitiveLog
+      DeviceStatusDetails: obj.DeviceStatusDetails.map(item =>
+        DeviceStatusDetail.filterSensitiveLog(item)
       )
     })
   });
@@ -3813,8 +3831,8 @@ export namespace ListBusinessReportSchedulesResponse {
   ): any => ({
     ...obj,
     ...(obj.BusinessReportSchedules && {
-      BusinessReportSchedules: obj.BusinessReportSchedules.map(
-        BusinessReportSchedule.filterSensitiveLog
+      BusinessReportSchedules: obj.BusinessReportSchedules.map(item =>
+        BusinessReportSchedule.filterSensitiveLog(item)
       )
     })
   });
@@ -3865,8 +3883,8 @@ export namespace ListConferenceProvidersResponse {
   ): any => ({
     ...obj,
     ...(obj.ConferenceProviders && {
-      ConferenceProviders: obj.ConferenceProviders.map(
-        ConferenceProvider.filterSensitiveLog
+      ConferenceProviders: obj.ConferenceProviders.map(item =>
+        ConferenceProvider.filterSensitiveLog(item)
       )
     })
   });
@@ -3930,7 +3948,9 @@ export namespace ListDeviceEventsResponse {
   export const filterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
     ...obj,
     ...(obj.DeviceEvents && {
-      DeviceEvents: obj.DeviceEvents.map(DeviceEvent.filterSensitiveLog)
+      DeviceEvents: obj.DeviceEvents.map(item =>
+        DeviceEvent.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDeviceEventsResponse =>
@@ -3975,8 +3995,8 @@ export namespace ListGatewayGroupsResponse {
   export const filterSensitiveLog = (obj: ListGatewayGroupsResponse): any => ({
     ...obj,
     ...(obj.GatewayGroups && {
-      GatewayGroups: obj.GatewayGroups.map(
-        GatewayGroupSummary.filterSensitiveLog
+      GatewayGroups: obj.GatewayGroups.map(item =>
+        GatewayGroupSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -4027,7 +4047,9 @@ export namespace ListGatewaysResponse {
   export const filterSensitiveLog = (obj: ListGatewaysResponse): any => ({
     ...obj,
     ...(obj.Gateways && {
-      Gateways: obj.Gateways.map(GatewaySummary.filterSensitiveLog)
+      Gateways: obj.Gateways.map(item =>
+        GatewaySummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListGatewaysResponse =>
@@ -4091,7 +4113,9 @@ export namespace ListSkillsResponse {
   export const filterSensitiveLog = (obj: ListSkillsResponse): any => ({
     ...obj,
     ...(obj.SkillSummaries && {
-      SkillSummaries: obj.SkillSummaries.map(SkillSummary.filterSensitiveLog)
+      SkillSummaries: obj.SkillSummaries.map(item =>
+        SkillSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListSkillsResponse =>
@@ -4140,7 +4164,9 @@ export namespace ListSkillsStoreCategoriesResponse {
   ): any => ({
     ...obj,
     ...(obj.CategoryList && {
-      CategoryList: obj.CategoryList.map(Category.filterSensitiveLog)
+      CategoryList: obj.CategoryList.map(item =>
+        Category.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListSkillsStoreCategoriesResponse =>
@@ -4195,8 +4221,8 @@ export namespace ListSkillsStoreSkillsByCategoryResponse {
   ): any => ({
     ...obj,
     ...(obj.SkillsStoreSkills && {
-      SkillsStoreSkills: obj.SkillsStoreSkills.map(
-        SkillsStoreSkill.filterSensitiveLog
+      SkillsStoreSkills: obj.SkillsStoreSkills.map(item =>
+        SkillsStoreSkill.filterSensitiveLog(item)
       )
     })
   });
@@ -4251,8 +4277,8 @@ export namespace ListSmartHomeAppliancesResponse {
   ): any => ({
     ...obj,
     ...(obj.SmartHomeAppliances && {
-      SmartHomeAppliances: obj.SmartHomeAppliances.map(
-        SmartHomeAppliance.filterSensitiveLog
+      SmartHomeAppliances: obj.SmartHomeAppliances.map(item =>
+        SmartHomeAppliance.filterSensitiveLog(item)
       )
     })
   });
@@ -4306,7 +4332,9 @@ export interface ListTagsResponse {
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsResponse =>
     __isa(o, "ListTagsResponse");
@@ -5001,8 +5029,8 @@ export namespace ResolveRoomResponse {
   export const filterSensitiveLog = (obj: ResolveRoomResponse): any => ({
     ...obj,
     ...(obj.RoomSkillParameters && {
-      RoomSkillParameters: obj.RoomSkillParameters.map(
-        RoomSkillParameter.filterSensitiveLog
+      RoomSkillParameters: obj.RoomSkillParameters.map(item =>
+        RoomSkillParameter.filterSensitiveLog(item)
       )
     })
   });
@@ -5202,9 +5230,11 @@ export interface SearchAddressBooksRequest {
 export namespace SearchAddressBooksRequest {
   export const filterSensitiveLog = (obj: SearchAddressBooksRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchAddressBooksRequest =>
@@ -5234,7 +5264,9 @@ export namespace SearchAddressBooksResponse {
   export const filterSensitiveLog = (obj: SearchAddressBooksResponse): any => ({
     ...obj,
     ...(obj.AddressBooks && {
-      AddressBooks: obj.AddressBooks.map(AddressBookData.filterSensitiveLog)
+      AddressBooks: obj.AddressBooks.map(item =>
+        AddressBookData.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SearchAddressBooksResponse =>
@@ -5273,9 +5305,11 @@ export interface SearchContactsRequest {
 export namespace SearchContactsRequest {
   export const filterSensitiveLog = (obj: SearchContactsRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchContactsRequest =>
@@ -5304,7 +5338,7 @@ export namespace SearchContactsResponse {
   export const filterSensitiveLog = (obj: SearchContactsResponse): any => ({
     ...obj,
     ...(obj.Contacts && {
-      Contacts: obj.Contacts.map(ContactData.filterSensitiveLog)
+      Contacts: obj.Contacts.map(item => ContactData.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchContactsResponse =>
@@ -5346,9 +5380,11 @@ export interface SearchDevicesRequest {
 export namespace SearchDevicesRequest {
   export const filterSensitiveLog = (obj: SearchDevicesRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchDevicesRequest =>
@@ -5377,7 +5413,7 @@ export namespace SearchDevicesResponse {
   export const filterSensitiveLog = (obj: SearchDevicesResponse): any => ({
     ...obj,
     ...(obj.Devices && {
-      Devices: obj.Devices.map(DeviceData.filterSensitiveLog)
+      Devices: obj.Devices.map(item => DeviceData.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchDevicesResponse =>
@@ -5418,9 +5454,11 @@ export namespace SearchNetworkProfilesRequest {
     obj: SearchNetworkProfilesRequest
   ): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchNetworkProfilesRequest =>
@@ -5454,8 +5492,8 @@ export namespace SearchNetworkProfilesResponse {
   ): any => ({
     ...obj,
     ...(obj.NetworkProfiles && {
-      NetworkProfiles: obj.NetworkProfiles.map(
-        NetworkProfileData.filterSensitiveLog
+      NetworkProfiles: obj.NetworkProfiles.map(item =>
+        NetworkProfileData.filterSensitiveLog(item)
       )
     })
   });
@@ -5495,9 +5533,11 @@ export interface SearchProfilesRequest {
 export namespace SearchProfilesRequest {
   export const filterSensitiveLog = (obj: SearchProfilesRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchProfilesRequest =>
@@ -5526,7 +5566,7 @@ export namespace SearchProfilesResponse {
   export const filterSensitiveLog = (obj: SearchProfilesResponse): any => ({
     ...obj,
     ...(obj.Profiles && {
-      Profiles: obj.Profiles.map(ProfileData.filterSensitiveLog)
+      Profiles: obj.Profiles.map(item => ProfileData.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchProfilesResponse =>
@@ -5565,9 +5605,11 @@ export interface SearchRoomsRequest {
 export namespace SearchRoomsRequest {
   export const filterSensitiveLog = (obj: SearchRoomsRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchRoomsRequest =>
@@ -5595,7 +5637,9 @@ export interface SearchRoomsResponse {
 export namespace SearchRoomsResponse {
   export const filterSensitiveLog = (obj: SearchRoomsResponse): any => ({
     ...obj,
-    ...(obj.Rooms && { Rooms: obj.Rooms.map(RoomData.filterSensitiveLog) })
+    ...(obj.Rooms && {
+      Rooms: obj.Rooms.map(item => RoomData.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is SearchRoomsResponse =>
     __isa(o, "SearchRoomsResponse");
@@ -5634,9 +5678,11 @@ export interface SearchSkillGroupsRequest {
 export namespace SearchSkillGroupsRequest {
   export const filterSensitiveLog = (obj: SearchSkillGroupsRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchSkillGroupsRequest =>
@@ -5665,7 +5711,9 @@ export namespace SearchSkillGroupsResponse {
   export const filterSensitiveLog = (obj: SearchSkillGroupsResponse): any => ({
     ...obj,
     ...(obj.SkillGroups && {
-      SkillGroups: obj.SkillGroups.map(SkillGroupData.filterSensitiveLog)
+      SkillGroups: obj.SkillGroups.map(item =>
+        SkillGroupData.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is SearchSkillGroupsResponse =>
@@ -5705,9 +5753,11 @@ export interface SearchUsersRequest {
 export namespace SearchUsersRequest {
   export const filterSensitiveLog = (obj: SearchUsersRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(Sort.filterSensitiveLog)
+      SortCriteria: obj.SortCriteria.map(item => Sort.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchUsersRequest =>
@@ -5735,7 +5785,9 @@ export interface SearchUsersResponse {
 export namespace SearchUsersResponse {
   export const filterSensitiveLog = (obj: SearchUsersResponse): any => ({
     ...obj,
-    ...(obj.Users && { Users: obj.Users.map(UserData.filterSensitiveLog) })
+    ...(obj.Users && {
+      Users: obj.Users.map(item => UserData.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is SearchUsersResponse =>
     __isa(o, "SearchUsersResponse");
@@ -6211,7 +6263,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -6473,10 +6527,14 @@ export namespace UpdateContactRequest {
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
     ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map(PhoneNumber.filterSensitiveLog)
+      PhoneNumbers: obj.PhoneNumbers.map(item =>
+        PhoneNumber.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SipAddresses && {
-      SipAddresses: obj.SipAddresses.map(SipAddress.filterSensitiveLog)
+      SipAddresses: obj.SipAddresses.map(item =>
+        SipAddress.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is UpdateContactRequest =>

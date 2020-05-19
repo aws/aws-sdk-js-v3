@@ -29,7 +29,9 @@ export namespace BatchMeterUsageRequest {
   export const filterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
     ...obj,
     ...(obj.UsageRecords && {
-      UsageRecords: obj.UsageRecords.map(UsageRecord.filterSensitiveLog)
+      UsageRecords: obj.UsageRecords.map(item =>
+        UsageRecord.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchMeterUsageRequest =>
@@ -60,11 +62,13 @@ export namespace BatchMeterUsageResult {
   export const filterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
     ...obj,
     ...(obj.Results && {
-      Results: obj.Results.map(UsageRecordResult.filterSensitiveLog)
+      Results: obj.Results.map(item =>
+        UsageRecordResult.filterSensitiveLog(item)
+      )
     }),
     ...(obj.UnprocessedRecords && {
-      UnprocessedRecords: obj.UnprocessedRecords.map(
-        UsageRecord.filterSensitiveLog
+      UnprocessedRecords: obj.UnprocessedRecords.map(item =>
+        UsageRecord.filterSensitiveLog(item)
       )
     })
   });

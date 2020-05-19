@@ -158,7 +158,7 @@ export namespace AddIpRoutesRequest {
   export const filterSensitiveLog = (obj: AddIpRoutesRequest): any => ({
     ...obj,
     ...(obj.IpRoutes && {
-      IpRoutes: obj.IpRoutes.map(IpRoute.filterSensitiveLog)
+      IpRoutes: obj.IpRoutes.map(item => IpRoute.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is AddIpRoutesRequest =>
@@ -193,7 +193,9 @@ export interface AddTagsToResourceRequest {
 export namespace AddTagsToResourceRequest {
   export const filterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is AddTagsToResourceRequest =>
     __isa(o, "AddTagsToResourceRequest");
@@ -547,8 +549,8 @@ export namespace Computer {
   export const filterSensitiveLog = (obj: Computer): any => ({
     ...obj,
     ...(obj.ComputerAttributes && {
-      ComputerAttributes: obj.ComputerAttributes.map(
-        Attribute.filterSensitiveLog
+      ComputerAttributes: obj.ComputerAttributes.map(item =>
+        Attribute.filterSensitiveLog(item)
       )
     })
   });
@@ -638,7 +640,9 @@ export namespace ConnectDirectoryRequest {
       )
     }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ConnectDirectoryRequest =>
     __isa(o, "ConnectDirectoryRequest");
@@ -749,8 +753,8 @@ export namespace CreateComputerRequest {
   export const filterSensitiveLog = (obj: CreateComputerRequest): any => ({
     ...obj,
     ...(obj.ComputerAttributes && {
-      ComputerAttributes: obj.ComputerAttributes.map(
-        Attribute.filterSensitiveLog
+      ComputerAttributes: obj.ComputerAttributes.map(item =>
+        Attribute.filterSensitiveLog(item)
       )
     }),
     ...(obj.Password && { Password: SENSITIVE_STRING })
@@ -876,7 +880,9 @@ export namespace CreateDirectoryRequest {
   export const filterSensitiveLog = (obj: CreateDirectoryRequest): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.VpcSettings && {
       VpcSettings: DirectoryVpcSettings.filterSensitiveLog(obj.VpcSettings)
     })
@@ -990,7 +996,9 @@ export namespace CreateMicrosoftADRequest {
   export const filterSensitiveLog = (obj: CreateMicrosoftADRequest): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.VpcSettings && {
       VpcSettings: DirectoryVpcSettings.filterSensitiveLog(obj.VpcSettings)
     })
@@ -1487,8 +1495,8 @@ export namespace DescribeConditionalForwardersResult {
   ): any => ({
     ...obj,
     ...(obj.ConditionalForwarders && {
-      ConditionalForwarders: obj.ConditionalForwarders.map(
-        ConditionalForwarder.filterSensitiveLog
+      ConditionalForwarders: obj.ConditionalForwarders.map(item =>
+        ConditionalForwarder.filterSensitiveLog(item)
       )
     })
   });
@@ -1552,8 +1560,8 @@ export namespace DescribeDirectoriesResult {
   export const filterSensitiveLog = (obj: DescribeDirectoriesResult): any => ({
     ...obj,
     ...(obj.DirectoryDescriptions && {
-      DirectoryDescriptions: obj.DirectoryDescriptions.map(
-        DirectoryDescription.filterSensitiveLog
+      DirectoryDescriptions: obj.DirectoryDescriptions.map(item =>
+        DirectoryDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -1613,8 +1621,8 @@ export namespace DescribeDomainControllersResult {
   ): any => ({
     ...obj,
     ...(obj.DomainControllers && {
-      DomainControllers: obj.DomainControllers.map(
-        DomainController.filterSensitiveLog
+      DomainControllers: obj.DomainControllers.map(item =>
+        DomainController.filterSensitiveLog(item)
       )
     })
   });
@@ -1662,7 +1670,9 @@ export namespace DescribeEventTopicsResult {
   export const filterSensitiveLog = (obj: DescribeEventTopicsResult): any => ({
     ...obj,
     ...(obj.EventTopics && {
-      EventTopics: obj.EventTopics.map(EventTopic.filterSensitiveLog)
+      EventTopics: obj.EventTopics.map(item =>
+        EventTopic.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeEventTopicsResult =>
@@ -1723,8 +1733,8 @@ export namespace DescribeLDAPSSettingsResult {
   ): any => ({
     ...obj,
     ...(obj.LDAPSSettingsInfo && {
-      LDAPSSettingsInfo: obj.LDAPSSettingsInfo.map(
-        LDAPSSettingInfo.filterSensitiveLog
+      LDAPSSettingsInfo: obj.LDAPSSettingsInfo.map(item =>
+        LDAPSSettingInfo.filterSensitiveLog(item)
       )
     })
   });
@@ -1787,8 +1797,8 @@ export namespace DescribeSharedDirectoriesResult {
   ): any => ({
     ...obj,
     ...(obj.SharedDirectories && {
-      SharedDirectories: obj.SharedDirectories.map(
-        SharedDirectory.filterSensitiveLog
+      SharedDirectories: obj.SharedDirectories.map(item =>
+        SharedDirectory.filterSensitiveLog(item)
       )
     })
   });
@@ -1858,7 +1868,7 @@ export namespace DescribeSnapshotsResult {
   export const filterSensitiveLog = (obj: DescribeSnapshotsResult): any => ({
     ...obj,
     ...(obj.Snapshots && {
-      Snapshots: obj.Snapshots.map(Snapshot.filterSensitiveLog)
+      Snapshots: obj.Snapshots.map(item => Snapshot.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeSnapshotsResult =>
@@ -1925,7 +1935,9 @@ export interface DescribeTrustsResult {
 export namespace DescribeTrustsResult {
   export const filterSensitiveLog = (obj: DescribeTrustsResult): any => ({
     ...obj,
-    ...(obj.Trusts && { Trusts: obj.Trusts.map(Trust.filterSensitiveLog) })
+    ...(obj.Trusts && {
+      Trusts: obj.Trusts.map(item => Trust.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeTrustsResult =>
     __isa(o, "DescribeTrustsResult");
@@ -3401,8 +3413,8 @@ export namespace ListCertificatesResult {
   export const filterSensitiveLog = (obj: ListCertificatesResult): any => ({
     ...obj,
     ...(obj.CertificatesInfo && {
-      CertificatesInfo: obj.CertificatesInfo.map(
-        CertificateInfo.filterSensitiveLog
+      CertificatesInfo: obj.CertificatesInfo.map(item =>
+        CertificateInfo.filterSensitiveLog(item)
       )
     })
   });
@@ -3455,7 +3467,9 @@ export namespace ListIpRoutesResult {
   export const filterSensitiveLog = (obj: ListIpRoutesResult): any => ({
     ...obj,
     ...(obj.IpRoutesInfo && {
-      IpRoutesInfo: obj.IpRoutesInfo.map(IpRouteInfo.filterSensitiveLog)
+      IpRoutesInfo: obj.IpRoutesInfo.map(item =>
+        IpRouteInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListIpRoutesResult =>
@@ -3507,8 +3521,8 @@ export namespace ListLogSubscriptionsResult {
   export const filterSensitiveLog = (obj: ListLogSubscriptionsResult): any => ({
     ...obj,
     ...(obj.LogSubscriptions && {
-      LogSubscriptions: obj.LogSubscriptions.map(
-        LogSubscription.filterSensitiveLog
+      LogSubscriptions: obj.LogSubscriptions.map(item =>
+        LogSubscription.filterSensitiveLog(item)
       )
     })
   });
@@ -3561,8 +3575,8 @@ export namespace ListSchemaExtensionsResult {
   export const filterSensitiveLog = (obj: ListSchemaExtensionsResult): any => ({
     ...obj,
     ...(obj.SchemaExtensionsInfo && {
-      SchemaExtensionsInfo: obj.SchemaExtensionsInfo.map(
-        SchemaExtensionInfo.filterSensitiveLog
+      SchemaExtensionsInfo: obj.SchemaExtensionsInfo.map(item =>
+        SchemaExtensionInfo.filterSensitiveLog(item)
       )
     })
   });
@@ -3612,7 +3626,9 @@ export interface ListTagsForResourceResult {
 export namespace ListTagsForResourceResult {
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResult =>
     __isa(o, "ListTagsForResourceResult");

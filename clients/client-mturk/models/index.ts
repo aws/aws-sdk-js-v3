@@ -526,16 +526,16 @@ export namespace CreateHITRequest {
       )
     }),
     ...(obj.HITLayoutParameters && {
-      HITLayoutParameters: obj.HITLayoutParameters.map(
-        HITLayoutParameter.filterSensitiveLog
+      HITLayoutParameters: obj.HITLayoutParameters.map(item =>
+        HITLayoutParameter.filterSensitiveLog(item)
       )
     }),
     ...(obj.HITReviewPolicy && {
       HITReviewPolicy: ReviewPolicy.filterSensitiveLog(obj.HITReviewPolicy)
     }),
     ...(obj.QualificationRequirements && {
-      QualificationRequirements: obj.QualificationRequirements.map(
-        QualificationRequirement.filterSensitiveLog
+      QualificationRequirements: obj.QualificationRequirements.map(item =>
+        QualificationRequirement.filterSensitiveLog(item)
       )
     })
   });
@@ -636,8 +636,8 @@ export namespace CreateHITTypeRequest {
   export const filterSensitiveLog = (obj: CreateHITTypeRequest): any => ({
     ...obj,
     ...(obj.QualificationRequirements && {
-      QualificationRequirements: obj.QualificationRequirements.map(
-        QualificationRequirement.filterSensitiveLog
+      QualificationRequirements: obj.QualificationRequirements.map(item =>
+        QualificationRequirement.filterSensitiveLog(item)
       )
     })
   });
@@ -783,8 +783,8 @@ export namespace CreateHITWithHITTypeRequest {
       )
     }),
     ...(obj.HITLayoutParameters && {
-      HITLayoutParameters: obj.HITLayoutParameters.map(
-        HITLayoutParameter.filterSensitiveLog
+      HITLayoutParameters: obj.HITLayoutParameters.map(item =>
+        HITLayoutParameter.filterSensitiveLog(item)
       )
     }),
     ...(obj.HITReviewPolicy && {
@@ -1514,8 +1514,8 @@ export namespace HIT {
   export const filterSensitiveLog = (obj: HIT): any => ({
     ...obj,
     ...(obj.QualificationRequirements && {
-      QualificationRequirements: obj.QualificationRequirements.map(
-        QualificationRequirement.filterSensitiveLog
+      QualificationRequirements: obj.QualificationRequirements.map(item =>
+        QualificationRequirement.filterSensitiveLog(item)
       )
     })
   });
@@ -1634,7 +1634,9 @@ export namespace ListAssignmentsForHITResponse {
   ): any => ({
     ...obj,
     ...(obj.Assignments && {
-      Assignments: obj.Assignments.map(Assignment.filterSensitiveLog)
+      Assignments: obj.Assignments.map(item =>
+        Assignment.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListAssignmentsForHITResponse =>
@@ -1704,7 +1706,9 @@ export namespace ListBonusPaymentsResponse {
   export const filterSensitiveLog = (obj: ListBonusPaymentsResponse): any => ({
     ...obj,
     ...(obj.BonusPayments && {
-      BonusPayments: obj.BonusPayments.map(BonusPayment.filterSensitiveLog)
+      BonusPayments: obj.BonusPayments.map(item =>
+        BonusPayment.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListBonusPaymentsResponse =>
@@ -1770,7 +1774,9 @@ export namespace ListHITsForQualificationTypeResponse {
     obj: ListHITsForQualificationTypeResponse
   ): any => ({
     ...obj,
-    ...(obj.HITs && { HITs: obj.HITs.map(HIT.filterSensitiveLog) })
+    ...(obj.HITs && {
+      HITs: obj.HITs.map(item => HIT.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListHITsForQualificationTypeResponse =>
     __isa(o, "ListHITsForQualificationTypeResponse");
@@ -1818,7 +1824,9 @@ export interface ListHITsResponse {
 export namespace ListHITsResponse {
   export const filterSensitiveLog = (obj: ListHITsResponse): any => ({
     ...obj,
-    ...(obj.HITs && { HITs: obj.HITs.map(HIT.filterSensitiveLog) })
+    ...(obj.HITs && {
+      HITs: obj.HITs.map(item => HIT.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListHITsResponse =>
     __isa(o, "ListHITsResponse");
@@ -1887,8 +1895,8 @@ export namespace ListQualificationRequestsResponse {
   ): any => ({
     ...obj,
     ...(obj.QualificationRequests && {
-      QualificationRequests: obj.QualificationRequests.map(
-        QualificationRequest.filterSensitiveLog
+      QualificationRequests: obj.QualificationRequests.map(item =>
+        QualificationRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -1982,8 +1990,8 @@ export namespace ListQualificationTypesResponse {
   ): any => ({
     ...obj,
     ...(obj.QualificationTypes && {
-      QualificationTypes: obj.QualificationTypes.map(
-        QualificationType.filterSensitiveLog
+      QualificationTypes: obj.QualificationTypes.map(item =>
+        QualificationType.filterSensitiveLog(item)
       )
     })
   });
@@ -2176,7 +2184,9 @@ export interface ListReviewableHITsResponse {
 export namespace ListReviewableHITsResponse {
   export const filterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
     ...obj,
-    ...(obj.HITs && { HITs: obj.HITs.map(HIT.filterSensitiveLog) })
+    ...(obj.HITs && {
+      HITs: obj.HITs.map(item => HIT.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListReviewableHITsResponse =>
     __isa(o, "ListReviewableHITsResponse");
@@ -2227,7 +2237,9 @@ export namespace ListWorkerBlocksResponse {
   export const filterSensitiveLog = (obj: ListWorkerBlocksResponse): any => ({
     ...obj,
     ...(obj.WorkerBlocks && {
-      WorkerBlocks: obj.WorkerBlocks.map(WorkerBlock.filterSensitiveLog)
+      WorkerBlocks: obj.WorkerBlocks.map(item =>
+        WorkerBlock.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListWorkerBlocksResponse =>
@@ -2303,7 +2315,9 @@ export namespace ListWorkersWithQualificationTypeResponse {
   ): any => ({
     ...obj,
     ...(obj.Qualifications && {
-      Qualifications: obj.Qualifications.map(Qualification.filterSensitiveLog)
+      Qualifications: obj.Qualifications.map(item =>
+        Qualification.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListWorkersWithQualificationTypeResponse =>
@@ -2485,8 +2499,8 @@ export namespace NotifyWorkersResponse {
   export const filterSensitiveLog = (obj: NotifyWorkersResponse): any => ({
     ...obj,
     ...(obj.NotifyWorkersFailureStatuses && {
-      NotifyWorkersFailureStatuses: obj.NotifyWorkersFailureStatuses.map(
-        NotifyWorkersFailureStatus.filterSensitiveLog
+      NotifyWorkersFailureStatuses: obj.NotifyWorkersFailureStatuses.map(item =>
+        NotifyWorkersFailureStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -2554,7 +2568,9 @@ export namespace PolicyParameter {
   export const filterSensitiveLog = (obj: PolicyParameter): any => ({
     ...obj,
     ...(obj.MapEntries && {
-      MapEntries: obj.MapEntries.map(ParameterMapEntry.filterSensitiveLog)
+      MapEntries: obj.MapEntries.map(item =>
+        ParameterMapEntry.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PolicyParameter =>
@@ -2775,7 +2791,9 @@ export namespace QualificationRequirement {
   export const filterSensitiveLog = (obj: QualificationRequirement): any => ({
     ...obj,
     ...(obj.LocaleValues && {
-      LocaleValues: obj.LocaleValues.map(Locale.filterSensitiveLog)
+      LocaleValues: obj.LocaleValues.map(item =>
+        Locale.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is QualificationRequirement =>
@@ -3087,7 +3105,9 @@ export namespace ReviewPolicy {
   export const filterSensitiveLog = (obj: ReviewPolicy): any => ({
     ...obj,
     ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(PolicyParameter.filterSensitiveLog)
+      Parameters: obj.Parameters.map(item =>
+        PolicyParameter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ReviewPolicy => __isa(o, "ReviewPolicy");
@@ -3124,13 +3144,13 @@ export namespace ReviewReport {
   export const filterSensitiveLog = (obj: ReviewReport): any => ({
     ...obj,
     ...(obj.ReviewActions && {
-      ReviewActions: obj.ReviewActions.map(
-        ReviewActionDetail.filterSensitiveLog
+      ReviewActions: obj.ReviewActions.map(item =>
+        ReviewActionDetail.filterSensitiveLog(item)
       )
     }),
     ...(obj.ReviewResults && {
-      ReviewResults: obj.ReviewResults.map(
-        ReviewResultDetail.filterSensitiveLog
+      ReviewResults: obj.ReviewResults.map(item =>
+        ReviewResultDetail.filterSensitiveLog(item)
       )
     })
   });

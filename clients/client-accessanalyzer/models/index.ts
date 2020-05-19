@@ -269,7 +269,9 @@ export namespace CreateAnalyzerRequest {
   export const filterSensitiveLog = (obj: CreateAnalyzerRequest): any => ({
     ...obj,
     ...(obj.archiveRules && {
-      archiveRules: obj.archiveRules.map(InlineArchiveRule.filterSensitiveLog)
+      archiveRules: obj.archiveRules.map(item =>
+        InlineArchiveRule.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CreateAnalyzerRequest =>
@@ -876,8 +878,8 @@ export namespace ListAnalyzedResourcesResponse {
   ): any => ({
     ...obj,
     ...(obj.analyzedResources && {
-      analyzedResources: obj.analyzedResources.map(
-        AnalyzedResourceSummary.filterSensitiveLog
+      analyzedResources: obj.analyzedResources.map(item =>
+        AnalyzedResourceSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -934,7 +936,9 @@ export namespace ListAnalyzersResponse {
   export const filterSensitiveLog = (obj: ListAnalyzersResponse): any => ({
     ...obj,
     ...(obj.analyzers && {
-      analyzers: obj.analyzers.map(AnalyzerSummary.filterSensitiveLog)
+      analyzers: obj.analyzers.map(item =>
+        AnalyzerSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListAnalyzersResponse =>
@@ -990,7 +994,9 @@ export namespace ListArchiveRulesResponse {
   export const filterSensitiveLog = (obj: ListArchiveRulesResponse): any => ({
     ...obj,
     ...(obj.archiveRules && {
-      archiveRules: obj.archiveRules.map(ArchiveRuleSummary.filterSensitiveLog)
+      archiveRules: obj.archiveRules.map(item =>
+        ArchiveRuleSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListArchiveRulesResponse =>
@@ -1067,7 +1073,9 @@ export namespace ListFindingsResponse {
   export const filterSensitiveLog = (obj: ListFindingsResponse): any => ({
     ...obj,
     ...(obj.findings && {
-      findings: obj.findings.map(FindingSummary.filterSensitiveLog)
+      findings: obj.findings.map(item =>
+        FindingSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListFindingsResponse =>
@@ -1442,7 +1450,9 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
     ...(obj.fieldList && {
-      fieldList: obj.fieldList.map(ValidationExceptionField.filterSensitiveLog)
+      fieldList: obj.fieldList.map(item =>
+        ValidationExceptionField.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ValidationException =>

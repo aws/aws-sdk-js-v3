@@ -169,7 +169,9 @@ export namespace App {
       )
     }),
     ...(obj.customRules && {
-      customRules: obj.customRules.map(CustomRule.filterSensitiveLog)
+      customRules: obj.customRules.map(item =>
+        CustomRule.filterSensitiveLog(item)
+      )
     }),
     ...(obj.productionBranch && {
       productionBranch: ProductionBranch.filterSensitiveLog(
@@ -702,7 +704,9 @@ export namespace CreateAppRequest {
       )
     }),
     ...(obj.customRules && {
-      customRules: obj.customRules.map(CustomRule.filterSensitiveLog)
+      customRules: obj.customRules.map(item =>
+        CustomRule.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CreateAppRequest =>
@@ -1082,8 +1086,8 @@ export namespace CreateDomainAssociationRequest {
   ): any => ({
     ...obj,
     ...(obj.subDomainSettings && {
-      subDomainSettings: obj.subDomainSettings.map(
-        SubDomainSetting.filterSensitiveLog
+      subDomainSettings: obj.subDomainSettings.map(item =>
+        SubDomainSetting.filterSensitiveLog(item)
       )
     })
   });
@@ -1639,7 +1643,7 @@ export namespace DomainAssociation {
   export const filterSensitiveLog = (obj: DomainAssociation): any => ({
     ...obj,
     ...(obj.subDomains && {
-      subDomains: obj.subDomains.map(SubDomain.filterSensitiveLog)
+      subDomains: obj.subDomains.map(item => SubDomain.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DomainAssociation =>
@@ -2135,7 +2139,9 @@ export interface Job {
 export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
-    ...(obj.steps && { steps: obj.steps.map(Step.filterSensitiveLog) }),
+    ...(obj.steps && {
+      steps: obj.steps.map(item => Step.filterSensitiveLog(item))
+    }),
     ...(obj.summary && { summary: JobSummary.filterSensitiveLog(obj.summary) })
   });
   export const isa = (o: any): o is Job => __isa(o, "Job");
@@ -2318,7 +2324,9 @@ export interface ListAppsResult {
 export namespace ListAppsResult {
   export const filterSensitiveLog = (obj: ListAppsResult): any => ({
     ...obj,
-    ...(obj.apps && { apps: obj.apps.map(App.filterSensitiveLog) })
+    ...(obj.apps && {
+      apps: obj.apps.map(item => App.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListAppsResult =>
     __isa(o, "ListAppsResult");
@@ -2404,7 +2412,7 @@ export namespace ListArtifactsResult {
   export const filterSensitiveLog = (obj: ListArtifactsResult): any => ({
     ...obj,
     ...(obj.artifacts && {
-      artifacts: obj.artifacts.map(Artifact.filterSensitiveLog)
+      artifacts: obj.artifacts.map(item => Artifact.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListArtifactsResult =>
@@ -2488,8 +2496,8 @@ export namespace ListBackendEnvironmentsResult {
   ): any => ({
     ...obj,
     ...(obj.backendEnvironments && {
-      backendEnvironments: obj.backendEnvironments.map(
-        BackendEnvironment.filterSensitiveLog
+      backendEnvironments: obj.backendEnvironments.map(item =>
+        BackendEnvironment.filterSensitiveLog(item)
       )
     })
   });
@@ -2563,7 +2571,7 @@ export namespace ListBranchesResult {
   export const filterSensitiveLog = (obj: ListBranchesResult): any => ({
     ...obj,
     ...(obj.branches && {
-      branches: obj.branches.map(Branch.filterSensitiveLog)
+      branches: obj.branches.map(item => Branch.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListBranchesResult =>
@@ -2640,8 +2648,8 @@ export namespace ListDomainAssociationsResult {
   ): any => ({
     ...obj,
     ...(obj.domainAssociations && {
-      domainAssociations: obj.domainAssociations.map(
-        DomainAssociation.filterSensitiveLog
+      domainAssociations: obj.domainAssociations.map(item =>
+        DomainAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -2722,7 +2730,9 @@ export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
     ...obj,
     ...(obj.jobSummaries && {
-      jobSummaries: obj.jobSummaries.map(JobSummary.filterSensitiveLog)
+      jobSummaries: obj.jobSummaries.map(item =>
+        JobSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListJobsResult =>
@@ -2843,7 +2853,7 @@ export namespace ListWebhooksResult {
   export const filterSensitiveLog = (obj: ListWebhooksResult): any => ({
     ...obj,
     ...(obj.webhooks && {
-      webhooks: obj.webhooks.map(Webhook.filterSensitiveLog)
+      webhooks: obj.webhooks.map(item => Webhook.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListWebhooksResult =>
@@ -3596,7 +3606,9 @@ export namespace UpdateAppRequest {
       )
     }),
     ...(obj.customRules && {
-      customRules: obj.customRules.map(CustomRule.filterSensitiveLog)
+      customRules: obj.customRules.map(item =>
+        CustomRule.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is UpdateAppRequest =>
@@ -3821,8 +3833,8 @@ export namespace UpdateDomainAssociationRequest {
   ): any => ({
     ...obj,
     ...(obj.subDomainSettings && {
-      subDomainSettings: obj.subDomainSettings.map(
-        SubDomainSetting.filterSensitiveLog
+      subDomainSettings: obj.subDomainSettings.map(item =>
+        SubDomainSetting.filterSensitiveLog(item)
       )
     })
   });

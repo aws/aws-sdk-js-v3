@@ -234,7 +234,9 @@ export namespace CreateDeviceRequest {
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateDeviceRequest =>
     __isa(o, "CreateDeviceRequest");
@@ -274,7 +276,9 @@ export interface CreateGlobalNetworkRequest {
 export namespace CreateGlobalNetworkRequest {
   export const filterSensitiveLog = (obj: CreateGlobalNetworkRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateGlobalNetworkRequest =>
     __isa(o, "CreateGlobalNetworkRequest");
@@ -350,7 +354,9 @@ export namespace CreateLinkRequest {
     ...(obj.Bandwidth && {
       Bandwidth: Bandwidth.filterSensitiveLog(obj.Bandwidth)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateLinkRequest =>
     __isa(o, "CreateLinkRequest");
@@ -417,7 +423,9 @@ export namespace CreateSiteRequest {
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateSiteRequest =>
     __isa(o, "CreateSiteRequest");
@@ -730,7 +738,9 @@ export namespace DescribeGlobalNetworksResponse {
   ): any => ({
     ...obj,
     ...(obj.GlobalNetworks && {
-      GlobalNetworks: obj.GlobalNetworks.map(GlobalNetwork.filterSensitiveLog)
+      GlobalNetworks: obj.GlobalNetworks.map(item =>
+        GlobalNetwork.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeGlobalNetworksResponse =>
@@ -814,7 +824,9 @@ export namespace Device {
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Device => __isa(o, "Device");
 }
@@ -971,8 +983,8 @@ export namespace GetCustomerGatewayAssociationsResponse {
   ): any => ({
     ...obj,
     ...(obj.CustomerGatewayAssociations && {
-      CustomerGatewayAssociations: obj.CustomerGatewayAssociations.map(
-        CustomerGatewayAssociation.filterSensitiveLog
+      CustomerGatewayAssociations: obj.CustomerGatewayAssociations.map(item =>
+        CustomerGatewayAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -1032,7 +1044,9 @@ export interface GetDevicesResponse {
 export namespace GetDevicesResponse {
   export const filterSensitiveLog = (obj: GetDevicesResponse): any => ({
     ...obj,
-    ...(obj.Devices && { Devices: obj.Devices.map(Device.filterSensitiveLog) })
+    ...(obj.Devices && {
+      Devices: obj.Devices.map(item => Device.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetDevicesResponse =>
     __isa(o, "GetDevicesResponse");
@@ -1093,8 +1107,8 @@ export namespace GetLinkAssociationsResponse {
   ): any => ({
     ...obj,
     ...(obj.LinkAssociations && {
-      LinkAssociations: obj.LinkAssociations.map(
-        LinkAssociation.filterSensitiveLog
+      LinkAssociations: obj.LinkAssociations.map(item =>
+        LinkAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -1164,7 +1178,9 @@ export interface GetLinksResponse {
 export namespace GetLinksResponse {
   export const filterSensitiveLog = (obj: GetLinksResponse): any => ({
     ...obj,
-    ...(obj.Links && { Links: obj.Links.map(Link.filterSensitiveLog) })
+    ...(obj.Links && {
+      Links: obj.Links.map(item => Link.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetLinksResponse =>
     __isa(o, "GetLinksResponse");
@@ -1217,7 +1233,9 @@ export interface GetSitesResponse {
 export namespace GetSitesResponse {
   export const filterSensitiveLog = (obj: GetSitesResponse): any => ({
     ...obj,
-    ...(obj.Sites && { Sites: obj.Sites.map(Site.filterSensitiveLog) })
+    ...(obj.Sites && {
+      Sites: obj.Sites.map(item => Site.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetSitesResponse =>
     __isa(o, "GetSitesResponse");
@@ -1276,8 +1294,8 @@ export namespace GetTransitGatewayRegistrationsResponse {
   ): any => ({
     ...obj,
     ...(obj.TransitGatewayRegistrations && {
-      TransitGatewayRegistrations: obj.TransitGatewayRegistrations.map(
-        TransitGatewayRegistration.filterSensitiveLog
+      TransitGatewayRegistrations: obj.TransitGatewayRegistrations.map(item =>
+        TransitGatewayRegistration.filterSensitiveLog(item)
       )
     })
   });
@@ -1324,7 +1342,9 @@ export interface GlobalNetwork {
 export namespace GlobalNetwork {
   export const filterSensitiveLog = (obj: GlobalNetwork): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GlobalNetwork => __isa(o, "GlobalNetwork");
 }
@@ -1426,7 +1446,9 @@ export namespace Link {
     ...(obj.Bandwidth && {
       Bandwidth: Bandwidth.filterSensitiveLog(obj.Bandwidth)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Link => __isa(o, "Link");
 }
@@ -1508,7 +1530,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1713,7 +1737,9 @@ export namespace Site {
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Site => __isa(o, "Site");
 }
@@ -1766,7 +1792,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -2179,7 +2207,9 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
     ...(obj.Fields && {
-      Fields: obj.Fields.map(ValidationExceptionField.filterSensitiveLog)
+      Fields: obj.Fields.map(item =>
+        ValidationExceptionField.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ValidationException =>

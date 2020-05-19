@@ -279,11 +279,13 @@ export namespace DescribeDimensionKeysResponse {
   ): any => ({
     ...obj,
     ...(obj.Keys && {
-      Keys: obj.Keys.map(DimensionKeyDescription.filterSensitiveLog)
+      Keys: obj.Keys.map(item =>
+        DimensionKeyDescription.filterSensitiveLog(item)
+      )
     }),
     ...(obj.PartitionKeys && {
-      PartitionKeys: obj.PartitionKeys.map(
-        ResponsePartitionKey.filterSensitiveLog
+      PartitionKeys: obj.PartitionKeys.map(item =>
+        ResponsePartitionKey.filterSensitiveLog(item)
       )
     })
   });
@@ -527,7 +529,9 @@ export namespace GetResourceMetricsRequest {
   export const filterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
     ...obj,
     ...(obj.MetricQueries && {
-      MetricQueries: obj.MetricQueries.map(MetricQuery.filterSensitiveLog)
+      MetricQueries: obj.MetricQueries.map(item =>
+        MetricQuery.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetResourceMetricsRequest =>
@@ -577,7 +581,9 @@ export namespace GetResourceMetricsResponse {
   export const filterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
     ...obj,
     ...(obj.MetricList && {
-      MetricList: obj.MetricList.map(MetricKeyDataPoints.filterSensitiveLog)
+      MetricList: obj.MetricList.map(item =>
+        MetricKeyDataPoints.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetResourceMetricsResponse =>
@@ -605,7 +611,7 @@ export namespace MetricKeyDataPoints {
   export const filterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
     ...obj,
     ...(obj.DataPoints && {
-      DataPoints: obj.DataPoints.map(DataPoint.filterSensitiveLog)
+      DataPoints: obj.DataPoints.map(item => DataPoint.filterSensitiveLog(item))
     }),
     ...(obj.Key && {
       Key: ResponseResourceMetricKey.filterSensitiveLog(obj.Key)

@@ -726,8 +726,8 @@ export namespace XmlListsInputOutput {
   export const filterSensitiveLog = (obj: XmlListsInputOutput): any => ({
     ...obj,
     ...(obj.structureList && {
-      structureList: obj.structureList.map(
-        StructureListMember.filterSensitiveLog
+      structureList: obj.structureList.map(item =>
+        StructureListMember.filterSensitiveLog(item)
       )
     })
   });

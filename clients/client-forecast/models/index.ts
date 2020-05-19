@@ -1759,7 +1759,9 @@ export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
     ...obj,
     ...(obj.TestWindows && {
-      TestWindows: obj.TestWindows.map(WindowSummary.filterSensitiveLog)
+      TestWindows: obj.TestWindows.map(item =>
+        WindowSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is EvaluationResult =>
@@ -1820,8 +1822,8 @@ export namespace Featurization {
   export const filterSensitiveLog = (obj: Featurization): any => ({
     ...obj,
     ...(obj.FeaturizationPipeline && {
-      FeaturizationPipeline: obj.FeaturizationPipeline.map(
-        FeaturizationMethod.filterSensitiveLog
+      FeaturizationPipeline: obj.FeaturizationPipeline.map(item =>
+        FeaturizationMethod.filterSensitiveLog(item)
       )
     })
   });
@@ -1879,7 +1881,9 @@ export namespace FeaturizationConfig {
   export const filterSensitiveLog = (obj: FeaturizationConfig): any => ({
     ...obj,
     ...(obj.Featurizations && {
-      Featurizations: obj.Featurizations.map(Featurization.filterSensitiveLog)
+      Featurizations: obj.Featurizations.map(item =>
+        Featurization.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is FeaturizationConfig =>
@@ -2179,8 +2183,8 @@ export namespace GetAccuracyMetricsResponse {
   export const filterSensitiveLog = (obj: GetAccuracyMetricsResponse): any => ({
     ...obj,
     ...(obj.PredictorEvaluationResults && {
-      PredictorEvaluationResults: obj.PredictorEvaluationResults.map(
-        EvaluationResult.filterSensitiveLog
+      PredictorEvaluationResults: obj.PredictorEvaluationResults.map(item =>
+        EvaluationResult.filterSensitiveLog(item)
       )
     })
   });
@@ -2243,8 +2247,8 @@ export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj,
     ...(obj.SupplementaryFeatures && {
-      SupplementaryFeatures: obj.SupplementaryFeatures.map(
-        SupplementaryFeature.filterSensitiveLog
+      SupplementaryFeatures: obj.SupplementaryFeatures.map(item =>
+        SupplementaryFeature.filterSensitiveLog(item)
       )
     })
   });
@@ -2413,8 +2417,8 @@ export namespace ListDatasetGroupsResponse {
   export const filterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
     ...obj,
     ...(obj.DatasetGroups && {
-      DatasetGroups: obj.DatasetGroups.map(
-        DatasetGroupSummary.filterSensitiveLog
+      DatasetGroups: obj.DatasetGroups.map(item =>
+        DatasetGroupSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2476,7 +2480,9 @@ export namespace ListDatasetImportJobsRequest {
     obj: ListDatasetImportJobsRequest
   ): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListDatasetImportJobsRequest =>
     __isa(o, "ListDatasetImportJobsRequest");
@@ -2502,8 +2508,8 @@ export namespace ListDatasetImportJobsResponse {
   ): any => ({
     ...obj,
     ...(obj.DatasetImportJobs && {
-      DatasetImportJobs: obj.DatasetImportJobs.map(
-        DatasetImportJobSummary.filterSensitiveLog
+      DatasetImportJobs: obj.DatasetImportJobs.map(item =>
+        DatasetImportJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2552,7 +2558,9 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
     ...(obj.Datasets && {
-      Datasets: obj.Datasets.map(DatasetSummary.filterSensitiveLog)
+      Datasets: obj.Datasets.map(item =>
+        DatasetSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListDatasetsResponse =>
@@ -2614,7 +2622,9 @@ export namespace ListForecastExportJobsRequest {
     obj: ListForecastExportJobsRequest
   ): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListForecastExportJobsRequest =>
     __isa(o, "ListForecastExportJobsRequest");
@@ -2640,8 +2650,8 @@ export namespace ListForecastExportJobsResponse {
   ): any => ({
     ...obj,
     ...(obj.ForecastExportJobs && {
-      ForecastExportJobs: obj.ForecastExportJobs.map(
-        ForecastExportJobSummary.filterSensitiveLog
+      ForecastExportJobs: obj.ForecastExportJobs.map(item =>
+        ForecastExportJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -2700,7 +2710,9 @@ export interface ListForecastsRequest {
 export namespace ListForecastsRequest {
   export const filterSensitiveLog = (obj: ListForecastsRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListForecastsRequest =>
     __isa(o, "ListForecastsRequest");
@@ -2724,7 +2736,9 @@ export namespace ListForecastsResponse {
   export const filterSensitiveLog = (obj: ListForecastsResponse): any => ({
     ...obj,
     ...(obj.Forecasts && {
-      Forecasts: obj.Forecasts.map(ForecastSummary.filterSensitiveLog)
+      Forecasts: obj.Forecasts.map(item =>
+        ForecastSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListForecastsResponse =>
@@ -2782,7 +2796,9 @@ export interface ListPredictorsRequest {
 export namespace ListPredictorsRequest {
   export const filterSensitiveLog = (obj: ListPredictorsRequest): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListPredictorsRequest =>
     __isa(o, "ListPredictorsRequest");
@@ -2806,7 +2822,9 @@ export namespace ListPredictorsResponse {
   export const filterSensitiveLog = (obj: ListPredictorsResponse): any => ({
     ...obj,
     ...(obj.Predictors && {
-      Predictors: obj.Predictors.map(PredictorSummary.filterSensitiveLog)
+      Predictors: obj.Predictors.map(item =>
+        PredictorSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListPredictorsResponse =>
@@ -2835,8 +2853,8 @@ export namespace Metrics {
   export const filterSensitiveLog = (obj: Metrics): any => ({
     ...obj,
     ...(obj.WeightedQuantileLosses && {
-      WeightedQuantileLosses: obj.WeightedQuantileLosses.map(
-        WeightedQuantileLoss.filterSensitiveLog
+      WeightedQuantileLosses: obj.WeightedQuantileLosses.map(item =>
+        WeightedQuantileLoss.filterSensitiveLog(item)
       )
     })
   });
@@ -2871,18 +2889,18 @@ export namespace ParameterRanges {
   export const filterSensitiveLog = (obj: ParameterRanges): any => ({
     ...obj,
     ...(obj.CategoricalParameterRanges && {
-      CategoricalParameterRanges: obj.CategoricalParameterRanges.map(
-        CategoricalParameterRange.filterSensitiveLog
+      CategoricalParameterRanges: obj.CategoricalParameterRanges.map(item =>
+        CategoricalParameterRange.filterSensitiveLog(item)
       )
     }),
     ...(obj.ContinuousParameterRanges && {
-      ContinuousParameterRanges: obj.ContinuousParameterRanges.map(
-        ContinuousParameterRange.filterSensitiveLog
+      ContinuousParameterRanges: obj.ContinuousParameterRanges.map(item =>
+        ContinuousParameterRange.filterSensitiveLog(item)
       )
     }),
     ...(obj.IntegerParameterRanges && {
-      IntegerParameterRanges: obj.IntegerParameterRanges.map(
-        IntegerParameterRange.filterSensitiveLog
+      IntegerParameterRanges: obj.IntegerParameterRanges.map(item =>
+        IntegerParameterRange.filterSensitiveLog(item)
       )
     })
   });
@@ -2912,7 +2930,9 @@ export namespace PredictorExecution {
   export const filterSensitiveLog = (obj: PredictorExecution): any => ({
     ...obj,
     ...(obj.TestWindows && {
-      TestWindows: obj.TestWindows.map(TestWindowSummary.filterSensitiveLog)
+      TestWindows: obj.TestWindows.map(item =>
+        TestWindowSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is PredictorExecution =>
@@ -2938,8 +2958,8 @@ export namespace PredictorExecutionDetails {
   export const filterSensitiveLog = (obj: PredictorExecutionDetails): any => ({
     ...obj,
     ...(obj.PredictorExecutions && {
-      PredictorExecutions: obj.PredictorExecutions.map(
-        PredictorExecution.filterSensitiveLog
+      PredictorExecutions: obj.PredictorExecutions.map(item =>
+        PredictorExecution.filterSensitiveLog(item)
       )
     })
   });
@@ -3149,7 +3169,9 @@ export namespace Schema {
   export const filterSensitiveLog = (obj: Schema): any => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(SchemaAttribute.filterSensitiveLog)
+      Attributes: obj.Attributes.map(item =>
+        SchemaAttribute.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is Schema => __isa(o, "Schema");

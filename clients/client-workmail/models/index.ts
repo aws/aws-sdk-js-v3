@@ -1295,7 +1295,9 @@ export interface ListGroupMembersResponse {
 export namespace ListGroupMembersResponse {
   export const filterSensitiveLog = (obj: ListGroupMembersResponse): any => ({
     ...obj,
-    ...(obj.Members && { Members: obj.Members.map(Member.filterSensitiveLog) })
+    ...(obj.Members && {
+      Members: obj.Members.map(item => Member.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListGroupMembersResponse =>
     __isa(o, "ListGroupMembersResponse");
@@ -1345,7 +1347,9 @@ export interface ListGroupsResponse {
 export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
-    ...(obj.Groups && { Groups: obj.Groups.map(Group.filterSensitiveLog) })
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListGroupsResponse =>
     __isa(o, "ListGroupsResponse");
@@ -1405,7 +1409,9 @@ export namespace ListMailboxPermissionsResponse {
   ): any => ({
     ...obj,
     ...(obj.Permissions && {
-      Permissions: obj.Permissions.map(Permission.filterSensitiveLog)
+      Permissions: obj.Permissions.map(item =>
+        Permission.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListMailboxPermissionsResponse =>
@@ -1452,8 +1458,8 @@ export namespace ListOrganizationsResponse {
   export const filterSensitiveLog = (obj: ListOrganizationsResponse): any => ({
     ...obj,
     ...(obj.OrganizationSummaries && {
-      OrganizationSummaries: obj.OrganizationSummaries.map(
-        OrganizationSummary.filterSensitiveLog
+      OrganizationSummaries: obj.OrganizationSummaries.map(item =>
+        OrganizationSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -1516,7 +1522,7 @@ export namespace ListResourceDelegatesResponse {
   ): any => ({
     ...obj,
     ...(obj.Delegates && {
-      Delegates: obj.Delegates.map(Delegate.filterSensitiveLog)
+      Delegates: obj.Delegates.map(item => Delegate.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListResourceDelegatesResponse =>
@@ -1569,7 +1575,7 @@ export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
     ...obj,
     ...(obj.Resources && {
-      Resources: obj.Resources.map(Resource.filterSensitiveLog)
+      Resources: obj.Resources.map(item => Resource.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListResourcesResponse =>
@@ -1618,7 +1624,9 @@ export interface ListUsersResponse {
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
-    ...(obj.Users && { Users: obj.Users.map(User.filterSensitiveLog) })
+    ...(obj.Users && {
+      Users: obj.Users.map(item => User.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");

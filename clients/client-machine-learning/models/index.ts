@@ -26,7 +26,9 @@ export interface AddTagsInput {
 export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
@@ -1356,7 +1358,7 @@ export namespace DescribeBatchPredictionsOutput {
   ): any => ({
     ...obj,
     ...(obj.Results && {
-      Results: obj.Results.map(BatchPrediction.filterSensitiveLog)
+      Results: obj.Results.map(item => BatchPrediction.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeBatchPredictionsOutput =>
@@ -1505,7 +1507,7 @@ export namespace DescribeDataSourcesOutput {
   export const filterSensitiveLog = (obj: DescribeDataSourcesOutput): any => ({
     ...obj,
     ...(obj.Results && {
-      Results: obj.Results.map(DataSource.filterSensitiveLog)
+      Results: obj.Results.map(item => DataSource.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeDataSourcesOutput =>
@@ -1663,7 +1665,7 @@ export namespace DescribeEvaluationsOutput {
   export const filterSensitiveLog = (obj: DescribeEvaluationsOutput): any => ({
     ...obj,
     ...(obj.Results && {
-      Results: obj.Results.map(Evaluation.filterSensitiveLog)
+      Results: obj.Results.map(item => Evaluation.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeEvaluationsOutput =>
@@ -1827,7 +1829,9 @@ export interface DescribeMLModelsOutput {
 export namespace DescribeMLModelsOutput {
   export const filterSensitiveLog = (obj: DescribeMLModelsOutput): any => ({
     ...obj,
-    ...(obj.Results && { Results: obj.Results.map(MLModel.filterSensitiveLog) })
+    ...(obj.Results && {
+      Results: obj.Results.map(item => MLModel.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeMLModelsOutput =>
     __isa(o, "DescribeMLModelsOutput");
@@ -1878,7 +1882,9 @@ export interface DescribeTagsOutput {
 export namespace DescribeTagsOutput {
   export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeTagsOutput =>
     __isa(o, "DescribeTagsOutput");

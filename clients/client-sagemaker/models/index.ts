@@ -24,7 +24,9 @@ export interface AddTagsInput {
 export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
@@ -40,7 +42,9 @@ export interface AddTagsOutput {
 export namespace AddTagsOutput {
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
@@ -137,8 +141,8 @@ export namespace AlgorithmSpecification {
   export const filterSensitiveLog = (obj: AlgorithmSpecification): any => ({
     ...obj,
     ...(obj.MetricDefinitions && {
-      MetricDefinitions: obj.MetricDefinitions.map(
-        MetricDefinition.filterSensitiveLog
+      MetricDefinitions: obj.MetricDefinitions.map(item =>
+        MetricDefinition.filterSensitiveLog(item)
       )
     })
   });
@@ -174,13 +178,13 @@ export namespace AlgorithmStatusDetails {
   export const filterSensitiveLog = (obj: AlgorithmStatusDetails): any => ({
     ...obj,
     ...(obj.ImageScanStatuses && {
-      ImageScanStatuses: obj.ImageScanStatuses.map(
-        AlgorithmStatusItem.filterSensitiveLog
+      ImageScanStatuses: obj.ImageScanStatuses.map(item =>
+        AlgorithmStatusItem.filterSensitiveLog(item)
       )
     }),
     ...(obj.ValidationStatuses && {
-      ValidationStatuses: obj.ValidationStatuses.map(
-        AlgorithmStatusItem.filterSensitiveLog
+      ValidationStatuses: obj.ValidationStatuses.map(item =>
+        AlgorithmStatusItem.filterSensitiveLog(item)
       )
     })
   });
@@ -325,8 +329,8 @@ export namespace AlgorithmValidationSpecification {
   ): any => ({
     ...obj,
     ...(obj.ValidationProfiles && {
-      ValidationProfiles: obj.ValidationProfiles.map(
-        AlgorithmValidationProfile.filterSensitiveLog
+      ValidationProfiles: obj.ValidationProfiles.map(item =>
+        AlgorithmValidationProfile.filterSensitiveLog(item)
       )
     })
   });
@@ -982,8 +986,8 @@ export namespace AutoMLCandidate {
   export const filterSensitiveLog = (obj: AutoMLCandidate): any => ({
     ...obj,
     ...(obj.CandidateSteps && {
-      CandidateSteps: obj.CandidateSteps.map(
-        AutoMLCandidateStep.filterSensitiveLog
+      CandidateSteps: obj.CandidateSteps.map(item =>
+        AutoMLCandidateStep.filterSensitiveLog(item)
       )
     }),
     ...(obj.FinalAutoMLJobObjectiveMetric && {
@@ -992,8 +996,8 @@ export namespace AutoMLCandidate {
       )
     }),
     ...(obj.InferenceContainers && {
-      InferenceContainers: obj.InferenceContainers.map(
-        AutoMLContainerDefinition.filterSensitiveLog
+      InferenceContainers: obj.InferenceContainers.map(item =>
+        AutoMLContainerDefinition.filterSensitiveLog(item)
       )
     })
   });
@@ -2240,7 +2244,9 @@ export namespace CreateAppRequest {
     ...(obj.ResourceSpec && {
       ResourceSpec: ResourceSpec.filterSensitiveLog(obj.ResourceSpec)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateAppRequest =>
     __isa(o, "CreateAppRequest");
@@ -2329,14 +2335,18 @@ export namespace CreateAutoMLJobRequest {
       )
     }),
     ...(obj.InputDataConfig && {
-      InputDataConfig: obj.InputDataConfig.map(AutoMLChannel.filterSensitiveLog)
+      InputDataConfig: obj.InputDataConfig.map(item =>
+        AutoMLChannel.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputDataConfig && {
       OutputDataConfig: AutoMLOutputDataConfig.filterSensitiveLog(
         obj.OutputDataConfig
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateAutoMLJobRequest =>
     __isa(o, "CreateAutoMLJobRequest");
@@ -2548,7 +2558,9 @@ export namespace CreateDomainRequest {
         obj.DefaultUserSettings
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateDomainRequest =>
     __isa(o, "CreateDomainRequest");
@@ -2655,11 +2667,13 @@ export namespace CreateEndpointConfigInput {
       )
     }),
     ...(obj.ProductionVariants && {
-      ProductionVariants: obj.ProductionVariants.map(
-        ProductionVariant.filterSensitiveLog
+      ProductionVariants: obj.ProductionVariants.map(item =>
+        ProductionVariant.filterSensitiveLog(item)
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateEndpointConfigInput =>
     __isa(o, "CreateEndpointConfigInput");
@@ -2708,7 +2722,9 @@ export interface CreateEndpointInput {
 export namespace CreateEndpointInput {
   export const filterSensitiveLog = (obj: CreateEndpointInput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateEndpointInput =>
     __isa(o, "CreateEndpointInput");
@@ -2760,7 +2776,9 @@ export interface CreateExperimentRequest {
 export namespace CreateExperimentRequest {
   export const filterSensitiveLog = (obj: CreateExperimentRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateExperimentRequest =>
     __isa(o, "CreateExperimentRequest");
@@ -2833,7 +2851,9 @@ export namespace CreateFlowDefinitionRequest {
         obj.OutputConfig
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateFlowDefinitionRequest =>
     __isa(o, "CreateFlowDefinitionRequest");
@@ -2878,7 +2898,9 @@ export interface CreateHumanTaskUiRequest {
 export namespace CreateHumanTaskUiRequest {
   export const filterSensitiveLog = (obj: CreateHumanTaskUiRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.UiTemplate && {
       UiTemplate: UiTemplate.filterSensitiveLog(obj.UiTemplate)
     })
@@ -2976,15 +2998,17 @@ export namespace CreateHyperParameterTuningJobRequest {
         obj.HyperParameterTuningJobConfig
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.TrainingJobDefinition && {
       TrainingJobDefinition: HyperParameterTrainingJobDefinition.filterSensitiveLog(
         obj.TrainingJobDefinition
       )
     }),
     ...(obj.TrainingJobDefinitions && {
-      TrainingJobDefinitions: obj.TrainingJobDefinitions.map(
-        HyperParameterTrainingJobDefinition.filterSensitiveLog
+      TrainingJobDefinitions: obj.TrainingJobDefinitions.map(item =>
+        HyperParameterTrainingJobDefinition.filterSensitiveLog(item)
       )
     }),
     ...(obj.WarmStartConfig && {
@@ -3150,7 +3174,9 @@ export namespace CreateLabelingJobRequest {
         obj.StoppingConditions
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateLabelingJobRequest =>
     __isa(o, "CreateLabelingJobRequest");
@@ -3233,14 +3259,18 @@ export namespace CreateModelInput {
   export const filterSensitiveLog = (obj: CreateModelInput): any => ({
     ...obj,
     ...(obj.Containers && {
-      Containers: obj.Containers.map(ContainerDefinition.filterSensitiveLog)
+      Containers: obj.Containers.map(item =>
+        ContainerDefinition.filterSensitiveLog(item)
+      )
     }),
     ...(obj.PrimaryContainer && {
       PrimaryContainer: ContainerDefinition.filterSensitiveLog(
         obj.PrimaryContainer
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.VpcConfig && {
       VpcConfig: VpcConfig.filterSensitiveLog(obj.VpcConfig)
     })
@@ -3385,7 +3415,9 @@ export namespace CreateMonitoringScheduleRequest {
         obj.MonitoringScheduleConfig
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateMonitoringScheduleRequest =>
     __isa(o, "CreateMonitoringScheduleRequest");
@@ -3529,7 +3561,9 @@ export namespace CreateNotebookInstanceInput {
     obj: CreateNotebookInstanceInput
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateNotebookInstanceInput =>
     __isa(o, "CreateNotebookInstanceInput");
@@ -3561,12 +3595,14 @@ export namespace CreateNotebookInstanceLifecycleConfigInput {
   ): any => ({
     ...obj,
     ...(obj.OnCreate && {
-      OnCreate: obj.OnCreate.map(
-        NotebookInstanceLifecycleHook.filterSensitiveLog
+      OnCreate: obj.OnCreate.map(item =>
+        NotebookInstanceLifecycleHook.filterSensitiveLog(item)
       )
     }),
     ...(obj.OnStart && {
-      OnStart: obj.OnStart.map(NotebookInstanceLifecycleHook.filterSensitiveLog)
+      OnStart: obj.OnStart.map(item =>
+        NotebookInstanceLifecycleHook.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (
@@ -3780,8 +3816,8 @@ export namespace CreateProcessingJobRequest {
       NetworkConfig: NetworkConfig.filterSensitiveLog(obj.NetworkConfig)
     }),
     ...(obj.ProcessingInputs && {
-      ProcessingInputs: obj.ProcessingInputs.map(
-        ProcessingInput.filterSensitiveLog
+      ProcessingInputs: obj.ProcessingInputs.map(item =>
+        ProcessingInput.filterSensitiveLog(item)
       )
     }),
     ...(obj.ProcessingOutputConfig && {
@@ -3799,7 +3835,9 @@ export namespace CreateProcessingJobRequest {
         obj.StoppingCondition
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateProcessingJobRequest =>
     __isa(o, "CreateProcessingJobRequest");
@@ -4003,8 +4041,8 @@ export namespace CreateTrainingJobRequest {
       DebugHookConfig: DebugHookConfig.filterSensitiveLog(obj.DebugHookConfig)
     }),
     ...(obj.DebugRuleConfigurations && {
-      DebugRuleConfigurations: obj.DebugRuleConfigurations.map(
-        DebugRuleConfiguration.filterSensitiveLog
+      DebugRuleConfigurations: obj.DebugRuleConfigurations.map(item =>
+        DebugRuleConfiguration.filterSensitiveLog(item)
       )
     }),
     ...(obj.ExperimentConfig && {
@@ -4013,7 +4051,9 @@ export namespace CreateTrainingJobRequest {
       )
     }),
     ...(obj.InputDataConfig && {
-      InputDataConfig: obj.InputDataConfig.map(Channel.filterSensitiveLog)
+      InputDataConfig: obj.InputDataConfig.map(item =>
+        Channel.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputDataConfig && {
       OutputDataConfig: OutputDataConfig.filterSensitiveLog(
@@ -4028,7 +4068,9 @@ export namespace CreateTrainingJobRequest {
         obj.StoppingCondition
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.TensorBoardOutputConfig && {
       TensorBoardOutputConfig: TensorBoardOutputConfig.filterSensitiveLog(
         obj.TensorBoardOutputConfig
@@ -4179,7 +4221,9 @@ export namespace CreateTransformJobRequest {
         obj.ExperimentConfig
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.TransformInput && {
       TransformInput: TransformInput.filterSensitiveLog(obj.TransformInput)
     }),
@@ -4312,7 +4356,9 @@ export namespace CreateTrialComponentRequest {
     ...(obj.Status && {
       Status: TrialComponentStatus.filterSensitiveLog(obj.Status)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateTrialComponentRequest =>
     __isa(o, "CreateTrialComponentRequest");
@@ -4366,7 +4412,9 @@ export interface CreateTrialRequest {
 export namespace CreateTrialRequest {
   export const filterSensitiveLog = (obj: CreateTrialRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateTrialRequest =>
     __isa(o, "CreateTrialRequest");
@@ -4429,7 +4477,9 @@ export interface CreateUserProfileRequest {
 export namespace CreateUserProfileRequest {
   export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.UserSettings && {
       UserSettings: UserSettings.filterSensitiveLog(obj.UserSettings)
     })
@@ -4495,8 +4545,8 @@ export namespace CreateWorkteamRequest {
   export const filterSensitiveLog = (obj: CreateWorkteamRequest): any => ({
     ...obj,
     ...(obj.MemberDefinitions && {
-      MemberDefinitions: obj.MemberDefinitions.map(
-        MemberDefinition.filterSensitiveLog
+      MemberDefinitions: obj.MemberDefinitions.map(item =>
+        MemberDefinition.filterSensitiveLog(item)
       )
     }),
     ...(obj.NotificationConfiguration && {
@@ -4504,7 +4554,9 @@ export namespace CreateWorkteamRequest {
         obj.NotificationConfiguration
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateWorkteamRequest =>
     __isa(o, "CreateWorkteamRequest");
@@ -4572,7 +4624,9 @@ export namespace DataCaptureConfig {
       )
     }),
     ...(obj.CaptureOptions && {
-      CaptureOptions: obj.CaptureOptions.map(CaptureOption.filterSensitiveLog)
+      CaptureOptions: obj.CaptureOptions.map(item =>
+        CaptureOption.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DataCaptureConfig =>
@@ -4742,8 +4796,8 @@ export namespace DebugHookConfig {
   export const filterSensitiveLog = (obj: DebugHookConfig): any => ({
     ...obj,
     ...(obj.CollectionConfigurations && {
-      CollectionConfigurations: obj.CollectionConfigurations.map(
-        CollectionConfiguration.filterSensitiveLog
+      CollectionConfigurations: obj.CollectionConfigurations.map(item =>
+        CollectionConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -5642,7 +5696,9 @@ export namespace DescribeAutoMLJobResponse {
       BestCandidate: AutoMLCandidate.filterSensitiveLog(obj.BestCandidate)
     }),
     ...(obj.InputDataConfig && {
-      InputDataConfig: obj.InputDataConfig.map(AutoMLChannel.filterSensitiveLog)
+      InputDataConfig: obj.InputDataConfig.map(item =>
+        AutoMLChannel.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputDataConfig && {
       OutputDataConfig: AutoMLOutputDataConfig.filterSensitiveLog(
@@ -6018,8 +6074,8 @@ export namespace DescribeEndpointConfigOutput {
       )
     }),
     ...(obj.ProductionVariants && {
-      ProductionVariants: obj.ProductionVariants.map(
-        ProductionVariant.filterSensitiveLog
+      ProductionVariants: obj.ProductionVariants.map(item =>
+        ProductionVariant.filterSensitiveLog(item)
       )
     })
   });
@@ -6150,8 +6206,8 @@ export namespace DescribeEndpointOutput {
       )
     }),
     ...(obj.ProductionVariants && {
-      ProductionVariants: obj.ProductionVariants.map(
-        ProductionVariantSummary.filterSensitiveLog
+      ProductionVariants: obj.ProductionVariants.map(item =>
+        ProductionVariantSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -6527,8 +6583,8 @@ export namespace DescribeHyperParameterTuningJobResponse {
       )
     }),
     ...(obj.TrainingJobDefinitions && {
-      TrainingJobDefinitions: obj.TrainingJobDefinitions.map(
-        HyperParameterTrainingJobDefinition.filterSensitiveLog
+      TrainingJobDefinitions: obj.TrainingJobDefinitions.map(item =>
+        HyperParameterTrainingJobDefinition.filterSensitiveLog(item)
       )
     }),
     ...(obj.TrainingJobStatusCounters && {
@@ -6752,7 +6808,9 @@ export namespace DescribeLabelingJobResponse {
         obj.StoppingConditions
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeLabelingJobResponse =>
     __isa(o, "DescribeLabelingJobResponse");
@@ -6828,7 +6886,9 @@ export namespace DescribeModelOutput {
   export const filterSensitiveLog = (obj: DescribeModelOutput): any => ({
     ...obj,
     ...(obj.Containers && {
-      Containers: obj.Containers.map(ContainerDefinition.filterSensitiveLog)
+      Containers: obj.Containers.map(item =>
+        ContainerDefinition.filterSensitiveLog(item)
+      )
     }),
     ...(obj.PrimaryContainer && {
       PrimaryContainer: ContainerDefinition.filterSensitiveLog(
@@ -7108,12 +7168,14 @@ export namespace DescribeNotebookInstanceLifecycleConfigOutput {
   ): any => ({
     ...obj,
     ...(obj.OnCreate && {
-      OnCreate: obj.OnCreate.map(
-        NotebookInstanceLifecycleHook.filterSensitiveLog
+      OnCreate: obj.OnCreate.map(item =>
+        NotebookInstanceLifecycleHook.filterSensitiveLog(item)
       )
     }),
     ...(obj.OnStart && {
-      OnStart: obj.OnStart.map(NotebookInstanceLifecycleHook.filterSensitiveLog)
+      OnStart: obj.OnStart.map(item =>
+        NotebookInstanceLifecycleHook.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (
@@ -7418,8 +7480,8 @@ export namespace DescribeProcessingJobResponse {
       NetworkConfig: NetworkConfig.filterSensitiveLog(obj.NetworkConfig)
     }),
     ...(obj.ProcessingInputs && {
-      ProcessingInputs: obj.ProcessingInputs.map(
-        ProcessingInput.filterSensitiveLog
+      ProcessingInputs: obj.ProcessingInputs.map(item =>
+        ProcessingInput.filterSensitiveLog(item)
       )
     }),
     ...(obj.ProcessingOutputConfig && {
@@ -7865,13 +7927,13 @@ export namespace DescribeTrainingJobResponse {
       DebugHookConfig: DebugHookConfig.filterSensitiveLog(obj.DebugHookConfig)
     }),
     ...(obj.DebugRuleConfigurations && {
-      DebugRuleConfigurations: obj.DebugRuleConfigurations.map(
-        DebugRuleConfiguration.filterSensitiveLog
+      DebugRuleConfigurations: obj.DebugRuleConfigurations.map(item =>
+        DebugRuleConfiguration.filterSensitiveLog(item)
       )
     }),
     ...(obj.DebugRuleEvaluationStatuses && {
-      DebugRuleEvaluationStatuses: obj.DebugRuleEvaluationStatuses.map(
-        DebugRuleEvaluationStatus.filterSensitiveLog
+      DebugRuleEvaluationStatuses: obj.DebugRuleEvaluationStatuses.map(item =>
+        DebugRuleEvaluationStatus.filterSensitiveLog(item)
       )
     }),
     ...(obj.ExperimentConfig && {
@@ -7880,12 +7942,14 @@ export namespace DescribeTrainingJobResponse {
       )
     }),
     ...(obj.FinalMetricDataList && {
-      FinalMetricDataList: obj.FinalMetricDataList.map(
-        MetricData.filterSensitiveLog
+      FinalMetricDataList: obj.FinalMetricDataList.map(item =>
+        MetricData.filterSensitiveLog(item)
       )
     }),
     ...(obj.InputDataConfig && {
-      InputDataConfig: obj.InputDataConfig.map(Channel.filterSensitiveLog)
+      InputDataConfig: obj.InputDataConfig.map(item =>
+        Channel.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ModelArtifacts && {
       ModelArtifacts: ModelArtifacts.filterSensitiveLog(obj.ModelArtifacts)
@@ -7899,8 +7963,8 @@ export namespace DescribeTrainingJobResponse {
       ResourceConfig: ResourceConfig.filterSensitiveLog(obj.ResourceConfig)
     }),
     ...(obj.SecondaryStatusTransitions && {
-      SecondaryStatusTransitions: obj.SecondaryStatusTransitions.map(
-        SecondaryStatusTransition.filterSensitiveLog
+      SecondaryStatusTransitions: obj.SecondaryStatusTransitions.map(item =>
+        SecondaryStatusTransition.filterSensitiveLog(item)
       )
     }),
     ...(obj.StoppingCondition && {
@@ -8240,7 +8304,9 @@ export namespace DescribeTrialComponentResponse {
       LastModifiedBy: UserContext.filterSensitiveLog(obj.LastModifiedBy)
     }),
     ...(obj.Metrics && {
-      Metrics: obj.Metrics.map(TrialComponentMetricSummary.filterSensitiveLog)
+      Metrics: obj.Metrics.map(item =>
+        TrialComponentMetricSummary.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputArtifacts && {
       OutputArtifacts: Object.entries(obj.OutputArtifacts).reduce(
@@ -8930,7 +8996,9 @@ export namespace Experiment {
     ...(obj.Source && {
       Source: ExperimentSource.filterSensitiveLog(obj.Source)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Experiment => __isa(o, "Experiment");
 }
@@ -9422,8 +9490,8 @@ export namespace GetSearchSuggestionsResponse {
   ): any => ({
     ...obj,
     ...(obj.PropertyNameSuggestions && {
-      PropertyNameSuggestions: obj.PropertyNameSuggestions.map(
-        PropertyNameSuggestion.filterSensitiveLog
+      PropertyNameSuggestions: obj.PropertyNameSuggestions.map(item =>
+        PropertyNameSuggestion.filterSensitiveLog(item)
       )
     })
   });
@@ -10719,8 +10787,8 @@ export namespace HyperParameterAlgorithmSpecification {
   ): any => ({
     ...obj,
     ...(obj.MetricDefinitions && {
-      MetricDefinitions: obj.MetricDefinitions.map(
-        MetricDefinition.filterSensitiveLog
+      MetricDefinitions: obj.MetricDefinitions.map(item =>
+        MetricDefinition.filterSensitiveLog(item)
       )
     })
   });
@@ -10951,7 +11019,9 @@ export namespace HyperParameterTrainingJobDefinition {
       )
     }),
     ...(obj.InputDataConfig && {
-      InputDataConfig: obj.InputDataConfig.map(Channel.filterSensitiveLog)
+      InputDataConfig: obj.InputDataConfig.map(item =>
+        Channel.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputDataConfig && {
       OutputDataConfig: OutputDataConfig.filterSensitiveLog(
@@ -11412,7 +11482,7 @@ export namespace HyperParameterTuningJobWarmStartConfig {
     ...obj,
     ...(obj.ParentHyperParameterTuningJobs && {
       ParentHyperParameterTuningJobs: obj.ParentHyperParameterTuningJobs.map(
-        ParentHyperParameterTuningJob.filterSensitiveLog
+        item => ParentHyperParameterTuningJob.filterSensitiveLog(item)
       )
     })
   });
@@ -11465,8 +11535,8 @@ export namespace InferenceSpecification {
   export const filterSensitiveLog = (obj: InferenceSpecification): any => ({
     ...obj,
     ...(obj.Containers && {
-      Containers: obj.Containers.map(
-        ModelPackageContainerDefinition.filterSensitiveLog
+      Containers: obj.Containers.map(item =>
+        ModelPackageContainerDefinition.filterSensitiveLog(item)
       )
     })
   });
@@ -12450,8 +12520,8 @@ export namespace ListAlgorithmsOutput {
   export const filterSensitiveLog = (obj: ListAlgorithmsOutput): any => ({
     ...obj,
     ...(obj.AlgorithmSummaryList && {
-      AlgorithmSummaryList: obj.AlgorithmSummaryList.map(
-        AlgorithmSummary.filterSensitiveLog
+      AlgorithmSummaryList: obj.AlgorithmSummaryList.map(item =>
+        AlgorithmSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -12518,7 +12588,9 @@ export interface ListAppsResponse {
 export namespace ListAppsResponse {
   export const filterSensitiveLog = (obj: ListAppsResponse): any => ({
     ...obj,
-    ...(obj.Apps && { Apps: obj.Apps.map(AppDetails.filterSensitiveLog) })
+    ...(obj.Apps && {
+      Apps: obj.Apps.map(item => AppDetails.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListAppsResponse =>
     __isa(o, "ListAppsResponse");
@@ -12604,8 +12676,8 @@ export namespace ListAutoMLJobsResponse {
   export const filterSensitiveLog = (obj: ListAutoMLJobsResponse): any => ({
     ...obj,
     ...(obj.AutoMLJobSummaries && {
-      AutoMLJobSummaries: obj.AutoMLJobSummaries.map(
-        AutoMLJobSummary.filterSensitiveLog
+      AutoMLJobSummaries: obj.AutoMLJobSummaries.map(item =>
+        AutoMLJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -12682,7 +12754,9 @@ export namespace ListCandidatesForAutoMLJobResponse {
   ): any => ({
     ...obj,
     ...(obj.Candidates && {
-      Candidates: obj.Candidates.map(AutoMLCandidate.filterSensitiveLog)
+      Candidates: obj.Candidates.map(item =>
+        AutoMLCandidate.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListCandidatesForAutoMLJobResponse =>
@@ -12791,8 +12865,8 @@ export namespace ListCodeRepositoriesOutput {
   export const filterSensitiveLog = (obj: ListCodeRepositoriesOutput): any => ({
     ...obj,
     ...(obj.CodeRepositorySummaryList && {
-      CodeRepositorySummaryList: obj.CodeRepositorySummaryList.map(
-        CodeRepositorySummary.filterSensitiveLog
+      CodeRepositorySummaryList: obj.CodeRepositorySummaryList.map(item =>
+        CodeRepositorySummary.filterSensitiveLog(item)
       )
     })
   });
@@ -12889,8 +12963,8 @@ export namespace ListCompilationJobsResponse {
   ): any => ({
     ...obj,
     ...(obj.CompilationJobSummaries && {
-      CompilationJobSummaries: obj.CompilationJobSummaries.map(
-        CompilationJobSummary.filterSensitiveLog
+      CompilationJobSummaries: obj.CompilationJobSummaries.map(item =>
+        CompilationJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -12944,7 +13018,7 @@ export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
     ...obj,
     ...(obj.Domains && {
-      Domains: obj.Domains.map(DomainDetails.filterSensitiveLog)
+      Domains: obj.Domains.map(item => DomainDetails.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListDomainsResponse =>
@@ -13020,8 +13094,8 @@ export namespace ListEndpointConfigsOutput {
   export const filterSensitiveLog = (obj: ListEndpointConfigsOutput): any => ({
     ...obj,
     ...(obj.EndpointConfigs && {
-      EndpointConfigs: obj.EndpointConfigs.map(
-        EndpointConfigSummary.filterSensitiveLog
+      EndpointConfigs: obj.EndpointConfigs.map(item =>
+        EndpointConfigSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13115,7 +13189,9 @@ export namespace ListEndpointsOutput {
   export const filterSensitiveLog = (obj: ListEndpointsOutput): any => ({
     ...obj,
     ...(obj.Endpoints && {
-      Endpoints: obj.Endpoints.map(EndpointSummary.filterSensitiveLog)
+      Endpoints: obj.Endpoints.map(item =>
+        EndpointSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListEndpointsOutput =>
@@ -13181,8 +13257,8 @@ export namespace ListExperimentsResponse {
   export const filterSensitiveLog = (obj: ListExperimentsResponse): any => ({
     ...obj,
     ...(obj.ExperimentSummaries && {
-      ExperimentSummaries: obj.ExperimentSummaries.map(
-        ExperimentSummary.filterSensitiveLog
+      ExperimentSummaries: obj.ExperimentSummaries.map(item =>
+        ExperimentSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13245,8 +13321,8 @@ export namespace ListFlowDefinitionsResponse {
   ): any => ({
     ...obj,
     ...(obj.FlowDefinitionSummaries && {
-      FlowDefinitionSummaries: obj.FlowDefinitionSummaries.map(
-        FlowDefinitionSummary.filterSensitiveLog
+      FlowDefinitionSummaries: obj.FlowDefinitionSummaries.map(item =>
+        FlowDefinitionSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13307,8 +13383,8 @@ export namespace ListHumanTaskUisResponse {
   export const filterSensitiveLog = (obj: ListHumanTaskUisResponse): any => ({
     ...obj,
     ...(obj.HumanTaskUiSummaries && {
-      HumanTaskUiSummaries: obj.HumanTaskUiSummaries.map(
-        HumanTaskUiSummary.filterSensitiveLog
+      HumanTaskUiSummaries: obj.HumanTaskUiSummaries.map(item =>
+        HumanTaskUiSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13423,7 +13499,7 @@ export namespace ListHyperParameterTuningJobsResponse {
     ...obj,
     ...(obj.HyperParameterTuningJobSummaries && {
       HyperParameterTuningJobSummaries: obj.HyperParameterTuningJobSummaries.map(
-        HyperParameterTuningJobSummary.filterSensitiveLog
+        item => HyperParameterTuningJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13511,8 +13587,8 @@ export namespace ListLabelingJobsForWorkteamResponse {
   ): any => ({
     ...obj,
     ...(obj.LabelingJobSummaryList && {
-      LabelingJobSummaryList: obj.LabelingJobSummaryList.map(
-        LabelingJobForWorkteamSummary.filterSensitiveLog
+      LabelingJobSummaryList: obj.LabelingJobSummaryList.map(item =>
+        LabelingJobForWorkteamSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13611,8 +13687,8 @@ export namespace ListLabelingJobsResponse {
   export const filterSensitiveLog = (obj: ListLabelingJobsResponse): any => ({
     ...obj,
     ...(obj.LabelingJobSummaryList && {
-      LabelingJobSummaryList: obj.LabelingJobSummaryList.map(
-        LabelingJobSummary.filterSensitiveLog
+      LabelingJobSummaryList: obj.LabelingJobSummaryList.map(item =>
+        LabelingJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13691,8 +13767,8 @@ export namespace ListModelPackagesOutput {
   export const filterSensitiveLog = (obj: ListModelPackagesOutput): any => ({
     ...obj,
     ...(obj.ModelPackageSummaryList && {
-      ModelPackageSummaryList: obj.ModelPackageSummaryList.map(
-        ModelPackageSummary.filterSensitiveLog
+      ModelPackageSummaryList: obj.ModelPackageSummaryList.map(item =>
+        ModelPackageSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13770,7 +13846,7 @@ export namespace ListModelsOutput {
   export const filterSensitiveLog = (obj: ListModelsOutput): any => ({
     ...obj,
     ...(obj.Models && {
-      Models: obj.Models.map(ModelSummary.filterSensitiveLog)
+      Models: obj.Models.map(item => ModelSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListModelsOutput =>
@@ -13878,8 +13954,8 @@ export namespace ListMonitoringExecutionsResponse {
   ): any => ({
     ...obj,
     ...(obj.MonitoringExecutionSummaries && {
-      MonitoringExecutionSummaries: obj.MonitoringExecutionSummaries.map(
-        MonitoringExecutionSummary.filterSensitiveLog
+      MonitoringExecutionSummaries: obj.MonitoringExecutionSummaries.map(item =>
+        MonitoringExecutionSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -13978,8 +14054,8 @@ export namespace ListMonitoringSchedulesResponse {
   ): any => ({
     ...obj,
     ...(obj.MonitoringScheduleSummaries && {
-      MonitoringScheduleSummaries: obj.MonitoringScheduleSummaries.map(
-        MonitoringScheduleSummary.filterSensitiveLog
+      MonitoringScheduleSummaries: obj.MonitoringScheduleSummaries.map(item =>
+        MonitoringScheduleSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14074,7 +14150,7 @@ export namespace ListNotebookInstanceLifecycleConfigsOutput {
     ...obj,
     ...(obj.NotebookInstanceLifecycleConfigs && {
       NotebookInstanceLifecycleConfigs: obj.NotebookInstanceLifecycleConfigs.map(
-        NotebookInstanceLifecycleConfigSummary.filterSensitiveLog
+        item => NotebookInstanceLifecycleConfigSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14200,8 +14276,8 @@ export namespace ListNotebookInstancesOutput {
   ): any => ({
     ...obj,
     ...(obj.NotebookInstances && {
-      NotebookInstances: obj.NotebookInstances.map(
-        NotebookInstanceSummary.filterSensitiveLog
+      NotebookInstances: obj.NotebookInstances.map(item =>
+        NotebookInstanceSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14292,8 +14368,8 @@ export namespace ListProcessingJobsResponse {
   export const filterSensitiveLog = (obj: ListProcessingJobsResponse): any => ({
     ...obj,
     ...(obj.ProcessingJobSummaries && {
-      ProcessingJobSummaries: obj.ProcessingJobSummaries.map(
-        ProcessingJobSummary.filterSensitiveLog
+      ProcessingJobSummaries: obj.ProcessingJobSummaries.map(item =>
+        ProcessingJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14352,8 +14428,8 @@ export namespace ListSubscribedWorkteamsResponse {
   ): any => ({
     ...obj,
     ...(obj.SubscribedWorkteams && {
-      SubscribedWorkteams: obj.SubscribedWorkteams.map(
-        SubscribedWorkteam.filterSensitiveLog
+      SubscribedWorkteams: obj.SubscribedWorkteams.map(item =>
+        SubscribedWorkteam.filterSensitiveLog(item)
       )
     })
   });
@@ -14406,7 +14482,9 @@ export interface ListTagsOutput {
 export namespace ListTagsOutput {
   export const filterSensitiveLog = (obj: ListTagsOutput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsOutput =>
     __isa(o, "ListTagsOutput");
@@ -14491,8 +14569,8 @@ export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
   ): any => ({
     ...obj,
     ...(obj.TrainingJobSummaries && {
-      TrainingJobSummaries: obj.TrainingJobSummaries.map(
-        HyperParameterTrainingJobSummary.filterSensitiveLog
+      TrainingJobSummaries: obj.TrainingJobSummaries.map(item =>
+        HyperParameterTrainingJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14589,8 +14667,8 @@ export namespace ListTrainingJobsResponse {
   export const filterSensitiveLog = (obj: ListTrainingJobsResponse): any => ({
     ...obj,
     ...(obj.TrainingJobSummaries && {
-      TrainingJobSummaries: obj.TrainingJobSummaries.map(
-        TrainingJobSummary.filterSensitiveLog
+      TrainingJobSummaries: obj.TrainingJobSummaries.map(item =>
+        TrainingJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14685,8 +14763,8 @@ export namespace ListTransformJobsResponse {
   export const filterSensitiveLog = (obj: ListTransformJobsResponse): any => ({
     ...obj,
     ...(obj.TransformJobSummaries && {
-      TransformJobSummaries: obj.TransformJobSummaries.map(
-        TransformJobSummary.filterSensitiveLog
+      TransformJobSummaries: obj.TransformJobSummaries.map(item =>
+        TransformJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14776,8 +14854,8 @@ export namespace ListTrialComponentsResponse {
   ): any => ({
     ...obj,
     ...(obj.TrialComponentSummaries && {
-      TrialComponentSummaries: obj.TrialComponentSummaries.map(
-        TrialComponentSummary.filterSensitiveLog
+      TrialComponentSummaries: obj.TrialComponentSummaries.map(item =>
+        TrialComponentSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -14849,7 +14927,9 @@ export namespace ListTrialsResponse {
   export const filterSensitiveLog = (obj: ListTrialsResponse): any => ({
     ...obj,
     ...(obj.TrialSummaries && {
-      TrialSummaries: obj.TrialSummaries.map(TrialSummary.filterSensitiveLog)
+      TrialSummaries: obj.TrialSummaries.map(item =>
+        TrialSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListTrialsResponse =>
@@ -14916,7 +14996,9 @@ export namespace ListUserProfilesResponse {
   export const filterSensitiveLog = (obj: ListUserProfilesResponse): any => ({
     ...obj,
     ...(obj.UserProfiles && {
-      UserProfiles: obj.UserProfiles.map(UserProfileDetails.filterSensitiveLog)
+      UserProfiles: obj.UserProfiles.map(item =>
+        UserProfileDetails.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListUserProfilesResponse =>
@@ -14980,7 +15062,7 @@ export namespace ListWorkteamsResponse {
   export const filterSensitiveLog = (obj: ListWorkteamsResponse): any => ({
     ...obj,
     ...(obj.Workteams && {
-      Workteams: obj.Workteams.map(Workteam.filterSensitiveLog)
+      Workteams: obj.Workteams.map(item => Workteam.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListWorkteamsResponse =>
@@ -15183,13 +15265,13 @@ export namespace ModelPackageStatusDetails {
   export const filterSensitiveLog = (obj: ModelPackageStatusDetails): any => ({
     ...obj,
     ...(obj.ImageScanStatuses && {
-      ImageScanStatuses: obj.ImageScanStatuses.map(
-        ModelPackageStatusItem.filterSensitiveLog
+      ImageScanStatuses: obj.ImageScanStatuses.map(item =>
+        ModelPackageStatusItem.filterSensitiveLog(item)
       )
     }),
     ...(obj.ValidationStatuses && {
-      ValidationStatuses: obj.ValidationStatuses.map(
-        ModelPackageStatusItem.filterSensitiveLog
+      ValidationStatuses: obj.ValidationStatuses.map(item =>
+        ModelPackageStatusItem.filterSensitiveLog(item)
       )
     })
   });
@@ -15323,8 +15405,8 @@ export namespace ModelPackageValidationSpecification {
   ): any => ({
     ...obj,
     ...(obj.ValidationProfiles && {
-      ValidationProfiles: obj.ValidationProfiles.map(
-        ModelPackageValidationProfile.filterSensitiveLog
+      ValidationProfiles: obj.ValidationProfiles.map(item =>
+        ModelPackageValidationProfile.filterSensitiveLog(item)
       )
     })
   });
@@ -15657,8 +15739,8 @@ export namespace MonitoringJobDefinition {
       )
     }),
     ...(obj.MonitoringInputs && {
-      MonitoringInputs: obj.MonitoringInputs.map(
-        MonitoringInput.filterSensitiveLog
+      MonitoringInputs: obj.MonitoringInputs.map(item =>
+        MonitoringInput.filterSensitiveLog(item)
       )
     }),
     ...(obj.MonitoringOutputConfig && {
@@ -15728,8 +15810,8 @@ export namespace MonitoringOutputConfig {
   export const filterSensitiveLog = (obj: MonitoringOutputConfig): any => ({
     ...obj,
     ...(obj.MonitoringOutputs && {
-      MonitoringOutputs: obj.MonitoringOutputs.map(
-        MonitoringOutput.filterSensitiveLog
+      MonitoringOutputs: obj.MonitoringOutputs.map(item =>
+        MonitoringOutput.filterSensitiveLog(item)
       )
     })
   });
@@ -15963,7 +16045,9 @@ export interface NestedFilters {
 export namespace NestedFilters {
   export const filterSensitiveLog = (obj: NestedFilters): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is NestedFilters => __isa(o, "NestedFilters");
 }
@@ -16460,18 +16544,18 @@ export namespace ParameterRanges {
   export const filterSensitiveLog = (obj: ParameterRanges): any => ({
     ...obj,
     ...(obj.CategoricalParameterRanges && {
-      CategoricalParameterRanges: obj.CategoricalParameterRanges.map(
-        CategoricalParameterRange.filterSensitiveLog
+      CategoricalParameterRanges: obj.CategoricalParameterRanges.map(item =>
+        CategoricalParameterRange.filterSensitiveLog(item)
       )
     }),
     ...(obj.ContinuousParameterRanges && {
-      ContinuousParameterRanges: obj.ContinuousParameterRanges.map(
-        ContinuousParameterRange.filterSensitiveLog
+      ContinuousParameterRanges: obj.ContinuousParameterRanges.map(item =>
+        ContinuousParameterRange.filterSensitiveLog(item)
       )
     }),
     ...(obj.IntegerParameterRanges && {
-      IntegerParameterRanges: obj.IntegerParameterRanges.map(
-        IntegerParameterRange.filterSensitiveLog
+      IntegerParameterRanges: obj.IntegerParameterRanges.map(item =>
+        IntegerParameterRange.filterSensitiveLog(item)
       )
     })
   });
@@ -16760,7 +16844,9 @@ export namespace ProcessingOutputConfig {
   export const filterSensitiveLog = (obj: ProcessingOutputConfig): any => ({
     ...obj,
     ...(obj.Outputs && {
-      Outputs: obj.Outputs.map(ProcessingOutput.filterSensitiveLog)
+      Outputs: obj.Outputs.map(item =>
+        ProcessingOutput.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ProcessingOutputConfig =>
@@ -17109,7 +17195,9 @@ export namespace ProductionVariantSummary {
   export const filterSensitiveLog = (obj: ProductionVariantSummary): any => ({
     ...obj,
     ...(obj.DeployedImages && {
-      DeployedImages: obj.DeployedImages.map(DeployedImage.filterSensitiveLog)
+      DeployedImages: obj.DeployedImages.map(item =>
+        DeployedImage.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ProductionVariantSummary =>
@@ -17535,7 +17623,7 @@ export namespace RenderUiTemplateResponse {
   export const filterSensitiveLog = (obj: RenderUiTemplateResponse): any => ({
     ...obj,
     ...(obj.Errors && {
-      Errors: obj.Errors.map(RenderingError.filterSensitiveLog)
+      Errors: obj.Errors.map(item => RenderingError.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is RenderUiTemplateResponse =>
@@ -18120,13 +18208,17 @@ export interface SearchExpression {
 export namespace SearchExpression {
   export const filterSensitiveLog = (obj: SearchExpression): any => ({
     ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.NestedFilters && {
-      NestedFilters: obj.NestedFilters.map(NestedFilters.filterSensitiveLog)
+      NestedFilters: obj.NestedFilters.map(item =>
+        NestedFilters.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SubExpressions && {
-      SubExpressions: obj.SubExpressions.map(
-        SearchExpression.filterSensitiveLog
+      SubExpressions: obj.SubExpressions.map(item =>
+        SearchExpression.filterSensitiveLog(item)
       )
     })
   });
@@ -18252,7 +18344,7 @@ export namespace SearchResponse {
   export const filterSensitiveLog = (obj: SearchResponse): any => ({
     ...obj,
     ...(obj.Results && {
-      Results: obj.Results.map(SearchRecord.filterSensitiveLog)
+      Results: obj.Results.map(item => SearchRecord.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is SearchResponse =>
@@ -18613,8 +18705,8 @@ export namespace SourceAlgorithmSpecification {
   ): any => ({
     ...obj,
     ...(obj.SourceAlgorithms && {
-      SourceAlgorithms: obj.SourceAlgorithms.map(
-        SourceAlgorithm.filterSensitiveLog
+      SourceAlgorithms: obj.SourceAlgorithms.map(item =>
+        SourceAlgorithm.filterSensitiveLog(item)
       )
     })
   });
@@ -19435,13 +19527,13 @@ export namespace TrainingJob {
       DebugHookConfig: DebugHookConfig.filterSensitiveLog(obj.DebugHookConfig)
     }),
     ...(obj.DebugRuleConfigurations && {
-      DebugRuleConfigurations: obj.DebugRuleConfigurations.map(
-        DebugRuleConfiguration.filterSensitiveLog
+      DebugRuleConfigurations: obj.DebugRuleConfigurations.map(item =>
+        DebugRuleConfiguration.filterSensitiveLog(item)
       )
     }),
     ...(obj.DebugRuleEvaluationStatuses && {
-      DebugRuleEvaluationStatuses: obj.DebugRuleEvaluationStatuses.map(
-        DebugRuleEvaluationStatus.filterSensitiveLog
+      DebugRuleEvaluationStatuses: obj.DebugRuleEvaluationStatuses.map(item =>
+        DebugRuleEvaluationStatus.filterSensitiveLog(item)
       )
     }),
     ...(obj.ExperimentConfig && {
@@ -19450,12 +19542,14 @@ export namespace TrainingJob {
       )
     }),
     ...(obj.FinalMetricDataList && {
-      FinalMetricDataList: obj.FinalMetricDataList.map(
-        MetricData.filterSensitiveLog
+      FinalMetricDataList: obj.FinalMetricDataList.map(item =>
+        MetricData.filterSensitiveLog(item)
       )
     }),
     ...(obj.InputDataConfig && {
-      InputDataConfig: obj.InputDataConfig.map(Channel.filterSensitiveLog)
+      InputDataConfig: obj.InputDataConfig.map(item =>
+        Channel.filterSensitiveLog(item)
+      )
     }),
     ...(obj.ModelArtifacts && {
       ModelArtifacts: ModelArtifacts.filterSensitiveLog(obj.ModelArtifacts)
@@ -19469,8 +19563,8 @@ export namespace TrainingJob {
       ResourceConfig: ResourceConfig.filterSensitiveLog(obj.ResourceConfig)
     }),
     ...(obj.SecondaryStatusTransitions && {
-      SecondaryStatusTransitions: obj.SecondaryStatusTransitions.map(
-        SecondaryStatusTransition.filterSensitiveLog
+      SecondaryStatusTransitions: obj.SecondaryStatusTransitions.map(item =>
+        SecondaryStatusTransition.filterSensitiveLog(item)
       )
     }),
     ...(obj.StoppingCondition && {
@@ -19478,7 +19572,9 @@ export namespace TrainingJob {
         obj.StoppingCondition
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.TensorBoardOutputConfig && {
       TensorBoardOutputConfig: TensorBoardOutputConfig.filterSensitiveLog(
         obj.TensorBoardOutputConfig
@@ -19543,7 +19639,9 @@ export namespace TrainingJobDefinition {
   export const filterSensitiveLog = (obj: TrainingJobDefinition): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
-      InputDataConfig: obj.InputDataConfig.map(Channel.filterSensitiveLog)
+      InputDataConfig: obj.InputDataConfig.map(item =>
+        Channel.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputDataConfig && {
       OutputDataConfig: OutputDataConfig.filterSensitiveLog(
@@ -19733,23 +19831,23 @@ export namespace TrainingSpecification {
   export const filterSensitiveLog = (obj: TrainingSpecification): any => ({
     ...obj,
     ...(obj.MetricDefinitions && {
-      MetricDefinitions: obj.MetricDefinitions.map(
-        MetricDefinition.filterSensitiveLog
+      MetricDefinitions: obj.MetricDefinitions.map(item =>
+        MetricDefinition.filterSensitiveLog(item)
       )
     }),
     ...(obj.SupportedHyperParameters && {
-      SupportedHyperParameters: obj.SupportedHyperParameters.map(
-        HyperParameterSpecification.filterSensitiveLog
+      SupportedHyperParameters: obj.SupportedHyperParameters.map(item =>
+        HyperParameterSpecification.filterSensitiveLog(item)
       )
     }),
     ...(obj.SupportedTuningJobObjectiveMetrics && {
       SupportedTuningJobObjectiveMetrics: obj.SupportedTuningJobObjectiveMetrics.map(
-        HyperParameterTuningJobObjective.filterSensitiveLog
+        item => HyperParameterTuningJobObjective.filterSensitiveLog(item)
       )
     }),
     ...(obj.TrainingChannels && {
-      TrainingChannels: obj.TrainingChannels.map(
-        ChannelSpecification.filterSensitiveLog
+      TrainingChannels: obj.TrainingChannels.map(item =>
+        ChannelSpecification.filterSensitiveLog(item)
       )
     })
   });
@@ -20322,10 +20420,12 @@ export namespace Trial {
       LastModifiedBy: UserContext.filterSensitiveLog(obj.LastModifiedBy)
     }),
     ...(obj.Source && { Source: TrialSource.filterSensitiveLog(obj.Source) }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.TrialComponentSummaries && {
-      TrialComponentSummaries: obj.TrialComponentSummaries.map(
-        TrialComponentSimpleSummary.filterSensitiveLog
+      TrialComponentSummaries: obj.TrialComponentSummaries.map(item =>
+        TrialComponentSimpleSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -20454,7 +20554,9 @@ export namespace TrialComponent {
       LastModifiedBy: UserContext.filterSensitiveLog(obj.LastModifiedBy)
     }),
     ...(obj.Metrics && {
-      Metrics: obj.Metrics.map(TrialComponentMetricSummary.filterSensitiveLog)
+      Metrics: obj.Metrics.map(item =>
+        TrialComponentMetricSummary.filterSensitiveLog(item)
+      )
     }),
     ...(obj.OutputArtifacts && {
       OutputArtifacts: Object.entries(obj.OutputArtifacts).reduce(
@@ -20474,7 +20576,9 @@ export namespace TrialComponent {
         {}
       )
     }),
-    ...(obj.Parents && { Parents: obj.Parents.map(Parent.filterSensitiveLog) }),
+    ...(obj.Parents && {
+      Parents: obj.Parents.map(item => Parent.filterSensitiveLog(item))
+    }),
     ...(obj.Source && {
       Source: TrialComponentSource.filterSensitiveLog(obj.Source)
     }),
@@ -20486,7 +20590,9 @@ export namespace TrialComponent {
     ...(obj.Status && {
       Status: TrialComponentStatus.filterSensitiveLog(obj.Status)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TrialComponent =>
     __isa(o, "TrialComponent");
@@ -21170,8 +21276,8 @@ export namespace UpdateEndpointWeightsAndCapacitiesInput {
   ): any => ({
     ...obj,
     ...(obj.DesiredWeightsAndCapacities && {
-      DesiredWeightsAndCapacities: obj.DesiredWeightsAndCapacities.map(
-        DesiredWeightAndCapacity.filterSensitiveLog
+      DesiredWeightsAndCapacities: obj.DesiredWeightsAndCapacities.map(item =>
+        DesiredWeightAndCapacity.filterSensitiveLog(item)
       )
     })
   });
@@ -21436,12 +21542,14 @@ export namespace UpdateNotebookInstanceLifecycleConfigInput {
   ): any => ({
     ...obj,
     ...(obj.OnCreate && {
-      OnCreate: obj.OnCreate.map(
-        NotebookInstanceLifecycleHook.filterSensitiveLog
+      OnCreate: obj.OnCreate.map(item =>
+        NotebookInstanceLifecycleHook.filterSensitiveLog(item)
       )
     }),
     ...(obj.OnStart && {
-      OnStart: obj.OnStart.map(NotebookInstanceLifecycleHook.filterSensitiveLog)
+      OnStart: obj.OnStart.map(item =>
+        NotebookInstanceLifecycleHook.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (
@@ -21760,8 +21868,8 @@ export namespace UpdateWorkteamRequest {
   export const filterSensitiveLog = (obj: UpdateWorkteamRequest): any => ({
     ...obj,
     ...(obj.MemberDefinitions && {
-      MemberDefinitions: obj.MemberDefinitions.map(
-        MemberDefinition.filterSensitiveLog
+      MemberDefinitions: obj.MemberDefinitions.map(item =>
+        MemberDefinition.filterSensitiveLog(item)
       )
     }),
     ...(obj.NotificationConfiguration && {
@@ -22067,8 +22175,8 @@ export namespace Workteam {
   export const filterSensitiveLog = (obj: Workteam): any => ({
     ...obj,
     ...(obj.MemberDefinitions && {
-      MemberDefinitions: obj.MemberDefinitions.map(
-        MemberDefinition.filterSensitiveLog
+      MemberDefinitions: obj.MemberDefinitions.map(item =>
+        MemberDefinition.filterSensitiveLog(item)
       )
     }),
     ...(obj.NotificationConfiguration && {

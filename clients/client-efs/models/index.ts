@@ -611,7 +611,9 @@ export namespace AccessPointDescription {
     ...(obj.RootDirectory && {
       RootDirectory: RootDirectory.filterSensitiveLog(obj.RootDirectory)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is AccessPointDescription =>
     __isa(o, "AccessPointDescription");
@@ -661,7 +663,9 @@ export namespace CreateAccessPointRequest {
     ...(obj.RootDirectory && {
       RootDirectory: RootDirectory.filterSensitiveLog(obj.RootDirectory)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateAccessPointRequest =>
     __isa(o, "CreateAccessPointRequest");
@@ -753,7 +757,9 @@ export interface CreateFileSystemRequest {
 export namespace CreateFileSystemRequest {
   export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateFileSystemRequest =>
     __isa(o, "CreateFileSystemRequest");
@@ -815,7 +821,9 @@ export interface CreateTagsRequest {
 export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateTagsRequest =>
     __isa(o, "CreateTagsRequest");
@@ -1009,8 +1017,8 @@ export namespace DescribeAccessPointsResponse {
   ): any => ({
     ...obj,
     ...(obj.AccessPoints && {
-      AccessPoints: obj.AccessPoints.map(
-        AccessPointDescription.filterSensitiveLog
+      AccessPoints: obj.AccessPoints.map(item =>
+        AccessPointDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -1101,7 +1109,9 @@ export namespace DescribeFileSystemsResponse {
   ): any => ({
     ...obj,
     ...(obj.FileSystems && {
-      FileSystems: obj.FileSystems.map(FileSystemDescription.filterSensitiveLog)
+      FileSystems: obj.FileSystems.map(item =>
+        FileSystemDescription.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeFileSystemsResponse =>
@@ -1245,8 +1255,8 @@ export namespace DescribeMountTargetsResponse {
   ): any => ({
     ...obj,
     ...(obj.MountTargets && {
-      MountTargets: obj.MountTargets.map(
-        MountTargetDescription.filterSensitiveLog
+      MountTargets: obj.MountTargets.map(item =>
+        MountTargetDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -1315,7 +1325,9 @@ export interface DescribeTagsResponse {
 export namespace DescribeTagsResponse {
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeTagsResponse =>
     __isa(o, "DescribeTagsResponse");
@@ -1427,7 +1439,9 @@ export namespace FileSystemDescription {
     ...(obj.SizeInBytes && {
       SizeInBytes: FileSystemSize.filterSensitiveLog(obj.SizeInBytes)
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is FileSystemDescription =>
     __isa(o, "FileSystemDescription");
@@ -1522,8 +1536,8 @@ export namespace LifecycleConfigurationDescription {
   ): any => ({
     ...obj,
     ...(obj.LifecyclePolicies && {
-      LifecyclePolicies: obj.LifecyclePolicies.map(
-        LifecyclePolicy.filterSensitiveLog
+      LifecyclePolicies: obj.LifecyclePolicies.map(item =>
+        LifecyclePolicy.filterSensitiveLog(item)
       )
     })
   });
@@ -1599,7 +1613,9 @@ export namespace ListTagsForResourceResponse {
     obj: ListTagsForResourceResponse
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1785,8 +1801,8 @@ export namespace PutLifecycleConfigurationRequest {
   ): any => ({
     ...obj,
     ...(obj.LifecyclePolicies && {
-      LifecyclePolicies: obj.LifecyclePolicies.map(
-        LifecyclePolicy.filterSensitiveLog
+      LifecyclePolicies: obj.LifecyclePolicies.map(item =>
+        LifecyclePolicy.filterSensitiveLog(item)
       )
     })
   });
@@ -1874,7 +1890,9 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

@@ -161,7 +161,7 @@ export namespace BatchPutMessageRequest {
   export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
     ...obj,
     ...(obj.messages && {
-      messages: obj.messages.map(Message.filterSensitiveLog)
+      messages: obj.messages.map(item => Message.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is BatchPutMessageRequest =>
@@ -180,8 +180,8 @@ export namespace BatchPutMessageResponse {
   export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
     ...obj,
     ...(obj.BatchPutMessageErrorEntries && {
-      BatchPutMessageErrorEntries: obj.BatchPutMessageErrorEntries.map(
-        BatchPutMessageErrorEntry.filterSensitiveLog
+      BatchPutMessageErrorEntries: obj.BatchPutMessageErrorEntries.map(item =>
+        BatchPutMessageErrorEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -233,7 +233,9 @@ export namespace BatchUpdateDetectorRequest {
   export const filterSensitiveLog = (obj: BatchUpdateDetectorRequest): any => ({
     ...obj,
     ...(obj.detectors && {
-      detectors: obj.detectors.map(UpdateDetectorRequest.filterSensitiveLog)
+      detectors: obj.detectors.map(item =>
+        UpdateDetectorRequest.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchUpdateDetectorRequest =>
@@ -256,7 +258,7 @@ export namespace BatchUpdateDetectorResponse {
     ...obj,
     ...(obj.batchUpdateDetectorErrorEntries && {
       batchUpdateDetectorErrorEntries: obj.batchUpdateDetectorErrorEntries.map(
-        BatchUpdateDetectorErrorEntry.filterSensitiveLog
+        item => BatchUpdateDetectorErrorEntry.filterSensitiveLog(item)
       )
     })
   });
@@ -371,9 +373,11 @@ export interface DetectorState {
 export namespace DetectorState {
   export const filterSensitiveLog = (obj: DetectorState): any => ({
     ...obj,
-    ...(obj.timers && { timers: obj.timers.map(Timer.filterSensitiveLog) }),
+    ...(obj.timers && {
+      timers: obj.timers.map(item => Timer.filterSensitiveLog(item))
+    }),
     ...(obj.variables && {
-      variables: obj.variables.map(Variable.filterSensitiveLog)
+      variables: obj.variables.map(item => Variable.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DetectorState => __isa(o, "DetectorState");
@@ -405,10 +409,12 @@ export namespace DetectorStateDefinition {
   export const filterSensitiveLog = (obj: DetectorStateDefinition): any => ({
     ...obj,
     ...(obj.timers && {
-      timers: obj.timers.map(TimerDefinition.filterSensitiveLog)
+      timers: obj.timers.map(item => TimerDefinition.filterSensitiveLog(item))
     }),
     ...(obj.variables && {
-      variables: obj.variables.map(VariableDefinition.filterSensitiveLog)
+      variables: obj.variables.map(item =>
+        VariableDefinition.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DetectorStateDefinition =>
@@ -539,8 +545,8 @@ export namespace ListDetectorsResponse {
   export const filterSensitiveLog = (obj: ListDetectorsResponse): any => ({
     ...obj,
     ...(obj.detectorSummaries && {
-      detectorSummaries: obj.detectorSummaries.map(
-        DetectorSummary.filterSensitiveLog
+      detectorSummaries: obj.detectorSummaries.map(item =>
+        DetectorSummary.filterSensitiveLog(item)
       )
     })
   });

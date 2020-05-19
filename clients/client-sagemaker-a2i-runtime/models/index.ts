@@ -346,8 +346,8 @@ export namespace ListHumanLoopsResponse {
   export const filterSensitiveLog = (obj: ListHumanLoopsResponse): any => ({
     ...obj,
     ...(obj.HumanLoopSummaries && {
-      HumanLoopSummaries: obj.HumanLoopSummaries.map(
-        HumanLoopSummary.filterSensitiveLog
+      HumanLoopSummaries: obj.HumanLoopSummaries.map(item =>
+        HumanLoopSummary.filterSensitiveLog(item)
       )
     })
   });

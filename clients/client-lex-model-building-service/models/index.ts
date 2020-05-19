@@ -448,7 +448,9 @@ export namespace ConversationLogsRequest {
   export const filterSensitiveLog = (obj: ConversationLogsRequest): any => ({
     ...obj,
     ...(obj.logSettings && {
-      logSettings: obj.logSettings.map(LogSettingsRequest.filterSensitiveLog)
+      logSettings: obj.logSettings.map(item =>
+        LogSettingsRequest.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ConversationLogsRequest =>
@@ -476,7 +478,9 @@ export namespace ConversationLogsResponse {
   export const filterSensitiveLog = (obj: ConversationLogsResponse): any => ({
     ...obj,
     ...(obj.logSettings && {
-      logSettings: obj.logSettings.map(LogSettingsResponse.filterSensitiveLog)
+      logSettings: obj.logSettings.map(item =>
+        LogSettingsResponse.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ConversationLogsResponse =>
@@ -629,7 +633,9 @@ export namespace CreateBotVersionResponse {
     ...(obj.clarificationPrompt && {
       clarificationPrompt: Prompt.filterSensitiveLog(obj.clarificationPrompt)
     }),
-    ...(obj.intents && { intents: obj.intents.map(Intent.filterSensitiveLog) })
+    ...(obj.intents && {
+      intents: obj.intents.map(item => Intent.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateBotVersionResponse =>
     __isa(o, "CreateBotVersionResponse");
@@ -769,7 +775,9 @@ export namespace CreateIntentVersionResponse {
     ...(obj.rejectionStatement && {
       rejectionStatement: Statement.filterSensitiveLog(obj.rejectionStatement)
     }),
-    ...(obj.slots && { slots: obj.slots.map(Slot.filterSensitiveLog) })
+    ...(obj.slots && {
+      slots: obj.slots.map(item => Slot.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateIntentVersionResponse =>
     __isa(o, "CreateIntentVersionResponse");
@@ -855,8 +863,8 @@ export namespace CreateSlotTypeVersionResponse {
   ): any => ({
     ...obj,
     ...(obj.enumerationValues && {
-      enumerationValues: obj.enumerationValues.map(
-        EnumerationValue.filterSensitiveLog
+      enumerationValues: obj.enumerationValues.map(item =>
+        EnumerationValue.filterSensitiveLog(item)
       )
     })
   });
@@ -1322,7 +1330,9 @@ export namespace GetBotAliasesResponse {
   export const filterSensitiveLog = (obj: GetBotAliasesResponse): any => ({
     ...obj,
     ...(obj.BotAliases && {
-      BotAliases: obj.BotAliases.map(BotAliasMetadata.filterSensitiveLog)
+      BotAliases: obj.BotAliases.map(item =>
+        BotAliasMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetBotAliasesResponse =>
@@ -1503,8 +1513,8 @@ export namespace GetBotChannelAssociationsResponse {
   ): any => ({
     ...obj,
     ...(obj.botChannelAssociations && {
-      botChannelAssociations: obj.botChannelAssociations.map(
-        BotChannelAssociation.filterSensitiveLog
+      botChannelAssociations: obj.botChannelAssociations.map(item =>
+        BotChannelAssociation.filterSensitiveLog(item)
       )
     })
   });
@@ -1660,7 +1670,9 @@ export namespace GetBotResponse {
     ...(obj.clarificationPrompt && {
       clarificationPrompt: Prompt.filterSensitiveLog(obj.clarificationPrompt)
     }),
-    ...(obj.intents && { intents: obj.intents.map(Intent.filterSensitiveLog) })
+    ...(obj.intents && {
+      intents: obj.intents.map(item => Intent.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetBotResponse =>
     __isa(o, "GetBotResponse");
@@ -1714,7 +1726,9 @@ export interface GetBotVersionsResponse {
 export namespace GetBotVersionsResponse {
   export const filterSensitiveLog = (obj: GetBotVersionsResponse): any => ({
     ...obj,
-    ...(obj.bots && { bots: obj.bots.map(BotMetadata.filterSensitiveLog) })
+    ...(obj.bots && {
+      bots: obj.bots.map(item => BotMetadata.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetBotVersionsResponse =>
     __isa(o, "GetBotVersionsResponse");
@@ -1767,7 +1781,9 @@ export interface GetBotsResponse {
 export namespace GetBotsResponse {
   export const filterSensitiveLog = (obj: GetBotsResponse): any => ({
     ...obj,
-    ...(obj.bots && { bots: obj.bots.map(BotMetadata.filterSensitiveLog) })
+    ...(obj.bots && {
+      bots: obj.bots.map(item => BotMetadata.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetBotsResponse =>
     __isa(o, "GetBotsResponse");
@@ -1813,7 +1829,7 @@ export namespace GetBuiltinIntentResponse {
   export const filterSensitiveLog = (obj: GetBuiltinIntentResponse): any => ({
     ...obj,
     ...(obj.slots && {
-      slots: obj.slots.map(BuiltinIntentSlot.filterSensitiveLog)
+      slots: obj.slots.map(item => BuiltinIntentSlot.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetBuiltinIntentResponse =>
@@ -1875,7 +1891,9 @@ export namespace GetBuiltinIntentsResponse {
   export const filterSensitiveLog = (obj: GetBuiltinIntentsResponse): any => ({
     ...obj,
     ...(obj.intents && {
-      intents: obj.intents.map(BuiltinIntentMetadata.filterSensitiveLog)
+      intents: obj.intents.map(item =>
+        BuiltinIntentMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetBuiltinIntentsResponse =>
@@ -1939,7 +1957,9 @@ export namespace GetBuiltinSlotTypesResponse {
   ): any => ({
     ...obj,
     ...(obj.slotTypes && {
-      slotTypes: obj.slotTypes.map(BuiltinSlotTypeMetadata.filterSensitiveLog)
+      slotTypes: obj.slotTypes.map(item =>
+        BuiltinSlotTypeMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetBuiltinSlotTypesResponse =>
@@ -2232,7 +2252,9 @@ export namespace GetIntentResponse {
     ...(obj.rejectionStatement && {
       rejectionStatement: Statement.filterSensitiveLog(obj.rejectionStatement)
     }),
-    ...(obj.slots && { slots: obj.slots.map(Slot.filterSensitiveLog) })
+    ...(obj.slots && {
+      slots: obj.slots.map(item => Slot.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is GetIntentResponse =>
     __isa(o, "GetIntentResponse");
@@ -2287,7 +2309,7 @@ export namespace GetIntentVersionsResponse {
   export const filterSensitiveLog = (obj: GetIntentVersionsResponse): any => ({
     ...obj,
     ...(obj.intents && {
-      intents: obj.intents.map(IntentMetadata.filterSensitiveLog)
+      intents: obj.intents.map(item => IntentMetadata.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetIntentVersionsResponse =>
@@ -2341,7 +2363,7 @@ export namespace GetIntentsResponse {
   export const filterSensitiveLog = (obj: GetIntentsResponse): any => ({
     ...obj,
     ...(obj.intents && {
-      intents: obj.intents.map(IntentMetadata.filterSensitiveLog)
+      intents: obj.intents.map(item => IntentMetadata.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetIntentsResponse =>
@@ -2419,8 +2441,8 @@ export namespace GetSlotTypeResponse {
   export const filterSensitiveLog = (obj: GetSlotTypeResponse): any => ({
     ...obj,
     ...(obj.enumerationValues && {
-      enumerationValues: obj.enumerationValues.map(
-        EnumerationValue.filterSensitiveLog
+      enumerationValues: obj.enumerationValues.map(item =>
+        EnumerationValue.filterSensitiveLog(item)
       )
     })
   });
@@ -2479,7 +2501,9 @@ export namespace GetSlotTypeVersionsResponse {
   ): any => ({
     ...obj,
     ...(obj.slotTypes && {
-      slotTypes: obj.slotTypes.map(SlotTypeMetadata.filterSensitiveLog)
+      slotTypes: obj.slotTypes.map(item =>
+        SlotTypeMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetSlotTypeVersionsResponse =>
@@ -2535,7 +2559,9 @@ export namespace GetSlotTypesResponse {
   export const filterSensitiveLog = (obj: GetSlotTypesResponse): any => ({
     ...obj,
     ...(obj.slotTypes && {
-      slotTypes: obj.slotTypes.map(SlotTypeMetadata.filterSensitiveLog)
+      slotTypes: obj.slotTypes.map(item =>
+        SlotTypeMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetSlotTypesResponse =>
@@ -2589,7 +2615,9 @@ export namespace GetUtterancesViewResponse {
   export const filterSensitiveLog = (obj: GetUtterancesViewResponse): any => ({
     ...obj,
     ...(obj.utterances && {
-      utterances: obj.utterances.map(UtteranceList.filterSensitiveLog)
+      utterances: obj.utterances.map(item =>
+        UtteranceList.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is GetUtterancesViewResponse =>
@@ -2834,7 +2862,7 @@ export namespace Prompt {
   export const filterSensitiveLog = (obj: Prompt): any => ({
     ...obj,
     ...(obj.messages && {
-      messages: obj.messages.map(Message.filterSensitiveLog)
+      messages: obj.messages.map(item => Message.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Prompt => __isa(o, "Prompt");
@@ -3121,7 +3149,9 @@ export namespace PutBotRequest {
     ...(obj.clarificationPrompt && {
       clarificationPrompt: Prompt.filterSensitiveLog(obj.clarificationPrompt)
     }),
-    ...(obj.intents && { intents: obj.intents.map(Intent.filterSensitiveLog) })
+    ...(obj.intents && {
+      intents: obj.intents.map(item => Intent.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutBotRequest => __isa(o, "PutBotRequest");
 }
@@ -3265,7 +3295,9 @@ export namespace PutBotResponse {
     ...(obj.clarificationPrompt && {
       clarificationPrompt: Prompt.filterSensitiveLog(obj.clarificationPrompt)
     }),
-    ...(obj.intents && { intents: obj.intents.map(Intent.filterSensitiveLog) })
+    ...(obj.intents && {
+      intents: obj.intents.map(item => Intent.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutBotResponse =>
     __isa(o, "PutBotResponse");
@@ -3439,7 +3471,9 @@ export namespace PutIntentRequest {
     ...(obj.rejectionStatement && {
       rejectionStatement: Statement.filterSensitiveLog(obj.rejectionStatement)
     }),
-    ...(obj.slots && { slots: obj.slots.map(Slot.filterSensitiveLog) })
+    ...(obj.slots && {
+      slots: obj.slots.map(item => Slot.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutIntentRequest =>
     __isa(o, "PutIntentRequest");
@@ -3562,7 +3596,9 @@ export namespace PutIntentResponse {
     ...(obj.rejectionStatement && {
       rejectionStatement: Statement.filterSensitiveLog(obj.rejectionStatement)
     }),
-    ...(obj.slots && { slots: obj.slots.map(Slot.filterSensitiveLog) })
+    ...(obj.slots && {
+      slots: obj.slots.map(item => Slot.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is PutIntentResponse =>
     __isa(o, "PutIntentResponse");
@@ -3642,8 +3678,8 @@ export namespace PutSlotTypeRequest {
   export const filterSensitiveLog = (obj: PutSlotTypeRequest): any => ({
     ...obj,
     ...(obj.enumerationValues && {
-      enumerationValues: obj.enumerationValues.map(
-        EnumerationValue.filterSensitiveLog
+      enumerationValues: obj.enumerationValues.map(item =>
+        EnumerationValue.filterSensitiveLog(item)
       )
     })
   });
@@ -3710,8 +3746,8 @@ export namespace PutSlotTypeResponse {
   export const filterSensitiveLog = (obj: PutSlotTypeResponse): any => ({
     ...obj,
     ...(obj.enumerationValues && {
-      enumerationValues: obj.enumerationValues.map(
-        EnumerationValue.filterSensitiveLog
+      enumerationValues: obj.enumerationValues.map(item =>
+        EnumerationValue.filterSensitiveLog(item)
       )
     })
   });
@@ -4047,7 +4083,7 @@ export namespace Statement {
   export const filterSensitiveLog = (obj: Statement): any => ({
     ...obj,
     ...(obj.messages && {
-      messages: obj.messages.map(Message.filterSensitiveLog)
+      messages: obj.messages.map(item => Message.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is Statement => __isa(o, "Statement");
@@ -4127,7 +4163,9 @@ export namespace UtteranceList {
   export const filterSensitiveLog = (obj: UtteranceList): any => ({
     ...obj,
     ...(obj.utterances && {
-      utterances: obj.utterances.map(UtteranceData.filterSensitiveLog)
+      utterances: obj.utterances.map(item =>
+        UtteranceData.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is UtteranceList => __isa(o, "UtteranceList");

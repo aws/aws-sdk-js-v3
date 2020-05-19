@@ -716,7 +716,9 @@ export namespace ListInvitationsOutput {
   export const filterSensitiveLog = (obj: ListInvitationsOutput): any => ({
     ...obj,
     ...(obj.Invitations && {
-      Invitations: obj.Invitations.map(Invitation.filterSensitiveLog)
+      Invitations: obj.Invitations.map(item =>
+        Invitation.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListInvitationsOutput =>
@@ -783,7 +785,7 @@ export namespace ListMembersOutput {
   export const filterSensitiveLog = (obj: ListMembersOutput): any => ({
     ...obj,
     ...(obj.Members && {
-      Members: obj.Members.map(MemberSummary.filterSensitiveLog)
+      Members: obj.Members.map(item => MemberSummary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListMembersOutput =>
@@ -843,7 +845,9 @@ export namespace ListNetworksOutput {
   export const filterSensitiveLog = (obj: ListNetworksOutput): any => ({
     ...obj,
     ...(obj.Networks && {
-      Networks: obj.Networks.map(NetworkSummary.filterSensitiveLog)
+      Networks: obj.Networks.map(item =>
+        NetworkSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListNetworksOutput =>
@@ -902,7 +906,9 @@ export interface ListNodesOutput {
 export namespace ListNodesOutput {
   export const filterSensitiveLog = (obj: ListNodesOutput): any => ({
     ...obj,
-    ...(obj.Nodes && { Nodes: obj.Nodes.map(NodeSummary.filterSensitiveLog) })
+    ...(obj.Nodes && {
+      Nodes: obj.Nodes.map(item => NodeSummary.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListNodesOutput =>
     __isa(o, "ListNodesOutput");
@@ -968,7 +974,9 @@ export namespace ListProposalVotesOutput {
   export const filterSensitiveLog = (obj: ListProposalVotesOutput): any => ({
     ...obj,
     ...(obj.ProposalVotes && {
-      ProposalVotes: obj.ProposalVotes.map(VoteSummary.filterSensitiveLog)
+      ProposalVotes: obj.ProposalVotes.map(item =>
+        VoteSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListProposalVotesOutput =>
@@ -1024,7 +1032,9 @@ export namespace ListProposalsOutput {
   export const filterSensitiveLog = (obj: ListProposalsOutput): any => ({
     ...obj,
     ...(obj.Proposals && {
-      Proposals: obj.Proposals.map(ProposalSummary.filterSensitiveLog)
+      Proposals: obj.Proposals.map(item =>
+        ProposalSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListProposalsOutput =>
@@ -1842,10 +1852,12 @@ export namespace ProposalActions {
   export const filterSensitiveLog = (obj: ProposalActions): any => ({
     ...obj,
     ...(obj.Invitations && {
-      Invitations: obj.Invitations.map(InviteAction.filterSensitiveLog)
+      Invitations: obj.Invitations.map(item =>
+        InviteAction.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Removals && {
-      Removals: obj.Removals.map(RemoveAction.filterSensitiveLog)
+      Removals: obj.Removals.map(item => RemoveAction.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ProposalActions =>

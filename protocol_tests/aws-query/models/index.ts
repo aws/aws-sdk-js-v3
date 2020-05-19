@@ -193,7 +193,9 @@ export namespace QueryListsInput {
   export const filterSensitiveLog = (obj: QueryListsInput): any => ({
     ...obj,
     ...(obj.ComplexListArg && {
-      ComplexListArg: obj.ComplexListArg.map(GreetingStruct.filterSensitiveLog)
+      ComplexListArg: obj.ComplexListArg.map(item =>
+        GreetingStruct.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is QueryListsInput =>
@@ -427,8 +429,8 @@ export namespace XmlListsOutput {
   export const filterSensitiveLog = (obj: XmlListsOutput): any => ({
     ...obj,
     ...(obj.structureList && {
-      structureList: obj.structureList.map(
-        StructureListMember.filterSensitiveLog
+      structureList: obj.structureList.map(item =>
+        StructureListMember.filterSensitiveLog(item)
       )
     })
   });

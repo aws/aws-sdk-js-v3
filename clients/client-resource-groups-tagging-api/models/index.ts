@@ -297,7 +297,7 @@ export namespace GetComplianceSummaryOutput {
   export const filterSensitiveLog = (obj: GetComplianceSummaryOutput): any => ({
     ...obj,
     ...(obj.SummaryList && {
-      SummaryList: obj.SummaryList.map(Summary.filterSensitiveLog)
+      SummaryList: obj.SummaryList.map(item => Summary.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetComplianceSummaryOutput =>
@@ -441,7 +441,7 @@ export namespace GetResourcesInput {
   export const filterSensitiveLog = (obj: GetResourcesInput): any => ({
     ...obj,
     ...(obj.TagFilters && {
-      TagFilters: obj.TagFilters.map(TagFilter.filterSensitiveLog)
+      TagFilters: obj.TagFilters.map(item => TagFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetResourcesInput =>
@@ -467,8 +467,8 @@ export namespace GetResourcesOutput {
   export const filterSensitiveLog = (obj: GetResourcesOutput): any => ({
     ...obj,
     ...(obj.ResourceTagMappingList && {
-      ResourceTagMappingList: obj.ResourceTagMappingList.map(
-        ResourceTagMapping.filterSensitiveLog
+      ResourceTagMappingList: obj.ResourceTagMappingList.map(item =>
+        ResourceTagMapping.filterSensitiveLog(item)
       )
     })
   });
@@ -684,7 +684,9 @@ export namespace ResourceTagMapping {
         obj.ComplianceDetails
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ResourceTagMapping =>
     __isa(o, "ResourceTagMapping");

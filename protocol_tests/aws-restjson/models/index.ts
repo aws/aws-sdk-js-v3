@@ -398,8 +398,8 @@ export namespace JsonListsInputOutput {
   export const filterSensitiveLog = (obj: JsonListsInputOutput): any => ({
     ...obj,
     ...(obj.structureList && {
-      structureList: obj.structureList.map(
-        StructureListMember.filterSensitiveLog
+      structureList: obj.structureList.map(item =>
+        StructureListMember.filterSensitiveLog(item)
       )
     })
   });

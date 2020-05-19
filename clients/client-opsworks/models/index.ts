@@ -123,10 +123,14 @@ export namespace App {
       AppSource: Source.filterSensitiveLog(obj.AppSource)
     }),
     ...(obj.DataSources && {
-      DataSources: obj.DataSources.map(DataSource.filterSensitiveLog)
+      DataSources: obj.DataSources.map(item =>
+        DataSource.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Environment && {
-      Environment: obj.Environment.map(EnvironmentVariable.filterSensitiveLog)
+      Environment: obj.Environment.map(item =>
+        EnvironmentVariable.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SslConfiguration && {
       SslConfiguration: SslConfiguration.filterSensitiveLog(
@@ -732,7 +736,9 @@ export namespace CloudWatchLogsConfiguration {
   ): any => ({
     ...obj,
     ...(obj.LogStreams && {
-      LogStreams: obj.LogStreams.map(CloudWatchLogsLogStream.filterSensitiveLog)
+      LogStreams: obj.LogStreams.map(item =>
+        CloudWatchLogsLogStream.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CloudWatchLogsConfiguration =>
@@ -1143,10 +1149,14 @@ export namespace CreateAppRequest {
       AppSource: Source.filterSensitiveLog(obj.AppSource)
     }),
     ...(obj.DataSources && {
-      DataSources: obj.DataSources.map(DataSource.filterSensitiveLog)
+      DataSources: obj.DataSources.map(item =>
+        DataSource.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Environment && {
-      Environment: obj.Environment.map(EnvironmentVariable.filterSensitiveLog)
+      Environment: obj.Environment.map(item =>
+        EnvironmentVariable.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SslConfiguration && {
       SslConfiguration: SslConfiguration.filterSensitiveLog(
@@ -1423,8 +1433,8 @@ export namespace CreateInstanceRequest {
   export const filterSensitiveLog = (obj: CreateInstanceRequest): any => ({
     ...obj,
     ...(obj.BlockDeviceMappings && {
-      BlockDeviceMappings: obj.BlockDeviceMappings.map(
-        BlockDeviceMapping.filterSensitiveLog
+      BlockDeviceMappings: obj.BlockDeviceMappings.map(item =>
+        BlockDeviceMapping.filterSensitiveLog(item)
       )
     })
   });
@@ -1583,8 +1593,8 @@ export namespace CreateLayerRequest {
       )
     }),
     ...(obj.VolumeConfigurations && {
-      VolumeConfigurations: obj.VolumeConfigurations.map(
-        VolumeConfiguration.filterSensitiveLog
+      VolumeConfigurations: obj.VolumeConfigurations.map(item =>
+        VolumeConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -2467,7 +2477,9 @@ export namespace DescribeAgentVersionsResult {
   ): any => ({
     ...obj,
     ...(obj.AgentVersions && {
-      AgentVersions: obj.AgentVersions.map(AgentVersion.filterSensitiveLog)
+      AgentVersions: obj.AgentVersions.map(item =>
+        AgentVersion.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeAgentVersionsResult =>
@@ -2512,7 +2524,9 @@ export interface DescribeAppsResult {
 export namespace DescribeAppsResult {
   export const filterSensitiveLog = (obj: DescribeAppsResult): any => ({
     ...obj,
-    ...(obj.Apps && { Apps: obj.Apps.map(App.filterSensitiveLog) })
+    ...(obj.Apps && {
+      Apps: obj.Apps.map(item => App.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeAppsResult =>
     __isa(o, "DescribeAppsResult");
@@ -2563,7 +2577,7 @@ export namespace DescribeCommandsResult {
   export const filterSensitiveLog = (obj: DescribeCommandsResult): any => ({
     ...obj,
     ...(obj.Commands && {
-      Commands: obj.Commands.map(Command.filterSensitiveLog)
+      Commands: obj.Commands.map(item => Command.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeCommandsResult =>
@@ -2615,7 +2629,9 @@ export namespace DescribeDeploymentsResult {
   export const filterSensitiveLog = (obj: DescribeDeploymentsResult): any => ({
     ...obj,
     ...(obj.Deployments && {
-      Deployments: obj.Deployments.map(Deployment.filterSensitiveLog)
+      Deployments: obj.Deployments.map(item =>
+        Deployment.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeDeploymentsResult =>
@@ -2685,7 +2701,9 @@ export namespace DescribeEcsClustersResult {
   export const filterSensitiveLog = (obj: DescribeEcsClustersResult): any => ({
     ...obj,
     ...(obj.EcsClusters && {
-      EcsClusters: obj.EcsClusters.map(EcsCluster.filterSensitiveLog)
+      EcsClusters: obj.EcsClusters.map(item =>
+        EcsCluster.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeEcsClustersResult =>
@@ -2737,7 +2755,7 @@ export namespace DescribeElasticIpsResult {
   export const filterSensitiveLog = (obj: DescribeElasticIpsResult): any => ({
     ...obj,
     ...(obj.ElasticIps && {
-      ElasticIps: obj.ElasticIps.map(ElasticIp.filterSensitiveLog)
+      ElasticIps: obj.ElasticIps.map(item => ElasticIp.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeElasticIpsResult =>
@@ -2785,8 +2803,8 @@ export namespace DescribeElasticLoadBalancersResult {
   ): any => ({
     ...obj,
     ...(obj.ElasticLoadBalancers && {
-      ElasticLoadBalancers: obj.ElasticLoadBalancers.map(
-        ElasticLoadBalancer.filterSensitiveLog
+      ElasticLoadBalancers: obj.ElasticLoadBalancers.map(item =>
+        ElasticLoadBalancer.filterSensitiveLog(item)
       )
     })
   });
@@ -2839,7 +2857,7 @@ export namespace DescribeInstancesResult {
   export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
     ...obj,
     ...(obj.Instances && {
-      Instances: obj.Instances.map(Instance.filterSensitiveLog)
+      Instances: obj.Instances.map(item => Instance.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeInstancesResult =>
@@ -2882,7 +2900,9 @@ export interface DescribeLayersResult {
 export namespace DescribeLayersResult {
   export const filterSensitiveLog = (obj: DescribeLayersResult): any => ({
     ...obj,
-    ...(obj.Layers && { Layers: obj.Layers.map(Layer.filterSensitiveLog) })
+    ...(obj.Layers && {
+      Layers: obj.Layers.map(item => Layer.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeLayersResult =>
     __isa(o, "DescribeLayersResult");
@@ -2925,7 +2945,7 @@ export namespace DescribeLoadBasedAutoScalingResult {
     ...obj,
     ...(obj.LoadBasedAutoScalingConfigurations && {
       LoadBasedAutoScalingConfigurations: obj.LoadBasedAutoScalingConfigurations.map(
-        LoadBasedAutoScalingConfiguration.filterSensitiveLog
+        item => LoadBasedAutoScalingConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -2974,8 +2994,8 @@ export namespace DescribeOperatingSystemsResponse {
   ): any => ({
     ...obj,
     ...(obj.OperatingSystems && {
-      OperatingSystems: obj.OperatingSystems.map(
-        OperatingSystem.filterSensitiveLog
+      OperatingSystems: obj.OperatingSystems.map(item =>
+        OperatingSystem.filterSensitiveLog(item)
       )
     })
   });
@@ -3034,7 +3054,9 @@ export namespace DescribePermissionsResult {
   export const filterSensitiveLog = (obj: DescribePermissionsResult): any => ({
     ...obj,
     ...(obj.Permissions && {
-      Permissions: obj.Permissions.map(Permission.filterSensitiveLog)
+      Permissions: obj.Permissions.map(item =>
+        Permission.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribePermissionsResult =>
@@ -3085,7 +3107,7 @@ export namespace DescribeRaidArraysResult {
   export const filterSensitiveLog = (obj: DescribeRaidArraysResult): any => ({
     ...obj,
     ...(obj.RaidArrays && {
-      RaidArrays: obj.RaidArrays.map(RaidArray.filterSensitiveLog)
+      RaidArrays: obj.RaidArrays.map(item => RaidArray.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeRaidArraysResult =>
@@ -3132,7 +3154,9 @@ export namespace DescribeRdsDbInstancesResult {
   ): any => ({
     ...obj,
     ...(obj.RdsDbInstances && {
-      RdsDbInstances: obj.RdsDbInstances.map(RdsDbInstance.filterSensitiveLog)
+      RdsDbInstances: obj.RdsDbInstances.map(item =>
+        RdsDbInstance.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeRdsDbInstancesResult =>
@@ -3188,7 +3212,9 @@ export namespace DescribeServiceErrorsResult {
   ): any => ({
     ...obj,
     ...(obj.ServiceErrors && {
-      ServiceErrors: obj.ServiceErrors.map(ServiceError.filterSensitiveLog)
+      ServiceErrors: obj.ServiceErrors.map(item =>
+        ServiceError.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeServiceErrorsResult =>
@@ -3312,7 +3338,9 @@ export interface DescribeStacksResult {
 export namespace DescribeStacksResult {
   export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
     ...obj,
-    ...(obj.Stacks && { Stacks: obj.Stacks.map(Stack.filterSensitiveLog) })
+    ...(obj.Stacks && {
+      Stacks: obj.Stacks.map(item => Stack.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeStacksResult =>
     __isa(o, "DescribeStacksResult");
@@ -3355,7 +3383,7 @@ export namespace DescribeTimeBasedAutoScalingResult {
     ...obj,
     ...(obj.TimeBasedAutoScalingConfigurations && {
       TimeBasedAutoScalingConfigurations: obj.TimeBasedAutoScalingConfigurations.map(
-        TimeBasedAutoScalingConfiguration.filterSensitiveLog
+        item => TimeBasedAutoScalingConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -3396,7 +3424,9 @@ export namespace DescribeUserProfilesResult {
   export const filterSensitiveLog = (obj: DescribeUserProfilesResult): any => ({
     ...obj,
     ...(obj.UserProfiles && {
-      UserProfiles: obj.UserProfiles.map(UserProfile.filterSensitiveLog)
+      UserProfiles: obj.UserProfiles.map(item =>
+        UserProfile.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeUserProfilesResult =>
@@ -3452,7 +3482,9 @@ export interface DescribeVolumesResult {
 export namespace DescribeVolumesResult {
   export const filterSensitiveLog = (obj: DescribeVolumesResult): any => ({
     ...obj,
-    ...(obj.Volumes && { Volumes: obj.Volumes.map(Volume.filterSensitiveLog) })
+    ...(obj.Volumes && {
+      Volumes: obj.Volumes.map(item => Volume.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeVolumesResult =>
     __isa(o, "DescribeVolumesResult");
@@ -4105,8 +4137,8 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
     ...(obj.BlockDeviceMappings && {
-      BlockDeviceMappings: obj.BlockDeviceMappings.map(
-        BlockDeviceMapping.filterSensitiveLog
+      BlockDeviceMappings: obj.BlockDeviceMappings.map(item =>
+        BlockDeviceMapping.filterSensitiveLog(item)
       )
     }),
     ...(obj.ReportedOs && {
@@ -4423,8 +4455,8 @@ export namespace Layer {
       )
     }),
     ...(obj.VolumeConfigurations && {
-      VolumeConfigurations: obj.VolumeConfigurations.map(
-        VolumeConfiguration.filterSensitiveLog
+      VolumeConfigurations: obj.VolumeConfigurations.map(item =>
+        VolumeConfiguration.filterSensitiveLog(item)
       )
     })
   });
@@ -4642,8 +4674,8 @@ export namespace OperatingSystem {
   export const filterSensitiveLog = (obj: OperatingSystem): any => ({
     ...obj,
     ...(obj.ConfigurationManagers && {
-      ConfigurationManagers: obj.ConfigurationManagers.map(
-        OperatingSystemConfigurationManager.filterSensitiveLog
+      ConfigurationManagers: obj.ConfigurationManagers.map(item =>
+        OperatingSystemConfigurationManager.filterSensitiveLog(item)
       )
     })
   });
@@ -6081,10 +6113,14 @@ export namespace UpdateAppRequest {
       AppSource: Source.filterSensitiveLog(obj.AppSource)
     }),
     ...(obj.DataSources && {
-      DataSources: obj.DataSources.map(DataSource.filterSensitiveLog)
+      DataSources: obj.DataSources.map(item =>
+        DataSource.filterSensitiveLog(item)
+      )
     }),
     ...(obj.Environment && {
-      Environment: obj.Environment.map(EnvironmentVariable.filterSensitiveLog)
+      Environment: obj.Environment.map(item =>
+        EnvironmentVariable.filterSensitiveLog(item)
+      )
     }),
     ...(obj.SslConfiguration && {
       SslConfiguration: SslConfiguration.filterSensitiveLog(
@@ -6382,8 +6418,8 @@ export namespace UpdateLayerRequest {
       )
     }),
     ...(obj.VolumeConfigurations && {
-      VolumeConfigurations: obj.VolumeConfigurations.map(
-        VolumeConfiguration.filterSensitiveLog
+      VolumeConfigurations: obj.VolumeConfigurations.map(item =>
+        VolumeConfiguration.filterSensitiveLog(item)
       )
     })
   });

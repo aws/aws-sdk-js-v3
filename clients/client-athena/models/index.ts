@@ -38,11 +38,13 @@ export namespace BatchGetNamedQueryOutput {
   export const filterSensitiveLog = (obj: BatchGetNamedQueryOutput): any => ({
     ...obj,
     ...(obj.NamedQueries && {
-      NamedQueries: obj.NamedQueries.map(NamedQuery.filterSensitiveLog)
+      NamedQueries: obj.NamedQueries.map(item =>
+        NamedQuery.filterSensitiveLog(item)
+      )
     }),
     ...(obj.UnprocessedNamedQueryIds && {
-      UnprocessedNamedQueryIds: obj.UnprocessedNamedQueryIds.map(
-        UnprocessedNamedQueryId.filterSensitiveLog
+      UnprocessedNamedQueryIds: obj.UnprocessedNamedQueryIds.map(item =>
+        UnprocessedNamedQueryId.filterSensitiveLog(item)
       )
     })
   });
@@ -87,13 +89,13 @@ export namespace BatchGetQueryExecutionOutput {
   ): any => ({
     ...obj,
     ...(obj.QueryExecutions && {
-      QueryExecutions: obj.QueryExecutions.map(
-        QueryExecution.filterSensitiveLog
+      QueryExecutions: obj.QueryExecutions.map(item =>
+        QueryExecution.filterSensitiveLog(item)
       )
     }),
     ...(obj.UnprocessedQueryExecutionIds && {
-      UnprocessedQueryExecutionIds: obj.UnprocessedQueryExecutionIds.map(
-        UnprocessedQueryExecutionId.filterSensitiveLog
+      UnprocessedQueryExecutionIds: obj.UnprocessedQueryExecutionIds.map(item =>
+        UnprocessedQueryExecutionId.filterSensitiveLog(item)
       )
     })
   });
@@ -266,7 +268,9 @@ export namespace CreateWorkGroupInput {
         obj.Configuration
       )
     }),
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateWorkGroupInput =>
     __isa(o, "CreateWorkGroupInput");
@@ -741,7 +745,9 @@ export interface ListTagsForResourceOutput {
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -785,7 +791,9 @@ export namespace ListWorkGroupsOutput {
   export const filterSensitiveLog = (obj: ListWorkGroupsOutput): any => ({
     ...obj,
     ...(obj.WorkGroups && {
-      WorkGroups: obj.WorkGroups.map(WorkGroupSummary.filterSensitiveLog)
+      WorkGroups: obj.WorkGroups.map(item =>
+        WorkGroupSummary.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListWorkGroupsOutput =>
@@ -1165,7 +1173,9 @@ export namespace ResultSet {
         obj.ResultSetMetadata
       )
     }),
-    ...(obj.Rows && { Rows: obj.Rows.map(Row.filterSensitiveLog) })
+    ...(obj.Rows && {
+      Rows: obj.Rows.map(item => Row.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ResultSet => __isa(o, "ResultSet");
 }
@@ -1186,7 +1196,9 @@ export namespace ResultSetMetadata {
   export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
     ...obj,
     ...(obj.ColumnInfo && {
-      ColumnInfo: obj.ColumnInfo.map(ColumnInfo.filterSensitiveLog)
+      ColumnInfo: obj.ColumnInfo.map(item =>
+        ColumnInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ResultSetMetadata =>
@@ -1207,7 +1219,9 @@ export interface Row {
 export namespace Row {
   export const filterSensitiveLog = (obj: Row): any => ({
     ...obj,
-    ...(obj.Data && { Data: obj.Data.map(Datum.filterSensitiveLog) })
+    ...(obj.Data && {
+      Data: obj.Data.map(item => Datum.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is Row => __isa(o, "Row");
 }
@@ -1359,7 +1373,9 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");

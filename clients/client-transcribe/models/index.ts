@@ -582,8 +582,8 @@ export namespace ListTranscriptionJobsResponse {
   ): any => ({
     ...obj,
     ...(obj.TranscriptionJobSummaries && {
-      TranscriptionJobSummaries: obj.TranscriptionJobSummaries.map(
-        TranscriptionJobSummary.filterSensitiveLog
+      TranscriptionJobSummaries: obj.TranscriptionJobSummaries.map(item =>
+        TranscriptionJobSummary.filterSensitiveLog(item)
       )
     })
   });
@@ -655,7 +655,9 @@ export namespace ListVocabulariesResponse {
   export const filterSensitiveLog = (obj: ListVocabulariesResponse): any => ({
     ...obj,
     ...(obj.Vocabularies && {
-      Vocabularies: obj.Vocabularies.map(VocabularyInfo.filterSensitiveLog)
+      Vocabularies: obj.Vocabularies.map(item =>
+        VocabularyInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListVocabulariesResponse =>
@@ -721,8 +723,8 @@ export namespace ListVocabularyFiltersResponse {
   ): any => ({
     ...obj,
     ...(obj.VocabularyFilters && {
-      VocabularyFilters: obj.VocabularyFilters.map(
-        VocabularyFilterInfo.filterSensitiveLog
+      VocabularyFilters: obj.VocabularyFilters.map(item =>
+        VocabularyFilterInfo.filterSensitiveLog(item)
       )
     })
   });

@@ -94,7 +94,9 @@ export interface DescribeVoicesOutput {
 export namespace DescribeVoicesOutput {
   export const filterSensitiveLog = (obj: DescribeVoicesOutput): any => ({
     ...obj,
-    ...(obj.Voices && { Voices: obj.Voices.map(Voice.filterSensitiveLog) })
+    ...(obj.Voices && {
+      Voices: obj.Voices.map(item => Voice.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeVoicesOutput =>
     __isa(o, "DescribeVoicesOutput");
@@ -610,7 +612,9 @@ export namespace ListLexiconsOutput {
   export const filterSensitiveLog = (obj: ListLexiconsOutput): any => ({
     ...obj,
     ...(obj.Lexicons && {
-      Lexicons: obj.Lexicons.map(LexiconDescription.filterSensitiveLog)
+      Lexicons: obj.Lexicons.map(item =>
+        LexiconDescription.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListLexiconsOutput =>
@@ -667,7 +671,9 @@ export namespace ListSpeechSynthesisTasksOutput {
   ): any => ({
     ...obj,
     ...(obj.SynthesisTasks && {
-      SynthesisTasks: obj.SynthesisTasks.map(SynthesisTask.filterSensitiveLog)
+      SynthesisTasks: obj.SynthesisTasks.map(item =>
+        SynthesisTask.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListSpeechSynthesisTasksOutput =>

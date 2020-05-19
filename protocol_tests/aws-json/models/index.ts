@@ -95,7 +95,9 @@ export namespace KitchenSink {
       EmptyStruct: EmptyStruct.filterSensitiveLog(obj.EmptyStruct)
     }),
     ...(obj.ListOfStructs && {
-      ListOfStructs: obj.ListOfStructs.map(SimpleStruct.filterSensitiveLog)
+      ListOfStructs: obj.ListOfStructs.map(item =>
+        SimpleStruct.filterSensitiveLog(item)
+      )
     }),
     ...(obj.MapOfStructs && {
       MapOfStructs: Object.entries(obj.MapOfStructs).reduce(
@@ -107,7 +109,9 @@ export namespace KitchenSink {
       )
     }),
     ...(obj.RecursiveList && {
-      RecursiveList: obj.RecursiveList.map(KitchenSink.filterSensitiveLog)
+      RecursiveList: obj.RecursiveList.map(item =>
+        KitchenSink.filterSensitiveLog(item)
+      )
     }),
     ...(obj.RecursiveMap && {
       RecursiveMap: Object.entries(obj.RecursiveMap).reduce(

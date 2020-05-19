@@ -126,7 +126,7 @@ export namespace AuthorizeIpRulesRequest {
   export const filterSensitiveLog = (obj: AuthorizeIpRulesRequest): any => ({
     ...obj,
     ...(obj.UserRules && {
-      UserRules: obj.UserRules.map(IpRuleItem.filterSensitiveLog)
+      UserRules: obj.UserRules.map(item => IpRuleItem.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is AuthorizeIpRulesRequest =>
@@ -260,7 +260,9 @@ export interface CopyWorkspaceImageRequest {
 export namespace CopyWorkspaceImageRequest {
   export const filterSensitiveLog = (obj: CopyWorkspaceImageRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CopyWorkspaceImageRequest =>
     __isa(o, "CopyWorkspaceImageRequest");
@@ -308,9 +310,11 @@ export interface CreateIpGroupRequest {
 export namespace CreateIpGroupRequest {
   export const filterSensitiveLog = (obj: CreateIpGroupRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.UserRules && {
-      UserRules: obj.UserRules.map(IpRuleItem.filterSensitiveLog)
+      UserRules: obj.UserRules.map(item => IpRuleItem.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateIpGroupRequest =>
@@ -351,7 +355,9 @@ export interface CreateTagsRequest {
 export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateTagsRequest =>
     __isa(o, "CreateTagsRequest");
@@ -381,7 +387,9 @@ export namespace CreateWorkspacesRequest {
   export const filterSensitiveLog = (obj: CreateWorkspacesRequest): any => ({
     ...obj,
     ...(obj.Workspaces && {
-      Workspaces: obj.Workspaces.map(WorkspaceRequest.filterSensitiveLog)
+      Workspaces: obj.Workspaces.map(item =>
+        WorkspaceRequest.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CreateWorkspacesRequest =>
@@ -408,12 +416,14 @@ export namespace CreateWorkspacesResult {
   export const filterSensitiveLog = (obj: CreateWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
-      FailedRequests: obj.FailedRequests.map(
-        FailedCreateWorkspaceRequest.filterSensitiveLog
+      FailedRequests: obj.FailedRequests.map(item =>
+        FailedCreateWorkspaceRequest.filterSensitiveLog(item)
       )
     }),
     ...(obj.PendingRequests && {
-      PendingRequests: obj.PendingRequests.map(Workspace.filterSensitiveLog)
+      PendingRequests: obj.PendingRequests.map(item =>
+        Workspace.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is CreateWorkspacesResult =>
@@ -656,8 +666,8 @@ export namespace DescribeAccountModificationsResult {
   ): any => ({
     ...obj,
     ...(obj.AccountModifications && {
-      AccountModifications: obj.AccountModifications.map(
-        AccountModification.filterSensitiveLog
+      AccountModifications: obj.AccountModifications.map(item =>
+        AccountModification.filterSensitiveLog(item)
       )
     })
   });
@@ -734,8 +744,8 @@ export namespace DescribeClientPropertiesResult {
   ): any => ({
     ...obj,
     ...(obj.ClientPropertiesList && {
-      ClientPropertiesList: obj.ClientPropertiesList.map(
-        ClientPropertiesResult.filterSensitiveLog
+      ClientPropertiesList: obj.ClientPropertiesList.map(item =>
+        ClientPropertiesResult.filterSensitiveLog(item)
       )
     })
   });
@@ -788,7 +798,7 @@ export namespace DescribeIpGroupsResult {
   export const filterSensitiveLog = (obj: DescribeIpGroupsResult): any => ({
     ...obj,
     ...(obj.Result && {
-      Result: obj.Result.map(WorkspacesIpGroup.filterSensitiveLog)
+      Result: obj.Result.map(item => WorkspacesIpGroup.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeIpGroupsResult =>
@@ -823,7 +833,9 @@ export interface DescribeTagsResult {
 export namespace DescribeTagsResult {
   export const filterSensitiveLog = (obj: DescribeTagsResult): any => ({
     ...obj,
-    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeTagsResult =>
     __isa(o, "DescribeTagsResult");
@@ -879,7 +891,7 @@ export namespace DescribeWorkspaceBundlesResult {
   ): any => ({
     ...obj,
     ...(obj.Bundles && {
-      Bundles: obj.Bundles.map(WorkspaceBundle.filterSensitiveLog)
+      Bundles: obj.Bundles.map(item => WorkspaceBundle.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeWorkspaceBundlesResult =>
@@ -936,7 +948,9 @@ export namespace DescribeWorkspaceDirectoriesResult {
   ): any => ({
     ...obj,
     ...(obj.Directories && {
-      Directories: obj.Directories.map(WorkspaceDirectory.filterSensitiveLog)
+      Directories: obj.Directories.map(item =>
+        WorkspaceDirectory.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeWorkspaceDirectoriesResult =>
@@ -992,7 +1006,7 @@ export namespace DescribeWorkspaceImagesResult {
   ): any => ({
     ...obj,
     ...(obj.Images && {
-      Images: obj.Images.map(WorkspaceImage.filterSensitiveLog)
+      Images: obj.Images.map(item => WorkspaceImage.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeWorkspaceImagesResult =>
@@ -1038,10 +1052,14 @@ export namespace DescribeWorkspaceSnapshotsResult {
   ): any => ({
     ...obj,
     ...(obj.RebuildSnapshots && {
-      RebuildSnapshots: obj.RebuildSnapshots.map(Snapshot.filterSensitiveLog)
+      RebuildSnapshots: obj.RebuildSnapshots.map(item =>
+        Snapshot.filterSensitiveLog(item)
+      )
     }),
     ...(obj.RestoreSnapshots && {
-      RestoreSnapshots: obj.RestoreSnapshots.map(Snapshot.filterSensitiveLog)
+      RestoreSnapshots: obj.RestoreSnapshots.map(item =>
+        Snapshot.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeWorkspaceSnapshotsResult =>
@@ -1092,8 +1110,8 @@ export namespace DescribeWorkspacesConnectionStatusResult {
   ): any => ({
     ...obj,
     ...(obj.WorkspacesConnectionStatus && {
-      WorkspacesConnectionStatus: obj.WorkspacesConnectionStatus.map(
-        WorkspaceConnectionStatus.filterSensitiveLog
+      WorkspacesConnectionStatus: obj.WorkspacesConnectionStatus.map(item =>
+        WorkspaceConnectionStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -1170,7 +1188,7 @@ export namespace DescribeWorkspacesResult {
   export const filterSensitiveLog = (obj: DescribeWorkspacesResult): any => ({
     ...obj,
     ...(obj.Workspaces && {
-      Workspaces: obj.Workspaces.map(Workspace.filterSensitiveLog)
+      Workspaces: obj.Workspaces.map(item => Workspace.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeWorkspacesResult =>
@@ -1316,7 +1334,9 @@ export namespace ImportWorkspaceImageRequest {
     obj: ImportWorkspaceImageRequest
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is ImportWorkspaceImageRequest =>
     __isa(o, "ImportWorkspaceImageRequest");
@@ -1916,8 +1936,8 @@ export namespace RebootWorkspacesRequest {
   export const filterSensitiveLog = (obj: RebootWorkspacesRequest): any => ({
     ...obj,
     ...(obj.RebootWorkspaceRequests && {
-      RebootWorkspaceRequests: obj.RebootWorkspaceRequests.map(
-        RebootRequest.filterSensitiveLog
+      RebootWorkspaceRequests: obj.RebootWorkspaceRequests.map(item =>
+        RebootRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -1937,8 +1957,8 @@ export namespace RebootWorkspacesResult {
   export const filterSensitiveLog = (obj: RebootWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
-      FailedRequests: obj.FailedRequests.map(
-        FailedWorkspaceChangeRequest.filterSensitiveLog
+      FailedRequests: obj.FailedRequests.map(item =>
+        FailedWorkspaceChangeRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -1977,8 +1997,8 @@ export namespace RebuildWorkspacesRequest {
   export const filterSensitiveLog = (obj: RebuildWorkspacesRequest): any => ({
     ...obj,
     ...(obj.RebuildWorkspaceRequests && {
-      RebuildWorkspaceRequests: obj.RebuildWorkspaceRequests.map(
-        RebuildRequest.filterSensitiveLog
+      RebuildWorkspaceRequests: obj.RebuildWorkspaceRequests.map(item =>
+        RebuildRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -1998,8 +2018,8 @@ export namespace RebuildWorkspacesResult {
   export const filterSensitiveLog = (obj: RebuildWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
-      FailedRequests: obj.FailedRequests.map(
-        FailedWorkspaceChangeRequest.filterSensitiveLog
+      FailedRequests: obj.FailedRequests.map(item =>
+        FailedWorkspaceChangeRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -2062,7 +2082,9 @@ export namespace RegisterWorkspaceDirectoryRequest {
     obj: RegisterWorkspaceDirectoryRequest
   ): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is RegisterWorkspaceDirectoryRequest =>
     __isa(o, "RegisterWorkspaceDirectoryRequest");
@@ -2398,8 +2420,8 @@ export namespace StartWorkspacesRequest {
   export const filterSensitiveLog = (obj: StartWorkspacesRequest): any => ({
     ...obj,
     ...(obj.StartWorkspaceRequests && {
-      StartWorkspaceRequests: obj.StartWorkspaceRequests.map(
-        StartRequest.filterSensitiveLog
+      StartWorkspaceRequests: obj.StartWorkspaceRequests.map(item =>
+        StartRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -2419,8 +2441,8 @@ export namespace StartWorkspacesResult {
   export const filterSensitiveLog = (obj: StartWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
-      FailedRequests: obj.FailedRequests.map(
-        FailedWorkspaceChangeRequest.filterSensitiveLog
+      FailedRequests: obj.FailedRequests.map(item =>
+        FailedWorkspaceChangeRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -2458,8 +2480,8 @@ export namespace StopWorkspacesRequest {
   export const filterSensitiveLog = (obj: StopWorkspacesRequest): any => ({
     ...obj,
     ...(obj.StopWorkspaceRequests && {
-      StopWorkspaceRequests: obj.StopWorkspaceRequests.map(
-        StopRequest.filterSensitiveLog
+      StopWorkspaceRequests: obj.StopWorkspaceRequests.map(item =>
+        StopRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -2479,8 +2501,8 @@ export namespace StopWorkspacesResult {
   export const filterSensitiveLog = (obj: StopWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
-      FailedRequests: obj.FailedRequests.map(
-        FailedWorkspaceChangeRequest.filterSensitiveLog
+      FailedRequests: obj.FailedRequests.map(item =>
+        FailedWorkspaceChangeRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -2552,8 +2574,8 @@ export namespace TerminateWorkspacesRequest {
   export const filterSensitiveLog = (obj: TerminateWorkspacesRequest): any => ({
     ...obj,
     ...(obj.TerminateWorkspaceRequests && {
-      TerminateWorkspaceRequests: obj.TerminateWorkspaceRequests.map(
-        TerminateRequest.filterSensitiveLog
+      TerminateWorkspaceRequests: obj.TerminateWorkspaceRequests.map(item =>
+        TerminateRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -2573,8 +2595,8 @@ export namespace TerminateWorkspacesResult {
   export const filterSensitiveLog = (obj: TerminateWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
-      FailedRequests: obj.FailedRequests.map(
-        FailedWorkspaceChangeRequest.filterSensitiveLog
+      FailedRequests: obj.FailedRequests.map(item =>
+        FailedWorkspaceChangeRequest.filterSensitiveLog(item)
       )
     })
   });
@@ -2650,7 +2672,7 @@ export namespace UpdateRulesOfIpGroupRequest {
   ): any => ({
     ...obj,
     ...(obj.UserRules && {
-      UserRules: obj.UserRules.map(IpRuleItem.filterSensitiveLog)
+      UserRules: obj.UserRules.map(item => IpRuleItem.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is UpdateRulesOfIpGroupRequest =>
@@ -2774,8 +2796,8 @@ export namespace Workspace {
   export const filterSensitiveLog = (obj: Workspace): any => ({
     ...obj,
     ...(obj.ModificationStates && {
-      ModificationStates: obj.ModificationStates.map(
-        ModificationState.filterSensitiveLog
+      ModificationStates: obj.ModificationStates.map(item =>
+        ModificationState.filterSensitiveLog(item)
       )
     }),
     ...(obj.WorkspaceProperties && {
@@ -3289,7 +3311,9 @@ export interface WorkspaceRequest {
 export namespace WorkspaceRequest {
   export const filterSensitiveLog = (obj: WorkspaceRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
     ...(obj.WorkspaceProperties && {
       WorkspaceProperties: WorkspaceProperties.filterSensitiveLog(
         obj.WorkspaceProperties
@@ -3372,7 +3396,7 @@ export namespace WorkspacesIpGroup {
   export const filterSensitiveLog = (obj: WorkspacesIpGroup): any => ({
     ...obj,
     ...(obj.userRules && {
-      userRules: obj.userRules.map(IpRuleItem.filterSensitiveLog)
+      userRules: obj.userRules.map(item => IpRuleItem.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is WorkspacesIpGroup =>

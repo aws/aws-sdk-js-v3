@@ -103,8 +103,8 @@ export namespace AgentInfo {
   export const filterSensitiveLog = (obj: AgentInfo): any => ({
     ...obj,
     ...(obj.agentNetworkInfoList && {
-      agentNetworkInfoList: obj.agentNetworkInfoList.map(
-        AgentNetworkInfo.filterSensitiveLog
+      agentNetworkInfoList: obj.agentNetworkInfoList.map(item =>
+        AgentNetworkInfo.filterSensitiveLog(item)
       )
     })
   });
@@ -276,7 +276,9 @@ export namespace BatchDeleteImportDataResponse {
   ): any => ({
     ...obj,
     ...(obj.errors && {
-      errors: obj.errors.map(BatchDeleteImportDataError.filterSensitiveLog)
+      errors: obj.errors.map(item =>
+        BatchDeleteImportDataError.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchDeleteImportDataResponse =>
@@ -554,7 +556,9 @@ export interface CreateTagsRequest {
 export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is CreateTagsRequest =>
     __isa(o, "CreateTagsRequest");
@@ -723,7 +727,9 @@ export interface DeleteTagsRequest {
 export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DeleteTagsRequest =>
     __isa(o, "DeleteTagsRequest");
@@ -777,7 +783,9 @@ export interface DescribeAgentsRequest {
 export namespace DescribeAgentsRequest {
   export const filterSensitiveLog = (obj: DescribeAgentsRequest): any => ({
     ...obj,
-    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
+    ...(obj.filters && {
+      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeAgentsRequest =>
     __isa(o, "DescribeAgentsRequest");
@@ -806,7 +814,7 @@ export namespace DescribeAgentsResponse {
   export const filterSensitiveLog = (obj: DescribeAgentsResponse): any => ({
     ...obj,
     ...(obj.agentsInfo && {
-      agentsInfo: obj.agentsInfo.map(AgentInfo.filterSensitiveLog)
+      agentsInfo: obj.agentsInfo.map(item => AgentInfo.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeAgentsResponse =>
@@ -897,8 +905,8 @@ export namespace DescribeContinuousExportsResponse {
   ): any => ({
     ...obj,
     ...(obj.descriptions && {
-      descriptions: obj.descriptions.map(
-        ContinuousExportDescription.filterSensitiveLog
+      descriptions: obj.descriptions.map(item =>
+        ContinuousExportDescription.filterSensitiveLog(item)
       )
     })
   });
@@ -954,7 +962,9 @@ export namespace DescribeExportConfigurationsResponse {
   ): any => ({
     ...obj,
     ...(obj.exportsInfo && {
-      exportsInfo: obj.exportsInfo.map(ExportInfo.filterSensitiveLog)
+      exportsInfo: obj.exportsInfo.map(item =>
+        ExportInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeExportConfigurationsResponse =>
@@ -1002,7 +1012,7 @@ export namespace DescribeExportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(ExportFilter.filterSensitiveLog)
+      filters: obj.filters.map(item => ExportFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeExportTasksRequest =>
@@ -1034,7 +1044,9 @@ export namespace DescribeExportTasksResponse {
   ): any => ({
     ...obj,
     ...(obj.exportsInfo && {
-      exportsInfo: obj.exportsInfo.map(ExportInfo.filterSensitiveLog)
+      exportsInfo: obj.exportsInfo.map(item =>
+        ExportInfo.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeExportTasksResponse =>
@@ -1065,7 +1077,9 @@ export namespace DescribeImportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeImportTasksRequest): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(ImportTaskFilter.filterSensitiveLog)
+      filters: obj.filters.map(item =>
+        ImportTaskFilter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is DescribeImportTasksRequest =>
@@ -1091,7 +1105,9 @@ export namespace DescribeImportTasksResponse {
     obj: DescribeImportTasksResponse
   ): any => ({
     ...obj,
-    ...(obj.tasks && { tasks: obj.tasks.map(ImportTask.filterSensitiveLog) })
+    ...(obj.tasks && {
+      tasks: obj.tasks.map(item => ImportTask.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeImportTasksResponse =>
     __isa(o, "DescribeImportTasksResponse");
@@ -1122,7 +1138,7 @@ export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(TagFilter.filterSensitiveLog)
+      filters: obj.filters.map(item => TagFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeTagsRequest =>
@@ -1146,7 +1162,9 @@ export interface DescribeTagsResponse {
 export namespace DescribeTagsResponse {
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
     ...obj,
-    ...(obj.tags && { tags: obj.tags.map(ConfigurationTag.filterSensitiveLog) })
+    ...(obj.tags && {
+      tags: obj.tags.map(item => ConfigurationTag.filterSensitiveLog(item))
+    })
   });
   export const isa = (o: any): o is DescribeTagsResponse =>
     __isa(o, "DescribeTagsResponse");
@@ -1675,9 +1693,11 @@ export interface ListConfigurationsRequest {
 export namespace ListConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
     ...obj,
-    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) }),
+    ...(obj.filters && {
+      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
+    }),
     ...(obj.orderBy && {
-      orderBy: obj.orderBy.map(OrderByElement.filterSensitiveLog)
+      orderBy: obj.orderBy.map(item => OrderByElement.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListConfigurationsRequest =>
@@ -1778,7 +1798,9 @@ export namespace ListServerNeighborsResponse {
   ): any => ({
     ...obj,
     ...(obj.neighbors && {
-      neighbors: obj.neighbors.map(NeighborConnectionDetail.filterSensitiveLog)
+      neighbors: obj.neighbors.map(item =>
+        NeighborConnectionDetail.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListServerNeighborsResponse =>
@@ -2033,8 +2055,8 @@ export namespace StartDataCollectionByAgentIdsResponse {
   ): any => ({
     ...obj,
     ...(obj.agentsConfigurationStatus && {
-      agentsConfigurationStatus: obj.agentsConfigurationStatus.map(
-        AgentConfigurationStatus.filterSensitiveLog
+      agentsConfigurationStatus: obj.agentsConfigurationStatus.map(item =>
+        AgentConfigurationStatus.filterSensitiveLog(item)
       )
     })
   });
@@ -2083,7 +2105,7 @@ export namespace StartExportTaskRequest {
   export const filterSensitiveLog = (obj: StartExportTaskRequest): any => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(ExportFilter.filterSensitiveLog)
+      filters: obj.filters.map(item => ExportFilter.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is StartExportTaskRequest =>
@@ -2240,8 +2262,8 @@ export namespace StopDataCollectionByAgentIdsResponse {
   ): any => ({
     ...obj,
     ...(obj.agentsConfigurationStatus && {
-      agentsConfigurationStatus: obj.agentsConfigurationStatus.map(
-        AgentConfigurationStatus.filterSensitiveLog
+      agentsConfigurationStatus: obj.agentsConfigurationStatus.map(item =>
+        AgentConfigurationStatus.filterSensitiveLog(item)
       )
     })
   });

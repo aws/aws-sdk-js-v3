@@ -181,7 +181,7 @@ export namespace BatchExecuteStatementRequest {
     ...obj,
     ...(obj.parameterSets && {
       parameterSets: obj.parameterSets.map(item =>
-        item.map(SqlParameter.filterSensitiveLog)
+        item.map(item => SqlParameter.filterSensitiveLog(item))
       )
     })
   });
@@ -207,7 +207,9 @@ export namespace BatchExecuteStatementResponse {
   ): any => ({
     ...obj,
     ...(obj.updateResults && {
-      updateResults: obj.updateResults.map(UpdateResult.filterSensitiveLog)
+      updateResults: obj.updateResults.map(item =>
+        UpdateResult.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is BatchExecuteStatementResponse =>
@@ -460,8 +462,8 @@ export namespace ExecuteSqlResponse {
   export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
     ...obj,
     ...(obj.sqlStatementResults && {
-      sqlStatementResults: obj.sqlStatementResults.map(
-        SqlStatementResult.filterSensitiveLog
+      sqlStatementResults: obj.sqlStatementResults.map(item =>
+        SqlStatementResult.filterSensitiveLog(item)
       )
     })
   });
@@ -535,7 +537,9 @@ export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
     ...obj,
     ...(obj.parameters && {
-      parameters: obj.parameters.map(SqlParameter.filterSensitiveLog)
+      parameters: obj.parameters.map(item =>
+        SqlParameter.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ExecuteStatementRequest =>
@@ -573,7 +577,9 @@ export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
     ...obj,
     ...(obj.columnMetadata && {
-      columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
+      columnMetadata: obj.columnMetadata.map(item =>
+        ColumnMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ExecuteStatementResponse =>
@@ -824,7 +830,7 @@ export namespace ResultFrame {
   export const filterSensitiveLog = (obj: ResultFrame): any => ({
     ...obj,
     ...(obj.records && {
-      records: obj.records.map(_Record.filterSensitiveLog)
+      records: obj.records.map(item => _Record.filterSensitiveLog(item))
     }),
     ...(obj.resultSetMetadata && {
       resultSetMetadata: ResultSetMetadata.filterSensitiveLog(
@@ -855,7 +861,9 @@ export namespace ResultSetMetadata {
   export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
     ...obj,
     ...(obj.columnMetadata && {
-      columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
+      columnMetadata: obj.columnMetadata.map(item =>
+        ColumnMetadata.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ResultSetMetadata =>

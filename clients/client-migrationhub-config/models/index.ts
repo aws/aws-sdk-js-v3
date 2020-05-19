@@ -142,8 +142,8 @@ export namespace DescribeHomeRegionControlsResult {
   ): any => ({
     ...obj,
     ...(obj.HomeRegionControls && {
-      HomeRegionControls: obj.HomeRegionControls.map(
-        HomeRegionControl.filterSensitiveLog
+      HomeRegionControls: obj.HomeRegionControls.map(item =>
+        HomeRegionControl.filterSensitiveLog(item)
       )
     })
   });

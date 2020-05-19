@@ -150,7 +150,9 @@ export namespace CmafPackage {
       Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
     }),
     ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(HlsManifest.filterSensitiveLog)
+      HlsManifests: obj.HlsManifests.map(item =>
+        HlsManifest.filterSensitiveLog(item)
+      )
     }),
     ...(obj.StreamSelection && {
       StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
@@ -200,8 +202,8 @@ export namespace CmafPackageCreateOrUpdateParameters {
       Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
     }),
     ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(
-        HlsManifestCreateOrUpdateParameters.filterSensitiveLog
+      HlsManifests: obj.HlsManifests.map(item =>
+        HlsManifestCreateOrUpdateParameters.filterSensitiveLog(item)
       )
     }),
     ...(obj.StreamSelection && {
@@ -1205,8 +1207,8 @@ export namespace HlsIngest {
   export const filterSensitiveLog = (obj: HlsIngest): any => ({
     ...obj,
     ...(obj.IngestEndpoints && {
-      IngestEndpoints: obj.IngestEndpoints.map(
-        IngestEndpoint.filterSensitiveLog
+      IngestEndpoints: obj.IngestEndpoints.map(item =>
+        IngestEndpoint.filterSensitiveLog(item)
       )
     })
   });
@@ -1558,7 +1560,7 @@ export namespace ListChannelsResponse {
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
     ...obj,
     ...(obj.Channels && {
-      Channels: obj.Channels.map(Channel.filterSensitiveLog)
+      Channels: obj.Channels.map(item => Channel.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is ListChannelsResponse =>
@@ -1613,7 +1615,9 @@ export namespace ListHarvestJobsResponse {
   export const filterSensitiveLog = (obj: ListHarvestJobsResponse): any => ({
     ...obj,
     ...(obj.HarvestJobs && {
-      HarvestJobs: obj.HarvestJobs.map(HarvestJob.filterSensitiveLog)
+      HarvestJobs: obj.HarvestJobs.map(item =>
+        HarvestJob.filterSensitiveLog(item)
+      )
     })
   });
   export const isa = (o: any): o is ListHarvestJobsResponse =>
@@ -1665,8 +1669,8 @@ export namespace ListOriginEndpointsResponse {
   ): any => ({
     ...obj,
     ...(obj.OriginEndpoints && {
-      OriginEndpoints: obj.OriginEndpoints.map(
-        OriginEndpoint.filterSensitiveLog
+      OriginEndpoints: obj.OriginEndpoints.map(item =>
+        OriginEndpoint.filterSensitiveLog(item)
       )
     })
   });
