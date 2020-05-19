@@ -203,9 +203,7 @@ export interface ListChangedBlocksResponse {
 export namespace ListChangedBlocksResponse {
   export const filterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
     ...obj,
-    ...(obj.ChangedBlocks && {
-      ChangedBlocks: obj.ChangedBlocks.map(item => SENSITIVE_STRING)
-    })
+    ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is ListChangedBlocksResponse =>
     __isa(o, "ListChangedBlocksResponse");
