@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -123,7 +122,7 @@
     "com.amazonaws.mediastore#ContainerAccessLoggingEnabled": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.mediastore#ContainerInUseException": {
@@ -147,7 +146,7 @@
     "com.amazonaws.mediastore#ContainerListLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -189,17 +188,20 @@
     "com.amazonaws.mediastore#ContainerStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ACTIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "CREATING": {
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           }
-        },
+        ],
         "smithy.api#length": {
           "min": 1,
           "max": 16
@@ -238,7 +240,7 @@
           "target": "com.amazonaws.mediastore#AllowedHeaders",
           "traits": {
             "smithy.api#documentation": "<p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request\n         through the <code>Access-Control-Request-Headers</code> header. Each header name that is\n         specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in\n         the rule. Only the headers that were requested are sent back. </p>\n         <p>This element can contain only one wildcard character (*).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AllowedMethods": {
@@ -251,7 +253,7 @@
           "target": "com.amazonaws.mediastore#AllowedOrigins",
           "traits": {
             "smithy.api#documentation": "<p>One or more response headers that you want users to be able to access from their\n         applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>\n         <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string\n         value can include only one wildcard character (*), for example, http://*.example.com.\n         Additionally, you can specify only one wildcard character to allow cross-origin access for\n         all origins.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ExposeHeaders": {
@@ -301,7 +303,7 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name for the container. The name must be from 1 to 255 characters. Container\n         names must be unique to your AWS account within a specific region. As an example, you could\n         create a container named <code>movies</code> in every region, as long as you don’t have an\n         existing container with that name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -319,7 +321,7 @@
           "target": "com.amazonaws.mediastore#Container",
           "traits": {
             "smithy.api#documentation": "<p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN\n         has the following format: arn:aws:<region>:<account that owns this\n         container>:container/<name of container>. For example:\n         arn:aws:mediastore:us-west-2:111122223333:container/movies </p>\n         <p>ContainerName: The container name as specified in the request.</p>\n         <p>CreationTime: Unix time stamp.</p>\n         <p>Status: The status of container creation or deletion. The status is one of the\n         following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the\n         service is creating the container, the status is <code>CREATING</code>. When an endpoint is\n         available, the status changes to <code>ACTIVE</code>.</p>\n         <p>The return value does not include the container's endpoint. To make downstream\n         requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -354,14 +356,14 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container to delete. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#DeleteContainerOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#DeleteContainerPolicy": {
       "type": "operation",
@@ -396,14 +398,14 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that holds the policy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#DeleteContainerPolicyOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#DeleteCorsPolicy": {
       "type": "operation",
@@ -438,14 +440,14 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container to remove the policy from.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#DeleteCorsPolicyOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#DeleteLifecyclePolicy": {
       "type": "operation",
@@ -480,14 +482,14 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that holds the object lifecycle policy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#DeleteLifecyclePolicyOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#DescribeContainer": {
       "type": "operation",
@@ -596,7 +598,7 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -608,7 +610,7 @@
           "target": "com.amazonaws.mediastore#ContainerPolicy",
           "traits": {
             "smithy.api#documentation": "<p>The contents of the access policy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -646,7 +648,7 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that the policy is assigned to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -658,7 +660,7 @@
           "target": "com.amazonaws.mediastore#CorsPolicy",
           "traits": {
             "smithy.api#documentation": "<p>The CORS policy assigned to the container.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -696,7 +698,7 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that the object lifecycle policy is assigned to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -708,7 +710,7 @@
           "target": "com.amazonaws.mediastore#LifecyclePolicy",
           "traits": {
             "smithy.api#documentation": "<p>The object lifecycle policy that is assigned to the container.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -803,7 +805,7 @@
           "target": "com.amazonaws.mediastore#ContainerList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the containers.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -844,7 +846,7 @@
           "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the container.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -935,15 +937,11 @@
           "cloudFormationName": "MediaStore",
           "cloudTrailEventSource": "mediastore.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "mediastore"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.\n         You use a container endpoint to create, read, and delete objects. </p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Elemental MediaStore",
         "smithy.api#xmlNamespace": {
           "uri": "https://mediastore.amazonaws.com/doc/2017-09-01"
@@ -953,20 +951,24 @@
     "com.amazonaws.mediastore#MethodName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PUT": {
+        "smithy.api#enum": [
+          {
+            "value": "PUT",
             "name": "PUT"
           },
-          "GET": {
+          {
+            "value": "GET",
             "name": "GET"
           },
-          "DELETE": {
+          {
+            "value": "DELETE",
             "name": "DELETE"
           },
-          "HEAD": {
+          {
+            "value": "HEAD",
             "name": "HEAD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediastore#Origin": {
@@ -1031,21 +1033,21 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Policy": {
           "target": "com.amazonaws.mediastore#ContainerPolicy",
           "traits": {
             "smithy.api#documentation": "<p>The contents of the policy, which includes the following: </p>\n         <ul>\n            <li>\n               <p>One <code>Version</code> tag</p>\n            </li>\n            <li>\n               <p>One <code>Statement</code> tag that contains the standard tags for the\n               policy.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#PutContainerPolicyOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#PutCorsPolicy": {
       "type": "operation",
@@ -1077,21 +1079,21 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that you want to assign the CORS policy to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CorsPolicy": {
           "target": "com.amazonaws.mediastore#CorsPolicy",
           "traits": {
             "smithy.api#documentation": "<p>The CORS policy to apply to the container.  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#PutCorsPolicyOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#PutLifecyclePolicy": {
       "type": "operation",
@@ -1123,21 +1125,21 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that you want to assign the object lifecycle policy to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LifecyclePolicy": {
           "target": "com.amazonaws.mediastore#LifecyclePolicy",
           "traits": {
             "smithy.api#documentation": "<p>The object lifecycle policy to apply to the container.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#PutLifecyclePolicyOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#StartAccessLogging": {
       "type": "operation",
@@ -1169,14 +1171,14 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that you want to start access logging on.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#StartAccessLoggingOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#StopAccessLogging": {
       "type": "operation",
@@ -1208,14 +1210,14 @@
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the container that you want to stop access logging on.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#StopAccessLoggingOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#Tag": {
       "type": "structure",
@@ -1224,7 +1226,7 @@
           "target": "com.amazonaws.mediastore#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are\n            case-sensitive.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
@@ -1289,21 +1291,21 @@
           "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the container. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.mediastore#TagList",
           "traits": {
             "smithy.api#documentation": "<p>An array of key:value pairs that you want to add to the container. You need to specify only the tags that you want to add or update. For example,\n            suppose a container already has two tags (customer:CompanyA and priority:High). You want to change the priority tag and also add a third tag\n            (type:Contract). For TagResource, you specify the following tags: priority:Medium, type:Contract. The result is that your container has three tags:\n            customer:CompanyA, priority:Medium, and type:Contract.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#TagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediastore#TagValue": {
       "type": "string",
@@ -1347,21 +1349,21 @@
           "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the container.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.mediastore#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA\n            and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove\n            (priority).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediastore#UntagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     }
   }
 }

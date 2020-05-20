@@ -1,42 +1,41 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#CustomerDefinedValues": {
+    "com.amazonaws.marketplacecommerceanalytics#CustomerDefinedValues": {
       "type": "map",
       "key": {
-        "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#OptionalKey"
+        "target": "com.amazonaws.marketplacecommerceanalytics#OptionalKey"
       },
       "value": {
-        "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#OptionalValue"
+        "target": "com.amazonaws.marketplacecommerceanalytics#OptionalValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -45,99 +44,124 @@
         }
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DataSetPublicationDate": {
+    "com.amazonaws.marketplacecommerceanalytics#DataSetPublicationDate": {
       "type": "timestamp"
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DataSetRequestId": {
+    "com.amazonaws.marketplacecommerceanalytics#DataSetRequestId": {
       "type": "string"
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DataSetType": {
+    "com.amazonaws.marketplacecommerceanalytics#DataSetType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "customer_subscriber_hourly_monthly_subscriptions": {
+        "smithy.api#enum": [
+          {
+            "value": "customer_subscriber_hourly_monthly_subscriptions",
             "name": "CUSTOMER_SUBSCRIBER_HOURLY_MONTHLY_SUBSCRIPTIONS"
           },
-          "customer_subscriber_annual_subscriptions": {
+          {
+            "value": "customer_subscriber_annual_subscriptions",
             "name": "CUSTOMER_SUBSCRIBER_ANNUAL_SUBSCRIPTIONS"
           },
-          "daily_business_usage_by_instance_type": {
+          {
+            "value": "daily_business_usage_by_instance_type",
             "name": "DAILY_BUSINESS_USAGE_BY_INSTANCE_TYPE"
           },
-          "daily_business_fees": {
+          {
+            "value": "daily_business_fees",
             "name": "DAILY_BUSINESS_FEES"
           },
-          "daily_business_free_trial_conversions": {
+          {
+            "value": "daily_business_free_trial_conversions",
             "name": "DAILY_BUSINESS_FREE_TRIAL_CONVERSIONS"
           },
-          "daily_business_new_instances": {
+          {
+            "value": "daily_business_new_instances",
             "name": "DAILY_BUSINESS_NEW_INSTANCES"
           },
-          "daily_business_new_product_subscribers": {
+          {
+            "value": "daily_business_new_product_subscribers",
             "name": "DAILY_BUSINESS_NEW_PRODUCT_SUBSCRIBERS"
           },
-          "daily_business_canceled_product_subscribers": {
+          {
+            "value": "daily_business_canceled_product_subscribers",
             "name": "DAILY_BUSINESS_CANCELED_PRODUCT_SUBSCRIBERS"
           },
-          "monthly_revenue_billing_and_revenue_data": {
+          {
+            "value": "monthly_revenue_billing_and_revenue_data",
             "name": "MONTHLY_REVENUE_BILLING_AND_REVENUE_DATA"
           },
-          "monthly_revenue_annual_subscriptions": {
+          {
+            "value": "monthly_revenue_annual_subscriptions",
             "name": "MONTHLY_REVENUE_ANNUAL_SUBSCRIPTIONS"
           },
-          "monthly_revenue_field_demonstration_usage": {
+          {
+            "value": "monthly_revenue_field_demonstration_usage",
             "name": "MONTHLY_REVENUE_FIELD_DEMONSTRATION_USAGE"
           },
-          "monthly_revenue_flexible_payment_schedule": {
+          {
+            "value": "monthly_revenue_flexible_payment_schedule",
             "name": "MONTHLY_REVENUE_FLEXIBLE_PAYMENT_SCHEDULE"
           },
-          "disbursed_amount_by_product": {
+          {
+            "value": "disbursed_amount_by_product",
             "name": "DISBURSED_AMOUNT_BY_PRODUCT"
           },
-          "disbursed_amount_by_product_with_uncollected_funds": {
+          {
+            "value": "disbursed_amount_by_product_with_uncollected_funds",
             "name": "DISBURSED_AMOUNT_BY_PRODUCT_WITH_UNCOLLECTED_FUNDS"
           },
-          "disbursed_amount_by_instance_hours": {
+          {
+            "value": "disbursed_amount_by_instance_hours",
             "name": "DISBURSED_AMOUNT_BY_INSTANCE_HOURS"
           },
-          "disbursed_amount_by_customer_geo": {
+          {
+            "value": "disbursed_amount_by_customer_geo",
             "name": "DISBURSED_AMOUNT_BY_CUSTOMER_GEO"
           },
-          "disbursed_amount_by_age_of_uncollected_funds": {
+          {
+            "value": "disbursed_amount_by_age_of_uncollected_funds",
             "name": "DISBURSED_AMOUNT_BY_AGE_OF_UNCOLLECTED_FUNDS"
           },
-          "disbursed_amount_by_age_of_disbursed_funds": {
+          {
+            "value": "disbursed_amount_by_age_of_disbursed_funds",
             "name": "DISBURSED_AMOUNT_BY_AGE_OF_DISBURSED_FUNDS"
           },
-          "disbursed_amount_by_age_of_past_due_funds": {
+          {
+            "value": "disbursed_amount_by_age_of_past_due_funds",
             "name": "DISBURSED_AMOUNT_BY_AGE_OF_PAST_DUE_FUNDS"
           },
-          "disbursed_amount_by_uncollected_funds_breakdown": {
+          {
+            "value": "disbursed_amount_by_uncollected_funds_breakdown",
             "name": "DISBURSED_AMOUNT_BY_UNCOLLECTED_FUNDS_BREAKDOWN"
           },
-          "customer_profile_by_industry": {
+          {
+            "value": "customer_profile_by_industry",
             "name": "CUSTOMER_PROFILE_BY_INDUSTRY"
           },
-          "customer_profile_by_revenue": {
+          {
+            "value": "customer_profile_by_revenue",
             "name": "CUSTOMER_PROFILE_BY_REVENUE"
           },
-          "customer_profile_by_geography": {
+          {
+            "value": "customer_profile_by_geography",
             "name": "CUSTOMER_PROFILE_BY_GEOGRAPHY"
           },
-          "sales_compensation_billed_revenue": {
+          {
+            "value": "sales_compensation_billed_revenue",
             "name": "SALES_COMPENSATION_BILLED_REVENUE"
           },
-          "us_sales_and_use_tax_records": {
+          {
+            "value": "us_sales_and_use_tax_records",
             "name": "US_SALES_AND_USE_TAX_RECORDS"
           }
-        },
+        ],
         "smithy.api#length": {
           "min": 1,
           "max": 255
         }
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DestinationS3BucketName": {
+    "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -145,80 +169,80 @@
         }
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DestinationS3Prefix": {
+    "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix": {
       "type": "string"
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#ExceptionMessage": {
+    "com.amazonaws.marketplacecommerceanalytics#ExceptionMessage": {
       "type": "string"
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#FromDate": {
+    "com.amazonaws.marketplacecommerceanalytics#FromDate": {
       "type": "timestamp"
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#GenerateDataSet": {
+    "com.amazonaws.marketplacecommerceanalytics#GenerateDataSet": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#GenerateDataSetRequest"
+        "target": "com.amazonaws.marketplacecommerceanalytics#GenerateDataSetRequest"
       },
       "output": {
-        "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#GenerateDataSetResult"
+        "target": "com.amazonaws.marketplacecommerceanalytics#GenerateDataSetResult"
       },
       "errors": [
         {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException"
+          "target": "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "Given a data set type and data set publication date, asynchronously publishes the requested data set to the specified\n        S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request identifier that\n        can be used to correlate requests with notifications from the SNS topic.\n        Data sets will be published in comma-separated values (CSV) format with the file name {data_set_type}_YYYY-MM-DD.csv.\n        If a file with the same name already exists (e.g. if the same data set is requested twice), the original file will\n        be overwritten by the new file.\n        Requires a Role with an attached permissions policy providing Allow permissions for the following actions:\n        s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy."
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#GenerateDataSetRequest": {
+    "com.amazonaws.marketplacecommerceanalytics#GenerateDataSetRequest": {
       "type": "structure",
       "members": {
         "customerDefinedValues": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#CustomerDefinedValues",
+          "target": "com.amazonaws.marketplacecommerceanalytics#CustomerDefinedValues",
           "traits": {
             "smithy.api#documentation": "(Optional) Key-value pairs which will be returned, unmodified, in the\n        Amazon SNS notification message and the data set metadata file. These\n        key-value pairs can be used to correlated responses with tracking\n        information from other systems."
           }
         },
         "dataSetPublicationDate": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DataSetPublicationDate",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DataSetPublicationDate",
           "traits": {
             "smithy.api#documentation": "The date a data set was published.\n        For daily data sets, provide a date with day-level granularity for the desired day.\n        For weekly data sets, provide a date with day-level granularity within the desired week (the day value will be ignored).\n        For monthly data sets, provide a date with month-level granularity for the desired month (the day value will be ignored).",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "dataSetType": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DataSetType",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DataSetType",
           "traits": {
             "smithy.api#documentation": "<p>The desired data set type.</p>\n        <p>\n            <ul>\n                <li>\n                    <strong>customer_subscriber_hourly_monthly_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>customer_subscriber_annual_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_usage_by_instance_type</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_fees</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_free_trial_conversions</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_new_instances</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_new_product_subscribers</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>daily_business_canceled_product_subscribers</strong>\n                    <p>From 2017-09-15 to present: Available daily by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_billing_and_revenue_data</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes metered transactions (e.g. hourly) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_annual_subscriptions</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes up-front software charges (e.g. annual) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_field_demonstration_usage</strong>\n                    <p>From 2018-03-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>monthly_revenue_flexible_payment_schedule</strong>\n                    <p>From 2018-11-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_product</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_instance_hours</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_customer_geo</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_uncollected_funds</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_disbursed_funds</strong>\n                    <p>From 2017-09-15 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_age_of_past_due_funds</strong>\n                    <p>From 2018-04-07 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>disbursed_amount_by_uncollected_funds_breakdown</strong>\n                    <p>From 2019-10-04 to present: Available every 30 days by 24:00 UTC.</p>\n                </li>\n                <li>\n                    <strong>sales_compensation_billed_revenue</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC. Data includes metered transactions (e.g. hourly) from one month prior, and up-front software charges (e.g. annual) from one month prior.</p>\n                </li>\n                <li>\n                    <strong>us_sales_and_use_tax_records</strong>\n                    <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>\n                </li>\n            </ul>\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "destinationS3BucketName": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DestinationS3BucketName",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName",
           "traits": {
             "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "destinationS3Prefix": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DestinationS3Prefix",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
           "traits": {
             "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
           }
         },
         "roleNameArn": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#RoleNameArn",
+          "target": "com.amazonaws.marketplacecommerceanalytics#RoleNameArn",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided\n        AWS services.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "snsTopicArn": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#SnsTopicArn",
+          "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
           "traits": {
             "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -226,11 +250,11 @@
         "smithy.api#documentation": "Container for the parameters to the GenerateDataSet operation."
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#GenerateDataSetResult": {
+    "com.amazonaws.marketplacecommerceanalytics#GenerateDataSetResult": {
       "type": "structure",
       "members": {
         "dataSetRequestId": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DataSetRequestId",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DataSetRequestId",
           "traits": {
             "smithy.api#documentation": "A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be\n        used to correlate a request with notifications from the SNS topic."
           }
@@ -240,15 +264,15 @@
         "smithy.api#documentation": "Container for the result of the GenerateDataSet operation."
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalytics20150701": {
+    "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalytics20150701": {
       "type": "service",
       "version": "2015-07-01",
       "operations": [
         {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#GenerateDataSet"
+          "target": "com.amazonaws.marketplacecommerceanalytics#GenerateDataSet"
         },
         {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#StartSupportDataExport"
+          "target": "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExport"
         }
       ],
       "traits": {
@@ -258,23 +282,19 @@
           "cloudFormationName": "MarketplaceCommerceAnalytics",
           "cloudTrailEventSource": "v20150701.businessintelligenceservice.marketplace.aws.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "marketplacecommerceanalytics"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "Provides AWS Marketplace business intelligence data on-demand.",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Marketplace Commerce Analytics"
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException": {
+    "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#ExceptionMessage",
+          "target": "com.amazonaws.marketplacecommerceanalytics#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "This message describes details of the error."
           }
@@ -285,7 +305,7 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#OptionalKey": {
+    "com.amazonaws.marketplacecommerceanalytics#OptionalKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -294,7 +314,7 @@
         }
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#OptionalValue": {
+    "com.amazonaws.marketplacecommerceanalytics#OptionalValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -303,7 +323,7 @@
         }
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#RoleNameArn": {
+    "com.amazonaws.marketplacecommerceanalytics#RoleNameArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -311,7 +331,7 @@
         }
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#SnsTopicArn": {
+    "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -319,71 +339,71 @@
         }
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#StartSupportDataExport": {
+    "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExport": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#StartSupportDataExportRequest"
+        "target": "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExportRequest"
       },
       "output": {
-        "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#StartSupportDataExportResult"
+        "target": "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExportResult"
       },
       "errors": [
         {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException"
+          "target": "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "Given a data set type and a from date, asynchronously publishes the requested customer support data\n        to the specified S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request\n        identifier that can be used to correlate requests with notifications from the SNS topic.\n        Data sets will be published in comma-separated values (CSV) format with the file name {data_set_type}_YYYY-MM-DD'T'HH-mm-ss'Z'.csv.\n        If a file with the same name already exists (e.g. if the same data set is requested twice), the original file will\n        be overwritten by the new file.\n        Requires a Role with an attached permissions policy providing Allow permissions for the following actions:\n        s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy."
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#StartSupportDataExportRequest": {
+    "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExportRequest": {
       "type": "structure",
       "members": {
         "customerDefinedValues": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#CustomerDefinedValues",
+          "target": "com.amazonaws.marketplacecommerceanalytics#CustomerDefinedValues",
           "traits": {
             "smithy.api#documentation": "(Optional) Key-value pairs which will be returned, unmodified, in the\n        Amazon SNS notification message and the data set metadata file."
           }
         },
         "dataSetType": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#SupportDataSetType",
+          "target": "com.amazonaws.marketplacecommerceanalytics#SupportDataSetType",
           "traits": {
             "smithy.api#documentation": "<p>\n           Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and\n           test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,\n           Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title,\n           Country Code, ZIP Code, Operation Type, and Operation Time.\n        </p>\n        <p>\n            <ul>\n                <li><i>customer_support_contacts_data</i> Customer support contact data. The data set will contain all changes (Creates, Updates, and Deletes) to customer support contact data from the date specified in the from_date parameter.</li>\n                <li><i>test_customer_support_contacts_data</i> An example data set containing static test data in the same format as customer_support_contacts_data</li>\n            </ul>\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "destinationS3BucketName": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DestinationS3BucketName",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3BucketName",
           "traits": {
             "smithy.api#documentation": "The name (friendly name, not ARN) of the destination S3 bucket.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "destinationS3Prefix": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DestinationS3Prefix",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DestinationS3Prefix",
           "traits": {
             "smithy.api#documentation": "(Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.\n        For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file\n        \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\".\n        If the prefix directory structure does not exist, it will be created.\n        If no prefix is provided, the data set will be published to the S3 bucket root."
           }
         },
         "fromDate": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#FromDate",
+          "target": "com.amazonaws.marketplacecommerceanalytics#FromDate",
           "traits": {
             "smithy.api#documentation": "The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "roleNameArn": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#RoleNameArn",
+          "target": "com.amazonaws.marketplacecommerceanalytics#RoleNameArn",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided\n        AWS services.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "snsTopicArn": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#SnsTopicArn",
+          "target": "com.amazonaws.marketplacecommerceanalytics#SnsTopicArn",
           "traits": {
             "smithy.api#documentation": "Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an\n        error has occurred.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -391,11 +411,11 @@
         "smithy.api#documentation": "Container for the parameters to the StartSupportDataExport operation."
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#StartSupportDataExportResult": {
+    "com.amazonaws.marketplacecommerceanalytics#StartSupportDataExportResult": {
       "type": "structure",
       "members": {
         "dataSetRequestId": {
-          "target": "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#DataSetRequestId",
+          "target": "com.amazonaws.marketplacecommerceanalytics#DataSetRequestId",
           "traits": {
             "smithy.api#documentation": "A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be\n        used to correlate a request with notifications from the SNS topic."
           }
@@ -405,13 +425,17 @@
         "smithy.api#documentation": "Container for the result of the StartSupportDataExport operation."
       }
     },
-    "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#SupportDataSetType": {
+    "com.amazonaws.marketplacecommerceanalytics#SupportDataSetType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "customer_support_contacts_data": { },
-          "test_customer_support_contacts_data": { }
-        },
+        "smithy.api#enum": [
+          {
+            "value": "customer_support_contacts_data"
+          },
+          {
+            "value": "test_customer_support_contacts_data"
+          }
+        ],
         "smithy.api#length": {
           "min": 1,
           "max": 255

@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -33,17 +32,20 @@
     "com.amazonaws.robomaker#Architecture": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "X86_64": {
+        "smithy.api#enum": [
+          {
+            "value": "X86_64",
             "name": "X86_64"
           },
-          "ARM64": {
+          {
+            "value": "ARM64",
             "name": "ARM64"
           },
-          "ARMHF": {
+          {
+            "value": "ARMHF",
             "name": "ARMHF"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#Arn": {
@@ -106,7 +108,7 @@
           "target": "com.amazonaws.robomaker#Arns",
           "traits": {
             "smithy.api#documentation": "<p>A list of Amazon Resource Names (ARNs) of simulation jobs to describe.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -134,7 +136,7 @@
     "com.amazonaws.robomaker#BoxedBoolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.robomaker#CancelDeploymentJob": {
@@ -175,14 +177,14 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The deployment job ARN to cancel.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.robomaker#CancelDeploymentJobResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#CancelSimulationJob": {
       "type": "operation",
@@ -222,14 +224,14 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The simulation job ARN to cancel.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.robomaker#CancelSimulationJobResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#ClientRequestToken": {
       "type": "string",
@@ -311,15 +313,15 @@
           "target": "com.amazonaws.robomaker#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         },
         "deploymentApplicationConfigs": {
           "target": "com.amazonaws.robomaker#DeploymentApplicationConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The deployment application configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "deploymentConfig": {
@@ -332,7 +334,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet to deploy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -440,7 +442,7 @@
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the fleet.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -558,21 +560,21 @@
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "robotSoftwareSuite": {
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The robot software suite used by the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sources": {
           "target": "com.amazonaws.robomaker#SourceConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The sources of the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -677,7 +679,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "currentRevisionId": {
@@ -742,21 +744,21 @@
           "target": "com.amazonaws.robomaker#Architecture",
           "traits": {
             "smithy.api#documentation": "<p>The target architecture of the robot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "greengrassGroupId": {
           "target": "com.amazonaws.robomaker#Id",
           "traits": {
             "smithy.api#documentation": "<p>The Greengrass group id.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name for the robot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -852,7 +854,7 @@
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "renderingEngine": {
@@ -865,21 +867,21 @@
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The robot software suite of the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "simulationSoftwareSuite": {
           "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sources": {
           "target": "com.amazonaws.robomaker#SourceConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The sources of the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -996,7 +998,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "currentRevisionId": {
@@ -1113,7 +1115,7 @@
           "target": "com.amazonaws.robomaker#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "dataSources": {
@@ -1132,7 +1134,7 @@
           "target": "com.amazonaws.robomaker#IamRole",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role name that allows the simulation instance to call the AWS APIs that \n         are specified in its associated policies on your behalf. This is how credentials are passed in to your \n         simulation job. \n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loggingConfig": {
@@ -1145,7 +1147,7 @@
           "target": "com.amazonaws.robomaker#JobDuration",
           "traits": {
             "smithy.api#documentation": "<p>The maximum simulation job duration in seconds (up to 14 days or 1,209,600 seconds.\n         When <code>maxJobDurationInSeconds</code> is reached, the simulation job will status will transition to \n         <code>Completed</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "outputLocation": {
@@ -1323,21 +1325,21 @@
           "target": "com.amazonaws.robomaker#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the data source.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "s3Bucket": {
           "target": "com.amazonaws.robomaker#S3Bucket",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket where the data files are located.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "s3Keys": {
           "target": "com.amazonaws.robomaker#S3Keys",
           "traits": {
             "smithy.api#documentation": "<p>The list of S3 keys identifying the data source files.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1404,14 +1406,14 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.robomaker#DeleteFleetResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#DeleteRobot": {
       "type": "operation",
@@ -1476,7 +1478,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "applicationVersion": {
@@ -1489,7 +1491,7 @@
     },
     "com.amazonaws.robomaker#DeleteRobotApplicationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#DeleteRobotRequest": {
       "type": "structure",
@@ -1498,14 +1500,14 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.robomaker#DeleteRobotResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#DeleteSimulationApplication": {
       "type": "operation",
@@ -1542,7 +1544,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the simulation application to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "applicationVersion": {
@@ -1555,7 +1557,7 @@
     },
     "com.amazonaws.robomaker#DeleteSimulationApplicationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#DeploymentApplicationConfig": {
       "type": "structure",
@@ -1564,21 +1566,21 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "applicationVersion": {
           "target": "com.amazonaws.robomaker#DeploymentVersion",
           "traits": {
             "smithy.api#documentation": "<p>The version of the application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "launchConfig": {
           "target": "com.amazonaws.robomaker#DeploymentLaunchConfig",
           "traits": {
             "smithy.api#documentation": "<p>The launch configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1689,62 +1691,80 @@
     "com.amazonaws.robomaker#DeploymentJobErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ResourceNotFound": {
+        "smithy.api#enum": [
+          {
+            "value": "ResourceNotFound",
             "name": "ResourceNotFound"
           },
-          "EnvironmentSetupError": {
+          {
+            "value": "EnvironmentSetupError",
             "name": "EnvironmentSetupError"
           },
-          "EtagMismatch": {
+          {
+            "value": "EtagMismatch",
             "name": "EtagMismatch"
           },
-          "FailureThresholdBreached": {
+          {
+            "value": "FailureThresholdBreached",
             "name": "FailureThresholdBreached"
           },
-          "RobotDeploymentAborted": {
+          {
+            "value": "RobotDeploymentAborted",
             "name": "RobotDeploymentAborted"
           },
-          "RobotDeploymentNoResponse": {
+          {
+            "value": "RobotDeploymentNoResponse",
             "name": "RobotDeploymentNoResponse"
           },
-          "RobotAgentConnectionTimeout": {
+          {
+            "value": "RobotAgentConnectionTimeout",
             "name": "RobotAgentConnectionTimeout"
           },
-          "GreengrassDeploymentFailed": {
+          {
+            "value": "GreengrassDeploymentFailed",
             "name": "GreengrassDeploymentFailed"
           },
-          "MissingRobotArchitecture": {
+          {
+            "value": "MissingRobotArchitecture",
             "name": "MissingRobotArchitecture"
           },
-          "MissingRobotApplicationArchitecture": {
+          {
+            "value": "MissingRobotApplicationArchitecture",
             "name": "MissingRobotApplicationArchitecture"
           },
-          "MissingRobotDeploymentResource": {
+          {
+            "value": "MissingRobotDeploymentResource",
             "name": "MissingRobotDeploymentResource"
           },
-          "GreengrassGroupVersionDoesNotExist": {
+          {
+            "value": "GreengrassGroupVersionDoesNotExist",
             "name": "GreengrassGroupVersionDoesNotExist"
           },
-          "ExtractingBundleFailure": {
+          {
+            "value": "ExtractingBundleFailure",
             "name": "ExtractingBundleFailure"
           },
-          "PreLaunchFileFailure": {
+          {
+            "value": "PreLaunchFileFailure",
             "name": "PreLaunchFileFailure"
           },
-          "PostLaunchFileFailure": {
+          {
+            "value": "PostLaunchFileFailure",
             "name": "PostLaunchFileFailure"
           },
-          "BadPermissionError": {
+          {
+            "value": "BadPermissionError",
             "name": "BadPermissionError"
           },
-          "DownloadConditionFailed": {
+          {
+            "value": "DownloadConditionFailed",
             "name": "DownloadConditionFailed"
           },
-          "InternalServerError": {
+          {
+            "value": "InternalServerError",
             "name": "InternalServerError"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#DeploymentJobs": {
@@ -1772,14 +1792,14 @@
           "target": "com.amazonaws.robomaker#Command",
           "traits": {
             "smithy.api#documentation": "<p>The launch file name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "packageName": {
           "target": "com.amazonaws.robomaker#Command",
           "traits": {
             "smithy.api#documentation": "<p>The package name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "postLaunchFile": {
@@ -1802,32 +1822,38 @@
     "com.amazonaws.robomaker#DeploymentStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Pending": {
+        "smithy.api#enum": [
+          {
+            "value": "Pending",
             "name": "Pending"
           },
-          "Preparing": {
+          {
+            "value": "Preparing",
             "name": "Preparing"
           },
-          "InProgress": {
+          {
+            "value": "InProgress",
             "name": "InProgress"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "Failed"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "Succeeded"
           },
-          "Canceled": {
+          {
+            "value": "Canceled",
             "name": "Canceled"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#DeploymentTimeout": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.robomaker#DeploymentVersion": {
@@ -1878,14 +1904,14 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "robot": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1945,7 +1971,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deployment job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2053,7 +2079,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2180,7 +2206,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "applicationVersion": {
@@ -2251,7 +2277,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot to be described.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2359,7 +2385,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "applicationVersion": {
@@ -2473,7 +2499,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job to be described.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2641,14 +2667,16 @@
     "com.amazonaws.robomaker#FailureBehavior": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Fail": {
+        "smithy.api#enum": [
+          {
+            "value": "Fail",
             "name": "Fail"
           },
-          "Continue": {
+          {
+            "value": "Continue",
             "name": "Continue"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#Filter": {
@@ -2754,7 +2782,7 @@
     "com.amazonaws.robomaker#GenericInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.robomaker#GenericString": {
@@ -2841,14 +2869,14 @@
           "target": "com.amazonaws.robomaker#Command",
           "traits": {
             "smithy.api#documentation": "<p>The launch file name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "packageName": {
           "target": "com.amazonaws.robomaker#Command",
           "traits": {
             "smithy.api#documentation": "<p>The package name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "portForwardingConfig": {
@@ -3330,7 +3358,7 @@
           "target": "com.amazonaws.robomaker#SimulationJobSummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list of simulation job summaries that meet the criteria of the request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3373,8 +3401,8 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The AWS RoboMaker Amazon Resource Name (ARN) with tags to be listed.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3397,7 +3425,7 @@
           "target": "com.amazonaws.robomaker#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>A boolean indicating whether to record all ROS topics.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3408,7 +3436,7 @@
     "com.amazonaws.robomaker#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.robomaker#Name": {
@@ -3507,7 +3535,7 @@
     "com.amazonaws.robomaker#PercentDone": {
       "type": "float",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0.0,
           "max": 100.0
@@ -3517,7 +3545,7 @@
     "com.amazonaws.robomaker#Percentage": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -3554,7 +3582,7 @@
           "target": "com.amazonaws.robomaker#NonSystemPort",
           "traits": {
             "smithy.api#documentation": "<p>The port number on the application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "enableOnPublicIp": {
@@ -3567,7 +3595,7 @@
           "target": "com.amazonaws.robomaker#Port",
           "traits": {
             "smithy.api#documentation": "<p>The port number on the simulation job instance to use as a remote connection point. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3660,14 +3688,14 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "robot": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the robot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3712,11 +3740,12 @@
     "com.amazonaws.robomaker#RenderingEngineType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "OGRE": {
+        "smithy.api#enum": [
+          {
+            "value": "OGRE",
             "name": "OGRE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#RenderingEngineVersionType": {
@@ -3792,14 +3821,14 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the simulation job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.robomaker#RestartSimulationJobResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#RevisionId": {
       "type": "string",
@@ -3880,7 +3909,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "applicationVersion": {
@@ -3893,7 +3922,7 @@
           "target": "com.amazonaws.robomaker#LaunchConfig",
           "traits": {
             "smithy.api#documentation": "<p>The launch configuration for the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4022,29 +4051,36 @@
     "com.amazonaws.robomaker#RobotDeploymentStep": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Validating": {
+        "smithy.api#enum": [
+          {
+            "value": "Validating",
             "name": "ValidatingStep"
           },
-          "DownloadingExtracting": {
+          {
+            "value": "DownloadingExtracting",
             "name": "DownloadingExtractingStep"
           },
-          "ExecutingDownloadCondition": {
+          {
+            "value": "ExecutingDownloadCondition",
             "name": "ExecutingDownloadCondition"
           },
-          "ExecutingPreLaunch": {
+          {
+            "value": "ExecutingPreLaunch",
             "name": "PreLaunchStep"
           },
-          "Launching": {
+          {
+            "value": "Launching",
             "name": "LaunchingStep"
           },
-          "ExecutingPostLaunch": {
+          {
+            "value": "ExecutingPostLaunch",
             "name": "PostLaunchStep"
           },
-          "Finished": {
+          {
+            "value": "Finished",
             "name": "FinishedStep"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#RobotDeploymentSummary": {
@@ -4076,58 +4112,70 @@
     "com.amazonaws.robomaker#RobotSoftwareSuiteType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ROS": {
+        "smithy.api#enum": [
+          {
+            "value": "ROS",
             "name": "ROS"
           },
-          "ROS2": {
+          {
+            "value": "ROS2",
             "name": "ROS2"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#RobotSoftwareSuiteVersionType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Kinetic": {
+        "smithy.api#enum": [
+          {
+            "value": "Kinetic",
             "name": "Kinetic"
           },
-          "Melodic": {
+          {
+            "value": "Melodic",
             "name": "Melodic"
           },
-          "Dashing": {
+          {
+            "value": "Dashing",
             "name": "Dashing"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#RobotStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Available": {
+        "smithy.api#enum": [
+          {
+            "value": "Available",
             "name": "Available"
           },
-          "Registered": {
+          {
+            "value": "Registered",
             "name": "Registered"
           },
-          "PendingNewDeployment": {
+          {
+            "value": "PendingNewDeployment",
             "name": "PendingNewDeployment"
           },
-          "Deploying": {
+          {
+            "value": "Deploying",
             "name": "Deploying"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "Failed"
           },
-          "InSync": {
+          {
+            "value": "InSync",
             "name": "InSync"
           },
-          "NoResponse": {
+          {
+            "value": "NoResponse",
             "name": "NoResponse"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#Robots": {
@@ -4210,7 +4258,7 @@
           "target": "com.amazonaws.robomaker#S3Bucket",
           "traits": {
             "smithy.api#documentation": "<p>The bucket containing the object.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "etag": {
@@ -4223,7 +4271,7 @@
           "target": "com.amazonaws.robomaker#S3Key",
           "traits": {
             "smithy.api#documentation": "<p>The key of the object.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4263,7 +4311,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "applicationVersion": {
@@ -4276,7 +4324,7 @@
           "target": "com.amazonaws.robomaker#LaunchConfig",
           "traits": {
             "smithy.api#documentation": "<p>The launch configuration for the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4489,114 +4537,147 @@
     "com.amazonaws.robomaker#SimulationJobErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "InternalServiceError": {
+        "smithy.api#enum": [
+          {
+            "value": "InternalServiceError",
             "name": "InternalServiceError"
           },
-          "RobotApplicationCrash": {
+          {
+            "value": "RobotApplicationCrash",
             "name": "RobotApplicationCrash"
           },
-          "SimulationApplicationCrash": {
+          {
+            "value": "SimulationApplicationCrash",
             "name": "SimulationApplicationCrash"
           },
-          "BadPermissionsRobotApplication": {
+          {
+            "value": "BadPermissionsRobotApplication",
             "name": "BadPermissionsRobotApplication"
           },
-          "BadPermissionsSimulationApplication": {
+          {
+            "value": "BadPermissionsSimulationApplication",
             "name": "BadPermissionsSimulationApplication"
           },
-          "BadPermissionsS3Object": {
+          {
+            "value": "BadPermissionsS3Object",
             "name": "BadPermissionsS3Object"
           },
-          "BadPermissionsS3Output": {
+          {
+            "value": "BadPermissionsS3Output",
             "name": "BadPermissionsS3Output"
           },
-          "BadPermissionsCloudwatchLogs": {
+          {
+            "value": "BadPermissionsCloudwatchLogs",
             "name": "BadPermissionsCloudwatchLogs"
           },
-          "SubnetIpLimitExceeded": {
+          {
+            "value": "SubnetIpLimitExceeded",
             "name": "SubnetIpLimitExceeded"
           },
-          "ENILimitExceeded": {
+          {
+            "value": "ENILimitExceeded",
             "name": "ENILimitExceeded"
           },
-          "BadPermissionsUserCredentials": {
+          {
+            "value": "BadPermissionsUserCredentials",
             "name": "BadPermissionsUserCredentials"
           },
-          "InvalidBundleRobotApplication": {
+          {
+            "value": "InvalidBundleRobotApplication",
             "name": "InvalidBundleRobotApplication"
           },
-          "InvalidBundleSimulationApplication": {
+          {
+            "value": "InvalidBundleSimulationApplication",
             "name": "InvalidBundleSimulationApplication"
           },
-          "InvalidS3Resource": {
+          {
+            "value": "InvalidS3Resource",
             "name": "InvalidS3Resource"
           },
-          "MismatchedEtag": {
+          {
+            "value": "MismatchedEtag",
             "name": "MismatchedEtag"
           },
-          "RobotApplicationVersionMismatchedEtag": {
+          {
+            "value": "RobotApplicationVersionMismatchedEtag",
             "name": "RobotApplicationVersionMismatchedEtag"
           },
-          "SimulationApplicationVersionMismatchedEtag": {
+          {
+            "value": "SimulationApplicationVersionMismatchedEtag",
             "name": "SimulationApplicationVersionMismatchedEtag"
           },
-          "ResourceNotFound": {
+          {
+            "value": "ResourceNotFound",
             "name": "ResourceNotFound"
           },
-          "InvalidInput": {
+          {
+            "value": "InvalidInput",
             "name": "InvalidInput"
           },
-          "WrongRegionS3Bucket": {
+          {
+            "value": "WrongRegionS3Bucket",
             "name": "WrongRegionS3Bucket"
           },
-          "WrongRegionS3Output": {
+          {
+            "value": "WrongRegionS3Output",
             "name": "WrongRegionS3Output"
           },
-          "WrongRegionRobotApplication": {
+          {
+            "value": "WrongRegionRobotApplication",
             "name": "WrongRegionRobotApplication"
           },
-          "WrongRegionSimulationApplication": {
+          {
+            "value": "WrongRegionSimulationApplication",
             "name": "WrongRegionSimulationApplication"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#SimulationJobStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Pending": {
+        "smithy.api#enum": [
+          {
+            "value": "Pending",
             "name": "Pending"
           },
-          "Preparing": {
+          {
+            "value": "Preparing",
             "name": "Preparing"
           },
-          "Running": {
+          {
+            "value": "Running",
             "name": "Running"
           },
-          "Restarting": {
+          {
+            "value": "Restarting",
             "name": "Restarting"
           },
-          "Completed": {
+          {
+            "value": "Completed",
             "name": "Completed"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "Failed"
           },
-          "RunningFailed": {
+          {
+            "value": "RunningFailed",
             "name": "RunningFailed"
           },
-          "Terminating": {
+          {
+            "value": "Terminating",
             "name": "Terminating"
           },
-          "Terminated": {
+          {
+            "value": "Terminated",
             "name": "Terminated"
           },
-          "Canceled": {
+          {
+            "value": "Canceled",
             "name": "Canceled"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#SimulationJobSummaries": {
@@ -4690,14 +4771,16 @@
     "com.amazonaws.robomaker#SimulationSoftwareSuiteType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Gazebo": {
+        "smithy.api#enum": [
+          {
+            "value": "Gazebo",
             "name": "Gazebo"
           },
-          "RosbagPlay": {
+          {
+            "value": "RosbagPlay",
             "name": "RosbagPlay"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.robomaker#SimulationSoftwareSuiteVersionType": {
@@ -4838,15 +4921,15 @@
           "target": "com.amazonaws.robomaker#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         },
         "fleet": {
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The target fleet for the synchronization.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4973,22 +5056,22 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are tagging.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.amazonaws.robomaker#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.robomaker#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#TagValue": {
       "type": "string",
@@ -5051,8 +5134,8 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are removing tags.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
@@ -5060,14 +5143,14 @@
           "traits": {
             "smithy.api#documentation": "<p>A map that contains tag keys and tag values that will be unattached from the resource.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.robomaker#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.robomaker#UpdateRobotApplication": {
       "type": "operation",
@@ -5110,7 +5193,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "currentRevisionId": {
@@ -5123,14 +5206,14 @@
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The robot software suite used by the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sources": {
           "target": "com.amazonaws.robomaker#SourceConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The sources of the robot application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5223,7 +5306,7 @@
           "target": "com.amazonaws.robomaker#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The application information for the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "currentRevisionId": {
@@ -5242,21 +5325,21 @@
           "target": "com.amazonaws.robomaker#RobotSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>Information about the robot software suite.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "simulationSoftwareSuite": {
           "target": "com.amazonaws.robomaker#SimulationSoftwareSuite",
           "traits": {
             "smithy.api#documentation": "<p>The simulation software suite used by the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sources": {
           "target": "com.amazonaws.robomaker#SourceConfigs",
           "traits": {
             "smithy.api#documentation": "<p>The sources of the simulation application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5339,7 +5422,7 @@
           "target": "com.amazonaws.robomaker#Subnets",
           "traits": {
             "smithy.api#documentation": "<p>A list of one or more subnet IDs in your VPC.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5518,15 +5601,11 @@
           "cloudFormationName": "RoboMaker",
           "cloudTrailEventSource": "robomaker.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "robomaker"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>This section provides documentation for the AWS RoboMaker API operations.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS RoboMaker"
       }
     }

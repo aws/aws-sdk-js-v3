@@ -1,95 +1,94 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.athena.webservice#AmazonAthena": {
+    "com.amazonaws.athena#AmazonAthena": {
       "type": "service",
       "version": "2017-05-18",
       "operations": [
         {
-          "target": "com.amazonaws.athena.webservice#BatchGetNamedQuery"
+          "target": "com.amazonaws.athena#BatchGetNamedQuery"
         },
         {
-          "target": "com.amazonaws.athena.webservice#BatchGetQueryExecution"
+          "target": "com.amazonaws.athena#BatchGetQueryExecution"
         },
         {
-          "target": "com.amazonaws.athena.webservice#CreateNamedQuery"
+          "target": "com.amazonaws.athena#CreateNamedQuery"
         },
         {
-          "target": "com.amazonaws.athena.webservice#CreateWorkGroup"
+          "target": "com.amazonaws.athena#CreateWorkGroup"
         },
         {
-          "target": "com.amazonaws.athena.webservice#DeleteNamedQuery"
+          "target": "com.amazonaws.athena#DeleteNamedQuery"
         },
         {
-          "target": "com.amazonaws.athena.webservice#DeleteWorkGroup"
+          "target": "com.amazonaws.athena#DeleteWorkGroup"
         },
         {
-          "target": "com.amazonaws.athena.webservice#GetNamedQuery"
+          "target": "com.amazonaws.athena#GetNamedQuery"
         },
         {
-          "target": "com.amazonaws.athena.webservice#GetQueryExecution"
+          "target": "com.amazonaws.athena#GetQueryExecution"
         },
         {
-          "target": "com.amazonaws.athena.webservice#GetQueryResults"
+          "target": "com.amazonaws.athena#GetQueryResults"
         },
         {
-          "target": "com.amazonaws.athena.webservice#GetWorkGroup"
+          "target": "com.amazonaws.athena#GetWorkGroup"
         },
         {
-          "target": "com.amazonaws.athena.webservice#ListNamedQueries"
+          "target": "com.amazonaws.athena#ListNamedQueries"
         },
         {
-          "target": "com.amazonaws.athena.webservice#ListQueryExecutions"
+          "target": "com.amazonaws.athena#ListQueryExecutions"
         },
         {
-          "target": "com.amazonaws.athena.webservice#ListTagsForResource"
+          "target": "com.amazonaws.athena#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.athena.webservice#ListWorkGroups"
+          "target": "com.amazonaws.athena#ListWorkGroups"
         },
         {
-          "target": "com.amazonaws.athena.webservice#StartQueryExecution"
+          "target": "com.amazonaws.athena#StartQueryExecution"
         },
         {
-          "target": "com.amazonaws.athena.webservice#StopQueryExecution"
+          "target": "com.amazonaws.athena#StopQueryExecution"
         },
         {
-          "target": "com.amazonaws.athena.webservice#TagResource"
+          "target": "com.amazonaws.athena#TagResource"
         },
         {
-          "target": "com.amazonaws.athena.webservice#UntagResource"
+          "target": "com.amazonaws.athena#UntagResource"
         },
         {
-          "target": "com.amazonaws.athena.webservice#UpdateWorkGroup"
+          "target": "com.amazonaws.athena#UpdateWorkGroup"
         }
       ],
       "traits": {
@@ -99,19 +98,15 @@
           "cloudFormationName": "Athena",
           "cloudTrailEventSource": "webservice.athena.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "athena"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/what-is.html\">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p>\n         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html\">Accessing Amazon Athena with JDBC</a>.</p>\n         <p>For code samples using the AWS SDK for Java, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Athena"
       }
     },
-    "com.amazonaws.athena.webservice#AmazonResourceName": {
+    "com.amazonaws.athena#AmazonResourceName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -120,185 +115,185 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#BatchGetNamedQuery": {
+    "com.amazonaws.athena#BatchGetNamedQuery": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#BatchGetNamedQueryInput"
+        "target": "com.amazonaws.athena#BatchGetNamedQueryInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#BatchGetNamedQueryOutput"
+        "target": "com.amazonaws.athena#BatchGetNamedQueryOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the details of a single named query or a list of up to 50 queries, \n         which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use <a>ListNamedQueriesInput</a> \n         to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID, \n         information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>. \n         Named queries differ from executed queries. Use <a>BatchGetQueryExecutionInput</a> \n         to get details about each unique query execution, and <a>ListQueryExecutionsInput</a> \n         to get a list of query execution IDs.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#BatchGetNamedQueryInput": {
+    "com.amazonaws.athena#BatchGetNamedQueryInput": {
       "type": "structure",
       "members": {
         "NamedQueryIds": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryIdList",
+          "target": "com.amazonaws.athena#NamedQueryIdList",
           "traits": {
             "smithy.api#documentation": "<p>An array of query IDs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#BatchGetNamedQueryOutput": {
+    "com.amazonaws.athena#BatchGetNamedQueryOutput": {
       "type": "structure",
       "members": {
         "NamedQueries": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryList",
+          "target": "com.amazonaws.athena#NamedQueryList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the named query IDs submitted.</p>"
           }
         },
         "UnprocessedNamedQueryIds": {
-          "target": "com.amazonaws.athena.webservice#UnprocessedNamedQueryIdList",
+          "target": "com.amazonaws.athena#UnprocessedNamedQueryIdList",
           "traits": {
             "smithy.api#documentation": "<p>Information about provided query IDs.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#BatchGetQueryExecution": {
+    "com.amazonaws.athena#BatchGetQueryExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#BatchGetQueryExecutionInput"
+        "target": "com.amazonaws.athena#BatchGetQueryExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#BatchGetQueryExecutionOutput"
+        "target": "com.amazonaws.athena#BatchGetQueryExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the details of a single query execution or a list of up to 50 query executions, \n        which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran.\n        To get a list of query execution IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. \n        Query executions differ from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> \n        to get details about named queries.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#BatchGetQueryExecutionInput": {
+    "com.amazonaws.athena#BatchGetQueryExecutionInput": {
       "type": "structure",
       "members": {
         "QueryExecutionIds": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionIdList",
+          "target": "com.amazonaws.athena#QueryExecutionIdList",
           "traits": {
             "smithy.api#documentation": "<p>An array of query execution IDs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#BatchGetQueryExecutionOutput": {
+    "com.amazonaws.athena#BatchGetQueryExecutionOutput": {
       "type": "structure",
       "members": {
         "QueryExecutions": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionList",
+          "target": "com.amazonaws.athena#QueryExecutionList",
           "traits": {
             "smithy.api#documentation": "<p>Information about a query execution.</p>"
           }
         },
         "UnprocessedQueryExecutionIds": {
-          "target": "com.amazonaws.athena.webservice#UnprocessedQueryExecutionIdList",
+          "target": "com.amazonaws.athena#UnprocessedQueryExecutionIdList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the query executions that failed to run.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#Boolean": {
+    "com.amazonaws.athena#Boolean": {
       "type": "boolean"
     },
-    "com.amazonaws.athena.webservice#BoxedBoolean": {
+    "com.amazonaws.athena#BoxedBoolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.athena.webservice#BytesScannedCutoffValue": {
+    "com.amazonaws.athena#BytesScannedCutoffValue": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 10000000
         }
       }
     },
-    "com.amazonaws.athena.webservice#ColumnInfo": {
+    "com.amazonaws.athena#ColumnInfo": {
       "type": "structure",
       "members": {
         "CaseSensitive": {
-          "target": "com.amazonaws.athena.webservice#Boolean",
+          "target": "com.amazonaws.athena#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether values in the column are case-sensitive.</p>"
           }
         },
         "CatalogName": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The catalog to which the query results belong.</p>"
           }
         },
         "Label": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>A column label.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the column.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Nullable": {
-          "target": "com.amazonaws.athena.webservice#ColumnNullable",
+          "target": "com.amazonaws.athena#ColumnNullable",
           "traits": {
             "smithy.api#documentation": "<p>Indicates the column's nullable status.</p>"
           }
         },
         "Precision": {
-          "target": "com.amazonaws.athena.webservice#Integer",
+          "target": "com.amazonaws.athena#Integer",
           "traits": {
             "smithy.api#documentation": "<p>For <code>DECIMAL</code> data types, specifies the total number of digits, up to 38. For performance reasons, we recommend up to 18 digits.</p>"
           }
         },
         "Scale": {
-          "target": "com.amazonaws.athena.webservice#Integer",
+          "target": "com.amazonaws.athena#Integer",
           "traits": {
             "smithy.api#documentation": "<p>For <code>DECIMAL</code> data types, specifies the total number of digits in the fractional part of the value. Defaults to 0.</p>"
           }
         },
         "SchemaName": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The schema name (database name) to which the query results belong.</p>"
           }
         },
         "TableName": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The table name for the query results.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The data type of the column.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -306,160 +301,163 @@
         "smithy.api#documentation": "<p>Information about the columns in a query execution result.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#ColumnInfoList": {
+    "com.amazonaws.athena#ColumnInfoList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#ColumnInfo"
+        "target": "com.amazonaws.athena#ColumnInfo"
       }
     },
-    "com.amazonaws.athena.webservice#ColumnNullable": {
+    "com.amazonaws.athena#ColumnNullable": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NOT_NULL": {
+        "smithy.api#enum": [
+          {
+            "value": "NOT_NULL",
             "name": "NOT_NULL"
           },
-          "NULLABLE": {
+          {
+            "value": "NULLABLE",
             "name": "NULLABLE"
           },
-          "UNKNOWN": {
+          {
+            "value": "UNKNOWN",
             "name": "UNKNOWN"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.athena.webservice#CreateNamedQuery": {
+    "com.amazonaws.athena#CreateNamedQuery": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#CreateNamedQueryInput"
+        "target": "com.amazonaws.athena#CreateNamedQueryInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#CreateNamedQueryOutput"
+        "target": "com.amazonaws.athena#CreateNamedQueryOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a named query in the specified workgroup. Requires that you have access to the workgroup.</p>\n         <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.athena.webservice#CreateNamedQueryInput": {
+    "com.amazonaws.athena#CreateNamedQueryInput": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.athena.webservice#IdempotencyToken",
+          "target": "com.amazonaws.athena#IdempotencyToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another <code>CreateNamedQuery</code> request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the <code>QueryString</code>, an error is returned.</p>\n         <important>\n            <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.</p>\n         </important>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "Database": {
-          "target": "com.amazonaws.athena.webservice#DatabaseString",
+          "target": "com.amazonaws.athena#DatabaseString",
           "traits": {
             "smithy.api#documentation": "<p>The database to which the query belongs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
-          "target": "com.amazonaws.athena.webservice#DescriptionString",
+          "target": "com.amazonaws.athena#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>The query description.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.athena.webservice#NameString",
+          "target": "com.amazonaws.athena#NameString",
           "traits": {
             "smithy.api#documentation": "<p>The query name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "QueryString": {
-          "target": "com.amazonaws.athena.webservice#QueryString",
+          "target": "com.amazonaws.athena#QueryString",
           "traits": {
             "smithy.api#documentation": "<p>The contents of the query with all query statements.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup in which the named query is being created.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#CreateNamedQueryOutput": {
+    "com.amazonaws.athena#CreateNamedQueryOutput": {
       "type": "structure",
       "members": {
         "NamedQueryId": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryId",
+          "target": "com.amazonaws.athena#NamedQueryId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the query.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#CreateWorkGroup": {
+    "com.amazonaws.athena#CreateWorkGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#CreateWorkGroupInput"
+        "target": "com.amazonaws.athena#CreateWorkGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#CreateWorkGroupOutput"
+        "target": "com.amazonaws.athena#CreateWorkGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a workgroup with the specified name.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#CreateWorkGroupInput": {
+    "com.amazonaws.athena#CreateWorkGroupInput": {
       "type": "structure",
       "members": {
         "Configuration": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupConfiguration",
+          "target": "com.amazonaws.athena#WorkGroupConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration for the workgroup, which includes the location in Amazon S3 \n         where query results are stored, the encryption configuration, if any, used for encrypting query results, \n         whether the Amazon CloudWatch Metrics are enabled for the workgroup,  \n         the limit for the amount of bytes scanned (cutoff) per query, if it is specified, \n         and whether workgroup's settings (specified with EnforceWorkGroupConfiguration) in the WorkGroupConfiguration override client-side settings. \n         See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupDescriptionString",
+          "target": "com.amazonaws.athena#WorkGroupDescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup description.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.athena.webservice#TagList",
+          "target": "com.amazonaws.athena#TagList",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags, separated by commas, that you want to attach to the workgroup as you create it.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#CreateWorkGroupOutput": {
+    "com.amazonaws.athena#CreateWorkGroupOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.athena.webservice#DatabaseString": {
+    "com.amazonaws.athena#DatabaseString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -468,14 +466,14 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#Date": {
+    "com.amazonaws.athena#Date": {
       "type": "timestamp"
     },
-    "com.amazonaws.athena.webservice#Datum": {
+    "com.amazonaws.athena#Datum": {
       "type": "structure",
       "members": {
         "VarCharValue": {
-          "target": "com.amazonaws.athena.webservice#datumString",
+          "target": "com.amazonaws.athena#datumString",
           "traits": {
             "smithy.api#documentation": "<p>The value of the datum.</p>"
           }
@@ -485,88 +483,88 @@
         "smithy.api#documentation": "<p>A piece of data (a field in the table).</p>"
       }
     },
-    "com.amazonaws.athena.webservice#DeleteNamedQuery": {
+    "com.amazonaws.athena#DeleteNamedQuery": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#DeleteNamedQueryInput"
+        "target": "com.amazonaws.athena#DeleteNamedQueryInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#DeleteNamedQueryOutput"
+        "target": "com.amazonaws.athena#DeleteNamedQueryOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the named query if you have access to the workgroup in which the query was saved.</p>\n         <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.athena.webservice#DeleteNamedQueryInput": {
+    "com.amazonaws.athena#DeleteNamedQueryInput": {
       "type": "structure",
       "members": {
         "NamedQueryId": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryId",
+          "target": "com.amazonaws.athena#NamedQueryId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the query to delete.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#DeleteNamedQueryOutput": {
+    "com.amazonaws.athena#DeleteNamedQueryOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.athena.webservice#DeleteWorkGroup": {
+    "com.amazonaws.athena#DeleteWorkGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#DeleteWorkGroupInput"
+        "target": "com.amazonaws.athena#DeleteWorkGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#DeleteWorkGroupOutput"
+        "target": "com.amazonaws.athena#DeleteWorkGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.athena.webservice#DeleteWorkGroupInput": {
+    "com.amazonaws.athena#DeleteWorkGroupInput": {
       "type": "structure",
       "members": {
         "RecursiveDeleteOption": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>The option to delete the workgroup and its contents even if the workgroup contains any named queries.</p>"
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The unique name of the workgroup to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#DeleteWorkGroupOutput": {
+    "com.amazonaws.athena#DeleteWorkGroupOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.athena.webservice#DescriptionString": {
+    "com.amazonaws.athena#DescriptionString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -575,18 +573,18 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#EncryptionConfiguration": {
+    "com.amazonaws.athena#EncryptionConfiguration": {
       "type": "structure",
       "members": {
         "EncryptionOption": {
-          "target": "com.amazonaws.athena.webservice#EncryptionOption",
+          "target": "com.amazonaws.athena#EncryptionOption",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys\n            (<code>SSE-S3</code>), server-side encryption with KMS-managed keys\n            (<code>SSE-KMS</code>), or client-side encryption with KMS-managed keys (CSE-KMS) is\n         used.</p> \n         <p>If a query runs in a workgroup and the workgroup overrides client-side settings, \n         then the workgroup's setting for encryption is used. It specifies \n         whether query results must be encrypted, for all queries that run in this workgroup. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "KmsKey": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>For <code>SSE-KMS</code> and <code>CSE-KMS</code>, this is the KMS key ARN or\n         ID.</p>"
           }
@@ -596,23 +594,26 @@
         "smithy.api#documentation": "<p>If query results are encrypted in Amazon S3, indicates the encryption\n         option used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#EncryptionOption": {
+    "com.amazonaws.athena#EncryptionOption": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SSE_S3": {
+        "smithy.api#enum": [
+          {
+            "value": "SSE_S3",
             "name": "SSE_S3"
           },
-          "SSE_KMS": {
+          {
+            "value": "SSE_KMS",
             "name": "SSE_KMS"
           },
-          "CSE_KMS": {
+          {
+            "value": "CSE_KMS",
             "name": "CSE_KMS"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.athena.webservice#ErrorCode": {
+    "com.amazonaws.athena#ErrorCode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The error code returned when the query execution failed to process, or when the processing request for the named query failed.</p>",
@@ -622,109 +623,109 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#ErrorMessage": {
+    "com.amazonaws.athena#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.athena.webservice#GetNamedQuery": {
+    "com.amazonaws.athena#GetNamedQuery": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#GetNamedQueryInput"
+        "target": "com.amazonaws.athena#GetNamedQueryInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#GetNamedQueryOutput"
+        "target": "com.amazonaws.athena#GetNamedQueryOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns information about a single query. Requires that you have access to the workgroup in which the query was saved.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#GetNamedQueryInput": {
+    "com.amazonaws.athena#GetNamedQueryInput": {
       "type": "structure",
       "members": {
         "NamedQueryId": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryId",
+          "target": "com.amazonaws.athena#NamedQueryId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the query. Use <a>ListNamedQueries</a> to get query IDs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetNamedQueryOutput": {
+    "com.amazonaws.athena#GetNamedQueryOutput": {
       "type": "structure",
       "members": {
         "NamedQuery": {
-          "target": "com.amazonaws.athena.webservice#NamedQuery",
+          "target": "com.amazonaws.athena#NamedQuery",
           "traits": {
             "smithy.api#documentation": "<p>Information about the query.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetQueryExecution": {
+    "com.amazonaws.athena#GetQueryExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#GetQueryExecutionInput"
+        "target": "com.amazonaws.athena#GetQueryExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#GetQueryExecutionOutput"
+        "target": "com.amazonaws.athena#GetQueryExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#GetQueryExecutionInput": {
+    "com.amazonaws.athena#GetQueryExecutionInput": {
       "type": "structure",
       "members": {
         "QueryExecutionId": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionId",
+          "target": "com.amazonaws.athena#QueryExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the query execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetQueryExecutionOutput": {
+    "com.amazonaws.athena#GetQueryExecutionOutput": {
       "type": "structure",
       "members": {
         "QueryExecution": {
-          "target": "com.amazonaws.athena.webservice#QueryExecution",
+          "target": "com.amazonaws.athena#QueryExecution",
           "traits": {
             "smithy.api#documentation": "<p>Information about the query execution.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetQueryResults": {
+    "com.amazonaws.athena#GetQueryResults": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#GetQueryResultsInput"
+        "target": "com.amazonaws.athena#GetQueryResultsInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#GetQueryResultsOutput"
+        "target": "com.amazonaws.athena#GetQueryResultsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
@@ -736,97 +737,97 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetQueryResultsInput": {
+    "com.amazonaws.athena#GetQueryResultsInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.athena.webservice#MaxQueryResults",
+          "target": "com.amazonaws.athena#MaxQueryResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results (rows) to return in this request.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>The token that specifies where to start pagination if a previous request was truncated.</p>"
           }
         },
         "QueryExecutionId": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionId",
+          "target": "com.amazonaws.athena#QueryExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the query execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetQueryResultsOutput": {
+    "com.amazonaws.athena#GetQueryResultsOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token to be used by the next request if this request is truncated.</p>"
           }
         },
         "ResultSet": {
-          "target": "com.amazonaws.athena.webservice#ResultSet",
+          "target": "com.amazonaws.athena#ResultSet",
           "traits": {
             "smithy.api#documentation": "<p>The results of the query execution.</p>"
           }
         },
         "UpdateCount": {
-          "target": "com.amazonaws.athena.webservice#Long",
+          "target": "com.amazonaws.athena#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of rows inserted with a CREATE TABLE AS SELECT statement.\n      </p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetWorkGroup": {
+    "com.amazonaws.athena#GetWorkGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#GetWorkGroupInput"
+        "target": "com.amazonaws.athena#GetWorkGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#GetWorkGroupOutput"
+        "target": "com.amazonaws.athena#GetWorkGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns information about the workgroup with the specified name.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#GetWorkGroupInput": {
+    "com.amazonaws.athena#GetWorkGroupInput": {
       "type": "structure",
       "members": {
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#GetWorkGroupOutput": {
+    "com.amazonaws.athena#GetWorkGroupOutput": {
       "type": "structure",
       "members": {
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroup",
+          "target": "com.amazonaws.athena#WorkGroup",
           "traits": {
             "smithy.api#documentation": "<p>Information about the workgroup.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#IdempotencyToken": {
+    "com.amazonaws.athena#IdempotencyToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -835,14 +836,14 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#Integer": {
+    "com.amazonaws.athena#Integer": {
       "type": "integer"
     },
-    "com.amazonaws.athena.webservice#InternalServerException": {
+    "com.amazonaws.athena#InternalServerException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.athena.webservice#ErrorMessage"
+          "target": "com.amazonaws.athena#ErrorMessage"
         }
       },
       "traits": {
@@ -850,14 +851,14 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazonaws.athena.webservice#InvalidRequestException": {
+    "com.amazonaws.athena#InvalidRequestException": {
       "type": "structure",
       "members": {
         "AthenaErrorCode": {
-          "target": "com.amazonaws.athena.webservice#ErrorCode"
+          "target": "com.amazonaws.athena#ErrorCode"
         },
         "Message": {
-          "target": "com.amazonaws.athena.webservice#ErrorMessage"
+          "target": "com.amazonaws.athena#ErrorMessage"
         }
       },
       "traits": {
@@ -865,20 +866,20 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.athena.webservice#ListNamedQueries": {
+    "com.amazonaws.athena#ListNamedQueries": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#ListNamedQueriesInput"
+        "target": "com.amazonaws.athena#ListNamedQueriesInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#ListNamedQueriesOutput"
+        "target": "com.amazonaws.athena#ListNamedQueriesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
@@ -890,60 +891,60 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListNamedQueriesInput": {
+    "com.amazonaws.athena#ListNamedQueriesInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.athena.webservice#MaxNamedQueriesCount",
+          "target": "com.amazonaws.athena#MaxNamedQueriesCount",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of queries to return in this request.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>The token that specifies where to start pagination if a previous request was truncated.</p>"
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup from which the named queries are being returned.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListNamedQueriesOutput": {
+    "com.amazonaws.athena#ListNamedQueriesOutput": {
       "type": "structure",
       "members": {
         "NamedQueryIds": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryIdList",
+          "target": "com.amazonaws.athena#NamedQueryIdList",
           "traits": {
             "smithy.api#documentation": "<p>The list of unique query IDs.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token to be used by the next request if this request is truncated.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListQueryExecutions": {
+    "com.amazonaws.athena#ListQueryExecutions": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#ListQueryExecutionsInput"
+        "target": "com.amazonaws.athena#ListQueryExecutionsInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#ListQueryExecutionsOutput"
+        "target": "com.amazonaws.athena#ListQueryExecutionsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
@@ -955,124 +956,124 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListQueryExecutionsInput": {
+    "com.amazonaws.athena#ListQueryExecutionsInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.athena.webservice#MaxQueryExecutionsCount",
+          "target": "com.amazonaws.athena#MaxQueryExecutionsCount",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of query executions to return in this request.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>The token that specifies where to start pagination if a previous request was truncated.</p>"
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup from which queries are being returned.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListQueryExecutionsOutput": {
+    "com.amazonaws.athena#ListQueryExecutionsOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token to be used by the next request if this request is truncated.</p>"
           }
         },
         "QueryExecutionIds": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionIdList",
+          "target": "com.amazonaws.athena#QueryExecutionIdList",
           "traits": {
             "smithy.api#documentation": "<p>The unique IDs of each query execution as an array of strings.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListTagsForResource": {
+    "com.amazonaws.athena#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#ListTagsForResourceInput"
+        "target": "com.amazonaws.athena#ListTagsForResourceInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#ListTagsForResourceOutput"
+        "target": "com.amazonaws.athena#ListTagsForResourceOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#ResourceNotFoundException"
+          "target": "com.amazonaws.athena#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the tags associated with this workgroup.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#ListTagsForResourceInput": {
+    "com.amazonaws.athena#ListTagsForResourceInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.athena.webservice#MaxTagsCount",
+          "target": "com.amazonaws.athena#MaxTagsCount",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be returned per request that lists the tags for the workgroup resource.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results, or null if there are no additional results for this request, where the request lists the tags for the workgroup resource with the specified ARN.</p>"
           }
         },
         "ResourceARN": {
-          "target": "com.amazonaws.athena.webservice#AmazonResourceName",
+          "target": "com.amazonaws.athena#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>Lists the tags for the workgroup resource with the specified ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListTagsForResourceOutput": {
+    "com.amazonaws.athena#ListTagsForResourceOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token to be used by the next request if this request is truncated.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.athena.webservice#TagList",
+          "target": "com.amazonaws.athena#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tags associated with this workgroup.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListWorkGroups": {
+    "com.amazonaws.athena#ListWorkGroups": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#ListWorkGroupsInput"
+        "target": "com.amazonaws.athena#ListWorkGroupsInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#ListWorkGroupsOutput"
+        "target": "com.amazonaws.athena#ListWorkGroupsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
@@ -1084,96 +1085,96 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListWorkGroupsInput": {
+    "com.amazonaws.athena#ListWorkGroupsInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.athena.webservice#MaxWorkGroupsCount",
+          "target": "com.amazonaws.athena#MaxWorkGroupsCount",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of workgroups to return in this request.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token to be used by the next request if this request is truncated.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#ListWorkGroupsOutput": {
+    "com.amazonaws.athena#ListWorkGroupsOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.athena.webservice#Token",
+          "target": "com.amazonaws.athena#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token to be used by the next request if this request is truncated.</p>"
           }
         },
         "WorkGroups": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupsList",
+          "target": "com.amazonaws.athena#WorkGroupsList",
           "traits": {
             "smithy.api#documentation": "<p>The list of workgroups, including their names, descriptions, creation times, and states.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#Long": {
+    "com.amazonaws.athena#Long": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.athena.webservice#MaxNamedQueriesCount": {
+    "com.amazonaws.athena#MaxNamedQueriesCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 50
         }
       }
     },
-    "com.amazonaws.athena.webservice#MaxQueryExecutionsCount": {
+    "com.amazonaws.athena#MaxQueryExecutionsCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 50
         }
       }
     },
-    "com.amazonaws.athena.webservice#MaxQueryResults": {
+    "com.amazonaws.athena#MaxQueryResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
         }
       }
     },
-    "com.amazonaws.athena.webservice#MaxTagsCount": {
+    "com.amazonaws.athena#MaxTagsCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 75
         }
       }
     },
-    "com.amazonaws.athena.webservice#MaxWorkGroupsCount": {
+    "com.amazonaws.athena#MaxWorkGroupsCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
         }
       }
     },
-    "com.amazonaws.athena.webservice#NameString": {
+    "com.amazonaws.athena#NameString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1182,44 +1183,44 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#NamedQuery": {
+    "com.amazonaws.athena#NamedQuery": {
       "type": "structure",
       "members": {
         "Database": {
-          "target": "com.amazonaws.athena.webservice#DatabaseString",
+          "target": "com.amazonaws.athena#DatabaseString",
           "traits": {
             "smithy.api#documentation": "<p>The database to which the query belongs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
-          "target": "com.amazonaws.athena.webservice#DescriptionString",
+          "target": "com.amazonaws.athena#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>The query description.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.athena.webservice#NameString",
+          "target": "com.amazonaws.athena#NameString",
           "traits": {
             "smithy.api#documentation": "<p>The query name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NamedQueryId": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryId",
+          "target": "com.amazonaws.athena#NamedQueryId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the query.</p>"
           }
         },
         "QueryString": {
-          "target": "com.amazonaws.athena.webservice#QueryString",
+          "target": "com.amazonaws.athena#QueryString",
           "traits": {
             "smithy.api#documentation": "<p>The SQL query statements that comprise the query.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup that contains the named query.</p>"
           }
@@ -1229,13 +1230,13 @@
         "smithy.api#documentation": "<p>A query, where <code>QueryString</code> is the list of SQL query statements that comprise the query.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#NamedQueryId": {
+    "com.amazonaws.athena#NamedQueryId": {
       "type": "string"
     },
-    "com.amazonaws.athena.webservice#NamedQueryIdList": {
+    "com.amazonaws.athena#NamedQueryIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#NamedQueryId"
+        "target": "com.amazonaws.athena#NamedQueryId"
       },
       "traits": {
         "smithy.api#length": {
@@ -1244,59 +1245,59 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#NamedQueryList": {
+    "com.amazonaws.athena#NamedQueryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#NamedQuery"
+        "target": "com.amazonaws.athena#NamedQuery"
       }
     },
-    "com.amazonaws.athena.webservice#QueryExecution": {
+    "com.amazonaws.athena#QueryExecution": {
       "type": "structure",
       "members": {
         "Query": {
-          "target": "com.amazonaws.athena.webservice#QueryString",
+          "target": "com.amazonaws.athena#QueryString",
           "traits": {
             "smithy.api#documentation": "<p>The SQL query statements which the query execution ran.</p>"
           }
         },
         "QueryExecutionContext": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionContext",
+          "target": "com.amazonaws.athena#QueryExecutionContext",
           "traits": {
             "smithy.api#documentation": "<p>The database in which the query execution occurred.</p>"
           }
         },
         "QueryExecutionId": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionId",
+          "target": "com.amazonaws.athena#QueryExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for each query execution.</p>"
           }
         },
         "ResultConfiguration": {
-          "target": "com.amazonaws.athena.webservice#ResultConfiguration",
+          "target": "com.amazonaws.athena#ResultConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The location in Amazon S3 where query results were stored and the encryption option,\n         if any, used for query results. These are known as \"client-side settings\". \n         If workgroup settings override client-side settings, then the query uses \n         the location for the query results and the encryption configuration that \n         are specified for the workgroup.</p>"
           }
         },
         "StatementType": {
-          "target": "com.amazonaws.athena.webservice#StatementType",
+          "target": "com.amazonaws.athena#StatementType",
           "traits": {
             "smithy.api#documentation": "<p>The type of query statement that was run. <code>DDL</code> indicates DDL query\n         statements. <code>DML</code> indicates DML (Data Manipulation Language) query statements,\n         such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code>\n         indicates query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>,\n         or <code>DESCRIBE <table></code>.</p>"
           }
         },
         "Statistics": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionStatistics",
+          "target": "com.amazonaws.athena#QueryExecutionStatistics",
           "traits": {
             "smithy.api#documentation": "<p>The amount of data scanned during the query execution and the amount of time that it\n         took to execute, and the type of statement that was run.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionStatus",
+          "target": "com.amazonaws.athena#QueryExecutionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The completion date, current state, submission time, and state change reason (if applicable) for the query execution.</p>"
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup in which the query ran.</p>"
           }
@@ -1306,11 +1307,11 @@
         "smithy.api#documentation": "<p>Information about a single instance of a query execution.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#QueryExecutionContext": {
+    "com.amazonaws.athena#QueryExecutionContext": {
       "type": "structure",
       "members": {
         "Database": {
-          "target": "com.amazonaws.athena.webservice#DatabaseString",
+          "target": "com.amazonaws.athena#DatabaseString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the database.</p>"
           }
@@ -1320,13 +1321,13 @@
         "smithy.api#documentation": "<p>The database in which the query execution occurs.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#QueryExecutionId": {
+    "com.amazonaws.athena#QueryExecutionId": {
       "type": "string"
     },
-    "com.amazonaws.athena.webservice#QueryExecutionIdList": {
+    "com.amazonaws.athena#QueryExecutionIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#QueryExecutionId"
+        "target": "com.amazonaws.athena#QueryExecutionId"
       },
       "traits": {
         "smithy.api#length": {
@@ -1335,75 +1336,80 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#QueryExecutionList": {
+    "com.amazonaws.athena#QueryExecutionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#QueryExecution"
+        "target": "com.amazonaws.athena#QueryExecution"
       }
     },
-    "com.amazonaws.athena.webservice#QueryExecutionState": {
+    "com.amazonaws.athena#QueryExecutionState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "QUEUED": {
+        "smithy.api#enum": [
+          {
+            "value": "QUEUED",
             "name": "QUEUED"
           },
-          "RUNNING": {
+          {
+            "value": "RUNNING",
             "name": "RUNNING"
           },
-          "SUCCEEDED": {
+          {
+            "value": "SUCCEEDED",
             "name": "SUCCEEDED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "CANCELLED": {
+          {
+            "value": "CANCELLED",
             "name": "CANCELLED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.athena.webservice#QueryExecutionStatistics": {
+    "com.amazonaws.athena#QueryExecutionStatistics": {
       "type": "structure",
       "members": {
         "DataManifestLocation": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The location and file name of a data manifest file. The manifest file is saved to the Athena query results location in Amazon S3. The manifest file tracks files that the query wrote to Amazon S3. If the query fails, the manifest file also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/querying.html\">Working with Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User Guide</i>.</p>"
           }
         },
         "DataScannedInBytes": {
-          "target": "com.amazonaws.athena.webservice#Long",
+          "target": "com.amazonaws.athena#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of bytes in the data that was queried.</p>"
           }
         },
         "EngineExecutionTimeInMillis": {
-          "target": "com.amazonaws.athena.webservice#Long",
+          "target": "com.amazonaws.athena#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of milliseconds that the query took to execute.</p>"
           }
         },
         "QueryPlanningTimeInMillis": {
-          "target": "com.amazonaws.athena.webservice#Long",
+          "target": "com.amazonaws.athena#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of milliseconds that Athena took to plan the query processing flow. This includes the time spent retrieving table partitions from the data source. Note that because the query engine performs the query planning, query planning time is a subset of engine processing time.</p>"
           }
         },
         "QueryQueueTimeInMillis": {
-          "target": "com.amazonaws.athena.webservice#Long",
+          "target": "com.amazonaws.athena#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of milliseconds that the query was in your query queue waiting for resources. Note that if transient errors occur, Athena might automatically add the query back to the queue.</p>"
           }
         },
         "ServiceProcessingTimeInMillis": {
-          "target": "com.amazonaws.athena.webservice#Long",
+          "target": "com.amazonaws.athena#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of milliseconds that Athena took to finalize and publish the query results after the query engine finished running the query.</p>"
           }
         },
         "TotalExecutionTimeInMillis": {
-          "target": "com.amazonaws.athena.webservice#Long",
+          "target": "com.amazonaws.athena#Long",
           "traits": {
             "smithy.api#documentation": "<p>The number of milliseconds that Athena took to run the query.</p>"
           }
@@ -1413,29 +1419,29 @@
         "smithy.api#documentation": "<p>The amount of data scanned during the query execution and the amount of time that it\n         took to execute, and the type of statement that was run.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#QueryExecutionStatus": {
+    "com.amazonaws.athena#QueryExecutionStatus": {
       "type": "structure",
       "members": {
         "CompletionDateTime": {
-          "target": "com.amazonaws.athena.webservice#Date",
+          "target": "com.amazonaws.athena#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the query completed.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionState",
+          "target": "com.amazonaws.athena#QueryExecutionState",
           "traits": {
             "smithy.api#documentation": "<p>The state of query execution. <code>QUEUED</code> state is listed but is not used by\n         Athena and is reserved for future use. <code>RUNNING</code> indicates that the query has\n         been submitted to the service, and Athena will execute the query as soon as resources are\n         available. <code>SUCCEEDED</code> indicates that the query completed without errors.\n            <code>FAILED</code> indicates that the query experienced an error and did not complete\n            processing. <code>CANCELLED</code> indicates that a user input interrupted query execution. </p>"
           }
         },
         "StateChangeReason": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>Further detail about the status of the query.</p>"
           }
         },
         "SubmissionDateTime": {
-          "target": "com.amazonaws.athena.webservice#Date",
+          "target": "com.amazonaws.athena#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the query was submitted.</p>"
           }
@@ -1445,7 +1451,7 @@
         "smithy.api#documentation": "<p>The completion date, current state, submission time, and state change reason (if applicable) for the query execution.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#QueryString": {
+    "com.amazonaws.athena#QueryString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1454,14 +1460,14 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#ResourceNotFoundException": {
+    "com.amazonaws.athena#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.athena.webservice#ErrorMessage"
+          "target": "com.amazonaws.athena#ErrorMessage"
         },
         "ResourceName": {
-          "target": "com.amazonaws.athena.webservice#AmazonResourceName"
+          "target": "com.amazonaws.athena#AmazonResourceName"
         }
       },
       "traits": {
@@ -1469,17 +1475,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.athena.webservice#ResultConfiguration": {
+    "com.amazonaws.athena#ResultConfiguration": {
       "type": "structure",
       "members": {
         "EncryptionConfiguration": {
-          "target": "com.amazonaws.athena.webservice#EncryptionConfiguration",
+          "target": "com.amazonaws.athena#EncryptionConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>If query results are encrypted in Amazon S3, indicates the encryption option used (for\n         example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information. This is a client-side setting. \n         If workgroup settings override client-side settings, then the query uses the encryption configuration \n         that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. \n         See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and \n         <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.</p>"
           }
         },
         "OutputLocation": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>. \n         To run the query, you must specify the query results location\n         using one of the ways: either for individual queries using either this setting (client-side), or in the workgroup, using \n         <a>WorkGroupConfiguration</a>.\n          If none of them is set, Athena issues an error that no output location is provided. For more information, see \n         <a href=\"https://docs.aws.amazon.com/athena/latest/ug/querying.html\">Query Results</a>. If workgroup settings override client-side settings, \n         then the query uses the settings specified for the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>"
           }
@@ -1489,29 +1495,29 @@
         "smithy.api#documentation": "<p>The location in Amazon S3 where query results are stored and the encryption option,\n         if any, used for query results. These are known as \"client-side settings\". \n         If workgroup settings override client-side settings, then the query uses \n         the workgroup settings.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#ResultConfigurationUpdates": {
+    "com.amazonaws.athena#ResultConfigurationUpdates": {
       "type": "structure",
       "members": {
         "EncryptionConfiguration": {
-          "target": "com.amazonaws.athena.webservice#EncryptionConfiguration",
+          "target": "com.amazonaws.athena#EncryptionConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The encryption configuration for the query results.</p>"
           }
         },
         "OutputLocation": {
-          "target": "com.amazonaws.athena.webservice#String",
+          "target": "com.amazonaws.athena#String",
           "traits": {
             "smithy.api#documentation": "<p>The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>. \n      For more information, see \n         <a href=\"https://docs.aws.amazon.com/athena/latest/ug/querying.html\">Query Results</a> If workgroup settings override client-side settings, then the query uses \n         the location for the query results and the encryption configuration that \n         are specified for the workgroup. The \"workgroup settings override\" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. \n         See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>"
           }
         },
         "RemoveEncryptionConfiguration": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>If set to \"true\", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null.\n         If set to \"false\" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. \n         For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.</p>"
           }
         },
         "RemoveOutputLocation": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>If set to \"true\", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null.\n         If set to \"false\" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. \n         For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.</p>"
           }
@@ -1521,17 +1527,17 @@
         "smithy.api#documentation": "<p>The information about the updates in the query results, such as output location and encryption configuration for the query results.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#ResultSet": {
+    "com.amazonaws.athena#ResultSet": {
       "type": "structure",
       "members": {
         "ResultSetMetadata": {
-          "target": "com.amazonaws.athena.webservice#ResultSetMetadata",
+          "target": "com.amazonaws.athena#ResultSetMetadata",
           "traits": {
             "smithy.api#documentation": "<p>The metadata that describes the column structure and data types of a table of query results.</p>"
           }
         },
         "Rows": {
-          "target": "com.amazonaws.athena.webservice#RowList",
+          "target": "com.amazonaws.athena#RowList",
           "traits": {
             "smithy.api#documentation": "<p>The rows in the table.</p>"
           }
@@ -1541,11 +1547,11 @@
         "smithy.api#documentation": "<p>The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#ResultSetMetadata": {
+    "com.amazonaws.athena#ResultSetMetadata": {
       "type": "structure",
       "members": {
         "ColumnInfo": {
-          "target": "com.amazonaws.athena.webservice#ColumnInfoList",
+          "target": "com.amazonaws.athena#ColumnInfoList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the columns returned in a query result metadata.</p>"
           }
@@ -1555,11 +1561,11 @@
         "smithy.api#documentation": "<p>The metadata that describes the column structure and data types of a table of query\n         results. </p>"
       }
     },
-    "com.amazonaws.athena.webservice#Row": {
+    "com.amazonaws.athena#Row": {
       "type": "structure",
       "members": {
         "Data": {
-          "target": "com.amazonaws.athena.webservice#datumList",
+          "target": "com.amazonaws.athena#datumList",
           "traits": {
             "smithy.api#documentation": "<p>The data that populates a row in a query result table.</p>"
           }
@@ -1569,152 +1575,155 @@
         "smithy.api#documentation": "<p>The rows that comprise a query result table.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#RowList": {
+    "com.amazonaws.athena#RowList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#Row"
+        "target": "com.amazonaws.athena#Row"
       }
     },
-    "com.amazonaws.athena.webservice#StartQueryExecution": {
+    "com.amazonaws.athena#StartQueryExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#StartQueryExecutionInput"
+        "target": "com.amazonaws.athena#StartQueryExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#StartQueryExecutionOutput"
+        "target": "com.amazonaws.athena#StartQueryExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#TooManyRequestsException"
+          "target": "com.amazonaws.athena#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran.</p>\n         <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.athena.webservice#StartQueryExecutionInput": {
+    "com.amazonaws.athena#StartQueryExecutionInput": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.athena.webservice#IdempotencyToken",
+          "target": "com.amazonaws.athena#IdempotencyToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another <code>StartQueryExecution</code> request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the <code>QueryString</code>, an error is returned.</p>\n         <important>\n            <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.</p>\n         </important>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "QueryExecutionContext": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionContext",
+          "target": "com.amazonaws.athena#QueryExecutionContext",
           "traits": {
             "smithy.api#documentation": "<p>The database within which the query executes.</p>"
           }
         },
         "QueryString": {
-          "target": "com.amazonaws.athena.webservice#QueryString",
+          "target": "com.amazonaws.athena#QueryString",
           "traits": {
             "smithy.api#documentation": "<p>The SQL query statements to be executed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResultConfiguration": {
-          "target": "com.amazonaws.athena.webservice#ResultConfiguration",
+          "target": "com.amazonaws.athena#ResultConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Specifies information about where and how to save the results of the query execution. If the query runs in a workgroup, then workgroup's settings may override query settings. \n         This affects the query results location. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. \n         See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>"
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup in which the query is being started.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#StartQueryExecutionOutput": {
+    "com.amazonaws.athena#StartQueryExecutionOutput": {
       "type": "structure",
       "members": {
         "QueryExecutionId": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionId",
+          "target": "com.amazonaws.athena#QueryExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the query that ran as a result of this request.</p>"
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#StatementType": {
+    "com.amazonaws.athena#StatementType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DDL": {
+        "smithy.api#enum": [
+          {
+            "value": "DDL",
             "name": "DDL"
           },
-          "DML": {
+          {
+            "value": "DML",
             "name": "DML"
           },
-          "UTILITY": {
+          {
+            "value": "UTILITY",
             "name": "UTILITY"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.athena.webservice#StopQueryExecution": {
+    "com.amazonaws.athena#StopQueryExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#StopQueryExecutionInput"
+        "target": "com.amazonaws.athena#StopQueryExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#StopQueryExecutionOutput"
+        "target": "com.amazonaws.athena#StopQueryExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Stops a query execution. Requires you to have access to the workgroup in which the query ran.</p>\n         <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.athena.webservice#StopQueryExecutionInput": {
+    "com.amazonaws.athena#StopQueryExecutionInput": {
       "type": "structure",
       "members": {
         "QueryExecutionId": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionId",
+          "target": "com.amazonaws.athena#QueryExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the query execution to stop.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#StopQueryExecutionOutput": {
+    "com.amazonaws.athena#StopQueryExecutionOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.athena.webservice#String": {
+    "com.amazonaws.athena#String": {
       "type": "string"
     },
-    "com.amazonaws.athena.webservice#Tag": {
+    "com.amazonaws.athena#Tag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazonaws.athena.webservice#TagKey",
+          "target": "com.amazonaws.athena#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>A tag key. The tag key length is from 1 to 128 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys are case-sensitive and must be unique per resource.\n      </p>"
           }
         },
         "Value": {
-          "target": "com.amazonaws.athena.webservice#TagValue",
+          "target": "com.amazonaws.athena#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>A tag value. The tag value length is from 0 to 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. \n         Tag values are case-sensitive.\n      </p>"
           }
@@ -1724,7 +1733,7 @@
         "smithy.api#documentation": "<p>A tag that you can add to a resource. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. \n         Tags enable you to categorize workgroups in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account.\n         The maximum tag key length is 128 Unicode characters in UTF-8. The maximum tag value length is 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. \n         Tag keys and values are case-sensitive. Tag keys must be unique per resource.\n      </p>"
       }
     },
-    "com.amazonaws.athena.webservice#TagKey": {
+    "com.amazonaws.athena#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1733,65 +1742,65 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#TagKeyList": {
+    "com.amazonaws.athena#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#TagKey"
+        "target": "com.amazonaws.athena#TagKey"
       }
     },
-    "com.amazonaws.athena.webservice#TagList": {
+    "com.amazonaws.athena#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#Tag"
+        "target": "com.amazonaws.athena#Tag"
       }
     },
-    "com.amazonaws.athena.webservice#TagResource": {
+    "com.amazonaws.athena#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#TagResourceInput"
+        "target": "com.amazonaws.athena#TagResourceInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#TagResourceOutput"
+        "target": "com.amazonaws.athena#TagResourceOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#ResourceNotFoundException"
+          "target": "com.amazonaws.athena#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Adds one or more tags to the resource, such as a workgroup. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. \n         Tags enable you to categorize resources (workgroups) in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account.\n         For best practices, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>. The key length is from 1 (minimum) to 128 (maximum) Unicode characters in UTF-8. The tag value length is from 0 (minimum) to 256 (maximum) Unicode characters\n         in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. \n         Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one, separate them by commas.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#TagResourceInput": {
+    "com.amazonaws.athena#TagResourceInput": {
       "type": "structure",
       "members": {
         "ResourceARN": {
-          "target": "com.amazonaws.athena.webservice#AmazonResourceName",
+          "target": "com.amazonaws.athena#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>Requests that one or more tags are added to the resource (such as a workgroup) for the specified ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.athena.webservice#TagList",
+          "target": "com.amazonaws.athena#TagList",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags, separated by commas, to be added to the resource, such as a workgroup.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#TagResourceOutput": {
+    "com.amazonaws.athena#TagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.athena.webservice#TagValue": {
+    "com.amazonaws.athena#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1800,18 +1809,19 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#ThrottleReason": {
+    "com.amazonaws.athena#ThrottleReason": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The reason for the query throttling, for example, when it exceeds the concurrent query limit.</p>",
-        "smithy.api#enum": {
-          "CONCURRENT_QUERY_LIMIT_EXCEEDED": {
+        "smithy.api#enum": [
+          {
+            "value": "CONCURRENT_QUERY_LIMIT_EXCEEDED",
             "name": "CONCURRENT_QUERY_LIMIT_EXCEEDED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.athena.webservice#Token": {
+    "com.amazonaws.athena#Token": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1820,14 +1830,14 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#TooManyRequestsException": {
+    "com.amazonaws.athena#TooManyRequestsException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.athena.webservice#ErrorMessage"
+          "target": "com.amazonaws.athena#ErrorMessage"
         },
         "Reason": {
-          "target": "com.amazonaws.athena.webservice#ThrottleReason"
+          "target": "com.amazonaws.athena#ThrottleReason"
         }
       },
       "traits": {
@@ -1835,23 +1845,23 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.athena.webservice#UnprocessedNamedQueryId": {
+    "com.amazonaws.athena#UnprocessedNamedQueryId": {
       "type": "structure",
       "members": {
         "ErrorCode": {
-          "target": "com.amazonaws.athena.webservice#ErrorCode",
+          "target": "com.amazonaws.athena#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code returned when the processing request for the named query failed, if applicable.</p>"
           }
         },
         "ErrorMessage": {
-          "target": "com.amazonaws.athena.webservice#ErrorMessage",
+          "target": "com.amazonaws.athena#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message returned when the processing request for the named query failed, if applicable.</p>"
           }
         },
         "NamedQueryId": {
-          "target": "com.amazonaws.athena.webservice#NamedQueryId",
+          "target": "com.amazonaws.athena#NamedQueryId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the named query.</p>"
           }
@@ -1861,29 +1871,29 @@
         "smithy.api#documentation": "<p>Information about a named query ID that could not be processed.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#UnprocessedNamedQueryIdList": {
+    "com.amazonaws.athena#UnprocessedNamedQueryIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#UnprocessedNamedQueryId"
+        "target": "com.amazonaws.athena#UnprocessedNamedQueryId"
       }
     },
-    "com.amazonaws.athena.webservice#UnprocessedQueryExecutionId": {
+    "com.amazonaws.athena#UnprocessedQueryExecutionId": {
       "type": "structure",
       "members": {
         "ErrorCode": {
-          "target": "com.amazonaws.athena.webservice#ErrorCode",
+          "target": "com.amazonaws.athena#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code returned when the query execution failed to process, if applicable.</p>"
           }
         },
         "ErrorMessage": {
-          "target": "com.amazonaws.athena.webservice#ErrorMessage",
+          "target": "com.amazonaws.athena#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message returned when the query execution failed to process, if applicable.</p>"
           }
         },
         "QueryExecutionId": {
-          "target": "com.amazonaws.athena.webservice#QueryExecutionId",
+          "target": "com.amazonaws.athena#QueryExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the query execution.</p>"
           }
@@ -1893,142 +1903,142 @@
         "smithy.api#documentation": "<p>Describes a query execution that failed to process.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#UnprocessedQueryExecutionIdList": {
+    "com.amazonaws.athena#UnprocessedQueryExecutionIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#UnprocessedQueryExecutionId"
+        "target": "com.amazonaws.athena#UnprocessedQueryExecutionId"
       }
     },
-    "com.amazonaws.athena.webservice#UntagResource": {
+    "com.amazonaws.athena#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#UntagResourceInput"
+        "target": "com.amazonaws.athena#UntagResourceInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#UntagResourceOutput"
+        "target": "com.amazonaws.athena#UntagResourceOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#ResourceNotFoundException"
+          "target": "com.amazonaws.athena#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Removes one or more tags from the workgroup resource. Takes as an input a list of TagKey Strings separated by commas, and removes their tags at the same time.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#UntagResourceInput": {
+    "com.amazonaws.athena#UntagResourceInput": {
       "type": "structure",
       "members": {
         "ResourceARN": {
-          "target": "com.amazonaws.athena.webservice#AmazonResourceName",
+          "target": "com.amazonaws.athena#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>Removes one or more tags from the workgroup resource for the specified ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazonaws.athena.webservice#TagKeyList",
+          "target": "com.amazonaws.athena#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>Removes the tags associated with one or more tag keys from the workgroup resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#UntagResourceOutput": {
+    "com.amazonaws.athena#UntagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.athena.webservice#UpdateWorkGroup": {
+    "com.amazonaws.athena#UpdateWorkGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.athena.webservice#UpdateWorkGroupInput"
+        "target": "com.amazonaws.athena#UpdateWorkGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.athena.webservice#UpdateWorkGroupOutput"
+        "target": "com.amazonaws.athena#UpdateWorkGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.athena.webservice#InternalServerException"
+          "target": "com.amazonaws.athena#InternalServerException"
         },
         {
-          "target": "com.amazonaws.athena.webservice#InvalidRequestException"
+          "target": "com.amazonaws.athena#InvalidRequestException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#UpdateWorkGroupInput": {
+    "com.amazonaws.athena#UpdateWorkGroupInput": {
       "type": "structure",
       "members": {
         "ConfigurationUpdates": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupConfigurationUpdates",
+          "target": "com.amazonaws.athena#WorkGroupConfigurationUpdates",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup configuration that will be updated for the given workgroup.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupDescriptionString",
+          "target": "com.amazonaws.athena#WorkGroupDescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup description.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupState",
+          "target": "com.amazonaws.athena#WorkGroupState",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup state that will be updated for the given workgroup.</p>"
           }
         },
         "WorkGroup": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The specified workgroup that will be updated.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.athena.webservice#UpdateWorkGroupOutput": {
+    "com.amazonaws.athena#UpdateWorkGroupOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.athena.webservice#WorkGroup": {
+    "com.amazonaws.athena#WorkGroup": {
       "type": "structure",
       "members": {
         "Configuration": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupConfiguration",
+          "target": "com.amazonaws.athena#WorkGroupConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration of the workgroup, which includes the location in Amazon S3 \n         where query results are stored, the encryption configuration, if any, used for query results; \n         whether the Amazon CloudWatch Metrics are enabled for the workgroup; \n         whether workgroup settings override client-side settings;\n         and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. \n         See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>"
           }
         },
         "CreationTime": {
-          "target": "com.amazonaws.athena.webservice#Date",
+          "target": "com.amazonaws.athena#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date and time the workgroup was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupDescriptionString",
+          "target": "com.amazonaws.athena#WorkGroupDescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup description.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "State": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupState",
+          "target": "com.amazonaws.athena#WorkGroupState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the workgroup: ENABLED or DISABLED.</p>"
           }
@@ -2038,35 +2048,35 @@
         "smithy.api#documentation": "<p>A workgroup, which contains a name, description, creation time, state, and other configuration, \n         listed under <a>WorkGroup$Configuration</a>. Each workgroup enables you to \n         isolate queries for you or your group of users from other queries in the same account, \n         to configure the query results location and the encryption configuration (known as workgroup settings), \n         to enable sending query metrics to Amazon CloudWatch, \n         and to establish per-query data usage control limits for all queries in a workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. \n         See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#WorkGroupConfiguration": {
+    "com.amazonaws.athena#WorkGroupConfiguration": {
       "type": "structure",
       "members": {
         "BytesScannedCutoffPerQuery": {
-          "target": "com.amazonaws.athena.webservice#BytesScannedCutoffValue",
+          "target": "com.amazonaws.athena#BytesScannedCutoffValue",
           "traits": {
             "smithy.api#documentation": "<p>The upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.</p>"
           }
         },
         "EnforceWorkGroupConfiguration": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>If set to \"true\", the settings for the workgroup override client-side settings. If set to \"false\", client-side settings are used. \n         For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.</p>"
           }
         },
         "PublishCloudWatchMetricsEnabled": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.</p>"
           }
         },
         "RequesterPaysEnabled": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>If set to <code>true</code>, allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is <code>false</code>. For more information about Requester Pays buckets, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html\">Requester Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>"
           }
         },
         "ResultConfiguration": {
-          "target": "com.amazonaws.athena.webservice#ResultConfiguration",
+          "target": "com.amazonaws.athena#ResultConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration for the workgroup, which includes the location in Amazon S3 \n         where query results are stored and the encryption option, if any, used for query results. \n         To run the query, you must specify the query results location\n         using one of the ways: either in the workgroup using this setting, or for individual queries (client-side), using \n         <a>ResultConfiguration$OutputLocation</a>.\n         If none of them is set, Athena issues an error that no output location is provided. For more information, see \n         <a href=\"https://docs.aws.amazon.com/athena/latest/ug/querying.html\">Query Results</a>.</p>"
           }
@@ -2076,41 +2086,41 @@
         "smithy.api#documentation": "<p>The configuration of the workgroup, which includes the location in Amazon S3 \n         where query results are stored, the encryption option, if any, used for query results, \n         whether the Amazon CloudWatch Metrics are enabled for the workgroup and whether workgroup settings override query settings, and \n         the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. \n         See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>. </p>"
       }
     },
-    "com.amazonaws.athena.webservice#WorkGroupConfigurationUpdates": {
+    "com.amazonaws.athena#WorkGroupConfigurationUpdates": {
       "type": "structure",
       "members": {
         "BytesScannedCutoffPerQuery": {
-          "target": "com.amazonaws.athena.webservice#BytesScannedCutoffValue",
+          "target": "com.amazonaws.athena#BytesScannedCutoffValue",
           "traits": {
             "smithy.api#documentation": "<p>The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.</p>"
           }
         },
         "EnforceWorkGroupConfiguration": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>If set to \"true\", the settings for the workgroup override client-side settings. If set to \"false\" client-side settings are used. \n         For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.</p>"
           }
         },
         "PublishCloudWatchMetricsEnabled": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.</p>"
           }
         },
         "RemoveBytesScannedCutoffPerQuery": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that the data usage control limit per query is removed. <a>WorkGroupConfiguration$BytesScannedCutoffPerQuery</a>\n         </p>"
           }
         },
         "RequesterPaysEnabled": {
-          "target": "com.amazonaws.athena.webservice#BoxedBoolean",
+          "target": "com.amazonaws.athena#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is <code>false</code>. For more information about Requester Pays buckets, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html\">Requester Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>"
           }
         },
         "ResultConfigurationUpdates": {
-          "target": "com.amazonaws.athena.webservice#ResultConfigurationUpdates",
+          "target": "com.amazonaws.athena#ResultConfigurationUpdates",
           "traits": {
             "smithy.api#documentation": "<p>The result configuration information about the queries in this workgroup that will be updated. \n         Includes the updated results location and an updated option for encrypting query results.</p>"
           }
@@ -2120,7 +2130,7 @@
         "smithy.api#documentation": "<p>The configuration information that will be updated for this workgroup, which includes the \n         location in Amazon S3 \n         where query results are stored, the encryption option, if any, used for query results, \n         whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and \n         the data usage limit for the amount of bytes scanned per query, if it is specified.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#WorkGroupDescriptionString": {
+    "com.amazonaws.athena#WorkGroupDescriptionString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2129,48 +2139,50 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#WorkGroupName": {
+    "com.amazonaws.athena#WorkGroupName": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "[a-zA-z0-9._-]{1,128}"
       }
     },
-    "com.amazonaws.athena.webservice#WorkGroupState": {
+    "com.amazonaws.athena#WorkGroupState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.athena.webservice#WorkGroupSummary": {
+    "com.amazonaws.athena#WorkGroupSummary": {
       "type": "structure",
       "members": {
         "CreationTime": {
-          "target": "com.amazonaws.athena.webservice#Date",
+          "target": "com.amazonaws.athena#Date",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup creation date and time.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupDescriptionString",
+          "target": "com.amazonaws.athena#WorkGroupDescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>The workgroup description.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupName",
+          "target": "com.amazonaws.athena#WorkGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.athena.webservice#WorkGroupState",
+          "target": "com.amazonaws.athena#WorkGroupState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the workgroup.</p>"
           }
@@ -2180,10 +2192,10 @@
         "smithy.api#documentation": "<p>The summary information for the workgroup, which includes its name, state, description, and the date and time \n         it was created.</p>"
       }
     },
-    "com.amazonaws.athena.webservice#WorkGroupsList": {
+    "com.amazonaws.athena#WorkGroupsList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#WorkGroupSummary"
+        "target": "com.amazonaws.athena#WorkGroupSummary"
       },
       "traits": {
         "smithy.api#length": {
@@ -2192,13 +2204,13 @@
         }
       }
     },
-    "com.amazonaws.athena.webservice#datumList": {
+    "com.amazonaws.athena#datumList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.athena.webservice#Datum"
+        "target": "com.amazonaws.athena#Datum"
       }
     },
-    "com.amazonaws.athena.webservice#datumString": {
+    "com.amazonaws.athena#datumString": {
       "type": "string"
     }
   }

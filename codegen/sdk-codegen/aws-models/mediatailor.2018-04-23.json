@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -133,15 +132,15 @@
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the playback configuration.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediatailor#DeletePlaybackConfigurationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediatailor#GetPlaybackConfiguration": {
       "type": "operation",
@@ -167,8 +166,8 @@
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the playback configuration.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -353,8 +352,8 @@
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -424,29 +423,27 @@
           "cloudFormationName": "MediaTailor",
           "cloudTrailEventSource": "mediatailor.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "mediatailor"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Use the AWS Elemental MediaTailor SDK to configure scalable ad insertion for your live and VOD content. With AWS Elemental MediaTailor, you can serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the AWS Elemental MediaTailor User Guide.<p>Through the SDK, you manage AWS Elemental MediaTailor configurations the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS MediaTailor"
       }
     },
     "com.amazonaws.mediatailor#OriginManifestType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SINGLE_PERIOD": {
+        "smithy.api#enum": [
+          {
+            "value": "SINGLE_PERIOD",
             "name": "SINGLE_PERIOD"
           },
-          "MULTI_PERIOD": {
+          {
+            "value": "MULTI_PERIOD",
             "name": "MULTI_PERIOD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediatailor#PlaybackConfiguration": {
@@ -717,8 +714,8 @@
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -726,7 +723,7 @@
           "traits": {
             "smithy.api#documentation": "<p>A comma-separated list of tag key:value pairs. For example: \n {\n \"Key1\": \"Value1\",\n \"Key2\": \"Value2\"\n }\n </p>",
             "smithy.api#jsonName": "tags",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -757,8 +754,8 @@
           "target": "com.amazonaws.mediatailor#__string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -766,7 +763,7 @@
           "traits": {
             "smithy.api#documentation": "<p>A comma-separated list of the tag keys to remove from the playback configuration. </p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }

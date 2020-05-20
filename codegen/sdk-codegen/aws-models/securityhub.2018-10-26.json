@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -71,21 +70,21 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the invitation sent from the Security Hub master account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MasterId": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The account ID of the Security Hub master account that sent the invitation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.securityhub#AcceptInvitationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#AccessDeniedException": {
       "type": "structure",
@@ -145,21 +144,21 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN for the target action.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The description of the target action.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the action target.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -513,14 +512,16 @@
     "com.amazonaws.securityhub#AwsIamAccessKeyStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Active": {
+        "smithy.api#enum": [
+          {
+            "value": "Active",
             "name": "ACTIVE"
           },
-          "Inactive": {
+          {
+            "value": "Inactive",
             "name": "INACTIVE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#AwsIamRoleAssumeRolePolicyDocument": {
@@ -916,7 +917,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID that a finding is generated in.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Compliance": {
@@ -935,7 +936,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>An ISO8601-formatted timestamp that indicates when the security-findings provider\n         created the potential security issue that a finding captured.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Criticality": {
@@ -948,7 +949,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>A finding's description.</p>\n         <note>\n            <p>In this release, <code>Description</code> is a required property.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FirstObservedAt": {
@@ -961,14 +962,14 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the solution-specific component (a discrete unit of logic) that\n         generated a finding. In various security-findings providers' solutions, this generator can\n         be called a rule, a check, a detector, a plug-in, etc. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Id": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The security findings provider-specific identifier for a finding.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LastObservedAt": {
@@ -1005,7 +1006,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN generated by Security Hub that uniquely identifies a third-party company\n         (security-findings provider) after this provider's product (solution that generates\n         findings) is registered with Security Hub. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProductFields": {
@@ -1036,21 +1037,21 @@
           "target": "com.amazonaws.securityhub#ResourceList",
           "traits": {
             "smithy.api#documentation": "<p>A set of resource data types that describe the resources that the finding refers\n         to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SchemaVersion": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The schema version that a finding is formatted for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Severity": {
           "target": "com.amazonaws.securityhub#Severity",
           "traits": {
             "smithy.api#documentation": "<p>A finding's severity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceUrl": {
@@ -1069,21 +1070,21 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>A finding's title.</p>\n         <note>\n            <p>In this release, <code>Title</code> is a required property.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Types": {
           "target": "com.amazonaws.securityhub#TypeList",
           "traits": {
             "smithy.api#documentation": "<p>One or more finding types in the format of <code>namespace/category/classifier</code>\n         that classify a finding.</p>\n         <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual\n         Behaviors | Sensitive Data Identifications</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UpdatedAt": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>An ISO8601-formatted timestamp that indicates when the security-findings provider last\n         updated the finding record. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserDefinedFields": {
@@ -1749,7 +1750,7 @@
           "target": "com.amazonaws.securityhub#StandardsSubscriptionArns",
           "traits": {
             "smithy.api#documentation": "<p>The ARNs of the standards subscriptions to disable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1803,7 +1804,7 @@
           "target": "com.amazonaws.securityhub#StandardsSubscriptionRequests",
           "traits": {
             "smithy.api#documentation": "<p>The list of standards compliance checks to enable.</p>\n         <important>\n            <p>In this release, Security Hub supports only the CIS AWS Foundations standard.</p>\n            <p>The ARN for the standard is\n               <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</p>\n         </important>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1857,7 +1858,7 @@
           "target": "com.amazonaws.securityhub#AwsSecurityFindingList",
           "traits": {
             "smithy.api#documentation": "<p>A list of findings to import. To successfully import a finding, it must follow the\n            <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html\">AWS Security Finding Format</a>. Maximum of 100 findings per request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1869,7 +1870,7 @@
           "target": "com.amazonaws.securityhub#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of findings that failed to import.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FailedFindings": {
@@ -1882,7 +1883,7 @@
           "target": "com.amazonaws.securityhub#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of findings that were successfully imported.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1913,20 +1914,24 @@
     "com.amazonaws.securityhub#ComplianceStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PASSED": {
+        "smithy.api#enum": [
+          {
+            "value": "PASSED",
             "name": "PASSED"
           },
-          "WARNING": {
+          {
+            "value": "WARNING",
             "name": "WARNING"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "NOT_AVAILABLE": {
+          {
+            "value": "NOT_AVAILABLE",
             "name": "NOT_AVAILABLE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#ContainerDetails": {
@@ -1964,14 +1969,16 @@
     "com.amazonaws.securityhub#ControlStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#CreateActionTarget": {
@@ -2015,21 +2022,21 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The description for the custom action target.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Id": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the custom action target.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the custom action target.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2041,7 +2048,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN for the custom action target.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2087,21 +2094,21 @@
           "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
           "traits": {
             "smithy.api#documentation": "<p>One or more attributes used to filter the findings included in the insight. Only\n         findings that match the criteria defined in the filters are included in the insight.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GroupByAttribute": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The attribute used as the aggregator to group related findings for the insight.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the custom insight to create.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2113,7 +2120,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the insight created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2229,11 +2236,12 @@
     "com.amazonaws.securityhub#DateRangeUnit": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DAYS": {
+        "smithy.api#enum": [
+          {
+            "value": "DAYS",
             "name": "DAYS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#DeclineInvitations": {
@@ -2274,7 +2282,7 @@
           "target": "com.amazonaws.securityhub#AccountIdList",
           "traits": {
             "smithy.api#documentation": "<p>A list of account IDs that specify the accounts that invitations to Security Hub are declined\n         from.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2328,8 +2336,8 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the custom action target to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2341,7 +2349,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the custom action target that was deleted.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2387,8 +2395,8 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the insight to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2400,7 +2408,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the insight that was deleted.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2446,7 +2454,7 @@
           "target": "com.amazonaws.securityhub#AccountIdList",
           "traits": {
             "smithy.api#documentation": "<p>A list of the account IDs that sent the invitations to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2584,7 +2592,7 @@
           "target": "com.amazonaws.securityhub#ActionTargetList",
           "traits": {
             "smithy.api#documentation": "<p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,\n            <code>Description</code>, and <code>Name</code> of a custom action target available in\n         Security Hub.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -2726,7 +2734,7 @@
           "target": "com.amazonaws.securityhub#ProductsList",
           "traits": {
             "smithy.api#documentation": "<p>A list of products, including details for each product.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2783,8 +2791,8 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a resource that represents your subscription to a supported standard.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2847,15 +2855,15 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the integrated product to disable the integration for.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.securityhub#DisableImportFindingsForProductResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#DisableSecurityHub": {
       "type": "operation",
@@ -2890,11 +2898,11 @@
     },
     "com.amazonaws.securityhub#DisableSecurityHubRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#DisableSecurityHubResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#DisassociateFromMasterAccount": {
       "type": "operation",
@@ -2932,11 +2940,11 @@
     },
     "com.amazonaws.securityhub#DisassociateFromMasterAccountRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#DisassociateFromMasterAccountResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#DisassociateMembers": {
       "type": "operation",
@@ -2985,7 +2993,7 @@
     },
     "com.amazonaws.securityhub#DisassociateMembersResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#Double": {
       "type": "double"
@@ -3031,7 +3039,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the product to enable the integration for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3094,7 +3102,7 @@
     },
     "com.amazonaws.securityhub#EnableSecurityHubResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#FieldMap": {
       "type": "map",
@@ -3248,7 +3256,7 @@
           "target": "com.amazonaws.securityhub#AwsSecurityFindingList",
           "traits": {
             "smithy.api#documentation": "<p>The findings that matched the filters specified in the request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -3300,8 +3308,8 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the insight whose results you want to see.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3313,7 +3321,7 @@
           "target": "com.amazonaws.securityhub#InsightResults",
           "traits": {
             "smithy.api#documentation": "<p>The insight results returned by the operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3387,7 +3395,7 @@
           "target": "com.amazonaws.securityhub#InsightList",
           "traits": {
             "smithy.api#documentation": "<p>The insights returned by the operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -3431,7 +3439,7 @@
     },
     "com.amazonaws.securityhub#GetInvitationsCountRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#GetInvitationsCountResponse": {
       "type": "structure",
@@ -3480,7 +3488,7 @@
     },
     "com.amazonaws.securityhub#GetMasterAccountRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#GetMasterAccountResponse": {
       "type": "structure",
@@ -3534,7 +3542,7 @@
           "target": "com.amazonaws.securityhub#AccountIdList",
           "traits": {
             "smithy.api#documentation": "<p>A list of account IDs for the Security Hub member accounts that you want to return the\n         details for. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3563,21 +3571,21 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The code of the error made during the <code>BatchImportFindings</code> operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ErrorMessage": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The message of the error made during the <code>BatchImportFindings</code> operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Id": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the error made during the <code>BatchImportFindings</code> operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3598,28 +3606,28 @@
           "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
           "traits": {
             "smithy.api#documentation": "<p>One or more attributes used to filter the findings included in the insight. Only\n         findings that match the criteria defined in the filters are included in the insight.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GroupByAttribute": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The attribute that the insight's findings are grouped by. This attribute is used as a\n         findings aggregator for the purposes of viewing and managing multiple related findings\n         under a single operand.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InsightArn": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a Security Hub insight.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of a Security Hub insight.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3640,14 +3648,14 @@
           "target": "com.amazonaws.securityhub#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GroupByAttributeValue": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The value of the attribute that the findings are grouped by for the insight whose\n         results are returned by the <code>GetInsightResults</code> operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3668,21 +3676,21 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The attribute that the findings are grouped by for the insight whose results are\n         returned by the <code>GetInsightResults</code> operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InsightArn": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>\n         operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResultValues": {
           "target": "com.amazonaws.securityhub#InsightResultValueList",
           "traits": {
             "smithy.api#documentation": "<p>The list of insight result values returned by the <code>GetInsightResults</code>\n         operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4136,8 +4144,8 @@
           "target": "com.amazonaws.securityhub#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource to retrieve tags for.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4180,7 +4188,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the malware that was observed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Path": {
@@ -4215,69 +4223,87 @@
     "com.amazonaws.securityhub#MalwareState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "OBSERVED": {
+        "smithy.api#enum": [
+          {
+            "value": "OBSERVED",
             "name": "OBSERVED"
           },
-          "REMOVAL_FAILED": {
+          {
+            "value": "REMOVAL_FAILED",
             "name": "REMOVAL_FAILED"
           },
-          "REMOVED": {
+          {
+            "value": "REMOVED",
             "name": "REMOVED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#MalwareType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ADWARE": {
+        "smithy.api#enum": [
+          {
+            "value": "ADWARE",
             "name": "ADWARE"
           },
-          "BLENDED_THREAT": {
+          {
+            "value": "BLENDED_THREAT",
             "name": "BLENDED_THREAT"
           },
-          "BOTNET_AGENT": {
+          {
+            "value": "BOTNET_AGENT",
             "name": "BOTNET_AGENT"
           },
-          "COIN_MINER": {
+          {
+            "value": "COIN_MINER",
             "name": "COIN_MINER"
           },
-          "EXPLOIT_KIT": {
+          {
+            "value": "EXPLOIT_KIT",
             "name": "EXPLOIT_KIT"
           },
-          "KEYLOGGER": {
+          {
+            "value": "KEYLOGGER",
             "name": "KEYLOGGER"
           },
-          "MACRO": {
+          {
+            "value": "MACRO",
             "name": "MACRO"
           },
-          "POTENTIALLY_UNWANTED": {
+          {
+            "value": "POTENTIALLY_UNWANTED",
             "name": "POTENTIALLY_UNWANTED"
           },
-          "SPYWARE": {
+          {
+            "value": "SPYWARE",
             "name": "SPYWARE"
           },
-          "RANSOMWARE": {
+          {
+            "value": "RANSOMWARE",
             "name": "RANSOMWARE"
           },
-          "REMOTE_ACCESS": {
+          {
+            "value": "REMOTE_ACCESS",
             "name": "REMOTE_ACCESS"
           },
-          "ROOTKIT": {
+          {
+            "value": "ROOTKIT",
             "name": "ROOTKIT"
           },
-          "TROJAN": {
+          {
+            "value": "TROJAN",
             "name": "TROJAN"
           },
-          "VIRUS": {
+          {
+            "value": "VIRUS",
             "name": "VIRUS"
           },
-          "WORM": {
+          {
+            "value": "WORM",
             "name": "WORM"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#MapFilter": {
@@ -4309,11 +4335,12 @@
     "com.amazonaws.securityhub#MapFilterComparison": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EQUALS": {
+        "smithy.api#enum": [
+          {
+            "value": "EQUALS",
             "name": "EQUALS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#MapFilterList": {
@@ -4458,14 +4485,16 @@
     "com.amazonaws.securityhub#NetworkDirection": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IN": {
+        "smithy.api#enum": [
+          {
+            "value": "IN",
             "name": "IN"
           },
-          "OUT": {
+          {
+            "value": "OUT",
             "name": "OUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#NextToken": {
@@ -4490,21 +4519,21 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The text of a note.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UpdatedAt": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp of when the note was updated.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UpdatedBy": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The principal that created a note.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4519,14 +4548,14 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The updated note text.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UpdatedBy": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The principal that updated the note.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4569,17 +4598,20 @@
     "com.amazonaws.securityhub#Partition": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "aws": {
+        "smithy.api#enum": [
+          {
+            "value": "aws",
             "name": "AWS"
           },
-          "aws-cn": {
+          {
+            "value": "aws-cn",
             "name": "AWS_CN"
           },
-          "aws-us-gov": {
+          {
+            "value": "aws-us-gov",
             "name": "AWS_US_GOV"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#ProcessDetails": {
@@ -4663,7 +4695,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN assigned to the product.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProductName": {
@@ -4718,14 +4750,16 @@
     "com.amazonaws.securityhub#RecordState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ACTIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "ARCHIVED": {
+          {
+            "value": "ARCHIVED",
             "name": "ARCHIVED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#RelatedFinding": {
@@ -4735,14 +4769,14 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The product-generated identifier for a related finding.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProductArn": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the product that generated a related finding.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4783,7 +4817,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The canonical identifier for the given resource type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Partition": {
@@ -4808,7 +4842,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The type of the resource that details are provided for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5104,15 +5138,11 @@
           "cloudFormationName": "SecurityHub",
           "cloudTrailEventSource": "securityhub.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "securityhub"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Security Hub provides you with a comprehensive view of the security state of your AWS\n         environment and resources. It also provides you with the compliance status of your\n         environment based on CIS AWS Foundations compliance checks. Security Hub collects security data\n         from AWS accounts, services, and integrated third-party products and helps you analyze\n         security trends in your environment to identify the highest priority security issues. For\n         more information about Security Hub, see the <i>\n               <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html\">AWS Security Hub User Guide</a>\n            </i>.</p>\n         <p>When you use operations in the Security Hub API, the requests are executed only in the AWS\n         Region that is currently active or in the specific AWS Region that you specify in your\n         request. Any configuration or settings change that results from the operation is applied\n         only to that Region. To make the same change in other Regions, execute the same command for\n         each Region to apply the change to. For example, if your Region is set to\n            <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account\n         to Security Hub, the association of the member account with the master account is created only in\n         the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that\n         the invite was sent from.</p>\n         <p>The following throttling limits apply to using Security Hub API operations:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>GetFindings</code> - RateLimit of 3 requests per second, and a BurstLimit of 6 requests per second.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateFindings</code> - RateLimit of 1 request per second, and a BurstLimit of 5 requests per second.</p>\n            </li>\n            <li>\n               <p>All other operations - RateLimit of 10 request per second, and a BurstLimit of 30 requests per second.</p>\n            </li>\n         </ul>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS SecurityHub"
       }
     },
@@ -5123,7 +5153,7 @@
           "target": "com.amazonaws.securityhub#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The normalized severity of a finding.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Product": {
@@ -5140,20 +5170,24 @@
     "com.amazonaws.securityhub#SeverityRating": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "LOW": {
+        "smithy.api#enum": [
+          {
+            "value": "LOW",
             "name": "LOW"
           },
-          "MEDIUM": {
+          {
+            "value": "MEDIUM",
             "name": "MEDIUM"
           },
-          "HIGH": {
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "CRITICAL": {
+          {
+            "value": "CRITICAL",
             "name": "CRITICAL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#SortCriteria": {
@@ -5185,14 +5219,16 @@
     "com.amazonaws.securityhub#SortOrder": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "asc": {
+        "smithy.api#enum": [
+          {
+            "value": "asc",
             "name": "ASCENDING"
           },
-          "desc": {
+          {
+            "value": "desc",
             "name": "DESCENDING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#StandardsControl": {
@@ -5275,23 +5311,28 @@
     "com.amazonaws.securityhub#StandardsStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "READY": {
+          {
+            "value": "READY",
             "name": "READY"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "INCOMPLETE": {
+          {
+            "value": "INCOMPLETE",
             "name": "INCOMPLETE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#StandardsSubscription": {
@@ -5301,28 +5342,28 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a standard.</p>\n         <p>In this release, Security Hub supports only the CIS AWS Foundations standard, which uses the following ARN:\n         <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0.</code>\n         </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StandardsInput": {
           "target": "com.amazonaws.securityhub#StandardsInputParameterMap",
           "traits": {
             "smithy.api#documentation": "<p>A key-value pair of input for the standard.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StandardsStatus": {
           "target": "com.amazonaws.securityhub#StandardsStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the standards subscription.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StandardsSubscriptionArn": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a resource that represents your subscription to a supported standard.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5349,7 +5390,7 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the standard that you want to enable.</p>\n         <important>\n            <p>In this release, Security Hub only supports the CIS AWS Foundations standard. </p>\n            <p>Its ARN is\n               <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</p>\n         </important>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StandardsInput": {
@@ -5404,14 +5445,16 @@
     "com.amazonaws.securityhub#StringFilterComparison": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EQUALS": {
+        "smithy.api#enum": [
+          {
+            "value": "EQUALS",
             "name": "EQUALS"
           },
-          "PREFIX": {
+          {
+            "value": "PREFIX",
             "name": "PREFIX"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#StringFilterList": {
@@ -5498,22 +5541,22 @@
           "target": "com.amazonaws.securityhub#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource to apply the tags to.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.securityhub#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add to the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.securityhub#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#TagValue": {
       "type": "string",
@@ -5571,26 +5614,32 @@
     "com.amazonaws.securityhub#ThreatIntelIndicatorCategory": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "BACKDOOR": {
+        "smithy.api#enum": [
+          {
+            "value": "BACKDOOR",
             "name": "BACKDOOR"
           },
-          "CARD_STEALER": {
+          {
+            "value": "CARD_STEALER",
             "name": "CARD_STEALER"
           },
-          "COMMAND_AND_CONTROL": {
+          {
+            "value": "COMMAND_AND_CONTROL",
             "name": "COMMAND_AND_CONTROL"
           },
-          "DROP_SITE": {
+          {
+            "value": "DROP_SITE",
             "name": "DROP_SITE"
           },
-          "EXPLOIT_SITE": {
+          {
+            "value": "EXPLOIT_SITE",
             "name": "EXPLOIT_SITE"
           },
-          "KEYLOGGER": {
+          {
+            "value": "KEYLOGGER",
             "name": "KEYLOGGER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#ThreatIntelIndicatorList": {
@@ -5602,41 +5651,52 @@
     "com.amazonaws.securityhub#ThreatIntelIndicatorType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DOMAIN": {
+        "smithy.api#enum": [
+          {
+            "value": "DOMAIN",
             "name": "DOMAIN"
           },
-          "EMAIL_ADDRESS": {
+          {
+            "value": "EMAIL_ADDRESS",
             "name": "EMAIL_ADDRESS"
           },
-          "HASH_MD5": {
+          {
+            "value": "HASH_MD5",
             "name": "HASH_MD5"
           },
-          "HASH_SHA1": {
+          {
+            "value": "HASH_SHA1",
             "name": "HASH_SHA1"
           },
-          "HASH_SHA256": {
+          {
+            "value": "HASH_SHA256",
             "name": "HASH_SHA256"
           },
-          "HASH_SHA512": {
+          {
+            "value": "HASH_SHA512",
             "name": "HASH_SHA512"
           },
-          "IPV4_ADDRESS": {
+          {
+            "value": "IPV4_ADDRESS",
             "name": "IPV4_ADDRESS"
           },
-          "IPV6_ADDRESS": {
+          {
+            "value": "IPV6_ADDRESS",
             "name": "IPV6_ADDRESS"
           },
-          "MUTEX": {
+          {
+            "value": "MUTEX",
             "name": "MUTEX"
           },
-          "PROCESS": {
+          {
+            "value": "PROCESS",
             "name": "PROCESS"
           },
-          "URL": {
+          {
+            "value": "URL",
             "name": "URL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#Timestamp": {
@@ -5686,8 +5746,8 @@
           "target": "com.amazonaws.securityhub#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource to remove the tags from.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -5695,14 +5755,14 @@
           "traits": {
             "smithy.api#documentation": "<p>The tag keys associated with the tags to remove from the resource.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.securityhub#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#UpdateActionTarget": {
       "type": "operation",
@@ -5742,8 +5802,8 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the custom action target to update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -5762,7 +5822,7 @@
     },
     "com.amazonaws.securityhub#UpdateActionTargetResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#UpdateFindings": {
       "type": "operation",
@@ -5805,7 +5865,7 @@
           "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
           "traits": {
             "smithy.api#documentation": "<p>A collection of attributes that specify which findings you want to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Note": {
@@ -5824,7 +5884,7 @@
     },
     "com.amazonaws.securityhub#UpdateFindingsResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#UpdateInsight": {
       "type": "operation",
@@ -5879,8 +5939,8 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the insight that you want to update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -5893,7 +5953,7 @@
     },
     "com.amazonaws.securityhub#UpdateInsightResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#UpdateStandardsControl": {
       "type": "operation",
@@ -5945,55 +6005,64 @@
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the compliance standard control to enable or disable.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.securityhub#UpdateStandardsControlResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.securityhub#VerificationState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "UNKNOWN": {
+        "smithy.api#enum": [
+          {
+            "value": "UNKNOWN",
             "name": "UNKNOWN"
           },
-          "TRUE_POSITIVE": {
+          {
+            "value": "TRUE_POSITIVE",
             "name": "TRUE_POSITIVE"
           },
-          "FALSE_POSITIVE": {
+          {
+            "value": "FALSE_POSITIVE",
             "name": "FALSE_POSITIVE"
           },
-          "BENIGN_POSITIVE": {
+          {
+            "value": "BENIGN_POSITIVE",
             "name": "BENIGN_POSITIVE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.securityhub#WorkflowState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NEW": {
+        "smithy.api#enum": [
+          {
+            "value": "NEW",
             "name": "NEW"
           },
-          "ASSIGNED": {
+          {
+            "value": "ASSIGNED",
             "name": "ASSIGNED"
           },
-          "IN_PROGRESS": {
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "DEFERRED": {
+          {
+            "value": "DEFERRED",
             "name": "DEFERRED"
           },
-          "RESOLVED": {
+          {
+            "value": "RESOLVED",
             "name": "RESOLVED"
           }
-        }
+        ]
       }
     }
   }

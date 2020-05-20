@@ -1,131 +1,130 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.jetstream.v20151007#AWSEvents": {
+    "com.amazonaws.eventbridge#AWSEvents": {
       "type": "service",
       "version": "2015-10-07",
       "operations": [
         {
-          "target": "com.amazon.jetstream.v20151007#ActivateEventSource"
+          "target": "com.amazonaws.eventbridge#ActivateEventSource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#CreateEventBus"
+          "target": "com.amazonaws.eventbridge#CreateEventBus"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#CreatePartnerEventSource"
+          "target": "com.amazonaws.eventbridge#CreatePartnerEventSource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DeactivateEventSource"
+          "target": "com.amazonaws.eventbridge#DeactivateEventSource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DeleteEventBus"
+          "target": "com.amazonaws.eventbridge#DeleteEventBus"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DeletePartnerEventSource"
+          "target": "com.amazonaws.eventbridge#DeletePartnerEventSource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DeleteRule"
+          "target": "com.amazonaws.eventbridge#DeleteRule"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DescribeEventBus"
+          "target": "com.amazonaws.eventbridge#DescribeEventBus"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DescribeEventSource"
+          "target": "com.amazonaws.eventbridge#DescribeEventSource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DescribePartnerEventSource"
+          "target": "com.amazonaws.eventbridge#DescribePartnerEventSource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DescribeRule"
+          "target": "com.amazonaws.eventbridge#DescribeRule"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#DisableRule"
+          "target": "com.amazonaws.eventbridge#DisableRule"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#EnableRule"
+          "target": "com.amazonaws.eventbridge#EnableRule"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListEventBuses"
+          "target": "com.amazonaws.eventbridge#ListEventBuses"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListEventSources"
+          "target": "com.amazonaws.eventbridge#ListEventSources"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListPartnerEventSourceAccounts"
+          "target": "com.amazonaws.eventbridge#ListPartnerEventSourceAccounts"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListPartnerEventSources"
+          "target": "com.amazonaws.eventbridge#ListPartnerEventSources"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListRuleNamesByTarget"
+          "target": "com.amazonaws.eventbridge#ListRuleNamesByTarget"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListRules"
+          "target": "com.amazonaws.eventbridge#ListRules"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListTagsForResource"
+          "target": "com.amazonaws.eventbridge#ListTagsForResource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#ListTargetsByRule"
+          "target": "com.amazonaws.eventbridge#ListTargetsByRule"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#PutEvents"
+          "target": "com.amazonaws.eventbridge#PutEvents"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#PutPartnerEvents"
+          "target": "com.amazonaws.eventbridge#PutPartnerEvents"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#PutPermission"
+          "target": "com.amazonaws.eventbridge#PutPermission"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#PutRule"
+          "target": "com.amazonaws.eventbridge#PutRule"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#PutTargets"
+          "target": "com.amazonaws.eventbridge#PutTargets"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#RemovePermission"
+          "target": "com.amazonaws.eventbridge#RemovePermission"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#RemoveTargets"
+          "target": "com.amazonaws.eventbridge#RemoveTargets"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#TagResource"
+          "target": "com.amazonaws.eventbridge#TagResource"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#TestEventPattern"
+          "target": "com.amazonaws.eventbridge#TestEventPattern"
         },
         {
-          "target": "com.amazon.jetstream.v20151007#UntagResource"
+          "target": "com.amazonaws.eventbridge#UntagResource"
         }
       ],
       "traits": {
@@ -135,22 +134,18 @@
           "cloudFormationName": "Events",
           "cloudTrailEventSource": "v20151007.jetstream.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "events"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>Amazon EventBridge helps you to respond to state changes in your AWS\n            resources. When your resources change state, they automatically send events into an\n            event stream. You can create rules that match selected events in the stream and route\n            them to targets to take action. You can also use rules to take action on a predetermined\n            schedule. For example, you can configure rules to:</p>\n        <ul>\n            <li>\n               <p>Automatically invoke an AWS Lambda function to update DNS entries when an event notifies\n                    you that Amazon EC2 instance enters the running state</p>\n            </li>\n            <li>\n               <p>Direct specific API records from AWS CloudTrail to an Amazon Kinesis data stream for\n                    detailed analysis of potential security or availability risks</p>\n            </li>\n            <li>\n               <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS\n                    volume</p>\n            </li>\n         </ul>\n        <p>For more information about the features of Amazon EventBridge, see the \n            <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/\">Amazon EventBridge User Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon EventBridge",
         "smithy.api#xmlNamespace": {
           "uri": "http://events.amazonaws.com/doc/2015-10-07"
         }
       }
     },
-    "com.amazon.jetstream.v20151007#AccountId": {
+    "com.amazonaws.eventbridge#AccountId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -160,7 +155,7 @@
         "smithy.api#pattern": "\\d{12}"
       }
     },
-    "com.amazon.jetstream.v20151007#Action": {
+    "com.amazonaws.eventbridge#Action": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -170,39 +165,39 @@
         "smithy.api#pattern": "events:[a-zA-Z]+"
       }
     },
-    "com.amazon.jetstream.v20151007#ActivateEventSource": {
+    "com.amazonaws.eventbridge#ActivateEventSource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ActivateEventSourceRequest"
+        "target": "com.amazonaws.eventbridge#ActivateEventSourceRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InvalidStateException"
+          "target": "com.amazonaws.eventbridge#InvalidStateException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Activates a partner event source that has been deactivated. Once activated, your matching event bus will start receiving events\n        from the event source.</p>\n        <note>\n            <p>This operation is performed by AWS customers, not by SaaS partners.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#ActivateEventSourceRequest": {
+    "com.amazonaws.eventbridge#ActivateEventSourceRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source to activate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#Arn": {
+    "com.amazonaws.eventbridge#Arn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -211,39 +206,41 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#AssignPublicIp": {
+    "com.amazonaws.eventbridge#AssignPublicIp": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
-    "com.amazon.jetstream.v20151007#AwsVpcConfiguration": {
+    "com.amazonaws.eventbridge#AwsVpcConfiguration": {
       "type": "structure",
       "members": {
         "AssignPublicIp": {
-          "target": "com.amazon.jetstream.v20151007#AssignPublicIp",
+          "target": "com.amazonaws.eventbridge#AssignPublicIp",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when\n        <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>"
           }
         },
         "SecurityGroups": {
-          "target": "com.amazon.jetstream.v20151007#StringList",
+          "target": "com.amazonaws.eventbridge#StringList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the security groups associated with the task. These security groups must all\n            be in the same VPC. You can specify as many as five security groups. If you don't\n            specify a security group, the default security group for the VPC is used.</p>"
           }
         },
         "Subnets": {
-          "target": "com.amazon.jetstream.v20151007#StringList",
+          "target": "com.amazonaws.eventbridge#StringList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the subnets associated with the task. These subnets must all be in the same\n            VPC. You can specify as many as 16 subnets.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -251,11 +248,11 @@
         "smithy.api#documentation": "<p>This structure specifies the VPC subnets and security groups for the task and whether\n            a public IP address is to be used. This structure is relevant only for ECS tasks that\n            use the <code>awsvpc</code> network mode.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#BatchArrayProperties": {
+    "com.amazonaws.eventbridge#BatchArrayProperties": {
       "type": "structure",
       "members": {
         "Size": {
-          "target": "com.amazon.jetstream.v20151007#Integer",
+          "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The size of the array, if this is an array batch job. Valid values are\n            integers between 2 and 10,000.</p>"
           }
@@ -265,31 +262,31 @@
         "smithy.api#documentation": "<p>The array properties for the submitted job, such as the size of the \n            array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This\n            parameter is used only if the target is an AWS Batch job.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#BatchParameters": {
+    "com.amazonaws.eventbridge#BatchParameters": {
       "type": "structure",
       "members": {
         "ArrayProperties": {
-          "target": "com.amazon.jetstream.v20151007#BatchArrayProperties",
+          "target": "com.amazonaws.eventbridge#BatchArrayProperties",
           "traits": {
             "smithy.api#documentation": "<p>The array properties for the submitted job, such as the size of the \n            array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This\n        parameter is used only if the target is an AWS Batch job.</p>"
           }
         },
         "JobDefinition": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobName": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name to use for this execution of the job, if the target is an AWS Batch job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RetryStrategy": {
-          "target": "com.amazon.jetstream.v20151007#BatchRetryStrategy",
+          "target": "com.amazonaws.eventbridge#BatchRetryStrategy",
           "traits": {
             "smithy.api#documentation": "<p>The retry strategy to use for failed jobs if the target is an AWS Batch job. The\n            retry strategy is the number of times to retry the failed job execution. Valid values\n            are 1–10. When you specify a retry strategy here, it overrides the retry strategy\n            defined in the job definition.</p>"
           }
@@ -299,11 +296,11 @@
         "smithy.api#documentation": "<p>The custom parameters to be used when the target is an AWS Batch job.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#BatchRetryStrategy": {
+    "com.amazonaws.eventbridge#BatchRetryStrategy": {
       "type": "structure",
       "members": {
         "Attempts": {
-          "target": "com.amazon.jetstream.v20151007#Integer",
+          "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of times to attempt to retry, if the job fails. Valid values are\n            1–10.</p>"
           }
@@ -313,14 +310,14 @@
         "smithy.api#documentation": "<p>The retry strategy to use for failed jobs if the target is an AWS Batch job. If you\n            specify a retry strategy here, it overrides the retry strategy defined in the job\n            definition.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#Boolean": {
+    "com.amazonaws.eventbridge#Boolean": {
       "type": "boolean"
     },
-    "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException": {
+    "com.amazonaws.eventbridge#ConcurrentModificationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -328,28 +325,28 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007#Condition": {
+    "com.amazonaws.eventbridge#Condition": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The key for the condition. Currently, the only supported key is\n                <code>aws:PrincipalOrgID</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of condition. Currently, the only supported value is\n                <code>StringEquals</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The value for the key. Currently, this must be the ID of the organization.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -357,613 +354,613 @@
         "smithy.api#documentation": "<p>A JSON string that you can use to limit the event bus permissions that you're granting\n            to only accounts that fulfill the condition. Currently, the only supported condition is\n            membership in a certain AWS organization. The string must contain <code>Type</code>,\n                <code>Key</code>, and <code>Value</code> fields. The <code>Value</code> field\n            specifies the ID of the AWS organization. The following is an example value for\n                <code>Condition</code>:</p>\n        <p>\n            <code>'{\"Type\" : \"StringEquals\", \"Key\": \"aws:PrincipalOrgID\", \"Value\": \"o-1234567890\"}'</code>\n         </p>"
       }
     },
-    "com.amazon.jetstream.v20151007#CreateEventBus": {
+    "com.amazonaws.eventbridge#CreateEventBus": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#CreateEventBusRequest"
+        "target": "com.amazonaws.eventbridge#CreateEventBusRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#CreateEventBusResponse"
+        "target": "com.amazonaws.eventbridge#CreateEventBusResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InvalidStateException"
+          "target": "com.amazonaws.eventbridge#InvalidStateException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#LimitExceededException"
+          "target": "com.amazonaws.eventbridge#LimitExceededException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.eventbridge#ResourceAlreadyExistsException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your \n        own custom applications and services, or it can be a partner event bus which can be matched to a partner event source.</p>\n        <note>\n            <p>This operation is used by AWS customers, not by SaaS partners.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#CreateEventBusRequest": {
+    "com.amazonaws.eventbridge#CreateEventBusRequest": {
       "type": "structure",
       "members": {
         "EventSourceName": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>If you're creating a partner event bus, this specifies the partner event source that\n            the new event bus will be matched with.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the new event bus. </p>\n        <p>The names of custom event buses can't contain the <code>/</code> character. You can't use the name\n                <code>default</code> for a custom event bus because this name is already used for\n            your account's default event bus.</p>\n        <p>If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus\n            is matched to. This name will include the <code>/</code> character.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#CreateEventBusResponse": {
+    "com.amazonaws.eventbridge#CreateEventBusResponse": {
       "type": "structure",
       "members": {
         "EventBusArn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the new event bus.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#CreatePartnerEventSource": {
+    "com.amazonaws.eventbridge#CreatePartnerEventSource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#CreatePartnerEventSourceRequest"
+        "target": "com.amazonaws.eventbridge#CreatePartnerEventSourceRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#CreatePartnerEventSourceResponse"
+        "target": "com.amazonaws.eventbridge#CreatePartnerEventSourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#LimitExceededException"
+          "target": "com.amazonaws.eventbridge#LimitExceededException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.eventbridge#ResourceAlreadyExistsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Called by an SaaS partner to create a partner event source.</p>\n        <note>\n            <p>This operation is not used by AWS customers.</p>\n         </note>\n\n        <p>Each partner event source can be used by one AWS account to create a matching\n            partner event bus in that AWS account. A SaaS partner must create one partner event source for each AWS account that wants to receive those event types. </p>\n        <p>A partner event source creates events based on resources in the SaaS partner's service\n            or application.</p>\n        <p>An AWS account that creates a partner event bus that matches the partner event source\n            can use that event bus to receive events from the partner, and then process them using\n            AWS\n            Events rules and targets.</p>\n        <p>Partner event source names follow this format:</p>\n\n        <p>\n            <code>aws.partner/<i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>\n            </code>\n         </p>\n        <ul>\n            <li>\n               <p>\n                  <i>partner_name</i> is determined during partner registration and identifies the partner to AWS customers.</p>\n            </li>\n            <li>\n               <p>For <i>event_namespace</i>, we recommend that partners use a string that identifies the AWS customer within the partner's system. This should not\n                be the customer's AWS account ID.</p>\n            </li>\n            <li>\n               <p>\n                  <i>event_name</i> is determined by the partner, and should uniquely identify an event-generating resource within the partner\n                system. This should help AWS customers\n                decide whether to create an event bus to receive these events.</p>\n            </li>\n         </ul>"
       }
     },
-    "com.amazon.jetstream.v20151007#CreatePartnerEventSourceRequest": {
+    "com.amazonaws.eventbridge#CreatePartnerEventSourceRequest": {
       "type": "structure",
       "members": {
         "Account": {
-          "target": "com.amazon.jetstream.v20151007#AccountId",
+          "target": "com.amazonaws.eventbridge#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID of the customer who is permitted to create a matching partner event bus for this partner event source.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source. This name must be unique and must be in the format \n            <code>\n               <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>\n            </code>.\n            The AWS account that wants to use this partner event source\n        must create a partner event bus with a name that matches the name of the partner event source.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#CreatePartnerEventSourceResponse": {
+    "com.amazonaws.eventbridge#CreatePartnerEventSourceResponse": {
       "type": "structure",
       "members": {
         "EventSourceArn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the partner event source.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DeactivateEventSource": {
+    "com.amazonaws.eventbridge#DeactivateEventSource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DeactivateEventSourceRequest"
+        "target": "com.amazonaws.eventbridge#DeactivateEventSourceRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InvalidStateException"
+          "target": "com.amazonaws.eventbridge#InvalidStateException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>An AWS customer uses this operation to temporarily stop receiving events from the\n            specified partner event source. The matching event bus isn't deleted. </p>\n        <p>When you deactivate a partner event source, the source goes into <code>PENDING</code>\n            state. If it remains in <code>PENDING</code> state for more than two weeks, it's\n            deleted.</p>\n        <p>To activate a deactivated partner event source, use <a>ActivateEventSource</a>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#DeactivateEventSourceRequest": {
+    "com.amazonaws.eventbridge#DeactivateEventSourceRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source to deactivate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DeleteEventBus": {
+    "com.amazonaws.eventbridge#DeleteEventBus": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DeleteEventBusRequest"
+        "target": "com.amazonaws.eventbridge#DeleteEventBusRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified custom event bus or partner event bus. All rules associated with this event bus are also deleted. You can't delete your \n        account's default event bus.</p>\n        <note>\n            <p>This operation is performed by AWS customers, not by SaaS partners.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#DeleteEventBusRequest": {
+    "com.amazonaws.eventbridge#DeleteEventBusRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event bus to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DeletePartnerEventSource": {
+    "com.amazonaws.eventbridge#DeletePartnerEventSource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DeletePartnerEventSourceRequest"
+        "target": "com.amazonaws.eventbridge#DeletePartnerEventSourceRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>This operation is used by SaaS partners to delete a partner event source. AWS\n            customers don't use this operation.</p>\n        <p>When you delete an event source, the status of the corresponding partner event bus in\n            the AWS customer account becomes <code>DELETED</code>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#DeletePartnerEventSourceRequest": {
+    "com.amazonaws.eventbridge#DeletePartnerEventSourceRequest": {
       "type": "structure",
       "members": {
         "Account": {
-          "target": "com.amazon.jetstream.v20151007#AccountId",
+          "target": "com.amazonaws.eventbridge#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID of the AWS customer that the event source was created for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event source to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DeleteRule": {
+    "com.amazonaws.eventbridge#DeleteRule": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DeleteRuleRequest"
+        "target": "com.amazonaws.eventbridge#DeleteRuleRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified rule.</p> \n        <p>Before you can delete the rule, you must remove all targets, using <a>RemoveTargets</a>.</p>\n        \n        <p>When you delete a rule, incoming events might continue to match to the deleted\n            rule. Allow a short period of time for changes to take effect.</p>\n        \n        <p>Managed rules are rules created and managed by another AWS service on your behalf.\n            These rules are created by those other AWS services to support functionality in those\n            services. You can delete these rules using the <code>Force</code> option, but you should\n            do so only if you're sure that the other service isn't still using that rule.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#DeleteRuleRequest": {
+    "com.amazonaws.eventbridge#DeleteRuleRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "Force": {
-          "target": "com.amazon.jetstream.v20151007#Boolean",
+          "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>If this is a managed rule, created by an AWS service on your behalf, you must specify <code>Force</code>\n        as <code>True</code> to delete the rule. This parameter is ignored for rules that are not managed rules. You can check \n        whether a rule is a managed rule by using <code>DescribeRule</code> or <code>ListRules</code> and checking the \n        <code>ManagedBy</code> field of the response.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeEventBus": {
+    "com.amazonaws.eventbridge#DescribeEventBus": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DescribeEventBusRequest"
+        "target": "com.amazonaws.eventbridge#DescribeEventBusRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#DescribeEventBusResponse"
+        "target": "com.amazonaws.eventbridge#DescribeEventBusResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Displays details about an event bus in your account. This can include the external AWS accounts that are permitted to write events to your \n            default event bus, and the associated policy. For custom event buses and partner event buses, it displays the name, ARN, policy, state, and creation time.</p>\n        <p>\n            To enable your account to \n            receive events from other accounts on its default event bus, use <a>PutPermission</a>.</p>\n        <p>For more information about partner event buses, see <a>CreateEventBus</a>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeEventBusRequest": {
+    "com.amazonaws.eventbridge#DescribeEventBusRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event bus to show details for. If you omit this, the default event bus is displayed.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeEventBusResponse": {
+    "com.amazonaws.eventbridge#DescribeEventBusResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event bus. Currently, this is always <code>default</code>.</p>"
           }
         },
         "Policy": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The policy that enables the external account to send events to your account.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeEventSource": {
+    "com.amazonaws.eventbridge#DescribeEventSource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DescribeEventSourceRequest"
+        "target": "com.amazonaws.eventbridge#DescribeEventSourceRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#DescribeEventSourceResponse"
+        "target": "com.amazonaws.eventbridge#DescribeEventSourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>This operation lists details about a partner event source that is shared \n            with your account.</p>\n        <note>\n            <p>This operation is run by AWS customers, not by SaaS partners.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeEventSourceRequest": {
+    "com.amazonaws.eventbridge#DescribeEventSourceRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source to display the details of.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeEventSourceResponse": {
+    "com.amazonaws.eventbridge#DescribeEventSourceResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the partner event source.</p>"
           }
         },
         "CreatedBy": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the SaaS partner that created the event source.</p>"
           }
         },
         "CreationTime": {
-          "target": "com.amazon.jetstream.v20151007#Timestamp",
+          "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the event source was created.</p>"
           }
         },
         "ExpirationTime": {
-          "target": "com.amazon.jetstream.v20151007#Timestamp",
+          "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the event source will expire if you don't create a matching\n            event bus.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source.</p>"
           }
         },
         "State": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceState",
+          "target": "com.amazonaws.eventbridge#EventSourceState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the event source. If it's <code>ACTIVE</code>, you have already created a\n            matching event bus for this event source, and that event bus is active. If it's\n                <code>PENDING</code>, either you haven't yet created a matching event bus, or that\n            event bus is deactivated. If it's <code>DELETED</code>, you have created a matching\n            event bus, but the event source has since been deleted.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribePartnerEventSource": {
+    "com.amazonaws.eventbridge#DescribePartnerEventSource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DescribePartnerEventSourceRequest"
+        "target": "com.amazonaws.eventbridge#DescribePartnerEventSourceRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#DescribePartnerEventSourceResponse"
+        "target": "com.amazonaws.eventbridge#DescribePartnerEventSourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>An SaaS partner can use this operation to list details about a partner event source that they have created.</p>\n        <note>\n            <p>AWS customers do not use this operation.\n            Instead, AWS customers can use <a>DescribeEventSource</a> to see details about a partner event source that is shared with them.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#DescribePartnerEventSourceRequest": {
+    "com.amazonaws.eventbridge#DescribePartnerEventSourceRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event source to display.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribePartnerEventSourceResponse": {
+    "com.amazonaws.eventbridge#DescribePartnerEventSourceResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event source.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event source.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeRule": {
+    "com.amazonaws.eventbridge#DescribeRule": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DescribeRuleRequest"
+        "target": "com.amazonaws.eventbridge#DescribeRuleRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#DescribeRuleResponse"
+        "target": "com.amazonaws.eventbridge#DescribeRuleResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes the specified rule.</p>\n        <p>\n            <code>DescribeRule</code> doesn't list the targets of a rule. To see the targets\n            associated with a rule, use <a>ListTargetsByRule</a>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeRuleRequest": {
+    "com.amazonaws.eventbridge#DescribeRuleRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DescribeRuleResponse": {
+    "com.amazonaws.eventbridge#DescribeRuleResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#RuleArn",
+          "target": "com.amazonaws.eventbridge#RuleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule.</p>"
           }
         },
         "Description": {
-          "target": "com.amazon.jetstream.v20151007#RuleDescription",
+          "target": "com.amazonaws.eventbridge#RuleDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the rule.</p>"
           }
         },
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule.</p>"
           }
         },
         "EventPattern": {
-          "target": "com.amazon.jetstream.v20151007#EventPattern",
+          "target": "com.amazonaws.eventbridge#EventPattern",
           "traits": {
             "smithy.api#documentation": "<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
           }
         },
         "ManagedBy": {
-          "target": "com.amazon.jetstream.v20151007#ManagedBy",
+          "target": "com.amazonaws.eventbridge#ManagedBy",
           "traits": {
             "smithy.api#documentation": "<p>If this is a managed rule, created by an AWS service on your behalf, this field\n            displays the principal name of the AWS service that created the rule.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>"
           }
         },
         "RoleArn": {
-          "target": "com.amazon.jetstream.v20151007#RoleArn",
+          "target": "com.amazonaws.eventbridge#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>"
           }
         },
         "ScheduleExpression": {
-          "target": "com.amazon.jetstream.v20151007#ScheduleExpression",
+          "target": "com.amazonaws.eventbridge#ScheduleExpression",
           "traits": {
             "smithy.api#documentation": "<p>The scheduling expression: for example, <code>\"cron(0 20 * * ? *)\"</code> or\n                <code>\"rate(5 minutes)\"</code>.</p>"
           }
         },
         "State": {
-          "target": "com.amazon.jetstream.v20151007#RuleState",
+          "target": "com.amazonaws.eventbridge#RuleState",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the rule is enabled or disabled.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#DisableRule": {
+    "com.amazonaws.eventbridge#DisableRule": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#DisableRuleRequest"
+        "target": "com.amazonaws.eventbridge#DisableRuleRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Disables the specified rule. A disabled rule won't match any events and won't\n            self-trigger if it has a schedule expression.</p>\n        \n        <p>When you disable a rule, incoming events might continue to match to the disabled\n            rule. Allow a short period of time for changes to take effect.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#DisableRuleRequest": {
+    "com.amazonaws.eventbridge#DisableRuleRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#EcsParameters": {
+    "com.amazonaws.eventbridge#EcsParameters": {
       "type": "structure",
       "members": {
         "Group": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>"
           }
         },
         "LaunchType": {
-          "target": "com.amazon.jetstream.v20151007#LaunchType",
+          "target": "com.amazonaws.eventbridge#LaunchType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the launch type on which your task is running. The launch type that you\n            specify here must match one of the launch type (compatibilities) of the target task. The <code>FARGATE</code>\n            value is supported only in the Regions where AWS Fargate with Amazon ECS is supported.\n            For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html\">AWS Fargate on Amazon\n                ECS</a> in the <i>Amazon Elastic Container Service Developer\n                Guide</i>.</p>"
           }
         },
         "NetworkConfiguration": {
-          "target": "com.amazon.jetstream.v20151007#NetworkConfiguration",
+          "target": "com.amazonaws.eventbridge#NetworkConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Use this structure if the ECS task uses the <code>awsvpc</code> network mode. This\n            structure specifies the VPC subnets and security groups associated with the task and\n            whether a public IP address is to be used. This structure is required if\n                <code>LaunchType</code> is <code>FARGATE</code> because the <code>awsvpc</code> mode\n            is required for Fargate tasks.</p>\n        <p>If you specify <code>NetworkConfiguration</code> when the target ECS task doesn't use\n            the <code>awsvpc</code> network mode, the task fails.</p>"
           }
         },
         "PlatformVersion": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the platform version for the task. Specify only the numeric portion of the\n            platform version, such as <code>1.1.0</code>.</p>\n            <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>.\n            For more information about valid platform versions, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html\">AWS Fargate Platform\n                Versions</a> in the <i>Amazon Elastic Container Service Developer\n                Guide</i>.</p>"
           }
         },
         "TaskCount": {
-          "target": "com.amazon.jetstream.v20151007#LimitMin1",
+          "target": "com.amazonaws.eventbridge#LimitMin1",
           "traits": {
             "smithy.api#documentation": "<p>The number of tasks to create based on <code>TaskDefinition</code>. The default is\n            1.</p>"
           }
         },
         "TaskDefinitionArn": {
-          "target": "com.amazon.jetstream.v20151007#Arn",
+          "target": "com.amazonaws.eventbridge#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the task definition to use if the event target is an Amazon ECS task. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -971,70 +968,70 @@
         "smithy.api#documentation": "<p>The custom parameters to be used when the target is an Amazon ECS task.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#EnableRule": {
+    "com.amazonaws.eventbridge#EnableRule": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#EnableRuleRequest"
+        "target": "com.amazonaws.eventbridge#EnableRuleRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Enables the specified rule. If the rule doesn't exist, the operation\n            fails.</p>\n        \n        <p>When you enable a rule, incoming events might not immediately start matching to a\n            newly enabled rule. Allow a short period of time for changes to take effect.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#EnableRuleRequest": {
+    "com.amazonaws.eventbridge#EnableRuleRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#ErrorCode": {
+    "com.amazonaws.eventbridge#ErrorCode": {
       "type": "string"
     },
-    "com.amazon.jetstream.v20151007.exceptions#ErrorMessage": {
+    "com.amazonaws.eventbridge#ErrorMessage": {
       "type": "string"
     },
-    "com.amazon.jetstream.v20151007#EventBus": {
+    "com.amazonaws.eventbridge#EventBus": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event bus.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event bus.</p>"
           }
         },
         "Policy": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.</p>"
           }
@@ -1044,13 +1041,13 @@
         "smithy.api#documentation": "<p>An event bus receives events from a source and routes them to rules associated with that event bus. Your \n            account's default event bus receives rules from AWS services. A custom event bus can receive rules from AWS services\n            as well as your custom applications and services. A partner event bus receives events from an event source created\n            by an SaaS partner. These events come from the partners services or applications.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#EventBusList": {
+    "com.amazonaws.eventbridge#EventBusList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#EventBus"
+        "target": "com.amazonaws.eventbridge#EventBus"
       }
     },
-    "com.amazon.jetstream.v20151007#EventBusName": {
+    "com.amazonaws.eventbridge#EventBusName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1060,56 +1057,56 @@
         "smithy.api#pattern": "[/\\.\\-_A-Za-z0-9]+"
       }
     },
-    "com.amazon.jetstream.v20151007#EventId": {
+    "com.amazonaws.eventbridge#EventId": {
       "type": "string"
     },
-    "com.amazon.jetstream.v20151007#EventPattern": {
+    "com.amazonaws.eventbridge#EventPattern": {
       "type": "string"
     },
-    "com.amazon.jetstream.v20151007#EventResource": {
+    "com.amazonaws.eventbridge#EventResource": {
       "type": "string"
     },
-    "com.amazon.jetstream.v20151007#EventResourceList": {
+    "com.amazonaws.eventbridge#EventResourceList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#EventResource"
+        "target": "com.amazonaws.eventbridge#EventResource"
       }
     },
-    "com.amazon.jetstream.v20151007#EventSource": {
+    "com.amazonaws.eventbridge#EventSource": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event source.</p>"
           }
         },
         "CreatedBy": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner that created the event source.</p>"
           }
         },
         "CreationTime": {
-          "target": "com.amazon.jetstream.v20151007#Timestamp",
+          "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the event source was created.</p>"
           }
         },
         "ExpirationTime": {
-          "target": "com.amazon.jetstream.v20151007#Timestamp",
+          "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the event source will expire if the AWS account doesn't\n            create a matching event bus for it.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event source.</p>"
           }
         },
         "State": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceState",
+          "target": "com.amazonaws.eventbridge#EventSourceState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the event source. If it's <code>ACTIVE</code>, you have already\n            created a matching event bus for this event source, and that event bus is active. If\n            it's <code>PENDING</code>, either you haven't yet created a matching event bus, or that\n            event bus is deactivated. If it's <code>DELETED</code>, you have created a matching\n            event bus, but the event source has since been deleted.</p>"
           }
@@ -1119,13 +1116,13 @@
         "smithy.api#documentation": "<p>A partner event source is created by an SaaS partner. If a customer creates a partner event bus that matches this event source, \n                that AWS account can receive events from the partner's applications or services.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#EventSourceList": {
+    "com.amazonaws.eventbridge#EventSourceList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#EventSource"
+        "target": "com.amazonaws.eventbridge#EventSource"
       }
     },
-    "com.amazon.jetstream.v20151007#EventSourceName": {
+    "com.amazonaws.eventbridge#EventSourceName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1135,7 +1132,7 @@
         "smithy.api#pattern": "aws\\.partner(/[\\.\\-_A-Za-z0-9]+){2,}"
       }
     },
-    "com.amazon.jetstream.v20151007#EventSourceNamePrefix": {
+    "com.amazonaws.eventbridge#EventSourceNamePrefix": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1145,39 +1142,42 @@
         "smithy.api#pattern": "[/\\.\\-_A-Za-z0-9]+"
       }
     },
-    "com.amazon.jetstream.v20151007#EventSourceState": {
+    "com.amazonaws.eventbridge#EventSourceState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
-    "com.amazon.jetstream.v20151007#EventTime": {
+    "com.amazonaws.eventbridge#EventTime": {
       "type": "timestamp"
     },
-    "com.amazon.jetstream.v20151007#InputTransformer": {
+    "com.amazonaws.eventbridge#InputTransformer": {
       "type": "structure",
       "members": {
         "InputPathsMap": {
-          "target": "com.amazon.jetstream.v20151007#TransformerPaths",
+          "target": "com.amazonaws.eventbridge#TransformerPaths",
           "traits": {
             "smithy.api#documentation": "<p>Map of JSON paths to be extracted from the event. You can then insert these in the\n            template in <code>InputTemplate</code> to produce the output to be sent to the\n            target.</p>\n        <p>\n            <code>InputPathsMap</code> is an array key-value pairs, where each value is a valid JSON path. You can have\n            as many as 10 key-value pairs.\n            You must use JSON dot notation, not bracket notation.</p>\n        <p>The keys can't start with <code>\"AWS\"</code>.</p>"
           }
         },
         "InputTemplate": {
-          "target": "com.amazon.jetstream.v20151007#TransformerInput",
+          "target": "com.amazonaws.eventbridge#TransformerInput",
           "traits": {
             "smithy.api#documentation": "<p>Input template where you specify placeholders that will be filled with the values\n            of the keys from <code>InputPathsMap</code> to customize the data sent to the target.\n            Enclose each <code>InputPathsMaps</code> value in brackets:\n                <<i>value</i>>. The InputTemplate must be valid JSON.</p>\n\n        <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following restrictions apply:</p>\n        <ul>\n            <li>\n                <p>The placeholder can't be used as an object key</p>\n            </li>\n            <li>\n                <p>Object values can't include quote marks</p>\n            </li>\n         </ul>\n        <p>The following example shows the syntax for using <code>InputPathsMap</code> and <code>InputTemplate</code>.</p>\n        <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n         <p>\n            <code>{</code>\n         </p>\n         <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},</code>\n         </p>\n         <p>\n            <code>\"InputTemplate\": \"<instance> is in state <status>\"</code>\n         </p>\n         <p>\n            <code>}</code>\n         </p>\n        <p>To have the <code>InputTemplate</code> include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:</p>\n        <p>\n            <code> \"InputTransformer\":</code>\n         </p>\n        <p>\n            <code>{</code>\n         </p>\n        <p>\n            <code>\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},</code>\n         </p>\n        <p>\n            <code>\"InputTemplate\": \"<instance> is in state \\\"<status>\\\"\"</code>\n         </p>\n        <p>\n            <code>}</code>\n         </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1185,7 +1185,7 @@
         "smithy.api#documentation": "<p>Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#InputTransformerPathKey": {
+    "com.amazonaws.eventbridge#InputTransformerPathKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1195,14 +1195,14 @@
         "smithy.api#pattern": "[A-Za-z0-9\\_\\-]+"
       }
     },
-    "com.amazon.jetstream.v20151007#Integer": {
+    "com.amazonaws.eventbridge#Integer": {
       "type": "integer"
     },
-    "com.amazon.jetstream.v20151007.exceptions#InternalException": {
+    "com.amazonaws.eventbridge#InternalException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -1210,11 +1210,11 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#InvalidEventPatternException": {
+    "com.amazonaws.eventbridge#InvalidEventPatternException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -1222,11 +1222,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#InvalidStateException": {
+    "com.amazonaws.eventbridge#InvalidStateException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -1234,14 +1234,14 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007#KinesisParameters": {
+    "com.amazonaws.eventbridge#KinesisParameters": {
       "type": "structure",
       "members": {
         "PartitionKeyPath": {
-          "target": "com.amazon.jetstream.v20151007#TargetPartitionKeyPath",
+          "target": "com.amazonaws.eventbridge#TargetPartitionKeyPath",
           "traits": {
             "smithy.api#documentation": "<p>The JSON path to be extracted from the event and used as the partition key. For more information, see <a href=\"https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key\">Amazon Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1249,24 +1249,26 @@
         "smithy.api#documentation": "<p>This object enables you to specify a JSON path to extract from the event and use as\n            the partition key for the Amazon Kinesis data stream so that you can control the shard\n            that the event goes to. If you don't include this parameter, the default is to use the\n                <code>eventId</code> as the partition key.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#LaunchType": {
+    "com.amazonaws.eventbridge#LaunchType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EC2": {
+        "smithy.api#enum": [
+          {
+            "value": "EC2",
             "name": "EC2"
           },
-          "FARGATE": {
+          {
+            "value": "FARGATE",
             "name": "FARGATE"
           }
-        }
+        ]
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#LimitExceededException": {
+    "com.amazonaws.eventbridge#LimitExceededException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -1274,502 +1276,502 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007#LimitMax100": {
+    "com.amazonaws.eventbridge#LimitMax100": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazon.jetstream.v20151007#LimitMin1": {
+    "com.amazonaws.eventbridge#LimitMin1": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListEventBuses": {
+    "com.amazonaws.eventbridge#ListEventBuses": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListEventBusesRequest"
+        "target": "com.amazonaws.eventbridge#ListEventBusesRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListEventBusesResponse"
+        "target": "com.amazonaws.eventbridge#ListEventBusesResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists all the event buses in your account, including the default event bus, custom event buses, and partner event buses.</p>\n            <note>\n            <p>This operation is run by AWS customers, not by SaaS partners.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListEventBusesRequest": {
+    "com.amazonaws.eventbridge#ListEventBusesRequest": {
       "type": "structure",
       "members": {
         "Limit": {
-          "target": "com.amazon.jetstream.v20151007#LimitMax100",
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
             "smithy.api#documentation": "<p>Specifying this limits the number of results returned by this operation. The\n            operation also returns a <code>NextToken</code> that you can use in a subsequent\n            operation to retrieve the next set of results.</p>"
           }
         },
         "NamePrefix": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>Specifying this limits the results to only those event buses with names that start\n                with the specified prefix.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListEventBusesResponse": {
+    "com.amazonaws.eventbridge#ListEventBusesResponse": {
       "type": "structure",
       "members": {
         "EventBuses": {
-          "target": "com.amazon.jetstream.v20151007#EventBusList",
+          "target": "com.amazonaws.eventbridge#EventBusList",
           "traits": {
             "smithy.api#documentation": "<p>This list of event buses.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListEventSources": {
+    "com.amazonaws.eventbridge#ListEventSources": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListEventSourcesRequest"
+        "target": "com.amazonaws.eventbridge#ListEventSourcesRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListEventSourcesResponse"
+        "target": "com.amazonaws.eventbridge#ListEventSourcesResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>You can use this to see all the partner event sources that have been shared with your AWS account.\n                For more information about partner event sources, see <a>CreateEventBus</a>.</p>\n            <note>\n            <p>This operation is run by AWS customers, not by SaaS partners.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListEventSourcesRequest": {
+    "com.amazonaws.eventbridge#ListEventSourcesRequest": {
       "type": "structure",
       "members": {
         "Limit": {
-          "target": "com.amazon.jetstream.v20151007#LimitMax100",
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
             "smithy.api#documentation": "<p>Specifying this limits the number of results returned by this operation. The\n            operation also returns a <code>NextToken</code> that you can use in a subsequent\n            operation to retrieve the next set of results.</p>"
           }
         },
         "NamePrefix": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceNamePrefix",
+          "target": "com.amazonaws.eventbridge#EventSourceNamePrefix",
           "traits": {
             "smithy.api#documentation": "<p>Specifying this limits the results to only those partner event sources with names that start\n            with the specified prefix.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListEventSourcesResponse": {
+    "com.amazonaws.eventbridge#ListEventSourcesResponse": {
       "type": "structure",
       "members": {
         "EventSources": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceList",
+          "target": "com.amazonaws.eventbridge#EventSourceList",
           "traits": {
             "smithy.api#documentation": "<p>The list of event sources.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListPartnerEventSourceAccounts": {
+    "com.amazonaws.eventbridge#ListPartnerEventSourceAccounts": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListPartnerEventSourceAccountsRequest"
+        "target": "com.amazonaws.eventbridge#ListPartnerEventSourceAccountsRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListPartnerEventSourceAccountsResponse"
+        "target": "com.amazonaws.eventbridge#ListPartnerEventSourceAccountsResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>An SaaS partner can use this operation to display the AWS account ID that a particular partner event source name\n                is associated with.</p>\n            <note>\n            <p>This operation is used by SaaS partners, not by AWS customers.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListPartnerEventSourceAccountsRequest": {
+    "com.amazonaws.eventbridge#ListPartnerEventSourceAccountsRequest": {
       "type": "structure",
       "members": {
         "EventSourceName": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceName",
+          "target": "com.amazonaws.eventbridge#EventSourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source to display account information about.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Limit": {
-          "target": "com.amazon.jetstream.v20151007#LimitMax100",
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
             "smithy.api#documentation": "<p>Specifying this limits the number of results returned by this operation. The\n            operation also returns a <code>NextToken</code> that you can use in a subsequent\n            operation to retrieve the next set of results.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to this operation. Specifying this retrieves the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListPartnerEventSourceAccountsResponse": {
+    "com.amazonaws.eventbridge#ListPartnerEventSourceAccountsResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
           }
         },
         "PartnerEventSourceAccounts": {
-          "target": "com.amazon.jetstream.v20151007#PartnerEventSourceAccountList",
+          "target": "com.amazonaws.eventbridge#PartnerEventSourceAccountList",
           "traits": {
             "smithy.api#documentation": "<p>The list of partner event sources returned by the operation.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListPartnerEventSources": {
+    "com.amazonaws.eventbridge#ListPartnerEventSources": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListPartnerEventSourcesRequest"
+        "target": "com.amazonaws.eventbridge#ListPartnerEventSourcesRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListPartnerEventSourcesResponse"
+        "target": "com.amazonaws.eventbridge#ListPartnerEventSourcesResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>An SaaS partner can use this operation to list all the partner event source names that they have created.</p>\n                <note>\n            <p>This operation is\n                not used by AWS customers.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListPartnerEventSourcesRequest": {
+    "com.amazonaws.eventbridge#ListPartnerEventSourcesRequest": {
       "type": "structure",
       "members": {
         "Limit": {
-          "target": "com.amazon.jetstream.v20151007#LimitMax100",
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
             "smithy.api#documentation": "<p>pecifying this limits the number of results returned by this operation. The\n            operation also returns a <code>NextToken</code> that you can use in a subsequent\n            operation to retrieve the next set of results.</p>"
           }
         },
         "NamePrefix": {
-          "target": "com.amazon.jetstream.v20151007#PartnerEventSourceNamePrefix",
+          "target": "com.amazonaws.eventbridge#PartnerEventSourceNamePrefix",
           "traits": {
             "smithy.api#documentation": "<p>If you specify this, the results are limited to only those partner event sources that start with the \n                string you specify.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to this operation. Specifying this retrieves the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListPartnerEventSourcesResponse": {
+    "com.amazonaws.eventbridge#ListPartnerEventSourcesResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
           }
         },
         "PartnerEventSources": {
-          "target": "com.amazon.jetstream.v20151007#PartnerEventSourceList",
+          "target": "com.amazonaws.eventbridge#PartnerEventSourceList",
           "traits": {
             "smithy.api#documentation": "<p>The list of partner event sources returned by the operation.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListRuleNamesByTarget": {
+    "com.amazonaws.eventbridge#ListRuleNamesByTarget": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListRuleNamesByTargetRequest"
+        "target": "com.amazonaws.eventbridge#ListRuleNamesByTargetRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListRuleNamesByTargetResponse"
+        "target": "com.amazonaws.eventbridge#ListRuleNamesByTargetResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the rules for the specified target.\n            You can see which rules can invoke a specific target in your account.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListRuleNamesByTargetRequest": {
+    "com.amazonaws.eventbridge#ListRuleNamesByTargetRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>Limits the results to show only the rules associated with the specified event bus.</p>"
           }
         },
         "Limit": {
-          "target": "com.amazon.jetstream.v20151007#LimitMax100",
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
           }
         },
         "TargetArn": {
-          "target": "com.amazon.jetstream.v20151007#TargetArn",
+          "target": "com.amazonaws.eventbridge#TargetArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListRuleNamesByTargetResponse": {
+    "com.amazonaws.eventbridge#ListRuleNamesByTargetResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>"
           }
         },
         "RuleNames": {
-          "target": "com.amazon.jetstream.v20151007#RuleNameList",
+          "target": "com.amazonaws.eventbridge#RuleNameList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the rules that can invoke the given target.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListRules": {
+    "com.amazonaws.eventbridge#ListRules": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListRulesRequest"
+        "target": "com.amazonaws.eventbridge#ListRulesRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListRulesResponse"
+        "target": "com.amazonaws.eventbridge#ListRulesResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists your EventBridge rules. You can either list all the rules or\n            provide a prefix to match to the rule names.</p>\n        \n        <p>\n            <code>ListRules</code> doesn't list the targets of a rule. To see the targets\n            associated with a rule, use <a>ListTargetsByRule</a>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListRulesRequest": {
+    "com.amazonaws.eventbridge#ListRulesRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>Limits the results to show only the rules associated with the specified event bus.</p>"
           }
         },
         "Limit": {
-          "target": "com.amazon.jetstream.v20151007#LimitMax100",
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "NamePrefix": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The prefix matching the rule name.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListRulesResponse": {
+    "com.amazonaws.eventbridge#ListRulesResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>"
           }
         },
         "Rules": {
-          "target": "com.amazon.jetstream.v20151007#RuleResponseList",
+          "target": "com.amazonaws.eventbridge#RuleResponseList",
           "traits": {
             "smithy.api#documentation": "<p>The rules that match the specified criteria.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListTagsForResource": {
+    "com.amazonaws.eventbridge#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListTagsForResourceRequest"
+        "target": "com.amazonaws.eventbridge#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListTagsForResourceResponse"
+        "target": "com.amazonaws.eventbridge#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Displays the tags associated with an EventBridge resource. In EventBridge, rules can be tagged.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListTagsForResourceRequest": {
+    "com.amazonaws.eventbridge#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceARN": {
-          "target": "com.amazon.jetstream.v20151007#Arn",
+          "target": "com.amazonaws.eventbridge#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the rule for which you want to view tags.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListTagsForResourceResponse": {
+    "com.amazonaws.eventbridge#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "Tags": {
-          "target": "com.amazon.jetstream.v20151007#TagList",
+          "target": "com.amazonaws.eventbridge#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tag keys and values associated with the rule that you specified.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListTargetsByRule": {
+    "com.amazonaws.eventbridge#ListTargetsByRule": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#ListTargetsByRuleRequest"
+        "target": "com.amazonaws.eventbridge#ListTargetsByRuleRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#ListTargetsByRuleResponse"
+        "target": "com.amazonaws.eventbridge#ListTargetsByRuleResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the targets assigned to the specified rule.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#ListTargetsByRuleRequest": {
+    "com.amazonaws.eventbridge#ListTargetsByRuleRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "Limit": {
-          "target": "com.amazon.jetstream.v20151007#LimitMax100",
+          "target": "com.amazonaws.eventbridge#LimitMax100",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
           }
         },
         "Rule": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ListTargetsByRuleResponse": {
+    "com.amazonaws.eventbridge#ListTargetsByRuleResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazon.jetstream.v20151007#NextToken",
+          "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether there are additional results to retrieve. If there are no more results, the value is null.</p>"
           }
         },
         "Targets": {
-          "target": "com.amazon.jetstream.v20151007#TargetList",
+          "target": "com.amazonaws.eventbridge#TargetList",
           "traits": {
             "smithy.api#documentation": "<p>The targets assigned to the rule.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ManagedBy": {
+    "com.amazonaws.eventbridge#ManagedBy": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1778,11 +1780,11 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException": {
+    "com.amazonaws.eventbridge#ManagedRuleException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -1790,14 +1792,14 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007#MessageGroupId": {
+    "com.amazonaws.eventbridge#MessageGroupId": {
       "type": "string"
     },
-    "com.amazon.jetstream.v20151007#NetworkConfiguration": {
+    "com.amazonaws.eventbridge#NetworkConfiguration": {
       "type": "structure",
       "members": {
         "awsvpcConfiguration": {
-          "target": "com.amazon.jetstream.v20151007#AwsVpcConfiguration",
+          "target": "com.amazonaws.eventbridge#AwsVpcConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Use this structure to specify the VPC subnets and security groups for the task and\n            whether a public IP address is to be used. This structure is relevant only for ECS tasks\n            that use the <code>awsvpc</code> network mode.</p>"
           }
@@ -1807,7 +1809,7 @@
         "smithy.api#documentation": "<p>This structure specifies the network configuration for an ECS task.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#NextToken": {
+    "com.amazonaws.eventbridge#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1816,7 +1818,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#NonPartnerEventBusName": {
+    "com.amazonaws.eventbridge#NonPartnerEventBusName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1826,17 +1828,17 @@
         "smithy.api#pattern": "[\\.\\-_A-Za-z0-9]+"
       }
     },
-    "com.amazon.jetstream.v20151007#PartnerEventSource": {
+    "com.amazonaws.eventbridge#PartnerEventSource": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the partner event source.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the partner event source.</p>"
           }
@@ -1846,29 +1848,29 @@
         "smithy.api#documentation": "<p>A partner event source is created by an SaaS partner. If a customer creates a partner event bus that matches this event source, \n                that AWS account can receive events from the partner's applications or services.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PartnerEventSourceAccount": {
+    "com.amazonaws.eventbridge#PartnerEventSourceAccount": {
       "type": "structure",
       "members": {
         "Account": {
-          "target": "com.amazon.jetstream.v20151007#AccountId",
+          "target": "com.amazonaws.eventbridge#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID that the partner event source was offered to.</p>"
           }
         },
         "CreationTime": {
-          "target": "com.amazon.jetstream.v20151007#Timestamp",
+          "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the event source was created.</p>"
           }
         },
         "ExpirationTime": {
-          "target": "com.amazon.jetstream.v20151007#Timestamp",
+          "target": "com.amazonaws.eventbridge#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the event source will expire if the AWS account doesn't\n            create a matching event bus for it.</p>"
           }
         },
         "State": {
-          "target": "com.amazon.jetstream.v20151007#EventSourceState",
+          "target": "com.amazonaws.eventbridge#EventSourceState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the event source. If it's <code>ACTIVE</code>, you have already\n            created a matching event bus for this event source, and that event bus is active. If\n            it's <code>PENDING</code>, either you haven't yet created a matching event bus, or that\n            event bus is deactivated. If it's <code>DELETED</code>, you have created a matching\n            event bus, but the event source has since been deleted.</p>"
           }
@@ -1878,19 +1880,19 @@
         "smithy.api#documentation": "<p>The AWS account that a partner event source has been offered to.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PartnerEventSourceAccountList": {
+    "com.amazonaws.eventbridge#PartnerEventSourceAccountList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#PartnerEventSourceAccount"
+        "target": "com.amazonaws.eventbridge#PartnerEventSourceAccount"
       }
     },
-    "com.amazon.jetstream.v20151007#PartnerEventSourceList": {
+    "com.amazonaws.eventbridge#PartnerEventSourceList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#PartnerEventSource"
+        "target": "com.amazonaws.eventbridge#PartnerEventSource"
       }
     },
-    "com.amazon.jetstream.v20151007#PartnerEventSourceNamePrefix": {
+    "com.amazonaws.eventbridge#PartnerEventSourceNamePrefix": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1900,11 +1902,11 @@
         "smithy.api#pattern": "aws\\.partner/[\\.\\-_A-Za-z0-9]+/[/\\.\\-_A-Za-z0-9]*"
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#PolicyLengthExceededException": {
+    "com.amazonaws.eventbridge#PolicyLengthExceededException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -1912,7 +1914,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007#Principal": {
+    "com.amazonaws.eventbridge#Principal": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1922,70 +1924,70 @@
         "smithy.api#pattern": "(\\d{12}|\\*)"
       }
     },
-    "com.amazon.jetstream.v20151007#PutEvents": {
+    "com.amazonaws.eventbridge#PutEvents": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#PutEventsRequest"
+        "target": "com.amazonaws.eventbridge#PutEventsRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#PutEventsResponse"
+        "target": "com.amazonaws.eventbridge#PutEventsResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Sends custom events to EventBridge so that they can be matched to rules. These events can be from your custom applications\n        and services.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutEventsRequest": {
+    "com.amazonaws.eventbridge#PutEventsRequest": {
       "type": "structure",
       "members": {
         "Entries": {
-          "target": "com.amazon.jetstream.v20151007#PutEventsRequestEntryList",
+          "target": "com.amazonaws.eventbridge#PutEventsRequestEntryList",
           "traits": {
             "smithy.api#documentation": "<p>The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutEventsRequestEntry": {
+    "com.amazonaws.eventbridge#PutEventsRequestEntry": {
       "type": "structure",
       "members": {
         "Detail": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>A valid JSON object. There is no other schema imposed. The JSON object can contain\n            fields and nested subobjects.</p>\n        <p>This field is required.</p>"
           }
         },
         "DetailType": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>Free-form string used to decide which fields to expect in the event\n            detail. This field is required.</p>"
           }
         },
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#NonPartnerEventBusName",
+          "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus that will receive the event. Only the rules that are associated with\n            this event bus can match the event.</p>"
           }
         },
         "Resources": {
-          "target": "com.amazon.jetstream.v20151007#EventResourceList",
+          "target": "com.amazonaws.eventbridge#EventResourceList",
           "traits": {
             "smithy.api#documentation": "<p>AWS resources, identified by Amazon Resource Name (ARN), that the event primarily\n            concerns. Any number, including zero, can be present.</p>"
           }
         },
         "Source": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The source of the event. This field is required.</p>"
           }
         },
         "Time": {
-          "target": "com.amazon.jetstream.v20151007#EventTime",
+          "target": "com.amazonaws.eventbridge#EventTime",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp of the event, per <a href=\"https://www.rfc-editor.org/rfc/rfc3339.txt\">RFC3339</a>. If no timestamp is\n            provided, the timestamp of the <a>PutEvents</a> call is used.</p>"
           }
@@ -1995,10 +1997,10 @@
         "smithy.api#documentation": "<p>Represents an event to be submitted.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutEventsRequestEntryList": {
+    "com.amazonaws.eventbridge#PutEventsRequestEntryList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#PutEventsRequestEntry"
+        "target": "com.amazonaws.eventbridge#PutEventsRequestEntry"
       },
       "traits": {
         "smithy.api#length": {
@@ -2007,40 +2009,40 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutEventsResponse": {
+    "com.amazonaws.eventbridge#PutEventsResponse": {
       "type": "structure",
       "members": {
         "Entries": {
-          "target": "com.amazon.jetstream.v20151007#PutEventsResultEntryList",
+          "target": "com.amazonaws.eventbridge#PutEventsResultEntryList",
           "traits": {
             "smithy.api#documentation": "<p>The successfully and unsuccessfully ingested events results. If the ingestion was successful, \n            the entry has the event ID in it. Otherwise, you can use the error code and error message \n            to identify the problem with the entry.</p>"
           }
         },
         "FailedEntryCount": {
-          "target": "com.amazon.jetstream.v20151007#Integer",
+          "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of failed entries.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutEventsResultEntry": {
+    "com.amazonaws.eventbridge#PutEventsResultEntry": {
       "type": "structure",
       "members": {
         "ErrorCode": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorCode",
+          "target": "com.amazonaws.eventbridge#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code that indicates why the event submission failed.</p>"
           }
         },
         "ErrorMessage": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage",
+          "target": "com.amazonaws.eventbridge#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message that explains why the event submission failed.</p>"
           }
         },
         "EventId": {
-          "target": "com.amazon.jetstream.v20151007#EventId",
+          "target": "com.amazonaws.eventbridge#EventId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the event.</p>"
           }
@@ -2050,70 +2052,70 @@
         "smithy.api#documentation": "<p>Represents an event that failed to be submitted.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutEventsResultEntryList": {
+    "com.amazonaws.eventbridge#PutEventsResultEntryList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#PutEventsResultEntry"
+        "target": "com.amazonaws.eventbridge#PutEventsResultEntry"
       }
     },
-    "com.amazon.jetstream.v20151007#PutPartnerEvents": {
+    "com.amazonaws.eventbridge#PutPartnerEvents": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#PutPartnerEventsRequest"
+        "target": "com.amazonaws.eventbridge#PutPartnerEventsRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#PutPartnerEventsResponse"
+        "target": "com.amazonaws.eventbridge#PutPartnerEventsResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>This is used by SaaS partners to write events to a customer's partner event bus.</p>\n            <note>\n            <p>AWS customers do not use this operation. Instead, AWS customers can use \n                <a>PutEvents</a> to write custom events from their own applications to an event bus.</p>\n         </note>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutPartnerEventsRequest": {
+    "com.amazonaws.eventbridge#PutPartnerEventsRequest": {
       "type": "structure",
       "members": {
         "Entries": {
-          "target": "com.amazon.jetstream.v20151007#PutPartnerEventsRequestEntryList",
+          "target": "com.amazonaws.eventbridge#PutPartnerEventsRequestEntryList",
           "traits": {
             "smithy.api#documentation": "<p>The list of events to write to the event bus.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutPartnerEventsRequestEntry": {
+    "com.amazonaws.eventbridge#PutPartnerEventsRequestEntry": {
       "type": "structure",
       "members": {
         "Detail": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>A valid JSON object. There is no other schema imposed. The JSON object can contain\n                fields and nested subobjects. This field is required.</p>"
           }
         },
         "DetailType": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>A free-form string used to decide which fields to expect in the event\n            detail. This field is required.</p>"
           }
         },
         "Resources": {
-          "target": "com.amazon.jetstream.v20151007#EventResourceList",
+          "target": "com.amazonaws.eventbridge#EventResourceList",
           "traits": {
             "smithy.api#documentation": "<p>AWS resources, identified by Amazon Resource Name (ARN), that the event primarily\n            concerns. Any number, including zero, can be present.</p>"
           }
         },
         "Source": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The event source that is generating the evntry. This field is required.</p>"
           }
         },
         "Time": {
-          "target": "com.amazon.jetstream.v20151007#EventTime",
+          "target": "com.amazonaws.eventbridge#EventTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time of the event.</p>"
           }
@@ -2123,10 +2125,10 @@
         "smithy.api#documentation": "<p>The details about an event generated by an SaaS partner.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutPartnerEventsRequestEntryList": {
+    "com.amazonaws.eventbridge#PutPartnerEventsRequestEntryList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#PutPartnerEventsRequestEntry"
+        "target": "com.amazonaws.eventbridge#PutPartnerEventsRequestEntry"
       },
       "traits": {
         "smithy.api#length": {
@@ -2135,40 +2137,40 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutPartnerEventsResponse": {
+    "com.amazonaws.eventbridge#PutPartnerEventsResponse": {
       "type": "structure",
       "members": {
         "Entries": {
-          "target": "com.amazon.jetstream.v20151007#PutPartnerEventsResultEntryList",
+          "target": "com.amazonaws.eventbridge#PutPartnerEventsResultEntryList",
           "traits": {
             "smithy.api#documentation": "<p>The list of events from this operation that were successfully written to the partner event bus.</p>"
           }
         },
         "FailedEntryCount": {
-          "target": "com.amazon.jetstream.v20151007#Integer",
+          "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of events from this operation that couldn't be written to the partner\n            event bus.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutPartnerEventsResultEntry": {
+    "com.amazonaws.eventbridge#PutPartnerEventsResultEntry": {
       "type": "structure",
       "members": {
         "ErrorCode": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorCode",
+          "target": "com.amazonaws.eventbridge#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code that indicates why the event submission failed.</p>"
           }
         },
         "ErrorMessage": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage",
+          "target": "com.amazonaws.eventbridge#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message that explains why the event submission failed.</p>"
           }
         },
         "EventId": {
-          "target": "com.amazon.jetstream.v20151007#EventId",
+          "target": "com.amazonaws.eventbridge#EventId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the event.</p>"
           }
@@ -2178,258 +2180,258 @@
         "smithy.api#documentation": "<p>Represents an event that a partner tried to generate but failed.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutPartnerEventsResultEntryList": {
+    "com.amazonaws.eventbridge#PutPartnerEventsResultEntryList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#PutPartnerEventsResultEntry"
+        "target": "com.amazonaws.eventbridge#PutPartnerEventsResultEntry"
       }
     },
-    "com.amazon.jetstream.v20151007#PutPermission": {
+    "com.amazonaws.eventbridge#PutPermission": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#PutPermissionRequest"
+        "target": "com.amazonaws.eventbridge#PutPermissionRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#PolicyLengthExceededException"
+          "target": "com.amazonaws.eventbridge#PolicyLengthExceededException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Running <code>PutPermission</code> permits the specified AWS account or AWS organization to put events to the specified <i>event bus</i>. \n            Rules in your account are triggered by these events arriving to an event bus in your account.  </p>\n        <p>For another account to send events to your account, that external account must have a rule with your account's\n        event bus as a target.</p>\n\n        <p>To enable multiple AWS accounts to put events to an event bus, run <code>PutPermission</code> once for each of these accounts. Or, \n        if all the accounts are members of the same AWS organization, you can run <code>PutPermission</code> once specifying <code>Principal</code>\n        as \"*\" and specifying the AWS organization ID in <code>Condition</code>, to grant permissions to all accounts\n        in that organization.</p>\n\n        <p>If you grant permissions using an organization, then accounts in that \n            organization must specify a <code>RoleArn</code> with proper permissions \n            when they use <code>PutTarget</code> to add your account's event bus as a \n            target. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and Receiving Events Between AWS Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n\n        <p>The permission policy on an event bus can't exceed 10 KB in size.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutPermissionRequest": {
+    "com.amazonaws.eventbridge#PutPermissionRequest": {
       "type": "structure",
       "members": {
         "Action": {
-          "target": "com.amazon.jetstream.v20151007#Action",
+          "target": "com.amazonaws.eventbridge#Action",
           "traits": {
             "smithy.api#documentation": "<p>The action that you're enabling the other account to perform. Currently, this must\n            be <code>events:PutEvents</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Condition": {
-          "target": "com.amazon.jetstream.v20151007#Condition",
+          "target": "com.amazonaws.eventbridge#Condition",
           "traits": {
             "smithy.api#documentation": "<p>This parameter enables you to limit the permission to accounts that fulfill a certain\n            condition, such as being a member of a certain AWS organization. For more information\n            about AWS Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">What Is AWS\n                Organizations?</a> in the <i>AWS Organizations User\n            Guide</i>.</p>\n        <p>If you specify <code>Condition</code> with an AWS organization ID and specify \"*\" as\n            the value for <code>Principal</code>, you grant permission to all the accounts in the\n            named organization.</p>\n\n        <p>The <code>Condition</code> is a JSON string that must contain <code>Type</code>,\n                <code>Key</code>, and <code>Value</code> fields.</p>"
           }
         },
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#NonPartnerEventBusName",
+          "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "Principal": {
-          "target": "com.amazon.jetstream.v20151007#Principal",
+          "target": "com.amazonaws.eventbridge#Principal",
           "traits": {
             "smithy.api#documentation": "<p>The 12-digit AWS account ID that you are permitting to put events to your default \n            event bus. Specify \"*\" to permit any account to put events to your default event bus.</p>\n\n        <p>If you specify \"*\" without specifying <code>Condition</code>, avoid creating rules\n            that might match undesirable events. To create more secure rules, make sure that the\n            event pattern for each rule contains an <code>account</code> field with a specific\n            account ID to receive events from. Rules that have an account field match events sent only\n            from accounts that are listed in the rule's <code>account</code> field.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StatementId": {
-          "target": "com.amazon.jetstream.v20151007#StatementId",
+          "target": "com.amazonaws.eventbridge#StatementId",
           "traits": {
             "smithy.api#documentation": "<p>An identifier string for the external account that you're granting permissions to.\n            If you later want to revoke the permission for this external account, specify this\n                <code>StatementId</code> when you run <a>RemovePermission</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutRule": {
+    "com.amazonaws.eventbridge#PutRule": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#PutRuleRequest"
+        "target": "com.amazonaws.eventbridge#PutRuleRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#PutRuleResponse"
+        "target": "com.amazonaws.eventbridge#PutRuleResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InvalidEventPatternException"
+          "target": "com.amazonaws.eventbridge#InvalidEventPatternException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#LimitExceededException"
+          "target": "com.amazonaws.eventbridge#LimitExceededException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates or updates the specified rule. Rules are enabled by default or based on\n            value of the state. You can disable a rule using <a>DisableRule</a>.</p>\n        \n        <p>A single rule watches for events from a single event bus. Events generated by AWS services go to your\n        account's default event bus. Events generated by SaaS partner services or applications go to the matching partner event bus. If you have \n        custom applications or services, you can specify whether their events go to your default event bus or a custom event bus that you \n        have created.  For more information, see <a>CreateEventBus</a>.</p>\n        \n        <p>If you're updating an existing rule, the rule is replaced with what you specify in\n            this <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the\n            old values for those arguments aren't kept. Instead, they're replaced with null\n            values.</p>\n        \n        <p>When you create or update a rule, incoming events might not immediately start\n            matching to new or updated rules. Allow a short period of time for changes to take\n            effect.</p>\n        \n        <p>A rule must contain at least an <code>EventPattern</code> or\n                <code>ScheduleExpression</code>. Rules with <code>EventPatterns</code> are triggered\n            when a matching event is observed. Rules with <code>ScheduleExpressions</code>\n            self-trigger based on the given schedule. A rule can have both an\n                <code>EventPattern</code> and a <code>ScheduleExpression</code>, in which case the\n            rule triggers on matching events as well as on a schedule.</p>\n        \n        <p>When you initially create a rule, you can optionally assign one or more tags to the rule. Tags can help you organize and categorize your\n            resources. You can also use them to scope user permissions, by granting a user permission to access or change only rules with\n            certain tag values. To use the <code>PutRule</code> operation and assign tags, you must have both the <code>events:PutRule</code>\n        and <code>events:TagResource</code> permissions.</p>\n        <p>If you are updating an existing rule, any tags you specify in the <code>PutRule</code> operation are ignored. To update\n            the tags of an existing rule, use <a>TagResource</a> and <a>UntagResource</a>.</p>\n        \n        <p>Most services in AWS treat <code>:</code> or <code>/</code> as the same character\n            in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event\n            patterns and rules. Be sure to use the correct ARN characters when creating event\n            patterns so that they match the ARN syntax in the event that you want to\n            match.</p>\n        \n        <p>In EventBridge, you could create rules that lead to infinite loops, where a rule\n            is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3\n            bucket, and trigger software to change them to the desired state. If you don't write the\n            rule carefully, the subsequent change to the ACLs fires the rule again, creating an\n            infinite loop.</p>\n        <p>To prevent this, write the rules so that the triggered actions don't refire the same\n            rule. For example, your rule could fire only if ACLs are found to be in a bad state,\n            instead of after any change. </p>\n        <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, \n            which alerts you when charges exceed your specified limit. For more information, see \n            <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\">Managing Your Costs with Budgets</a>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutRuleRequest": {
+    "com.amazonaws.eventbridge#PutRuleRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazon.jetstream.v20151007#RuleDescription",
+          "target": "com.amazonaws.eventbridge#RuleDescription",
           "traits": {
             "smithy.api#documentation": "<p>A description of the rule.</p>"
           }
         },
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus to associate with this rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "EventPattern": {
-          "target": "com.amazon.jetstream.v20151007#EventPattern",
+          "target": "com.amazonaws.eventbridge#EventPattern",
           "traits": {
             "smithy.api#documentation": "<p>The event pattern. For more information, see \n            <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule that you're creating or updating.</p>\n        <p>A rule can't have the same name as another rule in the same Region or on the same event bus.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RoleArn": {
-          "target": "com.amazon.jetstream.v20151007#RoleArn",
+          "target": "com.amazonaws.eventbridge#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>"
           }
         },
         "ScheduleExpression": {
-          "target": "com.amazon.jetstream.v20151007#ScheduleExpression",
+          "target": "com.amazonaws.eventbridge#ScheduleExpression",
           "traits": {
             "smithy.api#documentation": "<p>The scheduling expression: for example, <code>\"cron(0 20 * * ? *)\"</code> or\n                <code>\"rate(5 minutes)\"</code>.</p>"
           }
         },
         "State": {
-          "target": "com.amazon.jetstream.v20151007#RuleState",
+          "target": "com.amazonaws.eventbridge#RuleState",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the rule is enabled or disabled.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazon.jetstream.v20151007#TagList",
+          "target": "com.amazonaws.eventbridge#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The list of key-value pairs to associate with the rule.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutRuleResponse": {
+    "com.amazonaws.eventbridge#PutRuleResponse": {
       "type": "structure",
       "members": {
         "RuleArn": {
-          "target": "com.amazon.jetstream.v20151007#RuleArn",
+          "target": "com.amazonaws.eventbridge#RuleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutTargets": {
+    "com.amazonaws.eventbridge#PutTargets": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#PutTargetsRequest"
+        "target": "com.amazonaws.eventbridge#PutTargetsRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#PutTargetsResponse"
+        "target": "com.amazonaws.eventbridge#PutTargetsResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#LimitExceededException"
+          "target": "com.amazonaws.eventbridge#LimitExceededException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Adds the specified targets to the specified rule, or updates the targets if they're\n            already associated with the rule.</p>\n        <p>Targets are the resources that are invoked when a rule is triggered.</p>\n        <p>You can configure the following as targets in EventBridge:</p>\n\n           <ul>\n            <li>\n               <p>EC2 instances</p>\n            </li>\n            <li>\n               <p>SSM Run Command</p>\n            </li>\n            <li>\n               <p>SSM Automation</p>\n            </li>\n            <li>\n               <p>AWS Lambda functions</p>\n            </li>\n            <li>\n               <p>Data streams in Amazon Kinesis Data Streams</p>\n            </li>\n            <li>\n               <p>Data delivery streams in Amazon Kinesis Data Firehose</p>\n            </li>\n            <li>\n               <p>Amazon ECS tasks</p>\n            </li>\n            <li>\n               <p>AWS Step Functions state machines</p>\n            </li>\n            <li>\n               <p>AWS Batch jobs</p>\n            </li>\n            <li>\n               <p>AWS CodeBuild projects</p>\n            </li>\n            <li>\n               <p>Pipelines in AWS CodePipeline</p>\n            </li>\n            <li>\n               <p>Amazon Inspector assessment templates</p>\n            </li>\n            <li>\n               <p>Amazon SNS topics</p>\n            </li>\n            <li>\n               <p>Amazon SQS queues, including FIFO queues</p>\n            </li>\n            <li>\n               <p>The default event bus of another AWS account</p>\n            </li>\n         </ul> \n        \n        \n        \n        <p>Creating rules with built-in targets is supported only on the AWS Management\n            Console. The built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2\n                RebootInstances API call</code>, <code>EC2 StopInstances API call</code>, and\n                <code>EC2 TerminateInstances API call</code>. </p>\n  \n        <p>For some target types, <code>PutTargets</code> provides target-specific parameters.\n            If the target is a Kinesis data stream, you can optionally specify which shard the event\n            goes to by using the <code>KinesisParameters</code> argument. To invoke a command on\n            multiple EC2 instances with one rule, you can use the <code>RunCommandParameters</code>\n            field.</p>\n        <p>To be able to make API calls against the resources that you own, Amazon EventBridge\n            needs the appropriate permissions. For AWS Lambda and Amazon SNS resources,\n            EventBridge relies on resource-based policies. For EC2 instances, Kinesis data\n            streams, and AWS Step Functions state machines, EventBridge relies on IAM roles\n            that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>. For\n            more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html\">Authentication\n                and Access Control</a> in the <i>Amazon EventBridge User\n                Guide</i>.</p>\n        <p>If another AWS account is in the same Region and has granted you permission (using\n                <code>PutPermission</code>), you can send events to that account. Set that account's\n            event bus as a target of the rules in your account. To send the matched events to the\n            other account, specify that account's event bus as the <code>Arn</code> value when you\n            run <code>PutTargets</code>. If your account sends events to another account, your\n            account is charged for each sent event. Each event sent to another account is charged as\n            a custom event. The account receiving the event isn't charged. For more information, see\n                <a href=\"https://aws.amazon.com/eventbridge/pricing/\">Amazon EventBridge\n                Pricing</a>.</p>\n        \n        <p>If you're setting an event bus in another account as the target and that account\n            granted permission to your account through an organization instead of directly by the\n            account ID, you must specify a <code>RoleArn</code> with proper permissions in the\n                <code>Target</code> structure. For more information, see \n            <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and Receiving Events Between AWS Accounts</a> in the <i>Amazon\n                EventBridge User Guide</i>.</p>\n     \n        <p>For more information about enabling cross-account\n            events, see <a>PutPermission</a>.</p>\n        \n        <p>\n            <code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are\n            mutually exclusive and optional parameters of a target. When a rule is triggered due to\n            a matched event:</p>\n        \n        <ul>\n            <li>\n               <p>If none of the following arguments are specified for a target, the entire event is passed\n                    to the target in JSON format (unless the target is Amazon EC2 Run Command or\n                    Amazon ECS task, in which case nothing from the event is passed to the\n                    target).</p>\n            </li>\n            <li>\n                <p>If <code>Input</code> is specified in the form of valid JSON, then the\n                    matched event is overridden with this constant.</p>\n            </li>\n            <li>\n               <p>If <code>InputPath</code> is specified in the form of JSONPath (for example,\n                        <code>$.detail</code>), only the part of the event specified in the path is\n                    passed to the target (for example, only the detail part of the event is\n                    passed).</p>\n            </li>\n            <li>\n               <p>If <code>InputTransformer</code> is specified, one or more specified JSONPaths are\n                    extracted from the event and used as values in a template that you specify as\n                    the input to the target.</p>\n            </li>\n         </ul>\n        \n        <p>When you specify <code>InputPath</code> or <code>InputTransformer</code>, you must use JSON dot notation, not bracket notation.</p>\n        \n        <p>When you add targets to a rule and the associated rule triggers soon after, new or\n            updated targets might not be immediately invoked. Allow a short period of time for\n            changes to take effect.</p>\n        \n        <p>This action can partially fail if too many requests are made at the same time. If\n            that happens, <code>FailedEntryCount</code> is nonzero in the response, and each entry\n            in <code>FailedEntries</code> provides the ID of the failed target and the error\n            code.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutTargetsRequest": {
+    "com.amazonaws.eventbridge#PutTargetsRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event bus associated with the rule. If you omit this, the default event bus is used.</p>"
           }
         },
         "Rule": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Targets": {
-          "target": "com.amazon.jetstream.v20151007#TargetList",
+          "target": "com.amazonaws.eventbridge#TargetList",
           "traits": {
             "smithy.api#documentation": "<p>The targets to update or add to the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutTargetsResponse": {
+    "com.amazonaws.eventbridge#PutTargetsResponse": {
       "type": "structure",
       "members": {
         "FailedEntries": {
-          "target": "com.amazon.jetstream.v20151007#PutTargetsResultEntryList",
+          "target": "com.amazonaws.eventbridge#PutTargetsResultEntryList",
           "traits": {
             "smithy.api#documentation": "<p>The failed target entries.</p>"
           }
         },
         "FailedEntryCount": {
-          "target": "com.amazon.jetstream.v20151007#Integer",
+          "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of failed entries.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#PutTargetsResultEntry": {
+    "com.amazonaws.eventbridge#PutTargetsResultEntry": {
       "type": "structure",
       "members": {
         "ErrorCode": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorCode",
+          "target": "com.amazonaws.eventbridge#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code that indicates why the target addition failed. If the value is <code>ConcurrentModificationException</code>, too many \n        requests were made at the same time.</p>"
           }
         },
         "ErrorMessage": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage",
+          "target": "com.amazonaws.eventbridge#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message that explains why the target addition failed.</p>"
           }
         },
         "TargetId": {
-          "target": "com.amazon.jetstream.v20151007#TargetId",
+          "target": "com.amazonaws.eventbridge#TargetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the target.</p>"
           }
@@ -2439,141 +2441,141 @@
         "smithy.api#documentation": "<p>Represents a target that failed to be added to a rule.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#PutTargetsResultEntryList": {
+    "com.amazonaws.eventbridge#PutTargetsResultEntryList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#PutTargetsResultEntry"
+        "target": "com.amazonaws.eventbridge#PutTargetsResultEntry"
       }
     },
-    "com.amazon.jetstream.v20151007#RemovePermission": {
+    "com.amazonaws.eventbridge#RemovePermission": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#RemovePermissionRequest"
+        "target": "com.amazonaws.eventbridge#RemovePermissionRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Revokes the permission of another AWS account to be able to put events to the specified event bus. Specify the account to \n            revoke by the <code>StatementId</code> value that you associated with the account when you granted it permission with <code>PutPermission</code>. \n            You can find the <code>StatementId</code> by using <a>DescribeEventBus</a>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#RemovePermissionRequest": {
+    "com.amazonaws.eventbridge#RemovePermissionRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#NonPartnerEventBusName",
+          "target": "com.amazonaws.eventbridge#NonPartnerEventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.</p>"
           }
         },
         "StatementId": {
-          "target": "com.amazon.jetstream.v20151007#StatementId",
+          "target": "com.amazonaws.eventbridge#StatementId",
           "traits": {
             "smithy.api#documentation": "<p>The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#RemoveTargets": {
+    "com.amazonaws.eventbridge#RemoveTargets": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#RemoveTargetsRequest"
+        "target": "com.amazonaws.eventbridge#RemoveTargetsRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#RemoveTargetsResponse"
+        "target": "com.amazonaws.eventbridge#RemoveTargetsResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Removes the specified targets from the specified rule. When the rule is triggered, those targets are no longer be invoked.</p>\n        \n        <p>When you remove a target, when the associated rule triggers, removed targets might\n            continue to be invoked. Allow a short period of time for changes to take\n            effect.</p>\n        \n        <p>This action can partially fail if too many requests are made at the same time. If that happens, <code>FailedEntryCount</code> is non-zero in the response and \n            each entry in <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#RemoveTargetsRequest": {
+    "com.amazonaws.eventbridge#RemoveTargetsRequest": {
       "type": "structure",
       "members": {
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the event bus associated with the rule.</p>"
           }
         },
         "Force": {
-          "target": "com.amazon.jetstream.v20151007#Boolean",
+          "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>If this is a managed rule created by an AWS service on your behalf, you must specify\n                <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored\n            for rules that aren't managed rules. You can check whether a rule is a managed rule by\n            using <code>DescribeRule</code> or <code>ListRules</code> and checking the\n                <code>ManagedBy</code> field of the response.</p>"
           }
         },
         "Ids": {
-          "target": "com.amazon.jetstream.v20151007#TargetIdList",
+          "target": "com.amazonaws.eventbridge#TargetIdList",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the targets to remove from the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Rule": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#RemoveTargetsResponse": {
+    "com.amazonaws.eventbridge#RemoveTargetsResponse": {
       "type": "structure",
       "members": {
         "FailedEntries": {
-          "target": "com.amazon.jetstream.v20151007#RemoveTargetsResultEntryList",
+          "target": "com.amazonaws.eventbridge#RemoveTargetsResultEntryList",
           "traits": {
             "smithy.api#documentation": "<p>The failed target entries.</p>"
           }
         },
         "FailedEntryCount": {
-          "target": "com.amazon.jetstream.v20151007#Integer",
+          "target": "com.amazonaws.eventbridge#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of failed entries.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#RemoveTargetsResultEntry": {
+    "com.amazonaws.eventbridge#RemoveTargetsResultEntry": {
       "type": "structure",
       "members": {
         "ErrorCode": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorCode",
+          "target": "com.amazonaws.eventbridge#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The error code that indicates why the target removal failed. If the value is <code>ConcurrentModificationException</code>, too many \n            requests were made at the same time.</p>"
           }
         },
         "ErrorMessage": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage",
+          "target": "com.amazonaws.eventbridge#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The error message that explains why the target removal failed.</p>"
           }
         },
         "TargetId": {
-          "target": "com.amazon.jetstream.v20151007#TargetId",
+          "target": "com.amazonaws.eventbridge#TargetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the target.</p>"
           }
@@ -2583,17 +2585,17 @@
         "smithy.api#documentation": "<p>Represents a target that failed to be removed from a rule.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#RemoveTargetsResultEntryList": {
+    "com.amazonaws.eventbridge#RemoveTargetsResultEntryList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#RemoveTargetsResultEntry"
+        "target": "com.amazonaws.eventbridge#RemoveTargetsResultEntry"
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#ResourceAlreadyExistsException": {
+    "com.amazonaws.eventbridge#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -2601,11 +2603,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException": {
+    "com.amazonaws.eventbridge#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ErrorMessage"
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
         }
       },
       "traits": {
@@ -2613,7 +2615,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.jetstream.v20151007#RoleArn": {
+    "com.amazonaws.eventbridge#RoleArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2622,59 +2624,59 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#Rule": {
+    "com.amazonaws.eventbridge#Rule": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#RuleArn",
+          "target": "com.amazonaws.eventbridge#RuleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule.</p>"
           }
         },
         "Description": {
-          "target": "com.amazon.jetstream.v20151007#RuleDescription",
+          "target": "com.amazonaws.eventbridge#RuleDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the rule.</p>"
           }
         },
         "EventBusName": {
-          "target": "com.amazon.jetstream.v20151007#EventBusName",
+          "target": "com.amazonaws.eventbridge#EventBusName",
           "traits": {
             "smithy.api#documentation": "<p>The event bus associated with the rule.</p>"
           }
         },
         "EventPattern": {
-          "target": "com.amazon.jetstream.v20151007#EventPattern",
+          "target": "com.amazonaws.eventbridge#EventPattern",
           "traits": {
             "smithy.api#documentation": "<p>The event pattern of the rule. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
           }
         },
         "ManagedBy": {
-          "target": "com.amazon.jetstream.v20151007#ManagedBy",
+          "target": "com.amazonaws.eventbridge#ManagedBy",
           "traits": {
             "smithy.api#documentation": "<p>If an AWS service created the rule on behalf of your account, this field displays the\n            principal name of the service that created the rule.</p>"
           }
         },
         "Name": {
-          "target": "com.amazon.jetstream.v20151007#RuleName",
+          "target": "com.amazonaws.eventbridge#RuleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>"
           }
         },
         "RoleArn": {
-          "target": "com.amazon.jetstream.v20151007#RoleArn",
+          "target": "com.amazonaws.eventbridge#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that is used for target invocation.</p>"
           }
         },
         "ScheduleExpression": {
-          "target": "com.amazon.jetstream.v20151007#ScheduleExpression",
+          "target": "com.amazonaws.eventbridge#ScheduleExpression",
           "traits": {
             "smithy.api#documentation": "<p>The scheduling expression: for example, <code>\"cron(0 20 * * ? *)\"</code> or\n                <code>\"rate(5 minutes)\"</code>.</p>"
           }
         },
         "State": {
-          "target": "com.amazon.jetstream.v20151007#RuleState",
+          "target": "com.amazonaws.eventbridge#RuleState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the rule.</p>"
           }
@@ -2684,7 +2686,7 @@
         "smithy.api#documentation": "<p>Contains information about a rule in Amazon EventBridge.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#RuleArn": {
+    "com.amazonaws.eventbridge#RuleArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2693,7 +2695,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#RuleDescription": {
+    "com.amazonaws.eventbridge#RuleDescription": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2702,7 +2704,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#RuleName": {
+    "com.amazonaws.eventbridge#RuleName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2712,39 +2714,41 @@
         "smithy.api#pattern": "[\\.\\-_A-Za-z0-9]+"
       }
     },
-    "com.amazon.jetstream.v20151007#RuleNameList": {
+    "com.amazonaws.eventbridge#RuleNameList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#RuleName"
+        "target": "com.amazonaws.eventbridge#RuleName"
       }
     },
-    "com.amazon.jetstream.v20151007#RuleResponseList": {
+    "com.amazonaws.eventbridge#RuleResponseList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#Rule"
+        "target": "com.amazonaws.eventbridge#Rule"
       }
     },
-    "com.amazon.jetstream.v20151007#RuleState": {
+    "com.amazonaws.eventbridge#RuleState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
-    "com.amazon.jetstream.v20151007#RunCommandParameters": {
+    "com.amazonaws.eventbridge#RunCommandParameters": {
       "type": "structure",
       "members": {
         "RunCommandTargets": {
-          "target": "com.amazon.jetstream.v20151007#RunCommandTargets",
+          "target": "com.amazonaws.eventbridge#RunCommandTargets",
           "traits": {
             "smithy.api#documentation": "<p>Currently, we support including only one <code>RunCommandTarget</code> block, which\n            specifies either an array of <code>InstanceIds</code> or a tag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2752,21 +2756,21 @@
         "smithy.api#documentation": "<p>This parameter contains the criteria (either <code>InstanceIds</code> or a tag)\n            used to specify which EC2 instances are to be sent the command. </p>"
       }
     },
-    "com.amazon.jetstream.v20151007#RunCommandTarget": {
+    "com.amazonaws.eventbridge#RunCommandTarget": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazon.jetstream.v20151007#RunCommandTargetKey",
+          "target": "com.amazonaws.eventbridge#RunCommandTargetKey",
           "traits": {
             "smithy.api#documentation": "<p>Can be either <code>tag:</code>\n            <i>tag-key</i> or <code>InstanceIds</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Values": {
-          "target": "com.amazon.jetstream.v20151007#RunCommandTargetValues",
+          "target": "com.amazonaws.eventbridge#RunCommandTargetValues",
           "traits": {
             "smithy.api#documentation": "<p>If <code>Key</code> is <code>tag:</code>\n            <i>tag-key</i>, <code>Values</code> is a list of tag values. \n            If <code>Key</code> is <code>InstanceIds</code>, <code>Values</code> is a list of Amazon EC2 instance IDs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2774,7 +2778,7 @@
         "smithy.api#documentation": "<p>Information about the EC2 instances that are to be sent the command, specified as\n            key-value pairs. Each <code>RunCommandTarget</code> block can include only one key, but\n            this key can specify multiple values.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#RunCommandTargetKey": {
+    "com.amazonaws.eventbridge#RunCommandTargetKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2784,7 +2788,7 @@
         "smithy.api#pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*$"
       }
     },
-    "com.amazon.jetstream.v20151007#RunCommandTargetValue": {
+    "com.amazonaws.eventbridge#RunCommandTargetValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2793,10 +2797,10 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#RunCommandTargetValues": {
+    "com.amazonaws.eventbridge#RunCommandTargetValues": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#RunCommandTargetValue"
+        "target": "com.amazonaws.eventbridge#RunCommandTargetValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -2805,10 +2809,10 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#RunCommandTargets": {
+    "com.amazonaws.eventbridge#RunCommandTargets": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#RunCommandTarget"
+        "target": "com.amazonaws.eventbridge#RunCommandTarget"
       },
       "traits": {
         "smithy.api#length": {
@@ -2817,7 +2821,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#ScheduleExpression": {
+    "com.amazonaws.eventbridge#ScheduleExpression": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2826,11 +2830,11 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#SqsParameters": {
+    "com.amazonaws.eventbridge#SqsParameters": {
       "type": "structure",
       "members": {
         "MessageGroupId": {
-          "target": "com.amazon.jetstream.v20151007#MessageGroupId",
+          "target": "com.amazonaws.eventbridge#MessageGroupId",
           "traits": {
             "smithy.api#documentation": "<p>The FIFO message group ID to use as the target.</p>"
           }
@@ -2840,7 +2844,7 @@
         "smithy.api#documentation": "<p>This structure includes the custom parameter to be used when the target is an SQS FIFO queue.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#StatementId": {
+    "com.amazonaws.eventbridge#StatementId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2850,30 +2854,30 @@
         "smithy.api#pattern": "[a-zA-Z0-9-_]+"
       }
     },
-    "com.amazon.jetstream.v20151007#String": {
+    "com.amazonaws.eventbridge#String": {
       "type": "string"
     },
-    "com.amazon.jetstream.v20151007#StringList": {
+    "com.amazonaws.eventbridge#StringList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#String"
+        "target": "com.amazonaws.eventbridge#String"
       }
     },
-    "com.amazon.jetstream.v20151007#Tag": {
+    "com.amazonaws.eventbridge#Tag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazon.jetstream.v20151007#TagKey",
+          "target": "com.amazonaws.eventbridge#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>A string that you can use to assign a value. The combination of tag keys and values\n            can help you organize and categorize your resources.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
-          "target": "com.amazon.jetstream.v20151007#TagValue",
+          "target": "com.amazonaws.eventbridge#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value for the specified tag key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2881,7 +2885,7 @@
         "smithy.api#documentation": "<p>A key-value pair associated with an AWS resource. In EventBridge, rules support tagging.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#TagKey": {
+    "com.amazonaws.eventbridge#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2890,68 +2894,68 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TagKeyList": {
+    "com.amazonaws.eventbridge#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#TagKey"
+        "target": "com.amazonaws.eventbridge#TagKey"
       }
     },
-    "com.amazon.jetstream.v20151007#TagList": {
+    "com.amazonaws.eventbridge#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#Tag"
+        "target": "com.amazonaws.eventbridge#Tag"
       }
     },
-    "com.amazon.jetstream.v20151007#TagResource": {
+    "com.amazonaws.eventbridge#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#TagResourceRequest"
+        "target": "com.amazonaws.eventbridge#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#TagResourceResponse"
+        "target": "com.amazonaws.eventbridge#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the specified EventBridge\n            resource. Tags can help you organize and categorize your resources. You can also use\n            them to scope user permissions by granting a user permission to access or change only\n            resources with certain tag values. In EventBridge, rules can be tagged.</p>\n            <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as\n            strings of characters.</p>\n            <p>You can use the <code>TagResource</code> action with a rule that already has tags.\n            If you specify a new tag key for the rule, this tag is appended to the list of tags\n            associated with the rule. If you specify a tag key that is already associated with the\n            rule, the new tag value that you specify replaces the previous value for that\n            tag.</p>\n            <p>You can associate as many as 50 tags with a resource.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#TagResourceRequest": {
+    "com.amazonaws.eventbridge#TagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceARN": {
-          "target": "com.amazon.jetstream.v20151007#Arn",
+          "target": "com.amazonaws.eventbridge#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the rule that you're adding tags to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazon.jetstream.v20151007#TagList",
+          "target": "com.amazonaws.eventbridge#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The list of key-value pairs to associate with the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TagResourceResponse": {
+    "com.amazonaws.eventbridge#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazon.jetstream.v20151007#TagValue": {
+    "com.amazonaws.eventbridge#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2960,73 +2964,73 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#Target": {
+    "com.amazonaws.eventbridge#Target": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazon.jetstream.v20151007#TargetArn",
+          "target": "com.amazonaws.eventbridge#TargetArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "BatchParameters": {
-          "target": "com.amazon.jetstream.v20151007#BatchParameters",
+          "target": "com.amazonaws.eventbridge#BatchParameters",
           "traits": {
             "smithy.api#documentation": "<p>If the event target is an AWS Batch job, this contains the job definition, job\n            name, and other parameters. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/jobs.html\">Jobs</a> in the <i>AWS Batch User\n                Guide</i>.</p>"
           }
         },
         "EcsParameters": {
-          "target": "com.amazon.jetstream.v20151007#EcsParameters",
+          "target": "com.amazonaws.eventbridge#EcsParameters",
           "traits": {
             "smithy.api#documentation": "<p>Contains the Amazon ECS task definition and task count to be used if the event\n            target is an Amazon ECS task. For more information about Amazon ECS tasks, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html\">Task\n                Definitions </a> in the <i>Amazon EC2 Container Service Developer\n                Guide</i>.</p>"
           }
         },
         "Id": {
-          "target": "com.amazon.jetstream.v20151007#TargetId",
+          "target": "com.amazonaws.eventbridge#TargetId",
           "traits": {
             "smithy.api#documentation": "<p>A name for the target. Use a string that will help you identify the target. Each target associated with a rule must have an <code>Id</code> unique for that rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Input": {
-          "target": "com.amazon.jetstream.v20151007#TargetInput",
+          "target": "com.amazonaws.eventbridge#TargetInput",
           "traits": {
             "smithy.api#documentation": "<p>Valid JSON text passed to the target. In this case, nothing from the event itself is passed\n            to the target. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation (JSON) Data Interchange Format</a>.</p>"
           }
         },
         "InputPath": {
-          "target": "com.amazon.jetstream.v20151007#TargetInputPath",
+          "target": "com.amazonaws.eventbridge#TargetInputPath",
           "traits": {
             "smithy.api#documentation": "<p>The value of the JSONPath that is used for extracting part of the matched event when\n            passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON\n            paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>.</p>"
           }
         },
         "InputTransformer": {
-          "target": "com.amazon.jetstream.v20151007#InputTransformer",
+          "target": "com.amazonaws.eventbridge#InputTransformer",
           "traits": {
             "smithy.api#documentation": "<p>Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs\n        from the event and then use that data to send customized input to the target.</p>"
           }
         },
         "KinesisParameters": {
-          "target": "com.amazon.jetstream.v20151007#KinesisParameters",
+          "target": "com.amazonaws.eventbridge#KinesisParameters",
           "traits": {
             "smithy.api#documentation": "<p>The custom parameter that you can use to control the shard assignment when the\n            target is a Kinesis data stream. If you don't include this parameter, the default is to\n            use the <code>eventId</code> as the partition key.</p>"
           }
         },
         "RoleArn": {
-          "target": "com.amazon.jetstream.v20151007#RoleArn",
+          "target": "com.amazonaws.eventbridge#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers \n        multiple targets, you can use a different IAM role for each target.</p>"
           }
         },
         "RunCommandParameters": {
-          "target": "com.amazon.jetstream.v20151007#RunCommandParameters",
+          "target": "com.amazonaws.eventbridge#RunCommandParameters",
           "traits": {
             "smithy.api#documentation": "<p>Parameters used when you are using the rule to invoke Amazon EC2 Run Command.</p>"
           }
         },
         "SqsParameters": {
-          "target": "com.amazon.jetstream.v20151007#SqsParameters",
+          "target": "com.amazonaws.eventbridge#SqsParameters",
           "traits": {
             "smithy.api#documentation": "<p>Contains the message group ID to use when the target is a FIFO queue.</p>\n        <p>If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.</p>"
           }
@@ -3036,7 +3040,7 @@
         "smithy.api#documentation": "<p>Targets are the resources to be invoked when a rule is triggered. For a complete list of services and resources that can be \n            set as a target, see <a>PutTargets</a>.</p>\n        \n        <p>If you're setting the event bus of another account as the target and that account\n            granted permission to your account through an organization instead of directly by the\n            account ID, you must specify a <code>RoleArn</code> with proper permissions in the\n                <code>Target</code> structure. For more information, see \n            <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and Receiving Events Between AWS Accounts</a> in the <i>Amazon\n                EventBridge User Guide</i>.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#TargetArn": {
+    "com.amazonaws.eventbridge#TargetArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3045,7 +3049,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TargetId": {
+    "com.amazonaws.eventbridge#TargetId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3055,10 +3059,10 @@
         "smithy.api#pattern": "[\\.\\-_A-Za-z0-9]+"
       }
     },
-    "com.amazon.jetstream.v20151007#TargetIdList": {
+    "com.amazonaws.eventbridge#TargetIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#TargetId"
+        "target": "com.amazonaws.eventbridge#TargetId"
       },
       "traits": {
         "smithy.api#length": {
@@ -3067,7 +3071,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TargetInput": {
+    "com.amazonaws.eventbridge#TargetInput": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3076,7 +3080,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TargetInputPath": {
+    "com.amazonaws.eventbridge#TargetInputPath": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3085,10 +3089,10 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TargetList": {
+    "com.amazonaws.eventbridge#TargetList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.jetstream.v20151007#Target"
+        "target": "com.amazonaws.eventbridge#Target"
       },
       "traits": {
         "smithy.api#length": {
@@ -3097,7 +3101,7 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TargetPartitionKeyPath": {
+    "com.amazonaws.eventbridge#TargetPartitionKeyPath": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3106,60 +3110,60 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TestEventPattern": {
+    "com.amazonaws.eventbridge#TestEventPattern": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#TestEventPatternRequest"
+        "target": "com.amazonaws.eventbridge#TestEventPatternRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#TestEventPatternResponse"
+        "target": "com.amazonaws.eventbridge#TestEventPatternResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InvalidEventPatternException"
+          "target": "com.amazonaws.eventbridge#InvalidEventPatternException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Tests whether the specified event pattern matches the provided event.</p>\n        <p>Most services in AWS treat <code>:</code> or <code>/</code> as the same character\n            in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event\n            patterns and rules. Be sure to use the correct ARN characters when creating event\n            patterns so that they match the ARN syntax in the event that you want to\n            match.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#TestEventPatternRequest": {
+    "com.amazonaws.eventbridge#TestEventPatternRequest": {
       "type": "structure",
       "members": {
         "Event": {
-          "target": "com.amazon.jetstream.v20151007#String",
+          "target": "com.amazonaws.eventbridge#String",
           "traits": {
             "smithy.api#documentation": "<p>The event, in JSON format, to test against the event pattern.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EventPattern": {
-          "target": "com.amazon.jetstream.v20151007#EventPattern",
+          "target": "com.amazonaws.eventbridge#EventPattern",
           "traits": {
             "smithy.api#documentation": "<p>The event pattern. For more information, see \n            <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TestEventPatternResponse": {
+    "com.amazonaws.eventbridge#TestEventPatternResponse": {
       "type": "structure",
       "members": {
         "Result": {
-          "target": "com.amazon.jetstream.v20151007#Boolean",
+          "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the event matches the event pattern.</p>"
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#Timestamp": {
+    "com.amazonaws.eventbridge#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazon.jetstream.v20151007#TransformerInput": {
+    "com.amazonaws.eventbridge#TransformerInput": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3168,13 +3172,13 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#TransformerPaths": {
+    "com.amazonaws.eventbridge#TransformerPaths": {
       "type": "map",
       "key": {
-        "target": "com.amazon.jetstream.v20151007#InputTransformerPathKey"
+        "target": "com.amazonaws.eventbridge#InputTransformerPathKey"
       },
       "value": {
-        "target": "com.amazon.jetstream.v20151007#TargetInputPath"
+        "target": "com.amazonaws.eventbridge#TargetInputPath"
       },
       "traits": {
         "smithy.api#length": {
@@ -3183,54 +3187,54 @@
         }
       }
     },
-    "com.amazon.jetstream.v20151007#UntagResource": {
+    "com.amazonaws.eventbridge#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.jetstream.v20151007#UntagResourceRequest"
+        "target": "com.amazonaws.eventbridge#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazon.jetstream.v20151007#UntagResourceResponse"
+        "target": "com.amazonaws.eventbridge#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException"
+          "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#InternalException"
+          "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException"
+          "target": "com.amazonaws.eventbridge#ManagedRuleException"
         },
         {
-          "target": "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Removes one or more tags from the specified EventBridge resource. In EventBridge, rules can be tagged.</p>"
       }
     },
-    "com.amazon.jetstream.v20151007#UntagResourceRequest": {
+    "com.amazonaws.eventbridge#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceARN": {
-          "target": "com.amazon.jetstream.v20151007#Arn",
+          "target": "com.amazonaws.eventbridge#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the rule that you're removing tags from.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazon.jetstream.v20151007#TagKeyList",
+          "target": "com.amazonaws.eventbridge#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tag keys to remove from the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.jetstream.v20151007#UntagResourceResponse": {
+    "com.amazonaws.eventbridge#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     }
   }
 }

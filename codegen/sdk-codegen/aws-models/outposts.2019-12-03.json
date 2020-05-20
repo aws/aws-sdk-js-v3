@@ -1,40 +1,39 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.outposts.olaf.service.model#AccessDeniedException": {
+    "com.amazonaws.outposts#AccessDeniedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.outposts.olaf.service.model#ErrorMessage"
+          "target": "com.amazonaws.outposts#ErrorMessage"
         }
       },
       "traits": {
@@ -43,7 +42,7 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#AccountId": {
+    "com.amazonaws.outposts#AccountId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of the AWS account.</p>",
@@ -53,7 +52,7 @@
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#AvailabilityZone": {
+    "com.amazonaws.outposts#AvailabilityZone": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The Availability Zone.</p>",
@@ -64,7 +63,7 @@
         "smithy.api#pattern": "[a-z\\d-]+"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#AvailabilityZoneId": {
+    "com.amazonaws.outposts#AvailabilityZoneId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of the Availability Zone.</p>",
@@ -75,29 +74,29 @@
         "smithy.api#pattern": "[a-z]+[0-9]+-az[0-9]+"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#CreateOutpost": {
+    "com.amazonaws.outposts#CreateOutpost": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.outposts.olaf.service.model#CreateOutpostInput"
+        "target": "com.amazonaws.outposts#CreateOutpostInput"
       },
       "output": {
-        "target": "com.amazonaws.outposts.olaf.service.model#CreateOutpostOutput"
+        "target": "com.amazonaws.outposts#CreateOutpostOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#AccessDeniedException"
+          "target": "com.amazonaws.outposts#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#InternalServerException"
+          "target": "com.amazonaws.outposts#InternalServerException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#NotFoundException"
+          "target": "com.amazonaws.outposts#NotFoundException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ServiceQuotaExceededException"
+          "target": "com.amazonaws.outposts#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ValidationException"
+          "target": "com.amazonaws.outposts#ValidationException"
         }
       ],
       "traits": {
@@ -109,38 +108,38 @@
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#CreateOutpostInput": {
+    "com.amazonaws.outposts#CreateOutpostInput": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
-          "target": "com.amazonaws.outposts.olaf.service.model#AvailabilityZone"
+          "target": "com.amazonaws.outposts#AvailabilityZone"
         },
         "AvailabilityZoneId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#AvailabilityZoneId"
+          "target": "com.amazonaws.outposts#AvailabilityZoneId"
         },
         "Description": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostDescription"
+          "target": "com.amazonaws.outposts#OutpostDescription"
         },
         "Name": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostName"
+          "target": "com.amazonaws.outposts#OutpostName"
         },
         "SiteId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#SiteId",
+          "target": "com.amazonaws.outposts#SiteId",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#CreateOutpostOutput": {
+    "com.amazonaws.outposts#CreateOutpostOutput": {
       "type": "structure",
       "members": {
         "Outpost": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Outpost"
+          "target": "com.amazonaws.outposts#Outpost"
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ErrorMessage": {
+    "com.amazonaws.outposts#ErrorMessage": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -150,26 +149,26 @@
         "smithy.api#pattern": "^[\\S \\n]+$"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#GetOutpost": {
+    "com.amazonaws.outposts#GetOutpost": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.outposts.olaf.service.model#GetOutpostInput"
+        "target": "com.amazonaws.outposts#GetOutpostInput"
       },
       "output": {
-        "target": "com.amazonaws.outposts.olaf.service.model#GetOutpostOutput"
+        "target": "com.amazonaws.outposts#GetOutpostOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#AccessDeniedException"
+          "target": "com.amazonaws.outposts#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#InternalServerException"
+          "target": "com.amazonaws.outposts#InternalServerException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#NotFoundException"
+          "target": "com.amazonaws.outposts#NotFoundException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ValidationException"
+          "target": "com.amazonaws.outposts#ValidationException"
         }
       ],
       "traits": {
@@ -181,38 +180,38 @@
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#GetOutpostInput": {
+    "com.amazonaws.outposts#GetOutpostInput": {
       "type": "structure",
       "members": {
         "OutpostId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostId",
+          "target": "com.amazonaws.outposts#OutpostId",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#GetOutpostInstanceTypes": {
+    "com.amazonaws.outposts#GetOutpostInstanceTypes": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.outposts.olaf.service.model#GetOutpostInstanceTypesInput"
+        "target": "com.amazonaws.outposts#GetOutpostInstanceTypesInput"
       },
       "output": {
-        "target": "com.amazonaws.outposts.olaf.service.model#GetOutpostInstanceTypesOutput"
+        "target": "com.amazonaws.outposts#GetOutpostInstanceTypesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#AccessDeniedException"
+          "target": "com.amazonaws.outposts#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#InternalServerException"
+          "target": "com.amazonaws.outposts#InternalServerException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#NotFoundException"
+          "target": "com.amazonaws.outposts#NotFoundException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ValidationException"
+          "target": "com.amazonaws.outposts#ValidationException"
         }
       ],
       "traits": {
@@ -224,86 +223,86 @@
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#GetOutpostInstanceTypesInput": {
+    "com.amazonaws.outposts#GetOutpostInstanceTypesInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.outposts.olaf.service.model#MaxResults1000",
+          "target": "com.amazonaws.outposts#MaxResults1000",
           "traits": {
             "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Token",
+          "target": "com.amazonaws.outposts#Token",
           "traits": {
             "smithy.api#httpQuery": "NextToken"
           }
         },
         "OutpostId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostId",
+          "target": "com.amazonaws.outposts#OutpostId",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#GetOutpostInstanceTypesOutput": {
+    "com.amazonaws.outposts#GetOutpostInstanceTypesOutput": {
       "type": "structure",
       "members": {
         "InstanceTypes": {
-          "target": "com.amazonaws.outposts.olaf.service.model#InstanceTypeListDefinition"
+          "target": "com.amazonaws.outposts#InstanceTypeListDefinition"
         },
         "NextToken": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Token"
+          "target": "com.amazonaws.outposts#Token"
         },
         "OutpostArn": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostArn"
+          "target": "com.amazonaws.outposts#OutpostArn"
         },
         "OutpostId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostId"
+          "target": "com.amazonaws.outposts#OutpostId"
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#GetOutpostOutput": {
+    "com.amazonaws.outposts#GetOutpostOutput": {
       "type": "structure",
       "members": {
         "Outpost": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Outpost"
+          "target": "com.amazonaws.outposts#Outpost"
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#InstanceType": {
+    "com.amazonaws.outposts#InstanceType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The instance type.</p>"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#InstanceTypeItem": {
+    "com.amazonaws.outposts#InstanceTypeItem": {
       "type": "structure",
       "members": {
         "InstanceType": {
-          "target": "com.amazonaws.outposts.olaf.service.model#InstanceType"
+          "target": "com.amazonaws.outposts#InstanceType"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about an instance type.</p>"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#InstanceTypeListDefinition": {
+    "com.amazonaws.outposts#InstanceTypeListDefinition": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.outposts.olaf.service.model#InstanceTypeItem"
+        "target": "com.amazonaws.outposts#InstanceTypeItem"
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about the instance types.</p>"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#InternalServerException": {
+    "com.amazonaws.outposts#InternalServerException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.outposts.olaf.service.model#ErrorMessage"
+          "target": "com.amazonaws.outposts#ErrorMessage"
         }
       },
       "traits": {
@@ -312,29 +311,29 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#LifeCycleStatus": {
+    "com.amazonaws.outposts#LifeCycleStatus": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The life cycle status.</p>"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ListOutposts": {
+    "com.amazonaws.outposts#ListOutposts": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.outposts.olaf.service.model#ListOutpostsInput"
+        "target": "com.amazonaws.outposts#ListOutpostsInput"
       },
       "output": {
-        "target": "com.amazonaws.outposts.olaf.service.model#ListOutpostsOutput"
+        "target": "com.amazonaws.outposts#ListOutpostsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#AccessDeniedException"
+          "target": "com.amazonaws.outposts#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#InternalServerException"
+          "target": "com.amazonaws.outposts#InternalServerException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ValidationException"
+          "target": "com.amazonaws.outposts#ValidationException"
         }
       ],
       "traits": {
@@ -351,51 +350,51 @@
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ListOutpostsInput": {
+    "com.amazonaws.outposts#ListOutpostsInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.outposts.olaf.service.model#MaxResults1000",
+          "target": "com.amazonaws.outposts#MaxResults1000",
           "traits": {
             "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Token",
+          "target": "com.amazonaws.outposts#Token",
           "traits": {
             "smithy.api#httpQuery": "NextToken"
           }
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ListOutpostsOutput": {
+    "com.amazonaws.outposts#ListOutpostsOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Token"
+          "target": "com.amazonaws.outposts#Token"
         },
         "Outposts": {
-          "target": "com.amazonaws.outposts.olaf.service.model#outpostListDefinition"
+          "target": "com.amazonaws.outposts#outpostListDefinition"
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ListSites": {
+    "com.amazonaws.outposts#ListSites": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.outposts.olaf.service.model#ListSitesInput"
+        "target": "com.amazonaws.outposts#ListSitesInput"
       },
       "output": {
-        "target": "com.amazonaws.outposts.olaf.service.model#ListSitesOutput"
+        "target": "com.amazonaws.outposts#ListSitesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#AccessDeniedException"
+          "target": "com.amazonaws.outposts#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#InternalServerException"
+          "target": "com.amazonaws.outposts#InternalServerException"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ValidationException"
+          "target": "com.amazonaws.outposts#ValidationException"
         }
       ],
       "traits": {
@@ -412,38 +411,38 @@
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ListSitesInput": {
+    "com.amazonaws.outposts#ListSitesInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.outposts.olaf.service.model#MaxResults1000",
+          "target": "com.amazonaws.outposts#MaxResults1000",
           "traits": {
             "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Token",
+          "target": "com.amazonaws.outposts#Token",
           "traits": {
             "smithy.api#httpQuery": "NextToken"
           }
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ListSitesOutput": {
+    "com.amazonaws.outposts#ListSitesOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.outposts.olaf.service.model#Token"
+          "target": "com.amazonaws.outposts#Token"
         },
         "Sites": {
-          "target": "com.amazonaws.outposts.olaf.service.model#siteListDefinition"
+          "target": "com.amazonaws.outposts#siteListDefinition"
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#MaxResults1000": {
+    "com.amazonaws.outposts#MaxResults1000": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The maximum page size.</p>",
         "smithy.api#range": {
           "min": 1,
@@ -451,11 +450,11 @@
         }
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#NotFoundException": {
+    "com.amazonaws.outposts#NotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.outposts.olaf.service.model#ErrorMessage"
+          "target": "com.amazonaws.outposts#ErrorMessage"
         }
       },
       "traits": {
@@ -464,42 +463,42 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#Outpost": {
+    "com.amazonaws.outposts#Outpost": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
-          "target": "com.amazonaws.outposts.olaf.service.model#AvailabilityZone"
+          "target": "com.amazonaws.outposts#AvailabilityZone"
         },
         "AvailabilityZoneId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#AvailabilityZoneId"
+          "target": "com.amazonaws.outposts#AvailabilityZoneId"
         },
         "Description": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostDescription"
+          "target": "com.amazonaws.outposts#OutpostDescription"
         },
         "LifeCycleStatus": {
-          "target": "com.amazonaws.outposts.olaf.service.model#LifeCycleStatus"
+          "target": "com.amazonaws.outposts#LifeCycleStatus"
         },
         "Name": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostName"
+          "target": "com.amazonaws.outposts#OutpostName"
         },
         "OutpostArn": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostArn"
+          "target": "com.amazonaws.outposts#OutpostArn"
         },
         "OutpostId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OutpostId"
+          "target": "com.amazonaws.outposts#OutpostId"
         },
         "OwnerId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#OwnerId"
+          "target": "com.amazonaws.outposts#OwnerId"
         },
         "SiteId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#SiteId"
+          "target": "com.amazonaws.outposts#SiteId"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about an Outpost.</p>"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#OutpostArn": {
+    "com.amazonaws.outposts#OutpostArn": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Outpost.</p>",
@@ -510,7 +509,7 @@
         "smithy.api#pattern": "^arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/op-[a-f0-9]{17}$"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#OutpostDescription": {
+    "com.amazonaws.outposts#OutpostDescription": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The Outpost description.</p>",
@@ -521,7 +520,7 @@
         "smithy.api#pattern": "^[\\S ]+$"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#OutpostId": {
+    "com.amazonaws.outposts#OutpostId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of the Outpost.</p>",
@@ -532,7 +531,7 @@
         "smithy.api#pattern": "^(arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/)?op-[a-f0-9]{17}$"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#OutpostName": {
+    "com.amazonaws.outposts#OutpostName": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The name of the Outpost.</p>",
@@ -543,24 +542,24 @@
         "smithy.api#pattern": "^[\\S ]+$"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#OutpostsOlafService": {
+    "com.amazonaws.outposts#OutpostsOlafService": {
       "type": "service",
       "version": "2019-12-03",
       "operations": [
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#CreateOutpost"
+          "target": "com.amazonaws.outposts#CreateOutpost"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#GetOutpost"
+          "target": "com.amazonaws.outposts#GetOutpost"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#GetOutpostInstanceTypes"
+          "target": "com.amazonaws.outposts#GetOutpostInstanceTypes"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ListOutposts"
+          "target": "com.amazonaws.outposts#ListOutposts"
         },
         {
-          "target": "com.amazonaws.outposts.olaf.service.model#ListSites"
+          "target": "com.amazonaws.outposts#ListSites"
         }
       ],
       "traits": {
@@ -570,19 +569,15 @@
           "cloudFormationName": "Outposts",
           "cloudTrailEventSource": "model.service.olaf.outposts.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "outposts"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>AWS Outposts is a fully-managed service that extends AWS infrastructure, \n      APIs, and tools to customer premises. By providing local access to AWS-managed \n      infrastructure, AWS Outposts enables customers to build and run applications \n      on premises using the same programming interfaces as in AWS Regions, while \n      using local compute and storage resources for lower latency and local data \n      processing needs.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Outposts"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#OwnerId": {
+    "com.amazonaws.outposts#OwnerId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The AWS account ID of the Outpost owner.</p>",
@@ -593,11 +588,11 @@
         "smithy.api#pattern": "\\d{12}"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ServiceQuotaExceededException": {
+    "com.amazonaws.outposts#ServiceQuotaExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.outposts.olaf.service.model#ErrorMessage"
+          "target": "com.amazonaws.outposts#ErrorMessage"
         }
       },
       "traits": {
@@ -606,27 +601,27 @@
         "smithy.api#httpError": 402
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#Site": {
+    "com.amazonaws.outposts#Site": {
       "type": "structure",
       "members": {
         "AccountId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#AccountId"
+          "target": "com.amazonaws.outposts#AccountId"
         },
         "Description": {
-          "target": "com.amazonaws.outposts.olaf.service.model#SiteDescription"
+          "target": "com.amazonaws.outposts#SiteDescription"
         },
         "Name": {
-          "target": "com.amazonaws.outposts.olaf.service.model#SiteName"
+          "target": "com.amazonaws.outposts#SiteName"
         },
         "SiteId": {
-          "target": "com.amazonaws.outposts.olaf.service.model#SiteId"
+          "target": "com.amazonaws.outposts#SiteId"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a site.</p>"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#SiteDescription": {
+    "com.amazonaws.outposts#SiteDescription": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The description of the site.</p>",
@@ -637,7 +632,7 @@
         "smithy.api#pattern": "^[\\S ]+$"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#SiteId": {
+    "com.amazonaws.outposts#SiteId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of the site.</p>",
@@ -648,7 +643,7 @@
         "smithy.api#pattern": "os-[a-f0-9]{17}"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#SiteName": {
+    "com.amazonaws.outposts#SiteName": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The name of the site.</p>",
@@ -659,7 +654,7 @@
         "smithy.api#pattern": "^[\\S ]+$"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#Token": {
+    "com.amazonaws.outposts#Token": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The pagination token.</p>",
@@ -670,11 +665,11 @@
         "smithy.api#pattern": ".*\\S.*"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#ValidationException": {
+    "com.amazonaws.outposts#ValidationException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.outposts.olaf.service.model#ErrorMessage"
+          "target": "com.amazonaws.outposts#ErrorMessage"
         }
       },
       "traits": {
@@ -683,19 +678,19 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#outpostListDefinition": {
+    "com.amazonaws.outposts#outpostListDefinition": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.outposts.olaf.service.model#Outpost"
+        "target": "com.amazonaws.outposts#Outpost"
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about the Outposts.</p>"
       }
     },
-    "com.amazonaws.outposts.olaf.service.model#siteListDefinition": {
+    "com.amazonaws.outposts#siteListDefinition": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.outposts.olaf.service.model#Site"
+        "target": "com.amazonaws.outposts#Site"
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about the sites.</p>"

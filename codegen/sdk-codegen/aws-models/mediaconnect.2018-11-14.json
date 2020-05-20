@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -78,7 +77,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -95,9 +94,9 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that you want to add outputs to.",
-            "smithy.api#httpLabel": true,
+            "smithy.api#httpLabel": {},
             "smithy.api#pattern": "^arn:.*",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Outputs": {
@@ -105,7 +104,7 @@
           "traits": {
             "smithy.api#documentation": "A list of outputs that you want to add.",
             "smithy.api#jsonName": "outputs",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -189,7 +188,7 @@
           "traits": {
             "smithy.api#documentation": "The protocol to use for the output.",
             "smithy.api#jsonName": "protocol",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RemoteId": {
@@ -221,17 +220,20 @@
     "com.amazonaws.mediaconnect#Algorithm": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "aes128": {
+        "smithy.api#enum": [
+          {
+            "value": "aes128",
             "name": "aes128"
           },
-          "aes192": {
+          {
+            "value": "aes192",
             "name": "aes192"
           },
-          "aes256": {
+          {
+            "value": "aes256",
             "name": "aes256"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediaconnect#BadRequestException": {
@@ -242,7 +244,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -297,7 +299,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -329,7 +331,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the flow.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Outputs": {
@@ -343,7 +345,7 @@
           "target": "com.amazonaws.mediaconnect#SetSourceRequest",
           "traits": {
             "smithy.api#jsonName": "source",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -406,8 +408,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the flow that you want to delete.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -475,8 +477,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the flow that you want to describe.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -506,7 +508,7 @@
           "traits": {
             "smithy.api#documentation": "The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).",
             "smithy.api#jsonName": "algorithm",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ConstantInitializationVector": {
@@ -549,7 +551,7 @@
           "traits": {
             "smithy.api#documentation": "The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).",
             "smithy.api#jsonName": "roleArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SecretArn": {
@@ -600,7 +602,7 @@
           "traits": {
             "smithy.api#documentation": "The ARN of the entitlement.",
             "smithy.api#jsonName": "entitlementArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -608,7 +610,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the entitlement.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Subscribers": {
@@ -616,7 +618,7 @@
           "traits": {
             "smithy.api#documentation": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.",
             "smithy.api#jsonName": "subscribers",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -632,7 +634,7 @@
           "traits": {
             "smithy.api#documentation": "The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.",
             "smithy.api#jsonName": "availabilityZone",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -654,7 +656,7 @@
           "traits": {
             "smithy.api#documentation": "The entitlements in this flow.",
             "smithy.api#jsonName": "entitlements",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FlowArn": {
@@ -662,7 +664,7 @@
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.",
             "smithy.api#jsonName": "flowArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -670,7 +672,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the flow.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Outputs": {
@@ -678,14 +680,14 @@
           "traits": {
             "smithy.api#documentation": "The outputs in this flow.",
             "smithy.api#jsonName": "outputs",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Source": {
           "target": "com.amazonaws.mediaconnect#Source",
           "traits": {
             "smithy.api#jsonName": "source",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Status": {
@@ -693,7 +695,7 @@
           "traits": {
             "smithy.api#documentation": "The current status of the flow.",
             "smithy.api#jsonName": "status",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -709,7 +711,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -755,7 +757,7 @@
           "traits": {
             "smithy.api#documentation": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.",
             "smithy.api#jsonName": "subscribers",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -811,7 +813,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -829,16 +831,16 @@
           "traits": {
             "smithy.api#documentation": "The list of entitlements that you want to grant.",
             "smithy.api#jsonName": "entitlements",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FlowArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that you want to grant entitlements on.",
-            "smithy.api#httpLabel": true,
+            "smithy.api#httpLabel": {},
             "smithy.api#pattern": "^arn:.*",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -873,7 +875,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -886,14 +888,16 @@
     "com.amazonaws.mediaconnect#KeyType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "speke": {
+        "smithy.api#enum": [
+          {
+            "value": "speke",
             "name": "speke"
           },
-          "static-key": {
+          {
+            "value": "static-key",
             "name": "static_key"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediaconnect#ListEntitlements": {
@@ -1069,8 +1073,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1102,7 +1106,7 @@
           "traits": {
             "smithy.api#documentation": "The ARN of the entitlement.",
             "smithy.api#jsonName": "entitlementArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EntitlementName": {
@@ -1110,7 +1114,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the entitlement.",
             "smithy.api#jsonName": "entitlementName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1126,7 +1130,7 @@
           "traits": {
             "smithy.api#documentation": "The Availability Zone that the flow was created in.",
             "smithy.api#jsonName": "availabilityZone",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -1134,7 +1138,7 @@
           "traits": {
             "smithy.api#documentation": "A description of the flow.",
             "smithy.api#jsonName": "description",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FlowArn": {
@@ -1142,7 +1146,7 @@
           "traits": {
             "smithy.api#documentation": "The ARN of the flow.",
             "smithy.api#jsonName": "flowArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -1150,7 +1154,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the flow.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceType": {
@@ -1158,7 +1162,7 @@
           "traits": {
             "smithy.api#documentation": "The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).",
             "smithy.api#jsonName": "sourceType",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Status": {
@@ -1166,7 +1170,7 @@
           "traits": {
             "smithy.api#documentation": "The current status of the flow.",
             "smithy.api#jsonName": "status",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1246,15 +1250,11 @@
           "cloudFormationName": "MediaConnect",
           "cloudTrailEventSource": "mediaconnect.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "mediaconnect"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "API for AWS Elemental MediaConnect",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS MediaConnect"
       }
     },
@@ -1266,7 +1266,7 @@
           "traits": {
             "smithy.api#documentation": "A list of errors that might have been generated from processes on this flow.",
             "smithy.api#jsonName": "errors",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1282,7 +1282,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1342,7 +1342,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the output. This value must be unique within the current flow.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OutputArn": {
@@ -1350,7 +1350,7 @@
           "traits": {
             "smithy.api#documentation": "The ARN of the output.",
             "smithy.api#jsonName": "outputArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Port": {
@@ -1375,23 +1375,28 @@
     "com.amazonaws.mediaconnect#Protocol": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "zixi-push": {
+        "smithy.api#enum": [
+          {
+            "value": "zixi-push",
             "name": "zixi_push"
           },
-          "rtp-fec": {
+          {
+            "value": "rtp-fec",
             "name": "rtp_fec"
           },
-          "rtp": {
+          {
+            "value": "rtp",
             "name": "rtp"
           },
-          "zixi-pull": {
+          {
+            "value": "zixi-pull",
             "name": "zixi_pull"
           },
-          "rist": {
+          {
+            "value": "rist",
             "name": "rist"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediaconnect#RemoveFlowOutput": {
@@ -1438,16 +1443,16 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that you want to remove an output from.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "OutputArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the output that you want to remove.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1515,16 +1520,16 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the entitlement that you want to revoke.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "FlowArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that you want to revoke an entitlement from.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1556,7 +1561,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1694,7 +1699,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the source.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceArn": {
@@ -1702,7 +1707,7 @@
           "traits": {
             "smithy.api#documentation": "The ARN of the source.",
             "smithy.api#jsonName": "sourceArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Transport": {
@@ -1727,14 +1732,16 @@
     "com.amazonaws.mediaconnect#SourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "OWNED": {
+        "smithy.api#enum": [
+          {
+            "value": "OWNED",
             "name": "OWNED"
           },
-          "ENTITLED": {
+          {
+            "value": "ENTITLED",
             "name": "ENTITLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediaconnect#StartFlow": {
@@ -1781,9 +1788,9 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the flow that you want to start.",
-            "smithy.api#httpLabel": true,
+            "smithy.api#httpLabel": {},
             "smithy.api#pattern": "^arn:.*",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1810,29 +1817,36 @@
     "com.amazonaws.mediaconnect#Status": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STANDBY": {
+        "smithy.api#enum": [
+          {
+            "value": "STANDBY",
             "name": "STANDBY"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "UPDATING"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "STARTING": {
+          {
+            "value": "STARTING",
             "name": "STARTING"
           },
-          "STOPPING": {
+          {
+            "value": "STOPPING",
             "name": "STOPPING"
           },
-          "ERROR": {
+          {
+            "value": "ERROR",
             "name": "ERROR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediaconnect#StopFlow": {
@@ -1879,9 +1893,9 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the flow that you want to stop.",
-            "smithy.api#httpLabel": true,
+            "smithy.api#httpLabel": {},
             "smithy.api#pattern": "^arn:.*",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1937,8 +1951,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource to which to add tags.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -1946,7 +1960,7 @@
           "traits": {
             "smithy.api#documentation": "A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.",
             "smithy.api#jsonName": "tags",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1962,7 +1976,7 @@
           "traits": {
             "smithy.api#documentation": "The error message returned by AWS Elemental MediaConnect.",
             "smithy.api#jsonName": "message",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2001,7 +2015,7 @@
           "traits": {
             "smithy.api#documentation": "The protocol that is used by the source or output.",
             "smithy.api#jsonName": "protocol",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RemoteId": {
@@ -2062,8 +2076,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -2071,7 +2085,7 @@
           "traits": {
             "smithy.api#documentation": "The keys of the tags to be removed.",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2205,16 +2219,16 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the entitlement that you want to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "FlowArn": {
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that is associated with the entitlement that you want to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Subscribers": {
@@ -2319,8 +2333,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that is associated with the output that you want to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxLatency": {
@@ -2334,8 +2348,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the output that you want to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Port": {
@@ -2461,8 +2475,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The flow that is associated with the source that you want to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IngestPort": {
@@ -2497,8 +2511,8 @@
           "target": "com.amazonaws.mediaconnect#__string",
           "traits": {
             "smithy.api#documentation": "The ARN of the source that you want to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "StreamId": {

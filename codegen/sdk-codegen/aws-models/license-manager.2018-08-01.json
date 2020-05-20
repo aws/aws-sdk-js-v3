@@ -1,86 +1,85 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.license.manager.V2018_08_01#AWSLicenseManager": {
+    "com.amazonaws.licensemanager#AWSLicenseManager": {
       "type": "service",
       "version": "2018-08-01",
       "operations": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#CreateLicenseConfiguration"
+          "target": "com.amazonaws.licensemanager#CreateLicenseConfiguration"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#DeleteLicenseConfiguration"
+          "target": "com.amazonaws.licensemanager#DeleteLicenseConfiguration"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#GetLicenseConfiguration"
+          "target": "com.amazonaws.licensemanager#GetLicenseConfiguration"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#GetServiceSettings"
+          "target": "com.amazonaws.licensemanager#GetServiceSettings"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ListAssociationsForLicenseConfiguration"
+          "target": "com.amazonaws.licensemanager#ListAssociationsForLicenseConfiguration"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ListFailuresForLicenseConfigurationOperations"
+          "target": "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperations"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ListLicenseConfigurations"
+          "target": "com.amazonaws.licensemanager#ListLicenseConfigurations"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ListLicenseSpecificationsForResource"
+          "target": "com.amazonaws.licensemanager#ListLicenseSpecificationsForResource"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ListResourceInventory"
+          "target": "com.amazonaws.licensemanager#ListResourceInventory"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ListTagsForResource"
+          "target": "com.amazonaws.licensemanager#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ListUsageForLicenseConfiguration"
+          "target": "com.amazonaws.licensemanager#ListUsageForLicenseConfiguration"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#TagResource"
+          "target": "com.amazonaws.licensemanager#TagResource"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#UntagResource"
+          "target": "com.amazonaws.licensemanager#UntagResource"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseConfiguration"
+          "target": "com.amazonaws.licensemanager#UpdateLicenseConfiguration"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseSpecificationsForResource"
+          "target": "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResource"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#UpdateServiceSettings"
+          "target": "com.amazonaws.licensemanager#UpdateServiceSettings"
         }
       ],
       "traits": {
@@ -90,26 +89,22 @@
           "cloudFormationName": "LicenseManager",
           "cloudTrailEventSource": "V2018_08_01.manager.license.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "license-manager"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname> AWS License Manager </fullname>\n         <p>AWS License Manager makes it easier to manage licenses from software vendors across multiple \n         AWS accounts and on-premises servers.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS License Manager",
         "smithy.api#xmlNamespace": {
           "uri": "https://license-manager.amazonaws.com/doc/2018_08_01"
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException": {
+    "com.amazonaws.licensemanager#AccessDeniedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -118,11 +113,11 @@
         "smithy.api#httpError": 401
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#AuthorizationException": {
+    "com.amazonaws.licensemanager#AuthorizationException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -131,11 +126,11 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#AutomatedDiscoveryInformation": {
+    "com.amazonaws.licensemanager#AutomatedDiscoveryInformation": {
       "type": "structure",
       "members": {
         "LastRunTime": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#DateTime",
+          "target": "com.amazonaws.licensemanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>Time that automated discovery last ran.</p>"
           }
@@ -145,38 +140,38 @@
         "smithy.api#documentation": "<p>Describes automated discovery.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#Boolean": {
+    "com.amazonaws.licensemanager#Boolean": {
       "type": "boolean"
     },
-    "com.amazonaws.license.manager.V2018_08_01#BoxBoolean": {
+    "com.amazonaws.licensemanager#BoxBoolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#BoxInteger": {
+    "com.amazonaws.licensemanager#BoxInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#BoxLong": {
+    "com.amazonaws.licensemanager#BoxLong": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ConsumedLicenseSummary": {
+    "com.amazonaws.licensemanager#ConsumedLicenseSummary": {
       "type": "structure",
       "members": {
         "ConsumedLicenses": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of licenses consumed by the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceType",
+          "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>Resource type of the resource consuming a license.</p>"
           }
@@ -186,163 +181,163 @@
         "smithy.api#documentation": "<p>Details about license consumption.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ConsumedLicenseSummaryList": {
+    "com.amazonaws.licensemanager#ConsumedLicenseSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ConsumedLicenseSummary"
+        "target": "com.amazonaws.licensemanager#ConsumedLicenseSummary"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#CreateLicenseConfiguration": {
+    "com.amazonaws.licensemanager#CreateLicenseConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#CreateLicenseConfigurationRequest"
+        "target": "com.amazonaws.licensemanager#CreateLicenseConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#CreateLicenseConfigurationResponse"
+        "target": "com.amazonaws.licensemanager#CreateLicenseConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceLimitExceededException"
+          "target": "com.amazonaws.licensemanager#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a license configuration.</p> \n         <p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, \n         Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM\n         must be associated with a host), and the number of licenses purchased and used.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#CreateLicenseConfigurationRequest": {
+    "com.amazonaws.licensemanager#CreateLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Description of the license configuration.</p>"
           }
         },
         "LicenseCount": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of licenses managed by the license configuration.</p>"
           }
         },
         "LicenseCountHardLimit": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxBoolean",
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit\n         blocks the launch of new instances.</p>"
           }
         },
         "LicenseCountingType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseCountingType",
+          "target": "com.amazonaws.licensemanager#LicenseCountingType",
           "traits": {
             "smithy.api#documentation": "<p>Dimension used to track the license inventory.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LicenseRules": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#StringList",
+          "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost). Available rules vary by dimension.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Cores</code> dimension: <code>allowedTenancy</code> | <code>maximumCores</code> | <code>minimumCores</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Instances</code> dimension: <code>allowedTenancy</code> | \n               <code>maximumCores</code> | <code>minimumCores</code> |\n               <code>maximumSockets</code> | <code>minimumSockets</code> |\n               <code>maximumVcpus</code> | <code>minimumVcpus</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Sockets</code> dimension: <code>allowedTenancy</code> | <code>maximumSockets</code> | <code>minimumSockets</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>vCPUs</code> dimension: <code>allowedTenancy</code> | <code>honorVcpuOptimization</code> | <code>maximumVcpus</code> | <code>minimumVcpus</code>\n               </p>\n            </li>\n         </ul>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Name of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProductInformationList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ProductInformationList",
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
           "traits": {
             "smithy.api#documentation": "<p>Product information.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#TagList",
+          "target": "com.amazonaws.licensemanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Tags to add to the license configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#CreateLicenseConfigurationResponse": {
+    "com.amazonaws.licensemanager#CreateLicenseConfigurationResponse": {
       "type": "structure",
       "members": {
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#DateTime": {
+    "com.amazonaws.licensemanager#DateTime": {
       "type": "timestamp"
     },
-    "com.amazonaws.license.manager.V2018_08_01#DeleteLicenseConfiguration": {
+    "com.amazonaws.licensemanager#DeleteLicenseConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#DeleteLicenseConfigurationRequest"
+        "target": "com.amazonaws.licensemanager#DeleteLicenseConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#DeleteLicenseConfigurationResponse"
+        "target": "com.amazonaws.licensemanager#DeleteLicenseConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified license configuration.</p> \n         <p>You cannot delete a license configuration that is in use.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#DeleteLicenseConfigurationRequest": {
+    "com.amazonaws.licensemanager#DeleteLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#DeleteLicenseConfigurationResponse": {
+    "com.amazonaws.licensemanager#DeleteLicenseConfigurationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.license.manager.V2018_08_01#FailedDependencyException": {
+    "com.amazonaws.licensemanager#FailedDependencyException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -351,17 +346,17 @@
         "smithy.api#httpError": 424
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#Filter": {
+    "com.amazonaws.licensemanager#Filter": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#FilterName",
+          "target": "com.amazonaws.licensemanager#FilterName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the filter. Filter names are case-sensitive.</p>"
           }
         },
         "Values": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#FilterValues",
+          "target": "com.amazonaws.licensemanager#FilterValues",
           "traits": {
             "smithy.api#documentation": "<p>Filter values. Filter values are case-sensitive.</p>"
           }
@@ -371,11 +366,11 @@
         "smithy.api#documentation": "<p>A filter name and value pair that is used to return more specific results from a\n         describe operation. Filters can be used to match a set of resources by specific criteria,\n         such as tags, attributes, or IDs.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException": {
+    "com.amazonaws.licensemanager#FilterLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -384,242 +379,242 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#FilterName": {
+    "com.amazonaws.licensemanager#FilterName": {
       "type": "string"
     },
-    "com.amazonaws.license.manager.V2018_08_01#FilterValue": {
+    "com.amazonaws.licensemanager#FilterValue": {
       "type": "string"
     },
-    "com.amazonaws.license.manager.V2018_08_01#FilterValues": {
+    "com.amazonaws.licensemanager#FilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#FilterValue",
+        "target": "com.amazonaws.licensemanager#FilterValue",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#Filters": {
+    "com.amazonaws.licensemanager#Filters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#Filter",
+        "target": "com.amazonaws.licensemanager#Filter",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#GetLicenseConfiguration": {
+    "com.amazonaws.licensemanager#GetLicenseConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#GetLicenseConfigurationRequest"
+        "target": "com.amazonaws.licensemanager#GetLicenseConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#GetLicenseConfigurationResponse"
+        "target": "com.amazonaws.licensemanager#GetLicenseConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets detailed information about the specified license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#GetLicenseConfigurationRequest": {
+    "com.amazonaws.licensemanager#GetLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#GetLicenseConfigurationResponse": {
+    "com.amazonaws.licensemanager#GetLicenseConfigurationResponse": {
       "type": "structure",
       "members": {
         "AutomatedDiscoveryInformation": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AutomatedDiscoveryInformation",
+          "target": "com.amazonaws.licensemanager#AutomatedDiscoveryInformation",
           "traits": {
             "smithy.api#documentation": "<p>Automated discovery information.</p>"
           }
         },
         "ConsumedLicenseSummaryList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ConsumedLicenseSummaryList",
+          "target": "com.amazonaws.licensemanager#ConsumedLicenseSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>Summaries of the licenses consumed by resources.</p>"
           }
         },
         "ConsumedLicenses": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of licenses assigned to resources.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Description of the license configuration.</p>"
           }
         },
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>"
           }
         },
         "LicenseConfigurationId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique ID for the license configuration.</p>"
           }
         },
         "LicenseCount": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of available licenses.</p>"
           }
         },
         "LicenseCountHardLimit": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxBoolean",
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Sets the number of available licenses as a hard limit.</p>"
           }
         },
         "LicenseCountingType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseCountingType",
+          "target": "com.amazonaws.licensemanager#LicenseCountingType",
           "traits": {
             "smithy.api#documentation": "<p>Dimension on which the licenses are counted.</p>"
           }
         },
         "LicenseRules": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#StringList",
+          "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>License rules.</p>"
           }
         },
         "ManagedResourceSummaryList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ManagedResourceSummaryList",
+          "target": "com.amazonaws.licensemanager#ManagedResourceSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>Summaries of the managed resources.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Name of the license configuration.</p>"
           }
         },
         "OwnerAccountId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Account ID of the owner of the license configuration.</p>"
           }
         },
         "ProductInformationList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ProductInformationList",
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
           "traits": {
             "smithy.api#documentation": "<p>Product information.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>License configuration status.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#TagList",
+          "target": "com.amazonaws.licensemanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Tags for the license configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#GetServiceSettings": {
+    "com.amazonaws.licensemanager#GetServiceSettings": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#GetServiceSettingsRequest"
+        "target": "com.amazonaws.licensemanager#GetServiceSettingsRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#GetServiceSettingsResponse"
+        "target": "com.amazonaws.licensemanager#GetServiceSettingsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets the License Manager settings for the current Region.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#GetServiceSettingsRequest": {
+    "com.amazonaws.licensemanager#GetServiceSettingsRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.license.manager.V2018_08_01#GetServiceSettingsResponse": {
+    "com.amazonaws.licensemanager#GetServiceSettingsResponse": {
       "type": "structure",
       "members": {
         "EnableCrossAccountsDiscovery": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxBoolean",
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether cross-account discovery has been enabled.</p>"
           }
         },
         "LicenseManagerResourceShareArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager master account will provide member\n         accounts with access to this share.</p>"
           }
         },
         "OrganizationConfiguration": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#OrganizationConfiguration",
+          "target": "com.amazonaws.licensemanager#OrganizationConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether AWS Organizations has been integrated with License Manager for\n         cross-account discovery.</p>"
           }
         },
         "S3BucketArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Regional S3 bucket path for storing reports, license trail event data, discovery data,\n         and so on.</p>"
           }
         },
         "SnsTopicArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>SNS topic configured to receive notifications from License Manager.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException": {
+    "com.amazonaws.licensemanager#InvalidParameterValueException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -628,11 +623,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#InvalidResourceStateException": {
+    "com.amazonaws.licensemanager#InvalidResourceStateException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -641,25 +636,25 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#InventoryFilter": {
+    "com.amazonaws.licensemanager#InventoryFilter": {
       "type": "structure",
       "members": {
         "Condition": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InventoryFilterCondition",
+          "target": "com.amazonaws.licensemanager#InventoryFilterCondition",
           "traits": {
             "smithy.api#documentation": "<p>Condition of the filter.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Name of the filter.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Value of the filter.</p>"
           }
@@ -669,120 +664,124 @@
         "smithy.api#documentation": "<p>An inventory filter.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#InventoryFilterCondition": {
+    "com.amazonaws.licensemanager#InventoryFilterCondition": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EQUALS": {
+        "smithy.api#enum": [
+          {
+            "value": "EQUALS",
             "name": "EQUALS"
           },
-          "NOT_EQUALS": {
+          {
+            "value": "NOT_EQUALS",
             "name": "NOT_EQUALS"
           },
-          "BEGINS_WITH": {
+          {
+            "value": "BEGINS_WITH",
             "name": "BEGINS_WITH"
           },
-          "CONTAINS": {
+          {
+            "value": "CONTAINS",
             "name": "CONTAINS"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#InventoryFilterList": {
+    "com.amazonaws.licensemanager#InventoryFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#InventoryFilter"
+        "target": "com.amazonaws.licensemanager#InventoryFilter"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseConfiguration": {
+    "com.amazonaws.licensemanager#LicenseConfiguration": {
       "type": "structure",
       "members": {
         "AutomatedDiscoveryInformation": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AutomatedDiscoveryInformation",
+          "target": "com.amazonaws.licensemanager#AutomatedDiscoveryInformation",
           "traits": {
             "smithy.api#documentation": "<p>Automated discovery information.</p>"
           }
         },
         "ConsumedLicenseSummaryList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ConsumedLicenseSummaryList",
+          "target": "com.amazonaws.licensemanager#ConsumedLicenseSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>Summaries for licenses consumed by various resources.</p>"
           }
         },
         "ConsumedLicenses": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of licenses consumed. </p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Description of the license configuration.</p>"
           }
         },
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>"
           }
         },
         "LicenseConfigurationId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique ID of the license configuration.</p>"
           }
         },
         "LicenseCount": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of licenses managed by the license configuration.</p>"
           }
         },
         "LicenseCountHardLimit": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxBoolean",
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Number of available licenses as a hard limit.</p>"
           }
         },
         "LicenseCountingType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseCountingType",
+          "target": "com.amazonaws.licensemanager#LicenseCountingType",
           "traits": {
             "smithy.api#documentation": "<p>Dimension to use to track the license inventory.</p>"
           }
         },
         "LicenseRules": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#StringList",
+          "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>License rules.</p>"
           }
         },
         "ManagedResourceSummaryList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ManagedResourceSummaryList",
+          "target": "com.amazonaws.licensemanager#ManagedResourceSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>Summaries for managed resources.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Name of the license configuration.</p>"
           }
         },
         "OwnerAccountId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Account ID of the license configuration's owner.</p>"
           }
         },
         "ProductInformationList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ProductInformationList",
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
           "traits": {
             "smithy.api#documentation": "<p>Product information.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Status of the license configuration.</p>"
           }
@@ -792,29 +791,29 @@
         "smithy.api#documentation": "<p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, \n         Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM\n         must be associated with a host), and the number of licenses purchased and used.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationAssociation": {
+    "com.amazonaws.licensemanager#LicenseConfigurationAssociation": {
       "type": "structure",
       "members": {
         "AssociationTime": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#DateTime",
+          "target": "com.amazonaws.licensemanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>Time when the license configuration was associated with the resource.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
         "ResourceOwnerId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the AWS account that owns the resource consuming licenses.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceType",
+          "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>Type of server resource.</p>"
           }
@@ -824,60 +823,62 @@
         "smithy.api#documentation": "<p>Describes an association with a license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationAssociations": {
+    "com.amazonaws.licensemanager#LicenseConfigurationAssociations": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationAssociation"
+        "target": "com.amazonaws.licensemanager#LicenseConfigurationAssociation"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationStatus": {
+    "com.amazonaws.licensemanager#LicenseConfigurationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AVAILABLE": {
+        "smithy.api#enum": [
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationUsage": {
+    "com.amazonaws.licensemanager#LicenseConfigurationUsage": {
       "type": "structure",
       "members": {
         "AssociationTime": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#DateTime",
+          "target": "com.amazonaws.licensemanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>Time when the license configuration was initially associated with the resource.</p>"
           }
         },
         "ConsumedLicenses": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of licenses consumed by the resource.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
         "ResourceOwnerId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the account that owns the resource.</p>"
           }
         },
         "ResourceStatus": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Status of the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceType",
+          "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>Type of resource.</p>"
           }
@@ -887,84 +888,88 @@
         "smithy.api#documentation": "<p>Details about the usage of a resource associated with a license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationUsageList": {
+    "com.amazonaws.licensemanager#LicenseConfigurationUsageList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationUsage"
+        "target": "com.amazonaws.licensemanager#LicenseConfigurationUsage"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurations": {
+    "com.amazonaws.licensemanager#LicenseConfigurations": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#LicenseConfiguration"
+        "target": "com.amazonaws.licensemanager#LicenseConfiguration"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseCountingType": {
+    "com.amazonaws.licensemanager#LicenseCountingType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "vCPU": {
+        "smithy.api#enum": [
+          {
+            "value": "vCPU",
             "name": "VCPU"
           },
-          "Instance": {
+          {
+            "value": "Instance",
             "name": "INSTANCE"
           },
-          "Core": {
+          {
+            "value": "Core",
             "name": "CORE"
           },
-          "Socket": {
+          {
+            "value": "Socket",
             "name": "SOCKET"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseOperationFailure": {
+    "com.amazonaws.licensemanager#LicenseOperationFailure": {
       "type": "structure",
       "members": {
         "ErrorMessage": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Error message.</p>"
           }
         },
         "FailureTime": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#DateTime",
+          "target": "com.amazonaws.licensemanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>Failure time.</p>"
           }
         },
         "MetadataList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#MetadataList",
+          "target": "com.amazonaws.licensemanager#MetadataList",
           "traits": {
             "smithy.api#documentation": "<p>Reserved.</p>"
           }
         },
         "OperationName": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Name of the operation.</p>"
           }
         },
         "OperationRequestedBy": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The requester is \"License Manager Automated Discovery\".</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
         "ResourceOwnerId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the AWS account that owns the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceType",
+          "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>Resource type.</p>"
           }
@@ -974,20 +979,20 @@
         "smithy.api#documentation": "<p>Describes the failure of a license operation.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseOperationFailureList": {
+    "com.amazonaws.licensemanager#LicenseOperationFailureList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#LicenseOperationFailure"
+        "target": "com.amazonaws.licensemanager#LicenseOperationFailure"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseSpecification": {
+    "com.amazonaws.licensemanager#LicenseSpecification": {
       "type": "structure",
       "members": {
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -995,17 +1000,17 @@
         "smithy.api#documentation": "<p>Details for associating a license configuration with a resource.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseSpecifications": {
+    "com.amazonaws.licensemanager#LicenseSpecifications": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#LicenseSpecification"
+        "target": "com.amazonaws.licensemanager#LicenseSpecification"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#LicenseUsageException": {
+    "com.amazonaws.licensemanager#LicenseUsageException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -1014,514 +1019,514 @@
         "smithy.api#httpError": 412
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListAssociationsForLicenseConfiguration": {
+    "com.amazonaws.licensemanager#ListAssociationsForLicenseConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListAssociationsForLicenseConfigurationRequest"
+        "target": "com.amazonaws.licensemanager#ListAssociationsForLicenseConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListAssociationsForLicenseConfigurationResponse"
+        "target": "com.amazonaws.licensemanager#ListAssociationsForLicenseConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException"
+          "target": "com.amazonaws.licensemanager#FilterLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the resource associations for the specified license configuration.</p> \n         <p>Resource associations need not consume licenses from a license configuration. \n         For example, an AMI or a stopped instance might not consume a license (depending on \n         the license rules).</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListAssociationsForLicenseConfigurationRequest": {
+    "com.amazonaws.licensemanager#ListAssociationsForLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of a license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxInteger",
+          "target": "com.amazonaws.licensemanager#BoxInteger",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListAssociationsForLicenseConfigurationResponse": {
+    "com.amazonaws.licensemanager#ListAssociationsForLicenseConfigurationResponse": {
       "type": "structure",
       "members": {
         "LicenseConfigurationAssociations": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationAssociations",
+          "target": "com.amazonaws.licensemanager#LicenseConfigurationAssociations",
           "traits": {
             "smithy.api#documentation": "<p>Information about the associations for the license configuration.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListFailuresForLicenseConfigurationOperations": {
+    "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListFailuresForLicenseConfigurationOperationsRequest"
+        "target": "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperationsRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListFailuresForLicenseConfigurationOperationsResponse"
+        "target": "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperationsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the license configuration operations that failed.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListFailuresForLicenseConfigurationOperationsRequest": {
+    "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperationsRequest": {
       "type": "structure",
       "members": {
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxInteger",
+          "target": "com.amazonaws.licensemanager#BoxInteger",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListFailuresForLicenseConfigurationOperationsResponse": {
+    "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperationsResponse": {
       "type": "structure",
       "members": {
         "LicenseOperationFailureList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseOperationFailureList",
+          "target": "com.amazonaws.licensemanager#LicenseOperationFailureList",
           "traits": {
             "smithy.api#documentation": "<p>License configuration operations that failed.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListLicenseConfigurations": {
+    "com.amazonaws.licensemanager#ListLicenseConfigurations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListLicenseConfigurationsRequest"
+        "target": "com.amazonaws.licensemanager#ListLicenseConfigurationsRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListLicenseConfigurationsResponse"
+        "target": "com.amazonaws.licensemanager#ListLicenseConfigurationsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException"
+          "target": "com.amazonaws.licensemanager#FilterLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the license configurations for your account.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListLicenseConfigurationsRequest": {
+    "com.amazonaws.licensemanager#ListLicenseConfigurationsRequest": {
       "type": "structure",
       "members": {
         "Filters": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Filters",
+          "target": "com.amazonaws.licensemanager#Filters",
           "traits": {
             "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>licenseCountingType</code> - The dimension on which licenses are counted (vCPU).\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "LicenseConfigurationArns": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#StringList",
+          "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Names (ARN) of the license configurations.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxInteger",
+          "target": "com.amazonaws.licensemanager#BoxInteger",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListLicenseConfigurationsResponse": {
+    "com.amazonaws.licensemanager#ListLicenseConfigurationsResponse": {
       "type": "structure",
       "members": {
         "LicenseConfigurations": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurations",
+          "target": "com.amazonaws.licensemanager#LicenseConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Information about the license configurations.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListLicenseSpecificationsForResource": {
+    "com.amazonaws.licensemanager#ListLicenseSpecificationsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListLicenseSpecificationsForResourceRequest"
+        "target": "com.amazonaws.licensemanager#ListLicenseSpecificationsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListLicenseSpecificationsForResourceResponse"
+        "target": "com.amazonaws.licensemanager#ListLicenseSpecificationsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes the license configurations for the specified resource.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListLicenseSpecificationsForResourceRequest": {
+    "com.amazonaws.licensemanager#ListLicenseSpecificationsForResourceRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxInteger",
+          "target": "com.amazonaws.licensemanager#BoxInteger",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListLicenseSpecificationsForResourceResponse": {
+    "com.amazonaws.licensemanager#ListLicenseSpecificationsForResourceResponse": {
       "type": "structure",
       "members": {
         "LicenseSpecifications": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseSpecifications",
+          "target": "com.amazonaws.licensemanager#LicenseSpecifications",
           "traits": {
             "smithy.api#documentation": "<p>License configurations associated with a resource.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListResourceInventory": {
+    "com.amazonaws.licensemanager#ListResourceInventory": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListResourceInventoryRequest"
+        "target": "com.amazonaws.licensemanager#ListResourceInventoryRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListResourceInventoryResponse"
+        "target": "com.amazonaws.licensemanager#ListResourceInventoryResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#FailedDependencyException"
+          "target": "com.amazonaws.licensemanager#FailedDependencyException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException"
+          "target": "com.amazonaws.licensemanager#FilterLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists resources managed using Systems Manager inventory.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListResourceInventoryRequest": {
+    "com.amazonaws.licensemanager#ListResourceInventoryRequest": {
       "type": "structure",
       "members": {
         "Filters": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InventoryFilterList",
+          "target": "com.amazonaws.licensemanager#InventoryFilterList",
           "traits": {
             "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>account_id</code> - The ID of the AWS account that owns the resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>application_name</code> - The name of the application. \n               Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>license_included</code> - The type of license included. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.\n               Possible values are <code>sql-server-enterprise</code> | \n               <code>sql-server-standard</code> | \n               <code>sql-server-web</code> |  \n               <code>windows-server-datacenter</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>platform</code> - The platform of the resource.\n               Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource_id</code> - The ID of the resource. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxInteger",
+          "target": "com.amazonaws.licensemanager#BoxInteger",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListResourceInventoryResponse": {
+    "com.amazonaws.licensemanager#ListResourceInventoryResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         },
         "ResourceInventoryList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceInventoryList",
+          "target": "com.amazonaws.licensemanager#ResourceInventoryList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resources.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListTagsForResource": {
+    "com.amazonaws.licensemanager#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListTagsForResourceRequest"
+        "target": "com.amazonaws.licensemanager#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListTagsForResourceResponse"
+        "target": "com.amazonaws.licensemanager#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the tags for the specified license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListTagsForResourceRequest": {
+    "com.amazonaws.licensemanager#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListTagsForResourceResponse": {
+    "com.amazonaws.licensemanager#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "Tags": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#TagList",
+          "target": "com.amazonaws.licensemanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the tags.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListUsageForLicenseConfiguration": {
+    "com.amazonaws.licensemanager#ListUsageForLicenseConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListUsageForLicenseConfigurationRequest"
+        "target": "com.amazonaws.licensemanager#ListUsageForLicenseConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ListUsageForLicenseConfigurationResponse"
+        "target": "com.amazonaws.licensemanager#ListUsageForLicenseConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#FilterLimitExceededException"
+          "target": "com.amazonaws.licensemanager#FilterLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists all license usage records for a license configuration, displaying license\n         consumption details by resource at a selected point in time. Use this action to audit the\n         current license consumption for any license inventory and configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListUsageForLicenseConfigurationRequest": {
+    "com.amazonaws.licensemanager#ListUsageForLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
         "Filters": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Filters",
+          "target": "com.amazonaws.licensemanager#Filters",
           "traits": {
             "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resourceArn</code> - The ARN of the license configuration resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceType</code> - The resource type (EC2_INSTANCE | EC2_HOST | EC2_AMI | SYSTEMS_MANAGER_MANAGED_INSTANCE). \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceAccount</code> - The ID of the account that owns the resource. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxInteger",
+          "target": "com.amazonaws.licensemanager#BoxInteger",
           "traits": {
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ListUsageForLicenseConfigurationResponse": {
+    "com.amazonaws.licensemanager#ListUsageForLicenseConfigurationResponse": {
       "type": "structure",
       "members": {
         "LicenseConfigurationUsageList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationUsageList",
+          "target": "com.amazonaws.licensemanager#LicenseConfigurationUsageList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the license configurations.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ManagedResourceSummary": {
+    "com.amazonaws.licensemanager#ManagedResourceSummary": {
       "type": "structure",
       "members": {
         "AssociationCount": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>Number of resources associated with licenses.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceType",
+          "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>Type of resource associated with a license.</p>"
           }
@@ -1531,26 +1536,26 @@
         "smithy.api#documentation": "<p>Summary information about a managed resource.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ManagedResourceSummaryList": {
+    "com.amazonaws.licensemanager#ManagedResourceSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ManagedResourceSummary"
+        "target": "com.amazonaws.licensemanager#ManagedResourceSummary"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#Message": {
+    "com.amazonaws.licensemanager#Message": {
       "type": "string"
     },
-    "com.amazonaws.license.manager.V2018_08_01#Metadata": {
+    "com.amazonaws.licensemanager#Metadata": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Reserved.</p>"
           }
         },
         "Value": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Reserved.</p>"
           }
@@ -1560,20 +1565,20 @@
         "smithy.api#documentation": "<p>Reserved.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#MetadataList": {
+    "com.amazonaws.licensemanager#MetadataList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#Metadata"
+        "target": "com.amazonaws.licensemanager#Metadata"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#OrganizationConfiguration": {
+    "com.amazonaws.licensemanager#OrganizationConfiguration": {
       "type": "structure",
       "members": {
         "EnableIntegration": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Boolean",
+          "target": "com.amazonaws.licensemanager#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Enables AWS Organization integration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1581,21 +1586,21 @@
         "smithy.api#documentation": "<p>Configuration information for AWS Organizations.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ProductInformation": {
+    "com.amazonaws.licensemanager#ProductInformation": {
       "type": "structure",
       "members": {
         "ProductInformationFilterList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ProductInformationFilterList",
+          "target": "com.amazonaws.licensemanager#ProductInformationFilterList",
           "traits": {
             "smithy.api#documentation": "<p>Product information filters. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Application Name</code> - The name of the application.\n              Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Publisher</code> - The publisher of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Version</code> - The version of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Name</code> - The name of the platform.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Type</code> - The platform type.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Included</code> - The type of license included.\n               Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.\n               Possible values are <code>sql-server-enterprise</code> | \n               <code>sql-server-standard</code> | \n               <code>sql-server-web</code> |  \n               <code>windows-server-datacenter</code>.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Resource type. The value is <code>SSM_MANAGED</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1603,28 +1608,28 @@
         "smithy.api#documentation": "<p>Describes product information for a license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ProductInformationFilter": {
+    "com.amazonaws.licensemanager#ProductInformationFilter": {
       "type": "structure",
       "members": {
         "ProductInformationFilterComparator": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Logical operator.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProductInformationFilterName": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Filter name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProductInformationFilterValue": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#StringList",
+          "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>Filter value.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1632,23 +1637,23 @@
         "smithy.api#documentation": "<p>Describes product information filters.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ProductInformationFilterList": {
+    "com.amazonaws.licensemanager#ProductInformationFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ProductInformationFilter"
+        "target": "com.amazonaws.licensemanager#ProductInformationFilter"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ProductInformationList": {
+    "com.amazonaws.licensemanager#ProductInformationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ProductInformation"
+        "target": "com.amazonaws.licensemanager#ProductInformation"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException": {
+    "com.amazonaws.licensemanager#RateLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -1657,41 +1662,41 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ResourceInventory": {
+    "com.amazonaws.licensemanager#ResourceInventory": {
       "type": "structure",
       "members": {
         "Platform": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Platform of the resource.</p>"
           }
         },
         "PlatformVersion": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Platform version of the resource in the inventory.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
         "ResourceId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the resource.</p>"
           }
         },
         "ResourceOwningAccountId": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>ID of the account that owns the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ResourceType",
+          "target": "com.amazonaws.licensemanager#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>Type of resource.</p>"
           }
@@ -1701,17 +1706,17 @@
         "smithy.api#documentation": "<p>Details about a resource.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ResourceInventoryList": {
+    "com.amazonaws.licensemanager#ResourceInventoryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#ResourceInventory"
+        "target": "com.amazonaws.licensemanager#ResourceInventory"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ResourceLimitExceededException": {
+    "com.amazonaws.licensemanager#ResourceLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -1720,33 +1725,38 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ResourceType": {
+    "com.amazonaws.licensemanager#ResourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EC2_INSTANCE": {
+        "smithy.api#enum": [
+          {
+            "value": "EC2_INSTANCE",
             "name": "EC2_INSTANCE"
           },
-          "EC2_HOST": {
+          {
+            "value": "EC2_HOST",
             "name": "EC2_HOST"
           },
-          "EC2_AMI": {
+          {
+            "value": "EC2_AMI",
             "name": "EC2_AMI"
           },
-          "RDS": {
+          {
+            "value": "RDS",
             "name": "RDS"
           },
-          "SYSTEMS_MANAGER_MANAGED_INSTANCE": {
+          {
+            "value": "SYSTEMS_MANAGER_MANAGED_INSTANCE",
             "name": "SYSTEMS_MANAGER_MANAGED_INSTANCE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#ServerInternalException": {
+    "com.amazonaws.licensemanager#ServerInternalException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#Message"
+          "target": "com.amazonaws.licensemanager#Message"
         }
       },
       "traits": {
@@ -1755,26 +1765,26 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#String": {
+    "com.amazonaws.licensemanager#String": {
       "type": "string"
     },
-    "com.amazonaws.license.manager.V2018_08_01#StringList": {
+    "com.amazonaws.licensemanager#StringList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#String"
+        "target": "com.amazonaws.licensemanager#String"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#Tag": {
+    "com.amazonaws.licensemanager#Tag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Tag key.</p>"
           }
         },
         "Value": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Tag value.</p>"
           }
@@ -1784,333 +1794,333 @@
         "smithy.api#documentation": "<p>Details about a tag for a license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#TagKeyList": {
+    "com.amazonaws.licensemanager#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#String"
+        "target": "com.amazonaws.licensemanager#String"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#TagList": {
+    "com.amazonaws.licensemanager#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#Tag"
+        "target": "com.amazonaws.licensemanager#Tag"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#TagResource": {
+    "com.amazonaws.licensemanager#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#TagResourceRequest"
+        "target": "com.amazonaws.licensemanager#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#TagResourceResponse"
+        "target": "com.amazonaws.licensemanager#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Adds the specified tags to the specified license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#TagResourceRequest": {
+    "com.amazonaws.licensemanager#TagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#TagList",
+          "target": "com.amazonaws.licensemanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#TagResourceResponse": {
+    "com.amazonaws.licensemanager#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.license.manager.V2018_08_01#UntagResource": {
+    "com.amazonaws.licensemanager#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UntagResourceRequest"
+        "target": "com.amazonaws.licensemanager#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UntagResourceResponse"
+        "target": "com.amazonaws.licensemanager#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Removes the specified tags from the specified license configuration.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UntagResourceRequest": {
+    "com.amazonaws.licensemanager#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#TagKeyList",
+          "target": "com.amazonaws.licensemanager#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>Keys identifying the tags to remove.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UntagResourceResponse": {
+    "com.amazonaws.licensemanager#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseConfiguration": {
+    "com.amazonaws.licensemanager#UpdateLicenseConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseConfigurationRequest"
+        "target": "com.amazonaws.licensemanager#UpdateLicenseConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseConfigurationResponse"
+        "target": "com.amazonaws.licensemanager#UpdateLicenseConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Modifies the attributes of an existing license configuration.</p> \n         <p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, \n         Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM\n         must be associated with a host), and the number of licenses purchased and used.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseConfigurationRequest": {
+    "com.amazonaws.licensemanager#UpdateLicenseConfigurationRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>New description of the license configuration.</p>"
           }
         },
         "LicenseConfigurationArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LicenseConfigurationStatus": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseConfigurationStatus",
+          "target": "com.amazonaws.licensemanager#LicenseConfigurationStatus",
           "traits": {
             "smithy.api#documentation": "<p>New status of the license configuration.</p>"
           }
         },
         "LicenseCount": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxLong",
+          "target": "com.amazonaws.licensemanager#BoxLong",
           "traits": {
             "smithy.api#documentation": "<p>New number of licenses managed by the license configuration.</p>"
           }
         },
         "LicenseCountHardLimit": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxBoolean",
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
           "traits": {
             "smithy.api#documentation": "<p>New hard limit of the number of available licenses.</p>"
           }
         },
         "LicenseRules": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#StringList",
+          "target": "com.amazonaws.licensemanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>New license rules.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>New name of the license configuration.</p>"
           }
         },
         "ProductInformationList": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ProductInformationList",
+          "target": "com.amazonaws.licensemanager#ProductInformationList",
           "traits": {
             "smithy.api#documentation": "<p>New product information.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseConfigurationResponse": {
+    "com.amazonaws.licensemanager#UpdateLicenseConfigurationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseSpecificationsForResource": {
+    "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseSpecificationsForResourceRequest"
+        "target": "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseSpecificationsForResourceResponse"
+        "target": "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidResourceStateException"
+          "target": "com.amazonaws.licensemanager#InvalidResourceStateException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseUsageException"
+          "target": "com.amazonaws.licensemanager#LicenseUsageException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Adds or removes the specified license configurations for the specified AWS resource.</p> \n         <p>You can update the license specifications of AMIs, instances, and hosts.\n         You cannot update the license specifications for launch templates and AWS CloudFormation templates, \n         as they send license configurations to the operation that creates the resource.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseSpecificationsForResourceRequest": {
+    "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResourceRequest": {
       "type": "structure",
       "members": {
         "AddLicenseSpecifications": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseSpecifications",
+          "target": "com.amazonaws.licensemanager#LicenseSpecifications",
           "traits": {
             "smithy.api#documentation": "<p>ARNs of the license configurations to add.</p>"
           }
         },
         "RemoveLicenseSpecifications": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#LicenseSpecifications",
+          "target": "com.amazonaws.licensemanager#LicenseSpecifications",
           "traits": {
             "smithy.api#documentation": "<p>ARNs of the license configurations to remove.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the AWS resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateLicenseSpecificationsForResourceResponse": {
+    "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateServiceSettings": {
+    "com.amazonaws.licensemanager#UpdateServiceSettings": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UpdateServiceSettingsRequest"
+        "target": "com.amazonaws.licensemanager#UpdateServiceSettingsRequest"
       },
       "output": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#UpdateServiceSettingsResponse"
+        "target": "com.amazonaws.licensemanager#UpdateServiceSettingsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException"
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#AuthorizationException"
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#InvalidParameterValueException"
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#RateLimitExceededException"
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
         },
         {
-          "target": "com.amazonaws.license.manager.V2018_08_01#ServerInternalException"
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates License Manager settings for the current Region.</p>"
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateServiceSettingsRequest": {
+    "com.amazonaws.licensemanager#UpdateServiceSettingsRequest": {
       "type": "structure",
       "members": {
         "EnableCrossAccountsDiscovery": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#BoxBoolean",
+          "target": "com.amazonaws.licensemanager#BoxBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Activates cross-account discovery.</p>"
           }
         },
         "OrganizationConfiguration": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#OrganizationConfiguration",
+          "target": "com.amazonaws.licensemanager#OrganizationConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Enables integration with AWS Organizations for cross-account discovery.</p>"
           }
         },
         "S3BucketArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is stored.</p>"
           }
         },
         "SnsTopicArn": {
-          "target": "com.amazonaws.license.manager.V2018_08_01#String",
+          "target": "com.amazonaws.licensemanager#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon SNS topic used for License Manager alerts.</p>"
           }
         }
       }
     },
-    "com.amazonaws.license.manager.V2018_08_01#UpdateServiceSettingsResponse": {
+    "com.amazonaws.licensemanager#UpdateServiceSettingsResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     }
   }
 }

@@ -1,92 +1,91 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AWSShield_20160616": {
+    "com.amazonaws.shield#AWSShield_20160616": {
       "type": "service",
       "version": "2016-06-02",
       "operations": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTLogBucket"
+          "target": "com.amazonaws.shield#AssociateDRTLogBucket"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTRole"
+          "target": "com.amazonaws.shield#AssociateDRTRole"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtection"
+          "target": "com.amazonaws.shield#CreateProtection"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#CreateSubscription"
+          "target": "com.amazonaws.shield#CreateSubscription"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteProtection"
+          "target": "com.amazonaws.shield#DeleteProtection"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteSubscription"
+          "target": "com.amazonaws.shield#DeleteSubscription"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeAttack"
+          "target": "com.amazonaws.shield#DescribeAttack"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeDRTAccess"
+          "target": "com.amazonaws.shield#DescribeDRTAccess"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeEmergencyContactSettings"
+          "target": "com.amazonaws.shield#DescribeEmergencyContactSettings"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeProtection"
+          "target": "com.amazonaws.shield#DescribeProtection"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeSubscription"
+          "target": "com.amazonaws.shield#DescribeSubscription"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTLogBucket"
+          "target": "com.amazonaws.shield#DisassociateDRTLogBucket"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTRole"
+          "target": "com.amazonaws.shield#DisassociateDRTRole"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#GetSubscriptionState"
+          "target": "com.amazonaws.shield#GetSubscriptionState"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ListAttacks"
+          "target": "com.amazonaws.shield#ListAttacks"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ListProtections"
+          "target": "com.amazonaws.shield#ListProtections"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateEmergencyContactSettings"
+          "target": "com.amazonaws.shield#UpdateEmergencyContactSettings"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateSubscription"
+          "target": "com.amazonaws.shield#UpdateSubscription"
         }
       ],
       "traits": {
@@ -96,26 +95,22 @@
           "cloudFormationName": "Shield",
           "cloudTrailEventSource": "v20160616.bardockcustomerapiservice.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "shield"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AWS Shield Advanced</fullname>\n         <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, \n         data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Shield",
         "smithy.api#xmlNamespace": {
           "uri": "http://ddp.amazonaws.com/doc/2016-06-02/"
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedException": {
+    "com.amazonaws.shield#AccessDeniedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -123,11 +118,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedForDependencyException": {
+    "com.amazonaws.shield#AccessDeniedForDependencyException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -135,155 +130,155 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTLogBucket": {
+    "com.amazonaws.shield#AssociateDRTLogBucket": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTLogBucketRequest"
+        "target": "com.amazonaws.shield#AssociateDRTLogBucketRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTLogBucketResponse"
+        "target": "com.amazonaws.shield#AssociateDRTLogBucketResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedForDependencyException"
+          "target": "com.amazonaws.shield#AccessDeniedForDependencyException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException"
+          "target": "com.amazonaws.shield#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException"
+          "target": "com.amazonaws.shield#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LimitsExceededException"
+          "target": "com.amazonaws.shield#LimitsExceededException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#NoAssociatedRoleException"
+          "target": "com.amazonaws.shield#NoAssociatedRoleException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p>\n\t        <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTLogBucketRequest": {
+    "com.amazonaws.shield#AssociateDRTLogBucketRequest": {
       "type": "structure",
       "members": {
         "LogBucket": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucket",
+          "target": "com.amazonaws.shield#LogBucket",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 bucket that contains your AWS WAF logs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTLogBucketResponse": {
+    "com.amazonaws.shield#AssociateDRTLogBucketResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTRole": {
+    "com.amazonaws.shield#AssociateDRTRole": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTRoleRequest"
+        "target": "com.amazonaws.shield#AssociateDRTRoleRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTRoleResponse"
+        "target": "com.amazonaws.shield#AssociateDRTRoleResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedForDependencyException"
+          "target": "com.amazonaws.shield#AccessDeniedForDependencyException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException"
+          "target": "com.amazonaws.shield#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException"
+          "target": "com.amazonaws.shield#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Authorizes the DDoS Response team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p>\n         <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>\n         <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p>\n\n         <p>The DRT will have access only to your AWS WAF and Shield resources. By submitting this request, you authorize the DRT to inspect your AWS WAF and Shield configuration and create and update AWS WAF rules and web ACLs on your behalf. The DRT takes these actions only if explicitly authorized by you.</p>\n         <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>\n         <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTRoleRequest": {
+    "com.amazonaws.shield#AssociateDRTRoleRequest": {
       "type": "structure",
       "members": {
         "RoleArn": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#RoleArn",
+          "target": "com.amazonaws.shield#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.</p>\n\t        <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTRoleResponse": {
+    "com.amazonaws.shield#AssociateDRTRoleResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackDetail": {
+    "com.amazonaws.shield#AttackDetail": {
       "type": "structure",
       "members": {
         "AttackCounters": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList",
+          "target": "com.amazonaws.shield#SummarizedCounterList",
           "traits": {
             "smithy.api#documentation": "<p>List of counters that describe the attack for the specified time period.</p>"
           }
         },
         "AttackId": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackId",
+          "target": "com.amazonaws.shield#AttackId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the attack.</p>"
           }
         },
         "AttackProperties": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackProperties",
+          "target": "com.amazonaws.shield#AttackProperties",
           "traits": {
             "smithy.api#documentation": "<p>The array of <a>AttackProperty</a> objects.</p>"
           }
         },
         "EndTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
+          "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the attack ended, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "Mitigations": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#MitigationList",
+          "target": "com.amazonaws.shield#MitigationList",
           "traits": {
             "smithy.api#documentation": "<p>List of mitigation actions taken for the attack.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
+          "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>"
           }
         },
         "StartTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
+          "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the attack started, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "SubResources": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceSummaryList",
+          "target": "com.amazonaws.shield#SubResourceSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>If applicable, additional detail about the resource being attacked, for example, IP\n         address or URL.</p>"
           }
@@ -293,7 +288,7 @@
         "smithy.api#documentation": "<p>The details of a DDoS attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackId": {
+    "com.amazonaws.shield#AttackId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -303,54 +298,56 @@
         "smithy.api#pattern": "[a-zA-Z0-9\\\\-]*"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackLayer": {
+    "com.amazonaws.shield#AttackLayer": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NETWORK": {
+        "smithy.api#enum": [
+          {
+            "value": "NETWORK",
             "name": "NETWORK"
           },
-          "APPLICATION": {
+          {
+            "value": "APPLICATION",
             "name": "APPLICATION"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackProperties": {
+    "com.amazonaws.shield#AttackProperties": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackProperty"
+        "target": "com.amazonaws.shield#AttackProperty"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackProperty": {
+    "com.amazonaws.shield#AttackProperty": {
       "type": "structure",
       "members": {
         "AttackLayer": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackLayer",
+          "target": "com.amazonaws.shield#AttackLayer",
           "traits": {
             "smithy.api#documentation": "<p>The type of distributed denial of service (DDoS) event that was observed.\n            <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>\n         indicates layer 7 events.</p>"
           }
         },
         "AttackPropertyIdentifier": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackPropertyIdentifier",
+          "target": "com.amazonaws.shield#AttackPropertyIdentifier",
           "traits": {
             "smithy.api#documentation": "<p>Defines the DDoS attack property information that is provided. The\n            <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>\n         values are valid only for WordPress reflective pingback DDoS attacks.</p>"
           }
         },
         "TopContributors": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#TopContributors",
+          "target": "com.amazonaws.shield#TopContributors",
           "traits": {
             "smithy.api#documentation": "<p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>"
           }
         },
         "Total": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Long",
+          "target": "com.amazonaws.shield#Long",
           "traits": {
             "smithy.api#documentation": "<p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>"
           }
         },
         "Unit": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Unit",
+          "target": "com.amazonaws.shield#Unit",
           "traits": {
             "smithy.api#documentation": "<p>The unit of the <code>Value</code> of the contributions.</p>"
           }
@@ -360,72 +357,80 @@
         "smithy.api#documentation": "<p>Details of the described attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackPropertyIdentifier": {
+    "com.amazonaws.shield#AttackPropertyIdentifier": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DESTINATION_URL": {
+        "smithy.api#enum": [
+          {
+            "value": "DESTINATION_URL",
             "name": "DESTINATION_URL"
           },
-          "REFERRER": {
+          {
+            "value": "REFERRER",
             "name": "REFERRER"
           },
-          "SOURCE_ASN": {
+          {
+            "value": "SOURCE_ASN",
             "name": "SOURCE_ASN"
           },
-          "SOURCE_COUNTRY": {
+          {
+            "value": "SOURCE_COUNTRY",
             "name": "SOURCE_COUNTRY"
           },
-          "SOURCE_IP_ADDRESS": {
+          {
+            "value": "SOURCE_IP_ADDRESS",
             "name": "SOURCE_IP_ADDRESS"
           },
-          "SOURCE_USER_AGENT": {
+          {
+            "value": "SOURCE_USER_AGENT",
             "name": "SOURCE_USER_AGENT"
           },
-          "WORDPRESS_PINGBACK_REFLECTOR": {
+          {
+            "value": "WORDPRESS_PINGBACK_REFLECTOR",
             "name": "WORDPRESS_PINGBACK_REFLECTOR"
           },
-          "WORDPRESS_PINGBACK_SOURCE": {
+          {
+            "value": "WORDPRESS_PINGBACK_SOURCE",
             "name": "WORDPRESS_PINGBACK_SOURCE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackSummaries": {
+    "com.amazonaws.shield#AttackSummaries": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackSummary"
+        "target": "com.amazonaws.shield#AttackSummary"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackSummary": {
+    "com.amazonaws.shield#AttackSummary": {
       "type": "structure",
       "members": {
         "AttackId": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the attack.</p>"
           }
         },
         "AttackVectors": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackVectorDescriptionList",
+          "target": "com.amazonaws.shield#AttackVectorDescriptionList",
           "traits": {
             "smithy.api#documentation": "<p>The list of attacks for a specified time period.</p>"
           }
         },
         "EndTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
+          "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>"
           }
         },
         "StartTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
+          "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
@@ -435,17 +440,17 @@
         "smithy.api#documentation": "<p>Summarizes all DDoS attacks for a specified time period.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp": {
+    "com.amazonaws.shield#AttackTimestamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackVectorDescription": {
+    "com.amazonaws.shield#AttackVectorDescription": {
       "type": "structure",
       "members": {
         "VectorType": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The attack type. Valid values:</p>\n\t        <ul>\n            <li>\n               <p>UDP_TRAFFIC</p>\n            </li>\n            <li>\n               <p>UDP_FRAGMENT</p>\n            </li>\n            <li>\n               <p>GENERIC_UDP_REFLECTION</p>\n            </li>\n            <li>\n               <p>DNS_REFLECTION</p>\n            </li>\n            <li>\n               <p>NTP_REFLECTION</p>\n            </li>\n            <li>\n               <p>CHARGEN_REFLECTION</p>\n            </li>\n            <li>\n               <p>SSDP_REFLECTION</p>\n            </li>\n            <li>\n               <p>PORT_MAPPER</p>\n            </li>\n            <li>\n               <p>RIP_REFLECTION</p>\n            </li>\n            <li>\n               <p>SNMP_REFLECTION</p>\n            </li>\n            <li>\n               <p>MSSQL_REFLECTION</p>\n            </li>\n            <li>\n               <p>NET_BIOS_REFLECTION</p>\n            </li>\n            <li>\n               <p>SYN_FLOOD</p>\n            </li>\n            <li>\n               <p>ACK_FLOOD</p>\n            </li>\n            <li>\n               <p>REQUEST_FLOOD</p> \n            </li>\n            <li>\n               <p>HTTP_REFLECTION</p>\n            </li>\n            <li>\n               <p>UDS_REFLECTION</p>\n            </li>\n            <li>\n               <p>MEMCACHED_REFLECTION</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -453,36 +458,38 @@
         "smithy.api#documentation": "<p>Describes the attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AttackVectorDescriptionList": {
+    "com.amazonaws.shield#AttackVectorDescriptionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackVectorDescription"
+        "target": "com.amazonaws.shield#AttackVectorDescription"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#AutoRenew": {
+    "com.amazonaws.shield#AutoRenew": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Contributor": {
+    "com.amazonaws.shield#Contributor": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>"
           }
         },
         "Value": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Long",
+          "target": "com.amazonaws.shield#Long",
           "traits": {
             "smithy.api#documentation": "<p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>"
           }
@@ -492,467 +499,467 @@
         "smithy.api#documentation": "<p>A contributor to the attack and their contribution.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtection": {
+    "com.amazonaws.shield#CreateProtection": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtectionRequest"
+        "target": "com.amazonaws.shield#CreateProtectionRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtectionResponse"
+        "target": "com.amazonaws.shield#CreateProtectionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException"
+          "target": "com.amazonaws.shield#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidResourceException"
+          "target": "com.amazonaws.shield#InvalidResourceException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LimitsExceededException"
+          "target": "com.amazonaws.shield#LimitsExceededException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.shield#ResourceAlreadyExistsException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon\n         CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p>\n         <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">AWS WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with AWS Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtectionRequest": {
+    "com.amazonaws.shield#CreateProtectionRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionName",
+          "target": "com.amazonaws.shield#ProtectionName",
           "traits": {
             "smithy.api#documentation": "<p>Friendly name for the <code>Protection</code> you are creating.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
+          "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource to be protected.</p>\n         <p>The ARN should be in one of the following formats:</p>\n         <ul>\n            <li>\n               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an AWS Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>\n                  </code>\n               </p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtectionResponse": {
+    "com.amazonaws.shield#CreateProtectionResponse": {
       "type": "structure",
       "members": {
         "ProtectionId": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
+          "target": "com.amazonaws.shield#ProtectionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object that is\n         created.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#CreateSubscription": {
+    "com.amazonaws.shield#CreateSubscription": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#CreateSubscriptionRequest"
+        "target": "com.amazonaws.shield#CreateSubscriptionRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#CreateSubscriptionResponse"
+        "target": "com.amazonaws.shield#CreateSubscriptionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.shield#ResourceAlreadyExistsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Activates AWS Shield Advanced for an account.</p>\n         <p>As part of this request you can specify <code>EmergencySettings</code> that automaticaly grant the DDoS response team (DRT) needed permissions to assist you during a suspected DDoS attack. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html\">Authorize the DDoS Response Team to Create Rules and Web ACLs on Your Behalf</a>.</p>\n         <p>To use the services of the DRT, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support\n            plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise\n               Support plan</a>.</p>\n      \n         <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#CreateSubscriptionRequest": {
+    "com.amazonaws.shield#CreateSubscriptionRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#CreateSubscriptionResponse": {
+    "com.amazonaws.shield#CreateSubscriptionResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteProtection": {
+    "com.amazonaws.shield#DeleteProtection": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteProtectionRequest"
+        "target": "com.amazonaws.shield#DeleteProtectionRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteProtectionResponse"
+        "target": "com.amazonaws.shield#DeleteProtectionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes an AWS Shield Advanced <a>Protection</a>.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteProtectionRequest": {
+    "com.amazonaws.shield#DeleteProtectionRequest": {
       "type": "structure",
       "members": {
         "ProtectionId": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
+          "target": "com.amazonaws.shield#ProtectionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object to be\n         deleted.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteProtectionResponse": {
+    "com.amazonaws.shield#DeleteProtectionResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteSubscription": {
+    "com.amazonaws.shield#DeleteSubscription": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteSubscriptionRequest"
+        "target": "com.amazonaws.shield#DeleteSubscriptionRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteSubscriptionResponse"
+        "target": "com.amazonaws.shield#DeleteSubscriptionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LockedSubscriptionException"
+          "target": "com.amazonaws.shield#LockedSubscriptionException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
-        "smithy.api#deprecated": { },
+        "smithy.api#deprecated": {},
         "smithy.api#documentation": "<p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteSubscriptionRequest": {
+    "com.amazonaws.shield#DeleteSubscriptionRequest": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
-        "smithy.api#deprecated": { }
+        "smithy.api#deprecated": {}
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteSubscriptionResponse": {
+    "com.amazonaws.shield#DeleteSubscriptionResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
-        "smithy.api#deprecated": { }
+        "smithy.api#deprecated": {}
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeAttack": {
+    "com.amazonaws.shield#DescribeAttack": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeAttackRequest"
+        "target": "com.amazonaws.shield#DescribeAttackRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeAttackResponse"
+        "target": "com.amazonaws.shield#DescribeAttackResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedException"
+          "target": "com.amazonaws.shield#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes the details of a DDoS attack. </p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeAttackRequest": {
+    "com.amazonaws.shield#DescribeAttackRequest": {
       "type": "structure",
       "members": {
         "AttackId": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackId",
+          "target": "com.amazonaws.shield#AttackId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) for the attack that to be described.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeAttackResponse": {
+    "com.amazonaws.shield#DescribeAttackResponse": {
       "type": "structure",
       "members": {
         "Attack": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackDetail",
+          "target": "com.amazonaws.shield#AttackDetail",
           "traits": {
             "smithy.api#documentation": "<p>The attack that is described.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeDRTAccess": {
+    "com.amazonaws.shield#DescribeDRTAccess": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeDRTAccessRequest"
+        "target": "com.amazonaws.shield#DescribeDRTAccessRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeDRTAccessResponse"
+        "target": "com.amazonaws.shield#DescribeDRTAccessResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response team (DRT) to access your AWS account while assisting with attack mitigation.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeDRTAccessRequest": {
+    "com.amazonaws.shield#DescribeDRTAccessRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeDRTAccessResponse": {
+    "com.amazonaws.shield#DescribeDRTAccessResponse": {
       "type": "structure",
       "members": {
         "LogBucketList": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucketList",
+          "target": "com.amazonaws.shield#LogBucketList",
           "traits": {
             "smithy.api#documentation": "<p>The list of Amazon S3 buckets accessed by the DRT.</p>"
           }
         },
         "RoleArn": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#RoleArn",
+          "target": "com.amazonaws.shield#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeEmergencyContactSettings": {
+    "com.amazonaws.shield#DescribeEmergencyContactSettings": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeEmergencyContactSettingsRequest"
+        "target": "com.amazonaws.shield#DescribeEmergencyContactSettingsRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeEmergencyContactSettingsResponse"
+        "target": "com.amazonaws.shield#DescribeEmergencyContactSettingsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the email addresses that the DRT can use to contact you during a suspected attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeEmergencyContactSettingsRequest": {
+    "com.amazonaws.shield#DescribeEmergencyContactSettingsRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeEmergencyContactSettingsResponse": {
+    "com.amazonaws.shield#DescribeEmergencyContactSettingsResponse": {
       "type": "structure",
       "members": {
         "EmergencyContactList": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContactList",
+          "target": "com.amazonaws.shield#EmergencyContactList",
           "traits": {
             "smithy.api#documentation": "<p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeProtection": {
+    "com.amazonaws.shield#DescribeProtection": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeProtectionRequest"
+        "target": "com.amazonaws.shield#DescribeProtectionRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeProtectionResponse"
+        "target": "com.amazonaws.shield#DescribeProtectionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException"
+          "target": "com.amazonaws.shield#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the details of a <a>Protection</a> object.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeProtectionRequest": {
+    "com.amazonaws.shield#DescribeProtectionRequest": {
       "type": "structure",
       "members": {
         "ProtectionId": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
+          "target": "com.amazonaws.shield#ProtectionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
+          "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeProtectionResponse": {
+    "com.amazonaws.shield#DescribeProtectionResponse": {
       "type": "structure",
       "members": {
         "Protection": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Protection",
+          "target": "com.amazonaws.shield#Protection",
           "traits": {
             "smithy.api#documentation": "<p>The <a>Protection</a> object that is described.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeSubscription": {
+    "com.amazonaws.shield#DescribeSubscription": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeSubscriptionRequest"
+        "target": "com.amazonaws.shield#DescribeSubscriptionRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeSubscriptionResponse"
+        "target": "com.amazonaws.shield#DescribeSubscriptionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Provides details about the AWS Shield Advanced subscription for an account.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeSubscriptionRequest": {
+    "com.amazonaws.shield#DescribeSubscriptionRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeSubscriptionResponse": {
+    "com.amazonaws.shield#DescribeSubscriptionResponse": {
       "type": "structure",
       "members": {
         "Subscription": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Subscription",
+          "target": "com.amazonaws.shield#Subscription",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Shield Advanced subscription details for an account.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTLogBucket": {
+    "com.amazonaws.shield#DisassociateDRTLogBucket": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTLogBucketRequest"
+        "target": "com.amazonaws.shield#DisassociateDRTLogBucketRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTLogBucketResponse"
+        "target": "com.amazonaws.shield#DisassociateDRTLogBucketResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedForDependencyException"
+          "target": "com.amazonaws.shield#AccessDeniedForDependencyException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException"
+          "target": "com.amazonaws.shield#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#NoAssociatedRoleException"
+          "target": "com.amazonaws.shield#NoAssociatedRoleException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p>\n\t        <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTLogBucketRequest": {
+    "com.amazonaws.shield#DisassociateDRTLogBucketRequest": {
       "type": "structure",
       "members": {
         "LogBucket": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucket",
+          "target": "com.amazonaws.shield#LogBucket",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 bucket that contains your AWS WAF logs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTLogBucketResponse": {
+    "com.amazonaws.shield#DisassociateDRTLogBucketResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTRole": {
+    "com.amazonaws.shield#DisassociateDRTRole": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTRoleRequest"
+        "target": "com.amazonaws.shield#DisassociateDRTRoleRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTRoleResponse"
+        "target": "com.amazonaws.shield#DisassociateDRTRoleResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException"
+          "target": "com.amazonaws.shield#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Removes the DDoS Response team's (DRT) access to your AWS account.</p>\n\t        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTRoleRequest": {
+    "com.amazonaws.shield#DisassociateDRTRoleRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTRoleResponse": {
+    "com.amazonaws.shield#DisassociateDRTRoleResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Double": {
+    "com.amazonaws.shield#Double": {
       "type": "double"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#DurationInSeconds": {
+    "com.amazonaws.shield#DurationInSeconds": {
       "type": "long",
       "traits": {
         "smithy.api#range": {
@@ -960,7 +967,7 @@
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#EmailAddress": {
+    "com.amazonaws.shield#EmailAddress": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -970,14 +977,14 @@
         "smithy.api#pattern": "^\\S+@\\S+\\.\\S+$"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContact": {
+    "com.amazonaws.shield#EmergencyContact": {
       "type": "structure",
       "members": {
         "EmailAddress": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#EmailAddress",
+          "target": "com.amazonaws.shield#EmailAddress",
           "traits": {
             "smithy.api#documentation": "<p>An email address that the DRT can use to contact you during a suspected attack.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -985,10 +992,10 @@
         "smithy.api#documentation": "<p>Contact information that the DRT can use to contact you during a suspected attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContactList": {
+    "com.amazonaws.shield#EmergencyContactList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContact"
+        "target": "com.amazonaws.shield#EmergencyContact"
       },
       "traits": {
         "smithy.api#length": {
@@ -997,47 +1004,47 @@
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#GetSubscriptionState": {
+    "com.amazonaws.shield#GetSubscriptionState": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#GetSubscriptionStateRequest"
+        "target": "com.amazonaws.shield#GetSubscriptionStateRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#GetSubscriptionStateResponse"
+        "target": "com.amazonaws.shield#GetSubscriptionStateResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#GetSubscriptionStateRequest": {
+    "com.amazonaws.shield#GetSubscriptionStateRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#GetSubscriptionStateResponse": {
+    "com.amazonaws.shield#GetSubscriptionStateResponse": {
       "type": "structure",
       "members": {
         "SubscriptionState": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SubscriptionState",
+          "target": "com.amazonaws.shield#SubscriptionState",
           "traits": {
             "smithy.api#documentation": "<p>The status of the subscription.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Integer": {
+    "com.amazonaws.shield#Integer": {
       "type": "integer"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException": {
+    "com.amazonaws.shield#InternalErrorException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1045,11 +1052,11 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException": {
+    "com.amazonaws.shield#InvalidOperationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1057,11 +1064,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidPaginationTokenException": {
+    "com.amazonaws.shield#InvalidPaginationTokenException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1069,11 +1076,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException": {
+    "com.amazonaws.shield#InvalidParameterException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1081,11 +1088,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidResourceException": {
+    "com.amazonaws.shield#InvalidResourceException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1093,17 +1100,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Limit": {
+    "com.amazonaws.shield#Limit": {
       "type": "structure",
       "members": {
         "Max": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Long",
+          "target": "com.amazonaws.shield#Long",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of protection.</p>"
           }
@@ -1113,29 +1120,29 @@
         "smithy.api#documentation": "<p>Specifies how many protections of a given type you can create.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#LimitNumber": {
+    "com.amazonaws.shield#LimitNumber": {
       "type": "long"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#LimitType": {
+    "com.amazonaws.shield#LimitType": {
       "type": "string"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Limits": {
+    "com.amazonaws.shield#Limits": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Limit"
+        "target": "com.amazonaws.shield#Limit"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#LimitsExceededException": {
+    "com.amazonaws.shield#LimitsExceededException": {
       "type": "structure",
       "members": {
         "Limit": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LimitNumber"
+          "target": "com.amazonaws.shield#LimitNumber"
         },
         "Type": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LimitType"
+          "target": "com.amazonaws.shield#LimitType"
         },
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1143,143 +1150,143 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ListAttacks": {
+    "com.amazonaws.shield#ListAttacks": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ListAttacksRequest"
+        "target": "com.amazonaws.shield#ListAttacksRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ListAttacksResponse"
+        "target": "com.amazonaws.shield#ListAttacksResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidOperationException"
+          "target": "com.amazonaws.shield#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException"
+          "target": "com.amazonaws.shield#InvalidParameterException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time\n         period.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ListAttacksRequest": {
+    "com.amazonaws.shield#ListAttacksRequest": {
       "type": "structure",
       "members": {
         "EndTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#TimeRange",
+          "target": "com.amazonaws.shield#TimeRange",
           "traits": {
             "smithy.api#documentation": "<p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#MaxResults",
+          "target": "com.amazonaws.shield#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
+          "target": "com.amazonaws.shield#Token",
           "traits": {
             "smithy.api#documentation": "<p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>"
           }
         },
         "ResourceArns": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArnFilterList",
+          "target": "com.amazonaws.shield#ResourceArnFilterList",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left\n         blank, all applicable resources for this account will be included.</p>"
           }
         },
         "StartTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#TimeRange",
+          "target": "com.amazonaws.shield#TimeRange",
           "traits": {
             "smithy.api#documentation": "<p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ListAttacksResponse": {
+    "com.amazonaws.shield#ListAttacksResponse": {
       "type": "structure",
       "members": {
         "AttackSummaries": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackSummaries",
+          "target": "com.amazonaws.shield#AttackSummaries",
           "traits": {
             "smithy.api#documentation": "<p>The attack information for the specified time range.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
+          "target": "com.amazonaws.shield#Token",
           "traits": {
             "smithy.api#documentation": "<p>The token returned by a previous call to indicate that there is more data available.\n         If not null, more results are available. Pass this value for the <code>NextMarker</code>\n         parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of\n         items.</p>\n         <p>AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ListProtections": {
+    "com.amazonaws.shield#ListProtections": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ListProtectionsRequest"
+        "target": "com.amazonaws.shield#ListProtectionsRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ListProtectionsResponse"
+        "target": "com.amazonaws.shield#ListProtectionsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidPaginationTokenException"
+          "target": "com.amazonaws.shield#InvalidPaginationTokenException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists all <a>Protection</a> objects for the account.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ListProtectionsRequest": {
+    "com.amazonaws.shield#ListProtectionsRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#MaxResults",
+          "target": "com.amazonaws.shield#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of <a>Protection</a> objects to be returned. If this is\n         left blank the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
+          "target": "com.amazonaws.shield#Token",
           "traits": {
             "smithy.api#documentation": "<p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ListProtectionsResponse": {
+    "com.amazonaws.shield#ListProtectionsResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
+          "target": "com.amazonaws.shield#Token",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>\n         <p>AWS WAF might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         },
         "Protections": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Protections",
+          "target": "com.amazonaws.shield#Protections",
           "traits": {
             "smithy.api#documentation": "<p>The array of enabled <a>Protection</a> objects.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#LockedSubscriptionException": {
+    "com.amazonaws.shield#LockedSubscriptionException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1287,7 +1294,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucket": {
+    "com.amazonaws.shield#LogBucket": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1297,10 +1304,10 @@
         "smithy.api#pattern": "^([a-z]|(\\d(?!\\d{0,2}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})))([a-z\\d]|(\\.(?!(\\.|-)))|(-(?!\\.))){1,61}[a-z\\d]$"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucketList": {
+    "com.amazonaws.shield#LogBucketList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucket"
+        "target": "com.amazonaws.shield#LogBucket"
       },
       "traits": {
         "smithy.api#length": {
@@ -1309,24 +1316,24 @@
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Long": {
+    "com.amazonaws.shield#Long": {
       "type": "long"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#MaxResults": {
+    "com.amazonaws.shield#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 10000
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Mitigation": {
+    "com.amazonaws.shield#Mitigation": {
       "type": "structure",
       "members": {
         "MitigationName": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the mitigation taken for this attack.</p>"
           }
@@ -1336,17 +1343,17 @@
         "smithy.api#documentation": "<p>The mitigation applied to a DDoS attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#MitigationList": {
+    "com.amazonaws.shield#MitigationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Mitigation"
+        "target": "com.amazonaws.shield#Mitigation"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#NoAssociatedRoleException": {
+    "com.amazonaws.shield#NoAssociatedRoleException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1354,11 +1361,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException": {
+    "com.amazonaws.shield#OptimisticLockException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1366,23 +1373,23 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Protection": {
+    "com.amazonaws.shield#Protection": {
       "type": "structure",
       "members": {
         "Id": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
+          "target": "com.amazonaws.shield#ProtectionId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the protection.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionName",
+          "target": "com.amazonaws.shield#ProtectionName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>"
           }
         },
         "ResourceArn": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
+          "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>"
           }
@@ -1392,7 +1399,7 @@
         "smithy.api#documentation": "<p>An object that represents a resource that is under DDoS protection.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId": {
+    "com.amazonaws.shield#ProtectionId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1402,7 +1409,7 @@
         "smithy.api#pattern": "[a-zA-Z0-9\\\\-]*"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionName": {
+    "com.amazonaws.shield#ProtectionName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1412,17 +1419,17 @@
         "smithy.api#pattern": "[ a-zA-Z0-9_\\\\.\\\\-]*"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Protections": {
+    "com.amazonaws.shield#Protections": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Protection"
+        "target": "com.amazonaws.shield#Protection"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceAlreadyExistsException": {
+    "com.amazonaws.shield#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1430,7 +1437,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn": {
+    "com.amazonaws.shield#ResourceArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1440,17 +1447,17 @@
         "smithy.api#pattern": "^arn:aws.*"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArnFilterList": {
+    "com.amazonaws.shield#ResourceArnFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn"
+        "target": "com.amazonaws.shield#ResourceArn"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException": {
+    "com.amazonaws.shield#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage"
+          "target": "com.amazonaws.shield#errorMessage"
         }
       },
       "traits": {
@@ -1458,7 +1465,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#RoleArn": {
+    "com.amazonaws.shield#RoleArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1468,32 +1475,32 @@
         "smithy.api#pattern": "^arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#String": {
+    "com.amazonaws.shield#String": {
       "type": "string"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceSummary": {
+    "com.amazonaws.shield#SubResourceSummary": {
       "type": "structure",
       "members": {
         "AttackVectors": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedAttackVectorList",
+          "target": "com.amazonaws.shield#SummarizedAttackVectorList",
           "traits": {
             "smithy.api#documentation": "<p>The list of attack types and associated counters.</p>"
           }
         },
         "Counters": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList",
+          "target": "com.amazonaws.shield#SummarizedCounterList",
           "traits": {
             "smithy.api#documentation": "<p>The counters that describe the details of the attack.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier (ID) of the <code>SubResource</code>.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceType",
+          "target": "com.amazonaws.shield#SubResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The <code>SubResource</code> type.</p>"
           }
@@ -1503,54 +1510,56 @@
         "smithy.api#documentation": "<p>The attack information for the specified SubResource.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceSummaryList": {
+    "com.amazonaws.shield#SubResourceSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceSummary"
+        "target": "com.amazonaws.shield#SubResourceSummary"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceType": {
+    "com.amazonaws.shield#SubResourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IP": {
+        "smithy.api#enum": [
+          {
+            "value": "IP",
             "name": "IP"
           },
-          "URL": {
+          {
+            "value": "URL",
             "name": "URL"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Subscription": {
+    "com.amazonaws.shield#Subscription": {
       "type": "structure",
       "members": {
         "AutoRenew": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AutoRenew",
+          "target": "com.amazonaws.shield#AutoRenew",
           "traits": {
             "smithy.api#documentation": "<p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>\n         <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
           }
         },
         "EndTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Timestamp",
+          "target": "com.amazonaws.shield#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time your subscription will end.</p>"
           }
         },
         "Limits": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Limits",
+          "target": "com.amazonaws.shield#Limits",
           "traits": {
             "smithy.api#documentation": "<p>Specifies how many protections of a given type you can create.</p>"
           }
         },
         "StartTime": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Timestamp",
+          "target": "com.amazonaws.shield#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "TimeCommitmentInSeconds": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DurationInSeconds",
+          "target": "com.amazonaws.shield#DurationInSeconds",
           "traits": {
             "smithy.api#documentation": "<p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>"
           }
@@ -1560,33 +1569,35 @@
         "smithy.api#documentation": "<p>Information about the AWS Shield Advanced subscription for an account.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SubscriptionState": {
+    "com.amazonaws.shield#SubscriptionState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ACTIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "INACTIVE": {
+          {
+            "value": "INACTIVE",
             "name": "INACTIVE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedAttackVector": {
+    "com.amazonaws.shield#SummarizedAttackVector": {
       "type": "structure",
       "members": {
         "VectorCounters": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList",
+          "target": "com.amazonaws.shield#SummarizedCounterList",
           "traits": {
             "smithy.api#documentation": "<p>The list of counters that describe the details of the attack.</p>"
           }
         },
         "VectorType": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The attack type, for example, SNMP reflection or SYN flood.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1594,47 +1605,47 @@
         "smithy.api#documentation": "<p>A summary of information about the attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedAttackVectorList": {
+    "com.amazonaws.shield#SummarizedAttackVectorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedAttackVector"
+        "target": "com.amazonaws.shield#SummarizedAttackVector"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounter": {
+    "com.amazonaws.shield#SummarizedCounter": {
       "type": "structure",
       "members": {
         "Average": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Double",
+          "target": "com.amazonaws.shield#Double",
           "traits": {
             "smithy.api#documentation": "<p>The average value of the counter for a specified time period.</p>"
           }
         },
         "Max": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Double",
+          "target": "com.amazonaws.shield#Double",
           "traits": {
             "smithy.api#documentation": "<p>The maximum value of the counter for a specified time period.</p>"
           }
         },
         "N": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Integer",
+          "target": "com.amazonaws.shield#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of counters for a specified time period.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The counter name.</p>"
           }
         },
         "Sum": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Double",
+          "target": "com.amazonaws.shield#Double",
           "traits": {
             "smithy.api#documentation": "<p>The total of counter values for a specified time period.</p>"
           }
         },
         "Unit": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
+          "target": "com.amazonaws.shield#String",
           "traits": {
             "smithy.api#documentation": "<p>The unit of the counters.</p>"
           }
@@ -1644,23 +1655,23 @@
         "smithy.api#documentation": "<p>The counter that describes a DDoS attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList": {
+    "com.amazonaws.shield#SummarizedCounterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounter"
+        "target": "com.amazonaws.shield#SummarizedCounter"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#TimeRange": {
+    "com.amazonaws.shield#TimeRange": {
       "type": "structure",
       "members": {
         "FromInclusive": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
+          "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "ToExclusive": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
+          "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
@@ -1670,10 +1681,10 @@
         "smithy.api#documentation": "<p>The time range.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Timestamp": {
+    "com.amazonaws.shield#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Token": {
+    "com.amazonaws.shield#Token": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1683,117 +1694,121 @@
         "smithy.api#pattern": "^.*$"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#TopContributors": {
+    "com.amazonaws.shield#TopContributors": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Contributor"
+        "target": "com.amazonaws.shield#Contributor"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#Unit": {
+    "com.amazonaws.shield#Unit": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "BITS": {
+        "smithy.api#enum": [
+          {
+            "value": "BITS",
             "name": "BITS"
           },
-          "BYTES": {
+          {
+            "value": "BYTES",
             "name": "BYTES"
           },
-          "PACKETS": {
+          {
+            "value": "PACKETS",
             "name": "PACKETS"
           },
-          "REQUESTS": {
+          {
+            "value": "REQUESTS",
             "name": "REQUESTS"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateEmergencyContactSettings": {
+    "com.amazonaws.shield#UpdateEmergencyContactSettings": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateEmergencyContactSettingsRequest"
+        "target": "com.amazonaws.shield#UpdateEmergencyContactSettingsRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateEmergencyContactSettingsResponse"
+        "target": "com.amazonaws.shield#UpdateEmergencyContactSettingsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException"
+          "target": "com.amazonaws.shield#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates the details of the list of email addresses that the DRT can use to contact you during a suspected attack.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateEmergencyContactSettingsRequest": {
+    "com.amazonaws.shield#UpdateEmergencyContactSettingsRequest": {
       "type": "structure",
       "members": {
         "EmergencyContactList": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContactList",
+          "target": "com.amazonaws.shield#EmergencyContactList",
           "traits": {
             "smithy.api#documentation": "<p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateEmergencyContactSettingsResponse": {
+    "com.amazonaws.shield#UpdateEmergencyContactSettingsResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateSubscription": {
+    "com.amazonaws.shield#UpdateSubscription": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateSubscriptionRequest"
+        "target": "com.amazonaws.shield#UpdateSubscriptionRequest"
       },
       "output": {
-        "target": "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateSubscriptionResponse"
+        "target": "com.amazonaws.shield#UpdateSubscriptionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InternalErrorException"
+          "target": "com.amazonaws.shield#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#InvalidParameterException"
+          "target": "com.amazonaws.shield#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LockedSubscriptionException"
+          "target": "com.amazonaws.shield#LockedSubscriptionException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#OptimisticLockException"
+          "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceNotFoundException"
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>"
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateSubscriptionRequest": {
+    "com.amazonaws.shield#UpdateSubscriptionRequest": {
       "type": "structure",
       "members": {
         "AutoRenew": {
-          "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AutoRenew",
+          "target": "com.amazonaws.shield#AutoRenew",
           "traits": {
             "smithy.api#documentation": "<p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
           }
         }
       }
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateSubscriptionResponse": {
+    "com.amazonaws.shield#UpdateSubscriptionResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.bardockcustomerapiservice.v20160616#errorMessage": {
+    "com.amazonaws.shield#errorMessage": {
       "type": "string"
     }
   }

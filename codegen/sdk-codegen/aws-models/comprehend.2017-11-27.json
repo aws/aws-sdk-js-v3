@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -86,7 +85,7 @@
           "target": "com.amazonaws.comprehend#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document should contain at least 20 characters and must contain fewer than\n      5,000 bytes of UTF-8 encoded characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -98,14 +97,14 @@
           "target": "com.amazonaws.comprehend#BatchItemErrorList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing one  object for each document\n      that contained an error. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If there are no errors in the\n      batch, the <code>ErrorList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResultList": {
           "target": "com.amazonaws.comprehend#ListOfDetectDominantLanguageResult",
           "traits": {
             "smithy.api#documentation": "<p>A list of  objects\n      containing the results of the operation. The results are sorted in ascending order by the\n        <code>Index</code> field and match the order of the documents in the input list. If all of\n      the documents contain an error, the <code>ResultList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -166,14 +165,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TextList": {
           "target": "com.amazonaws.comprehend#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -185,14 +184,14 @@
           "target": "com.amazonaws.comprehend#BatchItemErrorList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing one  object for each document\n      that contained an error. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If there are no errors in the\n      batch, the <code>ErrorList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResultList": {
           "target": "com.amazonaws.comprehend#ListOfDetectEntitiesResult",
           "traits": {
             "smithy.api#documentation": "<p>A list of  objects containing the\n      results of the operation. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If all of the documents contain\n      an error, the <code>ResultList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -253,14 +252,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TextList": {
           "target": "com.amazonaws.comprehend#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -272,14 +271,14 @@
           "target": "com.amazonaws.comprehend#BatchItemErrorList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing one  object for each document\n      that contained an error. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If there are no errors in the\n      batch, the <code>ErrorList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResultList": {
           "target": "com.amazonaws.comprehend#ListOfDetectKeyPhrasesResult",
           "traits": {
             "smithy.api#documentation": "<p>A list of  objects containing the\n      results of the operation. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If all of the documents contain\n      an error, the <code>ResultList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -346,14 +345,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TextList": {
           "target": "com.amazonaws.comprehend#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -365,14 +364,14 @@
           "target": "com.amazonaws.comprehend#BatchItemErrorList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing one  object for each document\n      that contained an error. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If there are no errors in the\n      batch, the <code>ErrorList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResultList": {
           "target": "com.amazonaws.comprehend#ListOfDetectSentimentResult",
           "traits": {
             "smithy.api#documentation": "<p>A list of  objects containing the\n      results of the operation. The results are sorted in ascending order by the <code>Index</code>\n      field and match the order of the documents in the input list. If all of the documents contain\n      an error, the <code>ResultList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -433,14 +432,14 @@
           "target": "com.amazonaws.comprehend#SyntaxLanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the following languages supported by Amazon \n      Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\"). All\n      documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TextList": {
           "target": "com.amazonaws.comprehend#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing the text of the input documents. The list can contain a maximum of 25\n      documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -452,14 +451,14 @@
           "target": "com.amazonaws.comprehend#BatchItemErrorList",
           "traits": {
             "smithy.api#documentation": "<p>A list containing one  object for each document that\n      contained an error. The results are sorted in ascending order by the <code>Index</code> field\n      and match the order of the documents in the input list. If there are no errors in the batch,\n      the <code>ErrorList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResultList": {
           "target": "com.amazonaws.comprehend#ListOfDetectSyntaxResult",
           "traits": {
             "smithy.api#documentation": "<p>A list of  objects containing the results\n      of the operation. The results are sorted in ascending order by the <code>Index</code> field\n      and match the order of the documents in the input list. If all of the documents contain an\n      error, the <code>ResultList</code> is empty.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -630,14 +629,14 @@
           "target": "com.amazonaws.comprehend#DocumentClassifierEndpointArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Text": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>The document text to be analyzed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -884,15 +883,11 @@
           "cloudFormationName": "Comprehend",
           "cloudTrailEventSource": "comprehend.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "comprehend"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these\n      actions to determine the topics contained in your documents, the topics they discuss, the\n      predominant sentiment expressed in them, the predominant language used, and more.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Comprehend"
       }
     },
@@ -954,35 +949,35 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants\n      Amazon Comprehend read access to your input data.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DocumentClassifierName": {
           "target": "com.amazonaws.comprehend#ComprehendArnName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the document classifier.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#DocumentClassifierInputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the following languages supported by Amazon \n      Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\"). All\n      documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Mode": {
@@ -1073,28 +1068,28 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend \n      will not return a <code>ResourceInUseException</code>. </p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DesiredInferenceUnits": {
           "target": "com.amazonaws.comprehend#InferenceUnitsInteger",
           "traits": {
             "smithy.api#documentation": "<p> The desired number of inference units to be used by the model using this endpoint.  Each \n      inference unit represents of a throughput of 100 characters per second.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EndpointName": {
           "target": "com.amazonaws.comprehend#ComprehendEndpointName",
           "traits": {
             "smithy.api#documentation": "<p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource.  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ModelArn": {
           "target": "com.amazonaws.comprehend#ComprehendModelArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -1161,35 +1156,35 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p> A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#EntityRecognizerInputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data. The S3 bucket containing the input data must\n    be located in the same region as the entity recognizer being created. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p> The language of the input documents. All documents must be in the same language. Only English (\"en\") is currently supported. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RecognizerName": {
           "target": "com.amazonaws.comprehend#ComprehendArnName",
           "traits": {
             "smithy.api#documentation": "<p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. \n      Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -1262,14 +1257,14 @@
           "target": "com.amazonaws.comprehend#DocumentClassifierArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#DeleteDocumentClassifierResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#DeleteEndpoint": {
       "type": "operation",
@@ -1307,14 +1302,14 @@
           "target": "com.amazonaws.comprehend#ComprehendEndpointArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint being deleted.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#DeleteEndpointResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#DeleteEntityRecognizer": {
       "type": "operation",
@@ -1355,14 +1350,14 @@
           "target": "com.amazonaws.comprehend#EntityRecognizerArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#DeleteEntityRecognizerResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#DescribeDocumentClassificationJob": {
       "type": "operation",
@@ -1397,7 +1392,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its\n      response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1446,7 +1441,7 @@
           "target": "com.amazonaws.comprehend#DocumentClassifierArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the document classifier. The  operation returns this identifier in its\n      response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1495,7 +1490,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its\n      response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1544,7 +1539,7 @@
           "target": "com.amazonaws.comprehend#ComprehendEndpointArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint being described.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1593,7 +1588,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its\n      response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1642,7 +1637,7 @@
           "target": "com.amazonaws.comprehend#EntityRecognizerArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1691,7 +1686,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its\n      response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1740,7 +1735,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its\n      response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1789,7 +1784,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier assigned by the user to the detection job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1835,7 +1830,7 @@
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>A UTF-8 text string. Each string should contain at least 20 characters and must contain\n      fewer that 5,000 bytes of UTF-8 encoded characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1884,14 +1879,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Text": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1940,14 +1935,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Text": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1996,14 +1991,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend.\n      All documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Text": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2058,14 +2053,14 @@
           "target": "com.amazonaws.comprehend#SyntaxLanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language code of the input documents. You can specify any of the following languages supported by Amazon \n      Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\").</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Text": {
           "target": "com.amazonaws.comprehend#String",
           "traits": {
             "smithy.api#documentation": "<p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded\n      characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2278,7 +2273,7 @@
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API\n      endpoint that you are calling. The URI can point to a single input file or it can provide the\n      prefix for a collection of input files.</p>\n         <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a\n      single file, Amazon Comprehend uses that file as input. If more than one file begins with the\n      prefix, Amazon Comprehend uses all of them as input.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2289,14 +2284,16 @@
     "com.amazonaws.comprehend#DocumentClassifierMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "MULTI_CLASS": {
+        "smithy.api#enum": [
+          {
+            "value": "MULTI_CLASS",
             "name": "MULTI_CLASS"
           },
-          "MULTI_LABEL": {
+          {
+            "value": "MULTI_LABEL",
             "name": "MULTI_LABEL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#DocumentClassifierOutputDataConfig": {
@@ -2578,7 +2575,7 @@
     "com.amazonaws.comprehend#Double": {
       "type": "double",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.comprehend#EndpointFilter": {
@@ -2678,23 +2675,28 @@
     "com.amazonaws.comprehend#EndpointStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "IN_SERVICE": {
+          {
+            "value": "IN_SERVICE",
             "name": "IN_SERVICE"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "UPDATING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#EntitiesDetectionJobFilter": {
@@ -2866,7 +2868,7 @@
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the \n      same region as the API endpoint that you are calling.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2891,7 +2893,7 @@
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The \n      URI must be in the same region as the API endpoint that you are calling.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2906,7 +2908,7 @@
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2979,7 +2981,7 @@
           "target": "com.amazonaws.comprehend#EntityRecognizerDocuments",
           "traits": {
             "smithy.api#documentation": "<p>S3 location of the documents folder for an entity recognizer</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EntityList": {
@@ -2992,7 +2994,7 @@
           "target": "com.amazonaws.comprehend#EntityTypesList",
           "traits": {
             "smithy.api#documentation": "<p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3159,35 +3161,44 @@
     "com.amazonaws.comprehend#EntityType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PERSON": {
+        "smithy.api#enum": [
+          {
+            "value": "PERSON",
             "name": "PERSON"
           },
-          "LOCATION": {
+          {
+            "value": "LOCATION",
             "name": "LOCATION"
           },
-          "ORGANIZATION": {
+          {
+            "value": "ORGANIZATION",
             "name": "ORGANIZATION"
           },
-          "COMMERCIAL_ITEM": {
+          {
+            "value": "COMMERCIAL_ITEM",
             "name": "COMMERCIAL_ITEM"
           },
-          "EVENT": {
+          {
+            "value": "EVENT",
             "name": "EVENT"
           },
-          "DATE": {
+          {
+            "value": "DATE",
             "name": "DATE"
           },
-          "QUANTITY": {
+          {
+            "value": "QUANTITY",
             "name": "QUANTITY"
           },
-          "TITLE": {
+          {
+            "value": "TITLE",
             "name": "TITLE"
           },
-          "OTHER": {
+          {
+            "value": "OTHER",
             "name": "OTHER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#EntityTypeName": {
@@ -3239,7 +3250,7 @@
           "target": "com.amazonaws.comprehend#EntityTypeName",
           "traits": {
             "smithy.api#documentation": "<p>Entity type of an item on an entity type list.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3250,7 +3261,7 @@
     "com.amazonaws.comprehend#Float": {
       "type": "float",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.comprehend#IamRoleArn": {
@@ -3266,7 +3277,7 @@
     "com.amazonaws.comprehend#InferenceUnitsInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -3285,7 +3296,7 @@
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 URI for the input data. The URI must be in same region as the API\n      endpoint that you are calling. The URI can point to a single input file or it can provide the\n      prefix for a collection of data files. </p>\n         <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a\n      single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix,\n      Amazon Comprehend uses all of them as input.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3296,20 +3307,22 @@
     "com.amazonaws.comprehend#InputFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ONE_DOC_PER_FILE": {
+        "smithy.api#enum": [
+          {
+            "value": "ONE_DOC_PER_FILE",
             "name": "ONE_DOC_PER_FILE"
           },
-          "ONE_DOC_PER_LINE": {
+          {
+            "value": "ONE_DOC_PER_LINE",
             "name": "ONE_DOC_PER_LINE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#Integer": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.comprehend#InternalServerException": {
@@ -3387,26 +3400,32 @@
     "com.amazonaws.comprehend#JobStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SUBMITTED": {
+        "smithy.api#enum": [
+          {
+            "value": "SUBMITTED",
             "name": "SUBMITTED"
           },
-          "IN_PROGRESS": {
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "COMPLETED": {
+          {
+            "value": "COMPLETED",
             "name": "COMPLETED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "STOP_REQUESTED": {
+          {
+            "value": "STOP_REQUESTED",
             "name": "STOP_REQUESTED"
           },
-          "STOPPED": {
+          {
+            "value": "STOPPED",
             "name": "STOPPED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#KeyPhrase": {
@@ -3594,44 +3613,56 @@
     "com.amazonaws.comprehend#LanguageCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "en": {
+        "smithy.api#enum": [
+          {
+            "value": "en",
             "name": "EN"
           },
-          "es": {
+          {
+            "value": "es",
             "name": "ES"
           },
-          "fr": {
+          {
+            "value": "fr",
             "name": "FR"
           },
-          "de": {
+          {
+            "value": "de",
             "name": "DE"
           },
-          "it": {
+          {
+            "value": "it",
             "name": "IT"
           },
-          "pt": {
+          {
+            "value": "pt",
             "name": "PT"
           },
-          "ar": {
+          {
+            "value": "ar",
             "name": "AR"
           },
-          "hi": {
+          {
+            "value": "hi",
             "name": "HI"
           },
-          "ja": {
+          {
+            "value": "ja",
             "name": "JA"
           },
-          "ko": {
+          {
+            "value": "ko",
             "name": "KO"
           },
-          "zh": {
+          {
+            "value": "zh",
             "name": "ZH"
           },
-          "zh-TW": {
+          {
+            "value": "zh-TW",
             "name": "ZH_TW"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#ListDocumentClassificationJobs": {
@@ -4290,7 +4321,7 @@
           "target": "com.amazonaws.comprehend#ComprehendArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4386,7 +4417,7 @@
     "com.amazonaws.comprehend#MaxResultsInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 500
@@ -4396,35 +4427,42 @@
     "com.amazonaws.comprehend#ModelStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SUBMITTED": {
+        "smithy.api#enum": [
+          {
+            "value": "SUBMITTED",
             "name": "SUBMITTED"
           },
-          "TRAINING": {
+          {
+            "value": "TRAINING",
             "name": "TRAINING"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "STOP_REQUESTED": {
+          {
+            "value": "STOP_REQUESTED",
             "name": "STOP_REQUESTED"
           },
-          "STOPPED": {
+          {
+            "value": "STOPPED",
             "name": "STOPPED"
           },
-          "IN_ERROR": {
+          {
+            "value": "IN_ERROR",
             "name": "IN_ERROR"
           },
-          "TRAINED": {
+          {
+            "value": "TRAINED",
             "name": "TRAINED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#NumberOfTopicsInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -4444,7 +4482,7 @@
           "target": "com.amazonaws.comprehend#S3Uri",
           "traits": {
             "smithy.api#documentation": "<p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you\n      specify the Amazon S3 location where you want to write the output data. The URI must be in the\n      same region as the API endpoint that you are calling. The location is used as the prefix for\n      the actual location of the output file.</p>\n         <p>When the topic detection job is finished, the service creates an output file in a\n      directory specific to the job. The <code>S3Uri</code> field contains the location of the\n      output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the\n      ouput of the operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4475,62 +4513,80 @@
     "com.amazonaws.comprehend#PartOfSpeechTagType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ADJ": {
+        "smithy.api#enum": [
+          {
+            "value": "ADJ",
             "name": "ADJ"
           },
-          "ADP": {
+          {
+            "value": "ADP",
             "name": "ADP"
           },
-          "ADV": {
+          {
+            "value": "ADV",
             "name": "ADV"
           },
-          "AUX": {
+          {
+            "value": "AUX",
             "name": "AUX"
           },
-          "CONJ": {
+          {
+            "value": "CONJ",
             "name": "CONJ"
           },
-          "CCONJ": {
+          {
+            "value": "CCONJ",
             "name": "CCONJ"
           },
-          "DET": {
+          {
+            "value": "DET",
             "name": "DET"
           },
-          "INTJ": {
+          {
+            "value": "INTJ",
             "name": "INTJ"
           },
-          "NOUN": {
+          {
+            "value": "NOUN",
             "name": "NOUN"
           },
-          "NUM": {
+          {
+            "value": "NUM",
             "name": "NUM"
           },
-          "O": {
+          {
+            "value": "O",
             "name": "O"
           },
-          "PART": {
+          {
+            "value": "PART",
             "name": "PART"
           },
-          "PRON": {
+          {
+            "value": "PRON",
             "name": "PRON"
           },
-          "PROPN": {
+          {
+            "value": "PROPN",
             "name": "PROPN"
           },
-          "PUNCT": {
+          {
+            "value": "PUNCT",
             "name": "PUNCT"
           },
-          "SCONJ": {
+          {
+            "value": "SCONJ",
             "name": "SCONJ"
           },
-          "SYM": {
+          {
+            "value": "SYM",
             "name": "SYM"
           },
-          "VERB": {
+          {
+            "value": "VERB",
             "name": "VERB"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#ResourceInUseException": {
@@ -4770,20 +4826,24 @@
     "com.amazonaws.comprehend#SentimentType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "POSITIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "POSITIVE",
             "name": "POSITIVE"
           },
-          "NEGATIVE": {
+          {
+            "value": "NEGATIVE",
             "name": "NEGATIVE"
           },
-          "NEUTRAL": {
+          {
+            "value": "NEUTRAL",
             "name": "NEUTRAL"
           },
-          "MIXED": {
+          {
+            "value": "MIXED",
             "name": "MIXED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#StartDocumentClassificationJob": {
@@ -4825,28 +4885,28 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DocumentClassifierArn": {
           "target": "com.amazonaws.comprehend#DocumentClassifierArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the document classifier to use to process the\n      job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobName": {
@@ -4859,7 +4919,7 @@
           "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VolumeKmsKeyId": {
@@ -4926,21 +4986,21 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobName": {
@@ -4953,7 +5013,7 @@
           "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VolumeKmsKeyId": {
@@ -5026,14 +5086,14 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EntityRecognizerArn": {
@@ -5046,7 +5106,7 @@
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobName": {
@@ -5059,14 +5119,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. All documents must be in the same language.\n      You can specify any of the languages supported by Amazon Comprehend. If custom entities recognition is used, this\n    parameter is ignored and the language used for training the model is used instead.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OutputDataConfig": {
           "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VolumeKmsKeyId": {
@@ -5133,21 +5193,21 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobName": {
@@ -5160,14 +5220,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend. All\n      documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OutputDataConfig": {
           "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VolumeKmsKeyId": {
@@ -5234,21 +5294,21 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobName": {
@@ -5261,14 +5321,14 @@
           "target": "com.amazonaws.comprehend#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language of the input documents. You can specify any of the primary languages supported by Amazon \n      Comprehend. All\n      documents must be in the same language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OutputDataConfig": {
           "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where to send the output files. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VolumeKmsKeyId": {
@@ -5335,21 +5395,21 @@
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend\n      generates one.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.comprehend#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role\n      that grants Amazon Comprehend read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobName": {
@@ -5368,7 +5428,7 @@
           "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
             "smithy.api#documentation": "<p>Specifies where to send the output files. The output is a compressed archive with two\n      files, <code>topic-terms.csv</code> that lists the terms associated with each topic, and\n        <code>doc-topics.csv</code> that lists the documents associated with each topic</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VolumeKmsKeyId": {
@@ -5432,7 +5492,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the dominant language detection job to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5484,7 +5544,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the entities detection job to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5536,7 +5596,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the key phrases detection job to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5588,7 +5648,7 @@
           "target": "com.amazonaws.comprehend#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the sentiment detection job to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5643,14 +5703,14 @@
           "target": "com.amazonaws.comprehend#DocumentClassifierArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#StopTrainingDocumentClassifierResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#StopTrainingEntityRecognizer": {
       "type": "operation",
@@ -5685,14 +5745,14 @@
           "target": "com.amazonaws.comprehend#EntityRecognizerArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#StopTrainingEntityRecognizerResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#String": {
       "type": "string",
@@ -5733,26 +5793,32 @@
     "com.amazonaws.comprehend#SyntaxLanguageCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "en": {
+        "smithy.api#enum": [
+          {
+            "value": "en",
             "name": "EN"
           },
-          "es": {
+          {
+            "value": "es",
             "name": "ES"
           },
-          "fr": {
+          {
+            "value": "fr",
             "name": "FR"
           },
-          "de": {
+          {
+            "value": "de",
             "name": "DE"
           },
-          "it": {
+          {
+            "value": "it",
             "name": "IT"
           },
-          "pt": {
+          {
+            "value": "pt",
             "name": "PT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.comprehend#SyntaxToken": {
@@ -5800,7 +5866,7 @@
           "target": "com.amazonaws.comprehend#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.” </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
@@ -5871,21 +5937,21 @@
           "target": "com.amazonaws.comprehend#ComprehendArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.comprehend#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#TagValue": {
       "type": "string",
@@ -6118,21 +6184,21 @@
           "target": "com.amazonaws.comprehend#ComprehendArn",
           "traits": {
             "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags.  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.comprehend#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The initial part of a key-value pair that forms a tag being removed from a given resource. \n      For example, \n      a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department. Keys must be unique and cannot be duplicated for a particular resource.    </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#UpdateEndpoint": {
       "type": "operation",
@@ -6176,21 +6242,21 @@
           "target": "com.amazonaws.comprehend#InferenceUnitsInteger",
           "traits": {
             "smithy.api#documentation": "<p> The desired number of inference units to be used by the model using this endpoint.  Each \n      inference unit represents of a throughput of 100 characters per second.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EndpointArn": {
           "target": "com.amazonaws.comprehend#ComprehendEndpointArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.comprehend#UpdateEndpointResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.comprehend#VpcConfig": {
       "type": "structure",
@@ -6199,14 +6265,14 @@
           "target": "com.amazonaws.comprehend#SecurityGroupIds",
           "traits": {
             "smithy.api#documentation": "<p>The ID number for a security group on an instance of your private VPC.  Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and \n      provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by \"sg-\", for instance: \"sg-03b388029b0a285ea\".  \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html\">Security Groups for your VPC</a>. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Subnets": {
           "target": "com.amazonaws.comprehend#Subnets",
           "traits": {
             "smithy.api#documentation": "<p>The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the \n      VPC and is specific to a given availability zone in the VPC’s region. This ID number is preceded by \"subnet-\", for instance: \"subnet-04ccf456919e69055\".  \n      For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html\">VPCs and Subnets</a>. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },

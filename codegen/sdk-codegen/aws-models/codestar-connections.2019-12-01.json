@@ -1,36 +1,35 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.codestar.connections#AccountId": {
+    "com.amazonaws.codestarconnections#AccountId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -40,21 +39,21 @@
         "smithy.api#pattern": "[0-9]{12}"
       }
     },
-    "com.amazonaws.codestar.connections#CodeStar_connections_20191201": {
+    "com.amazonaws.codestarconnections#CodeStar_connections_20191201": {
       "type": "service",
       "version": "2019-12-01",
       "operations": [
         {
-          "target": "com.amazonaws.codestar.connections#CreateConnection"
+          "target": "com.amazonaws.codestarconnections#CreateConnection"
         },
         {
-          "target": "com.amazonaws.codestar.connections#DeleteConnection"
+          "target": "com.amazonaws.codestarconnections#DeleteConnection"
         },
         {
-          "target": "com.amazonaws.codestar.connections#GetConnection"
+          "target": "com.amazonaws.codestarconnections#GetConnection"
         },
         {
-          "target": "com.amazonaws.codestar.connections#ListConnections"
+          "target": "com.amazonaws.codestarconnections#ListConnections"
         }
       ],
       "traits": {
@@ -64,47 +63,43 @@
           "cloudFormationName": "CodeStarconnections",
           "cloudTrailEventSource": "connections.codestar.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "codestar-connections"
+        },
+        "aws.protocols#awsJson1_0": {},
         "smithy.api#documentation": "<p>This AWS CodeStar Connections API Reference provides descriptions and usage examples of\n      the operations and data types for the AWS CodeStar Connections API. You can use the\n      Connections API to work with connections and installations.</p>\n         <p>\n            <i>Connections</i> are configurations that you use to connect AWS\n      resources to external code repositories. Each connection is a resource that can be given to\n      services such as CodePipeline to connect to a third-party repository such as Bitbucket. For\n      example, you can add the connection in CodePipeline so that it triggers your pipeline when a\n      code change is made to your third-party code repository. Each connection is named and\n      associated with a unique ARN that is used to reference the connection.</p>\n         <p>When you create a connection, the console initiates a third-party connection handshake.\n        <i>Installations</i> are the apps that are used to conduct this handshake. For\n      example, the installation for the Bitbucket provider type is the Bitbucket Cloud app. When you\n      create a connection, you can choose an existing installation or create one.</p>\n         <p>You can work with connections by calling:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateConnection</a>, which creates a uniquely named connection that can be\n          referenced by services such as CodePipeline.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DeleteConnection</a>, which deletes the specified connection.</p>\n            </li>\n            <li>\n               <p>\n                  <a>GetConnection</a>, which returns information about the connection, including\n          the connection status.</p>\n            </li>\n            <li>\n               <p>\n                  <a>ListConnections</a>, which lists the connections associated with your\n          account.</p>\n            </li>\n         </ul>\n         <p>For information about how to use AWS CodeStar Connections, see the <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html\">AWS CodePipeline User\n        Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.0",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS CodeStar connections"
       }
     },
-    "com.amazonaws.codestar.connections#Connection": {
+    "com.amazonaws.codestarconnections#Connection": {
       "type": "structure",
       "members": {
         "ConnectionArn": {
-          "target": "com.amazonaws.codestar.connections#ConnectionArn",
+          "target": "com.amazonaws.codestarconnections#ConnectionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection\n      reference when the connection is shared between AWS services.</p>\n         <note>\n            <p>The ARN is never reused if the connection is deleted.</p>\n         </note>"
           }
         },
         "ConnectionName": {
-          "target": "com.amazonaws.codestar.connections#ConnectionName",
+          "target": "com.amazonaws.codestarconnections#ConnectionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the connection. Connection names must be unique in an AWS user account.</p>"
           }
         },
         "ConnectionStatus": {
-          "target": "com.amazonaws.codestar.connections#ConnectionStatus",
+          "target": "com.amazonaws.codestarconnections#ConnectionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the connection. </p>"
           }
         },
         "OwnerAccountId": {
-          "target": "com.amazonaws.codestar.connections#AccountId",
+          "target": "com.amazonaws.codestarconnections#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The name of the external provider where your third-party code repository is configured.\n      For Bitbucket, this is the account ID of the owner of the Bitbucket repository.</p>"
           }
         },
         "ProviderType": {
-          "target": "com.amazonaws.codestar.connections#ProviderType",
+          "target": "com.amazonaws.codestarconnections#ProviderType",
           "traits": {
             "smithy.api#documentation": "<p>The name of the external provider where your third-party code repository is configured.\n      Currently, the valid provider type is Bitbucket.</p>"
           }
@@ -114,7 +109,7 @@
         "smithy.api#documentation": "<p>The configuration that allows a service such as CodePipeline to connect to a third-party\n      code repository.</p>"
       }
     },
-    "com.amazonaws.codestar.connections#ConnectionArn": {
+    "com.amazonaws.codestarconnections#ConnectionArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -124,13 +119,13 @@
         "smithy.api#pattern": "arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+"
       }
     },
-    "com.amazonaws.codestar.connections#ConnectionList": {
+    "com.amazonaws.codestarconnections#ConnectionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.codestar.connections#Connection"
+        "target": "com.amazonaws.codestarconnections#Connection"
       }
     },
-    "com.amazonaws.codestar.connections#ConnectionName": {
+    "com.amazonaws.codestarconnections#ConnectionName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -139,104 +134,107 @@
         }
       }
     },
-    "com.amazonaws.codestar.connections#ConnectionStatus": {
+    "com.amazonaws.codestarconnections#ConnectionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "ERROR": {
+          {
+            "value": "ERROR",
             "name": "ERROR"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.codestar.connections#CreateConnection": {
+    "com.amazonaws.codestarconnections#CreateConnection": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.codestar.connections#CreateConnectionInput"
+        "target": "com.amazonaws.codestarconnections#CreateConnectionInput"
       },
       "output": {
-        "target": "com.amazonaws.codestar.connections#CreateConnectionOutput"
+        "target": "com.amazonaws.codestarconnections#CreateConnectionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.codestar.connections#LimitExceededException"
+          "target": "com.amazonaws.codestarconnections#LimitExceededException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a connection that can then be given to other AWS services like CodePipeline so\n      that it can access third-party code repositories. The connection is in pending status until\n      the third-party connection handshake is completed from the console.</p>"
       }
     },
-    "com.amazonaws.codestar.connections#CreateConnectionInput": {
+    "com.amazonaws.codestarconnections#CreateConnectionInput": {
       "type": "structure",
       "members": {
         "ConnectionName": {
-          "target": "com.amazonaws.codestar.connections#ConnectionName",
+          "target": "com.amazonaws.codestarconnections#ConnectionName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the connection to be created. The name must be unique in the calling AWS\n      account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProviderType": {
-          "target": "com.amazonaws.codestar.connections#ProviderType",
+          "target": "com.amazonaws.codestarconnections#ProviderType",
           "traits": {
             "smithy.api#documentation": "<p>The name of the external provider where your third-party code repository is configured.\n      Currently, the valid provider type is Bitbucket.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.codestar.connections#CreateConnectionOutput": {
+    "com.amazonaws.codestarconnections#CreateConnectionOutput": {
       "type": "structure",
       "members": {
         "ConnectionArn": {
-          "target": "com.amazonaws.codestar.connections#ConnectionArn",
+          "target": "com.amazonaws.codestarconnections#ConnectionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the\n      connection reference when the connection is shared between AWS services.</p>\n         <note>\n            <p>The ARN is never reused if the connection is deleted.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.codestar.connections#DeleteConnection": {
+    "com.amazonaws.codestarconnections#DeleteConnection": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.codestar.connections#DeleteConnectionInput"
+        "target": "com.amazonaws.codestarconnections#DeleteConnectionInput"
       },
       "output": {
-        "target": "com.amazonaws.codestar.connections#DeleteConnectionOutput"
+        "target": "com.amazonaws.codestarconnections#DeleteConnectionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.codestar.connections#ResourceNotFoundException"
+          "target": "com.amazonaws.codestarconnections#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>The connection to be deleted.</p>"
       }
     },
-    "com.amazonaws.codestar.connections#DeleteConnectionInput": {
+    "com.amazonaws.codestarconnections#DeleteConnectionInput": {
       "type": "structure",
       "members": {
         "ConnectionArn": {
-          "target": "com.amazonaws.codestar.connections#ConnectionArn",
+          "target": "com.amazonaws.codestarconnections#ConnectionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection to be deleted.</p>\n         <note>\n            <p>The ARN is never reused if the connection is deleted.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.codestar.connections#DeleteConnectionOutput": {
+    "com.amazonaws.codestarconnections#DeleteConnectionOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.codestar.connections#ErrorMessage": {
+    "com.amazonaws.codestarconnections#ErrorMessage": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -245,51 +243,51 @@
         }
       }
     },
-    "com.amazonaws.codestar.connections#GetConnection": {
+    "com.amazonaws.codestarconnections#GetConnection": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.codestar.connections#GetConnectionInput"
+        "target": "com.amazonaws.codestarconnections#GetConnectionInput"
       },
       "output": {
-        "target": "com.amazonaws.codestar.connections#GetConnectionOutput"
+        "target": "com.amazonaws.codestarconnections#GetConnectionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.codestar.connections#ResourceNotFoundException"
+          "target": "com.amazonaws.codestarconnections#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the connection ARN and details such as status, owner, and provider type.</p>"
       }
     },
-    "com.amazonaws.codestar.connections#GetConnectionInput": {
+    "com.amazonaws.codestarconnections#GetConnectionInput": {
       "type": "structure",
       "members": {
         "ConnectionArn": {
-          "target": "com.amazonaws.codestar.connections#ConnectionArn",
+          "target": "com.amazonaws.codestarconnections#ConnectionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a connection.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.codestar.connections#GetConnectionOutput": {
+    "com.amazonaws.codestarconnections#GetConnectionOutput": {
       "type": "structure",
       "members": {
         "Connection": {
-          "target": "com.amazonaws.codestar.connections#Connection",
+          "target": "com.amazonaws.codestarconnections#Connection",
           "traits": {
             "smithy.api#documentation": "<p>The connection details, such as status, owner, and provider type.</p>"
           }
         }
       }
     },
-    "com.amazonaws.codestar.connections#LimitExceededException": {
+    "com.amazonaws.codestarconnections#LimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.codestar.connections#ErrorMessage"
+          "target": "com.amazonaws.codestarconnections#ErrorMessage"
         }
       },
       "traits": {
@@ -298,13 +296,13 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.codestar.connections#ListConnections": {
+    "com.amazonaws.codestarconnections#ListConnections": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.codestar.connections#ListConnectionsInput"
+        "target": "com.amazonaws.codestarconnections#ListConnectionsInput"
       },
       "output": {
-        "target": "com.amazonaws.codestar.connections#ListConnectionsOutput"
+        "target": "com.amazonaws.codestarconnections#ListConnectionsOutput"
       },
       "traits": {
         "smithy.api#documentation": "<p>Lists the connections associated with your account.</p>",
@@ -315,47 +313,47 @@
         }
       }
     },
-    "com.amazonaws.codestar.connections#ListConnectionsInput": {
+    "com.amazonaws.codestarconnections#ListConnectionsInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.codestar.connections#MaxResults",
+          "target": "com.amazonaws.codestarconnections#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n      results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.codestar.connections#NextToken",
+          "target": "com.amazonaws.codestarconnections#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token that was returned from the previous <code>ListConnections</code> call, which\n      can be used to return the next set of connections in the list.</p>"
           }
         },
         "ProviderTypeFilter": {
-          "target": "com.amazonaws.codestar.connections#ProviderType",
+          "target": "com.amazonaws.codestarconnections#ProviderType",
           "traits": {
             "smithy.api#documentation": "<p>Filters the list of connections to those associated with a specified provider, such as\n      Bitbucket.</p>"
           }
         }
       }
     },
-    "com.amazonaws.codestar.connections#ListConnectionsOutput": {
+    "com.amazonaws.codestarconnections#ListConnectionsOutput": {
       "type": "structure",
       "members": {
         "Connections": {
-          "target": "com.amazonaws.codestar.connections#ConnectionList",
+          "target": "com.amazonaws.codestarconnections#ConnectionList",
           "traits": {
             "smithy.api#documentation": "<p>A list of connections and the details for each connection, such as status, owner, and\n      provider type.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.codestar.connections#NextToken",
+          "target": "com.amazonaws.codestarconnections#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token that can be used in the next <code>ListConnections</code> call. To view all\n      items in the list, continue to call this operation with each subsequent token until no more\n      <code>nextToken</code> values are returned.</p>"
           }
         }
       }
     },
-    "com.amazonaws.codestar.connections#MaxResults": {
+    "com.amazonaws.codestarconnections#MaxResults": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -364,7 +362,7 @@
         }
       }
     },
-    "com.amazonaws.codestar.connections#NextToken": {
+    "com.amazonaws.codestarconnections#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -374,21 +372,22 @@
         "smithy.api#pattern": "[a-zA-Z0-9=\\-\\\\/]+"
       }
     },
-    "com.amazonaws.codestar.connections#ProviderType": {
+    "com.amazonaws.codestarconnections#ProviderType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Bitbucket": {
+        "smithy.api#enum": [
+          {
+            "value": "Bitbucket",
             "name": "BITBUCKET"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.codestar.connections#ResourceNotFoundException": {
+    "com.amazonaws.codestarconnections#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.codestar.connections#ErrorMessage"
+          "target": "com.amazonaws.codestarconnections#ErrorMessage"
         }
       },
       "traits": {

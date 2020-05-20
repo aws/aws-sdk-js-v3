@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -37,7 +36,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>Access to the resource is denied.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -60,14 +59,14 @@
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Bucket": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket that is the destination for the asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Key": {
@@ -96,56 +95,56 @@
           "target": "com.amazonaws.dataexchange#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN for the asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AssetDetails": {
           "target": "com.amazonaws.dataexchange#AssetDetails",
           "traits": {
             "smithy.api#documentation": "<p>Information about the asset, including its size.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AssetType": {
           "target": "com.amazonaws.dataexchange#AssetType",
           "traits": {
             "smithy.api#documentation": "<p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CreatedAt": {
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the asset was created, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Id": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceId": {
@@ -158,7 +157,7 @@
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the asset was last updated, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -179,14 +178,14 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket that's part of the source of the asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the object in Amazon S3 for the asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -198,11 +197,12 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>",
-        "smithy.api#enum": {
-          "S3_SNAPSHOT": {
+        "smithy.api#enum": [
+          {
+            "value": "S3_SNAPSHOT",
             "name": "S3_SNAPSHOT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#CancelJob": {
@@ -243,8 +243,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a job.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -252,29 +252,36 @@
     "com.amazonaws.dataexchange#Code": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ACCESS_DENIED_EXCEPTION": {
+        "smithy.api#enum": [
+          {
+            "value": "ACCESS_DENIED_EXCEPTION",
             "name": "ACCESS_DENIED_EXCEPTION"
           },
-          "INTERNAL_SERVER_EXCEPTION": {
+          {
+            "value": "INTERNAL_SERVER_EXCEPTION",
             "name": "INTERNAL_SERVER_EXCEPTION"
           },
-          "MALWARE_DETECTED": {
+          {
+            "value": "MALWARE_DETECTED",
             "name": "MALWARE_DETECTED"
           },
-          "RESOURCE_NOT_FOUND_EXCEPTION": {
+          {
+            "value": "RESOURCE_NOT_FOUND_EXCEPTION",
             "name": "RESOURCE_NOT_FOUND_EXCEPTION"
           },
-          "SERVICE_QUOTA_EXCEEDED_EXCEPTION": {
+          {
+            "value": "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
             "name": "SERVICE_QUOTA_EXCEEDED_EXCEPTION"
           },
-          "VALIDATION_EXCEPTION": {
+          {
+            "value": "VALIDATION_EXCEPTION",
             "name": "VALIDATION_EXCEPTION"
           },
-          "MALWARE_SCAN_ENCRYPTED_FILE": {
+          {
+            "value": "MALWARE_SCAN_ENCRYPTED_FILE",
             "name": "MALWARE_SCAN_ENCRYPTED_FILE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#ConflictException": {
@@ -284,7 +291,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The request couldn't be completed because it conflicted with the current state of the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceId": {
@@ -347,21 +354,21 @@
           "target": "com.amazonaws.dataexchange#AssetType",
           "traits": {
             "smithy.api#documentation": "<p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
           "target": "com.amazonaws.dataexchange#Description",
           "traits": {
             "smithy.api#documentation": "<p>A description for the data set. This value can be up to 16,348 characters long.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.dataexchange#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the data set.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -487,14 +494,14 @@
           "target": "com.amazonaws.dataexchange#RequestDetails",
           "traits": {
             "smithy.api#documentation": "<p>The details for the CreateJob request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.dataexchange#Type",
           "traits": {
             "smithy.api#documentation": "<p>The type of job to be created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -602,8 +609,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -754,15 +761,11 @@
           "cloudFormationName": "DataExchange",
           "cloudTrailEventSource": "dataexchange.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "dataexchange"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p><p>As a subscriber, you can view and access the data sets that you have an entitlement to through a subscription. You can use the APIS to download or copy your entitled data sets to Amazon S3 for use across a variety of AWS analytics and machine learning services.</p><p>As a provider, you can create and manage your data sets that you would like to publish to a product. Being able to package and provide your data sets into products requires a few steps to determine eligibility. For more information, visit the AWS Data Exchange User Guide.</p><p>A data set is a collection of data that can be changed or updated over time. Data sets can be updated using revisions, which represent a new version or incremental change to a data set.  A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data that can be stored as an Amazon S3 object. The asset can be a structured data file, an image file, or some other data file. Jobs are asynchronous import or export operations used to create or copy assets.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Data Exchange"
       }
     },
@@ -773,49 +776,49 @@
           "target": "com.amazonaws.dataexchange#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN for the data set.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AssetType": {
           "target": "com.amazonaws.dataexchange#AssetType",
           "traits": {
             "smithy.api#documentation": "<p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CreatedAt": {
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the data set was created, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
           "target": "com.amazonaws.dataexchange#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description for the data set.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Id": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.dataexchange#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the data set.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Origin": {
           "target": "com.amazonaws.dataexchange#Origin",
           "traits": {
             "smithy.api#documentation": "<p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OriginDetails": {
@@ -834,7 +837,7 @@
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the data set was last updated, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -883,24 +886,24 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for an asset.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -946,8 +949,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -993,16 +996,16 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1031,21 +1034,21 @@
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the asset that is exported to a signed URL.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this export job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this export request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1060,21 +1063,21 @@
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the asset associated with this export job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this export job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this export response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SignedUrl": {
@@ -1101,21 +1104,21 @@
           "target": "com.amazonaws.dataexchange#ListOfAssetDestinationEntry",
           "traits": {
             "smithy.api#documentation": "<p>The destination for the asset.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this export job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this export request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1130,21 +1133,21 @@
           "target": "com.amazonaws.dataexchange#ListOfAssetDestinationEntry",
           "traits": {
             "smithy.api#documentation": "<p>The destination in Amazon S3 where the asset is exported.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this export job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this export response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1190,24 +1193,24 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for an asset.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1315,8 +1318,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1430,8 +1433,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a job.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1527,16 +1530,16 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1612,7 +1615,7 @@
         "AssetName": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1624,28 +1627,28 @@
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this import job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Md5Hash": {
           "target": "com.amazonaws.dataexchange#__stringMin24Max24PatternAZaZ094AZaZ092AZaZ093",
           "traits": {
             "smithy.api#documentation": "<p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this import request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1660,14 +1663,14 @@
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
             "smithy.api#documentation": "<p>The name for the asset associated with this import response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this import job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Md5Hash": {
@@ -1680,7 +1683,7 @@
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this import response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SignedUrl": {
@@ -1707,21 +1710,21 @@
           "target": "com.amazonaws.dataexchange#ListOfAssetSourceEntry",
           "traits": {
             "smithy.api#documentation": "<p>Is a list of S3 bucket and object key pairs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this import job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this import request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1736,21 +1739,21 @@
           "target": "com.amazonaws.dataexchange#ListOfAssetSourceEntry",
           "traits": {
             "smithy.api#documentation": "<p>Is a list of Amazon S3 bucket and object key pairs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this import job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision associated with this import response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1765,7 +1768,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "The message identifying the service exception that occurred.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1782,21 +1785,21 @@
           "target": "com.amazonaws.dataexchange#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CreatedAt": {
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the job was created, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Details": {
           "target": "com.amazonaws.dataexchange#ResponseDetails",
           "traits": {
             "smithy.api#documentation": "<p>Details of the operation to be performed by the job, such as export destination details or import source details.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Errors": {
@@ -1809,28 +1812,28 @@
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "State": {
           "target": "com.amazonaws.dataexchange#State",
           "traits": {
             "smithy.api#documentation": "<p>The state of the job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.dataexchange#Type",
           "traits": {
             "smithy.api#documentation": "<p>The job type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UpdatedAt": {
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the job was last updated, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1845,7 +1848,7 @@
           "target": "com.amazonaws.dataexchange#Code",
           "traits": {
             "smithy.api#documentation": "The code for the job error.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Details": {
@@ -1867,7 +1870,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "The message related to the job error.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceId": {
@@ -1891,71 +1894,87 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The name of the limit that was reached.",
-        "smithy.api#enum": {
-          "Assets per revision": {
+        "smithy.api#enum": [
+          {
+            "value": "Assets per revision",
             "name": "Assets_per_revision"
           },
-          "Asset size in GB": {
+          {
+            "value": "Asset size in GB",
             "name": "Asset_size_in_GB"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#JobErrorResourceTypes": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The types of resource which the job error can apply to.",
-        "smithy.api#enum": {
-          "REVISION": {
+        "smithy.api#enum": [
+          {
+            "value": "REVISION",
             "name": "REVISION"
           },
-          "ASSET": {
+          {
+            "value": "ASSET",
             "name": "ASSET"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#LimitName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Products per account": {
+        "smithy.api#enum": [
+          {
+            "value": "Products per account",
             "name": "Products_per_account"
           },
-          "Data sets per account": {
+          {
+            "value": "Data sets per account",
             "name": "Data_sets_per_account"
           },
-          "Data sets per product": {
+          {
+            "value": "Data sets per product",
             "name": "Data_sets_per_product"
           },
-          "Revisions per data set": {
+          {
+            "value": "Revisions per data set",
             "name": "Revisions_per_data_set"
           },
-          "Assets per revision": {
+          {
+            "value": "Assets per revision",
             "name": "Assets_per_revision"
           },
-          "Assets per import job from Amazon S3": {
+          {
+            "value": "Assets per import job from Amazon S3",
             "name": "Assets_per_import_job_from_Amazon_S3"
           },
-          "Asset per export job from Amazon S3": {
+          {
+            "value": "Asset per export job from Amazon S3",
             "name": "Asset_per_export_job_from_Amazon_S3"
           },
-          "Asset size in GB": {
+          {
+            "value": "Asset size in GB",
             "name": "Asset_size_in_GB"
           },
-          "Concurrent in progress jobs to import assets from Amazon S3": {
+          {
+            "value": "Concurrent in progress jobs to import assets from Amazon S3",
             "name": "Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3"
           },
-          "Concurrent in progress jobs to import assets from a signed URL": {
+          {
+            "value": "Concurrent in progress jobs to import assets from a signed URL",
             "name": "Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL"
           },
-          "Concurrent in progress jobs to export assets to Amazon S3": {
+          {
+            "value": "Concurrent in progress jobs to export assets to Amazon S3",
             "name": "Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3"
           },
-          "Concurrent in progress jobs to export assets to a signed URL": {
+          {
+            "value": "Concurrent in progress jobs to export assets to a signed URL",
             "name": "Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#ListDataSetRevisions": {
@@ -1996,8 +2015,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -2280,8 +2299,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -2302,8 +2321,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2349,8 +2368,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2401,14 +2420,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers). When an owned data set is published in a product, AWS Data Exchange creates a copy of the data set. Subscribers can access that copy of the data set as an entitled data set.</p>",
-        "smithy.api#enum": {
-          "OWNED": {
+        "smithy.api#enum": [
+          {
+            "value": "OWNED",
             "name": "OWNED"
           },
-          "ENTITLED": {
+          {
+            "value": "ENTITLED",
             "name": "ENTITLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#OriginDetails": {
@@ -2417,7 +2438,7 @@
         "ProductId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2461,7 +2482,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The resource couldn't be found.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceId": {
@@ -2486,20 +2507,24 @@
     "com.amazonaws.dataexchange#ResourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DATA_SET": {
+        "smithy.api#enum": [
+          {
+            "value": "DATA_SET",
             "name": "DATA_SET"
           },
-          "REVISION": {
+          {
+            "value": "REVISION",
             "name": "REVISION"
           },
-          "ASSET": {
+          {
+            "value": "ASSET",
             "name": "ASSET"
           },
-          "JOB": {
+          {
+            "value": "JOB",
             "name": "JOB"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#ResponseDetails": {
@@ -2541,7 +2566,7 @@
           "target": "com.amazonaws.dataexchange#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN for the revision.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Comment": {
@@ -2554,14 +2579,14 @@
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the revision was created, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the data set associated with this revision.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Finalized": {
@@ -2574,7 +2599,7 @@
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the revision.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceId": {
@@ -2587,7 +2612,7 @@
           "target": "com.amazonaws.dataexchange#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the revision was last updated, in ISO 8601 format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2602,7 +2627,7 @@
           "target": "com.amazonaws.dataexchange#__doubleMin0",
           "traits": {
             "smithy.api#documentation": "<p>The size of the S3 object that is the object.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2629,7 +2654,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The request has exceeded the quotas imposed by the service.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2683,39 +2708,45 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a job.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.dataexchange#StartJobResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.dataexchange#State": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "WAITING": {
+        "smithy.api#enum": [
+          {
+            "value": "WAITING",
             "name": "WAITING"
           },
-          "IN_PROGRESS": {
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "ERROR": {
+          {
+            "value": "ERROR",
             "name": "ERROR"
           },
-          "COMPLETED": {
+          {
+            "value": "COMPLETED",
             "name": "COMPLETED"
           },
-          "CANCELLED": {
+          {
+            "value": "CANCELLED",
             "name": "CANCELLED"
           },
-          "TIMED_OUT": {
+          {
+            "value": "TIMED_OUT",
             "name": "TIMED_OUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#TagResource": {
@@ -2739,8 +2770,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -2748,7 +2779,7 @@
           "traits": {
             "smithy.api#documentation": "A label that consists of a customer-defined key and an optional value.",
             "smithy.api#jsonName": "tags",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2763,7 +2794,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The limit on the number of requests per second was exceeded.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2783,20 +2814,24 @@
     "com.amazonaws.dataexchange#Type": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IMPORT_ASSETS_FROM_S3": {
+        "smithy.api#enum": [
+          {
+            "value": "IMPORT_ASSETS_FROM_S3",
             "name": "IMPORT_ASSETS_FROM_S3"
           },
-          "IMPORT_ASSET_FROM_SIGNED_URL": {
+          {
+            "value": "IMPORT_ASSET_FROM_SIGNED_URL",
             "name": "IMPORT_ASSET_FROM_SIGNED_URL"
           },
-          "EXPORT_ASSETS_TO_S3": {
+          {
+            "value": "EXPORT_ASSETS_TO_S3",
             "name": "EXPORT_ASSETS_TO_S3"
           },
-          "EXPORT_ASSET_TO_SIGNED_URL": {
+          {
+            "value": "EXPORT_ASSET_TO_SIGNED_URL",
             "name": "EXPORT_ASSET_TO_SIGNED_URL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dataexchange#UntagResource": {
@@ -2820,8 +2855,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -2829,7 +2864,7 @@
           "traits": {
             "smithy.api#documentation": "The key tags.",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2878,31 +2913,31 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for an asset.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Name": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RevisionId": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3016,8 +3051,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -3152,8 +3187,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a data set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Finalized": {
@@ -3166,8 +3201,8 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3235,7 +3270,7 @@
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message that informs you about what was invalid about the request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },

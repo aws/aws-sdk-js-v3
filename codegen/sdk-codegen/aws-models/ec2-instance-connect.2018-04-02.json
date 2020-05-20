@@ -1,41 +1,40 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.aws.sshaccessproxyservice#AWSEC2InstanceConnectService": {
+    "com.amazonaws.ec2instanceconnect#AWSEC2InstanceConnectService": {
       "type": "service",
       "version": "2018-04-02",
       "operations": [
         {
-          "target": "com.amazon.aws.sshaccessproxyservice#SendSSHPublicKey"
+          "target": "com.amazonaws.ec2instanceconnect#SendSSHPublicKey"
         }
       ],
       "traits": {
@@ -45,23 +44,19 @@
           "cloudFormationName": "EC2InstanceConnect",
           "cloudTrailEventSource": "sshaccessproxyservice.aws.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "ec2-instance-connect"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>AWS EC2 Connect Service is a service that enables system administrators to publish\n            temporary SSH keys to their EC2 instances in order to establish connections to their\n            instances without leaving a permanent authentication option.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS EC2 Instance Connect"
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#AuthException": {
+    "com.amazonaws.ec2instanceconnect#AuthException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.aws.sshaccessproxyservice#String"
+          "target": "com.amazonaws.ec2instanceconnect#String"
         }
       },
       "traits": {
@@ -70,7 +65,7 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#AvailabilityZone": {
+    "com.amazonaws.ec2instanceconnect#AvailabilityZone": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -80,11 +75,11 @@
         "smithy.api#pattern": "^(\\w+-){2,3}\\d+\\w+$"
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#EC2InstanceNotFoundException": {
+    "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.aws.sshaccessproxyservice#String"
+          "target": "com.amazonaws.ec2instanceconnect#String"
         }
       },
       "traits": {
@@ -93,7 +88,7 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#InstanceId": {
+    "com.amazonaws.ec2instanceconnect#InstanceId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -103,7 +98,7 @@
         "smithy.api#pattern": "^i-[a-f0-9]+$"
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#InstanceOSUser": {
+    "com.amazonaws.ec2instanceconnect#InstanceOSUser": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -113,11 +108,11 @@
         "smithy.api#pattern": "^[A-Za-z_][A-Za-z0-9\\@\\._-]{0,30}[A-Za-z0-9\\$_-]?$"
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#InvalidArgsException": {
+    "com.amazonaws.ec2instanceconnect#InvalidArgsException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.aws.sshaccessproxyservice#String"
+          "target": "com.amazonaws.ec2instanceconnect#String"
         }
       },
       "traits": {
@@ -126,10 +121,10 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#RequestId": {
+    "com.amazonaws.ec2instanceconnect#RequestId": {
       "type": "string"
     },
-    "com.amazon.aws.sshaccessproxyservice#SSHPublicKey": {
+    "com.amazonaws.ec2instanceconnect#SSHPublicKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -138,90 +133,90 @@
         }
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#SendSSHPublicKey": {
+    "com.amazonaws.ec2instanceconnect#SendSSHPublicKey": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.aws.sshaccessproxyservice#SendSSHPublicKeyRequest"
+        "target": "com.amazonaws.ec2instanceconnect#SendSSHPublicKeyRequest"
       },
       "output": {
-        "target": "com.amazon.aws.sshaccessproxyservice#SendSSHPublicKeyResponse"
+        "target": "com.amazonaws.ec2instanceconnect#SendSSHPublicKeyResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.aws.sshaccessproxyservice#AuthException"
+          "target": "com.amazonaws.ec2instanceconnect#AuthException"
         },
         {
-          "target": "com.amazon.aws.sshaccessproxyservice#EC2InstanceNotFoundException"
+          "target": "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException"
         },
         {
-          "target": "com.amazon.aws.sshaccessproxyservice#InvalidArgsException"
+          "target": "com.amazonaws.ec2instanceconnect#InvalidArgsException"
         },
         {
-          "target": "com.amazon.aws.sshaccessproxyservice#ServiceException"
+          "target": "com.amazonaws.ec2instanceconnect#ServiceException"
         },
         {
-          "target": "com.amazon.aws.sshaccessproxyservice#ThrottlingException"
+          "target": "com.amazonaws.ec2instanceconnect#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Pushes an SSH public key to a particular OS user on a given EC2 instance for 60 seconds.</p>"
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#SendSSHPublicKeyRequest": {
+    "com.amazonaws.ec2instanceconnect#SendSSHPublicKeyRequest": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
-          "target": "com.amazon.aws.sshaccessproxyservice#AvailabilityZone",
+          "target": "com.amazonaws.ec2instanceconnect#AvailabilityZone",
           "traits": {
             "smithy.api#documentation": "<p>The availability zone the EC2 instance was launched in.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InstanceId": {
-          "target": "com.amazon.aws.sshaccessproxyservice#InstanceId",
+          "target": "com.amazonaws.ec2instanceconnect#InstanceId",
           "traits": {
             "smithy.api#documentation": "<p>The EC2 instance you wish to publish the SSH key to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InstanceOSUser": {
-          "target": "com.amazon.aws.sshaccessproxyservice#InstanceOSUser",
+          "target": "com.amazonaws.ec2instanceconnect#InstanceOSUser",
           "traits": {
             "smithy.api#documentation": "<p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SSHPublicKey": {
-          "target": "com.amazon.aws.sshaccessproxyservice#SSHPublicKey",
+          "target": "com.amazonaws.ec2instanceconnect#SSHPublicKey",
           "traits": {
             "smithy.api#documentation": "<p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#SendSSHPublicKeyResponse": {
+    "com.amazonaws.ec2instanceconnect#SendSSHPublicKeyResponse": {
       "type": "structure",
       "members": {
         "RequestId": {
-          "target": "com.amazon.aws.sshaccessproxyservice#RequestId",
+          "target": "com.amazonaws.ec2instanceconnect#RequestId",
           "traits": {
             "smithy.api#documentation": "<p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>"
           }
         },
         "Success": {
-          "target": "com.amazon.aws.sshaccessproxyservice#Success",
+          "target": "com.amazonaws.ec2instanceconnect#Success",
           "traits": {
             "smithy.api#documentation": "<p>Indicates request success.</p>"
           }
         }
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#ServiceException": {
+    "com.amazonaws.ec2instanceconnect#ServiceException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.aws.sshaccessproxyservice#String"
+          "target": "com.amazonaws.ec2instanceconnect#String"
         }
       },
       "traits": {
@@ -230,17 +225,17 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazon.aws.sshaccessproxyservice#String": {
+    "com.amazonaws.ec2instanceconnect#String": {
       "type": "string"
     },
-    "com.amazon.aws.sshaccessproxyservice#Success": {
+    "com.amazonaws.ec2instanceconnect#Success": {
       "type": "boolean"
     },
-    "com.amazon.aws.sshaccessproxyservice#ThrottlingException": {
+    "com.amazonaws.ec2instanceconnect#ThrottlingException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.aws.sshaccessproxyservice#String"
+          "target": "com.amazonaws.ec2instanceconnect#String"
         }
       },
       "traits": {

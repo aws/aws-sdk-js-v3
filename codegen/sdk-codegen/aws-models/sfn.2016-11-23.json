@@ -1,104 +1,103 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.swf.service.v2.model#AWSStepFunctions": {
+    "com.amazonaws.sfn#AWSStepFunctions": {
       "type": "service",
       "version": "2016-11-23",
       "operations": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#CreateActivity"
+          "target": "com.amazonaws.sfn#CreateActivity"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#CreateStateMachine"
+          "target": "com.amazonaws.sfn#CreateStateMachine"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#DeleteActivity"
+          "target": "com.amazonaws.sfn#DeleteActivity"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#DeleteStateMachine"
+          "target": "com.amazonaws.sfn#DeleteStateMachine"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#DescribeActivity"
+          "target": "com.amazonaws.sfn#DescribeActivity"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#DescribeExecution"
+          "target": "com.amazonaws.sfn#DescribeExecution"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#DescribeStateMachine"
+          "target": "com.amazonaws.sfn#DescribeStateMachine"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#DescribeStateMachineForExecution"
+          "target": "com.amazonaws.sfn#DescribeStateMachineForExecution"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#GetActivityTask"
+          "target": "com.amazonaws.sfn#GetActivityTask"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#GetExecutionHistory"
+          "target": "com.amazonaws.sfn#GetExecutionHistory"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ListActivities"
+          "target": "com.amazonaws.sfn#ListActivities"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ListExecutions"
+          "target": "com.amazonaws.sfn#ListExecutions"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ListStateMachines"
+          "target": "com.amazonaws.sfn#ListStateMachines"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ListTagsForResource"
+          "target": "com.amazonaws.sfn#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#SendTaskFailure"
+          "target": "com.amazonaws.sfn#SendTaskFailure"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#SendTaskHeartbeat"
+          "target": "com.amazonaws.sfn#SendTaskHeartbeat"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#SendTaskSuccess"
+          "target": "com.amazonaws.sfn#SendTaskSuccess"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StartExecution"
+          "target": "com.amazonaws.sfn#StartExecution"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StopExecution"
+          "target": "com.amazonaws.sfn#StopExecution"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TagResource"
+          "target": "com.amazonaws.sfn#TagResource"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#UntagResource"
+          "target": "com.amazonaws.sfn#UntagResource"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#UpdateStateMachine"
+          "target": "com.amazonaws.sfn#UpdateStateMachine"
         }
       ],
       "traits": {
@@ -108,26 +107,22 @@
           "cloudFormationName": "StepFunctions",
           "cloudTrailEventSource": "model.v2.service.swf.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "states"
+        },
+        "aws.protocols#awsJson1_0": {},
         "smithy.api#documentation": "<fullname>AWS Step Functions</fullname>\n         <p>AWS Step Functions is a service that lets you coordinate the components of distributed applications\n      and microservices using visual workflows.</p>\n         <p>You can use Step Functions to build applications from individual components, each of which performs\n      a discrete function, or <i>task</i>, allowing you to scale and change\n      applications quickly. Step Functions provides a console that helps visualize the components of your\n      application as a series of steps. Step Functions automatically triggers and tracks each step, and\n      retries steps when there are errors, so your application executes predictably and in the right\n      order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any\n      issues.</p>\n         <p>Step Functions manages operations and underlying infrastructure to ensure your application is\n      available at any scale. You can run tasks on AWS, your own servers, or any system that has\n      access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API.\n      For more information about Step Functions, see the <i>\n               <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html\">AWS Step Functions Developer Guide</a>\n            </i>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.0",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Step Functions",
         "smithy.api#xmlNamespace": {
           "uri": "http://swf.amazonaws.com/doc/2015-07-20/"
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist": {
+    "com.amazonaws.sfn#ActivityDoesNotExist": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -135,17 +130,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.base.model#ActivityFailedEventDetails": {
+    "com.amazonaws.sfn#ActivityFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -155,11 +150,11 @@
         "smithy.api#documentation": "<p>Contains details about an activity that failed during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ActivityLimitExceeded": {
+    "com.amazonaws.sfn#ActivityLimitExceeded": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -167,34 +162,34 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ActivityList": {
+    "com.amazonaws.sfn#ActivityList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.swf.service.v2.model#ActivityListItem"
+        "target": "com.amazonaws.sfn#ActivityListItem"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ActivityListItem": {
+    "com.amazonaws.sfn#ActivityListItem": {
       "type": "structure",
       "members": {
         "activityArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the activity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "creationDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the activity is created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the activity.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -202,17 +197,17 @@
         "smithy.api#documentation": "<p>Contains details about an activity.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#ActivityScheduleFailedEventDetails": {
+    "com.amazonaws.sfn#ActivityScheduleFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -222,33 +217,33 @@
         "smithy.api#documentation": "<p>Contains details about an activity schedule failure that occurred during an\n      execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#ActivityScheduledEventDetails": {
+    "com.amazonaws.sfn#ActivityScheduledEventDetails": {
       "type": "structure",
       "members": {
         "heartbeatInSeconds": {
-          "target": "com.amazonaws.swf.base.model#TimeoutInSeconds",
+          "target": "com.amazonaws.sfn#TimeoutInSeconds",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum allowed duration between two heartbeats for the activity task.</p>"
           }
         },
         "input": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON data input to the activity task.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the scheduled activity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "timeoutInSeconds": {
-          "target": "com.amazonaws.swf.base.model#TimeoutInSeconds",
+          "target": "com.amazonaws.sfn#TimeoutInSeconds",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum allowed duration of the activity task.</p>"
           }
         }
@@ -257,11 +252,11 @@
         "smithy.api#documentation": "<p>Contains details about an activity scheduled during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#ActivityStartedEventDetails": {
+    "com.amazonaws.sfn#ActivityStartedEventDetails": {
       "type": "structure",
       "members": {
         "workerName": {
-          "target": "com.amazonaws.swf.base.model#Identity",
+          "target": "com.amazonaws.sfn#Identity",
           "traits": {
             "smithy.api#documentation": "<p>The name of the worker that the task is assigned to. These names are provided by the\n      workers when calling <a>GetActivityTask</a>.</p>"
           }
@@ -271,11 +266,11 @@
         "smithy.api#documentation": "<p>Contains details about the start of an activity during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#ActivitySucceededEventDetails": {
+    "com.amazonaws.sfn#ActivitySucceededEventDetails": {
       "type": "structure",
       "members": {
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON data output by the activity task.</p>"
           }
@@ -285,17 +280,17 @@
         "smithy.api#documentation": "<p>Contains details about an activity that successfully terminated during an\n      execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#ActivityTimedOutEventDetails": {
+    "com.amazonaws.sfn#ActivityTimedOutEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the timeout.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -305,11 +300,11 @@
         "smithy.api#documentation": "<p>Contains details about an activity timeout that occurred during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ActivityWorkerLimitExceeded": {
+    "com.amazonaws.sfn#ActivityWorkerLimitExceeded": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -317,7 +312,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.base.model#Arn": {
+    "com.amazonaws.sfn#Arn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -326,11 +321,11 @@
         }
       }
     },
-    "com.amazonaws.swf.base.model#CloudWatchLogsLogGroup": {
+    "com.amazonaws.sfn#CloudWatchLogsLogGroup": {
       "type": "structure",
       "members": {
         "logGroupArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with <code>:*</code>\n         </p>"
           }
@@ -340,586 +335,586 @@
         "smithy.api#documentation": "<p></p>"
       }
     },
-    "com.amazonaws.swf.base.model#ConnectorParameters": {
+    "com.amazonaws.sfn#ConnectorParameters": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 32768
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.swf.service.v2.model#CreateActivity": {
+    "com.amazonaws.sfn#CreateActivity": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#CreateActivityInput"
+        "target": "com.amazonaws.sfn#CreateActivityInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#CreateActivityOutput"
+        "target": "com.amazonaws.sfn#CreateActivityOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ActivityLimitExceeded"
+          "target": "com.amazonaws.sfn#ActivityLimitExceeded"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidName"
+          "target": "com.amazonaws.sfn#InvalidName"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TooManyTags"
+          "target": "com.amazonaws.sfn#TooManyTags"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates an activity. An activity is a task that you write in any programming language and\n      host on any machine that has access to AWS Step Functions. Activities must poll Step Functions using the\n        <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API\n      actions. This function lets Step Functions know the existence of your activity and returns an\n      identifier for use in a state machine and when polling from the activity.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <note>\n            <p>\n               <code>CreateActivity</code> is an idempotent API. Subsequent requests won’t create a\n        duplicate resource if it was already created. <code>CreateActivity</code>'s idempotency\n        check is based on the activity <code>name</code>. If a following request has different\n          <code>tags</code> values, Step Functions will ignore these differences and treat it as an\n        idempotent request of the previous. In this case, <code>tags</code> will not be updated,\n        even if they are different.</p>\n         </note>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.swf.service.v2.model#CreateActivityInput": {
+    "com.amazonaws.sfn#CreateActivityInput": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, \n    see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\">\n    Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.swf.service.v2.model#TagList",
+          "target": "com.amazonaws.sfn#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tags to add to a resource.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#CreateActivityOutput": {
+    "com.amazonaws.sfn#CreateActivityOutput": {
       "type": "structure",
       "members": {
         "activityArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the created activity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "creationDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the activity is created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#CreateStateMachine": {
+    "com.amazonaws.sfn#CreateStateMachine": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#CreateStateMachineInput"
+        "target": "com.amazonaws.sfn#CreateStateMachineInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#CreateStateMachineOutput"
+        "target": "com.amazonaws.sfn#CreateStateMachineOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidDefinition"
+          "target": "com.amazonaws.sfn#InvalidDefinition"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration"
+          "target": "com.amazonaws.sfn#InvalidLoggingConfiguration"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidName"
+          "target": "com.amazonaws.sfn#InvalidName"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineAlreadyExists"
+          "target": "com.amazonaws.sfn#StateMachineAlreadyExists"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineDeleting"
+          "target": "com.amazonaws.sfn#StateMachineDeleting"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineLimitExceeded"
+          "target": "com.amazonaws.sfn#StateMachineLimitExceeded"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineTypeNotSupported"
+          "target": "com.amazonaws.sfn#StateMachineTypeNotSupported"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TooManyTags"
+          "target": "com.amazonaws.sfn#TooManyTags"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a state machine. A state machine consists of a collection of states that can do\n      work (<code>Task</code> states), determine to which states to transition next\n        (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),\n      and so on. State machines are specified using a JSON-based, structured language.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note> \n         <note>\n            <p>\n               <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a\n        duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency\n        check is based on the state machine <code>name</code> and <code>definition</code>. If a\n        following request has a different <code>roleArn</code> or <code>tags</code>, Step Functions will\n        ignore these differences and treat it as an idempotent request of the previous. In this\n        case, <code>roleArn</code> and <code>tags</code> will not be updated, even if they are\n        different.</p>\n         </note>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.swf.service.v2.model#CreateStateMachineInput": {
+    "com.amazonaws.sfn#CreateStateMachineInput": {
       "type": "structure",
       "members": {
         "definition": {
-          "target": "com.amazonaws.swf.service.v2.model#Definition",
+          "target": "com.amazonaws.sfn#Definition",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon States Language definition of the state machine. See <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States Language</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loggingConfiguration": {
-          "target": "com.amazonaws.swf.base.model#LoggingConfiguration",
+          "target": "com.amazonaws.sfn#LoggingConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Defines what execution history events are logged and where they are logged.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state machine. </p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to use for this state machine.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.swf.service.v2.model#TagList",
+          "target": "com.amazonaws.sfn#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Tags to be added when creating a state machine.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
           }
         },
         "type": {
-          "target": "com.amazonaws.swf.base.model#StateMachineType",
+          "target": "com.amazonaws.sfn#StateMachineType",
           "traits": {
             "smithy.api#documentation": "<p>Determines whether a Standard or Express state machine is created. If not set, Standard is created.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#CreateStateMachineOutput": {
+    "com.amazonaws.sfn#CreateStateMachineOutput": {
       "type": "structure",
       "members": {
         "creationDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the state machine is created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the created state machine.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#Definition": {
+    "com.amazonaws.sfn#Definition": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 1048576
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.swf.service.v2.model#DeleteActivity": {
+    "com.amazonaws.sfn#DeleteActivity": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#DeleteActivityInput"
+        "target": "com.amazonaws.sfn#DeleteActivityInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#DeleteActivityOutput"
+        "target": "com.amazonaws.sfn#DeleteActivityOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes an activity.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#DeleteActivityInput": {
+    "com.amazonaws.sfn#DeleteActivityInput": {
       "type": "structure",
       "members": {
         "activityArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the activity to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DeleteActivityOutput": {
+    "com.amazonaws.sfn#DeleteActivityOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.swf.service.v2.model#DeleteStateMachine": {
+    "com.amazonaws.sfn#DeleteStateMachine": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#DeleteStateMachineInput"
+        "target": "com.amazonaws.sfn#DeleteStateMachineInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#DeleteStateMachineOutput"
+        "target": "com.amazonaws.sfn#DeleteStateMachineOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's\n      status to <code>DELETING</code> and begins the deletion process. Each state machine execution\n      is deleted the next time it makes a state transition.</p>\n         <note>\n            <p>The state machine itself is deleted after all executions are completed or\n        deleted.</p>\n         </note>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#DeleteStateMachineInput": {
+    "com.amazonaws.sfn#DeleteStateMachineInput": {
       "type": "structure",
       "members": {
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DeleteStateMachineOutput": {
+    "com.amazonaws.sfn#DeleteStateMachineOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.swf.service.v2.model#DescribeActivity": {
+    "com.amazonaws.sfn#DescribeActivity": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeActivityInput"
+        "target": "com.amazonaws.sfn#DescribeActivityInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeActivityOutput"
+        "target": "com.amazonaws.sfn#DescribeActivityOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist"
+          "target": "com.amazonaws.sfn#ActivityDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes an activity.</p> \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeActivityInput": {
+    "com.amazonaws.sfn#DescribeActivityInput": {
       "type": "structure",
       "members": {
         "activityArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the activity to describe.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeActivityOutput": {
+    "com.amazonaws.sfn#DescribeActivityOutput": {
       "type": "structure",
       "members": {
         "activityArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the activity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "creationDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the activity is created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the activity.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeExecution": {
+    "com.amazonaws.sfn#DescribeExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeExecutionInput"
+        "target": "com.amazonaws.sfn#DescribeExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeExecutionOutput"
+        "target": "com.amazonaws.sfn#DescribeExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist"
+          "target": "com.amazonaws.sfn#ExecutionDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes an execution.</p> \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeExecutionInput": {
+    "com.amazonaws.sfn#DescribeExecutionInput": {
       "type": "structure",
       "members": {
         "executionArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the execution to describe.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeExecutionOutput": {
+    "com.amazonaws.sfn#DescribeExecutionOutput": {
       "type": "structure",
       "members": {
         "executionArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "input": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The string that contains the JSON input data of the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the execution.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>"
           }
         },
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON output data of the execution.</p>\n         <note>\n            <p>This field is set only if the execution succeeds. If the execution fails, this field is\n        null.</p>\n         </note>"
           }
         },
         "startDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the execution is started.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the executed stated machine.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "status": {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionStatus",
+          "target": "com.amazonaws.sfn#ExecutionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stopDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>If the execution has already ended, the date the execution stopped.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeStateMachine": {
+    "com.amazonaws.sfn#DescribeStateMachine": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeStateMachineInput"
+        "target": "com.amazonaws.sfn#DescribeStateMachineInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeStateMachineOutput"
+        "target": "com.amazonaws.sfn#DescribeStateMachineOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist"
+          "target": "com.amazonaws.sfn#StateMachineDoesNotExist"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes a state machine.</p> \n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeStateMachineForExecution": {
+    "com.amazonaws.sfn#DescribeStateMachineForExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeStateMachineForExecutionInput"
+        "target": "com.amazonaws.sfn#DescribeStateMachineForExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#DescribeStateMachineForExecutionOutput"
+        "target": "com.amazonaws.sfn#DescribeStateMachineForExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist"
+          "target": "com.amazonaws.sfn#ExecutionDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes the state machine associated with a specific execution.</p>\n         <note>\n            <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>\n         </note>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeStateMachineForExecutionInput": {
+    "com.amazonaws.sfn#DescribeStateMachineForExecutionInput": {
       "type": "structure",
       "members": {
         "executionArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the execution you want state machine information for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeStateMachineForExecutionOutput": {
+    "com.amazonaws.sfn#DescribeStateMachineForExecutionOutput": {
       "type": "structure",
       "members": {
         "definition": {
-          "target": "com.amazonaws.swf.service.v2.model#Definition",
+          "target": "com.amazonaws.sfn#Definition",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon States Language definition of the state machine. See <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States Language</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state machine associated with the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine associated with the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "updateDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time the state machine associated with an execution was updated. For a newly\n      created state machine, this is the creation date.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeStateMachineInput": {
+    "com.amazonaws.sfn#DescribeStateMachineInput": {
       "type": "structure",
       "members": {
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine to describe.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#DescribeStateMachineOutput": {
+    "com.amazonaws.sfn#DescribeStateMachineOutput": {
       "type": "structure",
       "members": {
         "creationDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the state machine is created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "definition": {
-          "target": "com.amazonaws.swf.service.v2.model#Definition",
+          "target": "com.amazonaws.sfn#Definition",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon States Language definition of the state machine. See <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States Language</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loggingConfiguration": {
-          "target": "com.amazonaws.swf.base.model#LoggingConfiguration",
+          "target": "com.amazonaws.sfn#LoggingConfiguration",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state machine.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role\n      maintains security by granting Step Functions access to AWS resources.)</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the state machine.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "status": {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineStatus",
+          "target": "com.amazonaws.sfn#StateMachineStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the state machine.</p>"
           }
         },
         "type": {
-          "target": "com.amazonaws.swf.base.model#StateMachineType",
+          "target": "com.amazonaws.sfn#StateMachineType",
           "traits": {
             "smithy.api#documentation": "<p></p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ErrorMessage": {
+    "com.amazonaws.sfn#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.swf.base.model#EventId": {
+    "com.amazonaws.sfn#EventId": {
       "type": "long"
     },
-    "com.amazonaws.swf.base.model#ExecutionAbortedEventDetails": {
+    "com.amazonaws.sfn#ExecutionAbortedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -929,11 +924,11 @@
         "smithy.api#documentation": "<p>Contains details about an abort of an execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ExecutionAlreadyExists": {
+    "com.amazonaws.sfn#ExecutionAlreadyExists": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -941,11 +936,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist": {
+    "com.amazonaws.sfn#ExecutionDoesNotExist": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -953,17 +948,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.base.model#ExecutionFailedEventDetails": {
+    "com.amazonaws.sfn#ExecutionFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -973,11 +968,11 @@
         "smithy.api#documentation": "<p>Contains details about an execution failure event.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ExecutionLimitExceeded": {
+    "com.amazonaws.sfn#ExecutionLimitExceeded": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -985,52 +980,52 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ExecutionList": {
+    "com.amazonaws.sfn#ExecutionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.swf.service.v2.model#ExecutionListItem"
+        "target": "com.amazonaws.sfn#ExecutionListItem"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ExecutionListItem": {
+    "com.amazonaws.sfn#ExecutionListItem": {
       "type": "structure",
       "members": {
         "executionArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the execution.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "startDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the execution started.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the executed state machine.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "status": {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionStatus",
+          "target": "com.amazonaws.sfn#ExecutionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stopDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>If the execution already ended, the date the execution stopped.</p>"
           }
@@ -1040,17 +1035,17 @@
         "smithy.api#documentation": "<p>Contains details about an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#ExecutionStartedEventDetails": {
+    "com.amazonaws.sfn#ExecutionStartedEventDetails": {
       "type": "structure",
       "members": {
         "input": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON data input to the execution.</p>"
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.</p>"
           }
@@ -1060,23 +1055,33 @@
         "smithy.api#documentation": "<p>Contains details about the start of the execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ExecutionStatus": {
+    "com.amazonaws.sfn#ExecutionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "RUNNING": { },
-          "SUCCEEDED": { },
-          "FAILED": { },
-          "TIMED_OUT": { },
-          "ABORTED": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "RUNNING"
+          },
+          {
+            "value": "SUCCEEDED"
+          },
+          {
+            "value": "FAILED"
+          },
+          {
+            "value": "TIMED_OUT"
+          },
+          {
+            "value": "ABORTED"
+          }
+        ]
       }
     },
-    "com.amazonaws.swf.base.model#ExecutionSucceededEventDetails": {
+    "com.amazonaws.sfn#ExecutionSucceededEventDetails": {
       "type": "structure",
       "members": {
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON data output by the execution.</p>"
           }
@@ -1086,17 +1091,17 @@
         "smithy.api#documentation": "<p>Contains details about the successful termination of the execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#ExecutionTimedOutEventDetails": {
+    "com.amazonaws.sfn#ExecutionTimedOutEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the timeout.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -1106,81 +1111,81 @@
         "smithy.api#documentation": "<p>Contains details about the execution timeout that occurred during the execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#GetActivityTask": {
+    "com.amazonaws.sfn#GetActivityTask": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#GetActivityTaskInput"
+        "target": "com.amazonaws.sfn#GetActivityTaskInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#GetActivityTaskOutput"
+        "target": "com.amazonaws.sfn#GetActivityTaskOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist"
+          "target": "com.amazonaws.sfn#ActivityDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ActivityWorkerLimitExceeded"
+          "target": "com.amazonaws.sfn#ActivityWorkerLimitExceeded"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Used by workers to retrieve a task (with the specified activity ARN) which has been\n      scheduled for execution by a running state machine. This initiates a long poll, where the\n      service holds the HTTP connection open and responds as soon as a task becomes available (i.e.\n      an execution of a task of this type is needed.) The maximum time the service holds on to the\n      request before responding is 60 seconds. If no task is available within 60 seconds, the poll\n      returns a <code>taskToken</code> with a null string.</p>\n         <important>\n            <p>Workers should set their client side socket timeout to at least 65 seconds (5 seconds\n        higher than the maximum time the service may hold the poll request).</p>\n            <p>Polling with <code>GetActivityTask</code> can cause latency in some implementations. See\n          <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html\">Avoid\n          Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.</p>\n         </important>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#GetActivityTaskInput": {
+    "com.amazonaws.sfn#GetActivityTaskInput": {
       "type": "structure",
       "members": {
         "activityArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task\n      using <a>CreateActivity</a>.)</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "workerName": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>You can provide an arbitrary name in order to identify the worker that the task is\n      assigned to. This name is used when it is logged in the execution history.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#GetActivityTaskOutput": {
+    "com.amazonaws.sfn#GetActivityTaskOutput": {
       "type": "structure",
       "members": {
         "input": {
-          "target": "com.amazonaws.swf.base.model#SensitiveDataJobInput",
+          "target": "com.amazonaws.sfn#SensitiveDataJobInput",
           "traits": {
             "smithy.api#documentation": "<p>The string that contains the JSON input data for the task.</p>"
           }
         },
         "taskToken": {
-          "target": "com.amazonaws.swf.service.v2.model#TaskToken",
+          "target": "com.amazonaws.sfn#TaskToken",
           "traits": {
             "smithy.api#documentation": "<p>A token that identifies the scheduled task. This token must be copied and included in\n      subsequent calls to <a>SendTaskHeartbeat</a>, <a>SendTaskSuccess</a> or\n        <a>SendTaskFailure</a> in order to report the progress or completion of the\n      task.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#GetExecutionHistory": {
+    "com.amazonaws.sfn#GetExecutionHistory": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#GetExecutionHistoryInput"
+        "target": "com.amazonaws.sfn#GetExecutionHistoryInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#GetExecutionHistoryOutput"
+        "target": "com.amazonaws.sfn#GetExecutionHistoryOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist"
+          "target": "com.amazonaws.sfn#ExecutionDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidToken"
+          "target": "com.amazonaws.sfn#InvalidToken"
         }
       ],
       "traits": {
@@ -1193,226 +1198,226 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#GetExecutionHistoryInput": {
+    "com.amazonaws.sfn#GetExecutionHistoryInput": {
       "type": "structure",
       "members": {
         "executionArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.swf.base.model#PageSize",
+          "target": "com.amazonaws.sfn#PageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.\n    The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> \n         <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#PageToken",
+          "target": "com.amazonaws.sfn#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         },
         "reverseOrder": {
-          "target": "com.amazonaws.swf.service.v2.model#ReverseOrder",
+          "target": "com.amazonaws.sfn#ReverseOrder",
           "traits": {
             "smithy.api#documentation": "<p>Lists events in descending order of their <code>timeStamp</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#GetExecutionHistoryOutput": {
+    "com.amazonaws.sfn#GetExecutionHistoryOutput": {
       "type": "structure",
       "members": {
         "events": {
-          "target": "com.amazonaws.swf.base.model#HistoryEventList",
+          "target": "com.amazonaws.sfn#HistoryEventList",
           "traits": {
             "smithy.api#documentation": "<p>The list of events that occurred in the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#PageToken",
+          "target": "com.amazonaws.sfn#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.base.model#HistoryEvent": {
+    "com.amazonaws.sfn#HistoryEvent": {
       "type": "structure",
       "members": {
         "activityFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ActivityFailedEventDetails"
+          "target": "com.amazonaws.sfn#ActivityFailedEventDetails"
         },
         "activityScheduleFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ActivityScheduleFailedEventDetails",
+          "target": "com.amazonaws.sfn#ActivityScheduleFailedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about an activity schedule event that failed during an execution.</p>"
           }
         },
         "activityScheduledEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ActivityScheduledEventDetails"
+          "target": "com.amazonaws.sfn#ActivityScheduledEventDetails"
         },
         "activityStartedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ActivityStartedEventDetails"
+          "target": "com.amazonaws.sfn#ActivityStartedEventDetails"
         },
         "activitySucceededEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ActivitySucceededEventDetails"
+          "target": "com.amazonaws.sfn#ActivitySucceededEventDetails"
         },
         "activityTimedOutEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ActivityTimedOutEventDetails"
+          "target": "com.amazonaws.sfn#ActivityTimedOutEventDetails"
         },
         "executionAbortedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ExecutionAbortedEventDetails"
+          "target": "com.amazonaws.sfn#ExecutionAbortedEventDetails"
         },
         "executionFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ExecutionFailedEventDetails"
+          "target": "com.amazonaws.sfn#ExecutionFailedEventDetails"
         },
         "executionStartedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ExecutionStartedEventDetails"
+          "target": "com.amazonaws.sfn#ExecutionStartedEventDetails"
         },
         "executionSucceededEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ExecutionSucceededEventDetails"
+          "target": "com.amazonaws.sfn#ExecutionSucceededEventDetails"
         },
         "executionTimedOutEventDetails": {
-          "target": "com.amazonaws.swf.base.model#ExecutionTimedOutEventDetails"
+          "target": "com.amazonaws.sfn#ExecutionTimedOutEventDetails"
         },
         "id": {
-          "target": "com.amazonaws.swf.base.model#EventId",
+          "target": "com.amazonaws.sfn#EventId",
           "traits": {
             "smithy.api#documentation": "<p>The id of the event. Events are numbered sequentially, starting at one.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "lambdaFunctionFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#LambdaFunctionFailedEventDetails"
+          "target": "com.amazonaws.sfn#LambdaFunctionFailedEventDetails"
         },
         "lambdaFunctionScheduleFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#LambdaFunctionScheduleFailedEventDetails"
+          "target": "com.amazonaws.sfn#LambdaFunctionScheduleFailedEventDetails"
         },
         "lambdaFunctionScheduledEventDetails": {
-          "target": "com.amazonaws.swf.base.model#LambdaFunctionScheduledEventDetails"
+          "target": "com.amazonaws.sfn#LambdaFunctionScheduledEventDetails"
         },
         "lambdaFunctionStartFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#LambdaFunctionStartFailedEventDetails",
+          "target": "com.amazonaws.sfn#LambdaFunctionStartFailedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a lambda function that failed to start during an execution.</p>"
           }
         },
         "lambdaFunctionSucceededEventDetails": {
-          "target": "com.amazonaws.swf.base.model#LambdaFunctionSucceededEventDetails",
+          "target": "com.amazonaws.sfn#LambdaFunctionSucceededEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a lambda function that terminated successfully during an\n      execution.</p>"
           }
         },
         "lambdaFunctionTimedOutEventDetails": {
-          "target": "com.amazonaws.swf.base.model#LambdaFunctionTimedOutEventDetails"
+          "target": "com.amazonaws.sfn#LambdaFunctionTimedOutEventDetails"
         },
         "mapIterationAbortedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#MapIterationEventDetails",
+          "target": "com.amazonaws.sfn#MapIterationEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about an iteration of a Map state that was aborted.</p>"
           }
         },
         "mapIterationFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#MapIterationEventDetails",
+          "target": "com.amazonaws.sfn#MapIterationEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about an iteration of a Map state that failed.</p>"
           }
         },
         "mapIterationStartedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#MapIterationEventDetails",
+          "target": "com.amazonaws.sfn#MapIterationEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about an iteration of a Map state that was started.</p>"
           }
         },
         "mapIterationSucceededEventDetails": {
-          "target": "com.amazonaws.swf.base.model#MapIterationEventDetails",
+          "target": "com.amazonaws.sfn#MapIterationEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about an iteration of a Map state that succeeded.</p>"
           }
         },
         "mapStateStartedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#MapStateStartedEventDetails",
+          "target": "com.amazonaws.sfn#MapStateStartedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about Map state that was started.</p>"
           }
         },
         "previousEventId": {
-          "target": "com.amazonaws.swf.base.model#EventId",
+          "target": "com.amazonaws.sfn#EventId",
           "traits": {
             "smithy.api#documentation": "<p>The id of the previous event.</p>"
           }
         },
         "stateEnteredEventDetails": {
-          "target": "com.amazonaws.swf.base.model#StateEnteredEventDetails"
+          "target": "com.amazonaws.sfn#StateEnteredEventDetails"
         },
         "stateExitedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#StateExitedEventDetails"
+          "target": "com.amazonaws.sfn#StateExitedEventDetails"
         },
         "taskFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskFailedEventDetails",
+          "target": "com.amazonaws.sfn#TaskFailedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about the failure of a task.</p>"
           }
         },
         "taskScheduledEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskScheduledEventDetails",
+          "target": "com.amazonaws.sfn#TaskScheduledEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a task that was scheduled.</p>"
           }
         },
         "taskStartFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskStartFailedEventDetails",
+          "target": "com.amazonaws.sfn#TaskStartFailedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a task that failed to start.</p>"
           }
         },
         "taskStartedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskStartedEventDetails",
+          "target": "com.amazonaws.sfn#TaskStartedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a task that was started.</p>"
           }
         },
         "taskSubmitFailedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskSubmitFailedEventDetails",
+          "target": "com.amazonaws.sfn#TaskSubmitFailedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a task that where the submit failed.</p>"
           }
         },
         "taskSubmittedEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskSubmittedEventDetails",
+          "target": "com.amazonaws.sfn#TaskSubmittedEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a submitted task.</p>"
           }
         },
         "taskSucceededEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskSucceededEventDetails",
+          "target": "com.amazonaws.sfn#TaskSucceededEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a task that succeeded.</p>"
           }
         },
         "taskTimedOutEventDetails": {
-          "target": "com.amazonaws.swf.base.model#TaskTimedOutEventDetails",
+          "target": "com.amazonaws.sfn#TaskTimedOutEventDetails",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about a task that timed out.</p>"
           }
         },
         "timestamp": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time the event occurred.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "type": {
-          "target": "com.amazonaws.swf.base.model#HistoryEventType",
+          "target": "com.amazonaws.sfn#HistoryEventType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the event.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1420,78 +1425,188 @@
         "smithy.api#documentation": "<p>Contains details about the events of an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#HistoryEventList": {
+    "com.amazonaws.sfn#HistoryEventList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.swf.base.model#HistoryEvent"
+        "target": "com.amazonaws.sfn#HistoryEvent"
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains details about the events that occurred during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#HistoryEventType": {
+    "com.amazonaws.sfn#HistoryEventType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ActivityFailed": { },
-          "ActivityScheduled": { },
-          "ActivityScheduleFailed": { },
-          "ActivityStarted": { },
-          "ActivitySucceeded": { },
-          "ActivityTimedOut": { },
-          "ChoiceStateEntered": { },
-          "ChoiceStateExited": { },
-          "ExecutionAborted": { },
-          "ExecutionFailed": { },
-          "ExecutionStarted": { },
-          "ExecutionSucceeded": { },
-          "ExecutionTimedOut": { },
-          "FailStateEntered": { },
-          "LambdaFunctionFailed": { },
-          "LambdaFunctionScheduled": { },
-          "LambdaFunctionScheduleFailed": { },
-          "LambdaFunctionStarted": { },
-          "LambdaFunctionStartFailed": { },
-          "LambdaFunctionSucceeded": { },
-          "LambdaFunctionTimedOut": { },
-          "MapIterationAborted": { },
-          "MapIterationFailed": { },
-          "MapIterationStarted": { },
-          "MapIterationSucceeded": { },
-          "MapStateAborted": { },
-          "MapStateEntered": { },
-          "MapStateExited": { },
-          "MapStateFailed": { },
-          "MapStateStarted": { },
-          "MapStateSucceeded": { },
-          "ParallelStateAborted": { },
-          "ParallelStateEntered": { },
-          "ParallelStateExited": { },
-          "ParallelStateFailed": { },
-          "ParallelStateStarted": { },
-          "ParallelStateSucceeded": { },
-          "PassStateEntered": { },
-          "PassStateExited": { },
-          "SucceedStateEntered": { },
-          "SucceedStateExited": { },
-          "TaskFailed": { },
-          "TaskScheduled": { },
-          "TaskStarted": { },
-          "TaskStartFailed": { },
-          "TaskStateAborted": { },
-          "TaskStateEntered": { },
-          "TaskStateExited": { },
-          "TaskSubmitFailed": { },
-          "TaskSubmitted": { },
-          "TaskSucceeded": { },
-          "TaskTimedOut": { },
-          "WaitStateAborted": { },
-          "WaitStateEntered": { },
-          "WaitStateExited": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ActivityFailed"
+          },
+          {
+            "value": "ActivityScheduled"
+          },
+          {
+            "value": "ActivityScheduleFailed"
+          },
+          {
+            "value": "ActivityStarted"
+          },
+          {
+            "value": "ActivitySucceeded"
+          },
+          {
+            "value": "ActivityTimedOut"
+          },
+          {
+            "value": "ChoiceStateEntered"
+          },
+          {
+            "value": "ChoiceStateExited"
+          },
+          {
+            "value": "ExecutionAborted"
+          },
+          {
+            "value": "ExecutionFailed"
+          },
+          {
+            "value": "ExecutionStarted"
+          },
+          {
+            "value": "ExecutionSucceeded"
+          },
+          {
+            "value": "ExecutionTimedOut"
+          },
+          {
+            "value": "FailStateEntered"
+          },
+          {
+            "value": "LambdaFunctionFailed"
+          },
+          {
+            "value": "LambdaFunctionScheduled"
+          },
+          {
+            "value": "LambdaFunctionScheduleFailed"
+          },
+          {
+            "value": "LambdaFunctionStarted"
+          },
+          {
+            "value": "LambdaFunctionStartFailed"
+          },
+          {
+            "value": "LambdaFunctionSucceeded"
+          },
+          {
+            "value": "LambdaFunctionTimedOut"
+          },
+          {
+            "value": "MapIterationAborted"
+          },
+          {
+            "value": "MapIterationFailed"
+          },
+          {
+            "value": "MapIterationStarted"
+          },
+          {
+            "value": "MapIterationSucceeded"
+          },
+          {
+            "value": "MapStateAborted"
+          },
+          {
+            "value": "MapStateEntered"
+          },
+          {
+            "value": "MapStateExited"
+          },
+          {
+            "value": "MapStateFailed"
+          },
+          {
+            "value": "MapStateStarted"
+          },
+          {
+            "value": "MapStateSucceeded"
+          },
+          {
+            "value": "ParallelStateAborted"
+          },
+          {
+            "value": "ParallelStateEntered"
+          },
+          {
+            "value": "ParallelStateExited"
+          },
+          {
+            "value": "ParallelStateFailed"
+          },
+          {
+            "value": "ParallelStateStarted"
+          },
+          {
+            "value": "ParallelStateSucceeded"
+          },
+          {
+            "value": "PassStateEntered"
+          },
+          {
+            "value": "PassStateExited"
+          },
+          {
+            "value": "SucceedStateEntered"
+          },
+          {
+            "value": "SucceedStateExited"
+          },
+          {
+            "value": "TaskFailed"
+          },
+          {
+            "value": "TaskScheduled"
+          },
+          {
+            "value": "TaskStarted"
+          },
+          {
+            "value": "TaskStartFailed"
+          },
+          {
+            "value": "TaskStateAborted"
+          },
+          {
+            "value": "TaskStateEntered"
+          },
+          {
+            "value": "TaskStateExited"
+          },
+          {
+            "value": "TaskSubmitFailed"
+          },
+          {
+            "value": "TaskSubmitted"
+          },
+          {
+            "value": "TaskSucceeded"
+          },
+          {
+            "value": "TaskTimedOut"
+          },
+          {
+            "value": "WaitStateAborted"
+          },
+          {
+            "value": "WaitStateEntered"
+          },
+          {
+            "value": "WaitStateExited"
+          }
+        ]
       }
     },
-    "com.amazonaws.swf.base.model#Identity": {
+    "com.amazonaws.sfn#Identity": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1500,14 +1615,14 @@
         }
       }
     },
-    "com.amazonaws.swf.base.model#IncludeExecutionData": {
+    "com.amazonaws.sfn#IncludeExecutionData": {
       "type": "boolean"
     },
-    "com.amazonaws.swf.service.v2.model#InvalidArn": {
+    "com.amazonaws.sfn#InvalidArn": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -1515,11 +1630,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#InvalidDefinition": {
+    "com.amazonaws.sfn#InvalidDefinition": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -1527,11 +1642,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#InvalidExecutionInput": {
+    "com.amazonaws.sfn#InvalidExecutionInput": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -1539,11 +1654,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration": {
+    "com.amazonaws.sfn#InvalidLoggingConfiguration": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -1551,11 +1666,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#InvalidName": {
+    "com.amazonaws.sfn#InvalidName": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -1563,11 +1678,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#InvalidOutput": {
+    "com.amazonaws.sfn#InvalidOutput": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -1575,11 +1690,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#InvalidToken": {
+    "com.amazonaws.sfn#InvalidToken": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -1587,17 +1702,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.base.model#LambdaFunctionFailedEventDetails": {
+    "com.amazonaws.sfn#LambdaFunctionFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -1607,17 +1722,17 @@
         "smithy.api#documentation": "<p>Contains details about a lambda function that failed during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#LambdaFunctionScheduleFailedEventDetails": {
+    "com.amazonaws.sfn#LambdaFunctionScheduleFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -1627,26 +1742,26 @@
         "smithy.api#documentation": "<p>Contains details about a failed lambda function schedule event that occurred during an\n      execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#LambdaFunctionScheduledEventDetails": {
+    "com.amazonaws.sfn#LambdaFunctionScheduledEventDetails": {
       "type": "structure",
       "members": {
         "input": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON data input to the lambda function.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the scheduled lambda function.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "timeoutInSeconds": {
-          "target": "com.amazonaws.swf.base.model#TimeoutInSeconds",
+          "target": "com.amazonaws.sfn#TimeoutInSeconds",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum allowed duration of the lambda function.</p>"
           }
         }
@@ -1655,17 +1770,17 @@
         "smithy.api#documentation": "<p>Contains details about a lambda function scheduled during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#LambdaFunctionStartFailedEventDetails": {
+    "com.amazonaws.sfn#LambdaFunctionStartFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -1675,11 +1790,11 @@
         "smithy.api#documentation": "<p>Contains details about a lambda function that failed to start during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#LambdaFunctionSucceededEventDetails": {
+    "com.amazonaws.sfn#LambdaFunctionSucceededEventDetails": {
       "type": "structure",
       "members": {
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON data output by the lambda function.</p>"
           }
@@ -1689,17 +1804,17 @@
         "smithy.api#documentation": "<p>Contains details about a lambda function that successfully terminated during an\n      execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#LambdaFunctionTimedOutEventDetails": {
+    "com.amazonaws.sfn#LambdaFunctionTimedOutEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the timeout.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
@@ -1709,17 +1824,17 @@
         "smithy.api#documentation": "<p>Contains details about a lambda function timeout that occurred during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListActivities": {
+    "com.amazonaws.sfn#ListActivities": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#ListActivitiesInput"
+        "target": "com.amazonaws.sfn#ListActivitiesInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#ListActivitiesOutput"
+        "target": "com.amazonaws.sfn#ListActivitiesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidToken"
+          "target": "com.amazonaws.sfn#InvalidToken"
         }
       ],
       "traits": {
@@ -1732,61 +1847,61 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListActivitiesInput": {
+    "com.amazonaws.sfn#ListActivitiesInput": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.swf.base.model#PageSize",
+          "target": "com.amazonaws.sfn#PageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.\n    The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> \n         <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#PageToken",
+          "target": "com.amazonaws.sfn#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListActivitiesOutput": {
+    "com.amazonaws.sfn#ListActivitiesOutput": {
       "type": "structure",
       "members": {
         "activities": {
-          "target": "com.amazonaws.swf.service.v2.model#ActivityList",
+          "target": "com.amazonaws.sfn#ActivityList",
           "traits": {
             "smithy.api#documentation": "<p>The list of activities.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#PageToken",
+          "target": "com.amazonaws.sfn#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListExecutions": {
+    "com.amazonaws.sfn#ListExecutions": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#ListExecutionsInput"
+        "target": "com.amazonaws.sfn#ListExecutionsInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#ListExecutionsOutput"
+        "target": "com.amazonaws.sfn#ListExecutionsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidToken"
+          "target": "com.amazonaws.sfn#InvalidToken"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist"
+          "target": "com.amazonaws.sfn#StateMachineDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineTypeNotSupported"
+          "target": "com.amazonaws.sfn#StateMachineTypeNotSupported"
         }
       ],
       "traits": {
@@ -1799,55 +1914,55 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListExecutionsInput": {
+    "com.amazonaws.sfn#ListExecutionsInput": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.swf.base.model#PageSize",
+          "target": "com.amazonaws.sfn#PageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.\n    The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> \n         <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#ListExecutionsPageToken",
+          "target": "com.amazonaws.sfn#ListExecutionsPageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "statusFilter": {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionStatus",
+          "target": "com.amazonaws.sfn#ExecutionStatus",
           "traits": {
             "smithy.api#documentation": "<p>If specified, only list the executions whose current execution status matches the given\n      filter.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListExecutionsOutput": {
+    "com.amazonaws.sfn#ListExecutionsOutput": {
       "type": "structure",
       "members": {
         "executions": {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionList",
+          "target": "com.amazonaws.sfn#ExecutionList",
           "traits": {
             "smithy.api#documentation": "<p>The list of matching executions.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#ListExecutionsPageToken",
+          "target": "com.amazonaws.sfn#ListExecutionsPageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListExecutionsPageToken": {
+    "com.amazonaws.sfn#ListExecutionsPageToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1856,17 +1971,17 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListStateMachines": {
+    "com.amazonaws.sfn#ListStateMachines": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#ListStateMachinesInput"
+        "target": "com.amazonaws.sfn#ListStateMachinesInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#ListStateMachinesOutput"
+        "target": "com.amazonaws.sfn#ListStateMachinesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidToken"
+          "target": "com.amazonaws.sfn#InvalidToken"
         }
       ],
       "traits": {
@@ -1879,88 +1994,88 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListStateMachinesInput": {
+    "com.amazonaws.sfn#ListStateMachinesInput": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.swf.base.model#PageSize",
+          "target": "com.amazonaws.sfn#PageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.\n    The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> \n         <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#PageToken",
+          "target": "com.amazonaws.sfn#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListStateMachinesOutput": {
+    "com.amazonaws.sfn#ListStateMachinesOutput": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.swf.service.v2.model#PageToken",
+          "target": "com.amazonaws.sfn#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.\n    Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"
           }
         },
         "stateMachines": {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineList",
+          "target": "com.amazonaws.sfn#StateMachineList",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListTagsForResource": {
+    "com.amazonaws.sfn#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#ListTagsForResourceInput"
+        "target": "com.amazonaws.sfn#ListTagsForResourceInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#ListTagsForResourceOutput"
+        "target": "com.amazonaws.sfn#ListTagsForResourceOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ResourceNotFound"
+          "target": "com.amazonaws.sfn#ResourceNotFound"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>List tags for a given resource.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListTagsForResourceInput": {
+    "com.amazonaws.sfn#ListTagsForResourceInput": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ListTagsForResourceOutput": {
+    "com.amazonaws.sfn#ListTagsForResourceOutput": {
       "type": "structure",
       "members": {
         "tags": {
-          "target": "com.amazonaws.swf.service.v2.model#TagList",
+          "target": "com.amazonaws.sfn#TagList",
           "traits": {
             "smithy.api#documentation": "<p>An array of tags associated with the resource.</p>"
           }
         }
       }
     },
-    "com.amazonaws.swf.base.model#LogDestination": {
+    "com.amazonaws.sfn#LogDestination": {
       "type": "structure",
       "members": {
         "cloudWatchLogsLogGroup": {
-          "target": "com.amazonaws.swf.base.model#CloudWatchLogsLogGroup",
+          "target": "com.amazonaws.sfn#CloudWatchLogsLogGroup",
           "traits": {
             "smithy.api#documentation": "<p>An object describing a CloudWatch log group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html\">AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.</p>"
           }
@@ -1970,40 +2085,48 @@
         "smithy.api#documentation": "<p></p>"
       }
     },
-    "com.amazonaws.swf.base.model#LogDestinationList": {
+    "com.amazonaws.sfn#LogDestinationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.swf.base.model#LogDestination"
+        "target": "com.amazonaws.sfn#LogDestination"
       }
     },
-    "com.amazonaws.swf.base.model#LogLevel": {
+    "com.amazonaws.sfn#LogLevel": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALL": { },
-          "ERROR": { },
-          "FATAL": { },
-          "OFF": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ALL"
+          },
+          {
+            "value": "ERROR"
+          },
+          {
+            "value": "FATAL"
+          },
+          {
+            "value": "OFF"
+          }
+        ]
       }
     },
-    "com.amazonaws.swf.base.model#LoggingConfiguration": {
+    "com.amazonaws.sfn#LoggingConfiguration": {
       "type": "structure",
       "members": {
         "destinations": {
-          "target": "com.amazonaws.swf.base.model#LogDestinationList",
+          "target": "com.amazonaws.sfn#LogDestinationList",
           "traits": {
             "smithy.api#documentation": "<p>An object that describes where your execution history events will be logged. Limited to\n      size 1. Required, if your log level is not set to <code>OFF</code>.</p>"
           }
         },
         "includeExecutionData": {
-          "target": "com.amazonaws.swf.base.model#IncludeExecutionData",
+          "target": "com.amazonaws.sfn#IncludeExecutionData",
           "traits": {
             "smithy.api#documentation": "<p>Determines whether execution history data is included in your log. When set to\n        <code>FALSE</code>, data is excluded.</p>"
           }
         },
         "level": {
-          "target": "com.amazonaws.swf.base.model#LogLevel",
+          "target": "com.amazonaws.sfn#LogLevel",
           "traits": {
             "smithy.api#documentation": "<p>Defines which category of execution history events are logged.</p>"
           }
@@ -2013,17 +2136,17 @@
         "smithy.api#documentation": "<p></p>"
       }
     },
-    "com.amazonaws.swf.base.model#MapIterationEventDetails": {
+    "com.amazonaws.sfn#MapIterationEventDetails": {
       "type": "structure",
       "members": {
         "index": {
-          "target": "com.amazonaws.swf.base.model#UnsignedInteger",
+          "target": "com.amazonaws.sfn#UnsignedInteger",
           "traits": {
             "smithy.api#documentation": "<p>The index of the array belonging to the Map state iteration.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the iteration’s parent Map state.</p>"
           }
@@ -2033,11 +2156,11 @@
         "smithy.api#documentation": "<p>Contains details about an iteration of a Map state.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#MapStateStartedEventDetails": {
+    "com.amazonaws.sfn#MapStateStartedEventDetails": {
       "type": "structure",
       "members": {
         "length": {
-          "target": "com.amazonaws.swf.base.model#UnsignedInteger",
+          "target": "com.amazonaws.sfn#UnsignedInteger",
           "traits": {
             "smithy.api#documentation": "<p>The size of the array for Map state iterations.</p>"
           }
@@ -2047,11 +2170,11 @@
         "smithy.api#documentation": "<p>Details about a Map state that was started.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#MissingRequiredParameter": {
+    "com.amazonaws.sfn#MissingRequiredParameter": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -2059,7 +2182,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.base.model#Name": {
+    "com.amazonaws.sfn#Name": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2068,7 +2191,7 @@
         }
       }
     },
-    "com.amazonaws.swf.base.model#PageSize": {
+    "com.amazonaws.sfn#PageSize": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -2077,7 +2200,7 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#PageToken": {
+    "com.amazonaws.sfn#PageToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2086,14 +2209,14 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#ResourceNotFound": {
+    "com.amazonaws.sfn#ResourceNotFound": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         },
         "resourceName": {
-          "target": "com.amazonaws.swf.base.model#Arn"
+          "target": "com.amazonaws.sfn#Arn"
         }
       },
       "traits": {
@@ -2102,281 +2225,281 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.swf.service.v2.model#ReverseOrder": {
+    "com.amazonaws.sfn#ReverseOrder": {
       "type": "boolean"
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskFailure": {
+    "com.amazonaws.sfn#SendTaskFailure": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#SendTaskFailureInput"
+        "target": "com.amazonaws.sfn#SendTaskFailureInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#SendTaskFailureOutput"
+        "target": "com.amazonaws.sfn#SendTaskFailureOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidToken"
+          "target": "com.amazonaws.sfn#InvalidToken"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TaskDoesNotExist"
+          "target": "com.amazonaws.sfn#TaskDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TaskTimedOut"
+          "target": "com.amazonaws.sfn#TaskTimedOut"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Used by activity workers and task states using the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token\">callback</a> pattern\n      to report that the task identified by the <code>taskToken</code> failed.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskFailureInput": {
+    "com.amazonaws.sfn#SendTaskFailureInput": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
         },
         "taskToken": {
-          "target": "com.amazonaws.swf.service.v2.model#TaskToken",
+          "target": "com.amazonaws.sfn#TaskToken",
           "traits": {
             "smithy.api#documentation": "<p>The token that represents this task. Task tokens are generated by Step Functions when\n      tasks are assigned to a worker, or in the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html\">context object</a> when a\n      workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskFailureOutput": {
+    "com.amazonaws.sfn#SendTaskFailureOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskHeartbeat": {
+    "com.amazonaws.sfn#SendTaskHeartbeat": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#SendTaskHeartbeatInput"
+        "target": "com.amazonaws.sfn#SendTaskHeartbeatInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#SendTaskHeartbeatOutput"
+        "target": "com.amazonaws.sfn#SendTaskHeartbeatOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidToken"
+          "target": "com.amazonaws.sfn#InvalidToken"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TaskDoesNotExist"
+          "target": "com.amazonaws.sfn#TaskDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TaskTimedOut"
+          "target": "com.amazonaws.sfn#TaskTimedOut"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Used by activity workers and task states using the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token\">callback</a> pattern to report to Step Functions that\n      the task represented by the specified <code>taskToken</code> is still making progress. This\n      action resets the <code>Heartbeat</code> clock. The <code>Heartbeat</code> threshold is\n      specified in the state machine's Amazon States Language definition (<code>HeartbeatSeconds</code>). This action\n      does not in itself create an event in the execution history. However, if the task times out,\n      the execution history contains an <code>ActivityTimedOut</code> entry for activities, or a\n        <code>TaskTimedOut</code> entry for for tasks using the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync\">job run</a> or\n        <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token\">callback</a>\n      pattern.</p>\n         <note>\n            <p>The <code>Timeout</code> of a task, defined in the state machine's Amazon States Language definition, is\n        its maximum allowed duration, regardless of the number of <a>SendTaskHeartbeat</a> requests received. Use <code>HeartbeatSeconds</code> to configure the timeout interval\n        for heartbeats.</p>\n         </note>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskHeartbeatInput": {
+    "com.amazonaws.sfn#SendTaskHeartbeatInput": {
       "type": "structure",
       "members": {
         "taskToken": {
-          "target": "com.amazonaws.swf.service.v2.model#TaskToken",
+          "target": "com.amazonaws.sfn#TaskToken",
           "traits": {
             "smithy.api#documentation": "<p>The token that represents this task. Task tokens are generated by Step Functions when\n      tasks are assigned to a worker, or in the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html\">context object</a> when a\n      workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskHeartbeatOutput": {
+    "com.amazonaws.sfn#SendTaskHeartbeatOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskSuccess": {
+    "com.amazonaws.sfn#SendTaskSuccess": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#SendTaskSuccessInput"
+        "target": "com.amazonaws.sfn#SendTaskSuccessInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#SendTaskSuccessOutput"
+        "target": "com.amazonaws.sfn#SendTaskSuccessOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidOutput"
+          "target": "com.amazonaws.sfn#InvalidOutput"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidToken"
+          "target": "com.amazonaws.sfn#InvalidToken"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TaskDoesNotExist"
+          "target": "com.amazonaws.sfn#TaskDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TaskTimedOut"
+          "target": "com.amazonaws.sfn#TaskTimedOut"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Used by activity workers and task states using the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token\">callback</a>\n      pattern to report that the task identified by the <code>taskToken</code> completed\n      successfully.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskSuccessInput": {
+    "com.amazonaws.sfn#SendTaskSuccessInput": {
       "type": "structure",
       "members": {
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON output of the task.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "taskToken": {
-          "target": "com.amazonaws.swf.service.v2.model#TaskToken",
+          "target": "com.amazonaws.sfn#TaskToken",
           "traits": {
             "smithy.api#documentation": "<p>The token that represents this task. Task tokens are generated by Step Functions when\n      tasks are assigned to a worker, or in the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html\">context object</a> when a\n      workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#SendTaskSuccessOutput": {
+    "com.amazonaws.sfn#SendTaskSuccessOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.swf.base.model#SensitiveCause": {
+    "com.amazonaws.sfn#SensitiveCause": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 32768
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.swf.base.model#SensitiveData": {
+    "com.amazonaws.sfn#SensitiveData": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 32768
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.swf.base.model#SensitiveDataJobInput": {
+    "com.amazonaws.sfn#SensitiveDataJobInput": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 65536
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.swf.base.model#SensitiveError": {
+    "com.amazonaws.sfn#SensitiveError": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 256
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.swf.service.v2.model#StartExecution": {
+    "com.amazonaws.sfn#StartExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#StartExecutionInput"
+        "target": "com.amazonaws.sfn#StartExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#StartExecutionOutput"
+        "target": "com.amazonaws.sfn#StartExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionAlreadyExists"
+          "target": "com.amazonaws.sfn#ExecutionAlreadyExists"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionLimitExceeded"
+          "target": "com.amazonaws.sfn#ExecutionLimitExceeded"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidExecutionInput"
+          "target": "com.amazonaws.sfn#InvalidExecutionInput"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidName"
+          "target": "com.amazonaws.sfn#InvalidName"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineDeleting"
+          "target": "com.amazonaws.sfn#StateMachineDeleting"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist"
+          "target": "com.amazonaws.sfn#StateMachineDoesNotExist"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Starts a state machine execution.</p>\n         <note>\n            <p>\n               <code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called with\n        the same name and input as a running execution, the call will succeed and return the same\n        response as the original request. If the execution is closed or if the input is different,\n        it will return a 400 <code>ExecutionAlreadyExists</code> error. Names can be reused after 90\n        days. </p>\n         </note>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.swf.service.v2.model#StartExecutionInput": {
+    "com.amazonaws.sfn#StartExecutionInput": {
       "type": "structure",
       "members": {
         "input": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The string that contains the JSON input data for the execution, for example:</p>\n         <p>\n            <code>\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"</code>\n         </p>\n         <note>\n            <p>If you don't include any JSON input data, you still must include the two braces, for\n        example: <code>\"input\": \"{}\"</code>\n            </p>\n         </note>"
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the execution. This name must be unique for your AWS account, region, and state machine for 90 days. For more information, \n    see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\">\n    Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>"
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine to execute.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#StartExecutionOutput": {
+    "com.amazonaws.sfn#StartExecutionOutput": {
       "type": "structure",
       "members": {
         "executionArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the execution.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "startDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the execution is started.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.base.model#StateEnteredEventDetails": {
+    "com.amazonaws.sfn#StateEnteredEventDetails": {
       "type": "structure",
       "members": {
         "input": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The string that contains the JSON input data for the state.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2384,18 +2507,18 @@
         "smithy.api#documentation": "<p>Contains details about a state entered during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#StateExitedEventDetails": {
+    "com.amazonaws.sfn#StateExitedEventDetails": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state.</p>\n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The JSON output data of the state.</p>"
           }
@@ -2405,11 +2528,11 @@
         "smithy.api#documentation": "<p>Contains details about an exit from a state during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineAlreadyExists": {
+    "com.amazonaws.sfn#StateMachineAlreadyExists": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -2417,11 +2540,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineDeleting": {
+    "com.amazonaws.sfn#StateMachineDeleting": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -2429,11 +2552,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist": {
+    "com.amazonaws.sfn#StateMachineDoesNotExist": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -2441,11 +2564,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineLimitExceeded": {
+    "com.amazonaws.sfn#StateMachineLimitExceeded": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -2453,41 +2576,41 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineList": {
+    "com.amazonaws.sfn#StateMachineList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.swf.service.v2.model#StateMachineListItem"
+        "target": "com.amazonaws.sfn#StateMachineListItem"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineListItem": {
+    "com.amazonaws.sfn#StateMachineListItem": {
       "type": "structure",
       "members": {
         "creationDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the state machine is created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state machine.</p> \n         <p>A name must <i>not</i> contain:</p>\n         <ul>\n            <li>\n               <p>white space</p>\n            </li>\n            <li>\n               <p>brackets <code>< > { } [ ]</code>\n               </p>\n            </li>\n            <li>\n               <p>wildcard characters <code>? *</code>\n               </p>\n            </li>\n            <li>\n               <p>special characters <code>\" # % \\ ^ | ~ ` $ & , ; : /</code>\n               </p>\n            </li>\n            <li>\n               <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the state machine.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "type": {
-          "target": "com.amazonaws.swf.base.model#StateMachineType",
+          "target": "com.amazonaws.sfn#StateMachineType",
           "traits": {
             "smithy.api#documentation": "<p></p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2495,29 +2618,37 @@
         "smithy.api#documentation": "<p>Contains details about the state machine.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineStatus": {
+    "com.amazonaws.sfn#StateMachineStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ACTIVE": { },
-          "DELETING": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ACTIVE"
+          },
+          {
+            "value": "DELETING"
+          }
+        ]
       }
     },
-    "com.amazonaws.swf.base.model#StateMachineType": {
+    "com.amazonaws.sfn#StateMachineType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STANDARD": { },
-          "EXPRESS": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD"
+          },
+          {
+            "value": "EXPRESS"
+          }
+        ]
       }
     },
-    "com.amazonaws.swf.service.v2.model#StateMachineTypeNotSupported": {
+    "com.amazonaws.sfn#StateMachineTypeNotSupported": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
@@ -2525,73 +2656,73 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StopExecution": {
+    "com.amazonaws.sfn#StopExecution": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#StopExecutionInput"
+        "target": "com.amazonaws.sfn#StopExecutionInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#StopExecutionOutput"
+        "target": "com.amazonaws.sfn#StopExecutionOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist"
+          "target": "com.amazonaws.sfn#ExecutionDoesNotExist"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Stops an execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#StopExecutionInput": {
+    "com.amazonaws.sfn#StopExecutionInput": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
         },
         "executionArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the execution to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#StopExecutionOutput": {
+    "com.amazonaws.sfn#StopExecutionOutput": {
       "type": "structure",
       "members": {
         "stopDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date the execution is stopped.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#Tag": {
+    "com.amazonaws.sfn#Tag": {
       "type": "structure",
       "members": {
         "key": {
-          "target": "com.amazonaws.swf.service.v2.model#TagKey",
+          "target": "com.amazonaws.sfn#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The key of a tag.</p>"
           }
         },
         "value": {
-          "target": "com.amazonaws.swf.service.v2.model#TagValue",
+          "target": "com.amazonaws.sfn#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of a tag.</p>"
           }
@@ -2601,7 +2732,7 @@
         "smithy.api#documentation": "<p>Tags are key-value pairs that can be associated with Step Functions state machines and\n      activities.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#TagKey": {
+    "com.amazonaws.sfn#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2610,65 +2741,65 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#TagKeyList": {
+    "com.amazonaws.sfn#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.swf.service.v2.model#TagKey"
+        "target": "com.amazonaws.sfn#TagKey"
       }
     },
-    "com.amazonaws.swf.service.v2.model#TagList": {
+    "com.amazonaws.sfn#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.swf.service.v2.model#Tag"
+        "target": "com.amazonaws.sfn#Tag"
       }
     },
-    "com.amazonaws.swf.service.v2.model#TagResource": {
+    "com.amazonaws.sfn#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#TagResourceInput"
+        "target": "com.amazonaws.sfn#TagResourceInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#TagResourceOutput"
+        "target": "com.amazonaws.sfn#TagResourceOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ResourceNotFound"
+          "target": "com.amazonaws.sfn#ResourceNotFound"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#TooManyTags"
+          "target": "com.amazonaws.sfn#TooManyTags"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Add a tag to a Step Functions resource.</p> \n         <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using\n      Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User\n        Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM\n          Tags</a>.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#TagResourceInput": {
+    "com.amazonaws.sfn#TagResourceInput": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.swf.service.v2.model#TagList",
+          "target": "com.amazonaws.sfn#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tags to add to a resource.</p> \n         <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#TagResourceOutput": {
+    "com.amazonaws.sfn#TagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.swf.service.v2.model#TagValue": {
+    "com.amazonaws.sfn#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2677,44 +2808,44 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#TaskDoesNotExist": {
+    "com.amazonaws.sfn#TaskDoesNotExist": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.base.model#TaskFailedEventDetails": {
+    "com.amazonaws.sfn#TaskFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2722,41 +2853,41 @@
         "smithy.api#documentation": "<p>Contains details about a task failure event.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#TaskScheduledEventDetails": {
+    "com.amazonaws.sfn#TaskScheduledEventDetails": {
       "type": "structure",
       "members": {
         "parameters": {
-          "target": "com.amazonaws.swf.base.model#ConnectorParameters",
+          "target": "com.amazonaws.sfn#ConnectorParameters",
           "traits": {
             "smithy.api#documentation": "<p>The JSON data passed to the resource referenced in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "region": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The region of the scheduled task</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "timeoutInSeconds": {
-          "target": "com.amazonaws.swf.base.model#TimeoutInSeconds",
+          "target": "com.amazonaws.sfn#TimeoutInSeconds",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum allowed duration of the task.</p>"
           }
         }
@@ -2765,33 +2896,33 @@
         "smithy.api#documentation": "<p>Contains details about a task scheduled during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#TaskStartFailedEventDetails": {
+    "com.amazonaws.sfn#TaskStartFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2799,21 +2930,21 @@
         "smithy.api#documentation": "<p>Contains details about a task that failed to start during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#TaskStartedEventDetails": {
+    "com.amazonaws.sfn#TaskStartedEventDetails": {
       "type": "structure",
       "members": {
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2821,33 +2952,33 @@
         "smithy.api#documentation": "<p>Contains details about the start of a task during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#TaskSubmitFailedEventDetails": {
+    "com.amazonaws.sfn#TaskSubmitFailedEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2855,27 +2986,27 @@
         "smithy.api#documentation": "<p>Contains details about a task that failed to submit during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.base.model#TaskSubmittedEventDetails": {
+    "com.amazonaws.sfn#TaskSubmittedEventDetails": {
       "type": "structure",
       "members": {
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The response from a resource when a task has started.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2883,27 +3014,27 @@
         "smithy.api#documentation": "<p>Contains details about a task submitted to a resource .</p>"
       }
     },
-    "com.amazonaws.swf.base.model#TaskSucceededEventDetails": {
+    "com.amazonaws.sfn#TaskSucceededEventDetails": {
       "type": "structure",
       "members": {
         "output": {
-          "target": "com.amazonaws.swf.base.model#SensitiveData",
+          "target": "com.amazonaws.sfn#SensitiveData",
           "traits": {
             "smithy.api#documentation": "<p>The full JSON response from a resource when a task has succeeded. This response becomes\n      the output of the related task.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2911,44 +3042,44 @@
         "smithy.api#documentation": "<p>Contains details about the successful completion of a task state.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#TaskTimedOut": {
+    "com.amazonaws.sfn#TaskTimedOut": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         }
       },
       "traits": {
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.swf.base.model#TaskTimedOutEventDetails": {
+    "com.amazonaws.sfn#TaskTimedOutEventDetails": {
       "type": "structure",
       "members": {
         "cause": {
-          "target": "com.amazonaws.swf.base.model#SensitiveCause",
+          "target": "com.amazonaws.sfn#SensitiveCause",
           "traits": {
             "smithy.api#documentation": "<p>A more detailed explanation of the cause of the failure.</p>"
           }
         },
         "error": {
-          "target": "com.amazonaws.swf.base.model#SensitiveError",
+          "target": "com.amazonaws.sfn#SensitiveError",
           "traits": {
             "smithy.api#documentation": "<p>The error code of the failure.</p>"
           }
         },
         "resource": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The service name of the resource in a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.swf.base.model#Name",
+          "target": "com.amazonaws.sfn#Name",
           "traits": {
             "smithy.api#documentation": "<p>The action of the resource called by a task state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2956,7 +3087,7 @@
         "smithy.api#documentation": "<p>Contains details about a resource timeout that occurred during an execution.</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#TaskToken": {
+    "com.amazonaws.sfn#TaskToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2965,20 +3096,20 @@
         }
       }
     },
-    "com.amazonaws.swf.base.model#TimeoutInSeconds": {
+    "com.amazonaws.sfn#TimeoutInSeconds": {
       "type": "long"
     },
-    "com.amazonaws.swf.base.model#Timestamp": {
+    "com.amazonaws.sfn#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.swf.service.v2.model#TooManyTags": {
+    "com.amazonaws.sfn#TooManyTags": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.swf.service.v2.model#ErrorMessage"
+          "target": "com.amazonaws.sfn#ErrorMessage"
         },
         "resourceName": {
-          "target": "com.amazonaws.swf.base.model#Arn"
+          "target": "com.amazonaws.sfn#Arn"
         }
       },
       "traits": {
@@ -2987,7 +3118,7 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.swf.base.model#UnsignedInteger": {
+    "com.amazonaws.sfn#UnsignedInteger": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -2995,120 +3126,120 @@
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#UntagResource": {
+    "com.amazonaws.sfn#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#UntagResourceInput"
+        "target": "com.amazonaws.sfn#UntagResourceInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#UntagResourceOutput"
+        "target": "com.amazonaws.sfn#UntagResourceOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#ResourceNotFound"
+          "target": "com.amazonaws.sfn#ResourceNotFound"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Remove a tag from a Step Functions resource</p>"
       }
     },
-    "com.amazonaws.swf.service.v2.model#UntagResourceInput": {
+    "com.amazonaws.sfn#UntagResourceInput": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
-          "target": "com.amazonaws.swf.service.v2.model#TagKeyList",
+          "target": "com.amazonaws.sfn#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tags to remove from the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#UntagResourceOutput": {
+    "com.amazonaws.sfn#UntagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.swf.service.v2.model#UpdateStateMachine": {
+    "com.amazonaws.sfn#UpdateStateMachine": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.swf.service.v2.model#UpdateStateMachineInput"
+        "target": "com.amazonaws.sfn#UpdateStateMachineInput"
       },
       "output": {
-        "target": "com.amazonaws.swf.service.v2.model#UpdateStateMachineOutput"
+        "target": "com.amazonaws.sfn#UpdateStateMachineOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidArn"
+          "target": "com.amazonaws.sfn#InvalidArn"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidDefinition"
+          "target": "com.amazonaws.sfn#InvalidDefinition"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration"
+          "target": "com.amazonaws.sfn#InvalidLoggingConfiguration"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#MissingRequiredParameter"
+          "target": "com.amazonaws.sfn#MissingRequiredParameter"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineDeleting"
+          "target": "com.amazonaws.sfn#StateMachineDeleting"
         },
         {
-          "target": "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist"
+          "target": "com.amazonaws.sfn#StateMachineDoesNotExist"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates an existing state machine by modifying its <code>definition</code> and/or\n        <code>roleArn</code>. Running executions will continue to use the previous\n        <code>definition</code> and <code>roleArn</code>. You must include at least one of\n        <code>definition</code> or <code>roleArn</code> or you will receive a\n        <code>MissingRequiredParameter</code> error.</p>\n         <note>\n            <p>All <code>StartExecution</code> calls within a few seconds will use the updated\n          <code>definition</code> and <code>roleArn</code>. Executions started immediately after\n        calling <code>UpdateStateMachine</code> may use the previous state machine\n          <code>definition</code> and <code>roleArn</code>. </p>\n         </note>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.swf.service.v2.model#UpdateStateMachineInput": {
+    "com.amazonaws.sfn#UpdateStateMachineInput": {
       "type": "structure",
       "members": {
         "definition": {
-          "target": "com.amazonaws.swf.service.v2.model#Definition",
+          "target": "com.amazonaws.sfn#Definition",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon States Language definition of the state machine. See <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States Language</a>.</p>"
           }
         },
         "loggingConfiguration": {
-          "target": "com.amazonaws.swf.base.model#LoggingConfiguration",
+          "target": "com.amazonaws.sfn#LoggingConfiguration",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role of the state machine.</p>"
           }
         },
         "stateMachineArn": {
-          "target": "com.amazonaws.swf.base.model#Arn",
+          "target": "com.amazonaws.sfn#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the state machine.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.swf.service.v2.model#UpdateStateMachineOutput": {
+    "com.amazonaws.sfn#UpdateStateMachineOutput": {
       "type": "structure",
       "members": {
         "updateDate": {
-          "target": "com.amazonaws.swf.base.model#Timestamp",
+          "target": "com.amazonaws.sfn#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time the state machine was updated.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }

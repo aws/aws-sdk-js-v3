@@ -1,36 +1,35 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.envoy.frontend#AmazonResourceName": {
+    "com.amazonaws.iotsecuretunneling#AmazonResourceName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -39,23 +38,23 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#ClientAccessToken": {
+    "com.amazonaws.iotsecuretunneling#ClientAccessToken": {
       "type": "string",
       "traits": {
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.envoy.frontend#CloseTunnel": {
+    "com.amazonaws.iotsecuretunneling#CloseTunnel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.envoy.frontend#CloseTunnelRequest"
+        "target": "com.amazonaws.iotsecuretunneling#CloseTunnelRequest"
       },
       "output": {
-        "target": "com.amazonaws.envoy.frontend#CloseTunnelResponse"
+        "target": "com.amazonaws.iotsecuretunneling#CloseTunnelResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.envoy.frontend#ResourceNotFoundException"
+          "target": "com.amazonaws.iotsecuretunneling#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -67,42 +66,42 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#CloseTunnelRequest": {
+    "com.amazonaws.iotsecuretunneling#CloseTunnelRequest": {
       "type": "structure",
       "members": {
         "delete": {
-          "target": "com.amazonaws.envoy.frontend#DeleteFlag",
+          "target": "com.amazonaws.iotsecuretunneling#DeleteFlag",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>When set to true, AWS IoT Secure Tunneling deletes the tunnel data\n\t\t\timmediately.</p>",
             "smithy.api#httpQuery": "delete"
           }
         },
         "tunnelId": {
-          "target": "com.amazonaws.envoy.frontend#TunnelId",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the tunnel to close.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#CloseTunnelResponse": {
+    "com.amazonaws.iotsecuretunneling#CloseTunnelResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.envoy.frontend#ConnectionState": {
+    "com.amazonaws.iotsecuretunneling#ConnectionState": {
       "type": "structure",
       "members": {
         "lastUpdatedAt": {
-          "target": "com.amazonaws.envoy.frontend#DateType",
+          "target": "com.amazonaws.iotsecuretunneling#DateType",
           "traits": {
             "smithy.api#documentation": "<p>The last time the connection status was updated.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.envoy.frontend#ConnectionStatus",
+          "target": "com.amazonaws.iotsecuretunneling#ConnectionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and\n\t\t\t\t<code>DISCONNECTED</code>.</p>"
           }
@@ -112,36 +111,38 @@
         "smithy.api#documentation": "<p>The state of a connection.</p>"
       }
     },
-    "com.amazonaws.envoy.frontend#ConnectionStatus": {
+    "com.amazonaws.iotsecuretunneling#ConnectionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CONNECTED": {
+        "smithy.api#enum": [
+          {
+            "value": "CONNECTED",
             "name": "CONNECTED"
           },
-          "DISCONNECTED": {
+          {
+            "value": "DISCONNECTED",
             "name": "DISCONNECTED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.envoy.frontend#DateType": {
+    "com.amazonaws.iotsecuretunneling#DateType": {
       "type": "timestamp"
     },
-    "com.amazonaws.envoy.frontend#DeleteFlag": {
+    "com.amazonaws.iotsecuretunneling#DeleteFlag": {
       "type": "boolean"
     },
-    "com.amazonaws.envoy.frontend#DescribeTunnel": {
+    "com.amazonaws.iotsecuretunneling#DescribeTunnel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.envoy.frontend#DescribeTunnelRequest"
+        "target": "com.amazonaws.iotsecuretunneling#DescribeTunnelRequest"
       },
       "output": {
-        "target": "com.amazonaws.envoy.frontend#DescribeTunnelResponse"
+        "target": "com.amazonaws.iotsecuretunneling#DescribeTunnelResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.envoy.frontend#ResourceNotFoundException"
+          "target": "com.amazonaws.iotsecuretunneling#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -153,51 +154,51 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#DescribeTunnelRequest": {
+    "com.amazonaws.iotsecuretunneling#DescribeTunnelRequest": {
       "type": "structure",
       "members": {
         "tunnelId": {
-          "target": "com.amazonaws.envoy.frontend#TunnelId",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelId",
           "traits": {
             "smithy.api#documentation": "<p>The tunnel to describe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#DescribeTunnelResponse": {
+    "com.amazonaws.iotsecuretunneling#DescribeTunnelResponse": {
       "type": "structure",
       "members": {
         "tunnel": {
-          "target": "com.amazonaws.envoy.frontend#Tunnel",
+          "target": "com.amazonaws.iotsecuretunneling#Tunnel",
           "traits": {
             "smithy.api#documentation": "<p>The tunnel being described.</p>"
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#Description": {
+    "com.amazonaws.iotsecuretunneling#Description": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "[^\\p{C}]{1,2048}"
       }
     },
-    "com.amazonaws.envoy.frontend#DestinationConfig": {
+    "com.amazonaws.iotsecuretunneling#DestinationConfig": {
       "type": "structure",
       "members": {
         "services": {
-          "target": "com.amazonaws.envoy.frontend#ServiceList",
+          "target": "com.amazonaws.iotsecuretunneling#ServiceList",
           "traits": {
             "smithy.api#documentation": "<p>A list of service names that identity the target application. Currently, you can\n\t\t\tonly specify a single name. The AWS IoT client running on the destination device reads\n\t\t\tthis value and uses it to look up a port or an IP address and a port. The AWS IoT client\n\t\t\tinstantiates the local proxy which uses this information to connect to the destination\n\t\t\tapplication.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "thingName": {
-          "target": "com.amazonaws.envoy.frontend#ThingName",
+          "target": "com.amazonaws.iotsecuretunneling#ThingName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the IoT thing to which you want to connect.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -205,33 +206,33 @@
         "smithy.api#documentation": "<p>The destination configuration.</p>"
       }
     },
-    "com.amazonaws.envoy.frontend#ErrorMessage": {
+    "com.amazonaws.iotsecuretunneling#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.envoy.frontend#IoTSecuredTunneling": {
+    "com.amazonaws.iotsecuretunneling#IoTSecuredTunneling": {
       "type": "service",
       "version": "2018-10-05",
       "operations": [
         {
-          "target": "com.amazonaws.envoy.frontend#CloseTunnel"
+          "target": "com.amazonaws.iotsecuretunneling#CloseTunnel"
         },
         {
-          "target": "com.amazonaws.envoy.frontend#DescribeTunnel"
+          "target": "com.amazonaws.iotsecuretunneling#DescribeTunnel"
         },
         {
-          "target": "com.amazonaws.envoy.frontend#ListTagsForResource"
+          "target": "com.amazonaws.iotsecuretunneling#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.envoy.frontend#ListTunnels"
+          "target": "com.amazonaws.iotsecuretunneling#ListTunnels"
         },
         {
-          "target": "com.amazonaws.envoy.frontend#OpenTunnel"
+          "target": "com.amazonaws.iotsecuretunneling#OpenTunnel"
         },
         {
-          "target": "com.amazonaws.envoy.frontend#TagResource"
+          "target": "com.amazonaws.iotsecuretunneling#TagResource"
         },
         {
-          "target": "com.amazonaws.envoy.frontend#UntagResource"
+          "target": "com.amazonaws.iotsecuretunneling#UntagResource"
         }
       ],
       "traits": {
@@ -241,23 +242,19 @@
           "cloudFormationName": "IoTSecureTunneling",
           "cloudTrailEventSource": "frontend.envoy.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "iotsecuredtunneling"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AWS IoT Secure Tunneling</fullname>\n\t\t       <p>AWS IoT Secure Tunnling enables you to create remote connections to devices\n\t\t\tdeployed in the field.</p>\n\t\t       <p>For more information about how AWS IoT Secure Tunneling works, see the <a href=\"https://docs.aws.amazon.com/secure-tunneling/latest/ug/what-is-secure-tunneling.html\">User\n\t\t\tGuide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS IoT Secure Tunneling"
       }
     },
-    "com.amazonaws.envoy.frontend#LimitExceededException": {
+    "com.amazonaws.iotsecuretunneling#LimitExceededException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.envoy.frontend#ErrorMessage"
+          "target": "com.amazonaws.iotsecuretunneling#ErrorMessage"
         }
       },
       "traits": {
@@ -266,17 +263,17 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.envoy.frontend#ListTagsForResource": {
+    "com.amazonaws.iotsecuretunneling#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.envoy.frontend#ListTagsForResourceRequest"
+        "target": "com.amazonaws.iotsecuretunneling#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.envoy.frontend#ListTagsForResourceResponse"
+        "target": "com.amazonaws.iotsecuretunneling#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.envoy.frontend#ResourceNotFoundException"
+          "target": "com.amazonaws.iotsecuretunneling#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -288,37 +285,37 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#ListTagsForResourceRequest": {
+    "com.amazonaws.iotsecuretunneling#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.envoy.frontend#AmazonResourceName",
+          "target": "com.amazonaws.iotsecuretunneling#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The resource ARN.</p>",
             "smithy.api#httpQuery": "resourceArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#ListTagsForResourceResponse": {
+    "com.amazonaws.iotsecuretunneling#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "tags": {
-          "target": "com.amazonaws.envoy.frontend#TagList",
+          "target": "com.amazonaws.iotsecuretunneling#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the specified resource.</p>"
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#ListTunnels": {
+    "com.amazonaws.iotsecuretunneling#ListTunnels": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.envoy.frontend#ListTunnelsRequest"
+        "target": "com.amazonaws.iotsecuretunneling#ListTunnelsRequest"
       },
       "output": {
-        "target": "com.amazonaws.envoy.frontend#ListTunnelsResponse"
+        "target": "com.amazonaws.iotsecuretunneling#ListTunnelsResponse"
       },
       "traits": {
         "smithy.api#documentation": "<p>List all tunnels for an AWS account. Tunnels are listed by creation time in\n\t\t\tdescending order, newer tunnels will be listed before older tunnels.</p>",
@@ -334,26 +331,26 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#ListTunnelsRequest": {
+    "com.amazonaws.iotsecuretunneling#ListTunnelsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.envoy.frontend#MaxResults",
+          "target": "com.amazonaws.iotsecuretunneling#MaxResults",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum number of results to return at once.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.envoy.frontend#NextToken",
+          "target": "com.amazonaws.iotsecuretunneling#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token to retrieve the next set of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "thingName": {
-          "target": "com.amazonaws.envoy.frontend#ThingName",
+          "target": "com.amazonaws.iotsecuretunneling#ThingName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the IoT thing associated with the destination device.</p>",
             "smithy.api#httpQuery": "thingName"
@@ -361,24 +358,24 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#ListTunnelsResponse": {
+    "com.amazonaws.iotsecuretunneling#ListTunnelsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.envoy.frontend#NextToken",
+          "target": "com.amazonaws.iotsecuretunneling#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token to used to retrieve the next set of results.</p>"
           }
         },
         "tunnelSummaries": {
-          "target": "com.amazonaws.envoy.frontend#TunnelSummaryList",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>A short description of the tunnels in an AWS account.</p>"
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#MaxResults": {
+    "com.amazonaws.iotsecuretunneling#MaxResults": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -387,23 +384,23 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#NextToken": {
+    "com.amazonaws.iotsecuretunneling#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "[a-zA-Z0-9_=-]{1,4096}"
       }
     },
-    "com.amazonaws.envoy.frontend#OpenTunnel": {
+    "com.amazonaws.iotsecuretunneling#OpenTunnel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.envoy.frontend#OpenTunnelRequest"
+        "target": "com.amazonaws.iotsecuretunneling#OpenTunnelRequest"
       },
       "output": {
-        "target": "com.amazonaws.envoy.frontend#OpenTunnelResponse"
+        "target": "com.amazonaws.iotsecuretunneling#OpenTunnelResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.envoy.frontend#LimitExceededException"
+          "target": "com.amazonaws.iotsecuretunneling#LimitExceededException"
         }
       ],
       "traits": {
@@ -415,69 +412,69 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#OpenTunnelRequest": {
+    "com.amazonaws.iotsecuretunneling#OpenTunnelRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.envoy.frontend#Description",
+          "target": "com.amazonaws.iotsecuretunneling#Description",
           "traits": {
             "smithy.api#documentation": "<p>A short text description of the tunnel. </p>"
           }
         },
         "destinationConfig": {
-          "target": "com.amazonaws.envoy.frontend#DestinationConfig",
+          "target": "com.amazonaws.iotsecuretunneling#DestinationConfig",
           "traits": {
             "smithy.api#documentation": "<p>The destination configuration for the OpenTunnel request.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.envoy.frontend#TagList",
+          "target": "com.amazonaws.iotsecuretunneling#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A collection of tag metadata.</p>"
           }
         },
         "timeoutConfig": {
-          "target": "com.amazonaws.envoy.frontend#TimeoutConfig",
+          "target": "com.amazonaws.iotsecuretunneling#TimeoutConfig",
           "traits": {
             "smithy.api#documentation": "<p>Timeout configuration for a tunnel.</p>"
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#OpenTunnelResponse": {
+    "com.amazonaws.iotsecuretunneling#OpenTunnelResponse": {
       "type": "structure",
       "members": {
         "destinationAccessToken": {
-          "target": "com.amazonaws.envoy.frontend#ClientAccessToken",
+          "target": "com.amazonaws.iotsecuretunneling#ClientAccessToken",
           "traits": {
             "smithy.api#documentation": "<p>The access token the destination local proxy uses to connect to AWS IoT Secure\n\t\t\tTunneling.</p>"
           }
         },
         "sourceAccessToken": {
-          "target": "com.amazonaws.envoy.frontend#ClientAccessToken",
+          "target": "com.amazonaws.iotsecuretunneling#ClientAccessToken",
           "traits": {
             "smithy.api#documentation": "<p>The access token the source local proxy uses to connect to AWS IoT Secure\n\t\t\tTunneling.</p>"
           }
         },
         "tunnelArn": {
-          "target": "com.amazonaws.envoy.frontend#TunnelArn",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name for the tunnel. The tunnel ARN format is\n\t\t\t\t<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>\n         </p>"
           }
         },
         "tunnelId": {
-          "target": "com.amazonaws.envoy.frontend#TunnelId",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelId",
           "traits": {
             "smithy.api#documentation": "<p>A unique alpha-numeric tunnel ID.</p>"
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#ResourceNotFoundException": {
+    "com.amazonaws.iotsecuretunneling#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.envoy.frontend#ErrorMessage"
+          "target": "com.amazonaws.iotsecuretunneling#ErrorMessage"
         }
       },
       "traits": {
@@ -486,7 +483,7 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.envoy.frontend#Service": {
+    "com.amazonaws.iotsecuretunneling#Service": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -496,10 +493,10 @@
         "smithy.api#pattern": "[a-zA-Z0-9:_-]+"
       }
     },
-    "com.amazonaws.envoy.frontend#ServiceList": {
+    "com.amazonaws.iotsecuretunneling#ServiceList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.envoy.frontend#Service"
+        "target": "com.amazonaws.iotsecuretunneling#Service"
       },
       "traits": {
         "smithy.api#length": {
@@ -508,21 +505,21 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#Tag": {
+    "com.amazonaws.iotsecuretunneling#Tag": {
       "type": "structure",
       "members": {
         "key": {
-          "target": "com.amazonaws.envoy.frontend#TagKey",
+          "target": "com.amazonaws.iotsecuretunneling#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The key of the tag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "value": {
-          "target": "com.amazonaws.envoy.frontend#TagValue",
+          "target": "com.amazonaws.iotsecuretunneling#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the tag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -530,7 +527,7 @@
         "smithy.api#documentation": "<p>An arbitary key/value pair used to add searchable metadata to secure tunnel\n\t\t\tresources.</p>"
       }
     },
-    "com.amazonaws.envoy.frontend#TagKey": {
+    "com.amazonaws.iotsecuretunneling#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -540,10 +537,10 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.envoy.frontend#TagKeyList": {
+    "com.amazonaws.iotsecuretunneling#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.envoy.frontend#TagKey"
+        "target": "com.amazonaws.iotsecuretunneling#TagKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -552,10 +549,10 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#TagList": {
+    "com.amazonaws.iotsecuretunneling#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.envoy.frontend#Tag"
+        "target": "com.amazonaws.iotsecuretunneling#Tag"
       },
       "traits": {
         "smithy.api#length": {
@@ -564,17 +561,17 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#TagResource": {
+    "com.amazonaws.iotsecuretunneling#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.envoy.frontend#TagResourceRequest"
+        "target": "com.amazonaws.iotsecuretunneling#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.envoy.frontend#TagResourceResponse"
+        "target": "com.amazonaws.iotsecuretunneling#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.envoy.frontend#ResourceNotFoundException"
+          "target": "com.amazonaws.iotsecuretunneling#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -586,30 +583,30 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#TagResourceRequest": {
+    "com.amazonaws.iotsecuretunneling#TagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.envoy.frontend#AmazonResourceName",
+          "target": "com.amazonaws.iotsecuretunneling#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.envoy.frontend#TagList",
+          "target": "com.amazonaws.iotsecuretunneling#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#TagResourceResponse": {
+    "com.amazonaws.iotsecuretunneling#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.envoy.frontend#TagValue": {
+    "com.amazonaws.iotsecuretunneling#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -619,7 +616,7 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.envoy.frontend#ThingName": {
+    "com.amazonaws.iotsecuretunneling#ThingName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -629,13 +626,13 @@
         "smithy.api#pattern": "[a-zA-Z0-9:_-]+"
       }
     },
-    "com.amazonaws.envoy.frontend#TimeoutConfig": {
+    "com.amazonaws.iotsecuretunneling#TimeoutConfig": {
       "type": "structure",
       "members": {
         "maxLifetimeTimeoutMinutes": {
-          "target": "com.amazonaws.envoy.frontend#TimeoutInMin",
+          "target": "com.amazonaws.iotsecuretunneling#TimeoutInMin",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum amount of time (in minutes) a tunnel can remain open. If not specified,\n\t\t\tmaxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute to 12\n\t\t\thours (720 minutes) </p>"
           }
         }
@@ -644,7 +641,7 @@
         "smithy.api#documentation": "<p>Tunnel timeout configuration.</p>"
       }
     },
-    "com.amazonaws.envoy.frontend#TimeoutInMin": {
+    "com.amazonaws.iotsecuretunneling#TimeoutInMin": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -653,71 +650,71 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#Tunnel": {
+    "com.amazonaws.iotsecuretunneling#Tunnel": {
       "type": "structure",
       "members": {
         "createdAt": {
-          "target": "com.amazonaws.envoy.frontend#DateType",
+          "target": "com.amazonaws.iotsecuretunneling#DateType",
           "traits": {
             "smithy.api#documentation": "<p>The time when the tunnel was created.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.envoy.frontend#Description",
+          "target": "com.amazonaws.iotsecuretunneling#Description",
           "traits": {
             "smithy.api#documentation": "<p>A description of the tunnel.</p>"
           }
         },
         "destinationConfig": {
-          "target": "com.amazonaws.envoy.frontend#DestinationConfig",
+          "target": "com.amazonaws.iotsecuretunneling#DestinationConfig",
           "traits": {
             "smithy.api#documentation": "<p>The destination configuration that specifies the thing name of the destination\n\t\t\tdevice and a service name that the local proxy uses to connect to the destination\n\t\t\tapplication.</p>"
           }
         },
         "destinationConnectionState": {
-          "target": "com.amazonaws.envoy.frontend#ConnectionState",
+          "target": "com.amazonaws.iotsecuretunneling#ConnectionState",
           "traits": {
             "smithy.api#documentation": "<p>The connection state of the destination application.</p>"
           }
         },
         "lastUpdatedAt": {
-          "target": "com.amazonaws.envoy.frontend#DateType",
+          "target": "com.amazonaws.iotsecuretunneling#DateType",
           "traits": {
             "smithy.api#documentation": "<p>The last time the tunnel was updated.</p>"
           }
         },
         "sourceConnectionState": {
-          "target": "com.amazonaws.envoy.frontend#ConnectionState",
+          "target": "com.amazonaws.iotsecuretunneling#ConnectionState",
           "traits": {
             "smithy.api#documentation": "<p>The connection state of the source application.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.envoy.frontend#TunnelStatus",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of a tunnel. Valid values are: Open and Closed.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.envoy.frontend#TagList",
+          "target": "com.amazonaws.iotsecuretunneling#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A list of tag metadata associated with the secure tunnel.</p>"
           }
         },
         "timeoutConfig": {
-          "target": "com.amazonaws.envoy.frontend#TimeoutConfig",
+          "target": "com.amazonaws.iotsecuretunneling#TimeoutConfig",
           "traits": {
             "smithy.api#documentation": "<p>Timeout configuration for the tunnel.</p>"
           }
         },
         "tunnelArn": {
-          "target": "com.amazonaws.envoy.frontend#TunnelArn",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is\n\t\t\t\t<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>\n         </p>"
           }
         },
         "tunnelId": {
-          "target": "com.amazonaws.envoy.frontend#TunnelId",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelId",
           "traits": {
             "smithy.api#documentation": "<p>A unique alpha-numeric ID that identifies a tunnel.</p>"
           }
@@ -727,7 +724,7 @@
         "smithy.api#documentation": "<p>A connection between a source computer and a destination device.</p>"
       }
     },
-    "com.amazonaws.envoy.frontend#TunnelArn": {
+    "com.amazonaws.iotsecuretunneling#TunnelArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -736,60 +733,62 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#TunnelId": {
+    "com.amazonaws.iotsecuretunneling#TunnelId": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "[a-zA-Z0-9_\\-+=:]{1,128}"
       }
     },
-    "com.amazonaws.envoy.frontend#TunnelStatus": {
+    "com.amazonaws.iotsecuretunneling#TunnelStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "OPEN": {
+        "smithy.api#enum": [
+          {
+            "value": "OPEN",
             "name": "OPEN"
           },
-          "CLOSED": {
+          {
+            "value": "CLOSED",
             "name": "CLOSED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.envoy.frontend#TunnelSummary": {
+    "com.amazonaws.iotsecuretunneling#TunnelSummary": {
       "type": "structure",
       "members": {
         "createdAt": {
-          "target": "com.amazonaws.envoy.frontend#DateType",
+          "target": "com.amazonaws.iotsecuretunneling#DateType",
           "traits": {
             "smithy.api#documentation": "<p>The time the tunnel was created.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.envoy.frontend#Description",
+          "target": "com.amazonaws.iotsecuretunneling#Description",
           "traits": {
             "smithy.api#documentation": "<p>A description of the tunnel.</p>"
           }
         },
         "lastUpdatedAt": {
-          "target": "com.amazonaws.envoy.frontend#DateType",
+          "target": "com.amazonaws.iotsecuretunneling#DateType",
           "traits": {
             "smithy.api#documentation": "<p>The time the tunnel was last updated.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.envoy.frontend#TunnelStatus",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of a tunnel. Valid values are: Open and Closed.</p>"
           }
         },
         "tunnelArn": {
-          "target": "com.amazonaws.envoy.frontend#TunnelArn",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name of the tunnel. The tunnel ARN format is\n\t\t\t\t<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>\n         </p>"
           }
         },
         "tunnelId": {
-          "target": "com.amazonaws.envoy.frontend#TunnelId",
+          "target": "com.amazonaws.iotsecuretunneling#TunnelId",
           "traits": {
             "smithy.api#documentation": "<p>The unique alpha-numeric identifier for the tunnel.</p>"
           }
@@ -799,23 +798,23 @@
         "smithy.api#documentation": "<p>Information about the tunnel.</p>"
       }
     },
-    "com.amazonaws.envoy.frontend#TunnelSummaryList": {
+    "com.amazonaws.iotsecuretunneling#TunnelSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.envoy.frontend#TunnelSummary"
+        "target": "com.amazonaws.iotsecuretunneling#TunnelSummary"
       }
     },
-    "com.amazonaws.envoy.frontend#UntagResource": {
+    "com.amazonaws.iotsecuretunneling#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.envoy.frontend#UntagResourceRequest"
+        "target": "com.amazonaws.iotsecuretunneling#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.envoy.frontend#UntagResourceResponse"
+        "target": "com.amazonaws.iotsecuretunneling#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.envoy.frontend#ResourceNotFoundException"
+          "target": "com.amazonaws.iotsecuretunneling#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -827,28 +826,28 @@
         }
       }
     },
-    "com.amazonaws.envoy.frontend#UntagResourceRequest": {
+    "com.amazonaws.iotsecuretunneling#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.envoy.frontend#AmazonResourceName",
+          "target": "com.amazonaws.iotsecuretunneling#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The resource ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
-          "target": "com.amazonaws.envoy.frontend#TagKeyList",
+          "target": "com.amazonaws.iotsecuretunneling#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The keys of the tags to remove.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.envoy.frontend#UntagResourceResponse": {
+    "com.amazonaws.iotsecuretunneling#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     }
   }
 }

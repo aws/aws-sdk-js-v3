@@ -1,73 +1,72 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.resourcesharing.V2018_01_04#AcceptResourceShareInvitation": {
+    "com.amazonaws.ram#AcceptResourceShareInvitation": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#AcceptResourceShareInvitationRequest"
+        "target": "com.amazonaws.ram#AcceptResourceShareInvitationRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#AcceptResourceShareInvitationResponse"
+        "target": "com.amazonaws.ram#AcceptResourceShareInvitationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException"
+          "target": "com.amazonaws.ram#IdempotentParameterMismatchException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyAcceptedException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationAlreadyAcceptedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyRejectedException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationExpiredException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationExpiredException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -79,113 +78,113 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AcceptResourceShareInvitationRequest": {
+    "com.amazonaws.ram#AcceptResourceShareInvitationRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShareInvitationArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AcceptResourceShareInvitationResponse": {
+    "com.amazonaws.ram#AcceptResourceShareInvitationResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShareInvitation": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitation",
+          "target": "com.amazonaws.ram#ResourceShareInvitation",
           "traits": {
             "smithy.api#documentation": "<p>Information about the invitation.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AmazonResourceSharing": {
+    "com.amazonaws.ram#AmazonResourceSharing": {
       "type": "service",
       "version": "2018-01-04",
       "operations": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#AcceptResourceShareInvitation"
+          "target": "com.amazonaws.ram#AcceptResourceShareInvitation"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceShare"
+          "target": "com.amazonaws.ram#AssociateResourceShare"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceSharePermission"
+          "target": "com.amazonaws.ram#AssociateResourceSharePermission"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#CreateResourceShare"
+          "target": "com.amazonaws.ram#CreateResourceShare"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DeleteResourceShare"
+          "target": "com.amazonaws.ram#DeleteResourceShare"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceShare"
+          "target": "com.amazonaws.ram#DisassociateResourceShare"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceSharePermission"
+          "target": "com.amazonaws.ram#DisassociateResourceSharePermission"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#EnableSharingWithAwsOrganization"
+          "target": "com.amazonaws.ram#EnableSharingWithAwsOrganization"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#GetPermission"
+          "target": "com.amazonaws.ram#GetPermission"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourcePolicies"
+          "target": "com.amazonaws.ram#GetResourcePolicies"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareAssociations"
+          "target": "com.amazonaws.ram#GetResourceShareAssociations"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareInvitations"
+          "target": "com.amazonaws.ram#GetResourceShareInvitations"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShares"
+          "target": "com.amazonaws.ram#GetResourceShares"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPendingInvitationResources"
+          "target": "com.amazonaws.ram#ListPendingInvitationResources"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPermissions"
+          "target": "com.amazonaws.ram#ListPermissions"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPrincipals"
+          "target": "com.amazonaws.ram#ListPrincipals"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ListResourceSharePermissions"
+          "target": "com.amazonaws.ram#ListResources"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ListResources"
+          "target": "com.amazonaws.ram#ListResourceSharePermissions"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PromoteResourceShareCreatedFromPolicy"
+          "target": "com.amazonaws.ram#PromoteResourceShareCreatedFromPolicy"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#RejectResourceShareInvitation"
+          "target": "com.amazonaws.ram#RejectResourceShareInvitation"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagResource"
+          "target": "com.amazonaws.ram#TagResource"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UntagResource"
+          "target": "com.amazonaws.ram#UntagResource"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UpdateResourceShare"
+          "target": "com.amazonaws.ram#UpdateResourceShare"
         }
       ],
       "traits": {
@@ -195,56 +194,52 @@
           "cloudFormationName": "RAM",
           "cloudTrailEventSource": "V2018_01_04.resourcesharing.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "ram"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Use AWS Resource Access Manager to share AWS resources between AWS accounts. To share a resource, you\n          create a resource share, associate the resource with the resource share, and specify the principals that\n          can access the resources associated with the resource share. The following principals are supported:\n          AWS accounts, organizational units (OU) from AWS Organizations, and organizations from\n          AWS Organizations.</p>\n         <p>For more information, see the <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/\">AWS Resource Access Manager User Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Resource Access Manager"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceShare": {
+    "com.amazonaws.ram#AssociateResourceShare": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceShareRequest"
+        "target": "com.amazonaws.ram#AssociateResourceShareRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceShareResponse"
+        "target": "com.amazonaws.ram#AssociateResourceShareResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException"
+          "target": "com.amazonaws.ram#IdempotentParameterMismatchException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException"
+          "target": "com.amazonaws.ram#InvalidStateTransitionException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareLimitExceededException"
+          "target": "com.amazonaws.ram#ResourceShareLimitExceededException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -256,35 +251,35 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceSharePermission": {
+    "com.amazonaws.ram#AssociateResourceSharePermission": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceSharePermissionRequest"
+        "target": "com.amazonaws.ram#AssociateResourceSharePermissionRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceSharePermissionResponse"
+        "target": "com.amazonaws.ram#AssociateResourceSharePermissionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -296,148 +291,148 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceSharePermissionRequest": {
+    "com.amazonaws.ram#AssociateResourceSharePermissionRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "permissionArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the AWS RAM permission to associate with the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "replace": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the permission should replace the permissions that are currently \n        \tassociated with the resource share. Use <code>true</code> to replace the current permissions. \n        \tUse <code>false</code> to add the permission to the current permission.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceSharePermissionResponse": {
+    "com.amazonaws.ram#AssociateResourceSharePermissionResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "returnValue": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the request succeeded.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceShareRequest": {
+    "com.amazonaws.ram#AssociateResourceShareRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "principals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PrincipalArnOrIdList",
+          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
           "traits": {
             "smithy.api#documentation": "<p>The principals.</p>"
           }
         },
         "resourceArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnList",
+          "target": "com.amazonaws.ram#ResourceArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#AssociateResourceShareResponse": {
+    "com.amazonaws.ram#AssociateResourceShareResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShareAssociations": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationList",
+          "target": "com.amazonaws.ram#ResourceShareAssociationList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the associations.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#Boolean": {
+    "com.amazonaws.ram#Boolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#CreateResourceShare": {
+    "com.amazonaws.ram#CreateResourceShare": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#CreateResourceShareRequest"
+        "target": "com.amazonaws.ram#CreateResourceShareRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#CreateResourceShareResponse"
+        "target": "com.amazonaws.ram#CreateResourceShareResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException"
+          "target": "com.amazonaws.ram#IdempotentParameterMismatchException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException"
+          "target": "com.amazonaws.ram#InvalidStateTransitionException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareLimitExceededException"
+          "target": "com.amazonaws.ram#ResourceShareLimitExceededException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagPolicyViolationException"
+          "target": "com.amazonaws.ram#TagPolicyViolationException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -449,109 +444,109 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#CreateResourceShareRequest": {
+    "com.amazonaws.ram#CreateResourceShareRequest": {
       "type": "structure",
       "members": {
         "allowExternalPrincipals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>"
           }
         },
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "permissionArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PermissionArnList",
+          "target": "com.amazonaws.ram#PermissionArnList",
           "traits": {
             "smithy.api#documentation": "<p>The ARNs of the permissions to associate with the resource share. If you do not specify an ARN\n\t\t\tfor the permission, AWS RAM automatically attaches the default version of the permission\n\t\t\tfor each resource type.</p>"
           }
         },
         "principals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PrincipalArnOrIdList",
+          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
           "traits": {
             "smithy.api#documentation": "<p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,\n          the ARN of an OU or organization from AWS Organizations.</p>"
           }
         },
         "resourceArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnList",
+          "target": "com.amazonaws.ram#ResourceArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagList",
+          "target": "com.amazonaws.ram#TagList",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#CreateResourceShareResponse": {
+    "com.amazonaws.ram#CreateResourceShareResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShare": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShare",
+          "target": "com.amazonaws.ram#ResourceShare",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resource share.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DateTime": {
+    "com.amazonaws.ram#DateTime": {
       "type": "timestamp"
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DeleteResourceShare": {
+    "com.amazonaws.ram#DeleteResourceShare": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#DeleteResourceShareRequest"
+        "target": "com.amazonaws.ram#DeleteResourceShareRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#DeleteResourceShareResponse"
+        "target": "com.amazonaws.ram#DeleteResourceShareResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException"
+          "target": "com.amazonaws.ram#IdempotentParameterMismatchException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException"
+          "target": "com.amazonaws.ram#InvalidStateTransitionException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -563,37 +558,37 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DeleteResourceShareRequest": {
+    "com.amazonaws.ram#DeleteResourceShareRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>",
             "smithy.api#httpQuery": "clientToken"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
             "smithy.api#httpQuery": "resourceShareArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DeleteResourceShareResponse": {
+    "com.amazonaws.ram#DeleteResourceShareResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "returnValue": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the request succeeded.</p>",
             "smithy.api#xmlName": "return"
@@ -601,44 +596,44 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceShare": {
+    "com.amazonaws.ram#DisassociateResourceShare": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceShareRequest"
+        "target": "com.amazonaws.ram#DisassociateResourceShareRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceShareResponse"
+        "target": "com.amazonaws.ram#DisassociateResourceShareResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException"
+          "target": "com.amazonaws.ram#IdempotentParameterMismatchException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException"
+          "target": "com.amazonaws.ram#InvalidStateTransitionException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareLimitExceededException"
+          "target": "com.amazonaws.ram#ResourceShareLimitExceededException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -650,35 +645,35 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceSharePermission": {
+    "com.amazonaws.ram#DisassociateResourceSharePermission": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceSharePermissionRequest"
+        "target": "com.amazonaws.ram#DisassociateResourceSharePermissionRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceSharePermissionResponse"
+        "target": "com.amazonaws.ram#DisassociateResourceSharePermissionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -690,112 +685,112 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceSharePermissionRequest": {
+    "com.amazonaws.ram#DisassociateResourceSharePermissionRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "permissionArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission to disassociate from the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceSharePermissionResponse": {
+    "com.amazonaws.ram#DisassociateResourceSharePermissionResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "returnValue": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the request succeeded.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceShareRequest": {
+    "com.amazonaws.ram#DisassociateResourceShareRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "principals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PrincipalArnOrIdList",
+          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
           "traits": {
             "smithy.api#documentation": "<p>The principals.</p>"
           }
         },
         "resourceArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnList",
+          "target": "com.amazonaws.ram#ResourceArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the resources.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#DisassociateResourceShareResponse": {
+    "com.amazonaws.ram#DisassociateResourceShareResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShareAssociations": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationList",
+          "target": "com.amazonaws.ram#ResourceShareAssociationList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the associations.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#EnableSharingWithAwsOrganization": {
+    "com.amazonaws.ram#EnableSharingWithAwsOrganization": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#EnableSharingWithAwsOrganizationRequest"
+        "target": "com.amazonaws.ram#EnableSharingWithAwsOrganizationRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#EnableSharingWithAwsOrganizationResponse"
+        "target": "com.amazonaws.ram#EnableSharingWithAwsOrganizationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -807,15 +802,15 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#EnableSharingWithAwsOrganizationRequest": {
+    "com.amazonaws.ram#EnableSharingWithAwsOrganizationRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#EnableSharingWithAwsOrganizationResponse": {
+    "com.amazonaws.ram#EnableSharingWithAwsOrganizationResponse": {
       "type": "structure",
       "members": {
         "returnValue": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the request succeeded.</p>",
             "smithy.api#xmlName": "return"
@@ -823,32 +818,32 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetPermission": {
+    "com.amazonaws.ram#GetPermission": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetPermissionRequest"
+        "target": "com.amazonaws.ram#GetPermissionRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetPermissionResponse"
+        "target": "com.amazonaws.ram#GetPermissionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -860,58 +855,58 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetPermissionRequest": {
+    "com.amazonaws.ram#GetPermissionRequest": {
       "type": "structure",
       "members": {
         "permissionArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "permissionVersion": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Integer",
+          "target": "com.amazonaws.ram#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the version of the permission.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetPermissionResponse": {
+    "com.amazonaws.ram#GetPermissionResponse": {
       "type": "structure",
       "members": {
         "permission": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionDetail",
+          "target": "com.amazonaws.ram#ResourceSharePermissionDetail",
           "traits": {
             "smithy.api#documentation": "<p>Information about the permission.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourcePolicies": {
+    "com.amazonaws.ram#GetResourcePolicies": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourcePoliciesRequest"
+        "target": "com.amazonaws.ram#GetResourcePoliciesRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourcePoliciesResponse"
+        "target": "com.amazonaws.ram#GetResourcePoliciesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -928,82 +923,82 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourcePoliciesRequest": {
+    "com.amazonaws.ram#GetResourcePoliciesRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "principal": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The principal.</p>"
           }
         },
         "resourceArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnList",
+          "target": "com.amazonaws.ram#ResourceArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourcePoliciesResponse": {
+    "com.amazonaws.ram#GetResourcePoliciesResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "policies": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PolicyList",
+          "target": "com.amazonaws.ram#PolicyList",
           "traits": {
             "smithy.api#documentation": "<p>A key policy document, in JSON format.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareAssociations": {
+    "com.amazonaws.ram#GetResourceShareAssociations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareAssociationsRequest"
+        "target": "com.amazonaws.ram#GetResourceShareAssociationsRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareAssociationsResponse"
+        "target": "com.amazonaws.ram#GetResourceShareAssociationsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -1020,100 +1015,100 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareAssociationsRequest": {
+    "com.amazonaws.ram#GetResourceShareAssociationsRequest": {
       "type": "structure",
       "members": {
         "associationStatus": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationStatus",
+          "target": "com.amazonaws.ram#ResourceShareAssociationStatus",
           "traits": {
             "smithy.api#documentation": "<p>The association status.</p>"
           }
         },
         "associationType": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationType",
+          "target": "com.amazonaws.ram#ResourceShareAssociationType",
           "traits": {
             "smithy.api#documentation": "<p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are \n   \t\tassociated with the specified resource share. Specify <code>RESOURCE</code> to list \n   \t\tthe resources that are associated with the specified resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "principal": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The principal. You cannot specify this parameter if the association type is \n     \t<code>RESOURCE</code>.</p>"
           }
         },
         "resourceArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the \n      \tassociation type is <code>PRINCIPAL</code>.</p>"
           }
         },
         "resourceShareArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareArnList",
+          "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareAssociationsResponse": {
+    "com.amazonaws.ram#GetResourceShareAssociationsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "resourceShareAssociations": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationList",
+          "target": "com.amazonaws.ram#ResourceShareAssociationList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the associations.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareInvitations": {
+    "com.amazonaws.ram#GetResourceShareInvitations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareInvitationsRequest"
+        "target": "com.amazonaws.ram#GetResourceShareInvitationsRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareInvitationsResponse"
+        "target": "com.amazonaws.ram#GetResourceShareInvitationsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidMaxResultsException"
+          "target": "com.amazonaws.ram#InvalidMaxResultsException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1130,78 +1125,78 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareInvitationsRequest": {
+    "com.amazonaws.ram#GetResourceShareInvitationsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "resourceShareArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareArnList",
+          "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         },
         "resourceShareInvitationArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnList",
+          "target": "com.amazonaws.ram#ResourceShareInvitationArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the invitations.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShareInvitationsResponse": {
+    "com.amazonaws.ram#GetResourceShareInvitationsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "resourceShareInvitations": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationList",
+          "target": "com.amazonaws.ram#ResourceShareInvitationList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the invitations.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceShares": {
+    "com.amazonaws.ram#GetResourceShares": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceSharesRequest"
+        "target": "com.amazonaws.ram#GetResourceSharesRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#GetResourceSharesResponse"
+        "target": "com.amazonaws.ram#GetResourceSharesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -1218,78 +1213,78 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceSharesRequest": {
+    "com.amazonaws.ram#GetResourceSharesRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource share.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "resourceOwner": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceOwner",
+          "target": "com.amazonaws.ram#ResourceOwner",
           "traits": {
             "smithy.api#documentation": "<p>The type of owner.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceShareArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareArnList",
+          "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         },
         "resourceShareStatus": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareStatus",
+          "target": "com.amazonaws.ram#ResourceShareStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the resource share.</p>"
           }
         },
         "tagFilters": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagFilters",
+          "target": "com.amazonaws.ram#TagFilters",
           "traits": {
             "smithy.api#documentation": "<p>One or more tag filters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#GetResourceSharesResponse": {
+    "com.amazonaws.ram#GetResourceSharesResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "resourceShares": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareList",
+          "target": "com.amazonaws.ram#ResourceShareList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resource shares.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException": {
+    "com.amazonaws.ram#IdempotentParameterMismatchException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1299,19 +1294,19 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#Integer": {
+    "com.amazonaws.ram#Integer": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException": {
+    "com.amazonaws.ram#InvalidClientTokenException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1321,13 +1316,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#InvalidMaxResultsException": {
+    "com.amazonaws.ram#InvalidMaxResultsException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1337,13 +1332,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException": {
+    "com.amazonaws.ram#InvalidNextTokenException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1353,13 +1348,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException": {
+    "com.amazonaws.ram#InvalidParameterException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1369,13 +1364,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#InvalidResourceTypeException": {
+    "com.amazonaws.ram#InvalidResourceTypeException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1385,13 +1380,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException": {
+    "com.amazonaws.ram#InvalidStateTransitionException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1401,41 +1396,41 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPendingInvitationResources": {
+    "com.amazonaws.ram#ListPendingInvitationResources": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPendingInvitationResourcesRequest"
+        "target": "com.amazonaws.ram#ListPendingInvitationResourcesRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPendingInvitationResourcesResponse"
+        "target": "com.amazonaws.ram#ListPendingInvitationResourcesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MissingRequiredParameterException"
+          "target": "com.amazonaws.ram#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyRejectedException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationExpiredException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationExpiredException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1452,70 +1447,70 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPendingInvitationResourcesRequest": {
+    "com.amazonaws.ram#ListPendingInvitationResourcesRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "resourceShareInvitationArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPendingInvitationResourcesResponse": {
+    "com.amazonaws.ram#ListPendingInvitationResourcesResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "resources": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceList",
+          "target": "com.amazonaws.ram#ResourceList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resources included the resource share.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPermissions": {
+    "com.amazonaws.ram#ListPermissions": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPermissionsRequest"
+        "target": "com.amazonaws.ram#ListPermissionsRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPermissionsResponse"
+        "target": "com.amazonaws.ram#ListPermissionsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1527,72 +1522,72 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPermissionsRequest": {
+    "com.amazonaws.ram#ListPermissionsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the resource type for which to list permissions. For example, to list only \n\t\tpermissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPermissionsResponse": {
+    "com.amazonaws.ram#ListPermissionsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "permissions": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionList",
+          "target": "com.amazonaws.ram#ResourceSharePermissionList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the permissions.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPrincipals": {
+    "com.amazonaws.ram#ListPrincipals": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPrincipalsRequest"
+        "target": "com.amazonaws.ram#ListPrincipalsRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListPrincipalsResponse"
+        "target": "com.amazonaws.ram#ListPrincipalsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -1609,100 +1604,100 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPrincipalsRequest": {
+    "com.amazonaws.ram#ListPrincipalsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "principals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PrincipalArnOrIdList",
+          "target": "com.amazonaws.ram#PrincipalArnOrIdList",
           "traits": {
             "smithy.api#documentation": "<p>The principals.</p>"
           }
         },
         "resourceArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
         "resourceOwner": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceOwner",
+          "target": "com.amazonaws.ram#ResourceOwner",
           "traits": {
             "smithy.api#documentation": "<p>The type of owner.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceShareArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareArnList",
+          "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>\n         <p>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> | \n    \t<code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | \n    \t<code>license-manager:LicenseConfiguration</code> | \n    \t<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> I \n    \t<code>resource-groups:Group</code>\n         </p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListPrincipalsResponse": {
+    "com.amazonaws.ram#ListPrincipalsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "principals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#PrincipalList",
+          "target": "com.amazonaws.ram#PrincipalList",
           "traits": {
             "smithy.api#documentation": "<p>The principals.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListResourceSharePermissions": {
+    "com.amazonaws.ram#ListResourceSharePermissions": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListResourceSharePermissionsRequest"
+        "target": "com.amazonaws.ram#ListResourceSharePermissionsRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListResourceSharePermissionsResponse"
+        "target": "com.amazonaws.ram#ListResourceSharePermissionsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -1714,76 +1709,76 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListResourceSharePermissionsRequest": {
+    "com.amazonaws.ram#ListResourceSharePermissionsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListResourceSharePermissionsResponse": {
+    "com.amazonaws.ram#ListResourceSharePermissionsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "permissions": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionList",
+          "target": "com.amazonaws.ram#ResourceSharePermissionList",
           "traits": {
             "smithy.api#documentation": "<p>The permissions associated with the resource share.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListResources": {
+    "com.amazonaws.ram#ListResources": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListResourcesRequest"
+        "target": "com.amazonaws.ram#ListResourcesRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ListResourcesResponse"
+        "target": "com.amazonaws.ram#ListResourcesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException"
+          "target": "com.amazonaws.ram#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidResourceTypeException"
+          "target": "com.amazonaws.ram#InvalidResourceTypeException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -1800,78 +1795,78 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListResourcesRequest": {
+    "com.amazonaws.ram#ListResourcesRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MaxResults",
+          "target": "com.amazonaws.ram#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "principal": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The principal.</p>"
           }
         },
         "resourceArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnList",
+          "target": "com.amazonaws.ram#ResourceArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources.</p>"
           }
         },
         "resourceOwner": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceOwner",
+          "target": "com.amazonaws.ram#ResourceOwner",
           "traits": {
             "smithy.api#documentation": "<p>The type of owner.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceShareArns": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareArnList",
+          "target": "com.amazonaws.ram#ResourceShareArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resource shares.</p>"
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>\n   \t     <p>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> | \n   \t\t<code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | \n   \t\t<code>license-manager:LicenseConfiguration</code> | \n   \t\t<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> | \n   \t\t<code>resource-groups:Group</code>\n         </p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ListResourcesResponse": {
+    "com.amazonaws.ram#ListResourcesResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"
           }
         },
         "resources": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceList",
+          "target": "com.amazonaws.ram#ResourceList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resources.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException": {
+    "com.amazonaws.ram#MalformedArnException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1881,23 +1876,23 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#MaxResults": {
+    "com.amazonaws.ram#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 500
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#MissingRequiredParameterException": {
+    "com.amazonaws.ram#MissingRequiredParameterException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1907,13 +1902,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException": {
+    "com.amazonaws.ram#OperationNotPermittedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1923,56 +1918,56 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#PermissionArnList": {
+    "com.amazonaws.ram#PermissionArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "target": "com.amazonaws.ram#String",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#Policy": {
+    "com.amazonaws.ram#Policy": {
       "type": "string"
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#PolicyList": {
+    "com.amazonaws.ram#PolicyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#Policy",
+        "target": "com.amazonaws.ram#Policy",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#Principal": {
+    "com.amazonaws.ram#Principal": {
       "type": "structure",
       "members": {
         "creationTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the principal was associated with the resource share.</p>"
           }
         },
         "external": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>"
           }
         },
         "id": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the principal.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the association was last updated.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
@@ -1982,50 +1977,50 @@
         "smithy.api#documentation": "<p>Describes a principal for use with AWS Resource Access Manager.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#PrincipalArnOrIdList": {
+    "com.amazonaws.ram#PrincipalArnOrIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "target": "com.amazonaws.ram#String",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#PrincipalList": {
+    "com.amazonaws.ram#PrincipalList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#Principal",
+        "target": "com.amazonaws.ram#Principal",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#PromoteResourceShareCreatedFromPolicy": {
+    "com.amazonaws.ram#PromoteResourceShareCreatedFromPolicy": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#PromoteResourceShareCreatedFromPolicyRequest"
+        "target": "com.amazonaws.ram#PromoteResourceShareCreatedFromPolicyRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#PromoteResourceShareCreatedFromPolicyResponse"
+        "target": "com.amazonaws.ram#PromoteResourceShareCreatedFromPolicyResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MissingRequiredParameterException"
+          "target": "com.amazonaws.ram#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -2037,24 +2032,24 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#PromoteResourceShareCreatedFromPolicyRequest": {
+    "com.amazonaws.ram#PromoteResourceShareCreatedFromPolicyRequest": {
       "type": "structure",
       "members": {
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource share to promote.</p>",
             "smithy.api#httpQuery": "resourceShareArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#PromoteResourceShareCreatedFromPolicyResponse": {
+    "com.amazonaws.ram#PromoteResourceShareCreatedFromPolicyResponse": {
       "type": "structure",
       "members": {
         "returnValue": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the request succeeded.</p>",
             "smithy.api#xmlName": "return"
@@ -2062,44 +2057,44 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#RejectResourceShareInvitation": {
+    "com.amazonaws.ram#RejectResourceShareInvitation": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#RejectResourceShareInvitationRequest"
+        "target": "com.amazonaws.ram#RejectResourceShareInvitationRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#RejectResourceShareInvitationResponse"
+        "target": "com.amazonaws.ram#RejectResourceShareInvitationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException"
+          "target": "com.amazonaws.ram#IdempotentParameterMismatchException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyAcceptedException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationAlreadyAcceptedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyRejectedException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationExpiredException"
+          "target": "com.amazonaws.ram#ResourceShareInvitationExpiredException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -2111,88 +2106,88 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#RejectResourceShareInvitationRequest": {
+    "com.amazonaws.ram#RejectResourceShareInvitationRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShareInvitationArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#RejectResourceShareInvitationResponse": {
+    "com.amazonaws.ram#RejectResourceShareInvitationResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShareInvitation": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitation",
+          "target": "com.amazonaws.ram#ResourceShareInvitation",
           "traits": {
             "smithy.api#documentation": "<p>Information about the invitation.</p>"
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#Resource": {
+    "com.amazonaws.ram#Resource": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
         "creationTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the resource was associated with the resource share.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the association was last updated.</p>"
           }
         },
         "resourceGroupArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource group. This value is returned only if the resource is a resource\n\t\t\tgroup.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceStatus",
+          "target": "com.amazonaws.ram#ResourceStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the resource.</p>"
           }
         },
         "statusMessage": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A message about the status of the resource.</p>"
           }
         },
         "type": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>"
           }
@@ -2202,22 +2197,22 @@
         "smithy.api#documentation": "<p>Describes a resource associated with a resource share.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnList": {
+    "com.amazonaws.ram#ResourceArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "target": "com.amazonaws.ram#String",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnNotFoundException": {
+    "com.amazonaws.ram#ResourceArnNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2227,87 +2222,89 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceList": {
+    "com.amazonaws.ram#ResourceList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#Resource",
+        "target": "com.amazonaws.ram#Resource",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceOwner": {
+    "com.amazonaws.ram#ResourceOwner": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SELF": {
+        "smithy.api#enum": [
+          {
+            "value": "SELF",
             "name": "SELF"
           },
-          "OTHER-ACCOUNTS": {
+          {
+            "value": "OTHER-ACCOUNTS",
             "name": "OTHER_ACCOUNTS"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShare": {
+    "com.amazonaws.ram#ResourceShare": {
       "type": "structure",
       "members": {
         "allowExternalPrincipals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>"
           }
         },
         "creationTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the resource share was created.</p>"
           }
         },
         "featureSet": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareFeatureSet",
+          "target": "com.amazonaws.ram#ResourceShareFeatureSet",
           "traits": {
             "smithy.api#documentation": "<p>Indicates how the resource share was created. Possible values include:</p>\n\t        <ul>\n            <li>\n\t\t\t            <p>\n                  <code>CREATED_FROM_POLICY</code> - Indicates that the resource share was created from an AWS Identity\n\t\t\t\t\tand Access Management (AWS IAM) policy attached to a resource. These resource shares are\n\t\t\t\t\tvisible only to the AWS account that created it. They cannot be modified in\n\t\t\t\t\tAWS RAM.</p>\n\t\t          </li>\n            <li>\n\t\t\t            <p>\n                  <code>PROMOTING_TO_STANDARD</code> - The resource share is in the process \n\t\t\t\tof being promoted. For more information, see \n\t\t\t\t<a>PromoteResourceShareCreatedFromPolicy</a>.</p>\n\t\t          </li>\n            <li>\n\t\t\t            <p>\n                  <code>STANDARD</code> - Indicates that the resource share was created in AWS RAM using the console or\n\t\t\t\t\tAPIs. These resource shares are visible to all principals. They can be modified\n\t\t\t\t\tin AWS RAM.</p>\n\t\t          </li>\n         </ul>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the resource share was last updated.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource share.</p>"
           }
         },
         "owningAccountId": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account that owns the resource share.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareStatus",
+          "target": "com.amazonaws.ram#ResourceShareStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the resource share.</p>"
           }
         },
         "statusMessage": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A message about the status of the resource share.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagList",
+          "target": "com.amazonaws.ram#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the resource share.</p>"
           }
@@ -2317,68 +2314,68 @@
         "smithy.api#documentation": "<p>Describes a resource share.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareArnList": {
+    "com.amazonaws.ram#ResourceShareArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "target": "com.amazonaws.ram#String",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociation": {
+    "com.amazonaws.ram#ResourceShareAssociation": {
       "type": "structure",
       "members": {
         "associatedEntity": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The associated entity. For resource associations, this is the ARN of the resource.\n       For principal associations, this is the ID of an AWS account or the ARN of an OU or\n       organization from AWS Organizations.</p>"
           }
         },
         "associationType": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationType",
+          "target": "com.amazonaws.ram#ResourceShareAssociationType",
           "traits": {
             "smithy.api#documentation": "<p>The association type.</p>"
           }
         },
         "creationTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the association was created.</p>"
           }
         },
         "external": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when the association was last updated.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
         "resourceShareName": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource share.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationStatus",
+          "target": "com.amazonaws.ram#ResourceShareAssociationStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the association.</p>"
           }
         },
         "statusMessage": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A message about the status of the association.</p>"
           }
@@ -2388,69 +2385,89 @@
         "smithy.api#documentation": "<p>Describes an association with a resource share.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationList": {
+    "com.amazonaws.ram#ResourceShareAssociationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociation",
+        "target": "com.amazonaws.ram#ResourceShareAssociation",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationStatus": {
+    "com.amazonaws.ram#ResourceShareAssociationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ASSOCIATING": { },
-          "ASSOCIATED": { },
-          "FAILED": { },
-          "DISASSOCIATING": { },
-          "DISASSOCIATED": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ASSOCIATING"
+          },
+          {
+            "value": "ASSOCIATED"
+          },
+          {
+            "value": "FAILED"
+          },
+          {
+            "value": "DISASSOCIATING"
+          },
+          {
+            "value": "DISASSOCIATED"
+          }
+        ]
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationType": {
+    "com.amazonaws.ram#ResourceShareAssociationType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PRINCIPAL": { },
-          "RESOURCE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "PRINCIPAL"
+          },
+          {
+            "value": "RESOURCE"
+          }
+        ]
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareFeatureSet": {
+    "com.amazonaws.ram#ResourceShareFeatureSet": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATED_FROM_POLICY": { },
-          "PROMOTING_TO_STANDARD": { },
-          "STANDARD": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CREATED_FROM_POLICY"
+          },
+          {
+            "value": "PROMOTING_TO_STANDARD"
+          },
+          {
+            "value": "STANDARD"
+          }
+        ]
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitation": {
+    "com.amazonaws.ram#ResourceShareInvitation": {
       "type": "structure",
       "members": {
         "invitationTimestamp": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the invitation was sent.</p>"
           }
         },
         "receiverAccountId": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account that received the invitation.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>"
           }
         },
         "resourceShareAssociations": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationList",
+          "target": "com.amazonaws.ram#ResourceShareAssociationList",
           "traits": {
             "smithy.api#deprecated": {
               "message": "This member has been deprecated. Use ListPendingInvitationResources."
@@ -2459,25 +2476,25 @@
           }
         },
         "resourceShareInvitationArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation.</p>"
           }
         },
         "resourceShareName": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource share.</p>"
           }
         },
         "senderAccountId": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS account that sent the invitation.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationStatus",
+          "target": "com.amazonaws.ram#ResourceShareInvitationStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the invitation.</p>"
           }
@@ -2487,13 +2504,13 @@
         "smithy.api#documentation": "<p>Describes an invitation to join a resource share.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyAcceptedException": {
+    "com.amazonaws.ram#ResourceShareInvitationAlreadyAcceptedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2503,13 +2520,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyRejectedException": {
+    "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2519,22 +2536,22 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnList": {
+    "com.amazonaws.ram#ResourceShareInvitationArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "target": "com.amazonaws.ram#String",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException": {
+    "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2544,13 +2561,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationExpiredException": {
+    "com.amazonaws.ram#ResourceShareInvitationExpiredException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2560,33 +2577,41 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationList": {
+    "com.amazonaws.ram#ResourceShareInvitationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitation",
+        "target": "com.amazonaws.ram#ResourceShareInvitation",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationStatus": {
+    "com.amazonaws.ram#ResourceShareInvitationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": { },
-          "ACCEPTED": { },
-          "REJECTED": { },
-          "EXPIRED": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "PENDING"
+          },
+          {
+            "value": "ACCEPTED"
+          },
+          {
+            "value": "REJECTED"
+          },
+          {
+            "value": "EXPIRED"
+          }
+        ]
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareLimitExceededException": {
+    "com.amazonaws.ram#ResourceShareLimitExceededException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2596,62 +2621,62 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareList": {
+    "com.amazonaws.ram#ResourceShareList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShare",
+        "target": "com.amazonaws.ram#ResourceShare",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionDetail": {
+    "com.amazonaws.ram#ResourceSharePermissionDetail": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission.</p>"
           }
         },
         "creationTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the permission was created.</p>"
           }
         },
         "defaultVersion": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the version of the permission that is set as the \n    \t\tdefault version.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the permission was last updated.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the permission.</p>"
           }
         },
         "permission": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The permission's effect and actions in JSON format. The <code>effect</code> indicates whether\n\t\t\tthe actions are allowed or denied. The <code>actions</code> list the API actions to\n\t\t\twhich the principal is granted or denied access.</p>"
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type to which the permission applies.</p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the version of the permission.</p>"
           }
@@ -2661,62 +2686,62 @@
         "smithy.api#documentation": "<p>Information about an AWS RAM permission.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionList": {
+    "com.amazonaws.ram#ResourceSharePermissionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionSummary",
+        "target": "com.amazonaws.ram#ResourceSharePermissionSummary",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionSummary": {
+    "com.amazonaws.ram#ResourceSharePermissionSummary": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the permission.</p>"
           }
         },
         "creationTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the permission was created.</p>"
           }
         },
         "defaultVersion": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the version of the permission that is set as the default version.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#DateTime",
+          "target": "com.amazonaws.ram#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the permission was last updated.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the permission.</p>"
           }
         },
         "resourceType": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource to which the permission applies.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the permission.</p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for the version of the permission.</p>"
           }
@@ -2726,37 +2751,57 @@
         "smithy.api#documentation": "<p>Information about a permission that is associated with a resource share.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareStatus": {
+    "com.amazonaws.ram#ResourceShareStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": { },
-          "ACTIVE": { },
-          "FAILED": { },
-          "DELETING": { },
-          "DELETED": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "PENDING"
+          },
+          {
+            "value": "ACTIVE"
+          },
+          {
+            "value": "FAILED"
+          },
+          {
+            "value": "DELETING"
+          },
+          {
+            "value": "DELETED"
+          }
+        ]
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ResourceStatus": {
+    "com.amazonaws.ram#ResourceStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AVAILABLE": { },
-          "ZONAL_RESOURCE_INACCESSIBLE": { },
-          "LIMIT_EXCEEDED": { },
-          "UNAVAILABLE": { },
-          "PENDING": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "AVAILABLE"
+          },
+          {
+            "value": "ZONAL_RESOURCE_INACCESSIBLE"
+          },
+          {
+            "value": "LIMIT_EXCEEDED"
+          },
+          {
+            "value": "UNAVAILABLE"
+          },
+          {
+            "value": "PENDING"
+          }
+        ]
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException": {
+    "com.amazonaws.ram#ServerInternalException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2766,13 +2811,13 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException": {
+    "com.amazonaws.ram#ServiceUnavailableException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2782,20 +2827,20 @@
         "smithy.api#httpError": 503
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#String": {
+    "com.amazonaws.ram#String": {
       "type": "string"
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#Tag": {
+    "com.amazonaws.ram#Tag": {
       "type": "structure",
       "members": {
         "key": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagKey",
+          "target": "com.amazonaws.ram#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The key of the tag.</p>"
           }
         },
         "value": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagValue",
+          "target": "com.amazonaws.ram#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the tag.</p>"
           }
@@ -2805,17 +2850,17 @@
         "smithy.api#documentation": "<p>Information about a tag.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagFilter": {
+    "com.amazonaws.ram#TagFilter": {
       "type": "structure",
       "members": {
         "tagKey": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagKey",
+          "target": "com.amazonaws.ram#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The tag key.</p>"
           }
         },
         "tagValues": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagValueList",
+          "target": "com.amazonaws.ram#TagValueList",
           "traits": {
             "smithy.api#documentation": "<p>The tag values.</p>"
           }
@@ -2825,28 +2870,28 @@
         "smithy.api#documentation": "<p>Used to filter information based on tags.</p>"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagFilters": {
+    "com.amazonaws.ram#TagFilters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#TagFilter"
+        "target": "com.amazonaws.ram#TagFilter"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagKey": {
+    "com.amazonaws.ram#TagKey": {
       "type": "string"
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagKeyList": {
+    "com.amazonaws.ram#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#TagKey"
+        "target": "com.amazonaws.ram#TagKey"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagLimitExceededException": {
+    "com.amazonaws.ram#TagLimitExceededException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2856,19 +2901,19 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagList": {
+    "com.amazonaws.ram#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#Tag"
+        "target": "com.amazonaws.ram#Tag"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagPolicyViolationException": {
+    "com.amazonaws.ram#TagPolicyViolationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2878,35 +2923,35 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagResource": {
+    "com.amazonaws.ram#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#TagResourceRequest"
+        "target": "com.amazonaws.ram#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#TagResourceResponse"
+        "target": "com.amazonaws.ram#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnNotFoundException"
+          "target": "com.amazonaws.ram#ResourceArnNotFoundException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagLimitExceededException"
+          "target": "com.amazonaws.ram#TagLimitExceededException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagPolicyViolationException"
+          "target": "com.amazonaws.ram#TagPolicyViolationException"
         }
       ],
       "traits": {
@@ -2918,45 +2963,45 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagResourceRequest": {
+    "com.amazonaws.ram#TagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagList",
+          "target": "com.amazonaws.ram#TagList",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagResourceResponse": {
+    "com.amazonaws.ram#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagValue": {
+    "com.amazonaws.ram#TagValue": {
       "type": "string"
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#TagValueList": {
+    "com.amazonaws.ram#TagValueList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#TagValue"
+        "target": "com.amazonaws.ram#TagValue"
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException": {
+    "com.amazonaws.ram#UnknownResourceException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2966,23 +3011,23 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#UntagResource": {
+    "com.amazonaws.ram#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#UntagResourceRequest"
+        "target": "com.amazonaws.ram#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#UntagResourceResponse"
+        "target": "com.amazonaws.ram#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -2994,64 +3039,64 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#UntagResourceRequest": {
+    "com.amazonaws.ram#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#TagKeyList",
+          "target": "com.amazonaws.ram#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The tag keys of the tags to remove.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#UntagResourceResponse": {
+    "com.amazonaws.ram#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#UpdateResourceShare": {
+    "com.amazonaws.ram#UpdateResourceShare": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#UpdateResourceShareRequest"
+        "target": "com.amazonaws.ram#UpdateResourceShareRequest"
       },
       "output": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#UpdateResourceShareResponse"
+        "target": "com.amazonaws.ram#UpdateResourceShareResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException"
+          "target": "com.amazonaws.ram#IdempotentParameterMismatchException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException"
+          "target": "com.amazonaws.ram#InvalidClientTokenException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException"
+          "target": "com.amazonaws.ram#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException"
+          "target": "com.amazonaws.ram#MalformedArnException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#MissingRequiredParameterException"
+          "target": "com.amazonaws.ram#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException"
+          "target": "com.amazonaws.ram#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException"
+          "target": "com.amazonaws.ram#ServerInternalException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException"
+          "target": "com.amazonaws.ram#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException"
+          "target": "com.amazonaws.ram#UnknownResourceException"
         }
       ],
       "traits": {
@@ -3063,47 +3108,47 @@
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#UpdateResourceShareRequest": {
+    "com.amazonaws.ram#UpdateResourceShareRequest": {
       "type": "structure",
       "members": {
         "allowExternalPrincipals": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
+          "target": "com.amazonaws.ram#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>"
           }
         },
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource share.</p>"
           }
         },
         "resourceShareArn": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource share.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.resourcesharing.V2018_01_04#UpdateResourceShareResponse": {
+    "com.amazonaws.ram#UpdateResourceShareResponse": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+          "target": "com.amazonaws.ram#String",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"
           }
         },
         "resourceShare": {
-          "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShare",
+          "target": "com.amazonaws.ram#ResourceShare",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resource share.</p>"
           }

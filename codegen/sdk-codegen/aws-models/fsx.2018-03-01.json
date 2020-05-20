@@ -1,36 +1,35 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.simba.api.v20180301#AWSAccountId": {
+    "com.amazonaws.fsx#AWSAccountId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>An AWS account ID. This ID is a 12-digit number that you use to construct Amazon\n            Resource Names (ARNs) for resources.</p>",
@@ -41,51 +40,51 @@
         "smithy.api#pattern": "^\\d{12}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#AWSSimbaAPIService_v20180301": {
+    "com.amazonaws.fsx#AWSSimbaAPIService_v20180301": {
       "type": "service",
       "version": "2018-03-01",
       "operations": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#CancelDataRepositoryTask"
+          "target": "com.amazonaws.fsx#CancelDataRepositoryTask"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#CreateBackup"
+          "target": "com.amazonaws.fsx#CreateBackup"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#CreateDataRepositoryTask"
+          "target": "com.amazonaws.fsx#CreateDataRepositoryTask"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#CreateFileSystem"
+          "target": "com.amazonaws.fsx#CreateFileSystem"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemFromBackup"
+          "target": "com.amazonaws.fsx#CreateFileSystemFromBackup"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DeleteBackup"
+          "target": "com.amazonaws.fsx#DeleteBackup"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DeleteFileSystem"
+          "target": "com.amazonaws.fsx#DeleteFileSystem"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DescribeBackups"
+          "target": "com.amazonaws.fsx#DescribeBackups"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DescribeDataRepositoryTasks"
+          "target": "com.amazonaws.fsx#DescribeDataRepositoryTasks"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DescribeFileSystems"
+          "target": "com.amazonaws.fsx#DescribeFileSystems"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ListTagsForResource"
+          "target": "com.amazonaws.fsx#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#TagResource"
+          "target": "com.amazonaws.fsx#TagResource"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#UntagResource"
+          "target": "com.amazonaws.fsx#UntagResource"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#UpdateFileSystem"
+          "target": "com.amazonaws.fsx#UpdateFileSystem"
         }
       ],
       "traits": {
@@ -95,29 +94,25 @@
           "cloudFormationName": "FSx",
           "cloudTrailEventSource": "v20180301.api.simba.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "fsx"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>Amazon FSx is a fully managed service that makes it easy for storage and\n            application administrators to launch and use shared file storage.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon FSx"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ActiveDirectoryBackupAttributes": {
+    "com.amazonaws.fsx#ActiveDirectoryBackupAttributes": {
       "type": "structure",
       "members": {
         "ActiveDirectoryId": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryId",
+          "target": "com.amazonaws.fsx#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Managed Microsoft Active Directory instance to which the file system is joined.</p>"
           }
         },
         "DomainName": {
-          "target": "com.amazonaws.simba.api.v20180301#ActiveDirectoryFullyQualifiedName",
+          "target": "com.amazonaws.fsx#ActiveDirectoryFullyQualifiedName",
           "traits": {
             "smithy.api#documentation": "<p>The fully qualified domain name of the self-managed AD directory.</p>"
           }
@@ -127,21 +122,21 @@
         "smithy.api#documentation": "<p>The Microsoft AD attributes of the Amazon FSx for Windows File Server file system.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ActiveDirectoryError": {
+    "com.amazonaws.fsx#ActiveDirectoryError": {
       "type": "structure",
       "members": {
         "ActiveDirectoryId": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryId",
+          "target": "com.amazonaws.fsx#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The directory ID of the directory that an error pertains to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         },
         "Type": {
-          "target": "com.amazonaws.simba.api.v20180301#ActiveDirectoryErrorType",
+          "target": "com.amazonaws.fsx#ActiveDirectoryErrorType",
           "traits": {
             "smithy.api#documentation": "<p>The type of Active Directory error.</p>"
           }
@@ -152,27 +147,31 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ActiveDirectoryErrorType": {
+    "com.amazonaws.fsx#ActiveDirectoryErrorType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The type of error relating to Microsoft Active Directory. NOT_FOUND means that no\n            directory was found by specifying the given directory. INCOMPATIBLE_MODE means that the\n            directory specified is not a Microsoft AD directory. WRONG_VPC means that the specified\n            directory isn't accessible from the specified VPC. WRONG_STAGE means that the\n            specified directory isn't currently in the ACTIVE state.</p>",
-        "smithy.api#enum": {
-          "DOMAIN_NOT_FOUND": {
+        "smithy.api#enum": [
+          {
+            "value": "DOMAIN_NOT_FOUND",
             "name": "DOMAIN_NOT_FOUND"
           },
-          "INCOMPATIBLE_DOMAIN_MODE": {
+          {
+            "value": "INCOMPATIBLE_DOMAIN_MODE",
             "name": "INCOMPATIBLE_DOMAIN_MODE"
           },
-          "WRONG_VPC": {
+          {
+            "value": "WRONG_VPC",
             "name": "WRONG_VPC"
           },
-          "INVALID_DOMAIN_STAGE": {
+          {
+            "value": "INVALID_DOMAIN_STAGE",
             "name": "INVALID_DOMAIN_STAGE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#ActiveDirectoryFullyQualifiedName": {
+    "com.amazonaws.fsx#ActiveDirectoryFullyQualifiedName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -182,7 +181,7 @@
         "smithy.api#pattern": "^.{1,255}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ArchivePath": {
+    "com.amazonaws.fsx#ArchivePath": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -192,10 +191,10 @@
         "smithy.api#pattern": "^.{3,900}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#AutomaticBackupRetentionDays": {
+    "com.amazonaws.fsx#AutomaticBackupRetentionDays": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The number of days to retain automatic backups. Setting this to 0 disables\n            automatic backups. You can retain automatic backups for a maximum of 35 days.</p>",
         "smithy.api#range": {
           "min": 0,
@@ -203,75 +202,75 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#Backup": {
+    "com.amazonaws.fsx#Backup": {
       "type": "structure",
       "members": {
         "BackupId": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupId",
+          "target": "com.amazonaws.fsx#BackupId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the backup.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CreationTime": {
-          "target": "com.amazonaws.simba.api.v20180301#CreationTime",
+          "target": "com.amazonaws.fsx#CreationTime",
           "traits": {
             "smithy.api#documentation": "<p>The time when a particular backup was created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DirectoryInformation": {
-          "target": "com.amazonaws.simba.api.v20180301#ActiveDirectoryBackupAttributes",
+          "target": "com.amazonaws.fsx#ActiveDirectoryBackupAttributes",
           "traits": {
             "smithy.api#documentation": "<p>The configuration of the self-managed Microsoft Active Directory (AD) to which the Windows File Server instance is joined.</p>"
           }
         },
         "FailureDetails": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupFailureDetails",
+          "target": "com.amazonaws.fsx#BackupFailureDetails",
           "traits": {
             "smithy.api#documentation": "<p>Details explaining any failures that occur when creating a backup.</p>"
           }
         },
         "FileSystem": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystem",
+          "target": "com.amazonaws.fsx#FileSystem",
           "traits": {
             "smithy.api#documentation": "<p>Metadata of the file system associated with the backup. This metadata is persisted\n            even if the file system is deleted.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "KmsKeyId": {
-          "target": "com.amazonaws.simba.api.v20180301#KmsKeyId",
+          "target": "com.amazonaws.fsx#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt this \n              backup of the Amazon FSx for Windows file system's data at rest. \n              Amazon FSx for Lustre does not support KMS encryption.</p>"
           }
         },
         "Lifecycle": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupLifecycle",
+          "target": "com.amazonaws.fsx#BackupLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>The lifecycle status of the backup.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProgressPercent": {
-          "target": "com.amazonaws.simba.api.v20180301#ProgressPercent"
+          "target": "com.amazonaws.fsx#ProgressPercent"
         },
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the backup resource.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>Tags associated with a particular file system.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupType",
+          "target": "com.amazonaws.fsx#BackupType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the backup.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -279,11 +278,11 @@
         "smithy.api#documentation": "<p>A backup of an Amazon FSx for Windows File Server file system. You can create a new\n            file system from a backup to protect against data loss.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupFailureDetails": {
+    "com.amazonaws.fsx#BackupFailureDetails": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage",
+          "target": "com.amazonaws.fsx#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message describing the backup creation failure.</p>"
           }
@@ -293,7 +292,7 @@
         "smithy.api#documentation": "<p>If backup creation fails, this structure contains the details of that\n            failure.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupId": {
+    "com.amazonaws.fsx#BackupId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of the backup. Specifies the backup to use if you're creating a file system from an existing backup.</p>",
@@ -304,10 +303,10 @@
         "smithy.api#pattern": "^(backup-[0-9a-f]{8,})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupIds": {
+    "com.amazonaws.fsx#BackupIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#BackupId"
+        "target": "com.amazonaws.fsx#BackupId"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of backup IDs.</p>",
@@ -317,11 +316,11 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupInProgress": {
+    "com.amazonaws.fsx#BackupInProgress": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -329,31 +328,35 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupLifecycle": {
+    "com.amazonaws.fsx#BackupLifecycle": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The lifecycle status of the backup.</p>",
-        "smithy.api#enum": {
-          "AVAILABLE": {
+        "smithy.api#enum": [
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "CREATING": {
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupNotFound": {
+    "com.amazonaws.fsx#BackupNotFound": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -361,17 +364,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupRestoring": {
+    "com.amazonaws.fsx#BackupRestoring": {
       "type": "structure",
       "members": {
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of a file system being restored from the backup.</p>"
           }
         },
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -379,24 +382,26 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#BackupType": {
+    "com.amazonaws.fsx#BackupType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The type of the backup.</p>",
-        "smithy.api#enum": {
-          "AUTOMATIC": {
+        "smithy.api#enum": [
+          {
+            "value": "AUTOMATIC",
             "name": "AUTOMATIC"
           },
-          "USER_INITIATED": {
+          {
+            "value": "USER_INITIATED",
             "name": "USER_INITIATED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#Backups": {
+    "com.amazonaws.fsx#Backups": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#Backup"
+        "target": "com.amazonaws.fsx#Backup"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of backups.</p>",
@@ -406,11 +411,11 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#BadRequest": {
+    "com.amazonaws.fsx#BadRequest": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -418,44 +423,44 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CancelDataRepositoryTask": {
+    "com.amazonaws.fsx#CancelDataRepositoryTask": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#CancelDataRepositoryTaskRequest"
+        "target": "com.amazonaws.fsx#CancelDataRepositoryTaskRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#CancelDataRepositoryTaskResponse"
+        "target": "com.amazonaws.fsx#CancelDataRepositoryTaskResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskEnded"
+          "target": "com.amazonaws.fsx#DataRepositoryTaskEnded"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound"
+          "target": "com.amazonaws.fsx#DataRepositoryTaskNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#UnsupportedOperation"
+          "target": "com.amazonaws.fsx#UnsupportedOperation"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the \n            <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel a task, Amazon FSx does the following.</p>\n            <ul>\n            <li>\n               <p>Any files that FSx has already exported are not reverted.</p>\n            </li>\n            <li>\n               <p>FSx continues to export any files that are \"in-flight\" when the cancel operation is received.</p>\n            </li>\n            <li>\n               <p>FSx does not export any files that have not yet been exported.</p>\n            </li>\n         </ul>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#CancelDataRepositoryTaskRequest": {
+    "com.amazonaws.fsx#CancelDataRepositoryTaskRequest": {
       "type": "structure",
       "members": {
         "TaskId": {
-          "target": "com.amazonaws.simba.api.v20180301#TaskId",
+          "target": "com.amazonaws.fsx#TaskId",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the data repository task to cancel.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -463,24 +468,24 @@
         "smithy.api#documentation": "<p>Cancels a data repository task.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CancelDataRepositoryTaskResponse": {
+    "com.amazonaws.fsx#CancelDataRepositoryTaskResponse": {
       "type": "structure",
       "members": {
         "Lifecycle": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskLifecycle",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>The lifecycle status of the data repository task, as follows:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>PENDING</code> - Amazon FSx has not started the task.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXECUTING</code> - Amazon FSx is processing the task.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code> -  Amazon FSx was not able to complete the task. For example, there may be files the task failed to process. \n                The <a>DataRepositoryTaskFailureDetails</a> property provides more information about task failures.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SUCCEEDED</code> - FSx completed the task successfully.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCELED</code> - Amazon FSx canceled the task and it did not complete.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCELING</code> - FSx is in process of canceling the task.</p>\n            </li>\n         </ul>"
           }
         },
         "TaskId": {
-          "target": "com.amazonaws.simba.api.v20180301#TaskId",
+          "target": "com.amazonaws.fsx#TaskId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the task being canceled.</p>"
           }
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#ClientRequestToken": {
+    "com.amazonaws.fsx#ClientRequestToken": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>(Optional) An idempotency token for resource creation, in a string of up to 64\n            ASCII characters. This token is automatically filled on your behalf when you use the AWS\n            Command Line Interface (AWS CLI) or an AWS SDK.</p>",
@@ -491,30 +496,30 @@
         "smithy.api#pattern": "[A-za-z0-9_.-]{0,63}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CompletionReport": {
+    "com.amazonaws.fsx#CompletionReport": {
       "type": "structure",
       "members": {
         "Enabled": {
-          "target": "com.amazonaws.simba.api.v20180301#Flag",
+          "target": "com.amazonaws.fsx#Flag",
           "traits": {
             "smithy.api#documentation": "<p>Set <code>Enabled</code> to <code>True</code> to generate a <code>CompletionReport</code> when the task completes. \n            If set to <code>true</code>, then you need to provide a report <code>Scope</code>, <code>Path</code>, and <code>Format</code>. \n            Set <code>Enabled</code> to <code>False</code> if you do not want a <code>CompletionReport</code> generated when the task completes.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Format": {
-          "target": "com.amazonaws.simba.api.v20180301#ReportFormat",
+          "target": "com.amazonaws.fsx#ReportFormat",
           "traits": {
             "smithy.api#documentation": "<p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the format of the <code>CompletionReport</code>. <code>REPORT_CSV_20191124</code> is the only format currently supported.\n            When <code>Format</code> is set to <code>REPORT_CSV_20191124</code>, the <code>CompletionReport</code> is provided in CSV format, and is delivered to\n            <code>{path}/task-{id}/failures.csv</code>. \n        </p>"
           }
         },
         "Path": {
-          "target": "com.amazonaws.simba.api.v20180301#ArchivePath",
+          "target": "com.amazonaws.fsx#ArchivePath",
           "traits": {
             "smithy.api#documentation": "<p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the location of the report on the file system's linked S3 data repository. An absolute path that defines where the completion report will be stored in the destination location. \n            The <code>Path</code> you provide must be located within the file system’s ExportPath. \n            An example <code>Path</code> value is \"s3://myBucket/myExportPath/optionalPrefix\". The report provides the following information for each file in the report:\n            FilePath, FileStatus, and ErrorCode. To learn more about a file system's <code>ExportPath</code>, see .\n            </p>"
           }
         },
         "Scope": {
-          "target": "com.amazonaws.simba.api.v20180301#ReportScope",
+          "target": "com.amazonaws.fsx#ReportScope",
           "traits": {
             "smithy.api#documentation": "<p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the scope of the <code>CompletionReport</code>; <code>FAILED_FILES_ONLY</code> is the only scope currently supported. \n            When <code>Scope</code> is set to <code>FAILED_FILES_ONLY</code>, the <code>CompletionReport</code> only contains information about files that the data repository task failed to process.</p>"
           }
@@ -524,61 +529,61 @@
         "smithy.api#documentation": "<p>Provides a report detailing the data repository task results of the files processed that match the criteria specified in the report <code>Scope</code> parameter. \n            FSx delivers the report to the file system's linked data repository in Amazon S3, \n            using the path specified in the report <code>Path</code> parameter. \n            You can specify whether or not a report gets generated for a task using the <code>Enabled</code> parameter.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateBackup": {
+    "com.amazonaws.fsx#CreateBackup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateBackupRequest"
+        "target": "com.amazonaws.fsx#CreateBackupRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateBackupResponse"
+        "target": "com.amazonaws.fsx#CreateBackupResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BackupInProgress"
+          "target": "com.amazonaws.fsx#BackupInProgress"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemNotFound"
+          "target": "com.amazonaws.fsx#FileSystemNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#IncompatibleParameterError"
+          "target": "com.amazonaws.fsx#IncompatibleParameterError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded"
+          "target": "com.amazonaws.fsx#ServiceLimitExceeded"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#UnsupportedOperation"
+          "target": "com.amazonaws.fsx#UnsupportedOperation"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a backup of an existing Amazon FSx for Windows File Server file system.\n            Creating regular backups for your file system is a best practice that complements the\n            replication that Amazon FSx for Windows File Server performs for your file system. It\n            also enables you to restore from user modification of data.</p>\n\n        <p>If a backup with the specified client request token exists, and the parameters\n            match, this operation returns the description of the existing backup. If a backup\n            specified client request token exists, and the parameters don't match, this\n            operation returns <code>IncompatibleParameterError</code>. If a backup with the\n            specified client request token doesn't exist, <code>CreateBackup</code> does the\n            following: </p>\n        <ul>\n            <li>\n                <p>Creates a new Amazon FSx backup with an assigned ID, and an initial\n                    lifecycle state of <code>CREATING</code>.</p>\n            </li>\n            <li>\n                <p>Returns the description of the backup.</p>\n            </li>\n         </ul>\n\n        <p>By using the idempotent operation, you can retry a <code>CreateBackup</code>\n            operation without the risk of creating an extra backup. This approach can be useful when\n            an initial call fails in a way that makes it unclear whether a backup was created. If\n            you use the same client request token and the initial call created a backup, the\n            operation returns a successful result because all the parameters are the same.</p>\n\n        <p>The <code>CreateFileSystem</code> operation returns while the backup's\n            lifecycle state is still <code>CREATING</code>. You can check the file system creation\n            status by calling the <a>DescribeBackups</a> operation, which returns the\n            backup state along with other information.</p>\n\n        <note>\n            <p></p>\n        </note>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateBackupRequest": {
+    "com.amazonaws.fsx#CreateBackupRequest": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.simba.api.v20180301#ClientRequestToken",
+          "target": "com.amazonaws.fsx#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure\n            idempotent creation. This string is automatically filled on your behalf when you use the\n            AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the file system to back up.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the backup at backup creation. The key value of the\n                <code>Name</code> tag appears in the console as the backup name.</p>"
           }
@@ -588,11 +593,11 @@
         "smithy.api#documentation": "<p>The request object for the <code>CreateBackup</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateBackupResponse": {
+    "com.amazonaws.fsx#CreateBackupResponse": {
       "type": "structure",
       "members": {
         "Backup": {
-          "target": "com.amazonaws.simba.api.v20180301#Backup",
+          "target": "com.amazonaws.fsx#Backup",
           "traits": {
             "smithy.api#documentation": "<p>A description of the backup.</p>"
           }
@@ -602,209 +607,209 @@
         "smithy.api#documentation": "<p>The response object for the <code>CreateBackup</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateDataRepositoryTask": {
+    "com.amazonaws.fsx#CreateDataRepositoryTask": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateDataRepositoryTaskRequest"
+        "target": "com.amazonaws.fsx#CreateDataRepositoryTaskRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateDataRepositoryTaskResponse"
+        "target": "com.amazonaws.fsx#CreateDataRepositoryTaskResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskExecuting"
+          "target": "com.amazonaws.fsx#DataRepositoryTaskExecuting"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemNotFound"
+          "target": "com.amazonaws.fsx#FileSystemNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#IncompatibleParameterError"
+          "target": "com.amazonaws.fsx#IncompatibleParameterError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded"
+          "target": "com.amazonaws.fsx#ServiceLimitExceeded"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#UnsupportedOperation"
+          "target": "com.amazonaws.fsx#UnsupportedOperation"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates an Amazon FSx for Lustre data repository task. You use data repository tasks\n            to perform bulk operations between your Amazon FSx file system and its linked data\n            repository. An example of a data repository task is\n            exporting any data and metadata changes, including POSIX metadata, to files, directories, and symbolic links (symlinks) from your FSx file system to its linked data repository. A\n                <code>CreateDataRepositoryTask</code> operation will fail if a data repository is not\n            linked to the FSx file system. To learn more about data repository tasks, see \n            <a href=\"https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html\">Using Data Repository Tasks</a>. \n            To learn more about linking a data repository to your file system, see \n            <a href=\"https://docs.aws.amazon.com/fsx/latest/LustreGuide/getting-started-step1.html\">Step 1: Create Your Amazon FSx for Lustre File System</a>.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateDataRepositoryTaskRequest": {
+    "com.amazonaws.fsx#CreateDataRepositoryTaskRequest": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.simba.api.v20180301#ClientRequestToken",
+          "target": "com.amazonaws.fsx#ClientRequestToken",
           "traits": {
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Paths": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskPaths",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskPaths",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The path or paths on the Amazon FSx file system to use when the data repository task is processed. \n            The default path is the file system root directory.</p>"
           }
         },
         "Report": {
-          "target": "com.amazonaws.simba.api.v20180301#CompletionReport",
+          "target": "com.amazonaws.fsx#CompletionReport",
           "traits": {
             "smithy.api#documentation": "<p>Defines whether or not Amazon FSx provides a CompletionReport once the task has completed. \n            A CompletionReport provides a detailed  report on the files that Amazon FSx processed that meet the criteria specified by the \n            <code>Scope</code> parameter. \n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags"
+          "target": "com.amazonaws.fsx#Tags"
         },
         "Type": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskType",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the type of data repository task to create.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateDataRepositoryTaskResponse": {
+    "com.amazonaws.fsx#CreateDataRepositoryTaskResponse": {
       "type": "structure",
       "members": {
         "DataRepositoryTask": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTask",
+          "target": "com.amazonaws.fsx#DataRepositoryTask",
           "traits": {
             "smithy.api#documentation": "<p>The description of the data repository task that you just created.</p>"
           }
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystem": {
+    "com.amazonaws.fsx#CreateFileSystem": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemRequest"
+        "target": "com.amazonaws.fsx#CreateFileSystemRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemResponse"
+        "target": "com.amazonaws.fsx#CreateFileSystemResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#ActiveDirectoryError"
+          "target": "com.amazonaws.fsx#ActiveDirectoryError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#IncompatibleParameterError"
+          "target": "com.amazonaws.fsx#IncompatibleParameterError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InvalidExportPath"
+          "target": "com.amazonaws.fsx#InvalidExportPath"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InvalidImportPath"
+          "target": "com.amazonaws.fsx#InvalidImportPath"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InvalidNetworkSettings"
+          "target": "com.amazonaws.fsx#InvalidNetworkSettings"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#MissingFileSystemConfiguration"
+          "target": "com.amazonaws.fsx#MissingFileSystemConfiguration"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded"
+          "target": "com.amazonaws.fsx#ServiceLimitExceeded"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a new, empty Amazon FSx file system.</p>\n\n        <p>If a file system with the specified client request token exists and the parameters\n            match, <code>CreateFileSystem</code> returns the description of the existing file\n            system. If a file system specified client request token exists and the parameters\n            don't match, this call returns <code>IncompatibleParameterError</code>. If a file\n            system with the specified client request token doesn't exist,\n                <code>CreateFileSystem</code> does the following: </p>\n        <ul>\n            <li>\n                <p>Creates a new, empty Amazon FSx file system with an assigned ID, and an\n                    initial lifecycle state of <code>CREATING</code>.</p>\n            </li>\n            <li>\n                <p>Returns the description of the file system.</p>\n            </li>\n         </ul>\n\n        <p>This operation requires a client request token in the request that Amazon FSx uses\n            to ensure idempotent creation. This means that calling the operation multiple times with\n            the same client request token has no effect. By using the idempotent operation, you can\n            retry a <code>CreateFileSystem</code> operation without the risk of creating an extra\n            file system. This approach can be useful when an initial call fails in a way that makes\n            it unclear whether a file system was created. Examples are if a transport level timeout\n            occurred, or your connection was reset. If you use the same client request token and the\n            initial call created a file system, the client receives success as long as the\n            parameters are the same.</p>\n        <note>\n            <p>The <code>CreateFileSystem</code> call returns while the file system's\n                lifecycle state is still <code>CREATING</code>. You can check the file-system\n                creation status by calling the <a>DescribeFileSystems</a> operation,\n                which returns the file system state along with other information.</p>\n        </note>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystemFromBackup": {
+    "com.amazonaws.fsx#CreateFileSystemFromBackup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemFromBackupRequest"
+        "target": "com.amazonaws.fsx#CreateFileSystemFromBackupRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemFromBackupResponse"
+        "target": "com.amazonaws.fsx#CreateFileSystemFromBackupResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#ActiveDirectoryError"
+          "target": "com.amazonaws.fsx#ActiveDirectoryError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BackupNotFound"
+          "target": "com.amazonaws.fsx#BackupNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#IncompatibleParameterError"
+          "target": "com.amazonaws.fsx#IncompatibleParameterError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InvalidNetworkSettings"
+          "target": "com.amazonaws.fsx#InvalidNetworkSettings"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#MissingFileSystemConfiguration"
+          "target": "com.amazonaws.fsx#MissingFileSystemConfiguration"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded"
+          "target": "com.amazonaws.fsx#ServiceLimitExceeded"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a new Amazon FSx file system from an existing Amazon FSx for Windows File\n            Server backup.</p>\n        \n        <p>If a file system with the specified client request token exists and the parameters\n            match, this operation returns the description of the file system. If a client\n            request token specified by the file system exists and the parameters don't match,\n            this call returns <code>IncompatibleParameterError</code>. If a file system with the\n            specified client request token doesn't exist, this operation does the following:</p>\n        \n        <ul>\n            <li>\n                <p>Creates a new Amazon FSx file system from backup with an assigned ID, and\n                    an initial lifecycle state of <code>CREATING</code>.</p>\n            </li>\n            <li>\n                <p>Returns the description of the file system.</p>\n            </li>\n         </ul>\n\n        <p>Parameters like Active Directory, default share name, automatic backup, and backup\n            settings default to the parameters of the file system that was backed up, unless\n            overridden. You can explicitly supply other settings.</p>\n\n        <p>By using the idempotent operation, you can retry a\n                <code>CreateFileSystemFromBackup</code> call without the risk of creating an extra\n            file system. This approach can be useful when an initial call fails in a way that makes\n            it unclear whether a file system was created. Examples are if a transport level timeout\n            occurred, or your connection was reset. If you use the same client request token and the\n            initial call created a file system, the client receives success as long as the\n            parameters are the same.</p>\n        <note>\n            <p>The <code>CreateFileSystemFromBackup</code> call returns while the file\n                system's lifecycle state is still <code>CREATING</code>. You can check the\n                file-system creation status by calling the <a>DescribeFileSystems</a>\n                operation, which returns the file system state along with other\n                information.</p>\n        </note>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystemFromBackupRequest": {
+    "com.amazonaws.fsx#CreateFileSystemFromBackupRequest": {
       "type": "structure",
       "members": {
         "BackupId": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupId",
+          "target": "com.amazonaws.fsx#BackupId",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ClientRequestToken": {
-          "target": "com.amazonaws.simba.api.v20180301#ClientRequestToken",
+          "target": "com.amazonaws.fsx#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure\n            idempotent creation. This string is automatically filled on your behalf when you use the\n            AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "SecurityGroupIds": {
-          "target": "com.amazonaws.simba.api.v20180301#SecurityGroupIds",
+          "target": "com.amazonaws.fsx#SecurityGroupIds",
           "traits": {
             "smithy.api#documentation": "<p>A list of IDs for the security groups that apply to the specified network\n            interfaces created for file system access. These security groups apply to all network\n            interfaces. This value isn't returned in later describe requests.</p>"
           }
         },
         "SubnetIds": {
-          "target": "com.amazonaws.simba.api.v20180301#SubnetIds",
+          "target": "com.amazonaws.fsx#SubnetIds",
           "traits": {
             "smithy.api#documentation": "<p>A list of IDs for the subnets that the file system will be accessible from.\n            Currently, you can specify only one subnet. The file server is also launched in that\n            subnet's Availability Zone.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags to be applied to the file system at file system creation. The key value of\n            the <code>Name</code> tag appears in the console as the file system\n            name.</p>"
           }
         },
         "WindowsConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemWindowsConfiguration",
+          "target": "com.amazonaws.fsx#CreateFileSystemWindowsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration for this Microsoft Windows file system.</p>"
           }
@@ -814,11 +819,11 @@
         "smithy.api#documentation": "<p>The request object for the <code>CreateFileSystemFromBackup</code>\n            operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystemFromBackupResponse": {
+    "com.amazonaws.fsx#CreateFileSystemFromBackupResponse": {
       "type": "structure",
       "members": {
         "FileSystem": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystem",
+          "target": "com.amazonaws.fsx#FileSystem",
           "traits": {
             "smithy.api#documentation": "<p>A description of the file system.</p>"
           }
@@ -828,29 +833,29 @@
         "smithy.api#documentation": "<p>The response object for the <code>CreateFileSystemFromBackup</code>\n            operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystemLustreConfiguration": {
+    "com.amazonaws.fsx#CreateFileSystemLustreConfiguration": {
       "type": "structure",
       "members": {
         "ExportPath": {
-          "target": "com.amazonaws.simba.api.v20180301#ArchivePath",
+          "target": "com.amazonaws.fsx#ArchivePath",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The path in Amazon S3 where the root of your Amazon FSx file system is exported. \n            The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which\n            new and changed data is to be exported from your Amazon FSx for Lustre file system. If\n            an <code>ExportPath</code> value is not provided, Amazon FSx sets a default export path,\n            <code>s3://import-bucket/FSxLustre[creation-timestamp]</code>. The timestamp is in\n            UTC format, for example\n            <code>s3://import-bucket/FSxLustre20181105T222312Z</code>.</p>\n\n        <p>The Amazon S3 export bucket must be the same as the import bucket specified by\n            <code>ImportPath</code>. If you only specify a bucket name, such as\n            <code>s3://import-bucket</code>, you get a 1:1 mapping of file system objects to S3\n            bucket objects. This mapping means that the input data in S3 is overwritten on export.\n            If you provide a custom prefix in the export path, such as\n            <code>s3://import-bucket/[custom-optional-prefix]</code>, Amazon FSx exports the contents of your file \n            system to that export prefix in the Amazon S3 bucket.</p>"
           }
         },
         "ImportPath": {
-          "target": "com.amazonaws.simba.api.v20180301#ArchivePath",
+          "target": "com.amazonaws.fsx#ArchivePath",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The path to the Amazon S3 bucket (including the optional prefix) that\n            you're using as the data repository for your Amazon FSx for Lustre file system. \n            The root of your FSx for Lustre file system will \n            be mapped to the root of the Amazon S3 bucket you select. An\n            example is <code>s3://import-bucket/optional-prefix</code>. If you specify a prefix\n            after the Amazon S3 bucket name, only object keys with that prefix are loaded into the\n            file system.</p>"
           }
         },
         "ImportedFileChunkSize": {
-          "target": "com.amazonaws.simba.api.v20180301#Megabytes",
+          "target": "com.amazonaws.fsx#Megabytes",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) For files imported from a data repository, this value determines the stripe\n            count and maximum amount of data per file (in MiB) stored on a single physical disk. The\n            maximum number of disks that a single file can be striped across is limited by the total\n            number of disks that make up the file system.</p>\n        \n        <p>The chunk size default is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500\n            GiB). Amazon S3 objects have a maximum size of 5 TB.</p>"
           }
         },
         "WeeklyMaintenanceStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#WeeklyTime",
+          "target": "com.amazonaws.fsx#WeeklyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>"
           }
@@ -860,57 +865,57 @@
         "smithy.api#documentation": "<p>The Lustre configuration for the file system being created. \n            This value is required if <code>FileSystemType</code> is set to <code>LUSTRE</code>.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystemRequest": {
+    "com.amazonaws.fsx#CreateFileSystemRequest": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.simba.api.v20180301#ClientRequestToken",
+          "target": "com.amazonaws.fsx#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure\n            idempotent creation. This string is automatically filled on your behalf when you use the\n            AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "FileSystemType": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemType",
+          "target": "com.amazonaws.fsx#FileSystemType",
           "traits": {
             "smithy.api#documentation": "<p>The type of Amazon FSx file system to create.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "KmsKeyId": {
-          "target": "com.amazonaws.simba.api.v20180301#KmsKeyId"
+          "target": "com.amazonaws.fsx#KmsKeyId"
         },
         "LustreConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemLustreConfiguration"
+          "target": "com.amazonaws.fsx#CreateFileSystemLustreConfiguration"
         },
         "SecurityGroupIds": {
-          "target": "com.amazonaws.simba.api.v20180301#SecurityGroupIds",
+          "target": "com.amazonaws.fsx#SecurityGroupIds",
           "traits": {
             "smithy.api#documentation": "<p>A list of IDs specifying the security groups to apply to all network interfaces\n            created for file system access. This list isn't returned in later requests to\n            describe the file system.</p>"
           }
         },
         "StorageCapacity": {
-          "target": "com.amazonaws.simba.api.v20180301#StorageCapacity",
+          "target": "com.amazonaws.fsx#StorageCapacity",
           "traits": {
             "smithy.api#documentation": "<p>The storage capacity of the file system being created.</p>\n        <p>For Windows file systems, valid values are 32 GiB - 65,536 GiB.</p>\n        <p>For Lustre file systems, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3600 GiB.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SubnetIds": {
-          "target": "com.amazonaws.simba.api.v20180301#SubnetIds",
+          "target": "com.amazonaws.fsx#SubnetIds",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows <code>MULTI_AZ_1</code> \n            file system deployment types, provide exactly two subnet IDs, one for the preferred file server \n            and one for the standy file server. You specify one of these subnets as the preferred subnet \n            using the <code>WindowsConfiguration > PreferredSubnetID</code> property.</p>\n        <p>For Windows <code>SINGLE_AZ_1</code> file system deployment types and Lustre file systems, provide exactly one subnet ID.\n           The file server is launched in that subnet's Availability Zone.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the file system being created. The key value of\n            the <code>Name</code> tag appears in the console as the file system name.</p>"
           }
         },
         "WindowsConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#CreateFileSystemWindowsConfiguration",
+          "target": "com.amazonaws.fsx#CreateFileSystemWindowsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The Microsoft Windows configuration for the file system being created. \n            This value is required if <code>FileSystemType</code> is set to <code>WINDOWS</code>.</p>"
           }
@@ -920,11 +925,11 @@
         "smithy.api#documentation": "<p>The request object used to create a new Amazon FSx file system.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystemResponse": {
+    "com.amazonaws.fsx#CreateFileSystemResponse": {
       "type": "structure",
       "members": {
         "FileSystem": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystem",
+          "target": "com.amazonaws.fsx#FileSystem",
           "traits": {
             "smithy.api#documentation": "<p>The configuration of the file system that was created.</p>"
           }
@@ -934,57 +939,57 @@
         "smithy.api#documentation": "<p>The response object returned after the file system is created.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreateFileSystemWindowsConfiguration": {
+    "com.amazonaws.fsx#CreateFileSystemWindowsConfiguration": {
       "type": "structure",
       "members": {
         "ActiveDirectoryId": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryId",
+          "target": "com.amazonaws.fsx#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for an existing AWS Managed Microsoft Active Directory (AD) instance that the\n            file system should join when it's created.</p>"
           }
         },
         "AutomaticBackupRetentionDays": {
-          "target": "com.amazonaws.simba.api.v20180301#AutomaticBackupRetentionDays",
+          "target": "com.amazonaws.fsx#AutomaticBackupRetentionDays",
           "traits": {
             "smithy.api#documentation": "<p>The number of days to retain automatic backups. The default is to retain backups for 7\n            days. Setting this value to 0 disables the creation of automatic backups. The maximum\n            retention period for backups is 35 days.</p>"
           }
         },
         "CopyTagsToBackups": {
-          "target": "com.amazonaws.simba.api.v20180301#Flag",
+          "target": "com.amazonaws.fsx#Flag",
           "traits": {
             "smithy.api#documentation": "<p>A boolean flag indicating whether tags for the file system should be copied to\n            backups. This value defaults to false. If it's set to true, all tags for the file\n            system are copied to all automatic and user-initiated backups where the user\n            doesn't specify tags. If this value is true, and you specify one or more tags, only\n            the specified tags are copied to backups.</p>"
           }
         },
         "DailyAutomaticBackupStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#DailyTime",
+          "target": "com.amazonaws.fsx#DailyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred time to take daily automatic backups, formatted HH:MM in the UTC time\n            zone.</p>"
           }
         },
         "DeploymentType": {
-          "target": "com.amazonaws.simba.api.v20180301#WindowsDeploymentType",
+          "target": "com.amazonaws.fsx#WindowsDeploymentType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the file system deployment type, valid values are the following:</p>\n        <ul>\n            <li>\n                <p>MULTI_AZ_1 - Deploys a high availability file system that is configured \n                    for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. You \n                    can only deploy a Multi-AZ file system in AWS Regions that have a minimum of three Availability Zones.</p>\n            </li>\n            <li>\n                <p>SINGLE_AZ_1 - (Default) Choose to deploy a file system that is configured for single AZ redundancy.</p>\n            </li>\n         </ul>\n        <p>To learn more about high availability Multi-AZ file systems, see \n            <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html\">\n                High Availability for Amazon FSx for Windows File Server</a>.</p>"
           }
         },
         "PreferredSubnetId": {
-          "target": "com.amazonaws.simba.api.v20180301#SubnetId",
+          "target": "com.amazonaws.fsx#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This specifies the subnet \n            in which you want the preferred file server to be located. For in-AWS applications, we recommend that you launch \n            your clients in the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ \n            data transfer costs and minimize latency. </p>"
           }
         },
         "SelfManagedActiveDirectoryConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#SelfManagedActiveDirectoryConfiguration"
+          "target": "com.amazonaws.fsx#SelfManagedActiveDirectoryConfiguration"
         },
         "ThroughputCapacity": {
-          "target": "com.amazonaws.simba.api.v20180301#MegabytesPerSecond",
+          "target": "com.amazonaws.fsx#MegabytesPerSecond",
           "traits": {
             "smithy.api#documentation": "<p>The throughput of an Amazon FSx file system, measured in megabytes per second, in 2 to\n            the <i>n</i>th increments, between 2^3 (8) and 2^11 (2048).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "WeeklyMaintenanceStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#WeeklyTime",
+          "target": "com.amazonaws.fsx#WeeklyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC\n            time zone.</p>"
           }
@@ -994,13 +999,13 @@
         "smithy.api#documentation": "<p>The configuration object for the Microsoft Windows file system used in\n                <code>CreateFileSystem</code> and <code>CreateFileSystemFromBackup</code>\n            operations.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#CreationTime": {
+    "com.amazonaws.fsx#CreationTime": {
       "type": "timestamp",
       "traits": {
         "smithy.api#documentation": "<p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),\n            also known as Unix time.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DNSName": {
+    "com.amazonaws.fsx#DNSName": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The Domain Name Service (DNS) name for the file system. You can mount your file\n            system using its DNS name.</p>",
@@ -1011,7 +1016,7 @@
         "smithy.api#pattern": "^(fsi?-[0-9a-f]{8,}\\..{4,253})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DailyTime": {
+    "com.amazonaws.fsx#DailyTime": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the\n            zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the\n            hour. For example, <code>05:00</code> specifies 5 AM daily. </p>",
@@ -1022,23 +1027,23 @@
         "smithy.api#pattern": "^([01]\\d|2[0-3]):?([0-5]\\d)$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryConfiguration": {
+    "com.amazonaws.fsx#DataRepositoryConfiguration": {
       "type": "structure",
       "members": {
         "ExportPath": {
-          "target": "com.amazonaws.simba.api.v20180301#ArchivePath",
+          "target": "com.amazonaws.fsx#ArchivePath",
           "traits": {
             "smithy.api#documentation": "<p>The export path to the Amazon S3 bucket (and prefix) that you are using to store new and\n            changed Lustre file system files in S3.</p>"
           }
         },
         "ImportPath": {
-          "target": "com.amazonaws.simba.api.v20180301#ArchivePath",
+          "target": "com.amazonaws.fsx#ArchivePath",
           "traits": {
             "smithy.api#documentation": "<p>The import path to the Amazon S3 bucket (and optional prefix) that you're using\n            as the data repository for your FSx for Lustre file system, for example\n                <code>s3://import-bucket/optional-prefix</code>. If a prefix is specified after the\n            Amazon S3 bucket name, only object keys with that prefix are loaded into the file\n            system.</p>"
           }
         },
         "ImportedFileChunkSize": {
-          "target": "com.amazonaws.simba.api.v20180301#Megabytes",
+          "target": "com.amazonaws.fsx#Megabytes",
           "traits": {
             "smithy.api#documentation": "<p>For files imported from a data repository, this value determines the stripe count and\n            maximum amount of data per file (in MiB) stored on a single physical disk. The maximum\n            number of disks that a single file can be striped across is limited by the total number\n            of disks that make up the file system.</p>\n\n        <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500\n            GiB). Amazon S3 objects have a maximum size of 5 TB.</p>"
           }
@@ -1048,79 +1053,79 @@
         "smithy.api#documentation": "<p>The data repository configuration object for Lustre file systems returned in the response of\n            the <code>CreateFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTask": {
+    "com.amazonaws.fsx#DataRepositoryTask": {
       "type": "structure",
       "members": {
         "CreationTime": {
-          "target": "com.amazonaws.simba.api.v20180301#CreationTime",
+          "target": "com.amazonaws.fsx#CreationTime",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EndTime": {
-          "target": "com.amazonaws.simba.api.v20180301#EndTime",
+          "target": "com.amazonaws.fsx#EndTime",
           "traits": {
             "smithy.api#documentation": "<p>The time that Amazon FSx completed processing the task, populated after the task is complete.</p>"
           }
         },
         "FailureDetails": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFailureDetails",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskFailureDetails",
           "traits": {
             "smithy.api#documentation": "<p>Failure message describing why the task failed, it is populated only when <code>Lifecycle</code> is set to <code>FAILED</code>.</p>"
           }
         },
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Lifecycle": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskLifecycle",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>The lifecycle status of the data repository task, as follows:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>PENDING</code> - Amazon FSx has not started the task.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXECUTING</code> - Amazon FSx is processing the task.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code> -  Amazon FSx was not able to complete the task. For example, there may be files the task failed to process. \n                The <a>DataRepositoryTaskFailureDetails</a> property provides more information about task failures.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SUCCEEDED</code> - FSx completed the task successfully.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCELED</code> - Amazon FSx canceled the task and it did not complete.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCELING</code> - FSx is in process of canceling the task.</p>\n            </li>\n         </ul>\n        <note>\n            <p>You cannot delete an FSx for Lustre file system if there are data \n                repository tasks for the file system in the <code>PENDING</code> or <code>EXECUTING</code> states.\n                Please retry when the data repository task is finished (with a status of <code>CANCELED</code>, <code>SUCCEEDED</code>, or <code>FAILED</code>). \n                You can use the DescribeDataRepositoryTask action to monitor the task status. Contact the FSx team if you need to delete your file system immediately.</p>\n        </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Paths": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskPaths",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskPaths",
           "traits": {
             "smithy.api#documentation": "<p>An array of paths on the Amazon FSx for Lustre file system that specify the data for the data repository task to process. \n            For example, in an EXPORT_TO_REPOSITORY task, the paths specify which data to export to the linked data repository.</p>\n            <p>(Default) If <code>Paths</code> is not specified, Amazon FSx uses the file system root directory.</p>"
           }
         },
         "Report": {
-          "target": "com.amazonaws.simba.api.v20180301#CompletionReport"
+          "target": "com.amazonaws.fsx#CompletionReport"
         },
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN"
+          "target": "com.amazonaws.fsx#ResourceARN"
         },
         "StartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#StartTime",
+          "target": "com.amazonaws.fsx#StartTime",
           "traits": {
             "smithy.api#documentation": "<p>The time that Amazon FSx began processing the task.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskStatus",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskStatus",
           "traits": {
             "smithy.api#documentation": "<p>Provides the status of the number of files that the task has processed successfully and failed to process.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags"
+          "target": "com.amazonaws.fsx#Tags"
         },
         "TaskId": {
-          "target": "com.amazonaws.simba.api.v20180301#TaskId",
+          "target": "com.amazonaws.fsx#TaskId",
           "traits": {
             "smithy.api#documentation": "<p>The system-generated, unique 17-digit ID of the data repository task.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskType",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskType",
           "traits": {
             "smithy.api#documentation": "<p>The type of data repository task; EXPORT_TO_REPOSITORY is the only type currently supported.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1128,11 +1133,11 @@
         "smithy.api#documentation": "<p>A description of the data repository task. You use data repository tasks\n            to perform bulk transfer operations between your Amazon FSx file system and its linked data\n            repository.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskEnded": {
+    "com.amazonaws.fsx#DataRepositoryTaskEnded": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -1140,11 +1145,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskExecuting": {
+    "com.amazonaws.fsx#DataRepositoryTaskExecuting": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -1152,28 +1157,28 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFailureDetails": {
+    "com.amazonaws.fsx#DataRepositoryTaskFailureDetails": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Provides information about why a data repository task failed. Only populated when the task <code>Lifecycle</code> is set to <code>FAILED</code>.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilter": {
+    "com.amazonaws.fsx#DataRepositoryTaskFilter": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilterName",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskFilterName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the task property to use in filtering the tasks returned in the response.</p>\n        <ul>\n            <li>\n               <p>Use <code>file-system-id</code> to retrieve data repository tasks for specific file systems.</p>\n            </li>\n            <li>\n               <p>Use <code>task-lifecycle</code> to retrieve data repository tasks with one or more specific lifecycle states, \n                as follows: CANCELED, EXECUTING, FAILED, PENDING, and SUCCEEDED.</p>\n            </li>\n         </ul>"
           }
         },
         "Values": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilterValues",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskFilterValues",
           "traits": {
             "smithy.api#documentation": "<p>Use Values to include the specific file system IDs and task \n            lifecycle states for the filters you are using.</p>"
           }
@@ -1183,20 +1188,22 @@
         "smithy.api#documentation": "<p>(Optional) An array of filter objects you can use to filter the response of data repository tasks you will see in the the response. \n            You can filter the tasks returned in the response by one or more file system IDs, task lifecycles, and by task type. \n            A filter object consists of a filter <code>Name</code>, and one or more <code>Values</code> for the filter.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilterName": {
+    "com.amazonaws.fsx#DataRepositoryTaskFilterName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "file-system-id": {
+        "smithy.api#enum": [
+          {
+            "value": "file-system-id",
             "name": "FILE_SYSTEM_ID"
           },
-          "task-lifecycle": {
+          {
+            "value": "task-lifecycle",
             "name": "TASK_LIFECYCLE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilterValue": {
+    "com.amazonaws.fsx#DataRepositoryTaskFilterValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1206,10 +1213,10 @@
         "smithy.api#pattern": "^[0-9a-zA-Z\\*\\.\\\\/\\?\\-\\_]*$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilterValues": {
+    "com.amazonaws.fsx#DataRepositoryTaskFilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilterValue"
+        "target": "com.amazonaws.fsx#DataRepositoryTaskFilterValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -1218,10 +1225,10 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilters": {
+    "com.amazonaws.fsx#DataRepositoryTaskFilters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilter"
+        "target": "com.amazonaws.fsx#DataRepositoryTaskFilter"
       },
       "traits": {
         "smithy.api#length": {
@@ -1230,36 +1237,42 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskLifecycle": {
+    "com.amazonaws.fsx#DataRepositoryTaskLifecycle": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "EXECUTING": {
+          {
+            "value": "EXECUTING",
             "name": "EXECUTING"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "SUCCEEDED": {
+          {
+            "value": "SUCCEEDED",
             "name": "SUCCEEDED"
           },
-          "CANCELED": {
+          {
+            "value": "CANCELED",
             "name": "CANCELED"
           },
-          "CANCELING": {
+          {
+            "value": "CANCELING",
             "name": "CANCELING"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound": {
+    "com.amazonaws.fsx#DataRepositoryTaskNotFound": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -1267,7 +1280,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskPath": {
+    "com.amazonaws.fsx#DataRepositoryTaskPath": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1277,10 +1290,10 @@
         "smithy.api#pattern": "^.{0,4096}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskPaths": {
+    "com.amazonaws.fsx#DataRepositoryTaskPaths": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskPath"
+        "target": "com.amazonaws.fsx#DataRepositoryTaskPath"
       },
       "traits": {
         "smithy.api#length": {
@@ -1289,29 +1302,29 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskStatus": {
+    "com.amazonaws.fsx#DataRepositoryTaskStatus": {
       "type": "structure",
       "members": {
         "FailedCount": {
-          "target": "com.amazonaws.simba.api.v20180301#FailedCount",
+          "target": "com.amazonaws.fsx#FailedCount",
           "traits": {
             "smithy.api#documentation": "<p>A running total of the number of files that the task failed to process.</p>"
           }
         },
         "LastUpdatedTime": {
-          "target": "com.amazonaws.simba.api.v20180301#LastUpdatedTime",
+          "target": "com.amazonaws.fsx#LastUpdatedTime",
           "traits": {
             "smithy.api#documentation": "<p>The time at which the task status was last updated.</p>"
           }
         },
         "SucceededCount": {
-          "target": "com.amazonaws.simba.api.v20180301#SucceededCount",
+          "target": "com.amazonaws.fsx#SucceededCount",
           "traits": {
             "smithy.api#documentation": "<p>A running total of the number of files that the task has successfully processed.</p>"
           }
         },
         "TotalCount": {
-          "target": "com.amazonaws.simba.api.v20180301#TotalCount",
+          "target": "com.amazonaws.fsx#TotalCount",
           "traits": {
             "smithy.api#documentation": "<p>The total number of files that the task will process. While a task is executing, the sum of \n            <code>SucceededCount</code> plus <code>FailedCount</code> may not equal <code>TotalCount</code>. When the task is complete, \n            <code>TotalCount</code> equals the sum of <code>SucceededCount</code> plus <code>FailedCount</code>.</p>"
           }
@@ -1321,20 +1334,21 @@
         "smithy.api#documentation": "<p>Provides the task status showing a running total of the total number of files to be processed, \n            the number successfully processed, and the number of files the task failed to process.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTaskType": {
+    "com.amazonaws.fsx#DataRepositoryTaskType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EXPORT_TO_REPOSITORY": {
+        "smithy.api#enum": [
+          {
+            "value": "EXPORT_TO_REPOSITORY",
             "name": "EXPORT"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#DataRepositoryTasks": {
+    "com.amazonaws.fsx#DataRepositoryTasks": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTask"
+        "target": "com.amazonaws.fsx#DataRepositoryTask"
       },
       "traits": {
         "smithy.api#length": {
@@ -1343,54 +1357,54 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteBackup": {
+    "com.amazonaws.fsx#DeleteBackup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#DeleteBackupRequest"
+        "target": "com.amazonaws.fsx#DeleteBackupRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#DeleteBackupResponse"
+        "target": "com.amazonaws.fsx#DeleteBackupResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BackupInProgress"
+          "target": "com.amazonaws.fsx#BackupInProgress"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BackupNotFound"
+          "target": "com.amazonaws.fsx#BackupNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BackupRestoring"
+          "target": "com.amazonaws.fsx#BackupRestoring"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#IncompatibleParameterError"
+          "target": "com.amazonaws.fsx#IncompatibleParameterError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes an Amazon FSx for Windows File Server backup, deleting its contents. After\n            deletion, the backup no longer exists, and its data is gone.</p>\n\n        <p>The <code>DeleteBackup</code> call returns instantly. The backup will not show up\n            in later <code>DescribeBackups</code> calls.</p>\n\n        <important>\n            <p>The data in a deleted backup is also deleted and can't be recovered by any\n                means.</p>\n        </important>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteBackupRequest": {
+    "com.amazonaws.fsx#DeleteBackupRequest": {
       "type": "structure",
       "members": {
         "BackupId": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupId",
+          "target": "com.amazonaws.fsx#BackupId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the backup you want to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ClientRequestToken": {
-          "target": "com.amazonaws.simba.api.v20180301#ClientRequestToken",
+          "target": "com.amazonaws.fsx#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure\n            idempotent deletion. This is automatically filled on your behalf when using the AWS CLI\n            or SDK.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -1398,17 +1412,17 @@
         "smithy.api#documentation": "<p>The request object for <code>DeleteBackup</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteBackupResponse": {
+    "com.amazonaws.fsx#DeleteBackupResponse": {
       "type": "structure",
       "members": {
         "BackupId": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupId",
+          "target": "com.amazonaws.fsx#BackupId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the backup deleted.</p>"
           }
         },
         "Lifecycle": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupLifecycle",
+          "target": "com.amazonaws.fsx#BackupLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>The lifecycle of the backup. Should be <code>DELETED</code>.</p>"
           }
@@ -1418,95 +1432,95 @@
         "smithy.api#documentation": "<p>The response object for <code>DeleteBackup</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteFileSystem": {
+    "com.amazonaws.fsx#DeleteFileSystem": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#DeleteFileSystemRequest"
+        "target": "com.amazonaws.fsx#DeleteFileSystemRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#DeleteFileSystemResponse"
+        "target": "com.amazonaws.fsx#DeleteFileSystemResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemNotFound"
+          "target": "com.amazonaws.fsx#FileSystemNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#IncompatibleParameterError"
+          "target": "com.amazonaws.fsx#IncompatibleParameterError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded"
+          "target": "com.amazonaws.fsx#ServiceLimitExceeded"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes a file system, deleting its contents. After deletion, the file system no\n            longer exists, and its data is gone. Any existing automatic backups will also be\n            deleted.</p>\n        <p>By default, when you delete an Amazon FSx for Windows File Server file system, a\n            final backup is created upon deletion. This final backup is not subject to the file\n            system's retention policy, and must be manually deleted.</p>\n        \n\n        <p>The <code>DeleteFileSystem</code> action returns while the file system has the\n                <code>DELETING</code> status. You can check the file system deletion status by\n            calling the <a>DescribeFileSystems</a> action, which returns a list of file\n            systems in your account. If you pass the file system ID for a deleted file system, the\n                <a>DescribeFileSystems</a> returns a <code>FileSystemNotFound</code>\n            error.</p>\n        <note>\n            <p>Deleting an Amazon FSx for Lustre file system will fail with a 400 BadRequest if \n            a data repository task is in a <code>PENDING</code> or <code>EXECUTING</code>\n            state.</p>\n         </note>\n        <important>\n            <p>The data in a deleted file system is also deleted and can't be recovered by\n                any means.</p>\n        </important>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteFileSystemRequest": {
+    "com.amazonaws.fsx#DeleteFileSystemRequest": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.simba.api.v20180301#ClientRequestToken",
+          "target": "com.amazonaws.fsx#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure\n            idempotent deletion. This is automatically filled on your behalf when using the AWS CLI\n            or SDK.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the file system you want to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "WindowsConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#DeleteFileSystemWindowsConfiguration"
+          "target": "com.amazonaws.fsx#DeleteFileSystemWindowsConfiguration"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>The request object for <code>DeleteFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteFileSystemResponse": {
+    "com.amazonaws.fsx#DeleteFileSystemResponse": {
       "type": "structure",
       "members": {
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the file system being deleted.</p>"
           }
         },
         "Lifecycle": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemLifecycle",
+          "target": "com.amazonaws.fsx#FileSystemLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>The file system lifecycle for the deletion request. Should be\n            <code>DELETING</code>.</p>"
           }
         },
         "WindowsResponse": {
-          "target": "com.amazonaws.simba.api.v20180301#DeleteFileSystemWindowsResponse"
+          "target": "com.amazonaws.fsx#DeleteFileSystemWindowsResponse"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>The response object for the <code>DeleteFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteFileSystemWindowsConfiguration": {
+    "com.amazonaws.fsx#DeleteFileSystemWindowsConfiguration": {
       "type": "structure",
       "members": {
         "FinalBackupTags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>A set of tags for your final backup.</p>"
           }
         },
         "SkipFinalBackup": {
-          "target": "com.amazonaws.simba.api.v20180301#Flag",
+          "target": "com.amazonaws.fsx#Flag",
           "traits": {
             "smithy.api#documentation": "<p>By default, Amazon FSx for Windows takes a final backup on your behalf when the\n                <code>DeleteFileSystem</code> operation is invoked. Doing this helps protect you\n            from data loss, and we highly recommend taking the final backup. If you want to skip\n            this backup, use this flag to do so.</p>"
           }
@@ -1516,17 +1530,17 @@
         "smithy.api#documentation": "<p>The configuration object for the Microsoft Windows file system used in the\n                <code>DeleteFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DeleteFileSystemWindowsResponse": {
+    "com.amazonaws.fsx#DeleteFileSystemWindowsResponse": {
       "type": "structure",
       "members": {
         "FinalBackupId": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupId",
+          "target": "com.amazonaws.fsx#BackupId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the final backup for this file system.</p>"
           }
         },
         "FinalBackupTags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The set of tags applied to the final backup.</p>"
           }
@@ -1536,26 +1550,26 @@
         "smithy.api#documentation": "<p>The response object for the Microsoft Windows file system used in the\n                <code>DeleteFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeBackups": {
+    "com.amazonaws.fsx#DescribeBackups": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#DescribeBackupsRequest"
+        "target": "com.amazonaws.fsx#DescribeBackupsRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#DescribeBackupsResponse"
+        "target": "com.amazonaws.fsx#DescribeBackupsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BackupNotFound"
+          "target": "com.amazonaws.fsx#BackupNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemNotFound"
+          "target": "com.amazonaws.fsx#FileSystemNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         }
       ],
       "traits": {
@@ -1567,29 +1581,29 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeBackupsRequest": {
+    "com.amazonaws.fsx#DescribeBackupsRequest": {
       "type": "structure",
       "members": {
         "BackupIds": {
-          "target": "com.amazonaws.simba.api.v20180301#BackupIds",
+          "target": "com.amazonaws.fsx#BackupIds",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) IDs of the backups you want to retrieve (String). This overrides any\n            filters. If any IDs are not found, BackupNotFound will be thrown.</p>"
           }
         },
         "Filters": {
-          "target": "com.amazonaws.simba.api.v20180301#Filters",
+          "target": "com.amazonaws.fsx#Filters",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Filters structure. Supported names are file-system-id and\n            backup-type.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.simba.api.v20180301#MaxResults",
+          "target": "com.amazonaws.fsx#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Maximum number of backups to return in the response (integer). This\n            parameter value must be greater than 0. The number of items that Amazon FSx returns is\n            the minimum of the <code>MaxResults</code> parameter specified in the request and the\n            service's internal maximum number of items per page.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken",
+          "target": "com.amazonaws.fsx#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Opaque pagination token returned from a previous\n                <code>DescribeBackups</code> operation (String). If a token present, the action\n            continues the list from where the returning call left off.</p>"
           }
@@ -1599,17 +1613,17 @@
         "smithy.api#documentation": "<p>The request object for <code>DescribeBackups</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeBackupsResponse": {
+    "com.amazonaws.fsx#DescribeBackupsResponse": {
       "type": "structure",
       "members": {
         "Backups": {
-          "target": "com.amazonaws.simba.api.v20180301#Backups",
+          "target": "com.amazonaws.fsx#Backups",
           "traits": {
             "smithy.api#documentation": "<p>Any array of backups.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken",
+          "target": "com.amazonaws.fsx#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>This is present if there are more backups than returned in the response (String).\n            You can use the <code>NextToken</code> value in the later request to fetch the backups.\n        </p>"
           }
@@ -1619,26 +1633,26 @@
         "smithy.api#documentation": "<p>Response object for <code>DescribeBackups</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeDataRepositoryTasks": {
+    "com.amazonaws.fsx#DescribeDataRepositoryTasks": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#DescribeDataRepositoryTasksRequest"
+        "target": "com.amazonaws.fsx#DescribeDataRepositoryTasksRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#DescribeDataRepositoryTasksResponse"
+        "target": "com.amazonaws.fsx#DescribeDataRepositoryTasksResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound"
+          "target": "com.amazonaws.fsx#DataRepositoryTaskNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemNotFound"
+          "target": "com.amazonaws.fsx#FileSystemNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         }
       ],
       "traits": {
@@ -1650,60 +1664,60 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeDataRepositoryTasksRequest": {
+    "com.amazonaws.fsx#DescribeDataRepositoryTasksRequest": {
       "type": "structure",
       "members": {
         "Filters": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTaskFilters",
+          "target": "com.amazonaws.fsx#DataRepositoryTaskFilters",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) You can use filters to narrow the <code>DescribeDataRepositoryTasks</code> response to \n            include just tasks for specific file systems, or tasks in a specific lifecycle state.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.simba.api.v20180301#MaxResults"
+          "target": "com.amazonaws.fsx#MaxResults"
         },
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken"
+          "target": "com.amazonaws.fsx#NextToken"
         },
         "TaskIds": {
-          "target": "com.amazonaws.simba.api.v20180301#TaskIds",
+          "target": "com.amazonaws.fsx#TaskIds",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) IDs of the tasks whose descriptions you want to retrieve\n            (String).</p>"
           }
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeDataRepositoryTasksResponse": {
+    "com.amazonaws.fsx#DescribeDataRepositoryTasksResponse": {
       "type": "structure",
       "members": {
         "DataRepositoryTasks": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryTasks",
+          "target": "com.amazonaws.fsx#DataRepositoryTasks",
           "traits": {
             "smithy.api#documentation": "<p>The collection of data repository task descriptions returned.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken"
+          "target": "com.amazonaws.fsx#NextToken"
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeFileSystems": {
+    "com.amazonaws.fsx#DescribeFileSystems": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#DescribeFileSystemsRequest"
+        "target": "com.amazonaws.fsx#DescribeFileSystemsRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#DescribeFileSystemsResponse"
+        "target": "com.amazonaws.fsx#DescribeFileSystemsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemNotFound"
+          "target": "com.amazonaws.fsx#FileSystemNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         }
       ],
       "traits": {
@@ -1715,23 +1729,23 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeFileSystemsRequest": {
+    "com.amazonaws.fsx#DescribeFileSystemsRequest": {
       "type": "structure",
       "members": {
         "FileSystemIds": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemIds",
+          "target": "com.amazonaws.fsx#FileSystemIds",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) IDs of the file systems whose descriptions you want to retrieve\n            (String).</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.simba.api.v20180301#MaxResults",
+          "target": "com.amazonaws.fsx#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Maximum number of file systems to return in the response (integer). This\n            parameter value must be greater than 0. The number of items that Amazon FSx returns is\n            the minimum of the <code>MaxResults</code> parameter specified in the request and the\n            service's internal maximum number of items per page.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken",
+          "target": "com.amazonaws.fsx#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Opaque pagination token returned from a previous\n                <code>DescribeFileSystems</code> operation (String). If a token present, the action\n            continues the list from where the returning call left off.</p>"
           }
@@ -1741,17 +1755,17 @@
         "smithy.api#documentation": "<p>The request object for <code>DescribeFileSystems</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DescribeFileSystemsResponse": {
+    "com.amazonaws.fsx#DescribeFileSystemsResponse": {
       "type": "structure",
       "members": {
         "FileSystems": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystems",
+          "target": "com.amazonaws.fsx#FileSystems",
           "traits": {
             "smithy.api#documentation": "<p>An array of file system descriptions.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken",
+          "target": "com.amazonaws.fsx#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Present if there are more file systems than returned in the response (String). You\n            can use the <code>NextToken</code> value in the later request to fetch the\n            descriptions. </p>"
           }
@@ -1761,7 +1775,7 @@
         "smithy.api#documentation": "<p>The response object for <code>DescribeFileSystems</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DirectoryId": {
+    "com.amazonaws.fsx#DirectoryId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1771,7 +1785,7 @@
         "smithy.api#pattern": "^d-[0-9a-f]{10}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DirectoryPassword": {
+    "com.amazonaws.fsx#DirectoryPassword": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1779,10 +1793,10 @@
           "max": 256
         },
         "smithy.api#pattern": "^.{1,256}$",
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#DirectoryUserName": {
+    "com.amazonaws.fsx#DirectoryUserName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1792,10 +1806,10 @@
         "smithy.api#pattern": "^.{1,256}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#DnsIps": {
+    "com.amazonaws.fsx#DnsIps": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#IpAddress"
+        "target": "com.amazonaws.fsx#IpAddress"
       },
       "traits": {
         "smithy.api#length": {
@@ -1804,10 +1818,10 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#EndTime": {
+    "com.amazonaws.fsx#EndTime": {
       "type": "timestamp"
     },
-    "com.amazonaws.simba.api.v20180301#ErrorMessage": {
+    "com.amazonaws.fsx#ErrorMessage": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A detailed error message.</p>",
@@ -1817,101 +1831,101 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#FailedCount": {
+    "com.amazonaws.fsx#FailedCount": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystem": {
+    "com.amazonaws.fsx#FileSystem": {
       "type": "structure",
       "members": {
         "CreationTime": {
-          "target": "com.amazonaws.simba.api.v20180301#CreationTime",
+          "target": "com.amazonaws.fsx#CreationTime",
           "traits": {
             "smithy.api#documentation": "<p>The time that the file system was created, in seconds (since 1970-01-01T00:00:00Z),\n            also known as Unix time.</p>"
           }
         },
         "DNSName": {
-          "target": "com.amazonaws.simba.api.v20180301#DNSName",
+          "target": "com.amazonaws.fsx#DNSName",
           "traits": {
             "smithy.api#documentation": "<p>The DNS name for the file system.</p>"
           }
         },
         "FailureDetails": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemFailureDetails"
+          "target": "com.amazonaws.fsx#FileSystemFailureDetails"
         },
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
             "smithy.api#documentation": "<p>The system-generated, unique 17-digit ID of the file system.</p>"
           }
         },
         "FileSystemType": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemType",
+          "target": "com.amazonaws.fsx#FileSystemType",
           "traits": {
             "smithy.api#documentation": "<p>The type of Amazon FSx file system, either <code>LUSTRE</code> or <code>WINDOWS</code>.</p>"
           }
         },
         "KmsKeyId": {
-          "target": "com.amazonaws.simba.api.v20180301#KmsKeyId",
+          "target": "com.amazonaws.fsx#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file\n            system's data for an Amazon FSx for Windows File Server file system. \n            Amazon FSx for Lustre does not support KMS encryption. </p>"
           }
         },
         "Lifecycle": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemLifecycle",
+          "target": "com.amazonaws.fsx#FileSystemLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>The lifecycle status of the file system, following are the possible values and what they mean:</p> \n            <ul>\n            <li>\n               <p>\n                  <code>AVAILABLE</code> - The file system is in a healthy state, and is reachable and available for use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATING</code> - Amazon FSx is creating the new file system.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code> - Amazon FSx is deleting an existing file system.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code> - An existing file system has experienced an unrecoverable failure. \n                    When creating a new file system, Amazon FSx was unable to create the file system.</p>\n            </li>\n            <li>\n                    <p>\n                  <code>MISCONFIGURED</code> indicates that the file system is in a failed but recoverable state.</p>\n                </li>\n            <li>\n                    <p>\n                  <code>UPDATING</code> indicates that the file system is undergoing a customer initiated update.</p>\n                </li>\n         </ul>"
           }
         },
         "LustreConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#LustreFileSystemConfiguration"
+          "target": "com.amazonaws.fsx#LustreFileSystemConfiguration"
         },
         "NetworkInterfaceIds": {
-          "target": "com.amazonaws.simba.api.v20180301#NetworkInterfaceIds",
+          "target": "com.amazonaws.fsx#NetworkInterfaceIds",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the elastic network interface from which a specific file system is\n            accessible. The elastic network interface is automatically created in the same VPC that\n            the Amazon FSx file system was created in. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\">Elastic Network\n                Interfaces</a> in the <i>Amazon EC2 User Guide.</i>\n         </p>\n\n        <p>For an Amazon FSx for Windows File Server file system, you can have one network\n            interface ID. For an Amazon FSx for Lustre file system, you can have more than\n            one.</p>"
           }
         },
         "OwnerId": {
-          "target": "com.amazonaws.simba.api.v20180301#AWSAccountId",
+          "target": "com.amazonaws.fsx#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account that created the file system. If the file system was created by an AWS\n            Identity and Access Management (IAM) user, the AWS account to which the IAM user belongs\n            is the owner.</p>"
           }
         },
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the file system resource.</p>"
           }
         },
         "StorageCapacity": {
-          "target": "com.amazonaws.simba.api.v20180301#StorageCapacity",
+          "target": "com.amazonaws.fsx#StorageCapacity",
           "traits": {
             "smithy.api#documentation": "<p>The storage capacity of the file system in gigabytes (GB).</p>"
           }
         },
         "SubnetIds": {
-          "target": "com.amazonaws.simba.api.v20180301#SubnetIds",
+          "target": "com.amazonaws.fsx#SubnetIds",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the subnet to contain the endpoint for the file system. One and only one is\n            supported. The file system is launched in the Availability Zone associated with this\n            subnet.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags to associate with the file system. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your\n                Amazon EC2 Resources</a> in the <i>Amazon EC2 User\n            Guide</i>.</p>"
           }
         },
         "VpcId": {
-          "target": "com.amazonaws.simba.api.v20180301#VpcId",
+          "target": "com.amazonaws.fsx#VpcId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the primary VPC for the file system.</p>"
           }
         },
         "WindowsConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#WindowsFileSystemConfiguration",
+          "target": "com.amazonaws.fsx#WindowsFileSystemConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration for this Microsoft Windows file system.</p>"
           }
@@ -1921,7 +1935,7 @@
         "smithy.api#documentation": "<p>A description of a specific Amazon FSx file system.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemAdministratorsGroupName": {
+    "com.amazonaws.fsx#FileSystemAdministratorsGroupName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1931,11 +1945,11 @@
         "smithy.api#pattern": "^.{1,256}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemFailureDetails": {
+    "com.amazonaws.fsx#FileSystemFailureDetails": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage",
+          "target": "com.amazonaws.fsx#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message describing any failures that occurred during file system creation.</p>"
           }
@@ -1945,7 +1959,7 @@
         "smithy.api#documentation": "<p>A structure providing details of any failures that occur when creating the file system\n            has failed.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemId": {
+    "com.amazonaws.fsx#FileSystemId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The globally unique ID of the file system, assigned by Amazon FSx.</p>",
@@ -1956,10 +1970,10 @@
         "smithy.api#pattern": "^(fs-[0-9a-f]{8,})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemIds": {
+    "com.amazonaws.fsx#FileSystemIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#FileSystemId"
+        "target": "com.amazonaws.fsx#FileSystemId"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of <code>FileSystemId</code>s.</p>",
@@ -1969,50 +1983,58 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemLifecycle": {
+    "com.amazonaws.fsx#FileSystemLifecycle": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The lifecycle status of the file system.</p>",
-        "smithy.api#enum": {
-          "AVAILABLE": {
+        "smithy.api#enum": [
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "CREATING": {
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "MISCONFIGURED": {
+          {
+            "value": "MISCONFIGURED",
             "name": "MISCONFIGURED"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "UPDATING"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemMaintenanceOperation": {
+    "com.amazonaws.fsx#FileSystemMaintenanceOperation": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>An enumeration specifying the currently ongoing maintenance operation.</p>",
-        "smithy.api#enum": {
-          "PATCHING": {
+        "smithy.api#enum": [
+          {
+            "value": "PATCHING",
             "name": "PATCHING"
           },
-          "BACKING_UP": {
+          {
+            "value": "BACKING_UP",
             "name": "BACKING_UP"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemMaintenanceOperations": {
+    "com.amazonaws.fsx#FileSystemMaintenanceOperations": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#FileSystemMaintenanceOperation"
+        "target": "com.amazonaws.fsx#FileSystemMaintenanceOperation"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of maintenance operations.</p>",
@@ -2022,11 +2044,11 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemNotFound": {
+    "com.amazonaws.fsx#FileSystemNotFound": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2034,24 +2056,26 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystemType": {
+    "com.amazonaws.fsx#FileSystemType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The type of file system.</p>",
-        "smithy.api#enum": {
-          "WINDOWS": {
+        "smithy.api#enum": [
+          {
+            "value": "WINDOWS",
             "name": "WINDOWS"
           },
-          "LUSTRE": {
+          {
+            "value": "LUSTRE",
             "name": "LUSTRE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#FileSystems": {
+    "com.amazonaws.fsx#FileSystems": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#FileSystem"
+        "target": "com.amazonaws.fsx#FileSystem"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of file systems.</p>",
@@ -2061,17 +2085,17 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#Filter": {
+    "com.amazonaws.fsx#Filter": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.simba.api.v20180301#FilterName",
+          "target": "com.amazonaws.fsx#FilterName",
           "traits": {
             "smithy.api#documentation": "<p>The name for this filter.</p>"
           }
         },
         "Values": {
-          "target": "com.amazonaws.simba.api.v20180301#FilterValues",
+          "target": "com.amazonaws.fsx#FilterValues",
           "traits": {
             "smithy.api#documentation": "<p>The values of the filter. These are all the values for any of the applied\n            filters.</p>"
           }
@@ -2081,21 +2105,23 @@
         "smithy.api#documentation": "<p>A filter used to restrict the results of describe calls. You can use multiple\n            filters to return results that meet all applied filter requirements.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#FilterName": {
+    "com.amazonaws.fsx#FilterName": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The name for a filter.</p>",
-        "smithy.api#enum": {
-          "file-system-id": {
+        "smithy.api#enum": [
+          {
+            "value": "file-system-id",
             "name": "FILE_SYSTEM_ID"
           },
-          "backup-type": {
+          {
+            "value": "backup-type",
             "name": "BACKUP_TYPE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#FilterValue": {
+    "com.amazonaws.fsx#FilterValue": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The value for a filter.</p>",
@@ -2106,10 +2132,10 @@
         "smithy.api#pattern": "^[0-9a-zA-Z\\*\\.\\\\/\\?\\-\\_]*$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#FilterValues": {
+    "com.amazonaws.fsx#FilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#FilterValue"
+        "target": "com.amazonaws.fsx#FilterValue"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of filter values.</p>",
@@ -2119,10 +2145,10 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#Filters": {
+    "com.amazonaws.fsx#Filters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#Filter"
+        "target": "com.amazonaws.fsx#Filter"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of <code>Filter</code> elements.</p>",
@@ -2132,20 +2158,20 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#Flag": {
+    "com.amazonaws.fsx#Flag": {
       "type": "boolean"
     },
-    "com.amazonaws.simba.api.v20180301#IncompatibleParameterError": {
+    "com.amazonaws.fsx#IncompatibleParameterError": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         },
         "Parameter": {
-          "target": "com.amazonaws.simba.api.v20180301#Parameter",
+          "target": "com.amazonaws.fsx#Parameter",
           "traits": {
             "smithy.api#documentation": "<p>A parameter that is incompatible with the earlier request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2154,11 +2180,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#InternalServerError": {
+    "com.amazonaws.fsx#InternalServerError": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2166,11 +2192,11 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazonaws.simba.api.v20180301#InvalidExportPath": {
+    "com.amazonaws.fsx#InvalidExportPath": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2178,11 +2204,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#InvalidImportPath": {
+    "com.amazonaws.fsx#InvalidImportPath": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2190,17 +2216,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#InvalidNetworkSettings": {
+    "com.amazonaws.fsx#InvalidNetworkSettings": {
       "type": "structure",
       "members": {
         "InvalidSecurityGroupId": {
-          "target": "com.amazonaws.simba.api.v20180301#SecurityGroupId"
+          "target": "com.amazonaws.fsx#SecurityGroupId"
         },
         "InvalidSubnetId": {
-          "target": "com.amazonaws.simba.api.v20180301#SubnetId"
+          "target": "com.amazonaws.fsx#SubnetId"
         },
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2208,7 +2234,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#IpAddress": {
+    "com.amazonaws.fsx#IpAddress": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2218,7 +2244,7 @@
         "smithy.api#pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#KmsKeyId": {
+    "com.amazonaws.fsx#KmsKeyId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file\n            system's data for an Amazon FSx for Windows File Server file system at rest. \n            Amazon FSx for Lustre does not support KMS encryption. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html\">Encrypt</a>\n            in the <i>AWS Key Management Service API Reference</i>.</p>",
@@ -2229,58 +2255,58 @@
         "smithy.api#pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-4[a-fA-F0-9]{3}-[89aAbB][a-fA-F0-9]{3}-[a-fA-F0-9]{12}|arn:aws[a-z-]{0,7}:kms:[a-z]{2}-[a-z-]{4,}-\\d+:\\d{12}:(key|alias)\\/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-4[a-fA-F0-9]{3}-[89aAbB][a-fA-F0-9]{3}-[a-fA-F0-9]{12}|[a-zA-Z0-9:\\/_-]+)|alias\\/[a-zA-Z0-9:\\/_-]+$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#LastUpdatedTime": {
+    "com.amazonaws.fsx#LastUpdatedTime": {
       "type": "timestamp"
     },
-    "com.amazonaws.simba.api.v20180301#ListTagsForResource": {
+    "com.amazonaws.fsx#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#ListTagsForResourceRequest"
+        "target": "com.amazonaws.fsx#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#ListTagsForResourceResponse"
+        "target": "com.amazonaws.fsx#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#NotServiceResourceError"
+          "target": "com.amazonaws.fsx#NotServiceResourceError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceDoesNotSupportTagging"
+          "target": "com.amazonaws.fsx#ResourceDoesNotSupportTagging"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceNotFound"
+          "target": "com.amazonaws.fsx#ResourceNotFound"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Lists tags for an Amazon FSx file systems and backups in the case of Amazon FSx for\n            Windows File Server.</p>\n\n        <p>When retrieving all tags, you can optionally specify the <code>MaxResults</code>\n            parameter to limit the number of tags in a response. If more tags remain, Amazon FSx\n            returns a <code>NextToken</code> value in the response. In this case, send a later\n            request with the <code>NextToken</code> request parameter set to the value of\n                <code>NextToken</code> from the last response.</p>\n\n        <p>This action is used in an iterative process to retrieve a list of your tags.\n                <code>ListTagsForResource</code> is called first without a\n            <code>NextToken</code>value. Then the action continues to be called with the\n                <code>NextToken</code> parameter set to the value of the last <code>NextToken</code>\n            value until a response has no <code>NextToken</code>.</p>\n\n        <p>When using this action, keep the following in mind:</p>\n        <ul>\n            <li>\n                <p>The implementation might return fewer than <code>MaxResults</code> file\n                    system descriptions while still including a <code>NextToken</code>\n                    value.</p>\n\n            </li>\n            <li>\n                <p>The order of tags returned in the response of one\n                        <code>ListTagsForResource</code> call and the order of tags returned across\n                    the responses of a multi-call iteration is unspecified.</p>\n            </li>\n         </ul>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ListTagsForResourceRequest": {
+    "com.amazonaws.fsx#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.simba.api.v20180301#MaxResults",
+          "target": "com.amazonaws.fsx#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Maximum number of tags to return in the response (integer). This\n            parameter value must be greater than 0. The number of items that Amazon FSx returns is\n            the minimum of the <code>MaxResults</code> parameter specified in the request and the\n            service's internal maximum number of items per page.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken",
+          "target": "com.amazonaws.fsx#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) Opaque pagination token returned from a previous\n                <code>ListTagsForResource</code> operation (String). If a token present, the action\n            continues the list from where the returning call left off.</p>"
           }
         },
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Amazon FSx resource that will have its tags listed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2288,17 +2314,17 @@
         "smithy.api#documentation": "<p>The request object for <code>ListTagsForResource</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ListTagsForResourceResponse": {
+    "com.amazonaws.fsx#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.simba.api.v20180301#NextToken",
+          "target": "com.amazonaws.fsx#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>This is present if there are more tags than returned in the response (String). You\n            can use the <code>NextToken</code> value in the later request to fetch the tags.\n        </p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags on the resource.</p>"
           }
@@ -2308,14 +2334,14 @@
         "smithy.api#documentation": "<p>The response object for <code>ListTagsForResource</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#LustreFileSystemConfiguration": {
+    "com.amazonaws.fsx#LustreFileSystemConfiguration": {
       "type": "structure",
       "members": {
         "DataRepositoryConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#DataRepositoryConfiguration"
+          "target": "com.amazonaws.fsx#DataRepositoryConfiguration"
         },
         "WeeklyMaintenanceStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#WeeklyTime",
+          "target": "com.amazonaws.fsx#WeeklyTime",
           "traits": {
             "smithy.api#documentation": "<p>The UTC time that you want to begin your weekly maintenance window.</p>"
           }
@@ -2325,30 +2351,30 @@
         "smithy.api#documentation": "<p>The configuration for the Amazon FSx for Lustre file system.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#MaxResults": {
+    "com.amazonaws.fsx#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The maximum number of resources to return in the response. This value must be an\n            integer greater than zero.</p>",
         "smithy.api#range": {
           "min": 1
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#Megabytes": {
+    "com.amazonaws.fsx#Megabytes": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 512000
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#MegabytesPerSecond": {
+    "com.amazonaws.fsx#MegabytesPerSecond": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#documentation": "<p>Sustained throughput of an Amazon FSx file system in MBps.</p>",
         "smithy.api#range": {
           "min": 8,
@@ -2356,11 +2382,11 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#MissingFileSystemConfiguration": {
+    "com.amazonaws.fsx#MissingFileSystemConfiguration": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2368,7 +2394,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#NetworkInterfaceId": {
+    "com.amazonaws.fsx#NetworkInterfaceId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>An elastic network interface ID. An elastic network interface is a logical\n            networking component in a virtual private cloud (VPC) that represents a virtual network\n            card. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\">Elastic Network Interfaces</a> in\n            the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>",
@@ -2379,10 +2405,10 @@
         "smithy.api#pattern": "^(eni-[0-9a-f]{8,})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#NetworkInterfaceIds": {
+    "com.amazonaws.fsx#NetworkInterfaceIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#NetworkInterfaceId"
+        "target": "com.amazonaws.fsx#NetworkInterfaceId"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of network interface IDs.</p>",
@@ -2392,7 +2418,7 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#NextToken": {
+    "com.amazonaws.fsx#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>(Optional) Opaque pagination token returned from a previous operation (String). If\n            present, this token indicates from what point you can continue processing the request, where\n            the previous <code>NextToken</code> value left off.</p>",
@@ -2403,17 +2429,17 @@
         "smithy.api#pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#NotServiceResourceError": {
+    "com.amazonaws.fsx#NotServiceResourceError": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         },
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the non-Amazon FSx resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2422,7 +2448,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#OrganizationalUnitDistinguishedName": {
+    "com.amazonaws.fsx#OrganizationalUnitDistinguishedName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2432,7 +2458,7 @@
         "smithy.api#pattern": "^.{1,2000}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#Parameter": {
+    "com.amazonaws.fsx#Parameter": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The name of a parameter for the request. Parameter names are returned in\n            PascalCase.</p>",
@@ -2441,10 +2467,10 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#ProgressPercent": {
+    "com.amazonaws.fsx#ProgressPercent": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The current percent of progress of an asynchronous task.</p>",
         "smithy.api#range": {
           "min": 0,
@@ -2452,27 +2478,29 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#ReportFormat": {
+    "com.amazonaws.fsx#ReportFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "REPORT_CSV_20191124": {
+        "smithy.api#enum": [
+          {
+            "value": "REPORT_CSV_20191124",
             "name": "REPORT_CSV_20191124"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#ReportScope": {
+    "com.amazonaws.fsx#ReportScope": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FAILED_FILES_ONLY": {
+        "smithy.api#enum": [
+          {
+            "value": "FAILED_FILES_ONLY",
             "name": "FAILED_FILES_ONLY"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#ResourceARN": {
+    "com.amazonaws.fsx#ResourceARN": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify AWS\n            resources. We require an ARN when you need to specify a resource unambiguously across\n            all of AWS. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)\n                and AWS Service Namespaces</a> in the <i>AWS General\n            Reference</i>.</p>",
@@ -2483,17 +2511,17 @@
         "smithy.api#pattern": "^arn:aws[a-z-]{0,7}:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ResourceDoesNotSupportTagging": {
+    "com.amazonaws.fsx#ResourceDoesNotSupportTagging": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         },
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource that doesn't support\n            tagging.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2502,17 +2530,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ResourceNotFound": {
+    "com.amazonaws.fsx#ResourceNotFound": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         },
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The resource ARN of the resource that can't be found.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2521,7 +2549,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#SecurityGroupId": {
+    "com.amazonaws.fsx#SecurityGroupId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of your Amazon EC2 security group. This ID is used to control network access\n            to the endpoint that Amazon FSx creates on your behalf in each subnet. For more\n            information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Amazon EC2 Security\n                Groups for Linux Instances</a> in the <i>Amazon EC2 User\n            Guide</i>.</p>",
@@ -2532,10 +2560,10 @@
         "smithy.api#pattern": "^(sg-[0-9a-f]{8,})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#SecurityGroupIds": {
+    "com.amazonaws.fsx#SecurityGroupIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#SecurityGroupId"
+        "target": "com.amazonaws.fsx#SecurityGroupId"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of security group IDs.</p>",
@@ -2545,35 +2573,35 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#SelfManagedActiveDirectoryAttributes": {
+    "com.amazonaws.fsx#SelfManagedActiveDirectoryAttributes": {
       "type": "structure",
       "members": {
         "DnsIps": {
-          "target": "com.amazonaws.simba.api.v20180301#DnsIps",
+          "target": "com.amazonaws.fsx#DnsIps",
           "traits": {
             "smithy.api#documentation": "<p>A list of up to two IP addresses of DNS servers or domain controllers in the\n            self-managed AD directory.</p>"
           }
         },
         "DomainName": {
-          "target": "com.amazonaws.simba.api.v20180301#ActiveDirectoryFullyQualifiedName",
+          "target": "com.amazonaws.fsx#ActiveDirectoryFullyQualifiedName",
           "traits": {
             "smithy.api#documentation": "<p>The fully qualified domain name of the self-managed AD directory.</p>"
           }
         },
         "FileSystemAdministratorsGroup": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemAdministratorsGroupName",
+          "target": "com.amazonaws.fsx#FileSystemAdministratorsGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the domain group whose members have administrative privileges for the FSx\n            file system.</p>"
           }
         },
         "OrganizationalUnitDistinguishedName": {
-          "target": "com.amazonaws.simba.api.v20180301#OrganizationalUnitDistinguishedName",
+          "target": "com.amazonaws.fsx#OrganizationalUnitDistinguishedName",
           "traits": {
             "smithy.api#documentation": "<p>The fully qualified distinguished name of the organizational unit within the\n            self-managed AD directory to which the Windows File Server instance is joined.</p>"
           }
         },
         "UserName": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryUserName",
+          "target": "com.amazonaws.fsx#DirectoryUserName",
           "traits": {
             "smithy.api#documentation": "<p>The user name for the service account on your self-managed AD domain that FSx uses to\n            join to your AD domain.</p>"
           }
@@ -2583,47 +2611,47 @@
         "smithy.api#documentation": "<p>The configuration of the self-managed Microsoft Active Directory (AD) directory to\n            which the Windows File Server instance is joined.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#SelfManagedActiveDirectoryConfiguration": {
+    "com.amazonaws.fsx#SelfManagedActiveDirectoryConfiguration": {
       "type": "structure",
       "members": {
         "DnsIps": {
-          "target": "com.amazonaws.simba.api.v20180301#DnsIps",
+          "target": "com.amazonaws.fsx#DnsIps",
           "traits": {
             "smithy.api#documentation": "<p>A list of up to two IP addresses of DNS servers or domain controllers in the\n            self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range\n            as the one in which your Amazon FSx file system is being created, or in the private IP version 4\n            (IPv4) address ranges, as specified in <a href=\"http://www.faqs.org/rfcs/rfc1918.html\">RFC 1918</a>:</p>\n        <ul>\n            <li>\n                <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p>\n            </li>\n            <li>\n                <p>172.16.0.0 - 172.31.255.255 (172.16/12 prefix)</p>\n            </li>\n            <li>\n                <p>192.168.0.0 - 192.168.255.255 (192.168/16 prefix)</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DomainName": {
-          "target": "com.amazonaws.simba.api.v20180301#ActiveDirectoryFullyQualifiedName",
+          "target": "com.amazonaws.fsx#ActiveDirectoryFullyQualifiedName",
           "traits": {
             "smithy.api#documentation": "<p>The fully qualified domain name of the self-managed AD directory, such as\n                <code>corp.example.com</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FileSystemAdministratorsGroup": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemAdministratorsGroupName",
+          "target": "com.amazonaws.fsx#FileSystemAdministratorsGroupName",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The name of the domain group whose members are granted administrative\n            privileges for the file system. Administrative privileges include taking ownership of\n            files and folders, setting audit controls (audit ACLs) on files and folders, and             \n                administering the file system remotely by using the FSx Remote PowerShell.\n            The group that you specify must already exist in your domain. If you don't provide one,\n            your AD domain's Domain Admins group is used.</p>"
           }
         },
         "OrganizationalUnitDistinguishedName": {
-          "target": "com.amazonaws.simba.api.v20180301#OrganizationalUnitDistinguishedName",
+          "target": "com.amazonaws.fsx#OrganizationalUnitDistinguishedName",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The fully qualified distinguished name of the organizational unit within\n            your self-managed AD directory that the Windows File Server instance will join. Amazon\n            FSx only accepts OU as the direct parent of the file system. An example is\n                <code>OU=FSx,DC=yourdomain,DC=corp,DC=com</code>. To learn more, see <a href=\"https://tools.ietf.org/html/rfc2253\">RFC 2253</a>. If none is provided, the\n            FSx file system is created in the default location of your self-managed AD directory. </p>\n        <important>\n            <p>Only Organizational Unit (OU) objects can be the direct parent of the file system\n                that you're creating.</p>\n        </important>"
           }
         },
         "Password": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryPassword",
+          "target": "com.amazonaws.fsx#DirectoryPassword",
           "traits": {
             "smithy.api#documentation": "<p>The password for the service account on your self-managed AD domain that Amazon FSx\n            will use to join to your AD domain.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryUserName",
+          "target": "com.amazonaws.fsx#DirectoryUserName",
           "traits": {
             "smithy.api#documentation": "<p>The user name for the service account on your self-managed AD domain that Amazon FSx\n            will use to join to your AD domain. This account must have the permission to join\n            computers to the domain in the organizational unit provided in\n                <code>OrganizationalUnitDistinguishedName</code>, or in the default location of your\n            AD domain.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2631,23 +2659,23 @@
         "smithy.api#documentation": "<p>The configuration that Amazon FSx uses to join the Windows File Server instance to\n            your self-managed (including on-premises) Microsoft Active Directory (AD)\n            directory.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#SelfManagedActiveDirectoryConfigurationUpdates": {
+    "com.amazonaws.fsx#SelfManagedActiveDirectoryConfigurationUpdates": {
       "type": "structure",
       "members": {
         "DnsIps": {
-          "target": "com.amazonaws.simba.api.v20180301#DnsIps",
+          "target": "com.amazonaws.fsx#DnsIps",
           "traits": {
             "smithy.api#documentation": "<p>A list of up to two IP addresses of DNS servers or domain controllers in the\n            self-managed AD directory.</p>"
           }
         },
         "Password": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryPassword",
+          "target": "com.amazonaws.fsx#DirectoryPassword",
           "traits": {
             "smithy.api#documentation": "<p>The password for the service account on your self-managed AD domain that Amazon FSx will use to join to\n            your AD domain.</p>"
           }
         },
         "UserName": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryUserName",
+          "target": "com.amazonaws.fsx#DirectoryUserName",
           "traits": {
             "smithy.api#documentation": "<p>The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to\n            your AD domain. This account must have the permission to join\n            computers to the domain in the organizational unit provided in\n            <code>OrganizationalUnitDistinguishedName</code>.</p>"
           }
@@ -2657,38 +2685,42 @@
         "smithy.api#documentation": "<p>The configuration that Amazon FSx uses to join the Windows File Server instance to the\n            self-managed Microsoft Active Directory (AD) directory.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#ServiceLimit": {
+    "com.amazonaws.fsx#ServiceLimit": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The types of limits on your service utilization. Limits include file system count,\n            total throughput capacity, total storage, and total user-initiated backups. These limits\n            apply for a specific account in a specific AWS Region. You can increase some of them by\n            contacting AWS Support. </p>",
-        "smithy.api#enum": {
-          "FILE_SYSTEM_COUNT": {
+        "smithy.api#enum": [
+          {
+            "value": "FILE_SYSTEM_COUNT",
             "name": "FILE_SYSTEM_COUNT"
           },
-          "TOTAL_THROUGHPUT_CAPACITY": {
+          {
+            "value": "TOTAL_THROUGHPUT_CAPACITY",
             "name": "TOTAL_THROUGHPUT_CAPACITY"
           },
-          "TOTAL_STORAGE": {
+          {
+            "value": "TOTAL_STORAGE",
             "name": "TOTAL_STORAGE"
           },
-          "TOTAL_USER_INITIATED_BACKUPS": {
+          {
+            "value": "TOTAL_USER_INITIATED_BACKUPS",
             "name": "TOTAL_USER_INITIATED_BACKUPS"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded": {
+    "com.amazonaws.fsx#ServiceLimitExceeded": {
       "type": "structure",
       "members": {
         "Limit": {
-          "target": "com.amazonaws.simba.api.v20180301#ServiceLimit",
+          "target": "com.amazonaws.fsx#ServiceLimit",
           "traits": {
             "smithy.api#documentation": "<p>Enumeration of the service limit that was exceeded. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2696,10 +2728,10 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#StartTime": {
+    "com.amazonaws.fsx#StartTime": {
       "type": "timestamp"
     },
-    "com.amazonaws.simba.api.v20180301#StorageCapacity": {
+    "com.amazonaws.fsx#StorageCapacity": {
       "type": "integer",
       "traits": {
         "smithy.api#documentation": "<p>The storage capacity for your Amazon FSx file system, in gibibytes.</p>",
@@ -2708,7 +2740,7 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#SubnetId": {
+    "com.amazonaws.fsx#SubnetId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID for a subnet. A <i>subnet</i> is a range of IP addresses in\n            your virtual private cloud (VPC). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html\">VPC and Subnets</a> in the\n                <i>Amazon VPC User Guide.</i>\n         </p>",
@@ -2719,10 +2751,10 @@
         "smithy.api#pattern": "^(subnet-[0-9a-f]{8,})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#SubnetIds": {
+    "com.amazonaws.fsx#SubnetIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#SubnetId"
+        "target": "com.amazonaws.fsx#SubnetId"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of subnet IDs. Currently, you can specify only one subnet ID in a call to\n            the <code>CreateFileSystem</code> operation.</p>",
@@ -2732,23 +2764,23 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#SucceededCount": {
+    "com.amazonaws.fsx#SucceededCount": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#Tag": {
+    "com.amazonaws.fsx#Tag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazonaws.simba.api.v20180301#TagKey",
+          "target": "com.amazonaws.fsx#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>A value that specifies the <code>TagKey</code>, the name of the tag. Tag keys must\n            be unique for the resource to which they are attached.</p>"
           }
         },
         "Value": {
-          "target": "com.amazonaws.simba.api.v20180301#TagValue",
+          "target": "com.amazonaws.fsx#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>A value that specifies the <code>TagValue</code>, the value assigned to the\n            corresponding tag key. Tag values can be null and don't have to be unique in a tag set.\n            For example, you can have a key-value pair in a tag set of <code>finances : April</code>\n            and also of <code>payroll : April</code>.</p>"
           }
@@ -2758,7 +2790,7 @@
         "smithy.api#documentation": "<p>Specifies a key-value pair for a resource tag.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#TagKey": {
+    "com.amazonaws.fsx#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A string of 1 to 128 characters that specifies the key for a tag. Tag keys must be\n            unique for the resource to which they are attached.</p>",
@@ -2769,10 +2801,10 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#TagKeys": {
+    "com.amazonaws.fsx#TagKeys": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#TagKey"
+        "target": "com.amazonaws.fsx#TagKey"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of <code>TagKey</code> values, with a maximum of 50 elements.</p>",
@@ -2782,51 +2814,51 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#TagResource": {
+    "com.amazonaws.fsx#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#TagResourceRequest"
+        "target": "com.amazonaws.fsx#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#TagResourceResponse"
+        "target": "com.amazonaws.fsx#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#NotServiceResourceError"
+          "target": "com.amazonaws.fsx#NotServiceResourceError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceDoesNotSupportTagging"
+          "target": "com.amazonaws.fsx#ResourceDoesNotSupportTagging"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceNotFound"
+          "target": "com.amazonaws.fsx#ResourceNotFound"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Tags an Amazon FSx resource.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#TagResourceRequest": {
+    "com.amazonaws.fsx#TagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon FSx resource that you want to\n            tag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.simba.api.v20180301#Tags",
+          "target": "com.amazonaws.fsx#Tags",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags for the resource. If a tag with a given key already exists, the\n            value is replaced by the one specified in this parameter.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2834,14 +2866,14 @@
         "smithy.api#documentation": "<p>The request object for the <code>TagResource</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#TagResourceResponse": {
+    "com.amazonaws.fsx#TagResourceResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The response object for the <code>TagResource</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#TagValue": {
+    "com.amazonaws.fsx#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A string of 0 to 256 characters that specifies the value for a tag. Tag values can\n            be null and don't have to be unique in a tag set.</p>",
@@ -2852,10 +2884,10 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#Tags": {
+    "com.amazonaws.fsx#Tags": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#Tag"
+        "target": "com.amazonaws.fsx#Tag"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>",
@@ -2865,7 +2897,7 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#TaskId": {
+    "com.amazonaws.fsx#TaskId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2875,10 +2907,10 @@
         "smithy.api#pattern": "^(task-[0-9a-f]{17,})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#TaskIds": {
+    "com.amazonaws.fsx#TaskIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.simba.api.v20180301#TaskId"
+        "target": "com.amazonaws.fsx#TaskId"
       },
       "traits": {
         "smithy.api#length": {
@@ -2887,17 +2919,17 @@
         }
       }
     },
-    "com.amazonaws.simba.api.v20180301#TotalCount": {
+    "com.amazonaws.fsx#TotalCount": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#UnsupportedOperation": {
+    "com.amazonaws.fsx#UnsupportedOperation": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.simba.api.v20180301#ErrorMessage"
+          "target": "com.amazonaws.fsx#ErrorMessage"
         }
       },
       "traits": {
@@ -2905,51 +2937,51 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.simba.api.v20180301#UntagResource": {
+    "com.amazonaws.fsx#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#UntagResourceRequest"
+        "target": "com.amazonaws.fsx#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#UntagResourceResponse"
+        "target": "com.amazonaws.fsx#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#NotServiceResourceError"
+          "target": "com.amazonaws.fsx#NotServiceResourceError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceDoesNotSupportTagging"
+          "target": "com.amazonaws.fsx#ResourceDoesNotSupportTagging"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceNotFound"
+          "target": "com.amazonaws.fsx#ResourceNotFound"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>This action removes a tag from an Amazon FSx resource.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazonaws.simba.api.v20180301#UntagResourceRequest": {
+    "com.amazonaws.fsx#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceARN": {
-          "target": "com.amazonaws.simba.api.v20180301#ResourceARN",
+          "target": "com.amazonaws.fsx#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Amazon FSx resource to untag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazonaws.simba.api.v20180301#TagKeys",
+          "target": "com.amazonaws.fsx#TagKeys",
           "traits": {
             "smithy.api#documentation": "<p>A list of keys of tags on the resource to untag. In case the tag key doesn't exist,\n            the call will still succeed to be idempotent.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2957,50 +2989,50 @@
         "smithy.api#documentation": "<p>The request object for <code>UntagResource</code> action.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#UntagResourceResponse": {
+    "com.amazonaws.fsx#UntagResourceResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The response object for <code>UntagResource</code> action.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#UpdateFileSystem": {
+    "com.amazonaws.fsx#UpdateFileSystem": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.simba.api.v20180301#UpdateFileSystemRequest"
+        "target": "com.amazonaws.fsx#UpdateFileSystemRequest"
       },
       "output": {
-        "target": "com.amazonaws.simba.api.v20180301#UpdateFileSystemResponse"
+        "target": "com.amazonaws.fsx#UpdateFileSystemResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.simba.api.v20180301#BadRequest"
+          "target": "com.amazonaws.fsx#BadRequest"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemNotFound"
+          "target": "com.amazonaws.fsx#FileSystemNotFound"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#IncompatibleParameterError"
+          "target": "com.amazonaws.fsx#IncompatibleParameterError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#InternalServerError"
+          "target": "com.amazonaws.fsx#InternalServerError"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#MissingFileSystemConfiguration"
+          "target": "com.amazonaws.fsx#MissingFileSystemConfiguration"
         },
         {
-          "target": "com.amazonaws.simba.api.v20180301#UnsupportedOperation"
+          "target": "com.amazonaws.fsx#UnsupportedOperation"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates a file system configuration.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#UpdateFileSystemLustreConfiguration": {
+    "com.amazonaws.fsx#UpdateFileSystemLustreConfiguration": {
       "type": "structure",
       "members": {
         "WeeklyMaintenanceStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#WeeklyTime",
+          "target": "com.amazonaws.fsx#WeeklyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>"
           }
@@ -3010,27 +3042,27 @@
         "smithy.api#documentation": "<p>The configuration object for Amazon FSx for Lustre file systems used in the\n                <code>UpdateFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#UpdateFileSystemRequest": {
+    "com.amazonaws.fsx#UpdateFileSystemRequest": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.simba.api.v20180301#ClientRequestToken",
+          "target": "com.amazonaws.fsx#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure\n          idempotent updates. This string is automatically filled on your behalf when you use the AWS\n          Command Line Interface (AWS CLI) or an AWS SDK.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "FileSystemId": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemId",
+          "target": "com.amazonaws.fsx#FileSystemId",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LustreConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#UpdateFileSystemLustreConfiguration"
+          "target": "com.amazonaws.fsx#UpdateFileSystemLustreConfiguration"
         },
         "WindowsConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#UpdateFileSystemWindowsConfiguration",
+          "target": "com.amazonaws.fsx#UpdateFileSystemWindowsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration update for this Microsoft Windows file system. The only supported options\n      are for backup and maintenance and for self-managed Active Directory configuration.</p>"
           }
@@ -3040,11 +3072,11 @@
         "smithy.api#documentation": "<p>The request object for the <code>UpdateFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#UpdateFileSystemResponse": {
+    "com.amazonaws.fsx#UpdateFileSystemResponse": {
       "type": "structure",
       "members": {
         "FileSystem": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystem",
+          "target": "com.amazonaws.fsx#FileSystem",
           "traits": {
             "smithy.api#documentation": "<p>A description of the file system that was updated.</p>"
           }
@@ -3054,29 +3086,29 @@
         "smithy.api#documentation": "<p>The response object for the <code>UpdateFileSystem</code> operation.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#UpdateFileSystemWindowsConfiguration": {
+    "com.amazonaws.fsx#UpdateFileSystemWindowsConfiguration": {
       "type": "structure",
       "members": {
         "AutomaticBackupRetentionDays": {
-          "target": "com.amazonaws.simba.api.v20180301#AutomaticBackupRetentionDays",
+          "target": "com.amazonaws.fsx#AutomaticBackupRetentionDays",
           "traits": {
             "smithy.api#documentation": "<p>The number of days to retain automatic backups. Setting this to 0 disables automatic\n            backups. You can retain automatic backups for a maximum of 35 days.</p>"
           }
         },
         "DailyAutomaticBackupStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#DailyTime",
+          "target": "com.amazonaws.fsx#DailyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred time to take daily automatic backups, in the UTC time zone.</p>"
           }
         },
         "SelfManagedActiveDirectoryConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#SelfManagedActiveDirectoryConfigurationUpdates",
+          "target": "com.amazonaws.fsx#SelfManagedActiveDirectoryConfigurationUpdates",
           "traits": {
             "smithy.api#documentation": "<p>The configuration Amazon FSx uses to join the Windows File Server instance to the\n            self-managed Microsoft AD directory.</p>"
           }
         },
         "WeeklyMaintenanceStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#WeeklyTime",
+          "target": "com.amazonaws.fsx#WeeklyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>"
           }
@@ -3086,7 +3118,7 @@
         "smithy.api#documentation": "<p>Updates the Microsoft Windows configuration for an existing Amazon FSx for Windows\n            File Server file system. Amazon FSx overwrites existing properties with non-null values\n            provided in the request. If you don't specify a non-null value for a property, that\n            property is not updated.</p>"
       }
     },
-    "com.amazonaws.simba.api.v20180301#VpcId": {
+    "com.amazonaws.fsx#VpcId": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The ID of your virtual private cloud (VPC). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html\">VPC and\n                Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>",
@@ -3097,7 +3129,7 @@
         "smithy.api#pattern": "^(vpc-[0-9a-f]{8,})$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#WeeklyTime": {
+    "com.amazonaws.fsx#WeeklyTime": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>\n        <p>\n            <code>D</code> is the day of the week, for which 1 represents Monday and 7\n            represents Sunday. For further details, see <a href=\"https://en.wikipedia.org/wiki/ISO_week_date\">the ISO-8601 spec as described on Wikipedia</a>.</p>\n        <p>\n            <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is\n            the zero-padded minute of the hour. </p>\n        <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>",
@@ -3108,87 +3140,89 @@
         "smithy.api#pattern": "^[1-7]:([01]\\d|2[0-3]):?([0-5]\\d)$"
       }
     },
-    "com.amazonaws.simba.api.v20180301#WindowsDeploymentType": {
+    "com.amazonaws.fsx#WindowsDeploymentType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "MULTI_AZ_1": {
+        "smithy.api#enum": [
+          {
+            "value": "MULTI_AZ_1",
             "name": "MULTI_AZ_1"
           },
-          "SINGLE_AZ_1": {
+          {
+            "value": "SINGLE_AZ_1",
             "name": "SINGLE_AZ_1"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.simba.api.v20180301#WindowsFileSystemConfiguration": {
+    "com.amazonaws.fsx#WindowsFileSystemConfiguration": {
       "type": "structure",
       "members": {
         "ActiveDirectoryId": {
-          "target": "com.amazonaws.simba.api.v20180301#DirectoryId",
+          "target": "com.amazonaws.fsx#DirectoryId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for an existing Microsoft Active Directory instance that the file system should join when\n            it's created.</p>"
           }
         },
         "AutomaticBackupRetentionDays": {
-          "target": "com.amazonaws.simba.api.v20180301#AutomaticBackupRetentionDays",
+          "target": "com.amazonaws.fsx#AutomaticBackupRetentionDays",
           "traits": {
             "smithy.api#documentation": "<p>The number of days to retain automatic backups. Setting this to 0 disables automatic\n            backups. You can retain automatic backups for a maximum of 35 days.</p>"
           }
         },
         "CopyTagsToBackups": {
-          "target": "com.amazonaws.simba.api.v20180301#Flag",
+          "target": "com.amazonaws.fsx#Flag",
           "traits": {
             "smithy.api#documentation": "<p>A boolean flag indicating whether tags on the file system should be copied to backups.\n            This value defaults to false. If it's set to true, all tags on the file system are\n            copied to all automatic backups and any user-initiated backups where the user\n            doesn't specify any tags. If this value is true, and you specify one or more tags,\n            only the specified tags are copied to backups.</p>"
           }
         },
         "DailyAutomaticBackupStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#DailyTime",
+          "target": "com.amazonaws.fsx#DailyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred time to take daily automatic backups, in the UTC time zone.</p>"
           }
         },
         "DeploymentType": {
-          "target": "com.amazonaws.simba.api.v20180301#WindowsDeploymentType",
+          "target": "com.amazonaws.fsx#WindowsDeploymentType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the file system deployment type, valid values are the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>MULTI_AZ_1</code> - Specifies a high availability file system that is configured for Multi-AZ \n                    redundancy to tolerate temporary Availability Zone (AZ) unavailability.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SINGLE_AZ_1</code> - (Default) Specifies a file system that is configured for single AZ redundancy.</p>\n            </li>\n         </ul>"
           }
         },
         "MaintenanceOperationsInProgress": {
-          "target": "com.amazonaws.simba.api.v20180301#FileSystemMaintenanceOperations",
+          "target": "com.amazonaws.fsx#FileSystemMaintenanceOperations",
           "traits": {
             "smithy.api#documentation": "<p>The list of maintenance operations in progress for this file system.</p>"
           }
         },
         "PreferredFileServerIp": {
-          "target": "com.amazonaws.simba.api.v20180301#IpAddress",
+          "target": "com.amazonaws.fsx#IpAddress",
           "traits": {
             "smithy.api#documentation": "<p>For <code>MULTI_AZ_1</code> deployment types, the IP address of the primary, or preferred, file server.</p>\n        <p>Use this IP address when mounting the file system on Linux SMB clients or Windows SMB clients that \n            are not joined to a Microsoft Active Directory. \n            Applicable for both <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code> deployment types. \n            This IP address is temporarily unavailable \n            when the file system is undergoing maintenance. For Linux and Windows \n            SMB clients that are joined to an Active Directory, use the file system's DNSName instead. For more information\n            and instruction on mapping and mounting file shares, see \n            <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/accessing-file-shares.html\">https://docs.aws.amazon.com/fsx/latest/WindowsGuide/accessing-file-shares.html</a>.</p>"
           }
         },
         "PreferredSubnetId": {
-          "target": "com.amazonaws.simba.api.v20180301#SubnetId",
+          "target": "com.amazonaws.fsx#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>For <code>MULTI_AZ_1</code> deployment types, it specifies the ID of the subnet where the preferred file server is located. \n            Must be one of the two subnet IDs specified in <code>SubnetIds</code> property.\n            Amazon FSx serves traffic from this subnet except in the event of a failover to the secondary file server.</p>\n           <p>For <code>SINGLE_AZ_1</code> deployment types, this value is the same as that for <code>SubnetIDs</code>.</p>"
           }
         },
         "RemoteAdministrationEndpoint": {
-          "target": "com.amazonaws.simba.api.v20180301#DNSName",
+          "target": "com.amazonaws.fsx#DNSName",
           "traits": {
             "smithy.api#documentation": "<p>For <code>MULTI_AZ_1</code> deployment types, use this endpoint when performing administrative tasks on the file system using \n            Amazon FSx Remote PowerShell.</p>\n        <p>For <code>SINGLE_AZ_1</code> deployment types, this is the DNS name of the file system.</p>\n        <p>This endpoint is temporarily unavailable \n            when the file system is undergoing maintenance.</p>"
           }
         },
         "SelfManagedActiveDirectoryConfiguration": {
-          "target": "com.amazonaws.simba.api.v20180301#SelfManagedActiveDirectoryAttributes"
+          "target": "com.amazonaws.fsx#SelfManagedActiveDirectoryAttributes"
         },
         "ThroughputCapacity": {
-          "target": "com.amazonaws.simba.api.v20180301#MegabytesPerSecond",
+          "target": "com.amazonaws.fsx#MegabytesPerSecond",
           "traits": {
             "smithy.api#documentation": "<p>The throughput of an Amazon FSx file system, measured in megabytes per\n            second.</p>"
           }
         },
         "WeeklyMaintenanceStartTime": {
-          "target": "com.amazonaws.simba.api.v20180301#WeeklyTime",
+          "target": "com.amazonaws.fsx#WeeklyTime",
           "traits": {
             "smithy.api#documentation": "<p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>"
           }

@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -96,14 +95,14 @@
           "target": "com.amazonaws.textract#Document",
           "traits": {
             "smithy.api#documentation": "<p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI\n         to call Amazon Textract operations, you can't pass image bytes. The document must be an image \n         in JPEG or PNG format.</p>\n         <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode\n         image bytes that are passed using the <code>Bytes</code> field. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FeatureTypes": {
           "target": "com.amazonaws.textract#FeatureTypes",
           "traits": {
             "smithy.api#documentation": "<p>A list of the types of analysis to perform. Add TABLES to the list to return information\n         about the tables that are detected in the input document. Add FORMS to return detected form data. \n         To perform both types of analysis, add TABLES and FORMS to\n            <code>FeatureTypes</code>. All lines and words detected in the document are included in\n         the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopConfig": {
@@ -253,29 +252,36 @@
     "com.amazonaws.textract#BlockType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "KEY_VALUE_SET": {
+        "smithy.api#enum": [
+          {
+            "value": "KEY_VALUE_SET",
             "name": "KEY_VALUE_SET"
           },
-          "PAGE": {
+          {
+            "value": "PAGE",
             "name": "PAGE"
           },
-          "LINE": {
+          {
+            "value": "LINE",
             "name": "LINE"
           },
-          "WORD": {
+          {
+            "value": "WORD",
             "name": "WORD"
           },
-          "TABLE": {
+          {
+            "value": "TABLE",
             "name": "TABLE"
           },
-          "CELL": {
+          {
+            "value": "CELL",
             "name": "CELL"
           },
-          "SELECTION_ELEMENT": {
+          {
+            "value": "SELECTION_ELEMENT",
             "name": "SELECTION_ELEMENT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.textract#BoundingBox": {
@@ -323,14 +329,16 @@
     "com.amazonaws.textract#ContentClassifier": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FreeOfPersonallyIdentifiableInformation": {
+        "smithy.api#enum": [
+          {
+            "value": "FreeOfPersonallyIdentifiableInformation",
             "name": "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
           },
-          "FreeOfAdultContent": {
+          {
+            "value": "FreeOfAdultContent",
             "name": "FREE_OF_ADULT_CONTENT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.textract#ContentClassifiers": {
@@ -393,7 +401,7 @@
           "target": "com.amazonaws.textract#Document",
           "traits": {
             "smithy.api#documentation": "<p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI\n         to call Amazon Textract operations, you can't pass image bytes. The document must be an image \n      in JPEG or PNG format.</p>\n         <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode\n         image bytes that are passed using the <code>Bytes</code> field. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -487,14 +495,16 @@
     "com.amazonaws.textract#EntityType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "KEY": {
+        "smithy.api#enum": [
+          {
+            "value": "KEY",
             "name": "KEY"
           },
-          "VALUE": {
+          {
+            "value": "VALUE",
             "name": "VALUE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.textract#EntityTypes": {
@@ -509,14 +519,16 @@
     "com.amazonaws.textract#FeatureType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TABLES": {
+        "smithy.api#enum": [
+          {
+            "value": "TABLES",
             "name": "TABLES"
           },
-          "FORMS": {
+          {
+            "value": "FORMS",
             "name": "FORMS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.textract#FeatureTypes": {
@@ -596,7 +608,7 @@
           "target": "com.amazonaws.textract#JobId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from\n         <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -699,7 +711,7 @@
           "target": "com.amazonaws.textract#JobId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for the text detection job. The <code>JobId</code> is returned from\n         <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -825,14 +837,14 @@
           "target": "com.amazonaws.textract#FlowDefinitionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopName": {
           "target": "com.amazonaws.textract#HumanLoopName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the human workflow used for this image. This should be kept unique within a region.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -992,20 +1004,24 @@
     "com.amazonaws.textract#JobStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IN_PROGRESS": {
+        "smithy.api#enum": [
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "SUCCEEDED": {
+          {
+            "value": "SUCCEEDED",
             "name": "SUCCEEDED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "PARTIAL_SUCCESS": {
+          {
+            "value": "PARTIAL_SUCCESS",
             "name": "PARTIAL_SUCCESS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.textract#JobTag": {
@@ -1036,7 +1052,7 @@
     "com.amazonaws.textract#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -1055,14 +1071,14 @@
           "target": "com.amazonaws.textract#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that gives Amazon Textract publishing permissions to the Amazon SNS topic. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SNSTopicArn": {
           "target": "com.amazonaws.textract#SNSTopicArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SNS topic that Amazon Textract posts the completion status to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1089,7 +1105,7 @@
     "com.amazonaws.textract#Percent": {
       "type": "float",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -1166,14 +1182,16 @@
     "com.amazonaws.textract#RelationshipType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "VALUE": {
+        "smithy.api#enum": [
+          {
+            "value": "VALUE",
             "name": "VALUE"
           },
-          "CHILD": {
+          {
+            "value": "CHILD",
             "name": "CHILD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.textract#RoleArn": {
@@ -1255,14 +1273,16 @@
     "com.amazonaws.textract#SelectionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SELECTED": {
+        "smithy.api#enum": [
+          {
+            "value": "SELECTED",
             "name": "SELECTED"
           },
-          "NOT_SELECTED": {
+          {
+            "value": "NOT_SELECTED",
             "name": "NOT_SELECTED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.textract#StartDocumentAnalysis": {
@@ -1325,14 +1345,14 @@
           "target": "com.amazonaws.textract#DocumentLocation",
           "traits": {
             "smithy.api#documentation": "<p>The location of the document to be processed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FeatureTypes": {
           "target": "com.amazonaws.textract#FeatureTypes",
           "traits": {
             "smithy.api#documentation": "<p>A list of the types of analysis to perform. Add TABLES to the list to return information\n         about the tables that are detected in the input document. Add FORMS to return detected\n         form data. To perform both types of analysis, add TABLES\n         and FORMS to <code>FeatureTypes</code>. All lines and words detected in the document are\n         included in the response (including text that isn't related to the value of\n            <code>FeatureTypes</code>). </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobTag": {
@@ -1420,7 +1440,7 @@
           "target": "com.amazonaws.textract#DocumentLocation",
           "traits": {
             "smithy.api#documentation": "<p>The location of the document to be processed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "JobTag": {
@@ -1494,15 +1514,11 @@
           "cloudFormationName": "Textract",
           "cloudTrailEventSource": "textract.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "textract"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>Amazon Textract detects and analyzes text in documents and converts it\n         into machine-readable text. This is the API reference documentation for\n         Amazon Textract.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Textract"
       }
     },
@@ -1524,7 +1540,7 @@
     "com.amazonaws.textract#UInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }

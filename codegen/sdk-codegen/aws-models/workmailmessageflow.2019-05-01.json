@@ -1,46 +1,45 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.workmailmessageflow.service#GetRawMessageContent": {
+    "com.amazonaws.workmailmessageflow#GetRawMessageContent": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.workmailmessageflow.service#GetRawMessageContentRequest"
+        "target": "com.amazonaws.workmailmessageflow#GetRawMessageContentRequest"
       },
       "output": {
-        "target": "com.amazonaws.workmailmessageflow.service#GetRawMessageContentResponse"
+        "target": "com.amazonaws.workmailmessageflow#GetRawMessageContentResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.workmailmessageflow.service#ResourceNotFoundException"
+          "target": "com.amazonaws.workmailmessageflow#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -52,39 +51,38 @@
         }
       }
     },
-    "com.amazonaws.workmailmessageflow.service#GetRawMessageContentRequest": {
+    "com.amazonaws.workmailmessageflow#GetRawMessageContentRequest": {
       "type": "structure",
       "members": {
         "messageId": {
-          "target": "com.amazonaws.workmailmessageflow.service#messageIdType",
+          "target": "com.amazonaws.workmailmessageflow#messageIdType",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the email message to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.workmailmessageflow.service#GetRawMessageContentResponse": {
+    "com.amazonaws.workmailmessageflow#GetRawMessageContentResponse": {
       "type": "structure",
       "members": {
         "messageContent": {
-          "target": "com.amazonaws.workmailmessageflow.service#messageContentBlob",
+          "target": "com.amazonaws.workmailmessageflow#messageContentBlob",
           "traits": {
             "smithy.api#documentation": "<p>The raw content of the email message, in MIME format.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true,
-            "smithy.api#streaming": { }
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.workmailmessageflow.service#GiraffeMessageInTransitService": {
+    "com.amazonaws.workmailmessageflow#GiraffeMessageInTransitService": {
       "type": "service",
       "version": "2019-05-01",
       "operations": [
         {
-          "target": "com.amazonaws.workmailmessageflow.service#GetRawMessageContent"
+          "target": "com.amazonaws.workmailmessageflow#GetRawMessageContent"
         }
       ],
       "traits": {
@@ -94,23 +92,19 @@
           "cloudFormationName": "WorkMailMessageFlow",
           "cloudTrailEventSource": "service.workmailmessageflow.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "workmailmessageflow"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>The WorkMail Message Flow API provides access to email messages as they are\n      being\n      sent and received by\n      a\n      WorkMail organization.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon WorkMail Message Flow"
       }
     },
-    "com.amazonaws.workmailmessageflow.service#ResourceNotFoundException": {
+    "com.amazonaws.workmailmessageflow#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.workmailmessageflow.service#errorMessage"
+          "target": "com.amazonaws.workmailmessageflow#errorMessage"
         }
       },
       "traits": {
@@ -119,13 +113,16 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.workmailmessageflow.service#errorMessage": {
+    "com.amazonaws.workmailmessageflow#errorMessage": {
       "type": "string"
     },
-    "com.amazonaws.workmailmessageflow.service#messageContentBlob": {
-      "type": "blob"
+    "com.amazonaws.workmailmessageflow#messageContentBlob": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#streaming": {}
+      }
     },
-    "com.amazonaws.workmailmessageflow.service#messageIdType": {
+    "com.amazonaws.workmailmessageflow#messageIdType": {
       "type": "string",
       "traits": {
         "smithy.api#length": {

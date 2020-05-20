@@ -1,50 +1,49 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.awsorigamiservicegateway#AWSOrigamiServiceGatewayService": {
+    "com.amazonaws.costandusagereportservice#AWSOrigamiServiceGatewayService": {
       "type": "service",
       "version": "2017-01-06",
       "operations": [
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#DeleteReportDefinition"
+          "target": "com.amazonaws.costandusagereportservice#DeleteReportDefinition"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#DescribeReportDefinitions"
+          "target": "com.amazonaws.costandusagereportservice#DescribeReportDefinitions"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#ModifyReportDefinition"
+          "target": "com.amazonaws.costandusagereportservice#ModifyReportDefinition"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#PutReportDefinition"
+          "target": "com.amazonaws.costandusagereportservice#PutReportDefinition"
         }
       ],
       "traits": {
@@ -54,161 +53,174 @@
           "cloudFormationName": "CostandUsageReportService",
           "cloudTrailEventSource": "awsorigamiservicegateway.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "cur"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete \n        AWS Cost and Usage report definitions.</p>\n         <p>AWS Cost and Usage reports track the monthly AWS costs and usage \n   associated with your AWS account.\n    \n        The report contains line items for each unique combination of AWS product,\n        usage type, and operation that your AWS account uses. \n        \n        You can configure the AWS Cost and Usage report to show only the data that you want, using the\n        AWS Cost and Usage API.</p>\n\n       \n         <p>Service Endpoint</p>\n         <p>The AWS Cost and Usage Report API provides the following endpoint:</p>\n         <ul>\n            <li>\n               <p>cur.us-east-1.amazonaws.com</p>\n            </li>\n         </ul>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Cost and Usage Report Service"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#AWSRegion": {
+    "com.amazonaws.costandusagereportservice#AWSRegion": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The region of the S3 bucket that AWS delivers the report into.</p>",
-        "smithy.api#enum": {
-          "us-east-1": {
+        "smithy.api#enum": [
+          {
+            "value": "us-east-1",
             "name": "US_STANDARD"
           },
-          "us-west-1": {
+          {
+            "value": "us-west-1",
             "name": "NORTHERN_CALIFORNIA"
           },
-          "us-west-2": {
+          {
+            "value": "us-west-2",
             "name": "OREGON"
           },
-          "eu-central-1": {
+          {
+            "value": "eu-central-1",
             "name": "FRANKFURT"
           },
-          "eu-west-1": {
+          {
+            "value": "eu-west-1",
             "name": "IRELAND"
           },
-          "ap-southeast-1": {
+          {
+            "value": "ap-southeast-1",
             "name": "SINGAPORE"
           },
-          "ap-southeast-2": {
+          {
+            "value": "ap-southeast-2",
             "name": "SYDNEY"
           },
-          "ap-northeast-1": {
+          {
+            "value": "ap-northeast-1",
             "name": "TOKYO"
           },
-          "eu-north-1": {
+          {
+            "value": "eu-north-1",
             "name": "STOCKHOLM"
           },
-          "ap-northeast-3": {
+          {
+            "value": "ap-northeast-3",
             "name": "OSAKA"
           },
-          "ap-east-1": {
+          {
+            "value": "ap-east-1",
             "name": "HONG_KONG"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#AdditionalArtifact": {
+    "com.amazonaws.costandusagereportservice#AdditionalArtifact": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The types of manifest that you want AWS to create for this report.</p>",
-        "smithy.api#enum": {
-          "REDSHIFT": {
+        "smithy.api#enum": [
+          {
+            "value": "REDSHIFT",
             "name": "REDSHIFT"
           },
-          "QUICKSIGHT": {
+          {
+            "value": "QUICKSIGHT",
             "name": "QUICKSIGHT"
           },
-          "ATHENA": {
+          {
+            "value": "ATHENA",
             "name": "ATHENA"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#AdditionalArtifactList": {
+    "com.amazonaws.costandusagereportservice#AdditionalArtifactList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.awsorigamiservicegateway#AdditionalArtifact"
+        "target": "com.amazonaws.costandusagereportservice#AdditionalArtifact"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of additional artifacts.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#CompressionFormat": {
+    "com.amazonaws.costandusagereportservice#CompressionFormat": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The compression format that AWS uses for the report.</p>",
-        "smithy.api#enum": {
-          "ZIP": {
+        "smithy.api#enum": [
+          {
+            "value": "ZIP",
             "name": "ZIP"
           },
-          "GZIP": {
+          {
+            "value": "GZIP",
             "name": "GZIP"
           },
-          "Parquet": {
+          {
+            "value": "Parquet",
             "name": "Parquet"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DeleteReportDefinition": {
+    "com.amazonaws.costandusagereportservice#DeleteReportDefinition": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.awsorigamiservicegateway#DeleteReportDefinitionRequest"
+        "target": "com.amazonaws.costandusagereportservice#DeleteReportDefinitionRequest"
       },
       "output": {
-        "target": "com.amazonaws.awsorigamiservicegateway#DeleteReportDefinitionResponse"
+        "target": "com.amazonaws.costandusagereportservice#DeleteReportDefinitionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#InternalErrorException"
+          "target": "com.amazonaws.costandusagereportservice#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#ValidationException"
+          "target": "com.amazonaws.costandusagereportservice#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified report.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DeleteReportDefinitionRequest": {
+    "com.amazonaws.costandusagereportservice#DeleteReportDefinitionRequest": {
       "type": "structure",
       "members": {
         "ReportName": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportName"
+          "target": "com.amazonaws.costandusagereportservice#ReportName"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified report.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DeleteReportDefinitionResponse": {
+    "com.amazonaws.costandusagereportservice#DeleteReportDefinitionResponse": {
       "type": "structure",
       "members": {
         "ResponseMessage": {
-          "target": "com.amazonaws.awsorigamiservicegateway#DeleteResponseMessage"
+          "target": "com.amazonaws.costandusagereportservice#DeleteResponseMessage"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>If the action is successful, the service sends back an HTTP 200 response.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DeleteResponseMessage": {
+    "com.amazonaws.costandusagereportservice#DeleteResponseMessage": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Whether the deletion was successful or not.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DescribeReportDefinitions": {
+    "com.amazonaws.costandusagereportservice#DescribeReportDefinitions": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.awsorigamiservicegateway#DescribeReportDefinitionsRequest"
+        "target": "com.amazonaws.costandusagereportservice#DescribeReportDefinitionsRequest"
       },
       "output": {
-        "target": "com.amazonaws.awsorigamiservicegateway#DescribeReportDefinitionsResponse"
+        "target": "com.amazonaws.costandusagereportservice#DescribeReportDefinitionsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#InternalErrorException"
+          "target": "com.amazonaws.costandusagereportservice#InternalErrorException"
         }
       ],
       "traits": {
@@ -220,28 +232,28 @@
         }
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DescribeReportDefinitionsRequest": {
+    "com.amazonaws.costandusagereportservice#DescribeReportDefinitionsRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.awsorigamiservicegateway#MaxResults"
+          "target": "com.amazonaws.costandusagereportservice#MaxResults"
         },
         "NextToken": {
-          "target": "com.amazonaws.awsorigamiservicegateway#GenericString"
+          "target": "com.amazonaws.costandusagereportservice#GenericString"
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Requests a list of AWS Cost and Usage reports owned by the account.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DescribeReportDefinitionsResponse": {
+    "com.amazonaws.costandusagereportservice#DescribeReportDefinitionsResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.awsorigamiservicegateway#GenericString"
+          "target": "com.amazonaws.costandusagereportservice#GenericString"
         },
         "ReportDefinitions": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportDefinitionList",
+          "target": "com.amazonaws.costandusagereportservice#ReportDefinitionList",
           "traits": {
             "smithy.api#documentation": "<p>A list of AWS Cost and Usage reports owned by the account.</p>"
           }
@@ -251,11 +263,11 @@
         "smithy.api#documentation": "<p>If the action is successful, the service sends back an HTTP 200 response.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#DuplicateReportNameException": {
+    "com.amazonaws.costandusagereportservice#DuplicateReportNameException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ErrorMessage"
+          "target": "com.amazonaws.costandusagereportservice#ErrorMessage"
         }
       },
       "traits": {
@@ -263,23 +275,23 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ErrorMessage": {
+    "com.amazonaws.costandusagereportservice#ErrorMessage": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A message to show the detail of the exception.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#GenericString": {
+    "com.amazonaws.costandusagereportservice#GenericString": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>A generic string.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#InternalErrorException": {
+    "com.amazonaws.costandusagereportservice#InternalErrorException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ErrorMessage"
+          "target": "com.amazonaws.costandusagereportservice#ErrorMessage"
         }
       },
       "traits": {
@@ -287,10 +299,10 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#MaxResults": {
+    "com.amazonaws.costandusagereportservice#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The maximum number of results that AWS returns for the operation.</p>",
         "smithy.api#range": {
           "min": 5,
@@ -298,81 +310,81 @@
         }
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ModifyReportDefinition": {
+    "com.amazonaws.costandusagereportservice#ModifyReportDefinition": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.awsorigamiservicegateway#ModifyReportDefinitionRequest"
+        "target": "com.amazonaws.costandusagereportservice#ModifyReportDefinitionRequest"
       },
       "output": {
-        "target": "com.amazonaws.awsorigamiservicegateway#ModifyReportDefinitionResponse"
+        "target": "com.amazonaws.costandusagereportservice#ModifyReportDefinitionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#InternalErrorException"
+          "target": "com.amazonaws.costandusagereportservice#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#ValidationException"
+          "target": "com.amazonaws.costandusagereportservice#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Allows you to programatically update your report preferences.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ModifyReportDefinitionRequest": {
+    "com.amazonaws.costandusagereportservice#ModifyReportDefinitionRequest": {
       "type": "structure",
       "members": {
         "ReportDefinition": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportDefinition",
+          "target": "com.amazonaws.costandusagereportservice#ReportDefinition",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ReportName": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportName",
+          "target": "com.amazonaws.costandusagereportservice#ReportName",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ModifyReportDefinitionResponse": {
+    "com.amazonaws.costandusagereportservice#ModifyReportDefinitionResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.awsorigamiservicegateway#PutReportDefinition": {
+    "com.amazonaws.costandusagereportservice#PutReportDefinition": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.awsorigamiservicegateway#PutReportDefinitionRequest"
+        "target": "com.amazonaws.costandusagereportservice#PutReportDefinitionRequest"
       },
       "output": {
-        "target": "com.amazonaws.awsorigamiservicegateway#PutReportDefinitionResponse"
+        "target": "com.amazonaws.costandusagereportservice#PutReportDefinitionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#DuplicateReportNameException"
+          "target": "com.amazonaws.costandusagereportservice#DuplicateReportNameException"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#InternalErrorException"
+          "target": "com.amazonaws.costandusagereportservice#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportLimitReachedException"
+          "target": "com.amazonaws.costandusagereportservice#ReportLimitReachedException"
         },
         {
-          "target": "com.amazonaws.awsorigamiservicegateway#ValidationException"
+          "target": "com.amazonaws.costandusagereportservice#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a new report using the description that you provide.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#PutReportDefinitionRequest": {
+    "com.amazonaws.costandusagereportservice#PutReportDefinitionRequest": {
       "type": "structure",
       "members": {
         "ReportDefinition": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportDefinition",
+          "target": "com.amazonaws.costandusagereportservice#ReportDefinition",
           "traits": {
             "smithy.api#documentation": "<p>Represents the output of the PutReportDefinition operation. The content consists of the detailed \n      metadata and data file information. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -380,87 +392,87 @@
         "smithy.api#documentation": "<p>Creates a Cost and Usage Report.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#PutReportDefinitionResponse": {
+    "com.amazonaws.costandusagereportservice#PutReportDefinitionResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#RefreshClosedReports": {
+    "com.amazonaws.costandusagereportservice#RefreshClosedReports": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ReportDefinition": {
+    "com.amazonaws.costandusagereportservice#ReportDefinition": {
       "type": "structure",
       "members": {
         "AdditionalArtifacts": {
-          "target": "com.amazonaws.awsorigamiservicegateway#AdditionalArtifactList",
+          "target": "com.amazonaws.costandusagereportservice#AdditionalArtifactList",
           "traits": {
             "smithy.api#documentation": "<p>A list of manifests that you want Amazon Web Services to create for this report.</p>"
           }
         },
         "AdditionalSchemaElements": {
-          "target": "com.amazonaws.awsorigamiservicegateway#SchemaElementList",
+          "target": "com.amazonaws.costandusagereportservice#SchemaElementList",
           "traits": {
             "smithy.api#documentation": "<p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Compression": {
-          "target": "com.amazonaws.awsorigamiservicegateway#CompressionFormat",
+          "target": "com.amazonaws.costandusagereportservice#CompressionFormat",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Format": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportFormat",
+          "target": "com.amazonaws.costandusagereportservice#ReportFormat",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RefreshClosedReports": {
-          "target": "com.amazonaws.awsorigamiservicegateway#RefreshClosedReports",
+          "target": "com.amazonaws.costandusagereportservice#RefreshClosedReports",
           "traits": {
             "smithy.api#documentation": "<p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to \n      previous months. These charges can include refunds, credits, or support fees.</p>"
           }
         },
         "ReportName": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportName",
+          "target": "com.amazonaws.costandusagereportservice#ReportName",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ReportVersioning": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ReportVersioning",
+          "target": "com.amazonaws.costandusagereportservice#ReportVersioning",
           "traits": {
             "smithy.api#documentation": "<p>Whether you want Amazon Web Services to overwrite the previous version of each report or \n         to deliver the report in addition to the previous versions.</p>"
           }
         },
         "S3Bucket": {
-          "target": "com.amazonaws.awsorigamiservicegateway#S3Bucket",
+          "target": "com.amazonaws.costandusagereportservice#S3Bucket",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "S3Prefix": {
-          "target": "com.amazonaws.awsorigamiservicegateway#S3Prefix",
+          "target": "com.amazonaws.costandusagereportservice#S3Prefix",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "S3Region": {
-          "target": "com.amazonaws.awsorigamiservicegateway#AWSRegion",
+          "target": "com.amazonaws.costandusagereportservice#AWSRegion",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TimeUnit": {
-          "target": "com.amazonaws.awsorigamiservicegateway#TimeUnit",
+          "target": "com.amazonaws.costandusagereportservice#TimeUnit",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -468,34 +480,36 @@
         "smithy.api#documentation": "<p>The definition of AWS Cost and Usage Report. You can specify the report name, \n         time unit, report format, compression format, S3 bucket, additional artifacts, and schema \n         elements in the definition.\n    </p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ReportDefinitionList": {
+    "com.amazonaws.costandusagereportservice#ReportDefinitionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.awsorigamiservicegateway#ReportDefinition"
+        "target": "com.amazonaws.costandusagereportservice#ReportDefinition"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of report definitions.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ReportFormat": {
+    "com.amazonaws.costandusagereportservice#ReportFormat": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The format that AWS saves the report in.</p>",
-        "smithy.api#enum": {
-          "textORcsv": {
+        "smithy.api#enum": [
+          {
+            "value": "textORcsv",
             "name": "CSV"
           },
-          "Parquet": {
+          {
+            "value": "Parquet",
             "name": "Parquet"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ReportLimitReachedException": {
+    "com.amazonaws.costandusagereportservice#ReportLimitReachedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ErrorMessage"
+          "target": "com.amazonaws.costandusagereportservice#ErrorMessage"
         }
       },
       "traits": {
@@ -503,7 +517,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ReportName": {
+    "com.amazonaws.costandusagereportservice#ReportName": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The name of the report that you want to create. The name must be unique,\n        is case sensitive, and can't include spaces. </p>",
@@ -514,20 +528,22 @@
         "smithy.api#pattern": "[0-9A-Za-z!\\-_.*\\'()]+"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ReportVersioning": {
+    "com.amazonaws.costandusagereportservice#ReportVersioning": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATE_NEW_REPORT": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATE_NEW_REPORT",
             "name": "CREATE_NEW_REPORT"
           },
-          "OVERWRITE_REPORT": {
+          {
+            "value": "OVERWRITE_REPORT",
             "name": "OVERWRITE_REPORT"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#S3Bucket": {
+    "com.amazonaws.costandusagereportservice#S3Bucket": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The S3 bucket where AWS delivers the report.</p>",
@@ -537,7 +553,7 @@
         }
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#S3Prefix": {
+    "com.amazonaws.costandusagereportservice#S3Prefix": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix\n        can't include spaces.</p>",
@@ -548,45 +564,48 @@
         "smithy.api#pattern": "[0-9A-Za-z!\\-_.*\\'()/]*"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#SchemaElement": {
+    "com.amazonaws.costandusagereportservice#SchemaElement": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Whether or not AWS includes resource IDs in the report. </p>",
-        "smithy.api#enum": {
-          "RESOURCES": {
+        "smithy.api#enum": [
+          {
+            "value": "RESOURCES",
             "name": "RESOURCES"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#SchemaElementList": {
+    "com.amazonaws.costandusagereportservice#SchemaElementList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.awsorigamiservicegateway#SchemaElement"
+        "target": "com.amazonaws.costandusagereportservice#SchemaElement"
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of strings that indicate the content that is included in the report, such as service or usage type.</p>"
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#TimeUnit": {
+    "com.amazonaws.costandusagereportservice#TimeUnit": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The length of time covered by the report. </p>",
-        "smithy.api#enum": {
-          "HOURLY": {
+        "smithy.api#enum": [
+          {
+            "value": "HOURLY",
             "name": "HOURLY"
           },
-          "DAILY": {
+          {
+            "value": "DAILY",
             "name": "DAILY"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsorigamiservicegateway#ValidationException": {
+    "com.amazonaws.costandusagereportservice#ValidationException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsorigamiservicegateway#ErrorMessage"
+          "target": "com.amazonaws.costandusagereportservice#ErrorMessage"
         }
       },
       "traits": {

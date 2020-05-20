@@ -1,68 +1,67 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.AWSCloud9WorkspaceManagement#AWSCloud9WorkspaceManagementService": {
+    "com.amazonaws.cloud9#AWSCloud9WorkspaceManagementService": {
       "type": "service",
       "version": "2017-09-23",
       "operations": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentEC2"
+          "target": "com.amazonaws.cloud9#CreateEnvironmentEC2"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentMembership"
+          "target": "com.amazonaws.cloud9#CreateEnvironmentMembership"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironment"
+          "target": "com.amazonaws.cloud9#DeleteEnvironment"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentMembership"
+          "target": "com.amazonaws.cloud9#DeleteEnvironmentMembership"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentMemberships"
+          "target": "com.amazonaws.cloud9#DescribeEnvironmentMemberships"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentStatus"
+          "target": "com.amazonaws.cloud9#DescribeEnvironments"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironments"
+          "target": "com.amazonaws.cloud9#DescribeEnvironmentStatus"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ListEnvironments"
+          "target": "com.amazonaws.cloud9#ListEnvironments"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironment"
+          "target": "com.amazonaws.cloud9#UpdateEnvironment"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentMembership"
+          "target": "com.amazonaws.cloud9#UpdateEnvironmentMembership"
         }
       ],
       "traits": {
@@ -72,38 +71,34 @@
           "cloudFormationName": "Cloud9",
           "cloudTrailEventSource": "AWSCloud9WorkspaceManagement.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "cloud9"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AWS Cloud9</fullname>\n         <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p>\n         <p>For more information about AWS Cloud9, see the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide\">AWS Cloud9 User Guide</a>.</p>\n         <p>AWS Cloud9 supports these operations:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironments</code>: Gets information about environments.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListEnvironments</code>: Gets a list of environment identifiers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p>\n            </li>\n         </ul>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Cloud9"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#AutomaticStopTimeMinutes": {
+    "com.amazonaws.cloud9#AutomaticStopTimeMinutes": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "max": 20160
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException": {
+    "com.amazonaws.cloud9#BadRequestException": {
       "type": "structure",
       "members": {
         "className": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         },
         "code": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Integer"
+          "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         }
       },
       "traits": {
@@ -111,10 +106,10 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#BoundedEnvironmentIdList": {
+    "com.amazonaws.cloud9#BoundedEnvironmentIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId"
+        "target": "com.amazonaws.cloud9#EnvironmentId"
       },
       "traits": {
         "smithy.api#length": {
@@ -123,23 +118,23 @@
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#ClientRequestToken": {
+    "com.amazonaws.cloud9#ClientRequestToken": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "[\\x20-\\x7E]{10,128}"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#ConflictException": {
+    "com.amazonaws.cloud9#ConflictException": {
       "type": "structure",
       "members": {
         "className": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         },
         "code": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Integer"
+          "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         }
       },
       "traits": {
@@ -147,315 +142,315 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentEC2": {
+    "com.amazonaws.cloud9#CreateEnvironmentEC2": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentEC2Request"
+        "target": "com.amazonaws.cloud9#CreateEnvironmentEC2Request"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentEC2Result"
+        "target": "com.amazonaws.cloud9#CreateEnvironmentEC2Result"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentEC2Request": {
+    "com.amazonaws.cloud9#CreateEnvironmentEC2Request": {
       "type": "structure",
       "members": {
         "automaticStopTimeMinutes": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#AutomaticStopTimeMinutes",
+          "target": "com.amazonaws.cloud9#AutomaticStopTimeMinutes",
           "traits": {
             "smithy.api#documentation": "<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>"
           }
         },
         "clientRequestToken": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ClientRequestToken",
+          "target": "com.amazonaws.cloud9#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p>\n         <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>"
           }
         },
         "description": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentDescription",
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the environment to create.</p>"
           }
         },
         "instanceType": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InstanceType",
+          "target": "com.amazonaws.cloud9#InstanceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentName",
+          "target": "com.amazonaws.cloud9#EnvironmentName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the environment to create.</p>\n         <p>This name is visible to other AWS IAM users in the same AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ownerArn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UserArn",
+          "target": "com.amazonaws.cloud9#UserArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>"
           }
         },
         "subnetId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#SubnetId",
+          "target": "com.amazonaws.cloud9#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentEC2Result": {
+    "com.amazonaws.cloud9#CreateEnvironmentEC2Result": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment that was created.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentMembership": {
+    "com.amazonaws.cloud9#CreateEnvironmentMembership": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentMembershipRequest"
+        "target": "com.amazonaws.cloud9#CreateEnvironmentMembershipRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentMembershipResult"
+        "target": "com.amazonaws.cloud9#CreateEnvironmentMembershipResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Adds an environment member to an AWS Cloud9 development environment.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentMembershipRequest": {
+    "com.amazonaws.cloud9#CreateEnvironmentMembershipRequest": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment that contains the environment member you want to add.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "permissions": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#MemberPermissions",
+          "target": "com.amazonaws.cloud9#MemberPermissions",
           "traits": {
             "smithy.api#documentation": "<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "userArn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UserArn",
+          "target": "com.amazonaws.cloud9#UserArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#CreateEnvironmentMembershipResult": {
+    "com.amazonaws.cloud9#CreateEnvironmentMembershipResult": {
       "type": "structure",
       "members": {
         "membership": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentMember",
+          "target": "com.amazonaws.cloud9#EnvironmentMember",
           "traits": {
             "smithy.api#documentation": "<p>Information about the environment member that was added.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironment": {
+    "com.amazonaws.cloud9#DeleteEnvironment": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentRequest"
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentResult"
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentMembership": {
+    "com.amazonaws.cloud9#DeleteEnvironmentMembership": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentMembershipRequest"
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentMembershipRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentMembershipResult"
+        "target": "com.amazonaws.cloud9#DeleteEnvironmentMembershipResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes an environment member from an AWS Cloud9 development environment.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentMembershipRequest": {
+    "com.amazonaws.cloud9#DeleteEnvironmentMembershipRequest": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment to delete the environment member from.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "userArn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UserArn",
+          "target": "com.amazonaws.cloud9#UserArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentMembershipResult": {
+    "com.amazonaws.cloud9#DeleteEnvironmentMembershipResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentRequest": {
+    "com.amazonaws.cloud9#DeleteEnvironmentRequest": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DeleteEnvironmentResult": {
+    "com.amazonaws.cloud9#DeleteEnvironmentResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentMemberships": {
+    "com.amazonaws.cloud9#DescribeEnvironmentMemberships": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentMembershipsRequest"
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentMembershipsRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentMembershipsResult"
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentMembershipsResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -467,221 +462,221 @@
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentMembershipsRequest": {
+    "com.amazonaws.cloud9#DescribeEnvironmentMembershipsRequest": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment to get environment member information about.</p>"
           }
         },
         "maxResults": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#MaxResults",
+          "target": "com.amazonaws.cloud9#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of environment members to get information about.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>"
           }
         },
         "permissions": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#PermissionsList",
+          "target": "com.amazonaws.cloud9#PermissionsList",
           "traits": {
             "smithy.api#documentation": "<p>The type of environment member permissions to get information about. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>owner</code>: Owns the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>\n         <p>If no value is specified, information about all environment members are returned.</p>"
           }
         },
         "userArn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UserArn",
+          "target": "com.amazonaws.cloud9#UserArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentMembershipsResult": {
+    "com.amazonaws.cloud9#DescribeEnvironmentMembershipsResult": {
       "type": "structure",
       "members": {
         "memberships": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentMembersList",
+          "target": "com.amazonaws.cloud9#EnvironmentMembersList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the environment members for the environment.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentStatus": {
+    "com.amazonaws.cloud9#DescribeEnvironmentStatus": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentStatusRequest"
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentStatusRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentStatusResult"
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentStatusResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets status information for an AWS Cloud9 development environment.</p>"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentStatusRequest": {
+    "com.amazonaws.cloud9#DescribeEnvironmentStatusRequest": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment to get status information about.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentStatusResult": {
+    "com.amazonaws.cloud9#DescribeEnvironmentStatusResult": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>Any informational message about the status of the environment.</p>"
           }
         },
         "status": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentStatus",
+          "target": "com.amazonaws.cloud9#EnvironmentStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the environment. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>connecting</code>: The environment is connecting.</p>\n            </li>\n            <li>\n               <p>\n                  <code>creating</code>: The environment is being created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>deleting</code>: The environment is being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>error</code>: The environment is in an error state.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ready</code>: The environment is ready.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stopped</code>: The environment is stopped.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stopping</code>: The environment is stopping.</p>\n            </li>\n         </ul>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironments": {
+    "com.amazonaws.cloud9#DescribeEnvironments": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentsRequest"
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentsRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentsResult"
+        "target": "com.amazonaws.cloud9#DescribeEnvironmentsResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets information about AWS Cloud9 development environments.</p>"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentsRequest": {
+    "com.amazonaws.cloud9#DescribeEnvironmentsRequest": {
       "type": "structure",
       "members": {
         "environmentIds": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BoundedEnvironmentIdList",
+          "target": "com.amazonaws.cloud9#BoundedEnvironmentIdList",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of individual environments to get information about.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#DescribeEnvironmentsResult": {
+    "com.amazonaws.cloud9#DescribeEnvironmentsResult": {
       "type": "structure",
       "members": {
         "environments": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentList",
+          "target": "com.amazonaws.cloud9#EnvironmentList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the environments that are returned.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#Environment": {
+    "com.amazonaws.cloud9#Environment": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment.</p>"
           }
         },
         "description": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentDescription",
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description for the environment.</p>"
           }
         },
         "id": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment.</p>"
           }
         },
         "lifecycle": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentLifecycle",
+          "target": "com.amazonaws.cloud9#EnvironmentLifecycle",
           "traits": {
             "smithy.api#documentation": "<p>The state of the environment in its creation or deletion lifecycle.</p>"
           }
         },
         "name": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentName",
+          "target": "com.amazonaws.cloud9#EnvironmentName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the environment.</p>"
           }
         },
         "ownerArn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment owner.</p>"
           }
         },
         "type": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentType",
+          "target": "com.amazonaws.cloud9#EnvironmentType",
           "traits": {
             "smithy.api#documentation": "<p>The type of environment. Valid values include the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ssh</code>: Your own server connects to the environment.</p>\n            </li>\n         </ul>"
           }
@@ -691,45 +686,45 @@
         "smithy.api#documentation": "<p>Information about an AWS Cloud9 development environment.</p>"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentDescription": {
+    "com.amazonaws.cloud9#EnvironmentDescription": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 200
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId": {
+    "com.amazonaws.cloud9#EnvironmentId": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^[a-zA-Z0-9]{8,32}$"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentIdList": {
+    "com.amazonaws.cloud9#EnvironmentIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId"
+        "target": "com.amazonaws.cloud9#EnvironmentId"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentLifecycle": {
+    "com.amazonaws.cloud9#EnvironmentLifecycle": {
       "type": "structure",
       "members": {
         "failureResource": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>"
           }
         },
         "reason": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>Any informational message about the lifecycle state of the environment.</p>"
           }
         },
         "status": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentLifecycleStatus",
+          "target": "com.amazonaws.cloud9#EnvironmentLifecycleStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current creation or deletion lifecycle state of the environment.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code>: The environment is in the process of being created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATED</code>: The environment was successfully created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code>: The environment failed to be created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code>: The environment is in the process of being deleted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETE_FAILED</code>: The environment failed to delete.</p>\n            </li>\n         </ul>"
           }
@@ -739,63 +734,68 @@
         "smithy.api#documentation": "<p>Information about the current creation or deletion lifecycle state of an AWS Cloud9 development environment.</p>"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentLifecycleStatus": {
+    "com.amazonaws.cloud9#EnvironmentLifecycleStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "CREATED": {
+          {
+            "value": "CREATED",
             "name": "CREATED"
           },
-          "CREATE_FAILED": {
+          {
+            "value": "CREATE_FAILED",
             "name": "CREATE_FAILED"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETE_FAILED": {
+          {
+            "value": "DELETE_FAILED",
             "name": "DELETE_FAILED"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentList": {
+    "com.amazonaws.cloud9#EnvironmentList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#Environment"
+        "target": "com.amazonaws.cloud9#Environment"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentMember": {
+    "com.amazonaws.cloud9#EnvironmentMember": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment for the environment member.</p>"
           }
         },
         "lastAccess": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Timestamp",
+          "target": "com.amazonaws.cloud9#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>"
           }
         },
         "permissions": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Permissions",
+          "target": "com.amazonaws.cloud9#Permissions",
           "traits": {
             "smithy.api#documentation": "<p>The type of environment member permissions associated with this environment member. Available values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>owner</code>: Owns the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>"
           }
         },
         "userArn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UserArn",
+          "target": "com.amazonaws.cloud9#UserArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member.</p>"
           }
         },
         "userId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>"
           }
@@ -805,13 +805,13 @@
         "smithy.api#documentation": "<p>Information about an environment member for an AWS Cloud9 development environment.</p>"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentMembersList": {
+    "com.amazonaws.cloud9#EnvironmentMembersList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentMember"
+        "target": "com.amazonaws.cloud9#EnvironmentMember"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentName": {
+    "com.amazonaws.cloud9#EnvironmentName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -820,58 +820,67 @@
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentStatus": {
+    "com.amazonaws.cloud9#EnvironmentStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "error": {
+        "smithy.api#enum": [
+          {
+            "value": "error",
             "name": "ERROR"
           },
-          "creating": {
+          {
+            "value": "creating",
             "name": "CREATING"
           },
-          "connecting": {
+          {
+            "value": "connecting",
             "name": "CONNECTING"
           },
-          "ready": {
+          {
+            "value": "ready",
             "name": "READY"
           },
-          "stopping": {
+          {
+            "value": "stopping",
             "name": "STOPPING"
           },
-          "stopped": {
+          {
+            "value": "stopped",
             "name": "STOPPED"
           },
-          "deleting": {
+          {
+            "value": "deleting",
             "name": "DELETING"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentType": {
+    "com.amazonaws.cloud9#EnvironmentType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ssh": {
+        "smithy.api#enum": [
+          {
+            "value": "ssh",
             "name": "SSH"
           },
-          "ec2": {
+          {
+            "value": "ec2",
             "name": "EC2"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException": {
+    "com.amazonaws.cloud9#ForbiddenException": {
       "type": "structure",
       "members": {
         "className": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         },
         "code": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Integer"
+          "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         }
       },
       "traits": {
@@ -879,7 +888,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#InstanceType": {
+    "com.amazonaws.cloud9#InstanceType": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -889,20 +898,20 @@
         "smithy.api#pattern": "^[a-z][1-9][.][a-z0-9]+$"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#Integer": {
+    "com.amazonaws.cloud9#Integer": {
       "type": "integer"
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException": {
+    "com.amazonaws.cloud9#InternalServerErrorException": {
       "type": "structure",
       "members": {
         "className": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         },
         "code": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Integer"
+          "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         }
       },
       "traits": {
@@ -910,17 +919,17 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException": {
+    "com.amazonaws.cloud9#LimitExceededException": {
       "type": "structure",
       "members": {
         "className": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         },
         "code": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Integer"
+          "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         }
       },
       "traits": {
@@ -928,35 +937,35 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#ListEnvironments": {
+    "com.amazonaws.cloud9#ListEnvironments": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#ListEnvironmentsRequest"
+        "target": "com.amazonaws.cloud9#ListEnvironmentsRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#ListEnvironmentsResult"
+        "target": "com.amazonaws.cloud9#ListEnvironmentsResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -968,74 +977,76 @@
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#ListEnvironmentsRequest": {
+    "com.amazonaws.cloud9#ListEnvironmentsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#MaxResults",
+          "target": "com.amazonaws.cloud9#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of environments to get identifiers for.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#ListEnvironmentsResult": {
+    "com.amazonaws.cloud9#ListEnvironmentsResult": {
       "type": "structure",
       "members": {
         "environmentIds": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentIdList",
+          "target": "com.amazonaws.cloud9#EnvironmentIdList",
           "traits": {
             "smithy.api#documentation": "<p>The list of environment identifiers.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String",
+          "target": "com.amazonaws.cloud9#String",
           "traits": {
             "smithy.api#documentation": "<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#MaxResults": {
+    "com.amazonaws.cloud9#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 25
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#MemberPermissions": {
+    "com.amazonaws.cloud9#MemberPermissions": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "read-write": {
+        "smithy.api#enum": [
+          {
+            "value": "read-write",
             "name": "READ_WRITE"
           },
-          "read-only": {
+          {
+            "value": "read-only",
             "name": "READ_ONLY"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException": {
+    "com.amazonaws.cloud9#NotFoundException": {
       "type": "structure",
       "members": {
         "className": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         },
         "code": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Integer"
+          "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         }
       },
       "traits": {
@@ -1043,32 +1054,35 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#Permissions": {
+    "com.amazonaws.cloud9#Permissions": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "owner": {
+        "smithy.api#enum": [
+          {
+            "value": "owner",
             "name": "OWNER"
           },
-          "read-write": {
+          {
+            "value": "read-write",
             "name": "READ_WRITE"
           },
-          "read-only": {
+          {
+            "value": "read-only",
             "name": "READ_ONLY"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#PermissionsList": {
+    "com.amazonaws.cloud9#PermissionsList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#Permissions"
+        "target": "com.amazonaws.cloud9#Permissions"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#String": {
+    "com.amazonaws.cloud9#String": {
       "type": "string"
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#SubnetId": {
+    "com.amazonaws.cloud9#SubnetId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1077,20 +1091,20 @@
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#Timestamp": {
+    "com.amazonaws.cloud9#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException": {
+    "com.amazonaws.cloud9#TooManyRequestsException": {
       "type": "structure",
       "members": {
         "className": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         },
         "code": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#Integer"
+          "target": "com.amazonaws.cloud9#Integer"
         },
         "message": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#String"
+          "target": "com.amazonaws.cloud9#String"
         }
       },
       "traits": {
@@ -1098,144 +1112,144 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironment": {
+    "com.amazonaws.cloud9#UpdateEnvironment": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentRequest"
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentResult"
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Changes the settings of an existing AWS Cloud9 development environment.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentMembership": {
+    "com.amazonaws.cloud9#UpdateEnvironmentMembership": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentMembershipRequest"
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentMembershipRequest"
       },
       "output": {
-        "target": "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentMembershipResult"
+        "target": "com.amazonaws.cloud9#UpdateEnvironmentMembershipResult"
       },
       "errors": [
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException"
+          "target": "com.amazonaws.cloud9#BadRequestException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ConflictException"
+          "target": "com.amazonaws.cloud9#ConflictException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException"
+          "target": "com.amazonaws.cloud9#ForbiddenException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#InternalServerErrorException"
+          "target": "com.amazonaws.cloud9#InternalServerErrorException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException"
+          "target": "com.amazonaws.cloud9#LimitExceededException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException"
+          "target": "com.amazonaws.cloud9#NotFoundException"
         },
         {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException"
+          "target": "com.amazonaws.cloud9#TooManyRequestsException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>",
-        "smithy.api#idempotent": true
+        "smithy.api#idempotent": {}
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentMembershipRequest": {
+    "com.amazonaws.cloud9#UpdateEnvironmentMembershipRequest": {
       "type": "structure",
       "members": {
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment for the environment member whose settings you want to change.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "permissions": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#MemberPermissions",
+          "target": "com.amazonaws.cloud9#MemberPermissions",
           "traits": {
             "smithy.api#documentation": "<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p>    \n         <ul>\n            <li>\n               <p>\n                  <code>read-only</code>: Has read-only access to the environment.</p>\n            </li>\n            <li>\n               <p>\n                  <code>read-write</code>: Has read-write access to the environment.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "userArn": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#UserArn",
+          "target": "com.amazonaws.cloud9#UserArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentMembershipResult": {
+    "com.amazonaws.cloud9#UpdateEnvironmentMembershipResult": {
       "type": "structure",
       "members": {
         "membership": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentMember",
+          "target": "com.amazonaws.cloud9#EnvironmentMember",
           "traits": {
             "smithy.api#documentation": "<p>Information about the environment member whose settings were changed.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentRequest": {
+    "com.amazonaws.cloud9#UpdateEnvironmentRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentDescription",
+          "target": "com.amazonaws.cloud9#EnvironmentDescription",
           "traits": {
             "smithy.api#documentation": "<p>Any new or replacement description for the environment.</p>"
           }
         },
         "environmentId": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentId",
+          "target": "com.amazonaws.cloud9#EnvironmentId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the environment to change settings.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazon.AWSCloud9WorkspaceManagement#EnvironmentName",
+          "target": "com.amazonaws.cloud9#EnvironmentName",
           "traits": {
             "smithy.api#documentation": "<p>A replacement name for the environment.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#UpdateEnvironmentResult": {
+    "com.amazonaws.cloud9#UpdateEnvironmentResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazon.AWSCloud9WorkspaceManagement#UserArn": {
+    "com.amazonaws.cloud9#UserArn": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^arn:aws:(iam|sts)::\\d+:(root|(user\\/[\\w+=/:,.@-]{1,64}|federated-user\\/[\\w+=/:,.@-]{2,32}|assumed-role\\/[\\w+=/:,.@-]{1,64}\\/[\\w+=/:,.@-]{1,64}))$"

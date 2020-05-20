@@ -1,40 +1,39 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.wallaby#AccessDeniedException": {
+    "com.amazonaws.signer#AccessDeniedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wallaby#ErrorMessage"
+          "target": "com.amazonaws.signer#ErrorMessage"
         }
       },
       "traits": {
@@ -43,11 +42,11 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.wallaby#BadRequestException": {
+    "com.amazonaws.signer#BadRequestException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wallaby#ErrorMessage"
+          "target": "com.amazonaws.signer#ErrorMessage"
         }
       },
       "traits": {
@@ -56,26 +55,26 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wallaby#BucketName": {
+    "com.amazonaws.signer#BucketName": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#CancelSigningProfile": {
+    "com.amazonaws.signer#CancelSigningProfile": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#CancelSigningProfileRequest"
+        "target": "com.amazonaws.signer#CancelSigningProfileRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+          "target": "com.amazonaws.signer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wallaby#ThrottlingException"
+          "target": "com.amazonaws.signer#ThrottlingException"
         }
       ],
       "traits": {
@@ -87,56 +86,58 @@
         }
       }
     },
-    "com.amazonaws.wallaby#CancelSigningProfileRequest": {
+    "com.amazonaws.signer#CancelSigningProfileRequest": {
       "type": "structure",
       "members": {
         "profileName": {
-          "target": "com.amazonaws.wallaby#ProfileName",
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the signing profile to be canceled.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#Category": {
+    "com.amazonaws.signer#Category": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AWSIoT": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "AWSIoT"
+          }
+        ]
       }
     },
-    "com.amazonaws.wallaby#CertificateArn": {
+    "com.amazonaws.signer#CertificateArn": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#ClientRequestToken": {
+    "com.amazonaws.signer#ClientRequestToken": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#CompletedAt": {
+    "com.amazonaws.signer#CompletedAt": {
       "type": "timestamp"
     },
-    "com.amazonaws.wallaby#CreatedAt": {
+    "com.amazonaws.signer#CreatedAt": {
       "type": "timestamp"
     },
-    "com.amazonaws.wallaby#DescribeSigningJob": {
+    "com.amazonaws.signer#DescribeSigningJob": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#DescribeSigningJobRequest"
+        "target": "com.amazonaws.signer#DescribeSigningJobRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#DescribeSigningJobResponse"
+        "target": "com.amazonaws.signer#DescribeSigningJobResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+          "target": "com.amazonaws.signer#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -148,107 +149,107 @@
         }
       }
     },
-    "com.amazonaws.wallaby#DescribeSigningJobRequest": {
+    "com.amazonaws.signer#DescribeSigningJobRequest": {
       "type": "structure",
       "members": {
         "jobId": {
-          "target": "com.amazonaws.wallaby#JobId",
+          "target": "com.amazonaws.signer#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the signing job on input.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#DescribeSigningJobResponse": {
+    "com.amazonaws.signer#DescribeSigningJobResponse": {
       "type": "structure",
       "members": {
         "completedAt": {
-          "target": "com.amazonaws.wallaby#CompletedAt",
+          "target": "com.amazonaws.signer#CompletedAt",
           "traits": {
             "smithy.api#documentation": "<p>Date and time that the signing job was completed.</p>"
           }
         },
         "createdAt": {
-          "target": "com.amazonaws.wallaby#CreatedAt",
+          "target": "com.amazonaws.signer#CreatedAt",
           "traits": {
             "smithy.api#documentation": "<p>Date and time that the signing job was created.</p>"
           }
         },
         "jobId": {
-          "target": "com.amazonaws.wallaby#JobId",
+          "target": "com.amazonaws.signer#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the signing job on output.</p>"
           }
         },
         "overrides": {
-          "target": "com.amazonaws.wallaby#SigningPlatformOverrides",
+          "target": "com.amazonaws.signer#SigningPlatformOverrides",
           "traits": {
             "smithy.api#documentation": "<p>A list of any overrides that were applied to the signing operation.</p>"
           }
         },
         "platformId": {
-          "target": "com.amazonaws.wallaby#PlatformId",
+          "target": "com.amazonaws.signer#PlatformId",
           "traits": {
             "smithy.api#documentation": "<p>The microcontroller platform to which your signed code image will be\n\t\t\tdistributed.</p>"
           }
         },
         "profileName": {
-          "target": "com.amazonaws.wallaby#ProfileName",
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the profile that initiated the signing operation.</p>"
           }
         },
         "requestedBy": {
-          "target": "com.amazonaws.wallaby#RequestedBy",
+          "target": "com.amazonaws.signer#RequestedBy",
           "traits": {
             "smithy.api#documentation": "<p>The IAM principal that requested the signing job.</p>"
           }
         },
         "signedObject": {
-          "target": "com.amazonaws.wallaby#SignedObject",
+          "target": "com.amazonaws.signer#SignedObject",
           "traits": {
             "smithy.api#documentation": "<p>Name of the S3 bucket where the signed code image is saved by code signing.</p>"
           }
         },
         "signingMaterial": {
-          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "target": "com.amazonaws.signer#SigningMaterial",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of your code signing certificate.</p>"
           }
         },
         "signingParameters": {
-          "target": "com.amazonaws.wallaby#SigningParameters",
+          "target": "com.amazonaws.signer#SigningParameters",
           "traits": {
             "smithy.api#documentation": "<p>Map of user-assigned key-value pairs used during signing. These values contain any\n\t\t\tinformation that you specified for use in your signing job. </p>"
           }
         },
         "source": {
-          "target": "com.amazonaws.wallaby#Source",
+          "target": "com.amazonaws.signer#Source",
           "traits": {
             "smithy.api#documentation": "<p>The object that contains the name of your S3 bucket or your raw code.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wallaby#SigningStatus",
+          "target": "com.amazonaws.signer#SigningStatus",
           "traits": {
             "smithy.api#documentation": "<p>Status of the signing job.</p>"
           }
         },
         "statusReason": {
-          "target": "com.amazonaws.wallaby#StatusReason",
+          "target": "com.amazonaws.signer#StatusReason",
           "traits": {
             "smithy.api#documentation": "<p>String value that contains the status reason.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#Destination": {
+    "com.amazonaws.signer#Destination": {
       "type": "structure",
       "members": {
         "s3": {
-          "target": "com.amazonaws.wallaby#S3Destination",
+          "target": "com.amazonaws.signer#S3Destination",
           "traits": {
             "smithy.api#documentation": "<p>The <code>S3Destination</code> object.</p>"
           }
@@ -258,33 +259,37 @@
         "smithy.api#documentation": "<p>Points to an <code>S3Destination</code> object that contains information about your S3\n\t\t\tbucket.</p>"
       }
     },
-    "com.amazonaws.wallaby#DisplayName": {
+    "com.amazonaws.signer#DisplayName": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#EncryptionAlgorithm": {
+    "com.amazonaws.signer#EncryptionAlgorithm": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "RSA": { },
-          "ECDSA": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "RSA"
+          },
+          {
+            "value": "ECDSA"
+          }
+        ]
       }
     },
-    "com.amazonaws.wallaby#EncryptionAlgorithmOptions": {
+    "com.amazonaws.signer#EncryptionAlgorithmOptions": {
       "type": "structure",
       "members": {
         "allowedValues": {
-          "target": "com.amazonaws.wallaby#EncryptionAlgorithms",
+          "target": "com.amazonaws.signer#EncryptionAlgorithms",
           "traits": {
             "smithy.api#documentation": "<p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "defaultValue": {
-          "target": "com.amazonaws.wallaby#EncryptionAlgorithm",
+          "target": "com.amazonaws.signer#EncryptionAlgorithm",
           "traits": {
             "smithy.api#documentation": "<p>The default encryption algorithm that is used by a code signing job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -292,32 +297,32 @@
         "smithy.api#documentation": "<p>The encryption algorithm options that are available to a code signing job.</p>"
       }
     },
-    "com.amazonaws.wallaby#EncryptionAlgorithms": {
+    "com.amazonaws.signer#EncryptionAlgorithms": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wallaby#EncryptionAlgorithm"
+        "target": "com.amazonaws.signer#EncryptionAlgorithm"
       }
     },
-    "com.amazonaws.wallaby#ErrorMessage": {
+    "com.amazonaws.signer#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#GetSigningPlatform": {
+    "com.amazonaws.signer#GetSigningPlatform": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#GetSigningPlatformRequest"
+        "target": "com.amazonaws.signer#GetSigningPlatformRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#GetSigningPlatformResponse"
+        "target": "com.amazonaws.signer#GetSigningPlatformResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+          "target": "com.amazonaws.signer#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -329,92 +334,92 @@
         }
       }
     },
-    "com.amazonaws.wallaby#GetSigningPlatformRequest": {
+    "com.amazonaws.signer#GetSigningPlatformRequest": {
       "type": "structure",
       "members": {
         "platformId": {
-          "target": "com.amazonaws.wallaby#PlatformId",
+          "target": "com.amazonaws.signer#PlatformId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the target signing platform.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#GetSigningPlatformResponse": {
+    "com.amazonaws.signer#GetSigningPlatformResponse": {
       "type": "structure",
       "members": {
         "category": {
-          "target": "com.amazonaws.wallaby#Category",
+          "target": "com.amazonaws.signer#Category",
           "traits": {
             "smithy.api#documentation": "<p>The category type of the target signing platform.</p>"
           }
         },
         "displayName": {
-          "target": "com.amazonaws.wallaby#DisplayName",
+          "target": "com.amazonaws.signer#DisplayName",
           "traits": {
             "smithy.api#documentation": "<p>The display name of the target signing platform.</p>"
           }
         },
         "maxSizeInMB": {
-          "target": "com.amazonaws.wallaby#MaxSizeInMB",
+          "target": "com.amazonaws.signer#MaxSizeInMB",
           "traits": {
             "smithy.api#documentation": "<p>The maximum size (in MB) of the payload that can be signed by the target\n\t\t\tplatform.</p>"
           }
         },
         "partner": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>A list of partner entities that use the target signing platform.</p>"
           }
         },
         "platformId": {
-          "target": "com.amazonaws.wallaby#PlatformId",
+          "target": "com.amazonaws.signer#PlatformId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the target signing platform.</p>"
           }
         },
         "signingConfiguration": {
-          "target": "com.amazonaws.wallaby#SigningConfiguration",
+          "target": "com.amazonaws.signer#SigningConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>A list of configurations applied to the target platform at signing.</p>"
           }
         },
         "signingImageFormat": {
-          "target": "com.amazonaws.wallaby#SigningImageFormat",
+          "target": "com.amazonaws.signer#SigningImageFormat",
           "traits": {
             "smithy.api#documentation": "<p>The format of the target platform's signing image.</p>"
           }
         },
         "target": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The validation template that is used by the target signing platform.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#GetSigningProfile": {
+    "com.amazonaws.signer#GetSigningProfile": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#GetSigningProfileRequest"
+        "target": "com.amazonaws.signer#GetSigningProfileRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#GetSigningProfileResponse"
+        "target": "com.amazonaws.signer#GetSigningProfileResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+          "target": "com.amazonaws.signer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wallaby#ThrottlingException"
+          "target": "com.amazonaws.signer#ThrottlingException"
         }
       ],
       "traits": {
@@ -426,96 +431,100 @@
         }
       }
     },
-    "com.amazonaws.wallaby#GetSigningProfileRequest": {
+    "com.amazonaws.signer#GetSigningProfileRequest": {
       "type": "structure",
       "members": {
         "profileName": {
-          "target": "com.amazonaws.wallaby#ProfileName",
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the target signing profile.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#GetSigningProfileResponse": {
+    "com.amazonaws.signer#GetSigningProfileResponse": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon\n\t\t\tResource Name (ARN) for the signing\n\t\t\tprofile.</p>"
           }
         },
         "overrides": {
-          "target": "com.amazonaws.wallaby#SigningPlatformOverrides",
+          "target": "com.amazonaws.signer#SigningPlatformOverrides",
           "traits": {
             "smithy.api#documentation": "<p>A list of overrides applied by the target signing profile for signing\n\t\t\toperations.</p>"
           }
         },
         "platformId": {
-          "target": "com.amazonaws.wallaby#PlatformId",
+          "target": "com.amazonaws.signer#PlatformId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the platform that is used by the target signing profile.</p>"
           }
         },
         "profileName": {
-          "target": "com.amazonaws.wallaby#ProfileName",
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the target signing profile.</p>"
           }
         },
         "signingMaterial": {
-          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "target": "com.amazonaws.signer#SigningMaterial",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the certificate that the target profile uses for signing operations.</p>"
           }
         },
         "signingParameters": {
-          "target": "com.amazonaws.wallaby#SigningParameters",
+          "target": "com.amazonaws.signer#SigningParameters",
           "traits": {
             "smithy.api#documentation": "<p>A map of key-value pairs for signing operations that is attached to the target signing\n\t\t\tprofile.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wallaby#SigningProfileStatus",
+          "target": "com.amazonaws.signer#SigningProfileStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the target signing profile.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.wallaby#TagMap",
+          "target": "com.amazonaws.signer#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags\n\t\t\tassociated with the signing\n\t\t\tprofile.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#HashAlgorithm": {
+    "com.amazonaws.signer#HashAlgorithm": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SHA1": { },
-          "SHA256": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "SHA1"
+          },
+          {
+            "value": "SHA256"
+          }
+        ]
       }
     },
-    "com.amazonaws.wallaby#HashAlgorithmOptions": {
+    "com.amazonaws.signer#HashAlgorithmOptions": {
       "type": "structure",
       "members": {
         "allowedValues": {
-          "target": "com.amazonaws.wallaby#HashAlgorithms",
+          "target": "com.amazonaws.signer#HashAlgorithms",
           "traits": {
             "smithy.api#documentation": "<p>The set of accepted hash algorithms allowed in a code signing job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "defaultValue": {
-          "target": "com.amazonaws.wallaby#HashAlgorithm",
+          "target": "com.amazonaws.signer#HashAlgorithm",
           "traits": {
             "smithy.api#documentation": "<p>The default hash algorithm that is used in a code signing job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -523,31 +532,33 @@
         "smithy.api#documentation": "<p>The hash algorithms that are available to a code signing job.</p>"
       }
     },
-    "com.amazonaws.wallaby#HashAlgorithms": {
+    "com.amazonaws.signer#HashAlgorithms": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wallaby#HashAlgorithm"
+        "target": "com.amazonaws.signer#HashAlgorithm"
       }
     },
-    "com.amazonaws.wallaby#ImageFormat": {
+    "com.amazonaws.signer#ImageFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "JSON": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "JSON"
+          }
+        ]
       }
     },
-    "com.amazonaws.wallaby#ImageFormats": {
+    "com.amazonaws.signer#ImageFormats": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wallaby#ImageFormat"
+        "target": "com.amazonaws.signer#ImageFormat"
       }
     },
-    "com.amazonaws.wallaby#InternalServiceErrorException": {
+    "com.amazonaws.signer#InternalServiceErrorException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wallaby#ErrorMessage"
+          "target": "com.amazonaws.signer#ErrorMessage"
         }
       },
       "traits": {
@@ -556,32 +567,32 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.wallaby#JobId": {
+    "com.amazonaws.signer#JobId": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#Key": {
+    "com.amazonaws.signer#Key": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#ListSigningJobs": {
+    "com.amazonaws.signer#ListSigningJobs": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#ListSigningJobsRequest"
+        "target": "com.amazonaws.signer#ListSigningJobsRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#ListSigningJobsResponse"
+        "target": "com.amazonaws.signer#ListSigningJobsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ThrottlingException"
+          "target": "com.amazonaws.signer#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.wallaby#ValidationException"
+          "target": "com.amazonaws.signer#ValidationException"
         }
       ],
       "traits": {
@@ -598,39 +609,39 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningJobsRequest": {
+    "com.amazonaws.signer#ListSigningJobsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.wallaby#MaxResults",
+          "target": "com.amazonaws.signer#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the maximum number of items to return in the response. Use this parameter\n\t\t\twhen paginating results. If additional items exist beyond the number you specify, the\n\t\t\t\t<code>nextToken</code> element is set in the response. Use the\n\t\t\t\t<code>nextToken</code> value in a subsequent request to retrieve additional items.\n\t\t</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wallaby#NextToken",
+          "target": "com.amazonaws.signer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>String for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "platformId": {
-          "target": "com.amazonaws.wallaby#PlatformId",
+          "target": "com.amazonaws.signer#PlatformId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of microcontroller platform that you specified for the distribution of your\n\t\t\tcode image.</p>",
             "smithy.api#httpQuery": "platformId"
           }
         },
         "requestedBy": {
-          "target": "com.amazonaws.wallaby#RequestedBy",
+          "target": "com.amazonaws.signer#RequestedBy",
           "traits": {
             "smithy.api#documentation": "<p>The IAM principal that requested the signing job.</p>",
             "smithy.api#httpQuery": "requestedBy"
           }
         },
         "status": {
-          "target": "com.amazonaws.wallaby#SigningStatus",
+          "target": "com.amazonaws.signer#SigningStatus",
           "traits": {
             "smithy.api#documentation": "<p>A status value with which to filter your results.</p>",
             "smithy.api#httpQuery": "status"
@@ -638,43 +649,43 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningJobsResponse": {
+    "com.amazonaws.signer#ListSigningJobsResponse": {
       "type": "structure",
       "members": {
         "jobs": {
-          "target": "com.amazonaws.wallaby#SigningJobs",
+          "target": "com.amazonaws.signer#SigningJobs",
           "traits": {
             "smithy.api#documentation": "<p>A list of your signing jobs.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wallaby#NextToken",
+          "target": "com.amazonaws.signer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>String for specifying the next set of paginated results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningPlatforms": {
+    "com.amazonaws.signer#ListSigningPlatforms": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#ListSigningPlatformsRequest"
+        "target": "com.amazonaws.signer#ListSigningPlatformsRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#ListSigningPlatformsResponse"
+        "target": "com.amazonaws.signer#ListSigningPlatformsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ThrottlingException"
+          "target": "com.amazonaws.signer#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.wallaby#ValidationException"
+          "target": "com.amazonaws.signer#ValidationException"
         }
       ],
       "traits": {
@@ -691,39 +702,39 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningPlatformsRequest": {
+    "com.amazonaws.signer#ListSigningPlatformsRequest": {
       "type": "structure",
       "members": {
         "category": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The category type of a signing platform.</p>",
             "smithy.api#httpQuery": "category"
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.wallaby#MaxResults",
+          "target": "com.amazonaws.signer#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be returned by this operation.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "partner": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Any partner entities connected to a signing platform.</p>",
             "smithy.api#httpQuery": "partner"
           }
         },
         "target": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The validation template that is used by the target signing platform.</p>",
             "smithy.api#httpQuery": "target"
@@ -731,40 +742,40 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningPlatformsResponse": {
+    "com.amazonaws.signer#ListSigningPlatformsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return.</p>"
           }
         },
         "platforms": {
-          "target": "com.amazonaws.wallaby#SigningPlatforms",
+          "target": "com.amazonaws.signer#SigningPlatforms",
           "traits": {
             "smithy.api#documentation": "<p>A list of all platforms that match the request parameters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningProfiles": {
+    "com.amazonaws.signer#ListSigningProfiles": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#ListSigningProfilesRequest"
+        "target": "com.amazonaws.signer#ListSigningProfilesRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#ListSigningProfilesResponse"
+        "target": "com.amazonaws.signer#ListSigningProfilesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ThrottlingException"
+          "target": "com.amazonaws.signer#ThrottlingException"
         }
       ],
       "traits": {
@@ -781,25 +792,25 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningProfilesRequest": {
+    "com.amazonaws.signer#ListSigningProfilesRequest": {
       "type": "structure",
       "members": {
         "includeCanceled": {
-          "target": "com.amazonaws.wallaby#bool",
+          "target": "com.amazonaws.signer#bool",
           "traits": {
             "smithy.api#documentation": "<p>Designates whether to include profiles with the status of\n\t\t\t<code>CANCELED</code>.</p>",
             "smithy.api#httpQuery": "includeCanceled"
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.wallaby#MaxResults",
+          "target": "com.amazonaws.signer#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of profiles to be returned.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wallaby#NextToken",
+          "target": "com.amazonaws.signer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -807,40 +818,40 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ListSigningProfilesResponse": {
+    "com.amazonaws.signer#ListSigningProfilesResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.wallaby#NextToken",
+          "target": "com.amazonaws.signer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>Value for specifying the next set of paginated results to return.</p>"
           }
         },
         "profiles": {
-          "target": "com.amazonaws.wallaby#SigningProfiles",
+          "target": "com.amazonaws.signer#SigningProfiles",
           "traits": {
             "smithy.api#documentation": "<p>A list of profiles that are available in the AWS account. This includes profiles with\n\t\t\tthe status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set\n\t\t\tto <code>true</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#ListTagsForResource": {
+    "com.amazonaws.signer#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#ListTagsForResourceRequest"
+        "target": "com.amazonaws.signer#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#ListTagsForResourceResponse"
+        "target": "com.amazonaws.signer#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#BadRequestException"
+          "target": "com.amazonaws.signer#BadRequestException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#NotFoundException"
+          "target": "com.amazonaws.signer#NotFoundException"
         }
       ],
       "traits": {
@@ -852,51 +863,51 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ListTagsForResourceRequest": {
+    "com.amazonaws.signer#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon\n\t\t\tResource Name (ARN) for the signing\n\t\t\tprofile.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#ListTagsForResourceResponse": {
+    "com.amazonaws.signer#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "tags": {
-          "target": "com.amazonaws.wallaby#TagMap",
+          "target": "com.amazonaws.signer#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags\n\t\t\tassociated with the signing\n\t\t\tprofile.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#MaxResults": {
+    "com.amazonaws.signer#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 25
         }
       }
     },
-    "com.amazonaws.wallaby#MaxSizeInMB": {
+    "com.amazonaws.signer#MaxSizeInMB": {
       "type": "integer"
     },
-    "com.amazonaws.wallaby#NextToken": {
+    "com.amazonaws.signer#NextToken": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#NotFoundException": {
+    "com.amazonaws.signer#NotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wallaby#ErrorMessage"
+          "target": "com.amazonaws.signer#ErrorMessage"
         }
       },
       "traits": {
@@ -905,13 +916,13 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.wallaby#PlatformId": {
+    "com.amazonaws.signer#PlatformId": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#Prefix": {
+    "com.amazonaws.signer#Prefix": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#ProfileName": {
+    "com.amazonaws.signer#ProfileName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -921,29 +932,29 @@
         "smithy.api#pattern": "^[a-zA-Z0-9_]{2,}"
       }
     },
-    "com.amazonaws.wallaby#PutSigningProfile": {
+    "com.amazonaws.signer#PutSigningProfile": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#PutSigningProfileRequest"
+        "target": "com.amazonaws.signer#PutSigningProfileRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#PutSigningProfileResponse"
+        "target": "com.amazonaws.signer#PutSigningProfileResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+          "target": "com.amazonaws.signer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wallaby#ThrottlingException"
+          "target": "com.amazonaws.signer#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.wallaby#ValidationException"
+          "target": "com.amazonaws.signer#ValidationException"
         }
       ],
       "traits": {
@@ -955,70 +966,70 @@
         }
       }
     },
-    "com.amazonaws.wallaby#PutSigningProfileRequest": {
+    "com.amazonaws.signer#PutSigningProfileRequest": {
       "type": "structure",
       "members": {
         "overrides": {
-          "target": "com.amazonaws.wallaby#SigningPlatformOverrides",
+          "target": "com.amazonaws.signer#SigningPlatformOverrides",
           "traits": {
             "smithy.api#documentation": "<p>A subfield of <code>platform</code>. This specifies any different configuration\n\t\t\toptions that you want to apply to the chosen platform (such as a different\n\t\t\t\t<code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>"
           }
         },
         "platformId": {
-          "target": "com.amazonaws.wallaby#PlatformId",
+          "target": "com.amazonaws.signer#PlatformId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the signing profile to be created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "profileName": {
-          "target": "com.amazonaws.wallaby#ProfileName",
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the signing profile to be created.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "signingMaterial": {
-          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "target": "com.amazonaws.signer#SigningMaterial",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Certificate Manager certificate that will be used to sign code with the new signing\n\t\t\tprofile.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "signingParameters": {
-          "target": "com.amazonaws.wallaby#SigningParameters",
+          "target": "com.amazonaws.signer#SigningParameters",
           "traits": {
             "smithy.api#documentation": "<p>Map of key-value pairs for signing. These can include any information that you want to\n\t\t\tuse during signing.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.wallaby#TagMap",
+          "target": "com.amazonaws.signer#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>Tags to be\n\t\t\tassociated with the signing profile being\n\t\t\tcreated.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#PutSigningProfileResponse": {
+    "com.amazonaws.signer#PutSigningProfileResponse": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the signing profile created.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#RequestedBy": {
+    "com.amazonaws.signer#RequestedBy": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#ResourceNotFoundException": {
+    "com.amazonaws.signer#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wallaby#ErrorMessage"
+          "target": "com.amazonaws.signer#ErrorMessage"
         }
       },
       "traits": {
@@ -1027,17 +1038,17 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.wallaby#S3Destination": {
+    "com.amazonaws.signer#S3Destination": {
       "type": "structure",
       "members": {
         "bucketName": {
-          "target": "com.amazonaws.wallaby#BucketName",
+          "target": "com.amazonaws.signer#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the S3 bucket.</p>"
           }
         },
         "prefix": {
-          "target": "com.amazonaws.wallaby#Prefix",
+          "target": "com.amazonaws.signer#Prefix",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon S3 prefix that you can use to limit responses to those that begin with the\n\t\t\tspecified prefix.</p>"
           }
@@ -1047,17 +1058,17 @@
         "smithy.api#documentation": "<p>The name and prefix of the S3 bucket where code signing saves your signed objects.</p>"
       }
     },
-    "com.amazonaws.wallaby#S3SignedObject": {
+    "com.amazonaws.signer#S3SignedObject": {
       "type": "structure",
       "members": {
         "bucketName": {
-          "target": "com.amazonaws.wallaby#BucketName",
+          "target": "com.amazonaws.signer#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the S3 bucket.</p>"
           }
         },
         "key": {
-          "target": "com.amazonaws.wallaby#Key",
+          "target": "com.amazonaws.signer#Key",
           "traits": {
             "smithy.api#documentation": "<p>Key name that uniquely identifies a signed code image in your bucket.</p>"
           }
@@ -1067,28 +1078,28 @@
         "smithy.api#documentation": "<p>The S3 bucket name and key where code signing saved your signed code image.</p>"
       }
     },
-    "com.amazonaws.wallaby#S3Source": {
+    "com.amazonaws.signer#S3Source": {
       "type": "structure",
       "members": {
         "bucketName": {
-          "target": "com.amazonaws.wallaby#BucketName",
+          "target": "com.amazonaws.signer#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the S3 bucket.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "key": {
-          "target": "com.amazonaws.wallaby#Key",
+          "target": "com.amazonaws.signer#Key",
           "traits": {
             "smithy.api#documentation": "<p>Key name of the bucket object that contains your unsigned code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "version": {
-          "target": "com.amazonaws.wallaby#Version",
+          "target": "com.amazonaws.signer#Version",
           "traits": {
             "smithy.api#documentation": "<p>Version of your source image in your version enabled S3 bucket.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1096,11 +1107,11 @@
         "smithy.api#documentation": "<p>Information about the S3 bucket where you saved your unsigned code.</p>"
       }
     },
-    "com.amazonaws.wallaby#SignedObject": {
+    "com.amazonaws.signer#SignedObject": {
       "type": "structure",
       "members": {
         "s3": {
-          "target": "com.amazonaws.wallaby#S3SignedObject",
+          "target": "com.amazonaws.signer#S3SignedObject",
           "traits": {
             "smithy.api#documentation": "<p>The <code>S3SignedObject</code>.</p>"
           }
@@ -1110,21 +1121,21 @@
         "smithy.api#documentation": "<p>Points to an <code>S3SignedObject</code> object that contains information about your\n\t\t\tsigned code image.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningConfiguration": {
+    "com.amazonaws.signer#SigningConfiguration": {
       "type": "structure",
       "members": {
         "encryptionAlgorithmOptions": {
-          "target": "com.amazonaws.wallaby#EncryptionAlgorithmOptions",
+          "target": "com.amazonaws.signer#EncryptionAlgorithmOptions",
           "traits": {
             "smithy.api#documentation": "<p>The encryption algorithm options that are available for a code signing job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "hashAlgorithmOptions": {
-          "target": "com.amazonaws.wallaby#HashAlgorithmOptions",
+          "target": "com.amazonaws.signer#HashAlgorithmOptions",
           "traits": {
             "smithy.api#documentation": "<p>The hash algorithm options that are available for a a code signing job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1132,17 +1143,17 @@
         "smithy.api#documentation": "<p>The configuration of a code signing operation.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningConfigurationOverrides": {
+    "com.amazonaws.signer#SigningConfigurationOverrides": {
       "type": "structure",
       "members": {
         "encryptionAlgorithm": {
-          "target": "com.amazonaws.wallaby#EncryptionAlgorithm",
+          "target": "com.amazonaws.signer#EncryptionAlgorithm",
           "traits": {
             "smithy.api#documentation": "<p>A specified override of the default encryption algorithm that is used in a code signing\n\t\t\tjob.</p>"
           }
         },
         "hashAlgorithm": {
-          "target": "com.amazonaws.wallaby#HashAlgorithm",
+          "target": "com.amazonaws.signer#HashAlgorithm",
           "traits": {
             "smithy.api#documentation": "<p>A specified override of the default hash algorithm that is used in a code signing\n\t\t\tjob.</p>"
           }
@@ -1152,21 +1163,21 @@
         "smithy.api#documentation": "<p>A signing configuration that overrides the default encryption or hash algorithm of a\n\t\t\tsigning job.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningImageFormat": {
+    "com.amazonaws.signer#SigningImageFormat": {
       "type": "structure",
       "members": {
         "defaultFormat": {
-          "target": "com.amazonaws.wallaby#ImageFormat",
+          "target": "com.amazonaws.signer#ImageFormat",
           "traits": {
             "smithy.api#documentation": "<p>The default format of a code signing signing image.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "supportedFormats": {
-          "target": "com.amazonaws.wallaby#ImageFormats",
+          "target": "com.amazonaws.signer#ImageFormats",
           "traits": {
             "smithy.api#documentation": "<p>The supported formats of a code signing signing image.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1174,41 +1185,41 @@
         "smithy.api#documentation": "<p>The image format of a code signing platform or profile.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningJob": {
+    "com.amazonaws.signer#SigningJob": {
       "type": "structure",
       "members": {
         "createdAt": {
-          "target": "com.amazonaws.wallaby#CreatedAt",
+          "target": "com.amazonaws.signer#CreatedAt",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the signing job was created.</p>"
           }
         },
         "jobId": {
-          "target": "com.amazonaws.wallaby#JobId",
+          "target": "com.amazonaws.signer#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the signing job.</p>"
           }
         },
         "signedObject": {
-          "target": "com.amazonaws.wallaby#SignedObject",
+          "target": "com.amazonaws.signer#SignedObject",
           "traits": {
             "smithy.api#documentation": "<p>A <code>SignedObject</code> structure that contains information about a signing job's\n\t\t\tsigned code image.</p>"
           }
         },
         "signingMaterial": {
-          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "target": "com.amazonaws.signer#SigningMaterial",
           "traits": {
             "smithy.api#documentation": "<p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of\n\t\t\tthe certificate used for the signing job.</p>"
           }
         },
         "source": {
-          "target": "com.amazonaws.wallaby#Source",
+          "target": "com.amazonaws.signer#Source",
           "traits": {
             "smithy.api#documentation": "<p>A <code>Source</code> that contains information about a signing job's code image\n\t\t\tsource.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wallaby#SigningStatus",
+          "target": "com.amazonaws.signer#SigningStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the signing job.</p>"
           }
@@ -1218,20 +1229,20 @@
         "smithy.api#documentation": "<p>Contains information about a signing job.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningJobs": {
+    "com.amazonaws.signer#SigningJobs": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wallaby#SigningJob"
+        "target": "com.amazonaws.signer#SigningJob"
       }
     },
-    "com.amazonaws.wallaby#SigningMaterial": {
+    "com.amazonaws.signer#SigningMaterial": {
       "type": "structure",
       "members": {
         "certificateArn": {
-          "target": "com.amazonaws.wallaby#CertificateArn",
+          "target": "com.amazonaws.signer#CertificateArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the certificates that is used to sign your\n\t\t\tcode.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1239,65 +1250,65 @@
         "smithy.api#documentation": "<p>The ACM certificate that is used to sign your code.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningParameterKey": {
+    "com.amazonaws.signer#SigningParameterKey": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#SigningParameterValue": {
+    "com.amazonaws.signer#SigningParameterValue": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#SigningParameters": {
+    "com.amazonaws.signer#SigningParameters": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.wallaby#SigningParameterKey"
+        "target": "com.amazonaws.signer#SigningParameterKey"
       },
       "value": {
-        "target": "com.amazonaws.wallaby#SigningParameterValue"
+        "target": "com.amazonaws.signer#SigningParameterValue"
       }
     },
-    "com.amazonaws.wallaby#SigningPlatform": {
+    "com.amazonaws.signer#SigningPlatform": {
       "type": "structure",
       "members": {
         "category": {
-          "target": "com.amazonaws.wallaby#Category",
+          "target": "com.amazonaws.signer#Category",
           "traits": {
             "smithy.api#documentation": "<p>The category of a code signing platform.</p>"
           }
         },
         "displayName": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The display name of a code signing platform.</p>"
           }
         },
         "maxSizeInMB": {
-          "target": "com.amazonaws.wallaby#MaxSizeInMB",
+          "target": "com.amazonaws.signer#MaxSizeInMB",
           "traits": {
             "smithy.api#documentation": "<p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>"
           }
         },
         "partner": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Any partner entities linked to a code signing platform.</p>"
           }
         },
         "platformId": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of a code signing; platform.</p>"
           }
         },
         "signingConfiguration": {
-          "target": "com.amazonaws.wallaby#SigningConfiguration",
+          "target": "com.amazonaws.signer#SigningConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration of a code signing platform. This includes the designated hash algorithm\n\t\t\tand encryption algorithm of a signing platform.</p>"
           }
         },
         "signingImageFormat": {
-          "target": "com.amazonaws.wallaby#SigningImageFormat"
+          "target": "com.amazonaws.signer#SigningImageFormat"
         },
         "target": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>The types of targets that can be signed by a code signing platform.</p>"
           }
@@ -1307,11 +1318,11 @@
         "smithy.api#documentation": "<p>Contains information about the signing configurations and parameters that is used to\n\t\t\tperform a code signing job.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningPlatformOverrides": {
+    "com.amazonaws.signer#SigningPlatformOverrides": {
       "type": "structure",
       "members": {
         "signingConfiguration": {
-          "target": "com.amazonaws.wallaby#SigningConfigurationOverrides",
+          "target": "com.amazonaws.signer#SigningConfigurationOverrides",
           "traits": {
             "smithy.api#documentation": "<p>A signing configuration that overrides the default encryption or hash algorithm of a\n\t\t\tsigning job.</p>"
           }
@@ -1321,53 +1332,53 @@
         "smithy.api#documentation": "<p>Any overrides that are applied to the signing configuration of a code signing\n\t\t\tplatform.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningPlatforms": {
+    "com.amazonaws.signer#SigningPlatforms": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wallaby#SigningPlatform"
+        "target": "com.amazonaws.signer#SigningPlatform"
       }
     },
-    "com.amazonaws.wallaby#SigningProfile": {
+    "com.amazonaws.signer#SigningProfile": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource\n\t\t\tName (ARN) for the signing\n\t\t\tprofile.</p>"
           }
         },
         "platformId": {
-          "target": "com.amazonaws.wallaby#PlatformId",
+          "target": "com.amazonaws.signer#PlatformId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of a platform that is available for use by a signing profile.</p>"
           }
         },
         "profileName": {
-          "target": "com.amazonaws.wallaby#ProfileName",
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the\n\t\t\tsigning\n\t\t\tprofile.</p>"
           }
         },
         "signingMaterial": {
-          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "target": "com.amazonaws.signer#SigningMaterial",
           "traits": {
             "smithy.api#documentation": "<p>The ACM certificate that is available for use by a signing profile.</p>"
           }
         },
         "signingParameters": {
-          "target": "com.amazonaws.wallaby#SigningParameters",
+          "target": "com.amazonaws.signer#SigningParameters",
           "traits": {
             "smithy.api#documentation": "<p>The parameters that are available for use by a code signing user.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wallaby#SigningProfileStatus",
+          "target": "com.amazonaws.signer#SigningProfileStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of a code signing profile.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.wallaby#TagMap",
+          "target": "com.amazonaws.signer#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags\n\t\t\tassociated with the signing\n\t\t\tprofile.</p>"
           }
@@ -1377,36 +1388,46 @@
         "smithy.api#documentation": "<p>Contains information about the ACM certificates and code signing configuration parameters\n\t\t\tthat can be used by a given code signing user.</p>"
       }
     },
-    "com.amazonaws.wallaby#SigningProfileStatus": {
+    "com.amazonaws.signer#SigningProfileStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Active": { },
-          "Canceled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Active"
+          },
+          {
+            "value": "Canceled"
+          }
+        ]
       }
     },
-    "com.amazonaws.wallaby#SigningProfiles": {
+    "com.amazonaws.signer#SigningProfiles": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wallaby#SigningProfile"
+        "target": "com.amazonaws.signer#SigningProfile"
       }
     },
-    "com.amazonaws.wallaby#SigningStatus": {
+    "com.amazonaws.signer#SigningStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "InProgress": { },
-          "Failed": { },
-          "Succeeded": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "InProgress"
+          },
+          {
+            "value": "Failed"
+          },
+          {
+            "value": "Succeeded"
+          }
+        ]
       }
     },
-    "com.amazonaws.wallaby#Source": {
+    "com.amazonaws.signer#Source": {
       "type": "structure",
       "members": {
         "s3": {
-          "target": "com.amazonaws.wallaby#S3Source",
+          "target": "com.amazonaws.signer#S3Source",
           "traits": {
             "smithy.api#documentation": "<p>The <code>S3Source</code> object.</p>"
           }
@@ -1416,29 +1437,29 @@
         "smithy.api#documentation": "<p>An <code>S3Source</code> object that contains information about the S3 bucket where\n\t\t\tyou saved your unsigned code.</p>"
       }
     },
-    "com.amazonaws.wallaby#StartSigningJob": {
+    "com.amazonaws.signer#StartSigningJob": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#StartSigningJobRequest"
+        "target": "com.amazonaws.signer#StartSigningJobRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#StartSigningJobResponse"
+        "target": "com.amazonaws.signer#StartSigningJobResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#AccessDeniedException"
+          "target": "com.amazonaws.signer#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+          "target": "com.amazonaws.signer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wallaby#ThrottlingException"
+          "target": "com.amazonaws.signer#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.wallaby#ValidationException"
+          "target": "com.amazonaws.signer#ValidationException"
         }
       ],
       "traits": {
@@ -1450,57 +1471,57 @@
         }
       }
     },
-    "com.amazonaws.wallaby#StartSigningJobRequest": {
+    "com.amazonaws.signer#StartSigningJobRequest": {
       "type": "structure",
       "members": {
         "clientRequestToken": {
-          "target": "com.amazonaws.wallaby#ClientRequestToken",
+          "target": "com.amazonaws.signer#ClientRequestToken",
           "traits": {
             "smithy.api#documentation": "<p>String that identifies the signing request. All calls after the first that use this\n\t\t\ttoken return the same response as the first call.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         },
         "destination": {
-          "target": "com.amazonaws.wallaby#Destination",
+          "target": "com.amazonaws.signer#Destination",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket in which to save your signed object. The destination contains the name\n\t\t\tof your bucket and an optional prefix.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "profileName": {
-          "target": "com.amazonaws.wallaby#ProfileName",
+          "target": "com.amazonaws.signer#ProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the signing profile.</p>"
           }
         },
         "source": {
-          "target": "com.amazonaws.wallaby#Source",
+          "target": "com.amazonaws.signer#Source",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket that contains the object to sign or a BLOB that contains your raw\n\t\t\tcode.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#StartSigningJobResponse": {
+    "com.amazonaws.signer#StartSigningJobResponse": {
       "type": "structure",
       "members": {
         "jobId": {
-          "target": "com.amazonaws.wallaby#JobId",
+          "target": "com.amazonaws.signer#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of your signing job.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wallaby#StatusReason": {
+    "com.amazonaws.signer#StatusReason": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#String": {
+    "com.amazonaws.signer#String": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#TagKey": {
+    "com.amazonaws.signer#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1510,10 +1531,10 @@
         "smithy.api#pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$"
       }
     },
-    "com.amazonaws.wallaby#TagKeyList": {
+    "com.amazonaws.signer#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wallaby#TagKey"
+        "target": "com.amazonaws.signer#TagKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -1522,13 +1543,13 @@
         }
       }
     },
-    "com.amazonaws.wallaby#TagMap": {
+    "com.amazonaws.signer#TagMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.wallaby#TagKey"
+        "target": "com.amazonaws.signer#TagKey"
       },
       "value": {
-        "target": "com.amazonaws.wallaby#TagValue"
+        "target": "com.amazonaws.signer#TagValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -1537,23 +1558,23 @@
         }
       }
     },
-    "com.amazonaws.wallaby#TagResource": {
+    "com.amazonaws.signer#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#TagResourceRequest"
+        "target": "com.amazonaws.signer#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#TagResourceResponse"
+        "target": "com.amazonaws.signer#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#BadRequestException"
+          "target": "com.amazonaws.signer#BadRequestException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#NotFoundException"
+          "target": "com.amazonaws.signer#NotFoundException"
         }
       ],
       "traits": {
@@ -1565,31 +1586,31 @@
         }
       }
     },
-    "com.amazonaws.wallaby#TagResourceRequest": {
+    "com.amazonaws.signer#TagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource\n\t\t\tName (ARN) for the signing\n\t\t\tprofile.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.wallaby#TagMap",
+          "target": "com.amazonaws.signer#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags\n\t\t\tto be associated with the signing\n\t\t\tprofile.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#TagResourceResponse": {
+    "com.amazonaws.signer#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.wallaby#TagValue": {
+    "com.amazonaws.signer#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1598,11 +1619,11 @@
         }
       }
     },
-    "com.amazonaws.wallaby#ThrottlingException": {
+    "com.amazonaws.signer#ThrottlingException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wallaby#ErrorMessage"
+          "target": "com.amazonaws.signer#ErrorMessage"
         }
       },
       "traits": {
@@ -1611,23 +1632,23 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.wallaby#UntagResource": {
+    "com.amazonaws.signer#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wallaby#UntagResourceRequest"
+        "target": "com.amazonaws.signer#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.wallaby#UntagResourceResponse"
+        "target": "com.amazonaws.signer#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wallaby#BadRequestException"
+          "target": "com.amazonaws.signer#BadRequestException"
         },
         {
-          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+          "target": "com.amazonaws.signer#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.wallaby#NotFoundException"
+          "target": "com.amazonaws.signer#NotFoundException"
         }
       ],
       "traits": {
@@ -1639,36 +1660,36 @@
         }
       }
     },
-    "com.amazonaws.wallaby#UntagResourceRequest": {
+    "com.amazonaws.signer#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.wallaby#String",
+          "target": "com.amazonaws.signer#String",
           "traits": {
             "smithy.api#documentation": "<p>Amazon Resource\n\t\t\tName (ARN) for the signing profile\n\t\t\t.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
-          "target": "com.amazonaws.wallaby#TagKeyList",
+          "target": "com.amazonaws.signer#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>A list of tag keys\n\t\t\tto be removed from the signing profile\n\t\t\t.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wallaby#UntagResourceResponse": {
+    "com.amazonaws.signer#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.wallaby#ValidationException": {
+    "com.amazonaws.signer#ValidationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wallaby#ErrorMessage"
+          "target": "com.amazonaws.signer#ErrorMessage"
         }
       },
       "traits": {
@@ -1677,48 +1698,48 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wallaby#Version": {
+    "com.amazonaws.signer#Version": {
       "type": "string"
     },
-    "com.amazonaws.wallaby#WallabyService": {
+    "com.amazonaws.signer#WallabyService": {
       "type": "service",
       "version": "2017-08-25",
       "operations": [
         {
-          "target": "com.amazonaws.wallaby#CancelSigningProfile"
+          "target": "com.amazonaws.signer#CancelSigningProfile"
         },
         {
-          "target": "com.amazonaws.wallaby#DescribeSigningJob"
+          "target": "com.amazonaws.signer#DescribeSigningJob"
         },
         {
-          "target": "com.amazonaws.wallaby#GetSigningPlatform"
+          "target": "com.amazonaws.signer#GetSigningPlatform"
         },
         {
-          "target": "com.amazonaws.wallaby#GetSigningProfile"
+          "target": "com.amazonaws.signer#GetSigningProfile"
         },
         {
-          "target": "com.amazonaws.wallaby#ListSigningJobs"
+          "target": "com.amazonaws.signer#ListSigningJobs"
         },
         {
-          "target": "com.amazonaws.wallaby#ListSigningPlatforms"
+          "target": "com.amazonaws.signer#ListSigningPlatforms"
         },
         {
-          "target": "com.amazonaws.wallaby#ListSigningProfiles"
+          "target": "com.amazonaws.signer#ListSigningProfiles"
         },
         {
-          "target": "com.amazonaws.wallaby#ListTagsForResource"
+          "target": "com.amazonaws.signer#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.wallaby#PutSigningProfile"
+          "target": "com.amazonaws.signer#PutSigningProfile"
         },
         {
-          "target": "com.amazonaws.wallaby#StartSigningJob"
+          "target": "com.amazonaws.signer#StartSigningJob"
         },
         {
-          "target": "com.amazonaws.wallaby#TagResource"
+          "target": "com.amazonaws.signer#TagResource"
         },
         {
-          "target": "com.amazonaws.wallaby#UntagResource"
+          "target": "com.amazonaws.signer#UntagResource"
         }
       ],
       "traits": {
@@ -1728,19 +1749,15 @@
           "cloudFormationName": "Signer",
           "cloudTrailEventSource": "wallaby.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "signer"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>With code signing for IoT, you can sign code that you create for any IoT device that is\n\t\t\tsupported by Amazon Web Services (AWS). Code signing is available through <a href=\"http://docs.aws.amazon.com/freertos/latest/userguide/\">Amazon FreeRTOS</a> and <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/\">AWS IoT Device Management</a>, and integrated with <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">AWS Certificate Manager\n\t\t\t\t(ACM)</a>. In order to sign code, you import a third-party code signing\n\t\t\tcertificate with ACM that is used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For\n\t\t\tgeneral information about using code signing, see the <a href=\"http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html\">Code Signing for IoT Developer Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Signer"
       }
     },
-    "com.amazonaws.wallaby#bool": {
+    "com.amazonaws.signer#bool": {
       "type": "boolean"
     }
   }

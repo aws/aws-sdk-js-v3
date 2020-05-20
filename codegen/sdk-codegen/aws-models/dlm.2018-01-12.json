@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -112,28 +111,28 @@
           "target": "com.amazonaws.dlm#PolicyDescription",
           "traits": {
             "smithy.api#documentation": "<p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ExecutionRoleArn": {
           "target": "com.amazonaws.dlm#ExecutionRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "PolicyDetails": {
           "target": "com.amazonaws.dlm#PolicyDetails",
           "traits": {
             "smithy.api#documentation": "<p>The configuration details of the lifecycle policy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "State": {
           "target": "com.amazonaws.dlm#SettablePolicyStateValues",
           "traits": {
             "smithy.api#documentation": "<p>The desired activation state of the lifecycle policy after creation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -162,14 +161,14 @@
           "target": "com.amazonaws.dlm#Interval",
           "traits": {
             "smithy.api#documentation": "<p>The interval between snapshots. The supported values are 2, 3, 4, 6, 8, 12, and 24.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IntervalUnit": {
           "target": "com.amazonaws.dlm#IntervalUnitValues",
           "traits": {
             "smithy.api#documentation": "<p>The interval unit.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Times": {
@@ -222,7 +221,7 @@
           "target": "com.amazonaws.dlm#Encrypted",
           "traits": {
             "smithy.api#documentation": "<p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RetainRule": {
@@ -235,7 +234,7 @@
           "target": "com.amazonaws.dlm#TargetRegion",
           "traits": {
             "smithy.api#documentation": "<p>The target Region.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -291,15 +290,11 @@
           "cloudFormationName": "DLM",
           "cloudTrailEventSource": "dlm.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "dlm"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Data Lifecycle Manager"
       }
     },
@@ -338,15 +333,15 @@
           "target": "com.amazonaws.dlm#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the lifecycle policy.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.dlm#DeleteLifecyclePolicyResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.dlm#Encrypted": {
       "type": "boolean"
@@ -377,7 +372,7 @@
           "target": "com.amazonaws.dlm#AvailabilityZoneList",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zones in which to enable fast snapshot restore.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Count": {
@@ -520,8 +515,8 @@
           "target": "com.amazonaws.dlm#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the lifecycle policy.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -540,17 +535,20 @@
     "com.amazonaws.dlm#GettablePolicyStateValues": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ERROR": {
+          {
+            "value": "ERROR",
             "name": "ERROR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dlm#InternalServerException": {
@@ -580,11 +578,12 @@
     "com.amazonaws.dlm#IntervalUnitValues": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "HOURS": {
+        "smithy.api#enum": [
+          {
+            "value": "HOURS",
             "name": "HOURS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dlm#InvalidRequestException": {
@@ -778,8 +777,8 @@
           "target": "com.amazonaws.dlm#PolicyArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -895,11 +894,12 @@
     "com.amazonaws.dlm#PolicyTypeValues": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EBS_SNAPSHOT_MANAGEMENT": {
+        "smithy.api#enum": [
+          {
+            "value": "EBS_SNAPSHOT_MANAGEMENT",
             "name": "EBS_SNAPSHOT_MANAGEMENT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dlm#ResourceNotFoundException": {
@@ -933,14 +933,16 @@
     "com.amazonaws.dlm#ResourceTypeValues": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "VOLUME": {
+        "smithy.api#enum": [
+          {
+            "value": "VOLUME",
             "name": "VOLUME"
           },
-          "INSTANCE": {
+          {
+            "value": "INSTANCE",
             "name": "INSTANCE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dlm#ResourceTypeValuesList": {
@@ -984,20 +986,24 @@
     "com.amazonaws.dlm#RetentionIntervalUnitValues": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DAYS": {
+        "smithy.api#enum": [
+          {
+            "value": "DAYS",
             "name": "DAYS"
           },
-          "WEEKS": {
+          {
+            "value": "WEEKS",
             "name": "WEEKS"
           },
-          "MONTHS": {
+          {
+            "value": "MONTHS",
             "name": "MONTHS"
           },
-          "YEARS": {
+          {
+            "value": "YEARS",
             "name": "YEARS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dlm#Schedule": {
@@ -1081,14 +1087,16 @@
     "com.amazonaws.dlm#SettablePolicyStateValues": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.dlm#StatusMessage": {
@@ -1118,14 +1126,14 @@
           "target": "com.amazonaws.dlm#String",
           "traits": {
             "smithy.api#documentation": "<p>The tag key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
           "target": "com.amazonaws.dlm#String",
           "traits": {
             "smithy.api#documentation": "<p>The tag value.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1215,22 +1223,22 @@
           "target": "com.amazonaws.dlm#PolicyArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.dlm#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>One or more tags.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.dlm#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.dlm#TagValue": {
       "type": "string",
@@ -1363,8 +1371,8 @@
           "target": "com.amazonaws.dlm#PolicyArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -1372,14 +1380,14 @@
           "traits": {
             "smithy.api#documentation": "<p>The tag keys.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.dlm#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.dlm#UpdateLifecyclePolicy": {
       "type": "operation",
@@ -1437,8 +1445,8 @@
           "target": "com.amazonaws.dlm#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the lifecycle policy.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "State": {
@@ -1451,7 +1459,7 @@
     },
     "com.amazonaws.dlm#UpdateLifecyclePolicyResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.dlm#VariableTagsList": {
       "type": "list",

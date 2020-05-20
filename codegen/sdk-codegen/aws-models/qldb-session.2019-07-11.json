@@ -1,57 +1,56 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.qldb.session#AbortTransactionRequest": {
+    "com.amazonaws.qldbsession#AbortTransactionRequest": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Contains the details of the transaction to abort.</p>"
       }
     },
-    "com.amazonaws.qldb.session#AbortTransactionResult": {
+    "com.amazonaws.qldbsession#AbortTransactionResult": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Contains the details of the aborted transaction.</p>"
       }
     },
-    "com.amazonaws.qldb.session#BadRequestException": {
+    "com.amazonaws.qldbsession#BadRequestException": {
       "type": "structure",
       "members": {
         "Code": {
-          "target": "com.amazonaws.qldb.session#ErrorCode"
+          "target": "com.amazonaws.qldbsession#ErrorCode"
         },
         "Message": {
-          "target": "com.amazonaws.qldb.session#ErrorMessage"
+          "target": "com.amazonaws.qldbsession#ErrorMessage"
         }
       },
       "traits": {
@@ -59,24 +58,24 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.qldb.session#CommitDigest": {
+    "com.amazonaws.qldbsession#CommitDigest": {
       "type": "blob"
     },
-    "com.amazonaws.qldb.session#CommitTransactionRequest": {
+    "com.amazonaws.qldbsession#CommitTransactionRequest": {
       "type": "structure",
       "members": {
         "CommitDigest": {
-          "target": "com.amazonaws.qldb.session#CommitDigest",
+          "target": "com.amazonaws.qldbsession#CommitDigest",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the commit digest for the transaction to commit. For every active\n\t    transaction, the commit digest must be passed. QLDB validates\n\t    <code>CommitDigest</code> and rejects the commit with an error if the\n\t    digest computed on the client does not match the digest computed by QLDB.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TransactionId": {
-          "target": "com.amazonaws.qldb.session#TransactionId",
+          "target": "com.amazonaws.qldbsession#TransactionId",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the transaction id of the transaction to commit.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -84,17 +83,17 @@
         "smithy.api#documentation": "<p>Contains the details of the transaction to commit.</p>"
       }
     },
-    "com.amazonaws.qldb.session#CommitTransactionResult": {
+    "com.amazonaws.qldbsession#CommitTransactionResult": {
       "type": "structure",
       "members": {
         "CommitDigest": {
-          "target": "com.amazonaws.qldb.session#CommitDigest",
+          "target": "com.amazonaws.qldbsession#CommitDigest",
           "traits": {
             "smithy.api#documentation": "<p>The commit digest of the committed transaction.</p>"
           }
         },
         "TransactionId": {
-          "target": "com.amazonaws.qldb.session#TransactionId",
+          "target": "com.amazonaws.qldbsession#TransactionId",
           "traits": {
             "smithy.api#documentation": "<p>The transaction id of the committed transaction.</p>"
           }
@@ -104,47 +103,47 @@
         "smithy.api#documentation": "<p>Contains the details of the committed transaction.</p>"
       }
     },
-    "com.amazonaws.qldb.session#EndSessionRequest": {
+    "com.amazonaws.qldbsession#EndSessionRequest": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Specifies a request to end the session.</p>"
       }
     },
-    "com.amazonaws.qldb.session#EndSessionResult": {
+    "com.amazonaws.qldbsession#EndSessionResult": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Contains the details of the ended session.</p>"
       }
     },
-    "com.amazonaws.qldb.session#ErrorCode": {
+    "com.amazonaws.qldbsession#ErrorCode": {
       "type": "string"
     },
-    "com.amazonaws.qldb.session#ErrorMessage": {
+    "com.amazonaws.qldbsession#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.qldb.session#ExecuteStatementRequest": {
+    "com.amazonaws.qldbsession#ExecuteStatementRequest": {
       "type": "structure",
       "members": {
         "Parameters": {
-          "target": "com.amazonaws.qldb.session#StatementParameters",
+          "target": "com.amazonaws.qldbsession#StatementParameters",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the parameters for the parameterized statement in the request.</p>"
           }
         },
         "Statement": {
-          "target": "com.amazonaws.qldb.session#Statement",
+          "target": "com.amazonaws.qldbsession#Statement",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the statement of the request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TransactionId": {
-          "target": "com.amazonaws.qldb.session#TransactionId",
+          "target": "com.amazonaws.qldbsession#TransactionId",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the transaction id of the request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -152,11 +151,11 @@
         "smithy.api#documentation": "<p>Specifies a request to execute a statement.</p>"
       }
     },
-    "com.amazonaws.qldb.session#ExecuteStatementResult": {
+    "com.amazonaws.qldbsession#ExecuteStatementResult": {
       "type": "structure",
       "members": {
         "FirstPage": {
-          "target": "com.amazonaws.qldb.session#Page",
+          "target": "com.amazonaws.qldbsession#Page",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the first fetched page.</p>"
           }
@@ -166,21 +165,21 @@
         "smithy.api#documentation": "<p>Contains the details of the executed statement.</p>"
       }
     },
-    "com.amazonaws.qldb.session#FetchPageRequest": {
+    "com.amazonaws.qldbsession#FetchPageRequest": {
       "type": "structure",
       "members": {
         "NextPageToken": {
-          "target": "com.amazonaws.qldb.session#PageToken",
+          "target": "com.amazonaws.qldbsession#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the next page token of the page to be fetched.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TransactionId": {
-          "target": "com.amazonaws.qldb.session#TransactionId",
+          "target": "com.amazonaws.qldbsession#TransactionId",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the transaction id of the page to be fetched.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -188,11 +187,11 @@
         "smithy.api#documentation": "<p>Specifies the details of the page to be fetched.</p>"
       }
     },
-    "com.amazonaws.qldb.session#FetchPageResult": {
+    "com.amazonaws.qldbsession#FetchPageResult": {
       "type": "structure",
       "members": {
         "Page": {
-          "target": "com.amazonaws.qldb.session#Page",
+          "target": "com.amazonaws.qldbsession#Page",
           "traits": {
             "smithy.api#documentation": "<p>Contains details of the fetched page.</p>"
           }
@@ -202,14 +201,14 @@
         "smithy.api#documentation": "<p>Contains the page that was fetched.</p>"
       }
     },
-    "com.amazonaws.qldb.session#InvalidSessionException": {
+    "com.amazonaws.qldbsession#InvalidSessionException": {
       "type": "structure",
       "members": {
         "Code": {
-          "target": "com.amazonaws.qldb.session#ErrorCode"
+          "target": "com.amazonaws.qldbsession#ErrorCode"
         },
         "Message": {
-          "target": "com.amazonaws.qldb.session#ErrorMessage"
+          "target": "com.amazonaws.qldbsession#ErrorMessage"
         }
       },
       "traits": {
@@ -217,7 +216,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.qldb.session#IonBinary": {
+    "com.amazonaws.qldbsession#IonBinary": {
       "type": "blob",
       "traits": {
         "smithy.api#length": {
@@ -226,7 +225,7 @@
         }
       }
     },
-    "com.amazonaws.qldb.session#IonText": {
+    "com.amazonaws.qldbsession#IonText": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -235,7 +234,7 @@
         }
       }
     },
-    "com.amazonaws.qldb.session#LedgerName": {
+    "com.amazonaws.qldbsession#LedgerName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -245,11 +244,11 @@
         "smithy.api#pattern": "(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$"
       }
     },
-    "com.amazonaws.qldb.session#LimitExceededException": {
+    "com.amazonaws.qldbsession#LimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.qldb.session#ErrorMessage"
+          "target": "com.amazonaws.qldbsession#ErrorMessage"
         }
       },
       "traits": {
@@ -257,11 +256,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.qldb.session#OccConflictException": {
+    "com.amazonaws.qldbsession#OccConflictException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.qldb.session#ErrorMessage"
+          "target": "com.amazonaws.qldbsession#ErrorMessage"
         }
       },
       "traits": {
@@ -269,17 +268,17 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.qldb.session#Page": {
+    "com.amazonaws.qldbsession#Page": {
       "type": "structure",
       "members": {
         "NextPageToken": {
-          "target": "com.amazonaws.qldb.session#PageToken",
+          "target": "com.amazonaws.qldbsession#PageToken",
           "traits": {
             "smithy.api#documentation": "<p>The token of the next page.</p>"
           }
         },
         "Values": {
-          "target": "com.amazonaws.qldb.session#ValueHolders",
+          "target": "com.amazonaws.qldbsession#ValueHolders",
           "traits": {
             "smithy.api#documentation": "<p>A structure that contains values in multiple encoding formats.</p>"
           }
@@ -289,7 +288,7 @@
         "smithy.api#documentation": "<p>Contains details of the fetched page.</p>"
       }
     },
-    "com.amazonaws.qldb.session#PageToken": {
+    "com.amazonaws.qldbsession#PageToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -299,12 +298,12 @@
         "smithy.api#pattern": "^[A-Za-z-0-9+/=]+$"
       }
     },
-    "com.amazonaws.qldb.session#QLDBSession": {
+    "com.amazonaws.qldbsession#QLDBSession": {
       "type": "service",
       "version": "2019-07-11",
       "operations": [
         {
-          "target": "com.amazonaws.qldb.session#SendCommand"
+          "target": "com.amazonaws.qldbsession#SendCommand"
         }
       ],
       "traits": {
@@ -314,23 +313,19 @@
           "cloudFormationName": "QLDBSession",
           "cloudTrailEventSource": "session.qldb.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "qldb"
+        },
+        "aws.protocols#awsJson1_0": {},
         "smithy.api#documentation": "<p>The transactional data APIs for Amazon QLDB</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.0",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon QLDB Session"
       }
     },
-    "com.amazonaws.qldb.session#RateExceededException": {
+    "com.amazonaws.qldbsession#RateExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.qldb.session#ErrorMessage"
+          "target": "com.amazonaws.qldbsession#ErrorMessage"
         }
       },
       "traits": {
@@ -338,136 +333,136 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.qldb.session#SendCommand": {
+    "com.amazonaws.qldbsession#SendCommand": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.qldb.session#SendCommandRequest"
+        "target": "com.amazonaws.qldbsession#SendCommandRequest"
       },
       "output": {
-        "target": "com.amazonaws.qldb.session#SendCommandResult"
+        "target": "com.amazonaws.qldbsession#SendCommandResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.qldb.session#BadRequestException"
+          "target": "com.amazonaws.qldbsession#BadRequestException"
         },
         {
-          "target": "com.amazonaws.qldb.session#InvalidSessionException"
+          "target": "com.amazonaws.qldbsession#InvalidSessionException"
         },
         {
-          "target": "com.amazonaws.qldb.session#LimitExceededException"
+          "target": "com.amazonaws.qldbsession#LimitExceededException"
         },
         {
-          "target": "com.amazonaws.qldb.session#OccConflictException"
+          "target": "com.amazonaws.qldbsession#OccConflictException"
         },
         {
-          "target": "com.amazonaws.qldb.session#RateExceededException"
+          "target": "com.amazonaws.qldbsession#RateExceededException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Sends a command to an Amazon QLDB ledger.</p>"
       }
     },
-    "com.amazonaws.qldb.session#SendCommandRequest": {
+    "com.amazonaws.qldbsession#SendCommandRequest": {
       "type": "structure",
       "members": {
         "AbortTransaction": {
-          "target": "com.amazonaws.qldb.session#AbortTransactionRequest",
+          "target": "com.amazonaws.qldbsession#AbortTransactionRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to abort the current transaction.</p>"
           }
         },
         "CommitTransaction": {
-          "target": "com.amazonaws.qldb.session#CommitTransactionRequest",
+          "target": "com.amazonaws.qldbsession#CommitTransactionRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to commit the specified transaction.</p>"
           }
         },
         "EndSession": {
-          "target": "com.amazonaws.qldb.session#EndSessionRequest",
+          "target": "com.amazonaws.qldbsession#EndSessionRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to end the current session.</p>"
           }
         },
         "ExecuteStatement": {
-          "target": "com.amazonaws.qldb.session#ExecuteStatementRequest",
+          "target": "com.amazonaws.qldbsession#ExecuteStatementRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to execute a statement in the specified transaction.</p>"
           }
         },
         "FetchPage": {
-          "target": "com.amazonaws.qldb.session#FetchPageRequest",
+          "target": "com.amazonaws.qldbsession#FetchPageRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to fetch a page.</p>"
           }
         },
         "SessionToken": {
-          "target": "com.amazonaws.qldb.session#SessionToken",
+          "target": "com.amazonaws.qldbsession#SessionToken",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the session token for the current command. A session token is constant throughout the life of the session.</p>\n         <p>To obtain a session token, run the <code>StartSession</code> command. This <code>SessionToken</code> is\n\t    required for every subsequent command that is issued during the current session.</p>"
           }
         },
         "StartSession": {
-          "target": "com.amazonaws.qldb.session#StartSessionRequest",
+          "target": "com.amazonaws.qldbsession#StartSessionRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to start a new session. A session token is obtained as part of the\n\t    response.</p>"
           }
         },
         "StartTransaction": {
-          "target": "com.amazonaws.qldb.session#StartTransactionRequest",
+          "target": "com.amazonaws.qldbsession#StartTransactionRequest",
           "traits": {
             "smithy.api#documentation": "<p>Command to start a new transaction.</p>"
           }
         }
       }
     },
-    "com.amazonaws.qldb.session#SendCommandResult": {
+    "com.amazonaws.qldbsession#SendCommandResult": {
       "type": "structure",
       "members": {
         "AbortTransaction": {
-          "target": "com.amazonaws.qldb.session#AbortTransactionResult",
+          "target": "com.amazonaws.qldbsession#AbortTransactionResult",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the aborted transaction.</p>"
           }
         },
         "CommitTransaction": {
-          "target": "com.amazonaws.qldb.session#CommitTransactionResult",
+          "target": "com.amazonaws.qldbsession#CommitTransactionResult",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the committed transaction.</p>"
           }
         },
         "EndSession": {
-          "target": "com.amazonaws.qldb.session#EndSessionResult",
+          "target": "com.amazonaws.qldbsession#EndSessionResult",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the ended session.</p>"
           }
         },
         "ExecuteStatement": {
-          "target": "com.amazonaws.qldb.session#ExecuteStatementResult",
+          "target": "com.amazonaws.qldbsession#ExecuteStatementResult",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the executed statement.</p>"
           }
         },
         "FetchPage": {
-          "target": "com.amazonaws.qldb.session#FetchPageResult",
+          "target": "com.amazonaws.qldbsession#FetchPageResult",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the fetched page.</p>"
           }
         },
         "StartSession": {
-          "target": "com.amazonaws.qldb.session#StartSessionResult",
+          "target": "com.amazonaws.qldbsession#StartSessionResult",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the started session that includes a session token. This <code>SessionToken</code> is\n\t    required for every subsequent command that is issued during the current session.</p>"
           }
         },
         "StartTransaction": {
-          "target": "com.amazonaws.qldb.session#StartTransactionResult",
+          "target": "com.amazonaws.qldbsession#StartTransactionResult",
           "traits": {
             "smithy.api#documentation": "<p>Contains the details of the started transaction.</p>"
           }
         }
       }
     },
-    "com.amazonaws.qldb.session#SessionToken": {
+    "com.amazonaws.qldbsession#SessionToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -477,14 +472,14 @@
         "smithy.api#pattern": "^[A-Za-z-0-9+/=]+$"
       }
     },
-    "com.amazonaws.qldb.session#StartSessionRequest": {
+    "com.amazonaws.qldbsession#StartSessionRequest": {
       "type": "structure",
       "members": {
         "LedgerName": {
-          "target": "com.amazonaws.qldb.session#LedgerName",
+          "target": "com.amazonaws.qldbsession#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger to start a new session against.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -492,11 +487,11 @@
         "smithy.api#documentation": "<p>Specifies a request to start a a new session.</p>"
       }
     },
-    "com.amazonaws.qldb.session#StartSessionResult": {
+    "com.amazonaws.qldbsession#StartSessionResult": {
       "type": "structure",
       "members": {
         "SessionToken": {
-          "target": "com.amazonaws.qldb.session#SessionToken",
+          "target": "com.amazonaws.qldbsession#SessionToken",
           "traits": {
             "smithy.api#documentation": "<p>Session token of the started session. This <code>SessionToken</code> is\n\t    required for every subsequent command that is issued during the current session.</p>"
           }
@@ -506,18 +501,18 @@
         "smithy.api#documentation": "<p>Contains the details of the started session.</p>"
       }
     },
-    "com.amazonaws.qldb.session#StartTransactionRequest": {
+    "com.amazonaws.qldbsession#StartTransactionRequest": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Specifies a request to start a transaction.</p>"
       }
     },
-    "com.amazonaws.qldb.session#StartTransactionResult": {
+    "com.amazonaws.qldbsession#StartTransactionResult": {
       "type": "structure",
       "members": {
         "TransactionId": {
-          "target": "com.amazonaws.qldb.session#TransactionId",
+          "target": "com.amazonaws.qldbsession#TransactionId",
           "traits": {
             "smithy.api#documentation": "<p>The transaction id of the started transaction.</p>"
           }
@@ -527,7 +522,7 @@
         "smithy.api#documentation": "<p>Contains the details of the started transaction.</p>"
       }
     },
-    "com.amazonaws.qldb.session#Statement": {
+    "com.amazonaws.qldbsession#Statement": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -536,13 +531,13 @@
         }
       }
     },
-    "com.amazonaws.qldb.session#StatementParameters": {
+    "com.amazonaws.qldbsession#StatementParameters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.qldb.session#ValueHolder"
+        "target": "com.amazonaws.qldbsession#ValueHolder"
       }
     },
-    "com.amazonaws.qldb.session#TransactionId": {
+    "com.amazonaws.qldbsession#TransactionId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -552,17 +547,17 @@
         "smithy.api#pattern": "^[A-Za-z-0-9]+$"
       }
     },
-    "com.amazonaws.qldb.session#ValueHolder": {
+    "com.amazonaws.qldbsession#ValueHolder": {
       "type": "structure",
       "members": {
         "IonBinary": {
-          "target": "com.amazonaws.qldb.session#IonBinary",
+          "target": "com.amazonaws.qldbsession#IonBinary",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure. </p>"
           }
         },
         "IonText": {
-          "target": "com.amazonaws.qldb.session#IonText",
+          "target": "com.amazonaws.qldbsession#IonText",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure. </p>"
           }
@@ -572,10 +567,10 @@
         "smithy.api#documentation": "<p>A structure that can contains values in multiple encoding formats.</p>"
       }
     },
-    "com.amazonaws.qldb.session#ValueHolders": {
+    "com.amazonaws.qldbsession#ValueHolders": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.qldb.session#ValueHolder"
+        "target": "com.amazonaws.qldbsession#ValueHolder"
       }
     }
   }

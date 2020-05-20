@@ -1,47 +1,46 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.awsmigrationhubmultiaccount#AWSMigrationHubMultiAccountService": {
+    "com.amazonaws.migrationhubconfig#AWSMigrationHubMultiAccountService": {
       "type": "service",
       "version": "2019-06-30",
       "operations": [
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#CreateHomeRegionControl"
+          "target": "com.amazonaws.migrationhubconfig#CreateHomeRegionControl"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControls"
+          "target": "com.amazonaws.migrationhubconfig#DescribeHomeRegionControls"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#GetHomeRegion"
+          "target": "com.amazonaws.migrationhubconfig#GetHomeRegion"
         }
       ],
       "traits": {
@@ -51,23 +50,19 @@
           "cloudFormationName": "MigrationHubConfig",
           "cloudTrailEventSource": "awsmigrationhubmultiaccount.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "mgh"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>The AWS Migration Hub home region APIs are available specifically for working with your\n      Migration Hub home region. You can use these APIs to determine a home region, as well as to\n      create and work with controls that describe the home region.</p>\n\n         <p>You can use these APIs within your home region only. If you call these APIs from outside\n      your home region, your calls are rejected, except for the ability to register your agents and\n      connectors. </p>\n\n         <p> You must call <code>GetHomeRegion</code> at least once before you call any other AWS\n      Application Discovery Service and AWS Migration Hub APIs, to obtain the account's Migration\n      Hub home region.</p>\n\n         <p>The <code>StartDataCollection</code> API call in AWS Application Discovery Service allows\n      your agents and connectors to begin collecting data that flows directly into the home region,\n      and it will prevent you from enabling data collection information to be sent outside the home\n      region. </p>\n\n         <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region\n      API reference. </p>\n\n         <note>\n            <p>The Migration Hub Home Region APIs do not support AWS Organizations.</p>\n         </note>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Migration Hub Config"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException": {
+    "com.amazonaws.migrationhubconfig#AccessDeniedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ErrorMessage"
+          "target": "com.amazonaws.migrationhubconfig#ErrorMessage"
         }
       },
       "traits": {
@@ -75,7 +70,7 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#ControlId": {
+    "com.amazonaws.migrationhubconfig#ControlId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -85,91 +80,91 @@
         "smithy.api#pattern": "^hrc-[a-z0-9]{12}$"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#CreateHomeRegionControl": {
+    "com.amazonaws.migrationhubconfig#CreateHomeRegionControl": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.awsmigrationhubmultiaccount#CreateHomeRegionControlRequest"
+        "target": "com.amazonaws.migrationhubconfig#CreateHomeRegionControlRequest"
       },
       "output": {
-        "target": "com.amazonaws.awsmigrationhubmultiaccount#CreateHomeRegionControlResult"
+        "target": "com.amazonaws.migrationhubconfig#CreateHomeRegionControlResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException"
+          "target": "com.amazonaws.migrationhubconfig#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#DryRunOperation"
+          "target": "com.amazonaws.migrationhubconfig#DryRunOperation"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError"
+          "target": "com.amazonaws.migrationhubconfig#InternalServerError"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException"
+          "target": "com.amazonaws.migrationhubconfig#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException"
+          "target": "com.amazonaws.migrationhubconfig#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>This API sets up the home region for the calling account only.</p>"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#CreateHomeRegionControlRequest": {
+    "com.amazonaws.migrationhubconfig#CreateHomeRegionControlRequest": {
       "type": "structure",
       "members": {
         "DryRun": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#DryRun",
+          "target": "com.amazonaws.migrationhubconfig#DryRun",
           "traits": {
             "smithy.api#documentation": "<p>Optional Boolean flag to indicate whether any effect should take place. It tests whether\n      the caller has permission to make the call.</p>"
           }
         },
         "HomeRegion": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#HomeRegion",
+          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
           "traits": {
             "smithy.api#documentation": "<p>The name of the home region of the calling account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Target": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#Target",
+          "target": "com.amazonaws.migrationhubconfig#Target",
           "traits": {
             "smithy.api#documentation": "<p>The account for which this command sets up a home region control. The <code>Target</code> is always of type <code>ACCOUNT</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#CreateHomeRegionControlResult": {
+    "com.amazonaws.migrationhubconfig#CreateHomeRegionControlResult": {
       "type": "structure",
       "members": {
         "HomeRegionControl": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#HomeRegionControl",
+          "target": "com.amazonaws.migrationhubconfig#HomeRegionControl",
           "traits": {
             "smithy.api#documentation": "<p>This object is the <code>HomeRegionControl</code> object that's returned by a successful call to\n        <code>CreateHomeRegionControl</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControls": {
+    "com.amazonaws.migrationhubconfig#DescribeHomeRegionControls": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControlsRequest"
+        "target": "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsRequest"
       },
       "output": {
-        "target": "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControlsResult"
+        "target": "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException"
+          "target": "com.amazonaws.migrationhubconfig#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError"
+          "target": "com.amazonaws.migrationhubconfig#InternalServerError"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException"
+          "target": "com.amazonaws.migrationhubconfig#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException"
+          "target": "com.amazonaws.migrationhubconfig#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -181,76 +176,76 @@
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControlsMaxResults": {
+    "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControlsRequest": {
+    "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsRequest": {
       "type": "structure",
       "members": {
         "ControlId": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ControlId",
+          "target": "com.amazonaws.migrationhubconfig#ControlId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>ControlID</code> is a unique identifier string of your <code>HomeRegionControl</code>\n      object.</p>"
           }
         },
         "HomeRegion": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#HomeRegion",
+          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
           "traits": {
             "smithy.api#documentation": "<p>The name of the home region you'd like to view.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControlsMaxResults",
+          "target": "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of filtering results to display per page. </p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#Token",
+          "target": "com.amazonaws.migrationhubconfig#Token",
           "traits": {
             "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve\n      the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>"
           }
         },
         "Target": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#Target",
+          "target": "com.amazonaws.migrationhubconfig#Target",
           "traits": {
             "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always of type <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#DescribeHomeRegionControlsResult": {
+    "com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsResult": {
       "type": "structure",
       "members": {
         "HomeRegionControls": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#HomeRegionControls",
+          "target": "com.amazonaws.migrationhubconfig#HomeRegionControls",
           "traits": {
             "smithy.api#documentation": "<p>An array that contains your <code>HomeRegionControl</code> objects.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#Token",
+          "target": "com.amazonaws.migrationhubconfig#Token",
           "traits": {
             "smithy.api#documentation": "<p>If a <code>NextToken</code> was returned by a previous call, more results are available.\n      To retrieve the next page of results, make the call again using the returned token in\n        <code>NextToken</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#DryRun": {
+    "com.amazonaws.migrationhubconfig#DryRun": {
       "type": "boolean"
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#DryRunOperation": {
+    "com.amazonaws.migrationhubconfig#DryRunOperation": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ErrorMessage"
+          "target": "com.amazonaws.migrationhubconfig#ErrorMessage"
         }
       },
       "traits": {
@@ -258,51 +253,51 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#ErrorMessage": {
+    "com.amazonaws.migrationhubconfig#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#GetHomeRegion": {
+    "com.amazonaws.migrationhubconfig#GetHomeRegion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.awsmigrationhubmultiaccount#GetHomeRegionRequest"
+        "target": "com.amazonaws.migrationhubconfig#GetHomeRegionRequest"
       },
       "output": {
-        "target": "com.amazonaws.awsmigrationhubmultiaccount#GetHomeRegionResult"
+        "target": "com.amazonaws.migrationhubconfig#GetHomeRegionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException"
+          "target": "com.amazonaws.migrationhubconfig#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError"
+          "target": "com.amazonaws.migrationhubconfig#InternalServerError"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException"
+          "target": "com.amazonaws.migrationhubconfig#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException"
+          "target": "com.amazonaws.migrationhubconfig#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the calling account’s home region, if configured. This API is used by other AWS\n      services to determine the regional endpoint for calling AWS Application Discovery Service and\n      Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any\n      other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's\n      Migration Hub home region.</p>"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#GetHomeRegionRequest": {
+    "com.amazonaws.migrationhubconfig#GetHomeRegionRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#GetHomeRegionResult": {
+    "com.amazonaws.migrationhubconfig#GetHomeRegionResult": {
       "type": "structure",
       "members": {
         "HomeRegion": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#HomeRegion",
+          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
           "traits": {
             "smithy.api#documentation": "<p>The name of the home region of the calling account.</p>"
           }
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#HomeRegion": {
+    "com.amazonaws.migrationhubconfig#HomeRegion": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -312,29 +307,29 @@
         "smithy.api#pattern": "^([a-z]+)-([a-z]+)-([0-9]+)$"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#HomeRegionControl": {
+    "com.amazonaws.migrationhubconfig#HomeRegionControl": {
       "type": "structure",
       "members": {
         "ControlId": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ControlId",
+          "target": "com.amazonaws.migrationhubconfig#ControlId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier that's generated for each home region control. It's always a string\n      that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"
           }
         },
         "HomeRegion": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#HomeRegion",
+          "target": "com.amazonaws.migrationhubconfig#HomeRegion",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region that's been set as home region. For example, \"us-west-2\" or \"eu-central-1\"\n      are valid home regions.</p>"
           }
         },
         "RequestedTime": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#RequestedTime",
+          "target": "com.amazonaws.migrationhubconfig#RequestedTime",
           "traits": {
             "smithy.api#documentation": "<p>A timestamp representing the time when the customer called\n        <code>CreateHomeregionControl</code> and set the home region for the account.</p>"
           }
         },
         "Target": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#Target",
+          "target": "com.amazonaws.migrationhubconfig#Target",
           "traits": {
             "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always an <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
           }
@@ -344,10 +339,10 @@
         "smithy.api#documentation": "<p>A home region control is an object that specifies the home region for an account, with\n      some additional information. It contains a target (always of type <code>ACCOUNT</code>), an\n      ID, and a time at which the home region was set.</p>"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#HomeRegionControls": {
+    "com.amazonaws.migrationhubconfig#HomeRegionControls": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.awsmigrationhubmultiaccount#HomeRegionControl"
+        "target": "com.amazonaws.migrationhubconfig#HomeRegionControl"
       },
       "traits": {
         "smithy.api#length": {
@@ -356,11 +351,11 @@
         }
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError": {
+    "com.amazonaws.migrationhubconfig#InternalServerError": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ErrorMessage"
+          "target": "com.amazonaws.migrationhubconfig#ErrorMessage"
         }
       },
       "traits": {
@@ -368,11 +363,11 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException": {
+    "com.amazonaws.migrationhubconfig#InvalidInputException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ErrorMessage"
+          "target": "com.amazonaws.migrationhubconfig#ErrorMessage"
         }
       },
       "traits": {
@@ -380,14 +375,14 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#RequestedTime": {
+    "com.amazonaws.migrationhubconfig#RequestedTime": {
       "type": "timestamp"
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException": {
+    "com.amazonaws.migrationhubconfig#ServiceUnavailableException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#ErrorMessage"
+          "target": "com.amazonaws.migrationhubconfig#ErrorMessage"
         }
       },
       "traits": {
@@ -395,20 +390,20 @@
         "smithy.api#error": "server"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#Target": {
+    "com.amazonaws.migrationhubconfig#Target": {
       "type": "structure",
       "members": {
         "Id": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#TargetId",
+          "target": "com.amazonaws.migrationhubconfig#TargetId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for which the control was created. (This must be the current account.) </p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.awsmigrationhubmultiaccount#TargetType",
+          "target": "com.amazonaws.migrationhubconfig#TargetType",
           "traits": {
             "smithy.api#documentation": "<p>The target type is always an <code>ACCOUNT</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -416,7 +411,7 @@
         "smithy.api#documentation": "<p>The target parameter specifies the identifier to which the home region is applied, which\n      is always an <code>ACCOUNT</code>. It applies the home region to the current\n        <code>ACCOUNT</code>.</p>"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#TargetId": {
+    "com.amazonaws.migrationhubconfig#TargetId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -426,17 +421,18 @@
         "smithy.api#pattern": "^\\d{12}$"
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#TargetType": {
+    "com.amazonaws.migrationhubconfig#TargetType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ACCOUNT": {
+        "smithy.api#enum": [
+          {
+            "value": "ACCOUNT",
             "name": "ACCOUNT"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.awsmigrationhubmultiaccount#Token": {
+    "com.amazonaws.migrationhubconfig#Token": {
       "type": "string",
       "traits": {
         "smithy.api#length": {

@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -45,59 +44,69 @@
     "com.amazonaws.codebuild#ArtifactNamespace": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "BUILD_ID": {
+          {
+            "value": "BUILD_ID",
             "name": "BUILD_ID"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ArtifactPackaging": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "ZIP": {
+          {
+            "value": "ZIP",
             "name": "ZIP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ArtifactsType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CODEPIPELINE": {
+        "smithy.api#enum": [
+          {
+            "value": "CODEPIPELINE",
             "name": "CODEPIPELINE"
           },
-          "S3": {
+          {
+            "value": "S3",
             "name": "S3"
           },
-          "NO_ARTIFACTS": {
+          {
+            "value": "NO_ARTIFACTS",
             "name": "NO_ARTIFACTS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#AuthType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "OAUTH": {
+        "smithy.api#enum": [
+          {
+            "value": "OAUTH",
             "name": "OAUTH"
           },
-          "BASIC_AUTH": {
+          {
+            "value": "BASIC_AUTH",
             "name": "BASIC_AUTH"
           },
-          "PERSONAL_ACCESS_TOKEN": {
+          {
+            "value": "PERSONAL_ACCESS_TOKEN",
             "name": "PERSONAL_ACCESS_TOKEN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#BatchDeleteBuilds": {
@@ -124,7 +133,7 @@
           "target": "com.amazonaws.codebuild#BuildIds",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the builds to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -170,7 +179,7 @@
           "target": "com.amazonaws.codebuild#BuildIds",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the builds.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -216,7 +225,7 @@
           "target": "com.amazonaws.codebuild#ProjectNames",
           "traits": {
             "smithy.api#documentation": "<p>The names or ARNs of the build projects. To get information about a project shared with your AWS account, its ARN must \n         be specified. You cannot specify a shared project using its name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -262,7 +271,7 @@
           "target": "com.amazonaws.codebuild#ReportGroupArns",
           "traits": {
             "smithy.api#documentation": "<p>\n         An array of report group ARNs that identify the report groups to return.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -308,7 +317,7 @@
           "target": "com.amazonaws.codebuild#ReportArns",
           "traits": {
             "smithy.api#documentation": "<p>\n         An array of ARNs that identify the <code>Report</code> objects to return.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -650,41 +659,52 @@
     "com.amazonaws.codebuild#BuildPhaseType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SUBMITTED": {
+        "smithy.api#enum": [
+          {
+            "value": "SUBMITTED",
             "name": "SUBMITTED"
           },
-          "QUEUED": {
+          {
+            "value": "QUEUED",
             "name": "QUEUED"
           },
-          "PROVISIONING": {
+          {
+            "value": "PROVISIONING",
             "name": "PROVISIONING"
           },
-          "DOWNLOAD_SOURCE": {
+          {
+            "value": "DOWNLOAD_SOURCE",
             "name": "DOWNLOAD_SOURCE"
           },
-          "INSTALL": {
+          {
+            "value": "INSTALL",
             "name": "INSTALL"
           },
-          "PRE_BUILD": {
+          {
+            "value": "PRE_BUILD",
             "name": "PRE_BUILD"
           },
-          "BUILD": {
+          {
+            "value": "BUILD",
             "name": "BUILD"
           },
-          "POST_BUILD": {
+          {
+            "value": "POST_BUILD",
             "name": "POST_BUILD"
           },
-          "UPLOAD_ARTIFACTS": {
+          {
+            "value": "UPLOAD_ARTIFACTS",
             "name": "UPLOAD_ARTIFACTS"
           },
-          "FINALIZING": {
+          {
+            "value": "FINALIZING",
             "name": "FINALIZING"
           },
-          "COMPLETED": {
+          {
+            "value": "COMPLETED",
             "name": "COMPLETED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#BuildPhases": {
@@ -714,33 +734,39 @@
     "com.amazonaws.codebuild#CacheMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "LOCAL_DOCKER_LAYER_CACHE": {
+        "smithy.api#enum": [
+          {
+            "value": "LOCAL_DOCKER_LAYER_CACHE",
             "name": "LOCAL_DOCKER_LAYER_CACHE"
           },
-          "LOCAL_SOURCE_CACHE": {
+          {
+            "value": "LOCAL_SOURCE_CACHE",
             "name": "LOCAL_SOURCE_CACHE"
           },
-          "LOCAL_CUSTOM_CACHE": {
+          {
+            "value": "LOCAL_CUSTOM_CACHE",
             "name": "LOCAL_CUSTOM_CACHE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#CacheType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NO_CACHE": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_CACHE",
             "name": "NO_CACHE"
           },
-          "S3": {
+          {
+            "value": "S3",
             "name": "S3"
           },
-          "LOCAL": {
+          {
+            "value": "LOCAL",
             "name": "LOCAL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#CloudWatchLogsConfig": {
@@ -756,7 +782,7 @@
           "target": "com.amazonaws.codebuild#LogsConfigStatusType",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "streamName": {
@@ -884,35 +910,35 @@
           "cloudFormationName": "CodeBuild",
           "cloudTrailEventSource": "codebuild.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "codebuild"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AWS CodeBuild</fullname>\n         <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,\n         runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need\n         to provision, manage, and scale your own build servers. It provides prepackaged build\n         environments for the most popular programming languages and build tools, such as Apache\n         Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use\n         your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You pay only\n         for the build time you consume. For more information about AWS CodeBuild, see the <i>\n               <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html\">AWS CodeBuild User Guide</a>.</i>\n         </p>\n         <p>AWS CodeBuild supports these operations:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BatchDeleteBuilds</code>: Deletes one or more builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BatchGetBuilds</code>: Gets information about one or more builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BatchGetProjects</code>: Gets information about one or more build projects.\n               A <i>build project</i> defines how AWS CodeBuild runs a build. This includes\n               information such as where to get the source code to build, the build environment to\n               use, the build commands to run, and where to store the build output. A\n               <i>build environment</i> is a representation of operating system,\n               programming language runtime, and tools that AWS CodeBuild uses to run a build. You can add\n               tags to build projects to help manage your resources and costs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BatchGetReportGroups</code>: Returns an array of report groups.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>BatchGetReports</code>: Returns an array of reports.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateProject</code>: Creates a build project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateReportGroup</code>: Creates a report group. A report group contains a collection of reports.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its\n               source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start\n               rebuilding the source code every time a code change is pushed to the\n               repository.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteProject</code>: Deletes a build project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteReport</code>: Deletes a report.               \n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteReportGroup</code>: Deletes a report group. \n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteResourcePolicy</code>:  Deletes a resource policy that is identified by its resource ARN. \n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub Enterprise, \n               or Bitbucket source credentials.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its\n               source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding\n               the source code every time a code change is pushed to the repository.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeTestCases</code>: Returns a list of details about test cases for a report.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>GetResourcePolicy</code>:  Gets a resource policy that is identified by its resource ARN.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>ImportSourceCredentials</code>: Imports the source repository credentials for an AWS CodeBuild project that has its source code stored \n               in a GitHub, GitHub Enterprise, or Bitbucket repository.</p>\n            </li>\n            <li>\n               <p>\n                  <code>InvalidateProjectCache</code>: Resets the cache for a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListBuilds</code>: Gets a list of build IDs, with each build ID representing\n               a single build.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListBuildsForProject</code>: Gets a list of build IDs for the specified\n               build project, with each build ID representing a single build.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListCuratedEnvironmentImages</code>: Gets information about Docker images\n               that are managed by AWS CodeBuild.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListProjects</code>: Gets a list of build project names, with each build\n               project name representing a single build project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListReportGroups</code>: Gets a list ARNs for the report groups in the current AWS account.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>ListReports</code>: Gets a list ARNs for the reports in the current AWS account.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects shared with the current AWS account or user.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with report groups shared with the current AWS account or user</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListSourceCredentials</code>: Returns a list of <code>SourceCredentialsInfo</code> objects. Each <code>SourceCredentialsInfo</code> object includes \n               the authentication type, token ARN, and type of source provider for one set of credentials.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PutResourcePolicy</code>:  Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <code>StartBuild</code>: Starts running a build.</p>\n            </li>\n            <li>\n               <p>\n                  <code>StopBuild</code>: Attempts to stop running a build.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateProject</code>: Changes the settings of an existing build\n               project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateReportGroup</code>: Changes a report group.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p>\n            </li>\n         </ul>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS CodeBuild"
       }
     },
     "com.amazonaws.codebuild#ComputeType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "BUILD_GENERAL1_SMALL": {
+        "smithy.api#enum": [
+          {
+            "value": "BUILD_GENERAL1_SMALL",
             "name": "BUILD_GENERAL1_SMALL"
           },
-          "BUILD_GENERAL1_MEDIUM": {
+          {
+            "value": "BUILD_GENERAL1_MEDIUM",
             "name": "BUILD_GENERAL1_MEDIUM"
           },
-          "BUILD_GENERAL1_LARGE": {
+          {
+            "value": "BUILD_GENERAL1_LARGE",
             "name": "BUILD_GENERAL1_LARGE"
           },
-          "BUILD_GENERAL1_2XLARGE": {
+          {
+            "value": "BUILD_GENERAL1_2XLARGE",
             "name": "BUILD_GENERAL1_2XLARGE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#CreateProject": {
@@ -945,7 +971,7 @@
           "target": "com.amazonaws.codebuild#ProjectArtifacts",
           "traits": {
             "smithy.api#documentation": "<p>Information about the build output artifacts for the build project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "badgeEnabled": {
@@ -976,7 +1002,7 @@
           "target": "com.amazonaws.codebuild#ProjectEnvironment",
           "traits": {
             "smithy.api#documentation": "<p>Information about the build environment for the build project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "logsConfig": {
@@ -989,7 +1015,7 @@
           "target": "com.amazonaws.codebuild#ProjectName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the build project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "queuedTimeoutInMinutes": {
@@ -1020,14 +1046,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on\n         behalf of the AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "source": {
           "target": "com.amazonaws.codebuild#ProjectSource",
           "traits": {
             "smithy.api#documentation": "<p>Information about the build input source code for the build project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sourceVersion": {
@@ -1097,21 +1123,21 @@
           "target": "com.amazonaws.codebuild#ReportExportConfig",
           "traits": {
             "smithy.api#documentation": "<p>\n         A <code>ReportExportConfig</code> object that contains information about where the report group test results are exported.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "com.amazonaws.codebuild#ReportGroupName",
           "traits": {
             "smithy.api#documentation": "<p>\n         The name of the report group.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.amazonaws.codebuild#ReportType",
           "traits": {
             "smithy.api#documentation": "<p>\n         The type of report group.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1172,7 +1198,7 @@
           "target": "com.amazonaws.codebuild#ProjectName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the AWS CodeBuild project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1191,11 +1217,12 @@
     "com.amazonaws.codebuild#CredentialProviderType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SECRETS_MANAGER": {
+        "smithy.api#enum": [
+          {
+            "value": "SECRETS_MANAGER",
             "name": "SECRETS_MANAGER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#DeleteProject": {
@@ -1222,14 +1249,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the build project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codebuild#DeleteProjectOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#DeleteReport": {
       "type": "operation",
@@ -1272,14 +1299,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the report group to delete.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codebuild#DeleteReportGroupOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#DeleteReportInput": {
       "type": "structure",
@@ -1288,14 +1315,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the report to delete.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codebuild#DeleteReportOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#DeleteResourcePolicy": {
       "type": "operation",
@@ -1321,14 +1348,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the resource that is associated with the resource policy.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codebuild#DeleteResourcePolicyOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#DeleteSourceCredentials": {
       "type": "operation",
@@ -1357,7 +1384,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the token.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1403,14 +1430,14 @@
           "target": "com.amazonaws.codebuild#ProjectName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the AWS CodeBuild project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codebuild#DeleteWebhookOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#DescribeTestCases": {
       "type": "operation",
@@ -1457,7 +1484,7 @@
           "target": "com.amazonaws.codebuild#String",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the report for which test cases are returned.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1566,20 +1593,24 @@
     "com.amazonaws.codebuild#EnvironmentType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "WINDOWS_CONTAINER": {
+        "smithy.api#enum": [
+          {
+            "value": "WINDOWS_CONTAINER",
             "name": "WINDOWS_CONTAINER"
           },
-          "LINUX_CONTAINER": {
+          {
+            "value": "LINUX_CONTAINER",
             "name": "LINUX_CONTAINER"
           },
-          "LINUX_GPU_CONTAINER": {
+          {
+            "value": "LINUX_GPU_CONTAINER",
             "name": "LINUX_GPU_CONTAINER"
           },
-          "ARM_CONTAINER": {
+          {
+            "value": "ARM_CONTAINER",
             "name": "ARM_CONTAINER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#EnvironmentVariable": {
@@ -1589,7 +1620,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name or key of the environment variable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "type": {
@@ -1602,7 +1633,7 @@
           "target": "com.amazonaws.codebuild#String",
           "traits": {
             "smithy.api#documentation": "<p>The value of the environment variable.</p>\n         <important>\n            <p>We strongly discourage the use of environment variables to store sensitive values,\n            especially AWS secret key IDs and secret access keys. Environment variables can be\n            displayed in plain text using the AWS CodeBuild console and the AWS Command Line Interface (AWS CLI).</p>\n         </important>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1613,17 +1644,20 @@
     "com.amazonaws.codebuild#EnvironmentVariableType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PLAINTEXT": {
+        "smithy.api#enum": [
+          {
+            "value": "PLAINTEXT",
             "name": "PLAINTEXT"
           },
-          "PARAMETER_STORE": {
+          {
+            "value": "PARAMETER_STORE",
             "name": "PARAMETER_STORE"
           },
-          "SECRETS_MANAGER": {
+          {
+            "value": "SECRETS_MANAGER",
             "name": "SECRETS_MANAGER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#EnvironmentVariables": {
@@ -1697,7 +1731,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the resource that is associated with the resource policy.         \n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1716,7 +1750,7 @@
     "com.amazonaws.codebuild#GitCloneDepth": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
@@ -1729,7 +1763,7 @@
           "target": "com.amazonaws.codebuild#WrapperBoolean",
           "traits": {
             "smithy.api#documentation": "<p>\n         Set to true to fetch Git submodules for your AWS CodeBuild build project.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1740,14 +1774,16 @@
     "com.amazonaws.codebuild#ImagePullCredentialsType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CODEBUILD": {
+        "smithy.api#enum": [
+          {
+            "value": "CODEBUILD",
             "name": "CODEBUILD"
           },
-          "SERVICE_ROLE": {
+          {
+            "value": "SERVICE_ROLE",
             "name": "SERVICE_ROLE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ImageVersions": {
@@ -1786,14 +1822,14 @@
           "target": "com.amazonaws.codebuild#AuthType",
           "traits": {
             "smithy.api#documentation": "<p>\n         The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not \n         supported by the API and must be created using the AWS CodeBuild console.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "serverType": {
           "target": "com.amazonaws.codebuild#ServerType",
           "traits": {
             "smithy.api#documentation": "<p>\n         The source provider used for this project.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "shouldOverwrite": {
@@ -1806,7 +1842,7 @@
           "target": "com.amazonaws.codebuild#SensitiveNonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is the app password.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "username": {
@@ -1867,14 +1903,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the AWS CodeBuild build project that the cache is reset for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codebuild#InvalidateProjectCacheOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#KeyInput": {
       "type": "string",
@@ -1889,38 +1925,48 @@
     "com.amazonaws.codebuild#LanguageType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "JAVA": {
+        "smithy.api#enum": [
+          {
+            "value": "JAVA",
             "name": "JAVA"
           },
-          "PYTHON": {
+          {
+            "value": "PYTHON",
             "name": "PYTHON"
           },
-          "NODE_JS": {
+          {
+            "value": "NODE_JS",
             "name": "NODE_JS"
           },
-          "RUBY": {
+          {
+            "value": "RUBY",
             "name": "RUBY"
           },
-          "GOLANG": {
+          {
+            "value": "GOLANG",
             "name": "GOLANG"
           },
-          "DOCKER": {
+          {
+            "value": "DOCKER",
             "name": "DOCKER"
           },
-          "ANDROID": {
+          {
+            "value": "ANDROID",
             "name": "ANDROID"
           },
-          "DOTNET": {
+          {
+            "value": "DOTNET",
             "name": "DOTNET"
           },
-          "BASE": {
+          {
+            "value": "BASE",
             "name": "BASE"
           },
-          "PHP": {
+          {
+            "value": "PHP",
             "name": "PHP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ListBuilds": {
@@ -1973,7 +2019,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the AWS CodeBuild project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sortOrder": {
@@ -2049,7 +2095,7 @@
     },
     "com.amazonaws.codebuild#ListCuratedEnvironmentImagesInput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#ListCuratedEnvironmentImagesOutput": {
       "type": "structure",
@@ -2244,7 +2290,7 @@
           "target": "com.amazonaws.codebuild#String",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the report group for which you want to return report ARNs.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sortOrder": {
@@ -2458,7 +2504,7 @@
     },
     "com.amazonaws.codebuild#ListSourceCredentialsInput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codebuild#ListSourceCredentialsOutput": {
       "type": "structure",
@@ -2494,14 +2540,16 @@
     "com.amazonaws.codebuild#LogsConfigStatusType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#LogsLocation": {
@@ -2603,7 +2651,7 @@
     "com.amazonaws.codebuild#PageSize": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -2639,20 +2687,24 @@
     "com.amazonaws.codebuild#PlatformType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DEBIAN": {
+        "smithy.api#enum": [
+          {
+            "value": "DEBIAN",
             "name": "DEBIAN"
           },
-          "AMAZON_LINUX": {
+          {
+            "value": "AMAZON_LINUX",
             "name": "AMAZON_LINUX"
           },
-          "UBUNTU": {
+          {
+            "value": "UBUNTU",
             "name": "UBUNTU"
           },
-          "WINDOWS_SERVER": {
+          {
+            "value": "WINDOWS_SERVER",
             "name": "WINDOWS_SERVER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#Project": {
@@ -2862,7 +2914,7 @@
           "target": "com.amazonaws.codebuild#ArtifactsType",
           "traits": {
             "smithy.api#documentation": "<p>The type of build output artifact. Valid values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CODEPIPELINE</code>: The build project has build output generated through\n               AWS CodePipeline. </p>\n               <note>\n                  <p>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>NO_ARTIFACTS</code>: The build project does not produce any build\n               output.</p>\n            </li>\n            <li>\n               <p>\n                  <code>S3</code>: The build project stores build output in Amazon Simple Storage Service (Amazon S3).</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2921,7 +2973,7 @@
           "target": "com.amazonaws.codebuild#CacheType",
           "traits": {
             "smithy.api#documentation": "<p>The type of cache used by the build project. Valid values include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>NO_CACHE</code>: The build project does not use any cache.</p>\n            </li>\n            <li>\n               <p>\n                  <code>S3</code>: The build project reads and writes from and to S3.</p>\n            </li>\n            <li>\n               <p>\n                  <code>LOCAL</code>: The build project stores a cache locally on a build host that is only available to \n               that build host.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2957,7 +3009,7 @@
           "target": "com.amazonaws.codebuild#ComputeType",
           "traits": {
             "smithy.api#documentation": "<p>Information about the compute resources the build project uses. Available values\n         include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for\n               builds.</p>            \n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for\n               builds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for\n               builds, depending on your environment type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This \n               compute type supports Docker images up to 100 GB uncompressed.</p>           \n            </li>\n         </ul>\n         <p>\n           If you use <code>BUILD_GENERAL1_LARGE</code>:         \n      </p>\n         <ul>\n            <li>\n               <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB memory\n               and 8 vCPUs for builds. </p>\n            </li>\n            <li>\n               <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255 GB\n               memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>\n            </li>\n            <li>\n               <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB memory and\n               8 vCPUs on ARM-based processors for builds.</p>\n            </li>\n         </ul>\n         <p>\n         For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build Environment Compute Types</a> in the \n         <i>AWS CodeBuild User Guide.</i>\n         </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "environmentVariables": {
@@ -2970,7 +3022,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:</p>\n         <ul>\n            <li>\n               <p>For an image tag: <code>registry/repository:tag</code>. For example, to specify an image with the tag \"latest,\" use \n               <code>registry/repository:latest</code>.</p>\n            </li>\n            <li>\n               <p>For an image digest: <code>registry/repository@digest</code>. For example, to specify an image with the digest \n               \"sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,\" use \n               <code>registry/repository@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "imagePullCredentialsType": {
@@ -2995,7 +3047,7 @@
           "target": "com.amazonaws.codebuild#EnvironmentType",
           "traits": {
             "smithy.api#documentation": "<p>The type of build environment to use for related builds.</p>\n         <ul>\n            <li>\n               <p>The environment type <code>ARM_CONTAINER</code> is available only in\n               regions US East (N. Virginia), US East (Ohio), US West (Oregon),\n               EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo),\n               Asia Pacific (Sydney), and EU (Frankfurt).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_CONTAINER</code> with compute type \n               <code>build.general1.2xlarge</code> is available only in\n               regions US East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central),\n               EU (Ireland), EU (London), EU (Frankfurt),\n               Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore),\n               Asia Pacific (Sydney), China (Beijing), and\n               China (Ningxia).</p>\n            </li>\n            <li>\n               <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in\n               regions US East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central),\n               EU (Ireland), EU (London), EU (Frankfurt),\n               Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore),\n               Asia Pacific (Sydney) , China (Beijing), and\n               China (Ningxia).</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3040,17 +3092,20 @@
     "com.amazonaws.codebuild#ProjectSortByType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NAME": {
+        "smithy.api#enum": [
+          {
+            "value": "NAME",
             "name": "NAME"
           },
-          "CREATED_TIME": {
+          {
+            "value": "CREATED_TIME",
             "name": "CREATED_TIME"
           },
-          "LAST_MODIFIED_TIME": {
+          {
+            "value": "LAST_MODIFIED_TIME",
             "name": "LAST_MODIFIED_TIME"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ProjectSource": {
@@ -3108,7 +3163,7 @@
           "target": "com.amazonaws.codebuild#SourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of repository that contains the source code to be built. Valid values\n         include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BITBUCKET</code>: The source code is in a Bitbucket repository.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CODEPIPELINE</code>: The source code settings are specified in the source\n               action of a pipeline in AWS CodePipeline.</p>\n            </li>\n            <li>\n               <p>\n                  <code>GITHUB</code>: The source code is in a GitHub repository.</p>\n            </li>\n            <li>\n               <p>\n                  <code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise repository.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NO_SOURCE</code>: The project does not have input source code.</p>\n            </li>\n            <li>\n               <p>\n                  <code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3123,14 +3178,14 @@
           "target": "com.amazonaws.codebuild#String",
           "traits": {
             "smithy.api#documentation": "<p>An identifier for a source in the build project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sourceVersion": {
           "target": "com.amazonaws.codebuild#String",
           "traits": {
             "smithy.api#documentation": "<p>The source version for the corresponding source identifier. If specified, must be one\n         of:</p>\n         <ul>\n            <li>\n               <p>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</p>\n            </li>\n            <li>\n               <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that\n               corresponds to the version of the source code you want to build. If a pull request ID\n               is specified, it must use the format <code>pr/pull-request-ID</code> (for example,\n                  <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is\n               used. If not specified, the default branch's HEAD commit ID is used.</p>\n            </li>\n            <li>\n               <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the\n               version of the source code you want to build. If a branch name is specified, the\n               branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit\n               ID is used.</p>\n            </li>\n            <li>\n               <p>For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to\n               use.</p>\n            </li>\n         </ul>\n         <p>\n         For more information, see \n         <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html\">Source Version Sample with CodeBuild</a> \n         in the <i>AWS CodeBuild User Guide</i>.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3183,14 +3238,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         A JSON-formatted resource policy. For more information, see \n         <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share\">Sharing a Project</a> and \n         <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share\">Sharing a Report Group</a> in the \n         <i>AWS CodeBuild User Guide</i>.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceArn": {
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the <code>Project</code> or <code>ReportGroup</code> resource you want to associate \n         with a resource policy.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3213,14 +3268,14 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n          The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.\n      </p>\n      \n         <note>\n            <p>\n            The <code>credential</code> can use the name of the credentials only if they exist  \n            in your current region.\n         </p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "credentialProvider": {
           "target": "com.amazonaws.codebuild#CredentialProviderType",
           "traits": {
             "smithy.api#documentation": "<p>\n         The service that created the credentials to access a private Docker registry. The valid value, \n         SECRETS_MANAGER, is for AWS Secrets Manager.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3337,14 +3392,16 @@
     "com.amazonaws.codebuild#ReportExportConfigType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "S3": {
+        "smithy.api#enum": [
+          {
+            "value": "S3",
             "name": "S3"
           },
-          "NO_EXPORT": {
+          {
+            "value": "NO_EXPORT",
             "name": "NO_EXPORT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ReportFilter": {
@@ -3429,17 +3486,20 @@
     "com.amazonaws.codebuild#ReportGroupSortByType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NAME": {
+        "smithy.api#enum": [
+          {
+            "value": "NAME",
             "name": "NAME"
           },
-          "CREATED_TIME": {
+          {
+            "value": "CREATED_TIME",
             "name": "CREATED_TIME"
           },
-          "LAST_MODIFIED_TIME": {
+          {
+            "value": "LAST_MODIFIED_TIME",
             "name": "LAST_MODIFIED_TIME"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ReportGroups": {
@@ -3457,14 +3517,16 @@
     "com.amazonaws.codebuild#ReportPackagingType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ZIP": {
+        "smithy.api#enum": [
+          {
+            "value": "ZIP",
             "name": "ZIP"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ReportStatusCounts": {
@@ -3479,33 +3541,39 @@
     "com.amazonaws.codebuild#ReportStatusType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "GENERATING": {
+        "smithy.api#enum": [
+          {
+            "value": "GENERATING",
             "name": "GENERATING"
           },
-          "SUCCEEDED": {
+          {
+            "value": "SUCCEEDED",
             "name": "SUCCEEDED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "INCOMPLETE": {
+          {
+            "value": "INCOMPLETE",
             "name": "INCOMPLETE"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#ReportType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TEST": {
+        "smithy.api#enum": [
+          {
+            "value": "TEST",
             "name": "TEST"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#Reports": {
@@ -3563,7 +3631,7 @@
           "target": "com.amazonaws.codebuild#LogsConfigStatusType",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the S3 build logs. Valid values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLED</code>: S3 build logs are enabled for this build project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code>: S3 build logs are not enabled for this build\n               project.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3627,49 +3695,56 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.codebuild#ServerType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "GITHUB": {
+        "smithy.api#enum": [
+          {
+            "value": "GITHUB",
             "name": "GITHUB"
           },
-          "BITBUCKET": {
+          {
+            "value": "BITBUCKET",
             "name": "BITBUCKET"
           },
-          "GITHUB_ENTERPRISE": {
+          {
+            "value": "GITHUB_ENTERPRISE",
             "name": "GITHUB_ENTERPRISE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#SharedResourceSortByType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ARN": {
+        "smithy.api#enum": [
+          {
+            "value": "ARN",
             "name": "ARN"
           },
-          "MODIFIED_TIME": {
+          {
+            "value": "MODIFIED_TIME",
             "name": "MODIFIED_TIME"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#SortOrderType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ASCENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "ASCENDING",
             "name": "ASCENDING"
           },
-          "DESCENDING": {
+          {
+            "value": "DESCENDING",
             "name": "DESCENDING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#SourceAuth": {
@@ -3685,7 +3760,7 @@
           "target": "com.amazonaws.codebuild#SourceAuthType",
           "traits": {
             "smithy.api#documentation": "<note>\n            <p>\n            This data type is deprecated and is no longer accurate or used.\n         </p>\n         </note>\n         <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which\n         represents the OAuth authorization type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3696,11 +3771,12 @@
     "com.amazonaws.codebuild#SourceAuthType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "OAUTH": {
+        "smithy.api#enum": [
+          {
+            "value": "OAUTH",
             "name": "OAUTH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#SourceCredentialsInfo": {
@@ -3738,29 +3814,36 @@
     "com.amazonaws.codebuild#SourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CODECOMMIT": {
+        "smithy.api#enum": [
+          {
+            "value": "CODECOMMIT",
             "name": "CODECOMMIT"
           },
-          "CODEPIPELINE": {
+          {
+            "value": "CODEPIPELINE",
             "name": "CODEPIPELINE"
           },
-          "GITHUB": {
+          {
+            "value": "GITHUB",
             "name": "GITHUB"
           },
-          "S3": {
+          {
+            "value": "S3",
             "name": "S3"
           },
-          "BITBUCKET": {
+          {
+            "value": "BITBUCKET",
             "name": "BITBUCKET"
           },
-          "GITHUB_ENTERPRISE": {
+          {
+            "value": "GITHUB_ENTERPRISE",
             "name": "GITHUB_ENTERPRISE"
           },
-          "NO_SOURCE": {
+          {
+            "value": "NO_SOURCE",
             "name": "NO_SOURCE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#StartBuild": {
@@ -3889,7 +3972,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the AWS CodeBuild build project to start running a build.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "queuedTimeoutInMinutesOverride": {
@@ -3980,26 +4063,32 @@
     "com.amazonaws.codebuild#StatusType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SUCCEEDED": {
+        "smithy.api#enum": [
+          {
+            "value": "SUCCEEDED",
             "name": "SUCCEEDED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "FAULT": {
+          {
+            "value": "FAULT",
             "name": "FAULT"
           },
-          "TIMED_OUT": {
+          {
+            "value": "TIMED_OUT",
             "name": "TIMED_OUT"
           },
-          "IN_PROGRESS": {
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "STOPPED": {
+          {
+            "value": "STOPPED",
             "name": "STOPPED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#StopBuild": {
@@ -4029,7 +4118,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the build.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4175,21 +4264,21 @@
           "target": "com.amazonaws.codebuild#WrapperLong",
           "traits": {
             "smithy.api#documentation": "<p>\n         The number of nanoseconds it took to run all of the test cases in this report.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "statusCounts": {
           "target": "com.amazonaws.codebuild#ReportStatusCounts",
           "traits": {
             "smithy.api#documentation": "<p>\n         A map that contains the number of each type of status returned by the test results in this <code>TestReportSummary</code>.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "total": {
           "target": "com.amazonaws.codebuild#WrapperInt",
           "traits": {
             "smithy.api#documentation": "<p>         \n         The number of test cases in this <code>TestReportSummary</code>. The total includes truncated test cases.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4200,7 +4289,7 @@
     "com.amazonaws.codebuild#TimeOut": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 5,
           "max": 480
@@ -4279,7 +4368,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the build project.</p>\n         <note>\n            <p>You cannot change a build project's name.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "queuedTimeoutInMinutes": {
@@ -4382,7 +4471,7 @@
           "target": "com.amazonaws.codebuild#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The ARN of the report group to update.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "exportConfig": {
@@ -4446,7 +4535,7 @@
           "target": "com.amazonaws.codebuild#ProjectName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the AWS CodeBuild project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "rotateSecret": {
@@ -4561,14 +4650,14 @@
           "target": "com.amazonaws.codebuild#String",
           "traits": {
             "smithy.api#documentation": "<p>\n         For a <code>WebHookFilter</code> that uses <code>EVENT</code> type, a comma-separated string that specifies one or more events. For example, \n         the webhook filter <code>PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> allows all \n         push, pull request created, and pull request updated events to trigger a build.\n      </p>\n         <p>\n         For a <code>WebHookFilter</code> that uses any of the other filter types, a regular expression \n         pattern. For example, a <code>WebHookFilter</code> that uses <code>HEAD_REF</code> for its <code>type</code> and \n         the pattern <code>^refs/heads/</code> triggers a build when the head reference is a branch with a reference name \n         <code>refs/heads/branch-name</code>.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.amazonaws.codebuild#WebhookFilterType",
           "traits": {
             "smithy.api#documentation": "<p>\n         The type of webhook filter. There are five webhook filter types: <code>EVENT</code>, <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, \n         <code>BASE_REF</code>, and <code>FILE_PATH</code>. \n      </p>\n      \n         <dl>\n            <dt>\n               EVENT\n            </dt>\n            <dd>\n               <p>\n                  A webhook event triggers a build when the provided <code>pattern</code> matches one of four event types: <code>PUSH</code>, \n                  <code>PULL_REQUEST_CREATED</code>, <code>PULL_REQUEST_UPDATED</code>, and <code>PULL_REQUEST_REOPENED</code>. The <code>EVENT</code> \n                  patterns are specified as a comma-separated string. For example, \n                  <code>PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> filters all push, pull request created, and pull \n                  request updated events.\n               </p>\n               \n               <note>\n                  <p>\n                     The <code>PULL_REQUEST_REOPENED</code> works with GitHub and GitHub Enterprise only.\n                  </p>\n               </note>\n            </dd>\n            <dt>\n               ACTOR_ACCOUNT_ID\n            </dt>\n            <dd>\n               <p>\n                  A webhook event triggers a build when a GitHub, GitHub Enterprise, or Bitbucket account ID matches the regular expression <code>pattern</code>.\n               </p>\n            </dd>\n            <dt>\n               HEAD_REF\n            </dt>\n            <dd>\n               <p>\n                  A webhook event triggers a build when the head reference matches the regular expression <code>pattern</code>. For example, \n                  <code>refs/heads/branch-name</code> and <code>refs/tags/tag-name</code>.\n               </p>\n               <p>\n                  Works with GitHub and GitHub Enterprise push, GitHub and GitHub Enterprise pull request, Bitbucket push, and Bitbucket pull request events.\n               </p>\n            </dd>\n            <dt>\n               BASE_REF\n            </dt>\n            <dd>\n               <p>\n                  A webhook event triggers a build when the base reference matches the regular expression <code>pattern</code>. For example, \n                  <code>refs/heads/branch-name</code>.\n               </p>\n               <note>\n                  <p>\n                     Works with pull request events only.\n                  </p>\n               </note>\n            </dd>\n            <dt>\n               FILE_PATH\n            </dt>\n            <dd>\n               <p>\n                  A webhook triggers a build when the path of a changed file matches the regular expression <code>pattern</code>.\n               </p>\n               <note>\n                  <p>\n                     Works with GitHub and GitHub Enterprise push events only.\n                  </p>\n               </note>\n            </dd>\n         </dl>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4579,41 +4668,46 @@
     "com.amazonaws.codebuild#WebhookFilterType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EVENT": {
+        "smithy.api#enum": [
+          {
+            "value": "EVENT",
             "name": "EVENT"
           },
-          "BASE_REF": {
+          {
+            "value": "BASE_REF",
             "name": "BASE_REF"
           },
-          "HEAD_REF": {
+          {
+            "value": "HEAD_REF",
             "name": "HEAD_REF"
           },
-          "ACTOR_ACCOUNT_ID": {
+          {
+            "value": "ACTOR_ACCOUNT_ID",
             "name": "ACTOR_ACCOUNT_ID"
           },
-          "FILE_PATH": {
+          {
+            "value": "FILE_PATH",
             "name": "FILE_PATH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codebuild#WrapperBoolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.codebuild#WrapperInt": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.codebuild#WrapperLong": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     }
   }

@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -86,10 +85,10 @@
           "target": "com.amazonaws.elasticbeanstalk#DescribeAccountAttributes"
         },
         {
-          "target": "com.amazonaws.elasticbeanstalk#DescribeApplicationVersions"
+          "target": "com.amazonaws.elasticbeanstalk#DescribeApplications"
         },
         {
-          "target": "com.amazonaws.elasticbeanstalk#DescribeApplications"
+          "target": "com.amazonaws.elasticbeanstalk#DescribeApplicationVersions"
         },
         {
           "target": "com.amazonaws.elasticbeanstalk#DescribeConfigurationOptions"
@@ -177,15 +176,11 @@
           "cloudFormationName": "ElasticBeanstalk",
           "cloudTrailEventSource": "elasticbeanstalk.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "elasticbeanstalk"
+        },
+        "aws.protocols#awsQuery": {},
         "smithy.api#documentation": "<fullname>AWS Elastic Beanstalk</fullname>\n      \n    \n         <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,\n      fault-tolerant applications running on the Amazon Web Services cloud.</p>\n         <p>For more information about this product, go to the <a href=\"http://aws.amazon.com/elasticbeanstalk/\">AWS Elastic Beanstalk</a> details page. The location of the\n      latest AWS Elastic Beanstalk WSDL is <a href=\"http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl\">http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>.\n      To install the Software Development Kits (SDKs), Integrated Development Environment (IDE)\n      Toolkits, and command line tools that enable you to access the API, go to <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>.</p>\n         <p>\n            <b>Endpoints</b>\n         </p>\n         <p>For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to\n        <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region\">Regions and Endpoints</a> in the <i>Amazon Web Services\n      Glossary</i>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.query",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Elastic Beanstalk",
         "smithy.api#xmlNamespace": {
           "uri": "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"
@@ -229,38 +224,58 @@
     "com.amazonaws.elasticbeanstalk#AbortableOperationInProgress": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#ActionHistoryStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Completed": { },
-          "Failed": { },
-          "Unknown": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Completed"
+          },
+          {
+            "value": "Failed"
+          },
+          {
+            "value": "Unknown"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ActionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Scheduled": { },
-          "Pending": { },
-          "Running": { },
-          "Unknown": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Scheduled"
+          },
+          {
+            "value": "Pending"
+          },
+          {
+            "value": "Running"
+          },
+          {
+            "value": "Unknown"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ActionType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "InstanceRefresh": { },
-          "PlatformUpdate": { },
-          "Unknown": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "InstanceRefresh"
+          },
+          {
+            "value": "PlatformUpdate"
+          },
+          {
+            "value": "Unknown"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ApplicationArn": {
@@ -574,19 +589,29 @@
     "com.amazonaws.elasticbeanstalk#ApplicationVersionProccess": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#ApplicationVersionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Processed": { },
-          "Unprocessed": { },
-          "Failed": { },
-          "Processing": { },
-          "Building": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Processed"
+          },
+          {
+            "value": "Unprocessed"
+          },
+          {
+            "value": "Failed"
+          },
+          {
+            "value": "Processing"
+          },
+          {
+            "value": "Building"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ApplyEnvironmentManagedAction": {
@@ -616,7 +641,7 @@
           "target": "com.amazonaws.elasticbeanstalk#String",
           "traits": {
             "smithy.api#documentation": "<p>The action ID of the scheduled managed action to execute.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EnvironmentId": {
@@ -671,7 +696,7 @@
     "com.amazonaws.elasticbeanstalk#AutoCreateApplication": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#AutoScalingGroup": {
@@ -709,13 +734,13 @@
     "com.amazonaws.elasticbeanstalk#BoxedBoolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#BoxedInt": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#BuildConfiguration": {
@@ -731,7 +756,7 @@
           "target": "com.amazonaws.elasticbeanstalk#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ComputeType": {
@@ -744,7 +769,7 @@
           "target": "com.amazonaws.elasticbeanstalk#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the Docker image to use for this build project.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TimeoutInMinutes": {
@@ -862,7 +887,7 @@
           "target": "com.amazonaws.elasticbeanstalk#DNSCnamePrefix",
           "traits": {
             "smithy.api#documentation": "<p>The prefix used when this CNAME is reserved.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -893,7 +918,7 @@
     "com.amazonaws.elasticbeanstalk#CnameAvailability": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#CodeBuildNotInServiceRegionException": {
@@ -961,27 +986,36 @@
     "com.amazonaws.elasticbeanstalk#ComputeType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "BUILD_GENERAL1_SMALL": {
+        "smithy.api#enum": [
+          {
+            "value": "BUILD_GENERAL1_SMALL",
             "name": "BUILD_GENERAL1_SMALL"
           },
-          "BUILD_GENERAL1_MEDIUM": {
+          {
+            "value": "BUILD_GENERAL1_MEDIUM",
             "name": "BUILD_GENERAL1_MEDIUM"
           },
-          "BUILD_GENERAL1_LARGE": {
+          {
+            "value": "BUILD_GENERAL1_LARGE",
             "name": "BUILD_GENERAL1_LARGE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ConfigurationDeploymentStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "deployed": { },
-          "pending": { },
-          "failed": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "deployed"
+          },
+          {
+            "value": "pending"
+          },
+          {
+            "value": "failed"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ConfigurationOptionDefaultValue": {
@@ -1126,10 +1160,14 @@
     "com.amazonaws.elasticbeanstalk#ConfigurationOptionValueType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Scalar": { },
-          "List": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Scalar"
+          },
+          {
+            "value": "List"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ConfigurationOptionsDescription": {
@@ -1299,7 +1337,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application.</p>\n         <p>Constraint: This name must be unique within your account. If the specified name already\n      exists, the action returns an <code>InvalidParameterValue</code> error.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -1344,10 +1382,10 @@
           "target": "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException"
         },
         {
-          "target": "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException"
+          "target": "com.amazonaws.elasticbeanstalk#TooManyApplicationsException"
         },
         {
-          "target": "com.amazonaws.elasticbeanstalk#TooManyApplicationsException"
+          "target": "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException"
         }
       ],
       "traits": {
@@ -1361,7 +1399,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p> The name of the application. If no application is found with this name, and\n        <code>AutoCreateApplication</code> is <code>false</code>, returns an\n        <code>InvalidParameterValue</code> error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AutoCreateApplication": {
@@ -1410,7 +1448,7 @@
           "target": "com.amazonaws.elasticbeanstalk#VersionLabel",
           "traits": {
             "smithy.api#documentation": "<p>A label identifying this version.</p>\n         <p>Constraint: Must be unique per application. If an application version already exists\n      with this label for the specified application, AWS Elastic Beanstalk returns an\n        <code>InvalidParameterValue</code> error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1448,7 +1486,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application to associate with this configuration template. If no\n      application is found with this name, AWS Elastic Beanstalk returns an\n        <code>InvalidParameterValue</code> error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -1497,7 +1535,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ConfigurationTemplateName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration template.</p>\n\n         <p>Constraint: This name must be unique per application.</p>\n         <p>Default: If a configuration template already exists with this name, AWS Elastic\n      Beanstalk returns an <code>InvalidParameterValue</code> error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1532,7 +1570,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application that contains the version to be deployed.</p>\n         <p> If no application is found with this name, <code>CreateEnvironment</code> returns an\n        <code>InvalidParameterValue</code> error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CNAMEPrefix": {
@@ -1654,21 +1692,21 @@
           "target": "com.amazonaws.elasticbeanstalk#S3Location",
           "traits": {
             "smithy.api#documentation": "<p>The location of the platform definition archive in Amazon S3.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "PlatformName": {
           "target": "com.amazonaws.elasticbeanstalk#PlatformName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your custom platform.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "PlatformVersion": {
           "target": "com.amazonaws.elasticbeanstalk#PlatformVersion",
           "traits": {
             "smithy.api#documentation": "<p>The number, such as 1.0.2, for the new platform version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -1801,7 +1839,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TerminateEnvByForce": {
@@ -1845,7 +1883,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application to which the version belongs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DeleteSourceBundle": {
@@ -1858,7 +1896,7 @@
           "target": "com.amazonaws.elasticbeanstalk#VersionLabel",
           "traits": {
             "smithy.api#documentation": "<p>The label of the version to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1887,14 +1925,14 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application to delete the configuration template from.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TemplateName": {
           "target": "com.amazonaws.elasticbeanstalk#ConfigurationTemplateName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration template to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1918,14 +1956,14 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application the environment is associated with.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EnvironmentName": {
           "target": "com.amazonaws.elasticbeanstalk#EnvironmentName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the environment to delete the draft configuration from.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1984,7 +2022,7 @@
     "com.amazonaws.elasticbeanstalk#DeleteSourceBundle": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#Deployment": {
@@ -2202,7 +2240,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The application for the environment or configuration template.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EnvironmentName": {
@@ -2963,43 +3001,59 @@
     "com.amazonaws.elasticbeanstalk#EnvironmentHealth": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Green": { },
-          "Yellow": { },
-          "Red": { },
-          "Grey": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Green"
+          },
+          {
+            "value": "Yellow"
+          },
+          {
+            "value": "Red"
+          },
+          {
+            "value": "Grey"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#EnvironmentHealthAttribute": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Status": {
+        "smithy.api#enum": [
+          {
+            "value": "Status",
             "name": "Status"
           },
-          "Color": {
+          {
+            "value": "Color",
             "name": "Color"
           },
-          "Causes": {
+          {
+            "value": "Causes",
             "name": "Causes"
           },
-          "ApplicationMetrics": {
+          {
+            "value": "ApplicationMetrics",
             "name": "ApplicationMetrics"
           },
-          "InstancesHealth": {
+          {
+            "value": "InstancesHealth",
             "name": "InstancesHealth"
           },
-          "All": {
+          {
+            "value": "All",
             "name": "All"
           },
-          "HealthStatus": {
+          {
+            "value": "HealthStatus",
             "name": "HealthStatus"
           },
-          "RefreshedAt": {
+          {
+            "value": "RefreshedAt",
             "name": "RefreshedAt"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#EnvironmentHealthAttributes": {
@@ -3011,17 +3065,35 @@
     "com.amazonaws.elasticbeanstalk#EnvironmentHealthStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NoData": { },
-          "Unknown": { },
-          "Pending": { },
-          "Ok": { },
-          "Info": { },
-          "Warning": { },
-          "Degraded": { },
-          "Severe": { },
-          "Suspended": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "NoData"
+          },
+          {
+            "value": "Unknown"
+          },
+          {
+            "value": "Pending"
+          },
+          {
+            "value": "Ok"
+          },
+          {
+            "value": "Info"
+          },
+          {
+            "value": "Warning"
+          },
+          {
+            "value": "Degraded"
+          },
+          {
+            "value": "Severe"
+          },
+          {
+            "value": "Suspended"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#EnvironmentId": {
@@ -3074,10 +3146,14 @@
     "com.amazonaws.elasticbeanstalk#EnvironmentInfoType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "tail": { },
-          "bundle": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "tail"
+          },
+          {
+            "value": "bundle"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#EnvironmentLink": {
@@ -3208,13 +3284,23 @@
     "com.amazonaws.elasticbeanstalk#EnvironmentStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Launching": { },
-          "Updating": { },
-          "Ready": { },
-          "Terminating": { },
-          "Terminated": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Launching"
+          },
+          {
+            "value": "Updating"
+          },
+          {
+            "value": "Ready"
+          },
+          {
+            "value": "Terminating"
+          },
+          {
+            "value": "Terminated"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#EnvironmentTier": {
@@ -3340,14 +3426,26 @@
     "com.amazonaws.elasticbeanstalk#EventSeverity": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TRACE": { },
-          "DEBUG": { },
-          "INFO": { },
-          "WARN": { },
-          "ERROR": { },
-          "FATAL": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "TRACE"
+          },
+          {
+            "value": "DEBUG"
+          },
+          {
+            "value": "INFO"
+          },
+          {
+            "value": "WARN"
+          },
+          {
+            "value": "ERROR"
+          },
+          {
+            "value": "FATAL"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#ExceptionMessage": {
@@ -3356,15 +3454,29 @@
     "com.amazonaws.elasticbeanstalk#FailureType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "UpdateCancelled": { },
-          "CancellationFailed": { },
-          "RollbackFailed": { },
-          "RollbackSuccessful": { },
-          "InternalFailure": { },
-          "InvalidEnvironmentState": { },
-          "PermissionsError": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "UpdateCancelled"
+          },
+          {
+            "value": "CancellationFailed"
+          },
+          {
+            "value": "RollbackFailed"
+          },
+          {
+            "value": "RollbackSuccessful"
+          },
+          {
+            "value": "InternalFailure"
+          },
+          {
+            "value": "InvalidEnvironmentState"
+          },
+          {
+            "value": "PermissionsError"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#FileTypeExtension": {
@@ -3379,7 +3491,7 @@
     "com.amazonaws.elasticbeanstalk#ForceTerminate": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#GroupName": {
@@ -3397,7 +3509,7 @@
     "com.amazonaws.elasticbeanstalk#IncludeDeleted": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#IncludeDeletedBackTo": {
@@ -3497,41 +3609,52 @@
     "com.amazonaws.elasticbeanstalk#InstancesHealthAttribute": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "HealthStatus": {
+        "smithy.api#enum": [
+          {
+            "value": "HealthStatus",
             "name": "HealthStatus"
           },
-          "Color": {
+          {
+            "value": "Color",
             "name": "Color"
           },
-          "Causes": {
+          {
+            "value": "Causes",
             "name": "Causes"
           },
-          "ApplicationMetrics": {
+          {
+            "value": "ApplicationMetrics",
             "name": "ApplicationMetrics"
           },
-          "RefreshedAt": {
+          {
+            "value": "RefreshedAt",
             "name": "RefreshedAt"
           },
-          "LaunchedAt": {
+          {
+            "value": "LaunchedAt",
             "name": "LaunchedAt"
           },
-          "System": {
+          {
+            "value": "System",
             "name": "System"
           },
-          "Deployment": {
+          {
+            "value": "Deployment",
             "name": "Deployment"
           },
-          "AvailabilityZone": {
+          {
+            "value": "AvailabilityZone",
             "name": "AvailabilityZone"
           },
-          "InstanceType": {
+          {
+            "value": "InstanceType",
             "name": "InstanceType"
           },
-          "All": {
+          {
+            "value": "All",
             "name": "All"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#InstancesHealthAttributes": {
@@ -3793,7 +3916,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p>\n         <p>Must be the ARN of an Elastic Beanstalk environment.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4029,7 +4152,7 @@
           "target": "com.amazonaws.elasticbeanstalk#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Specify <code>true</code> to apply the rule, or <code>false</code> to disable\n      it.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxAgeInDays": {
@@ -4056,7 +4179,7 @@
           "target": "com.amazonaws.elasticbeanstalk#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Specify <code>true</code> to apply the rule, or <code>false</code> to disable\n      it.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxCount": {
@@ -4073,7 +4196,7 @@
     "com.amazonaws.elasticbeanstalk#MaxRecords": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -4101,19 +4224,19 @@
     "com.amazonaws.elasticbeanstalk#NullableDouble": {
       "type": "double",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#NullableInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#NullableLong": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#OperatingSystemName": {
@@ -4144,19 +4267,19 @@
     "com.amazonaws.elasticbeanstalk#OptionRestrictionMaxLength": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#OptionRestrictionMaxValue": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#OptionRestrictionMinValue": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#OptionRestrictionRegex": {
@@ -4409,7 +4532,7 @@
     "com.amazonaws.elasticbeanstalk#PlatformMaxRecords": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -4450,13 +4573,23 @@
     "com.amazonaws.elasticbeanstalk#PlatformStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Creating": { },
-          "Failed": { },
-          "Ready": { },
-          "Deleting": { },
-          "Deleted": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Creating"
+          },
+          {
+            "value": "Failed"
+          },
+          {
+            "value": "Ready"
+          },
+          {
+            "value": "Deleting"
+          },
+          {
+            "value": "Deleted"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#PlatformSummary": {
@@ -4640,7 +4773,7 @@
           "target": "com.amazonaws.elasticbeanstalk#EnvironmentInfoType",
           "traits": {
             "smithy.api#documentation": "<p>The type of information to request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4827,7 +4960,7 @@
           "target": "com.amazonaws.elasticbeanstalk#EnvironmentInfoType",
           "traits": {
             "smithy.api#documentation": "<p>The type of information to retrieve.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5026,21 +5159,21 @@
           "target": "com.amazonaws.elasticbeanstalk#SourceLocation",
           "traits": {
             "smithy.api#documentation": "<p>The location of the source code, as a formatted string, depending on the value of <code>SourceRepository</code>\n         </p>\n        <ul>\n            <li>\n\t              <p>For <code>CodeCommit</code>,\n\tthe format is the repository name and commit ID, separated by a forward slash.\n\tFor example,\n\t<code>my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</p>\n            </li>\n            <li>\n\t              <p>For <code>S3</code>,\n\tthe format is the S3 bucket name and object key, separated by a forward slash.\n\tFor example,\n\t<code>my-s3-bucket/Folders/my-source-file</code>.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceRepository": {
           "target": "com.amazonaws.elasticbeanstalk#SourceRepository",
           "traits": {
             "smithy.api#documentation": "<p>Location where the repository is stored.</p>\n         <ul>\n            <li>\n\t              <p>\n                  <code>CodeCommit</code>\n               </p>\n            </li>\n            <li>\n\t              <p>\n                  <code>S3</code>\n               </p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceType": {
           "target": "com.amazonaws.elasticbeanstalk#SourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of repository.</p>\n         <ul>\n            <li>\n\t              <p>\n                  <code>Git</code>\n               </p>\n            </li>\n            <li>\n\t              <p>\n                  <code>Zip</code>\n               </p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5097,19 +5230,27 @@
     "com.amazonaws.elasticbeanstalk#SourceRepository": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CodeCommit": { },
-          "S3": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CodeCommit"
+          },
+          {
+            "value": "S3"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#SourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Git": { },
-          "Zip": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Git"
+          },
+          {
+            "value": "Zip"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#StatusCodes": {
@@ -5285,7 +5426,7 @@
     "com.amazonaws.elasticbeanstalk#TerminateEnvForce": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#TerminateEnvironment": {
@@ -5340,7 +5481,7 @@
     "com.amazonaws.elasticbeanstalk#TerminateEnvironmentResources": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#TimeFilterEnd": {
@@ -5505,7 +5646,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application to update. If no such application is found,\n        <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error.\n    </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -5543,14 +5684,14 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceLifecycleConfig": {
           "target": "com.amazonaws.elasticbeanstalk#ApplicationResourceLifecycleConfig",
           "traits": {
             "smithy.api#documentation": "<p>The lifecycle configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5574,7 +5715,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application associated with this version.</p>\n         <p> If no application is found with this name, <code>UpdateApplication</code> returns an\n        <code>InvalidParameterValue</code> error.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -5587,7 +5728,7 @@
           "target": "com.amazonaws.elasticbeanstalk#VersionLabel",
           "traits": {
             "smithy.api#documentation": "<p>The name of the version to update.</p>\n         <p>If no application version is found with this label, <code>UpdateApplication</code>\n      returns an <code>InvalidParameterValue</code> error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5622,7 +5763,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application associated with the configuration template to\n      update.</p>\n         <p> If no application is found with this name, <code>UpdateConfigurationTemplate</code>\n      returns an <code>InvalidParameterValue</code> error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -5647,7 +5788,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ConfigurationTemplateName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration template to update.</p>\n         <p> If no configuration template is found with this name,\n        <code>UpdateConfigurationTemplate</code> returns an <code>InvalidParameterValue</code>\n      error. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5791,7 +5932,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resouce to be updated.</p>\n         <p>Must be the ARN of an Elastic Beanstalk environment.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagsToAdd": {
@@ -5811,7 +5952,7 @@
     "com.amazonaws.elasticbeanstalk#UserDefinedOption": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.elasticbeanstalk#ValidateConfigurationSettings": {
@@ -5841,7 +5982,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application that the configuration template or environment belongs\n      to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EnvironmentName": {
@@ -5854,7 +5995,7 @@
           "target": "com.amazonaws.elasticbeanstalk#ConfigurationOptionSettingsList",
           "traits": {
             "smithy.api#documentation": "<p>A list of the options and desired values to evaluate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TemplateName": {
@@ -5912,10 +6053,14 @@
     "com.amazonaws.elasticbeanstalk#ValidationSeverity": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "error": { },
-          "warning": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "error"
+          },
+          {
+            "value": "warning"
+          }
+        ]
       }
     },
     "com.amazonaws.elasticbeanstalk#VersionLabel": {

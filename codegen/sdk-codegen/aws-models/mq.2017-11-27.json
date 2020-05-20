@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -174,37 +173,44 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The status of the broker.",
-        "smithy.api#enum": {
-          "CREATION_IN_PROGRESS": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATION_IN_PROGRESS",
             "name": "CREATION_IN_PROGRESS"
           },
-          "CREATION_FAILED": {
+          {
+            "value": "CREATION_FAILED",
             "name": "CREATION_FAILED"
           },
-          "DELETION_IN_PROGRESS": {
+          {
+            "value": "DELETION_IN_PROGRESS",
             "name": "DELETION_IN_PROGRESS"
           },
-          "RUNNING": {
+          {
+            "value": "RUNNING",
             "name": "RUNNING"
           },
-          "REBOOT_IN_PROGRESS": {
+          {
+            "value": "REBOOT_IN_PROGRESS",
             "name": "REBOOT_IN_PROGRESS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mq#BrokerStorageType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The storage type of the broker.",
-        "smithy.api#enum": {
-          "EBS": {
+        "smithy.api#enum": [
+          {
+            "value": "EBS",
             "name": "EBS"
           },
-          "EFS": {
+          {
+            "value": "EFS",
             "name": "EFS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mq#BrokerSummary": {
@@ -268,17 +274,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The type of change pending for the ActiveMQ user.",
-        "smithy.api#enum": {
-          "CREATE": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATE",
             "name": "CREATE"
           },
-          "UPDATE": {
+          {
+            "value": "UPDATE",
             "name": "UPDATE"
           },
-          "DELETE": {
+          {
+            "value": "DELETE",
             "name": "DELETE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mq#Configuration": {
@@ -518,7 +527,7 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.",
-            "smithy.api#idempotencyToken": true,
+            "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "creatorRequestId"
           }
         },
@@ -779,8 +788,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of the resource tag.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -836,8 +845,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the broker.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ConsoleAccess": {
@@ -865,8 +874,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -876,34 +885,41 @@
     },
     "com.amazonaws.mq#CreateUserResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mq#DayOfWeek": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "MONDAY": {
+        "smithy.api#enum": [
+          {
+            "value": "MONDAY",
             "name": "MONDAY"
           },
-          "TUESDAY": {
+          {
+            "value": "TUESDAY",
             "name": "TUESDAY"
           },
-          "WEDNESDAY": {
+          {
+            "value": "WEDNESDAY",
             "name": "WEDNESDAY"
           },
-          "THURSDAY": {
+          {
+            "value": "THURSDAY",
             "name": "THURSDAY"
           },
-          "FRIDAY": {
+          {
+            "value": "FRIDAY",
             "name": "FRIDAY"
           },
-          "SATURDAY": {
+          {
+            "value": "SATURDAY",
             "name": "SATURDAY"
           },
-          "SUNDAY": {
+          {
+            "value": "SUNDAY",
             "name": "SUNDAY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mq#DeleteBroker": {
@@ -944,8 +960,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -997,8 +1013,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of the resource tag.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -1006,7 +1022,7 @@
           "traits": {
             "smithy.api#documentation": "An array of tag keys to delete",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1049,36 +1065,38 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the broker.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Username": {
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mq#DeleteUserResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mq#DeploymentMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The deployment mode of the broker.",
-        "smithy.api#enum": {
-          "SINGLE_INSTANCE": {
+        "smithy.api#enum": [
+          {
+            "value": "SINGLE_INSTANCE",
             "name": "SINGLE_INSTANCE"
           },
-          "ACTIVE_STANDBY_MULTI_AZ": {
+          {
+            "value": "ACTIVE_STANDBY_MULTI_AZ",
             "name": "ACTIVE_STANDBY_MULTI_AZ"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mq#DescribeBroker": {
@@ -1293,8 +1311,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1510,8 +1528,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the configuration.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1622,16 +1640,16 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the configuration.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ConfigurationRevision": {
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The revision of the configuration.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1707,16 +1725,16 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the broker.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Username": {
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1776,7 +1794,7 @@
           "traits": {
             "smithy.api#documentation": "Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).",
             "smithy.api#jsonName": "useAwsOwnedKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1788,11 +1806,12 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.",
-        "smithy.api#enum": {
-          "ACTIVEMQ": {
+        "smithy.api#enum": [
+          {
+            "value": "ACTIVEMQ",
             "name": "ACTIVEMQ"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mq#EngineVersion": {
@@ -1962,8 +1981,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the configuration.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -2126,8 +2145,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) of the resource tag.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2182,8 +2201,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the broker.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -2393,15 +2412,15 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the broker.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mq#RebootBrokerResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mq#SanitizationWarning": {
       "type": "structure",
@@ -2436,17 +2455,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The reason for which the XML elements or attributes were sanitized.",
-        "smithy.api#enum": {
-          "DISALLOWED_ELEMENT_REMOVED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISALLOWED_ELEMENT_REMOVED",
             "name": "DISALLOWED_ELEMENT_REMOVED"
           },
-          "DISALLOWED_ATTRIBUTE_REMOVED": {
+          {
+            "value": "DISALLOWED_ATTRIBUTE_REMOVED",
             "name": "DISALLOWED_ATTRIBUTE_REMOVED"
           },
-          "INVALID_ATTRIBUTE_VALUE_REMOVED": {
+          {
+            "value": "INVALID_ATTRIBUTE_VALUE_REMOVED",
             "name": "INVALID_ATTRIBUTE_VALUE_REMOVED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mq#UnauthorizedException": {
@@ -2521,8 +2543,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Configuration": {
@@ -2660,8 +2682,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the configuration.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Data": {
@@ -2771,8 +2793,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "The unique ID that Amazon MQ generates for the broker.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ConsoleAccess": {
@@ -2800,8 +2822,8 @@
           "target": "com.amazonaws.mq#__string",
           "traits": {
             "smithy.api#documentation": "Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -2811,7 +2833,7 @@
     },
     "com.amazonaws.mq#UpdateUserResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mq#User": {
       "type": "structure",
@@ -3124,15 +3146,11 @@
           "cloudFormationName": "AmazonMQ",
           "cloudTrailEventSource": "mq.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "mq"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AmazonMQ"
       }
     }

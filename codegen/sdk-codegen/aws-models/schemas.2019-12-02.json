@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -37,14 +36,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -59,17 +58,20 @@
     "com.amazonaws.schemas#CodeGenerationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATE_IN_PROGRESS": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATE_IN_PROGRESS",
             "name": "CREATE_IN_PROGRESS"
           },
-          "CREATE_COMPLETE": {
+          {
+            "value": "CREATE_COMPLETE",
             "name": "CREATE_COMPLETE"
           },
-          "CREATE_FAILED": {
+          {
+            "value": "CREATE_FAILED",
             "name": "CREATE_FAILED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.schemas#ConflictException": {
@@ -79,14 +81,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -145,7 +147,7 @@
           "target": "com.amazonaws.schemas#__stringMin20Max1600",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event bus.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -248,8 +250,8 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -328,7 +330,7 @@
         "Content": {
           "target": "com.amazonaws.schemas#__stringMin1Max100000",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -340,15 +342,15 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -361,7 +363,7 @@
         "Type": {
           "target": "com.amazonaws.schemas#Type",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -459,8 +461,8 @@
         "DiscovererId": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -505,8 +507,8 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -551,15 +553,15 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -604,22 +606,22 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaVersion": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -667,22 +669,22 @@
         "Language": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaVersion": {
@@ -765,8 +767,8 @@
         "DiscovererId": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -856,8 +858,8 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -935,15 +937,15 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaVersion": {
@@ -1014,14 +1016,16 @@
     "com.amazonaws.schemas#DiscovererState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STARTED": {
+        "smithy.api#enum": [
+          {
+            "value": "STARTED",
             "name": "STARTED"
           },
-          "STOPPED": {
+          {
+            "value": "STOPPED",
             "name": "STOPPED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.schemas#DiscovererSummary": {
@@ -1064,14 +1068,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1123,22 +1127,22 @@
         "Language": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaVersion": {
@@ -1155,7 +1159,7 @@
         "Body": {
           "target": "com.amazonaws.schemas#Body",
           "traits": {
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -1201,14 +1205,14 @@
           "target": "com.amazonaws.schemas#__listOfGetDiscoveredSchemaVersionItemInput",
           "traits": {
             "smithy.api#documentation": "<p>An array of strings that</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.schemas#Type",
           "traits": {
             "smithy.api#documentation": "<p>The type of event.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1237,14 +1241,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1260,14 +1264,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1491,15 +1495,15 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1573,8 +1577,8 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaNamePrefix": {
@@ -1639,8 +1643,8 @@
         "ResourceArn": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1651,7 +1655,7 @@
         "Tags": {
           "target": "com.amazonaws.schemas#Tags",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1695,13 +1699,13 @@
         "RoleArn": {
           "target": "com.amazonaws.schemas#__stringMin1Max1600",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Timeout": {
           "target": "com.amazonaws.schemas#__integerMin1Max29000",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1727,14 +1731,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1789,22 +1793,22 @@
         "Language": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaVersion": {
@@ -2014,7 +2018,7 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#httpQuery": "keywords",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Limit": {
@@ -2032,8 +2036,8 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2062,14 +2066,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2121,8 +2125,8 @@
         "DiscovererId": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2187,8 +2191,8 @@
         "DiscovererId": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2244,15 +2248,15 @@
         "ResourceArn": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.schemas#Tags",
           "traits": {
             "smithy.api#jsonName": "tags",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2276,14 +2280,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2295,11 +2299,12 @@
     "com.amazonaws.schemas#Type": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "OpenApi3": {
+        "smithy.api#enum": [
+          {
+            "value": "OpenApi3",
             "name": "OpenApi3"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.schemas#UnauthorizedException": {
@@ -2309,14 +2314,14 @@
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The error code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message string of the error output.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2364,14 +2369,14 @@
         "RoleArn": {
           "target": "com.amazonaws.schemas#__stringMin1Max1600",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.schemas#UnlockServiceLinkedRoleResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.schemas#UntagResource": {
       "type": "operation",
@@ -2407,15 +2412,15 @@
         "ResourceArn": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.schemas#__listOf__string",
           "traits": {
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2469,8 +2474,8 @@
         "DiscovererId": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2566,8 +2571,8 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2643,7 +2648,7 @@
           "target": "com.amazonaws.schemas#__stringMin0Max36",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the client token.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "Content": {
@@ -2661,15 +2666,15 @@
         "RegistryName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SchemaName": {
           "target": "com.amazonaws.schemas#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Type": {
@@ -2909,10 +2914,10 @@
           "target": "com.amazonaws.schemas#ListRegistries"
         },
         {
-          "target": "com.amazonaws.schemas#ListSchemaVersions"
+          "target": "com.amazonaws.schemas#ListSchemas"
         },
         {
-          "target": "com.amazonaws.schemas#ListSchemas"
+          "target": "com.amazonaws.schemas#ListSchemaVersions"
         },
         {
           "target": "com.amazonaws.schemas#ListTagsForResource"
@@ -2958,15 +2963,11 @@
           "cloudFormationName": "EventSchemas",
           "cloudTrailEventSource": "schemas.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "schemas"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>AWS EventBridge Schemas</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Schemas"
       }
     }
