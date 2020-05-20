@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -87,16 +86,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name to which the upload was taking place. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Key of the object for which the multipart upload was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -110,7 +109,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Upload ID that identifies the multipart upload.</p>",
             "smithy.api#httpQuery": "uploadId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -163,7 +162,7 @@
           "target": "com.amazonaws.s3#OwnerOverride",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the replica ownership. For default and valid values, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html\">PUT bucket\n      replication</a> in the <i>Amazon Simple Storage Service API Reference</i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -260,10 +259,10 @@
           "target": "com.amazonaws.s3#DeleteObject"
         },
         {
-          "target": "com.amazonaws.s3#DeleteObjectTagging"
+          "target": "com.amazonaws.s3#DeleteObjects"
         },
         {
-          "target": "com.amazonaws.s3#DeleteObjects"
+          "target": "com.amazonaws.s3#DeleteObjectTagging"
         },
         {
           "target": "com.amazonaws.s3#DeletePublicAccessBlock"
@@ -368,13 +367,13 @@
           "target": "com.amazonaws.s3#ListMultipartUploads"
         },
         {
-          "target": "com.amazonaws.s3#ListObjectVersions"
-        },
-        {
           "target": "com.amazonaws.s3#ListObjects"
         },
         {
           "target": "com.amazonaws.s3#ListObjectsV2"
+        },
+        {
+          "target": "com.amazonaws.s3#ListObjectVersions"
         },
         {
           "target": "com.amazonaws.s3#ListParts"
@@ -468,15 +467,13 @@
           "cloudFormationName": "S3",
           "cloudTrailEventSource": "s3.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "s3"
+        },
+        "aws.protocols#restXml": {
+          "noErrorWrapping": true
+        },
         "smithy.api#documentation": "<p></p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-xml",
-            "auth": [
-              "aws.s3"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Simple Storage Service",
         "smithy.api#xmlNamespace": {
           "uri": "http://s3.amazonaws.com/doc/2006-03-01/"
@@ -496,7 +493,7 @@
           "target": "com.amazonaws.s3#TagSet",
           "traits": {
             "smithy.api#documentation": "<p>The list of tags to use when evaluating an AND predicate.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Tag"
           }
         }
@@ -518,14 +515,14 @@
           "target": "com.amazonaws.s3#AnalyticsId",
           "traits": {
             "smithy.api#documentation": "<p>The ID that identifies the analytics configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StorageClassAnalysis": {
           "target": "com.amazonaws.s3#StorageClassAnalysis",
           "traits": {
             "smithy.api#documentation": "<p>\n     Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.\n  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -546,7 +543,7 @@
           "target": "com.amazonaws.s3#AnalyticsS3BucketDestination",
           "traits": {
             "smithy.api#documentation": "<p>A destination signifying output to an S3 bucket.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -590,7 +587,7 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket to which data is exported.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "BucketAccountId": {
@@ -603,7 +600,7 @@
           "target": "com.amazonaws.s3#AnalyticsS3ExportFileFormat",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the file format used when exporting data to Amazon S3.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Prefix": {
@@ -620,13 +617,21 @@
     "com.amazonaws.s3#AnalyticsS3ExportFileFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CSV": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CSV"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Body": {
       "type": "blob"
+    },
+    "com.amazonaws.s3#StreamingBody": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#streaming": {}
+      }
     },
     "com.amazonaws.s3#Bucket": {
       "type": "structure",
@@ -651,15 +656,19 @@
     "com.amazonaws.s3#BucketAccelerateStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Suspended": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Suspended"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#BucketAlreadyExists": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.</p>",
         "smithy.api#error": "client"
@@ -667,7 +676,7 @@
     },
     "com.amazonaws.s3#BucketAlreadyOwnedByYou": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error\n         in all AWS Regions except in the North Virginia Region. For legacy compatibility, if you\n         re-create an existing bucket that you already own in the North Virginia Region, Amazon S3\n         returns 200 OK and resets the bucket access control lists (ACLs).</p>",
         "smithy.api#error": "client"
@@ -676,12 +685,20 @@
     "com.amazonaws.s3#BucketCannedACL": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "private": { },
-          "public-read": { },
-          "public-read-write": { },
-          "authenticated-read": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "private"
+          },
+          {
+            "value": "public-read"
+          },
+          {
+            "value": "public-read-write"
+          },
+          {
+            "value": "authenticated-read"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#BucketLifecycleConfiguration": {
@@ -691,8 +708,8 @@
           "target": "com.amazonaws.s3#LifecycleRules",
           "traits": {
             "smithy.api#documentation": "<p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -704,19 +721,41 @@
     "com.amazonaws.s3#BucketLocationConstraint": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EU": { },
-          "eu-west-1": { },
-          "us-west-1": { },
-          "us-west-2": { },
-          "ap-south-1": { },
-          "ap-southeast-1": { },
-          "ap-southeast-2": { },
-          "ap-northeast-1": { },
-          "sa-east-1": { },
-          "cn-north-1": { },
-          "eu-central-1": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "EU"
+          },
+          {
+            "value": "eu-west-1"
+          },
+          {
+            "value": "us-west-1"
+          },
+          {
+            "value": "us-west-2"
+          },
+          {
+            "value": "ap-south-1"
+          },
+          {
+            "value": "ap-southeast-1"
+          },
+          {
+            "value": "ap-southeast-2"
+          },
+          {
+            "value": "ap-northeast-1"
+          },
+          {
+            "value": "sa-east-1"
+          },
+          {
+            "value": "cn-north-1"
+          },
+          {
+            "value": "eu-central-1"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#BucketLoggingStatus": {
@@ -733,11 +772,17 @@
     "com.amazonaws.s3#BucketLogsPermission": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FULL_CONTROL": { },
-          "READ": { },
-          "WRITE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "FULL_CONTROL"
+          },
+          {
+            "value": "READ"
+          },
+          {
+            "value": "WRITE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#BucketName": {
@@ -746,10 +791,14 @@
     "com.amazonaws.s3#BucketVersioningStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Suspended": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Suspended"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Buckets": {
@@ -780,8 +829,8 @@
           "target": "com.amazonaws.s3#CORSRules",
           "traits": {
             "smithy.api#documentation": "<p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "CORSRule"
           }
         }
@@ -797,7 +846,7 @@
           "target": "com.amazonaws.s3#AllowedHeaders",
           "traits": {
             "smithy.api#documentation": "<p>Headers that are specified in the <code>Access-Control-Request-Headers</code>\n      header. These headers are allowed in a preflight OPTIONS request. In response to\n      any preflight OPTIONS request, Amazon S3 returns any requested headers that are\n      allowed.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "AllowedHeader"
           }
         },
@@ -805,8 +854,8 @@
           "target": "com.amazonaws.s3#AllowedMethods",
           "traits": {
             "smithy.api#documentation": "<p>An HTTP method that you allow the origin to execute. Valid values are\n      <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and\n      <code>DELETE</code>.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "AllowedMethod"
           }
         },
@@ -814,8 +863,8 @@
           "target": "com.amazonaws.s3#AllowedOrigins",
           "traits": {
             "smithy.api#documentation": "<p>One or more origins you want customers to be able to access the bucket from.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "AllowedOrigin"
           }
         },
@@ -823,7 +872,7 @@
           "target": "com.amazonaws.s3#ExposeHeaders",
           "traits": {
             "smithy.api#documentation": "<p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "ExposeHeader"
           }
         },
@@ -1048,23 +1097,23 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the bucket to which the multipart upload was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which the multipart upload was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MultipartUpload": {
           "target": "com.amazonaws.s3#CompletedMultipartUpload",
           "traits": {
             "smithy.api#documentation": "<p>The container for the multipart upload request information.</p>",
-            "smithy.api#httpPayload": true,
+            "smithy.api#httpPayload": {},
             "smithy.api#xmlName": "CompleteMultipartUpload"
           }
         },
@@ -1079,7 +1128,7 @@
           "traits": {
             "smithy.api#documentation": "<p>ID for the initiated multipart upload.</p>",
             "smithy.api#httpQuery": "uploadId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1091,7 +1140,7 @@
           "target": "com.amazonaws.s3#CompletedPartList",
           "traits": {
             "smithy.api#documentation": "<p>Array of CompletedPart data types.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Part"
           }
         }
@@ -1129,11 +1178,17 @@
     "com.amazonaws.s3#CompressionType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NONE": { },
-          "GZIP": { },
-          "BZIP2": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "NONE"
+          },
+          {
+            "value": "GZIP"
+          },
+          {
+            "value": "BZIP2"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Condition": {
@@ -1182,7 +1237,7 @@
     },
     "com.amazonaws.s3#ContinuationEvent": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p></p>"
       }
@@ -1216,7 +1271,7 @@
           "target": "com.amazonaws.s3#CopyObjectResult",
           "traits": {
             "smithy.api#documentation": "<p>Container for all response elements.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "CopySourceVersionId": {
@@ -1297,8 +1352,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the destination bucket.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "CacheControl": {
@@ -1341,7 +1396,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</p>",
             "smithy.api#httpHeader": "x-amz-copy-source",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CopySourceIfMatch": {
@@ -1432,8 +1487,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The key of the destination object.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Metadata": {
@@ -1616,7 +1671,7 @@
     "com.amazonaws.s3#CopySourceSSECustomerKey": {
       "type": "string",
       "traits": {
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.s3#CopySourceSSECustomerKeyMD5": {
@@ -1690,15 +1745,15 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket to create.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "CreateBucketConfiguration": {
           "target": "com.amazonaws.s3#CreateBucketConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration information for the bucket.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "GrantFullControl": {
@@ -1855,8 +1910,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket to which to initiate the upload</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "CacheControl": {
@@ -1933,8 +1988,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which the multipart upload is to be initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Metadata": {
@@ -2084,8 +2139,8 @@
           "target": "com.amazonaws.s3#ObjectIdentifierList",
           "traits": {
             "smithy.api#documentation": "<p>The objects to delete.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Object"
           }
         },
@@ -2135,8 +2190,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket from which an analytics configuration is deleted.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -2144,7 +2199,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID that identifies the analytics configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2170,8 +2225,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the bucket whose <code>cors</code> configuration is being deleted.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2197,8 +2252,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the server-side encryption configuration to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2224,8 +2279,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the inventory configuration to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -2233,7 +2288,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the inventory configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2259,8 +2314,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name of the lifecycle to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2286,8 +2341,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the metrics configuration to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -2295,7 +2350,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the metrics configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2321,8 +2376,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2348,8 +2403,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>\n      The bucket name. \n    </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2361,8 +2416,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the bucket being deleted.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2388,8 +2443,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket that has the tag set to be removed.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2415,8 +2470,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name for which you want to remove the website configuration. </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2479,10 +2534,14 @@
     "com.amazonaws.s3#DeleteMarkerReplicationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#DeleteMarkerVersionId": {
@@ -2543,8 +2602,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name of the bucket containing the object. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "BypassGovernanceRetention": {
@@ -2558,8 +2617,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Key name of the object to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MFA": {
@@ -2620,16 +2679,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the objects from which to remove the tags. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Name of the tag.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "VersionId": {
@@ -2665,14 +2724,14 @@
           "target": "com.amazonaws.s3#DeletedObjects",
           "traits": {
             "smithy.api#documentation": "<p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>",
-            "smithy.api#xmlFlattened": true
+            "smithy.api#xmlFlattened": {}
           }
         },
         "Errors": {
           "target": "com.amazonaws.s3#Errors",
           "traits": {
             "smithy.api#documentation": "<p>Container for a failed delete operation that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Error"
           }
         },
@@ -2691,8 +2750,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the objects to delete. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "BypassGovernanceRetention": {
@@ -2706,8 +2765,8 @@
           "target": "com.amazonaws.s3#Delete",
           "traits": {
             "smithy.api#documentation": "<p>Container for the request.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         },
         "MFA": {
@@ -2746,8 +2805,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to\n      delete. </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2815,7 +2874,7 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EncryptionConfiguration": {
@@ -2863,9 +2922,11 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>",
-        "smithy.api#enum": {
-          "url": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "url"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Encryption": {
@@ -2875,7 +2936,7 @@
           "target": "com.amazonaws.s3#ServerSideEncryption",
           "traits": {
             "smithy.api#documentation": "<p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example,\n         AES256, aws:kms).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "KMSContext": {
@@ -2914,7 +2975,7 @@
     },
     "com.amazonaws.s3#EndEvent": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>A message that indicates the request is complete and no more messages will be sent. You should not assume that the request is complete until the client receives an <code>EndEvent</code>.</p>"
       }
@@ -2958,7 +3019,7 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The object key name to use when a 4XX class error occurs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2976,25 +3037,59 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The bucket event for which to send notifications.</p>",
-        "smithy.api#enum": {
-          "s3:ReducedRedundancyLostObject": { },
-          "s3:ObjectCreated:*": { },
-          "s3:ObjectCreated:Put": { },
-          "s3:ObjectCreated:Post": { },
-          "s3:ObjectCreated:Copy": { },
-          "s3:ObjectCreated:CompleteMultipartUpload": { },
-          "s3:ObjectRemoved:*": { },
-          "s3:ObjectRemoved:Delete": { },
-          "s3:ObjectRemoved:DeleteMarkerCreated": { },
-          "s3:ObjectRestore:*": { },
-          "s3:ObjectRestore:Post": { },
-          "s3:ObjectRestore:Completed": { },
-          "s3:Replication:*": { },
-          "s3:Replication:OperationFailedReplication": { },
-          "s3:Replication:OperationNotTracked": { },
-          "s3:Replication:OperationMissedThreshold": { },
-          "s3:Replication:OperationReplicatedAfterThreshold": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "s3:ReducedRedundancyLostObject"
+          },
+          {
+            "value": "s3:ObjectCreated:*"
+          },
+          {
+            "value": "s3:ObjectCreated:Put"
+          },
+          {
+            "value": "s3:ObjectCreated:Post"
+          },
+          {
+            "value": "s3:ObjectCreated:Copy"
+          },
+          {
+            "value": "s3:ObjectCreated:CompleteMultipartUpload"
+          },
+          {
+            "value": "s3:ObjectRemoved:*"
+          },
+          {
+            "value": "s3:ObjectRemoved:Delete"
+          },
+          {
+            "value": "s3:ObjectRemoved:DeleteMarkerCreated"
+          },
+          {
+            "value": "s3:ObjectRestore:*"
+          },
+          {
+            "value": "s3:ObjectRestore:Post"
+          },
+          {
+            "value": "s3:ObjectRestore:Completed"
+          },
+          {
+            "value": "s3:Replication:*"
+          },
+          {
+            "value": "s3:Replication:OperationFailedReplication"
+          },
+          {
+            "value": "s3:Replication:OperationNotTracked"
+          },
+          {
+            "value": "s3:Replication:OperationMissedThreshold"
+          },
+          {
+            "value": "s3:Replication:OperationReplicatedAfterThreshold"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#EventList": {
@@ -3010,7 +3105,7 @@
           "target": "com.amazonaws.s3#ExistingObjectReplicationStatus",
           "traits": {
             "smithy.api#documentation": "<p></p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3021,10 +3116,14 @@
     "com.amazonaws.s3#ExistingObjectReplicationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Expiration": {
@@ -3033,10 +3132,14 @@
     "com.amazonaws.s3#ExpirationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ExpiredObjectDeleteMarker": {
@@ -3060,11 +3163,12 @@
     "com.amazonaws.s3#ExpressionType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SQL": {
+        "smithy.api#enum": [
+          {
+            "value": "SQL",
             "name": "SQL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.s3#FetchOwner": {
@@ -3076,17 +3180,20 @@
     "com.amazonaws.s3#FileHeaderInfo": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "USE": {
+        "smithy.api#enum": [
+          {
+            "value": "USE",
             "name": "USE"
           },
-          "IGNORE": {
+          {
+            "value": "IGNORE",
             "name": "IGNORE"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.s3#FilterRule": {
@@ -3121,10 +3228,14 @@
     "com.amazonaws.s3#FilterRuleName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "prefix": { },
-          "suffix": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "prefix"
+          },
+          {
+            "value": "suffix"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#FilterRuleValue": {
@@ -3165,8 +3276,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the bucket for which the accelerate configuration is retrieved.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3213,8 +3324,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the S3 bucket whose ACL is being requested.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3243,7 +3354,7 @@
           "target": "com.amazonaws.s3#AnalyticsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration and any analyses for the analytics filter.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -3255,8 +3366,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket from which an analytics configuration is retrieved.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -3264,7 +3375,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID that identifies the analytics configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3293,7 +3404,7 @@
           "target": "com.amazonaws.s3#CORSRules",
           "traits": {
             "smithy.api#documentation": "<p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "CORSRule"
           }
         }
@@ -3306,8 +3417,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name for which to get the cors configuration.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3335,7 +3446,7 @@
         "ServerSideEncryptionConfiguration": {
           "target": "com.amazonaws.s3#ServerSideEncryptionConfiguration",
           "traits": {
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -3347,8 +3458,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket from which the server-side encryption configuration is retrieved.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3377,7 +3488,7 @@
           "target": "com.amazonaws.s3#InventoryConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the inventory configuration.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -3389,8 +3500,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the inventory configuration to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -3398,7 +3509,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the inventory configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3427,7 +3538,7 @@
           "target": "com.amazonaws.s3#LifecycleRules",
           "traits": {
             "smithy.api#documentation": "<p>Container for a lifecycle rule.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -3440,8 +3551,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which to get the lifecycle information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3481,8 +3592,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which to get the location.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3519,8 +3630,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name for which to get the logging information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3549,7 +3660,7 @@
           "target": "com.amazonaws.s3#MetricsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the metrics configuration.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -3561,8 +3672,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the metrics configuration to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -3570,7 +3681,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the metrics configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3599,8 +3710,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the bucket for which to get the notification configuration</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3640,8 +3751,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name for which to get the bucket policy.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3670,7 +3781,7 @@
           "target": "com.amazonaws.s3#PolicyStatus",
           "traits": {
             "smithy.api#documentation": "<p>The policy status for the specified bucket.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -3682,8 +3793,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon S3 bucket whose policy status you want to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3711,7 +3822,7 @@
         "ReplicationConfiguration": {
           "target": "com.amazonaws.s3#ReplicationConfiguration",
           "traits": {
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -3723,8 +3834,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name for which to get the replication information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3764,8 +3875,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which to get the payment request configuration</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3794,7 +3905,7 @@
           "target": "com.amazonaws.s3#TagSet",
           "traits": {
             "smithy.api#documentation": "<p>Contains the tag set.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3806,8 +3917,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which to get the tagging information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3854,8 +3965,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which to get the versioning information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3913,8 +4024,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name for which to get the website configuration.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3994,16 +4105,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name that contains the object for which to get the ACL information. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The key of the object for which to get the ACL information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -4045,7 +4156,7 @@
           "target": "com.amazonaws.s3#ObjectLockLegalHold",
           "traits": {
             "smithy.api#documentation": "<p>The current Legal Hold status for the specified object.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -4057,16 +4168,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the object whose Legal\n       Hold status you want to retrieve.  </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The key name for the object whose Legal Hold\n      status you want to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -4108,7 +4219,7 @@
           "target": "com.amazonaws.s3#ObjectLockConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The specified bucket's Object Lock configuration.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -4120,8 +4231,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket whose Object Lock configuration you want to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4137,11 +4248,10 @@
           }
         },
         "Body": {
-          "target": "com.amazonaws.s3#Body",
+          "target": "com.amazonaws.s3#StreamingBody",
           "traits": {
             "smithy.api#documentation": "<p>Object data.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#streaming": { }
+            "smithy.api#httpPayload": {}
           }
         },
         "CacheControl": {
@@ -4355,8 +4465,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the object. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IfMatch": {
@@ -4391,8 +4501,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Key of the object to get.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "PartNumber": {
@@ -4511,7 +4621,7 @@
           "target": "com.amazonaws.s3#ObjectLockRetention",
           "traits": {
             "smithy.api#documentation": "<p>The container element for an object's retention settings.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -4523,16 +4633,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the object whose retention settings you want to retrieve. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The key name for the object whose retention settings you want to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -4574,7 +4684,7 @@
           "target": "com.amazonaws.s3#TagSet",
           "traits": {
             "smithy.api#documentation": "<p>Contains the tag set.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VersionId": {
@@ -4593,16 +4703,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the object for which to get the tagging information. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which to get the tagging information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "VersionId": {
@@ -4635,11 +4745,10 @@
       "type": "structure",
       "members": {
         "Body": {
-          "target": "com.amazonaws.s3#Body",
+          "target": "com.amazonaws.s3#StreamingBody",
           "traits": {
             "smithy.api#documentation": "<p>A Bencoded dictionary as defined by the BitTorrent specification</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#streaming": { }
+            "smithy.api#httpPayload": {}
           }
         },
         "RequestCharged": {
@@ -4657,16 +4766,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the object for which to get the torrent files.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The object key for which to get the information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -4701,7 +4810,7 @@
           "target": "com.amazonaws.s3#PublicAccessBlockConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3\n      bucket.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -4713,8 +4822,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you\n      want to retrieve. </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4726,7 +4835,7 @@
           "target": "com.amazonaws.s3#Tier",
           "traits": {
             "smithy.api#documentation": "<p>Glacier retrieval tier at which the restore will be processed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -4794,8 +4903,8 @@
           "target": "com.amazonaws.s3#Type",
           "traits": {
             "smithy.api#documentation": "<p>Type of grantee</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlAttribute": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlAttribute": {},
             "smithy.api#xmlName": "xsi:type"
           }
         },
@@ -4849,8 +4958,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5084,8 +5193,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the object.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IfMatch": {
@@ -5120,8 +5229,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The object key.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "PartNumber": {
@@ -5205,7 +5314,7 @@
           "target": "com.amazonaws.s3#Suffix",
           "traits": {
             "smithy.api#documentation": "<p>A suffix that is appended to a request that is for a directory on the website endpoint (for\n         example,if the suffix is index.html and you make a request to samplebucket/images/ the data\n         that is returned will be for the object with the key name images/index.html) The suffix\n         must not be empty and must not include a slash character.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5275,7 +5384,7 @@
           "target": "com.amazonaws.s3#InventoryDestination",
           "traits": {
             "smithy.api#documentation": "<p>Contains information about where to publish the inventory results.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Filter": {
@@ -5288,21 +5397,21 @@
           "target": "com.amazonaws.s3#InventoryId",
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the inventory configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IncludedObjectVersions": {
           "target": "com.amazonaws.s3#InventoryIncludedObjectVersions",
           "traits": {
             "smithy.api#documentation": "<p>Object versions to include in the inventory list. If set to <code>All</code>, the list includes all the object versions, which adds the version-related fields <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to the list. If set to <code>Current</code>, the list does not contain these version-related fields.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IsEnabled": {
           "target": "com.amazonaws.s3#IsEnabled",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the inventory is enabled or disabled. If set to <code>True</code>, an inventory list is generated. If set to <code>False</code>, no inventory list is generated.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OptionalFields": {
@@ -5315,7 +5424,7 @@
           "target": "com.amazonaws.s3#InventorySchedule",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the schedule for generating inventory results.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5336,7 +5445,7 @@
           "target": "com.amazonaws.s3#InventoryS3BucketDestination",
           "traits": {
             "smithy.api#documentation": "<p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5373,7 +5482,7 @@
           "target": "com.amazonaws.s3#Prefix",
           "traits": {
             "smithy.api#documentation": "<p>The prefix that an object must have to be included in the inventory results.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5384,20 +5493,30 @@
     "com.amazonaws.s3#InventoryFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CSV": { },
-          "ORC": { },
-          "Parquet": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CSV"
+          },
+          {
+            "value": "ORC"
+          },
+          {
+            "value": "Parquet"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#InventoryFrequency": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Daily": { },
-          "Weekly": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Daily"
+          },
+          {
+            "value": "Weekly"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#InventoryId": {
@@ -5406,28 +5525,54 @@
     "com.amazonaws.s3#InventoryIncludedObjectVersions": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "All": { },
-          "Current": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "All"
+          },
+          {
+            "value": "Current"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#InventoryOptionalField": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Size": { },
-          "LastModifiedDate": { },
-          "StorageClass": { },
-          "ETag": { },
-          "IsMultipartUploaded": { },
-          "ReplicationStatus": { },
-          "EncryptionStatus": { },
-          "ObjectLockRetainUntilDate": { },
-          "ObjectLockMode": { },
-          "ObjectLockLegalHoldStatus": { },
-          "IntelligentTieringAccessTier": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Size"
+          },
+          {
+            "value": "LastModifiedDate"
+          },
+          {
+            "value": "StorageClass"
+          },
+          {
+            "value": "ETag"
+          },
+          {
+            "value": "IsMultipartUploaded"
+          },
+          {
+            "value": "ReplicationStatus"
+          },
+          {
+            "value": "EncryptionStatus"
+          },
+          {
+            "value": "ObjectLockRetainUntilDate"
+          },
+          {
+            "value": "ObjectLockMode"
+          },
+          {
+            "value": "ObjectLockLegalHoldStatus"
+          },
+          {
+            "value": "IntelligentTieringAccessTier"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#InventoryOptionalFields": {
@@ -5452,7 +5597,7 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket where inventory results will be published.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Encryption": {
@@ -5465,7 +5610,7 @@
           "target": "com.amazonaws.s3#InventoryFormat",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the output format of the inventory results.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Prefix": {
@@ -5486,7 +5631,7 @@
           "target": "com.amazonaws.s3#InventoryFrequency",
           "traits": {
             "smithy.api#documentation": "<p>Specifies how frequently inventory results are produced.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5537,14 +5682,16 @@
     "com.amazonaws.s3#JSONType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DOCUMENT": {
+        "smithy.api#enum": [
+          {
+            "value": "DOCUMENT",
             "name": "DOCUMENT"
           },
-          "LINES": {
+          {
+            "value": "LINES",
             "name": "LINES"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.s3#KMSContext": {
@@ -5569,8 +5716,8 @@
           "target": "com.amazonaws.s3#EventList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 bucket event for which to invoke the AWS Lambda function.\n         For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Supported Event Types</a> in the\n         <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Event"
           }
         },
@@ -5584,7 +5731,7 @@
           "target": "com.amazonaws.s3#LambdaFunctionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.</p>",
-            "smithy.api#required": true,
+            "smithy.api#required": {},
             "smithy.api#xmlName": "CloudFunction"
           }
         }
@@ -5656,14 +5803,14 @@
           "target": "com.amazonaws.s3#NoncurrentVersionTransitionList",
           "traits": {
             "smithy.api#documentation": "<p> Specifies the transition rule for the lifecycle rule that describes when noncurrent\n         objects transition to a specific storage class. If your bucket is versioning-enabled (or\n         versioning is suspended), you can set this action to request that Amazon S3 transition\n         noncurrent object versions to a specific storage class at a set period in the object's\n         lifetime. </p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "NoncurrentVersionTransition"
           }
         },
         "Prefix": {
           "target": "com.amazonaws.s3#Prefix",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>Prefix identifying one or more objects to which the rule applies. This is\n         No longer used; use <code>Filter</code> instead.</p>"
           }
         },
@@ -5671,14 +5818,14 @@
           "target": "com.amazonaws.s3#ExpirationStatus",
           "traits": {
             "smithy.api#documentation": "<p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Transitions": {
           "target": "com.amazonaws.s3#TransitionList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Transition"
           }
         }
@@ -5700,7 +5847,7 @@
           "target": "com.amazonaws.s3#TagSet",
           "traits": {
             "smithy.api#documentation": "<p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Tag"
           }
         }
@@ -5762,7 +5909,7 @@
           "target": "com.amazonaws.s3#AnalyticsConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The list of analytics configurations for a bucket.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "AnalyticsConfiguration"
           }
         },
@@ -5793,8 +5940,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket from which analytics configurations are retrieved.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContinuationToken": {
@@ -5836,7 +5983,7 @@
           "target": "com.amazonaws.s3#InventoryConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The list of inventory configurations for a bucket.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "InventoryConfiguration"
           }
         },
@@ -5861,8 +6008,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the inventory configurations to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContinuationToken": {
@@ -5910,7 +6057,7 @@
           "target": "com.amazonaws.s3#MetricsConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The list of metrics configurations for a bucket.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "MetricsConfiguration"
           }
         },
@@ -5929,8 +6076,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the metrics configurations to retrieve.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContinuationToken": {
@@ -6003,7 +6150,7 @@
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a delimiter in the request, then the result returns each distinct key\n         prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key\n         prefixes are returned in the <code>Prefix</code> child element.</p>",
-            "smithy.api#xmlFlattened": true
+            "smithy.api#xmlFlattened": {}
           }
         },
         "Delimiter": {
@@ -6064,7 +6211,7 @@
           "target": "com.amazonaws.s3#MultipartUploadList",
           "traits": {
             "smithy.api#documentation": "<p>Container for elements related to a particular multipart upload. A response can contain\n         zero or more <code>Upload</code> elements.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Upload"
           }
         }
@@ -6077,8 +6224,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the bucket to which the multipart upload was initiated. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Delimiter": {
@@ -6148,14 +6295,14 @@
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
             "smithy.api#documentation": "<p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>",
-            "smithy.api#xmlFlattened": true
+            "smithy.api#xmlFlattened": {}
           }
         },
         "DeleteMarkers": {
           "target": "com.amazonaws.s3#DeleteMarkers",
           "traits": {
             "smithy.api#documentation": "<p>Container for an object that is a delete marker.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "DeleteMarker"
           }
         },
@@ -6223,7 +6370,7 @@
           "target": "com.amazonaws.s3#ObjectVersionList",
           "traits": {
             "smithy.api#documentation": "<p>Container for version information.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Version"
           }
         }
@@ -6236,8 +6383,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket  name that contains the objects.  </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Delimiter": {
@@ -6312,14 +6459,14 @@
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
             "smithy.api#documentation": "<p>All of the keys rolled up in a common prefix count as a single return when calculating the number of returns. </p>\n         \n         <p>A response can contain CommonPrefixes only if you specify a delimiter.</p>\n         \n         <p>CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.</p>\n         \n        <p> CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.</p>\n         \n         <p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>",
-            "smithy.api#xmlFlattened": true
+            "smithy.api#xmlFlattened": {}
           }
         },
         "Contents": {
           "target": "com.amazonaws.s3#ObjectList",
           "traits": {
             "smithy.api#documentation": "<p>Metadata about each object returned.</p>",
-            "smithy.api#xmlFlattened": true
+            "smithy.api#xmlFlattened": {}
           }
         },
         "Delimiter": {
@@ -6379,8 +6526,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket containing the objects.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Delimiter": {
@@ -6455,14 +6602,14 @@
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
             "smithy.api#documentation": "<p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>\n      \n         <p>A response can contain <code>CommonPrefixes</code> only if you specify a delimiter.</p>\n      \n         <p>\n            <code>CommonPrefixes</code> contains all (if there are any) keys between <code>Prefix</code> and the next occurrence of the string specified by a delimiter.</p>\n      \n         <p>\n            <code>CommonPrefixes</code> lists keys that act like subdirectories in the directory specified by <code>Prefix</code>.</p>\n      \n         <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash (<code>/</code>) as in <code>notes/summer/july</code>, the common prefix is <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns. </p>",
-            "smithy.api#xmlFlattened": true
+            "smithy.api#xmlFlattened": {}
           }
         },
         "Contents": {
           "target": "com.amazonaws.s3#ObjectList",
           "traits": {
             "smithy.api#documentation": "<p>Metadata about each object returned.</p>",
-            "smithy.api#xmlFlattened": true
+            "smithy.api#xmlFlattened": {}
           }
         },
         "ContinuationToken": {
@@ -6534,8 +6681,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Bucket name to list.  </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContinuationToken": {
@@ -6682,7 +6829,7 @@
           "target": "com.amazonaws.s3#Parts",
           "traits": {
             "smithy.api#documentation": "<p> Container for elements related to a particular part. A response can contain zero or\n         more <code>Part</code> elements.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Part"
           }
         },
@@ -6713,16 +6860,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the bucket to which the parts are being uploaded. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which the multipart upload was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxParts": {
@@ -6750,7 +6897,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Upload ID identifying the multipart upload whose parts are being listed.</p>",
             "smithy.api#httpQuery": "uploadId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6768,7 +6915,7 @@
           "target": "com.amazonaws.s3#TargetBucket",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your\n         logs delivered to any bucket that you own, including the same bucket that is being logged.\n         You can also configure multiple buckets to deliver their logs to the same target bucket. In\n         this case, you should choose a different <code>TargetPrefix</code> for each source bucket\n         so that the delivered log files can be distinguished by key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TargetGrants": {
@@ -6781,7 +6928,7 @@
           "target": "com.amazonaws.s3#TargetPrefix",
           "traits": {
             "smithy.api#documentation": "<p>A prefix for all log object keys. If you store log files from multiple Amazon S3\n      buckets in a single bucket, you can use a prefix to distinguish which log files\n      came from which bucket.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -6795,19 +6942,27 @@
     "com.amazonaws.s3#MFADelete": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#MFADeleteStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Marker": {
@@ -6840,10 +6995,14 @@
     "com.amazonaws.s3#MetadataDirective": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "COPY": { },
-          "REPLACE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "COPY"
+          },
+          {
+            "value": "REPLACE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#MetadataEntry": {
@@ -6879,14 +7038,14 @@
           "target": "com.amazonaws.s3#ReplicationTimeValue",
           "traits": {
             "smithy.api#documentation": "<p>\n    A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.\n  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Status": {
           "target": "com.amazonaws.s3#MetricsStatus",
           "traits": {
             "smithy.api#documentation": "<p>\n    Specifies whether the replication metrics are enabled.\n  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -6907,7 +7066,7 @@
           "target": "com.amazonaws.s3#TagSet",
           "traits": {
             "smithy.api#documentation": "<p>The list of tags used when evaluating an AND predicate.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Tag"
           }
         }
@@ -6929,7 +7088,7 @@
           "target": "com.amazonaws.s3#MetricsId",
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the metrics configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -6975,10 +7134,14 @@
     "com.amazonaws.s3#MetricsStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Minutes": {
@@ -7060,7 +7223,7 @@
     },
     "com.amazonaws.s3#NoSuchBucket": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The specified bucket does not exist.</p>",
         "smithy.api#error": "client"
@@ -7068,7 +7231,7 @@
     },
     "com.amazonaws.s3#NoSuchKey": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The specified key does not exist.</p>",
         "smithy.api#error": "client"
@@ -7076,7 +7239,7 @@
     },
     "com.amazonaws.s3#NoSuchUpload": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The specified multipart upload does not exist.</p>",
         "smithy.api#error": "client"
@@ -7129,7 +7292,7 @@
           "target": "com.amazonaws.s3#LambdaFunctionConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "CloudFunctionConfiguration"
           }
         },
@@ -7137,7 +7300,7 @@
           "target": "com.amazonaws.s3#QueueConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "QueueConfiguration"
           }
         },
@@ -7145,7 +7308,7 @@
           "target": "com.amazonaws.s3#TopicConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The topic to which notifications are sent and the events for which notifications are generated.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "TopicConfiguration"
           }
         }
@@ -7220,7 +7383,7 @@
     },
     "com.amazonaws.s3#ObjectAlreadyInActiveTierError": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>This operation is not allowed against this storage tier.</p>",
         "smithy.api#error": "client"
@@ -7229,15 +7392,29 @@
     "com.amazonaws.s3#ObjectCannedACL": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "private": { },
-          "public-read": { },
-          "public-read-write": { },
-          "authenticated-read": { },
-          "aws-exec-read": { },
-          "bucket-owner-read": { },
-          "bucket-owner-full-control": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "private"
+          },
+          {
+            "value": "public-read"
+          },
+          {
+            "value": "public-read-write"
+          },
+          {
+            "value": "authenticated-read"
+          },
+          {
+            "value": "aws-exec-read"
+          },
+          {
+            "value": "bucket-owner-read"
+          },
+          {
+            "value": "bucket-owner-full-control"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ObjectIdentifier": {
@@ -7247,7 +7424,7 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Key name of the object to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VersionId": {
@@ -7304,9 +7481,11 @@
     "com.amazonaws.s3#ObjectLockEnabled": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ObjectLockEnabledForBucket": {
@@ -7329,19 +7508,27 @@
     "com.amazonaws.s3#ObjectLockLegalHoldStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ON": { },
-          "OFF": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ON"
+          },
+          {
+            "value": "OFF"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ObjectLockMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "GOVERNANCE": { },
-          "COMPLIANCE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "GOVERNANCE"
+          },
+          {
+            "value": "COMPLIANCE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ObjectLockRetainUntilDate": {
@@ -7373,10 +7560,14 @@
     "com.amazonaws.s3#ObjectLockRetentionMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "GOVERNANCE": { },
-          "COMPLIANCE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "GOVERNANCE"
+          },
+          {
+            "value": "COMPLIANCE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ObjectLockRule": {
@@ -7398,7 +7589,7 @@
     },
     "com.amazonaws.s3#ObjectNotInActiveTierError": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The source object of the COPY operation is not in the active tier and is only stored in Amazon\n         S3 Glacier.</p>",
         "smithy.api#error": "client"
@@ -7407,15 +7598,29 @@
     "com.amazonaws.s3#ObjectStorageClass": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STANDARD": { },
-          "REDUCED_REDUNDANCY": { },
-          "GLACIER": { },
-          "STANDARD_IA": { },
-          "ONEZONE_IA": { },
-          "INTELLIGENT_TIERING": { },
-          "DEEP_ARCHIVE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD"
+          },
+          {
+            "value": "REDUCED_REDUNDANCY"
+          },
+          {
+            "value": "GLACIER"
+          },
+          {
+            "value": "STANDARD_IA"
+          },
+          {
+            "value": "ONEZONE_IA"
+          },
+          {
+            "value": "INTELLIGENT_TIERING"
+          },
+          {
+            "value": "DEEP_ARCHIVE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ObjectVersion": {
@@ -7486,9 +7691,11 @@
     "com.amazonaws.s3#ObjectVersionStorageClass": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STANDARD": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#OutputLocation": {
@@ -7548,14 +7755,16 @@
     "com.amazonaws.s3#OwnerOverride": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Destination": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Destination"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ParquetInput": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Container for Parquet.</p>"
       }
@@ -7610,22 +7819,36 @@
     "com.amazonaws.s3#Payer": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Requester": { },
-          "BucketOwner": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Requester"
+          },
+          {
+            "value": "BucketOwner"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Permission": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FULL_CONTROL": { },
-          "WRITE": { },
-          "WRITE_ACP": { },
-          "READ": { },
-          "READ_ACP": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "FULL_CONTROL"
+          },
+          {
+            "value": "WRITE"
+          },
+          {
+            "value": "WRITE_ACP"
+          },
+          {
+            "value": "READ"
+          },
+          {
+            "value": "READ_ACP"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Policy": {
@@ -7685,7 +7908,7 @@
           "target": "com.amazonaws.s3#Progress",
           "traits": {
             "smithy.api#documentation": "<p>The Progress event details.</p>",
-            "smithy.api#eventPayload": true
+            "smithy.api#eventPayload": {}
           }
         }
       },
@@ -7696,10 +7919,14 @@
     "com.amazonaws.s3#Protocol": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "http": { },
-          "https": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "http"
+          },
+          {
+            "value": "https"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#PublicAccessBlockConfiguration": {
@@ -7759,16 +7986,16 @@
           "target": "com.amazonaws.s3#AccelerateConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Container for setting the transfer acceleration state.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         },
         "Bucket": {
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the bucket for which the accelerate configuration is set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -7801,15 +8028,15 @@
           "target": "com.amazonaws.s3#AccessControlPolicy",
           "traits": {
             "smithy.api#documentation": "<p>Contains the elements that set the ACL permissions for an object per grantee.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "Bucket": {
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket to which to apply the ACL.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -7877,16 +8104,16 @@
           "target": "com.amazonaws.s3#AnalyticsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration and any analyses for the analytics filter.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         },
         "Bucket": {
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket to which an analytics configuration is stored.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -7894,7 +8121,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID that identifies the analytics configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7920,16 +8147,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the bucket impacted by the <code>cors</code>configuration.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "CORSConfiguration": {
           "target": "com.amazonaws.s3#CORSConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev//cors.html\">Enabling Cross-Origin Resource\n            Sharing</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -7962,8 +8189,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or customer master keys stored in AWS KMS (SSE-KMS). For information about the Amazon S3 default encryption feature, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html\">Amazon S3 Default Bucket Encryption</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -7976,8 +8203,8 @@
         "ServerSideEncryptionConfiguration": {
           "target": "com.amazonaws.s3#ServerSideEncryptionConfiguration",
           "traits": {
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8003,8 +8230,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket where the inventory configuration will be stored.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -8012,15 +8239,15 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the inventory configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InventoryConfiguration": {
           "target": "com.amazonaws.s3#InventoryConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the inventory configuration.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8046,15 +8273,15 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which to set the configuration.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LifecycleConfiguration": {
           "target": "com.amazonaws.s3#BucketLifecycleConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -8080,16 +8307,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which to set the logging parameters.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "BucketLoggingStatus": {
           "target": "com.amazonaws.s3#BucketLoggingStatus",
           "traits": {
             "smithy.api#documentation": "<p>Container for logging status information.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8122,8 +8349,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket for which the metrics configuration is set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -8131,15 +8358,15 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID used to identify the metrics configuration.</p>",
             "smithy.api#httpQuery": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MetricsConfiguration": {
           "target": "com.amazonaws.s3#MetricsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the metrics configuration.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8165,15 +8392,15 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NotificationConfiguration": {
           "target": "com.amazonaws.s3#NotificationConfiguration",
           "traits": {
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8199,8 +8426,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ConfirmRemoveSelfBucketAccess": {
@@ -8221,7 +8448,7 @@
           "target": "com.amazonaws.s3#Policy",
           "traits": {
             "smithy.api#documentation": "<p>The bucket policy as a JSON document.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -8247,8 +8474,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8261,8 +8488,8 @@
         "ReplicationConfiguration": {
           "target": "com.amazonaws.s3#ReplicationConfiguration",
           "traits": {
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         },
         "Token": {
@@ -8295,8 +8522,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8310,8 +8537,8 @@
           "target": "com.amazonaws.s3#RequestPaymentConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Container for Payer.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8337,8 +8564,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8352,8 +8579,8 @@
           "target": "com.amazonaws.s3#Tagging",
           "traits": {
             "smithy.api#documentation": "<p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8379,8 +8606,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8401,8 +8628,8 @@
           "target": "com.amazonaws.s3#VersioningConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Container for setting the versioning state.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8428,8 +8655,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8443,8 +8670,8 @@
           "target": "com.amazonaws.s3#WebsiteConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Container for the request.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -8513,15 +8740,15 @@
           "target": "com.amazonaws.s3#AccessControlPolicy",
           "traits": {
             "smithy.api#documentation": "<p>Contains the elements that set the ACL permissions for an object per grantee.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "Bucket": {
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name that contains the object to which you want to attach the ACL. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8570,8 +8797,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Key for which the PUT operation was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -8624,8 +8851,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the object that you want to place a Legal Hold on. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8639,15 +8866,15 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The key name for the object that you want to place a Legal Hold on.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LegalHold": {
           "target": "com.amazonaws.s3#ObjectLockLegalHold",
           "traits": {
             "smithy.api#documentation": "<p>Container element for the Legal Hold configuration you want to apply to the specified object.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "RequestPayer": {
@@ -8700,8 +8927,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket whose Object Lock configuration you want to create or replace.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -8715,7 +8942,7 @@
           "target": "com.amazonaws.s3#ObjectLockConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The Object Lock configuration that you want to apply to the specified bucket.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "RequestPayer": {
@@ -8811,19 +9038,18 @@
           }
         },
         "Body": {
-          "target": "com.amazonaws.s3#Body",
+          "target": "com.amazonaws.s3#StreamingBody",
           "traits": {
             "smithy.api#documentation": "<p>Object data.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#streaming": { }
+            "smithy.api#httpPayload": {}
           }
         },
         "Bucket": {
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Bucket name to which the PUT operation was initiated. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "CacheControl": {
@@ -8914,8 +9140,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which the PUT operation was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Metadata": {
@@ -9052,8 +9278,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name that contains the object you want to apply this Object Retention configuration to. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "BypassGovernanceRetention": {
@@ -9074,8 +9300,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The key name for the object that you want to apply this Object Retention configuration to.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -9088,7 +9314,7 @@
           "target": "com.amazonaws.s3#ObjectLockRetention",
           "traits": {
             "smithy.api#documentation": "<p>The container element for the Object Retention configuration.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "VersionId": {
@@ -9136,8 +9362,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name containing the object. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -9151,16 +9377,16 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Name of the tag.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tagging": {
           "target": "com.amazonaws.s3#Tagging",
           "traits": {
             "smithy.api#documentation": "<p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         },
         "VersionId": {
@@ -9193,8 +9419,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you\n      want to set.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentMD5": {
@@ -9208,8 +9434,8 @@
           "target": "com.amazonaws.s3#PublicAccessBlockConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3\n      bucket. You can enable the configuration options in any combination. For more information\n      about when Amazon S3 considers a bucket or object public, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status\">The Meaning of \"Public\"</a> in the <i>Amazon Simple Storage Service Developer\n        Guide</i>.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#required": true
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -9224,8 +9450,8 @@
           "target": "com.amazonaws.s3#EventList",
           "traits": {
             "smithy.api#documentation": "<p>A collection of bucket events for which to send notifications</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Event"
           }
         },
@@ -9239,7 +9465,7 @@
           "target": "com.amazonaws.s3#QueueArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a\n      message when it detects events of the specified type.</p>",
-            "smithy.api#required": true,
+            "smithy.api#required": {},
             "smithy.api#xmlName": "Queue"
           }
         }
@@ -9266,14 +9492,16 @@
     "com.amazonaws.s3#QuoteFields": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALWAYS": {
+        "smithy.api#enum": [
+          {
+            "value": "ALWAYS",
             "name": "ALWAYS"
           },
-          "ASNEEDED": {
+          {
+            "value": "ASNEEDED",
             "name": "ASNEEDED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.s3#Range": {
@@ -9289,7 +9517,7 @@
           "target": "com.amazonaws.s3#Body",
           "traits": {
             "smithy.api#documentation": "<p>The byte array of partial, one or more result records.</p>",
-            "smithy.api#eventPayload": true
+            "smithy.api#eventPayload": {}
           }
         }
       },
@@ -9342,7 +9570,7 @@
           "target": "com.amazonaws.s3#HostName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the host where requests are redirected.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Protocol": {
@@ -9372,15 +9600,15 @@
           "target": "com.amazonaws.s3#Role",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes\n      when replicating objects. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html\">How to Set Up Replication</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Rules": {
           "target": "com.amazonaws.s3#ReplicationRules",
           "traits": {
             "smithy.api#documentation": "<p>A container for one or more replication rules. A replication configuration must have at\n      least one rule and can contain a maximum of 1,000 rules. </p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -9399,7 +9627,7 @@
           "target": "com.amazonaws.s3#Destination",
           "traits": {
             "smithy.api#documentation": "<p>A container for information about the replication destination\n     and its configurations including enabling the S3 Replication Time Control (S3 RTC).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ExistingObjectReplication": {
@@ -9420,7 +9648,7 @@
         "Prefix": {
           "target": "com.amazonaws.s3#Prefix",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>An object key name prefix that identifies the object or objects to which the rule applies.\n         The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify\n         an empty string. </p>"
           }
         },
@@ -9440,7 +9668,7 @@
           "target": "com.amazonaws.s3#ReplicationRuleStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether the rule is enabled.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -9461,7 +9689,7 @@
           "target": "com.amazonaws.s3#TagSet",
           "traits": {
             "smithy.api#documentation": "<p>An array of tags containing key and value pairs.</p>",
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Tag"
           }
         }
@@ -9499,10 +9727,14 @@
     "com.amazonaws.s3#ReplicationRuleStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ReplicationRules": {
@@ -9514,12 +9746,20 @@
     "com.amazonaws.s3#ReplicationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "COMPLETE": { },
-          "PENDING": { },
-          "FAILED": { },
-          "REPLICA": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "COMPLETE"
+          },
+          {
+            "value": "PENDING"
+          },
+          {
+            "value": "FAILED"
+          },
+          {
+            "value": "REPLICA"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ReplicationTime": {
@@ -9529,14 +9769,14 @@
           "target": "com.amazonaws.s3#ReplicationTimeStatus",
           "traits": {
             "smithy.api#documentation": "<p>\n    Specifies whether the replication time is enabled.\n  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Time": {
           "target": "com.amazonaws.s3#ReplicationTimeValue",
           "traits": {
             "smithy.api#documentation": "<p> A container specifying the time by which replication should be complete for all objects and\n         operations on objects. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -9547,10 +9787,14 @@
     "com.amazonaws.s3#ReplicationTimeStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ReplicationTimeValue": {
@@ -9571,18 +9815,22 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>If present, indicates that the requester was successfully charged for the request.</p>",
-        "smithy.api#enum": {
-          "requester": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "requester"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#RequestPayer": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Confirms that the requester knows that they will be charged for the request. Bucket\n         owners need not specify this parameter in their requests. For information about downloading\n         objects from requester pays buckets, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html\">Downloading Objects in Requestor Pays Buckets</a> in the\n            <i>Amazon S3 Developer Guide</i>.</p>",
-        "smithy.api#enum": {
-          "requester": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "requester"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#RequestPaymentConfiguration": {
@@ -9592,7 +9840,7 @@
           "target": "com.amazonaws.s3#Payer",
           "traits": {
             "smithy.api#documentation": "<p>Specifies who pays for the download and request fees.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -9682,16 +9930,16 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name or containing the object to restore. </p>\n         <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which the operation was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -9703,7 +9951,7 @@
         "RestoreRequest": {
           "target": "com.amazonaws.s3#RestoreRequest",
           "traits": {
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "VersionId": {
@@ -9771,11 +10019,12 @@
     "com.amazonaws.s3#RestoreRequestType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SELECT": {
+        "smithy.api#enum": [
+          {
+            "value": "SELECT",
             "name": "SELECT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.s3#Role": {
@@ -9794,7 +10043,7 @@
           "target": "com.amazonaws.s3#Redirect",
           "traits": {
             "smithy.api#documentation": "<p>Container for redirect information. You can redirect requests to another host, to another\n      page, or with another protocol. In the event of an error, you can specify a different error\n      code to return.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -9817,7 +10066,7 @@
         "FilterRules": {
           "target": "com.amazonaws.s3#FilterRuleList",
           "traits": {
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "FilterRule"
           }
         }
@@ -9839,7 +10088,7 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the bucket where the restore results will be placed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CannedACL": {
@@ -9855,7 +10104,7 @@
           "target": "com.amazonaws.s3#LocationPrefix",
           "traits": {
             "smithy.api#documentation": "<p>The prefix that is prepended to the restore results for this request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StorageClass": {
@@ -9887,7 +10136,7 @@
     "com.amazonaws.s3#SSECustomerKey": {
       "type": "string",
       "traits": {
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.s3#SSECustomerKeyMD5": {
@@ -9900,7 +10149,7 @@
           "target": "com.amazonaws.s3#SSEKMSKeyId",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use\n         for encrypting inventory reports.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -9912,18 +10161,18 @@
     "com.amazonaws.s3#SSEKMSEncryptionContext": {
       "type": "string",
       "traits": {
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.s3#SSEKMSKeyId": {
       "type": "string",
       "traits": {
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.s3#SSES3": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>",
         "smithy.api#xmlName": "SSE-S3"
@@ -10001,7 +10250,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The container for selecting objects from a content event stream.</p>"
+        "smithy.api#documentation": "<p>The container for selecting objects from a content event stream.</p>",
+        "smithy.api#streaming": {}
       }
     },
     "com.amazonaws.s3#SelectObjectContentOutput": {
@@ -10011,8 +10261,7 @@
           "target": "com.amazonaws.s3#SelectObjectContentEventStream",
           "traits": {
             "smithy.api#documentation": "<p>The array of results.</p>",
-            "smithy.api#eventStream": true,
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         }
       }
@@ -10024,44 +10273,44 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The S3 bucket.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Expression": {
           "target": "com.amazonaws.s3#Expression",
           "traits": {
             "smithy.api#documentation": "<p>The expression that is used to query the object.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ExpressionType": {
           "target": "com.amazonaws.s3#ExpressionType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the provided expression (for example, SQL).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputSerialization": {
           "target": "com.amazonaws.s3#InputSerialization",
           "traits": {
             "smithy.api#documentation": "<p>Describes the format of the data in the object that is being queried.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Key": {
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>The object key.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "OutputSerialization": {
           "target": "com.amazonaws.s3#OutputSerialization",
           "traits": {
             "smithy.api#documentation": "<p>Describes the format of the data that you want Amazon S3 to return in response.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RequestProgress": {
@@ -10109,28 +10358,28 @@
           "target": "com.amazonaws.s3#Expression",
           "traits": {
             "smithy.api#documentation": "<p>The expression that is used to query the object.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ExpressionType": {
           "target": "com.amazonaws.s3#ExpressionType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the provided expression (for example, SQL).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputSerialization": {
           "target": "com.amazonaws.s3#InputSerialization",
           "traits": {
             "smithy.api#documentation": "<p>Describes the serialization format of the object.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OutputSerialization": {
           "target": "com.amazonaws.s3#OutputSerialization",
           "traits": {
             "smithy.api#documentation": "<p>Describes how the results of the Select job are serialized.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -10141,10 +10390,14 @@
     "com.amazonaws.s3#ServerSideEncryption": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AES256": { },
-          "aws:kms": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "AES256"
+          },
+          {
+            "value": "aws:kms"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#ServerSideEncryptionByDefault": {
@@ -10160,7 +10413,7 @@
           "target": "com.amazonaws.s3#ServerSideEncryption",
           "traits": {
             "smithy.api#documentation": "<p>Server-side encryption algorithm to use for the default encryption.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -10175,8 +10428,8 @@
           "target": "com.amazonaws.s3#ServerSideEncryptionRules",
           "traits": {
             "smithy.api#documentation": "<p>Container for information about a particular server-side encryption configuration rule.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -10232,7 +10485,7 @@
           "target": "com.amazonaws.s3#SseKmsEncryptedObjectsStatus",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -10243,10 +10496,14 @@
     "com.amazonaws.s3#SseKmsEncryptedObjectsStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Enabled": { },
-          "Disabled": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Start": {
@@ -10288,7 +10545,7 @@
           "target": "com.amazonaws.s3#Stats",
           "traits": {
             "smithy.api#documentation": "<p>The Stats event details.</p>",
-            "smithy.api#eventPayload": true
+            "smithy.api#eventPayload": {}
           }
         }
       },
@@ -10299,15 +10556,29 @@
     "com.amazonaws.s3#StorageClass": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STANDARD": { },
-          "REDUCED_REDUNDANCY": { },
-          "STANDARD_IA": { },
-          "ONEZONE_IA": { },
-          "INTELLIGENT_TIERING": { },
-          "GLACIER": { },
-          "DEEP_ARCHIVE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD"
+          },
+          {
+            "value": "REDUCED_REDUNDANCY"
+          },
+          {
+            "value": "STANDARD_IA"
+          },
+          {
+            "value": "ONEZONE_IA"
+          },
+          {
+            "value": "INTELLIGENT_TIERING"
+          },
+          {
+            "value": "GLACIER"
+          },
+          {
+            "value": "DEEP_ARCHIVE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#StorageClassAnalysis": {
@@ -10331,14 +10602,14 @@
           "target": "com.amazonaws.s3#AnalyticsExportDestination",
           "traits": {
             "smithy.api#documentation": "<p>The place to store the data for an analysis.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OutputSchemaVersion": {
           "target": "com.amazonaws.s3#StorageClassAnalysisSchemaVersion",
           "traits": {
             "smithy.api#documentation": "<p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -10349,9 +10620,11 @@
     "com.amazonaws.s3#StorageClassAnalysisSchemaVersion": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "V_1": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "V_1"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Suffix": {
@@ -10364,14 +10637,14 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Name of the tag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
           "target": "com.amazonaws.s3#Value",
           "traits": {
             "smithy.api#documentation": "<p>Value of the tag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -10398,7 +10671,7 @@
           "target": "com.amazonaws.s3#TagSet",
           "traits": {
             "smithy.api#documentation": "<p>A collection for a set of tags</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -10409,10 +10682,14 @@
     "com.amazonaws.s3#TaggingDirective": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "COPY": { },
-          "REPLACE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "COPY"
+          },
+          {
+            "value": "REPLACE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#TaggingHeader": {
@@ -10456,11 +10733,17 @@
     "com.amazonaws.s3#Tier": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Standard": { },
-          "Bulk": { },
-          "Expedited": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Standard"
+          },
+          {
+            "value": "Bulk"
+          },
+          {
+            "value": "Expedited"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Token": {
@@ -10476,8 +10759,8 @@
           "target": "com.amazonaws.s3#EventList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 bucket event about which to send notifications. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Supported Event\n            Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#required": true,
-            "smithy.api#xmlFlattened": true,
+            "smithy.api#required": {},
+            "smithy.api#xmlFlattened": {},
             "smithy.api#xmlName": "Event"
           }
         },
@@ -10491,7 +10774,7 @@
           "target": "com.amazonaws.s3#TopicArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a\n      message when it detects events of the specified type.</p>",
-            "smithy.api#required": true,
+            "smithy.api#required": {},
             "smithy.api#xmlName": "Topic"
           }
         }
@@ -10541,23 +10824,39 @@
     "com.amazonaws.s3#TransitionStorageClass": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "GLACIER": { },
-          "STANDARD_IA": { },
-          "ONEZONE_IA": { },
-          "INTELLIGENT_TIERING": { },
-          "DEEP_ARCHIVE": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "GLACIER"
+          },
+          {
+            "value": "STANDARD_IA"
+          },
+          {
+            "value": "ONEZONE_IA"
+          },
+          {
+            "value": "INTELLIGENT_TIERING"
+          },
+          {
+            "value": "DEEP_ARCHIVE"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#Type": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CanonicalUser": { },
-          "AmazonCustomerByEmail": { },
-          "Group": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CanonicalUser"
+          },
+          {
+            "value": "AmazonCustomerByEmail"
+          },
+          {
+            "value": "Group"
+          }
+        ]
       }
     },
     "com.amazonaws.s3#URI": {
@@ -10607,7 +10906,7 @@
           "target": "com.amazonaws.s3#CopyPartResult",
           "traits": {
             "smithy.api#documentation": "<p>Container for all response elements.</p>",
-            "smithy.api#httpPayload": true
+            "smithy.api#httpPayload": {}
           }
         },
         "CopySourceVersionId": {
@@ -10660,8 +10959,8 @@
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>The bucket name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "CopySource": {
@@ -10669,7 +10968,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</p>",
             "smithy.api#httpHeader": "x-amz-copy-source",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CopySourceIfMatch": {
@@ -10732,8 +11031,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which the multipart upload was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "PartNumber": {
@@ -10741,7 +11040,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Part number of part being copied. This is a positive integer between 1 and 10,000.</p>",
             "smithy.api#httpQuery": "partNumber",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -10776,7 +11075,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Upload ID identifying the multipart upload whose part is being copied.</p>",
             "smithy.api#httpQuery": "uploadId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -10831,19 +11130,18 @@
       "type": "structure",
       "members": {
         "Body": {
-          "target": "com.amazonaws.s3#Body",
+          "target": "com.amazonaws.s3#StreamingBody",
           "traits": {
             "smithy.api#documentation": "<p>Object data.</p>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#streaming": { }
+            "smithy.api#httpPayload": {}
           }
         },
         "Bucket": {
           "target": "com.amazonaws.s3#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the bucket to which the multipart upload was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentLength": {
@@ -10864,8 +11162,8 @@
           "target": "com.amazonaws.s3#ObjectKey",
           "traits": {
             "smithy.api#documentation": "<p>Object key for which the multipart upload was initiated.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "PartNumber": {
@@ -10873,7 +11171,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Part number of part being uploaded. This is a positive integer between 1 and 10,000.</p>",
             "smithy.api#httpQuery": "partNumber",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RequestPayer": {
@@ -10908,7 +11206,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Upload ID identifying the multipart upload whose part is being uploaded.</p>",
             "smithy.api#httpQuery": "uploadId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }

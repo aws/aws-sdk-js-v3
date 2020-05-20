@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -65,7 +64,7 @@
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph that the member account is accepting the invitation\n         for.</p>\n         <p>The member account status in the behavior graph must be <code>INVITED</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -77,14 +76,14 @@
           "target": "com.amazonaws.detective#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The account identifier of the AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EmailAddress": {
           "target": "com.amazonaws.detective#EmailAddress",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account root user email address for the AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -171,15 +170,11 @@
           "cloudFormationName": "Detective",
           "cloudTrailEventSource": "detective.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "detective"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<important>\n            <p>Amazon Detective is currently in preview. The Detective API can only be used by accounts that\n            are admitted into the preview.</p>\n         </important>\n         <p>Detective uses machine learning and purpose-built visualizations to help you analyze and\n         investigate security issues across your Amazon Web Services (AWS) workloads. Detective automatically\n         extracts time-based events such as login attempts, API calls, and network traffic from\n         AWS CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by\n         Amazon GuardDuty.</p>\n         <p>The Detective API primarily supports the creation and management of behavior graphs. A\n         behavior graph contains the extracted data from a set of member accounts, and is created\n         and managed by a master account.</p>\n         <p>Every behavior graph is specific to a Region. You can only use the API to manage graphs\n         that belong to the Region that is associated with the currently selected endpoint.</p>\n         <p>A Detective master account can use the Detective API to do the following:</p>\n         <ul>\n            <li>\n               <p>Enable and disable Detective. Enabling Detective creates a new behavior graph.</p>\n            </li>\n            <li>\n               <p>View the list of member accounts in a behavior graph.</p>\n            </li>\n            <li>\n               <p>Add member accounts to a behavior graph.</p>\n            </li>\n            <li>\n               <p>Remove member accounts from a behavior graph.</p>\n            </li>\n         </ul>\n         <p>A member account can use the Detective API to do the following:</p>\n         <ul>\n            <li>\n               <p>View the list of behavior graphs that they are invited to.</p>\n            </li>\n            <li>\n               <p>Accept an invitation to contribute to a behavior graph.</p>\n            </li>\n            <li>\n               <p>Decline an invitation to contribute to a behavior graph.</p>\n            </li>\n            <li>\n               <p>Remove their account from a behavior graph.</p>\n            </li>\n         </ul>\n         <p>All API actions are logged as CloudTrail events. See <a href=\"https://docs.aws.amazon.com/detective/latest/adminguide/logging-using-cloudtrail.html\">Logging Detective API Calls with CloudTrail</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Detective"
       }
     },
@@ -267,14 +262,14 @@
           "target": "com.amazonaws.detective#AccountList",
           "traits": {
             "smithy.api#documentation": "<p>The list of AWS accounts to invite to become member accounts in the behavior graph.\n         For each invited account, the account list contains the account identifier and the AWS\n         account root user email address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GraphArn": {
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph to invite the member accounts to contribute their data\n         to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
@@ -334,7 +329,7 @@
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph to disable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -377,14 +372,14 @@
           "target": "com.amazonaws.detective#AccountIdList",
           "traits": {
             "smithy.api#documentation": "<p>The list of AWS account identifiers for the member accounts to delete from the\n         behavior graph.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GraphArn": {
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph to delete members from.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -441,7 +436,7 @@
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph to remove the member account from.</p>\n         <p>The member account's member status in the behavior graph must be\n         <code>ENABLED</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -503,14 +498,14 @@
           "target": "com.amazonaws.detective#AccountIdList",
           "traits": {
             "smithy.api#documentation": "<p>The list of AWS account identifiers for the member account for which to return member\n         details.</p>\n         <p>You cannot use <code>GetMembers</code> to retrieve information about member accounts\n         that were removed from the behavior graph.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GraphArn": {
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph for which to request the member details.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -745,7 +740,7 @@
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph for which to retrieve the list of member accounts.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -838,7 +833,7 @@
     "com.amazonaws.detective#MemberResultsLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 200
@@ -848,20 +843,24 @@
     "com.amazonaws.detective#MemberStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "INVITED": {
+        "smithy.api#enum": [
+          {
+            "value": "INVITED",
             "name": "INVITED"
           },
-          "VERIFICATION_IN_PROGRESS": {
+          {
+            "value": "VERIFICATION_IN_PROGRESS",
             "name": "VERIFICATION_IN_PROGRESS"
           },
-          "VERIFICATION_FAILED": {
+          {
+            "value": "VERIFICATION_FAILED",
             "name": "VERIFICATION_FAILED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.detective#PaginationToken": {
@@ -908,7 +907,7 @@
           "target": "com.amazonaws.detective#GraphArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the behavior graph to reject the invitation to.</p>\n         <p>The member account's current member status in the behavior graph must be\n            <code>INVITED</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }

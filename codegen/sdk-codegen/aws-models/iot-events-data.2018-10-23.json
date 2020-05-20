@@ -1,55 +1,54 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.iot.columbo.data#BatchPutMessage": {
+    "com.amazonaws.ioteventsdata#BatchPutMessage": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.iot.columbo.data#BatchPutMessageRequest"
+        "target": "com.amazonaws.ioteventsdata#BatchPutMessageRequest"
       },
       "output": {
-        "target": "com.amazon.iot.columbo.data#BatchPutMessageResponse"
+        "target": "com.amazonaws.ioteventsdata#BatchPutMessageResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+          "target": "com.amazonaws.ioteventsdata#InternalFailureException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+          "target": "com.amazonaws.ioteventsdata#InvalidRequestException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+          "target": "com.amazonaws.ioteventsdata#ServiceUnavailableException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+          "target": "com.amazonaws.ioteventsdata#ThrottlingException"
         }
       ],
       "traits": {
@@ -61,29 +60,29 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#BatchPutMessageErrorEntries": {
+    "com.amazonaws.ioteventsdata#BatchPutMessageErrorEntries": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#BatchPutMessageErrorEntry"
+        "target": "com.amazonaws.ioteventsdata#BatchPutMessageErrorEntry"
       }
     },
-    "com.amazon.iot.columbo.data#BatchPutMessageErrorEntry": {
+    "com.amazonaws.ioteventsdata#BatchPutMessageErrorEntry": {
       "type": "structure",
       "members": {
         "errorCode": {
-          "target": "com.amazon.iot.columbo.data#ErrorCode",
+          "target": "com.amazonaws.ioteventsdata#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The code associated with the error.</p>"
           }
         },
         "errorMessage": {
-          "target": "com.amazon.iot.columbo.data#ErrorMessage",
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>More information about the error.</p>"
           }
         },
         "messageId": {
-          "target": "com.amazon.iot.columbo.data#MessageId",
+          "target": "com.amazonaws.ioteventsdata#MessageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the message that caused the error. (See the value corresponding to the \n          <code>\"messageId\"</code> key in the <code>\"message\"</code> object.)</p>"
           }
@@ -93,49 +92,49 @@
         "smithy.api#documentation": "<p>Contains information about the errors encountered.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#BatchPutMessageRequest": {
+    "com.amazonaws.ioteventsdata#BatchPutMessageRequest": {
       "type": "structure",
       "members": {
         "messages": {
-          "target": "com.amazon.iot.columbo.data#Messages",
+          "target": "com.amazonaws.ioteventsdata#Messages",
           "traits": {
             "smithy.api#documentation": "<p>The list of messages to send. Each message has the following format:\n          <code>'{ \"messageId\": \"string\", \"inputName\": \"string\", \"payload\": \"string\"}'</code>\n         </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.iot.columbo.data#BatchPutMessageResponse": {
+    "com.amazonaws.ioteventsdata#BatchPutMessageResponse": {
       "type": "structure",
       "members": {
         "BatchPutMessageErrorEntries": {
-          "target": "com.amazon.iot.columbo.data#BatchPutMessageErrorEntries",
+          "target": "com.amazonaws.ioteventsdata#BatchPutMessageErrorEntries",
           "traits": {
             "smithy.api#documentation": "<p>A list of any errors encountered when sending the messages.</p>"
           }
         }
       }
     },
-    "com.amazon.iot.columbo.data#BatchUpdateDetector": {
+    "com.amazonaws.ioteventsdata#BatchUpdateDetector": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.iot.columbo.data#BatchUpdateDetectorRequest"
+        "target": "com.amazonaws.ioteventsdata#BatchUpdateDetectorRequest"
       },
       "output": {
-        "target": "com.amazon.iot.columbo.data#BatchUpdateDetectorResponse"
+        "target": "com.amazonaws.ioteventsdata#BatchUpdateDetectorResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+          "target": "com.amazonaws.ioteventsdata#InternalFailureException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+          "target": "com.amazonaws.ioteventsdata#InvalidRequestException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+          "target": "com.amazonaws.ioteventsdata#ServiceUnavailableException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+          "target": "com.amazonaws.ioteventsdata#ThrottlingException"
         }
       ],
       "traits": {
@@ -147,29 +146,29 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#BatchUpdateDetectorErrorEntries": {
+    "com.amazonaws.ioteventsdata#BatchUpdateDetectorErrorEntries": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#BatchUpdateDetectorErrorEntry"
+        "target": "com.amazonaws.ioteventsdata#BatchUpdateDetectorErrorEntry"
       }
     },
-    "com.amazon.iot.columbo.data#BatchUpdateDetectorErrorEntry": {
+    "com.amazonaws.ioteventsdata#BatchUpdateDetectorErrorEntry": {
       "type": "structure",
       "members": {
         "errorCode": {
-          "target": "com.amazon.iot.columbo.data#ErrorCode",
+          "target": "com.amazonaws.ioteventsdata#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>The code of the error.</p>"
           }
         },
         "errorMessage": {
-          "target": "com.amazon.iot.columbo.data#ErrorMessage",
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message describing the error.</p>"
           }
         },
         "messageId": {
-          "target": "com.amazon.iot.columbo.data#MessageId",
+          "target": "com.amazonaws.ioteventsdata#MessageId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>\"messageId\"</code> of the update request that caused the error. (The value of the \n       <code>\"messageId\"</code> in the update request <code>\"Detector\"</code> object.)</p>"
           }
@@ -179,52 +178,52 @@
         "smithy.api#documentation": "<p>Information about the error that occured when attempting to update a detector.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#BatchUpdateDetectorRequest": {
+    "com.amazonaws.ioteventsdata#BatchUpdateDetectorRequest": {
       "type": "structure",
       "members": {
         "detectors": {
-          "target": "com.amazon.iot.columbo.data#UpdateDetectorRequests",
+          "target": "com.amazonaws.ioteventsdata#UpdateDetectorRequests",
           "traits": {
             "smithy.api#documentation": "<p>The list of detectors (instances) to update, along with the values to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.iot.columbo.data#BatchUpdateDetectorResponse": {
+    "com.amazonaws.ioteventsdata#BatchUpdateDetectorResponse": {
       "type": "structure",
       "members": {
         "batchUpdateDetectorErrorEntries": {
-          "target": "com.amazon.iot.columbo.data#BatchUpdateDetectorErrorEntries",
+          "target": "com.amazonaws.ioteventsdata#BatchUpdateDetectorErrorEntries",
           "traits": {
             "smithy.api#documentation": "<p>A list of those detector updates that resulted in errors. (If an error is listed here, the \n        specific update did not occur.)</p>"
           }
         }
       }
     },
-    "com.amazon.iot.columbo.data#DescribeDetector": {
+    "com.amazonaws.ioteventsdata#DescribeDetector": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.iot.columbo.data#DescribeDetectorRequest"
+        "target": "com.amazonaws.ioteventsdata#DescribeDetectorRequest"
       },
       "output": {
-        "target": "com.amazon.iot.columbo.data#DescribeDetectorResponse"
+        "target": "com.amazonaws.ioteventsdata#DescribeDetectorResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+          "target": "com.amazonaws.ioteventsdata#InternalFailureException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+          "target": "com.amazonaws.ioteventsdata#InvalidRequestException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.ioteventsdata#ResourceNotFoundException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+          "target": "com.amazonaws.ioteventsdata#ServiceUnavailableException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+          "target": "com.amazonaws.ioteventsdata#ThrottlingException"
         }
       ],
       "traits": {
@@ -236,19 +235,19 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#DescribeDetectorRequest": {
+    "com.amazonaws.ioteventsdata#DescribeDetectorRequest": {
       "type": "structure",
       "members": {
         "detectorModelName": {
-          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model whose detectors (instances) you want information about.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "keyValue": {
-          "target": "com.amazon.iot.columbo.common.types#KeyValue",
+          "target": "com.amazonaws.ioteventsdata#KeyValue",
           "traits": {
             "smithy.api#documentation": "<p>A filter used to limit results to detectors (instances) created because of the given key ID.</p>",
             "smithy.api#httpQuery": "keyValue"
@@ -256,52 +255,52 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#DescribeDetectorResponse": {
+    "com.amazonaws.ioteventsdata#DescribeDetectorResponse": {
       "type": "structure",
       "members": {
         "detector": {
-          "target": "com.amazon.iot.columbo.data#Detector",
+          "target": "com.amazonaws.ioteventsdata#Detector",
           "traits": {
             "smithy.api#documentation": "<p>Information about the detector (instance).</p>"
           }
         }
       }
     },
-    "com.amazon.iot.columbo.data#Detector": {
+    "com.amazonaws.ioteventsdata#Detector": {
       "type": "structure",
       "members": {
         "creationTime": {
-          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the detector (instance) was created.</p>"
           }
         },
         "detectorModelName": {
-          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model that created this detector (instance).</p>"
           }
         },
         "detectorModelVersion": {
-          "target": "com.amazon.iot.columbo.common.types#DetectorModelVersion",
+          "target": "com.amazonaws.ioteventsdata#DetectorModelVersion",
           "traits": {
             "smithy.api#documentation": "<p>The version of the detector model that created this detector (instance).</p>"
           }
         },
         "keyValue": {
-          "target": "com.amazon.iot.columbo.common.types#KeyValue",
+          "target": "com.amazonaws.ioteventsdata#KeyValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the key (identifying the device or system) that caused the creation of this \n        detector (instance).</p>"
           }
         },
         "lastUpdateTime": {
-          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the detector (instance) was last updated.</p>"
           }
         },
         "state": {
-          "target": "com.amazon.iot.columbo.data#DetectorState",
+          "target": "com.amazonaws.ioteventsdata#DetectorState",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the detector (instance).</p>"
           }
@@ -311,7 +310,7 @@
         "smithy.api#documentation": "<p>Information about the detector (instance).</p>"
       }
     },
-    "com.amazon.iot.columbo.common.types#DetectorModelName": {
+    "com.amazonaws.ioteventsdata#DetectorModelName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -321,7 +320,7 @@
         "smithy.api#pattern": "^[a-zA-Z0-9_-]+$"
       }
     },
-    "com.amazon.iot.columbo.common.types#DetectorModelVersion": {
+    "com.amazonaws.ioteventsdata#DetectorModelVersion": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -330,28 +329,28 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#DetectorState": {
+    "com.amazonaws.ioteventsdata#DetectorState": {
       "type": "structure",
       "members": {
         "stateName": {
-          "target": "com.amazon.iot.columbo.common.types#StateName",
+          "target": "com.amazonaws.ioteventsdata#StateName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "timers": {
-          "target": "com.amazon.iot.columbo.data#Timers",
+          "target": "com.amazonaws.ioteventsdata#Timers",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the detector's timers.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "variables": {
-          "target": "com.amazon.iot.columbo.data#Variables",
+          "target": "com.amazonaws.ioteventsdata#Variables",
           "traits": {
             "smithy.api#documentation": "<p>The current values of the detector's variables.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -359,28 +358,28 @@
         "smithy.api#documentation": "<p>Information about the current state of the detector instance.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#DetectorStateDefinition": {
+    "com.amazonaws.ioteventsdata#DetectorStateDefinition": {
       "type": "structure",
       "members": {
         "stateName": {
-          "target": "com.amazon.iot.columbo.common.types#StateName",
+          "target": "com.amazonaws.ioteventsdata#StateName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the new state of the detector (instance).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "timers": {
-          "target": "com.amazon.iot.columbo.data#TimerDefinitions",
+          "target": "com.amazonaws.ioteventsdata#TimerDefinitions",
           "traits": {
             "smithy.api#documentation": "<p>The new values of the detector's timers. Any timer whose value isn't specified is \n       cleared, and its timeout event won't occur.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "variables": {
-          "target": "com.amazon.iot.columbo.data#VariableDefinitions",
+          "target": "com.amazonaws.ioteventsdata#VariableDefinitions",
           "traits": {
             "smithy.api#documentation": "<p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -388,11 +387,11 @@
         "smithy.api#documentation": "<p>The new state, variable values, and timer settings of the detector (instance).</p>"
       }
     },
-    "com.amazon.iot.columbo.data#DetectorStateSummary": {
+    "com.amazonaws.ioteventsdata#DetectorStateSummary": {
       "type": "structure",
       "members": {
         "stateName": {
-          "target": "com.amazon.iot.columbo.common.types#StateName",
+          "target": "com.amazonaws.ioteventsdata#StateName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the state.</p>"
           }
@@ -402,47 +401,47 @@
         "smithy.api#documentation": "<p>Information about the detector state.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#DetectorSummaries": {
+    "com.amazonaws.ioteventsdata#DetectorSummaries": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#DetectorSummary"
+        "target": "com.amazonaws.ioteventsdata#DetectorSummary"
       }
     },
-    "com.amazon.iot.columbo.data#DetectorSummary": {
+    "com.amazonaws.ioteventsdata#DetectorSummary": {
       "type": "structure",
       "members": {
         "creationTime": {
-          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the detector (instance) was created.</p>"
           }
         },
         "detectorModelName": {
-          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model that created this detector (instance).</p>"
           }
         },
         "detectorModelVersion": {
-          "target": "com.amazon.iot.columbo.common.types#DetectorModelVersion",
+          "target": "com.amazonaws.ioteventsdata#DetectorModelVersion",
           "traits": {
             "smithy.api#documentation": "<p>The version of the detector model that created this detector (instance).</p>"
           }
         },
         "keyValue": {
-          "target": "com.amazon.iot.columbo.common.types#KeyValue",
+          "target": "com.amazonaws.ioteventsdata#KeyValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the key (identifying the device or system) that caused the creation of this \n        detector (instance).</p>"
           }
         },
         "lastUpdateTime": {
-          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the detector (instance) was last updated.</p>"
           }
         },
         "state": {
-          "target": "com.amazon.iot.columbo.data#DetectorStateSummary",
+          "target": "com.amazonaws.ioteventsdata#DetectorStateSummary",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the detector (instance).</p>"
           }
@@ -452,32 +451,37 @@
         "smithy.api#documentation": "<p>Information about the detector (instance).</p>"
       }
     },
-    "com.amazon.iot.columbo.data#ErrorCode": {
+    "com.amazonaws.ioteventsdata#ErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ResourceNotFoundException": {
+        "smithy.api#enum": [
+          {
+            "value": "ResourceNotFoundException",
             "name": "ResourceNotFoundException"
           },
-          "InvalidRequestException": {
+          {
+            "value": "InvalidRequestException",
             "name": "InvalidRequestException"
           },
-          "InternalFailureException": {
+          {
+            "value": "InternalFailureException",
             "name": "InternalFailureException"
           },
-          "ServiceUnavailableException": {
+          {
+            "value": "ServiceUnavailableException",
             "name": "ServiceUnavailableException"
           },
-          "ThrottlingException": {
+          {
+            "value": "ThrottlingException",
             "name": "ThrottlingException"
           }
-        }
+        ]
       }
     },
-    "com.amazon.iot.columbo.data#ErrorMessage": {
+    "com.amazonaws.ioteventsdata#ErrorMessage": {
       "type": "string"
     },
-    "com.amazon.iot.columbo.common.types#InputName": {
+    "com.amazonaws.ioteventsdata#InputName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -487,11 +491,11 @@
         "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
       }
     },
-    "com.amazon.iot.columbo.common.exceptions#InternalFailureException": {
+    "com.amazonaws.ioteventsdata#InternalFailureException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message for the exception.</p>"
           }
@@ -503,11 +507,11 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazon.iot.columbo.common.exceptions#InvalidRequestException": {
+    "com.amazonaws.ioteventsdata#InvalidRequestException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message for the exception.</p>"
           }
@@ -519,21 +523,21 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.iot.columbo.data#IotColumboDataService": {
+    "com.amazonaws.ioteventsdata#IotColumboDataService": {
       "type": "service",
       "version": "2018-10-23",
       "operations": [
         {
-          "target": "com.amazon.iot.columbo.data#BatchPutMessage"
+          "target": "com.amazonaws.ioteventsdata#BatchPutMessage"
         },
         {
-          "target": "com.amazon.iot.columbo.data#BatchUpdateDetector"
+          "target": "com.amazonaws.ioteventsdata#BatchUpdateDetector"
         },
         {
-          "target": "com.amazon.iot.columbo.data#DescribeDetector"
+          "target": "com.amazonaws.ioteventsdata#DescribeDetector"
         },
         {
-          "target": "com.amazon.iot.columbo.data#ListDetectors"
+          "target": "com.amazonaws.ioteventsdata#ListDetectors"
         }
       ],
       "traits": {
@@ -543,19 +547,15 @@
           "cloudFormationName": "IoTEventsData",
           "cloudTrailEventSource": "data.columbo.iot.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "ioteventsdata"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, \n        and triggers actions when such events occur. AWS IoT Events Data API commands enable you to send\n        inputs to detectors, list detectors, and view or update a detector's status.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS IoT Events Data"
       }
     },
-    "com.amazon.iot.columbo.common.types#KeyValue": {
+    "com.amazonaws.ioteventsdata#KeyValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -565,29 +565,29 @@
         "smithy.api#pattern": "^[a-zA-Z0-9\\-_:]+$"
       }
     },
-    "com.amazon.iot.columbo.data#ListDetectors": {
+    "com.amazonaws.ioteventsdata#ListDetectors": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.iot.columbo.data#ListDetectorsRequest"
+        "target": "com.amazonaws.ioteventsdata#ListDetectorsRequest"
       },
       "output": {
-        "target": "com.amazon.iot.columbo.data#ListDetectorsResponse"
+        "target": "com.amazonaws.ioteventsdata#ListDetectorsResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+          "target": "com.amazonaws.ioteventsdata#InternalFailureException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+          "target": "com.amazonaws.ioteventsdata#InvalidRequestException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.ioteventsdata#ResourceNotFoundException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+          "target": "com.amazonaws.ioteventsdata#ServiceUnavailableException"
         },
         {
-          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+          "target": "com.amazonaws.ioteventsdata#ThrottlingException"
         }
       ],
       "traits": {
@@ -599,33 +599,33 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#ListDetectorsRequest": {
+    "com.amazonaws.ioteventsdata#ListDetectorsRequest": {
       "type": "structure",
       "members": {
         "detectorModelName": {
-          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model whose detectors (instances) are listed.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
-          "target": "com.amazon.iot.columbo.common.types#MaxResults",
+          "target": "com.amazonaws.ioteventsdata#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return at one time.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "target": "com.amazonaws.ioteventsdata#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "stateName": {
-          "target": "com.amazon.iot.columbo.common.types#StateName",
+          "target": "com.amazonaws.ioteventsdata#StateName",
           "traits": {
             "smithy.api#documentation": "<p>A filter that limits results to those detectors (instances) in the given state.</p>",
             "smithy.api#httpQuery": "stateName"
@@ -633,55 +633,55 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#ListDetectorsResponse": {
+    "com.amazonaws.ioteventsdata#ListDetectorsResponse": {
       "type": "structure",
       "members": {
         "detectorSummaries": {
-          "target": "com.amazon.iot.columbo.data#DetectorSummaries",
+          "target": "com.amazonaws.ioteventsdata#DetectorSummaries",
           "traits": {
             "smithy.api#documentation": "<p>A list of summary information about the detectors (instances).</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "target": "com.amazonaws.ioteventsdata#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token to retrieve the next set of results, or <code>null</code> if there are no additional \n          results.</p>"
           }
         }
       }
     },
-    "com.amazon.iot.columbo.common.types#MaxResults": {
+    "com.amazonaws.ioteventsdata#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 250
         }
       }
     },
-    "com.amazon.iot.columbo.data#Message": {
+    "com.amazonaws.ioteventsdata#Message": {
       "type": "structure",
       "members": {
         "inputName": {
-          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "target": "com.amazonaws.ioteventsdata#InputName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the input into which the message payload is transformed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "messageId": {
-          "target": "com.amazon.iot.columbo.data#MessageId",
+          "target": "com.amazonaws.ioteventsdata#MessageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID to assign to the message. Within each batch sent, each <code>\"messageId\"</code> must \n        be unique.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "payload": {
-          "target": "com.amazon.iot.columbo.data#Payload",
+          "target": "com.amazonaws.ioteventsdata#Payload",
           "traits": {
             "smithy.api#documentation": "<p>The payload of the message. This can be a JSON string or a Base-64-encoded string representing\n          binary data (in which case you must decode it).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -689,7 +689,7 @@
         "smithy.api#documentation": "<p>Information about a message.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#MessageId": {
+    "com.amazonaws.ioteventsdata#MessageId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -699,10 +699,10 @@
         "smithy.api#pattern": "^[a-zA-Z0-9_-]+$"
       }
     },
-    "com.amazon.iot.columbo.data#Messages": {
+    "com.amazonaws.ioteventsdata#Messages": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#Message"
+        "target": "com.amazonaws.ioteventsdata#Message"
       },
       "traits": {
         "smithy.api#length": {
@@ -710,17 +710,17 @@
         }
       }
     },
-    "com.amazon.iot.columbo.common.types#NextToken": {
+    "com.amazonaws.ioteventsdata#NextToken": {
       "type": "string"
     },
-    "com.amazon.iot.columbo.data#Payload": {
+    "com.amazonaws.ioteventsdata#Payload": {
       "type": "blob"
     },
-    "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException": {
+    "com.amazonaws.ioteventsdata#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message for the exception.</p>"
           }
@@ -732,17 +732,17 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazon.iot.columbo.data#Seconds": {
+    "com.amazonaws.ioteventsdata#Seconds": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException": {
+    "com.amazonaws.ioteventsdata#ServiceUnavailableException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message for the exception.</p>"
           }
@@ -754,7 +754,7 @@
         "smithy.api#httpError": 503
       }
     },
-    "com.amazon.iot.columbo.common.types#StateName": {
+    "com.amazonaws.ioteventsdata#StateName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -763,11 +763,11 @@
         }
       }
     },
-    "com.amazon.iot.columbo.common.exceptions#ThrottlingException": {
+    "com.amazonaws.ioteventsdata#ThrottlingException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "target": "com.amazonaws.ioteventsdata#ErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message for the exception.</p>"
           }
@@ -779,21 +779,21 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazon.iot.columbo.data#Timer": {
+    "com.amazonaws.ioteventsdata#Timer": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazon.iot.columbo.common.types#TimerName",
+          "target": "com.amazonaws.ioteventsdata#TimerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the timer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "timestamp": {
-          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "target": "com.amazonaws.ioteventsdata#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The number of seconds which have elapsed on the timer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -801,21 +801,21 @@
         "smithy.api#documentation": "<p>The current state of a timer.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#TimerDefinition": {
+    "com.amazonaws.ioteventsdata#TimerDefinition": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazon.iot.columbo.common.types#TimerName",
+          "target": "com.amazonaws.ioteventsdata#TimerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the timer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "seconds": {
-          "target": "com.amazon.iot.columbo.data#Seconds",
+          "target": "com.amazonaws.ioteventsdata#Seconds",
           "traits": {
             "smithy.api#documentation": "<p>The new setting of the timer (the number of seconds before the timer elapses).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -823,13 +823,13 @@
         "smithy.api#documentation": "<p>The new setting of a timer.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#TimerDefinitions": {
+    "com.amazonaws.ioteventsdata#TimerDefinitions": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#TimerDefinition"
+        "target": "com.amazonaws.ioteventsdata#TimerDefinition"
       }
     },
-    "com.amazon.iot.columbo.common.types#TimerName": {
+    "com.amazonaws.ioteventsdata#TimerName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -838,43 +838,43 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#Timers": {
+    "com.amazonaws.ioteventsdata#Timers": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#Timer"
+        "target": "com.amazonaws.ioteventsdata#Timer"
       }
     },
-    "com.amazon.iot.columbo.common.types#Timestamp": {
+    "com.amazonaws.ioteventsdata#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazon.iot.columbo.data#UpdateDetectorRequest": {
+    "com.amazonaws.ioteventsdata#UpdateDetectorRequest": {
       "type": "structure",
       "members": {
         "detectorModelName": {
-          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "target": "com.amazonaws.ioteventsdata#DetectorModelName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the detector model that created the detectors (instances).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "keyValue": {
-          "target": "com.amazon.iot.columbo.common.types#KeyValue",
+          "target": "com.amazonaws.ioteventsdata#KeyValue",
           "traits": {
             "smithy.api#documentation": "<p>The value of the input key attribute (identifying the device or system) that caused the creation \n       of this detector (instance).</p>"
           }
         },
         "messageId": {
-          "target": "com.amazon.iot.columbo.data#MessageId",
+          "target": "com.amazonaws.ioteventsdata#MessageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID to assign to the detector update <code>\"message\"</code>. Each <code>\"messageId\"</code> \n       must be unique within each batch sent.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "state": {
-          "target": "com.amazon.iot.columbo.data#DetectorStateDefinition",
+          "target": "com.amazonaws.ioteventsdata#DetectorStateDefinition",
           "traits": {
             "smithy.api#documentation": "<p>The new state, variable values, and timer settings of the detector (instance).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -882,10 +882,10 @@
         "smithy.api#documentation": "<p>Information used to update the detector (instance).</p>"
       }
     },
-    "com.amazon.iot.columbo.data#UpdateDetectorRequests": {
+    "com.amazonaws.ioteventsdata#UpdateDetectorRequests": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#UpdateDetectorRequest"
+        "target": "com.amazonaws.ioteventsdata#UpdateDetectorRequest"
       },
       "traits": {
         "smithy.api#length": {
@@ -893,21 +893,21 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#Variable": {
+    "com.amazonaws.ioteventsdata#Variable": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazon.iot.columbo.common.types#VariableName",
+          "target": "com.amazonaws.ioteventsdata#VariableName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "value": {
-          "target": "com.amazon.iot.columbo.common.types#VariableValue",
+          "target": "com.amazonaws.ioteventsdata#VariableValue",
           "traits": {
             "smithy.api#documentation": "<p>The current value of the variable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -915,21 +915,21 @@
         "smithy.api#documentation": "<p>The current state of the variable.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#VariableDefinition": {
+    "com.amazonaws.ioteventsdata#VariableDefinition": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazon.iot.columbo.common.types#VariableName",
+          "target": "com.amazonaws.ioteventsdata#VariableName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "value": {
-          "target": "com.amazon.iot.columbo.common.types#VariableValue",
+          "target": "com.amazonaws.ioteventsdata#VariableValue",
           "traits": {
             "smithy.api#documentation": "<p>The new value of the variable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -937,13 +937,13 @@
         "smithy.api#documentation": "<p>The new value of the variable.</p>"
       }
     },
-    "com.amazon.iot.columbo.data#VariableDefinitions": {
+    "com.amazonaws.ioteventsdata#VariableDefinitions": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#VariableDefinition"
+        "target": "com.amazonaws.ioteventsdata#VariableDefinition"
       }
     },
-    "com.amazon.iot.columbo.common.types#VariableName": {
+    "com.amazonaws.ioteventsdata#VariableName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -953,7 +953,7 @@
         "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
       }
     },
-    "com.amazon.iot.columbo.common.types#VariableValue": {
+    "com.amazonaws.ioteventsdata#VariableValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -962,14 +962,11 @@
         }
       }
     },
-    "com.amazon.iot.columbo.data#Variables": {
+    "com.amazonaws.ioteventsdata#Variables": {
       "type": "list",
       "member": {
-        "target": "com.amazon.iot.columbo.data#Variable"
+        "target": "com.amazonaws.ioteventsdata#Variable"
       }
-    },
-    "com.amazon.iot.columbo.common.exceptions#errorMessage": {
-      "type": "string"
     }
   }
 }

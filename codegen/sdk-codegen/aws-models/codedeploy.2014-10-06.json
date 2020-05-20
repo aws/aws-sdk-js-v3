@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -69,14 +68,14 @@
           "target": "com.amazonaws.codedeploy#InstanceNameList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the on-premises instances to which to add tags.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.amazonaws.codedeploy#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tag key-value pairs to add to the on-premises instances.</p>\n        <p>Keys and values are both required. Keys cannot be null or empty strings. Value-only\n            tags are not allowed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -87,7 +86,7 @@
     "com.amazonaws.codedeploy#AdditionalDeploymentStatusInfo": {
       "type": "string",
       "traits": {
-        "smithy.api#deprecated": { }
+        "smithy.api#deprecated": {}
       }
     },
     "com.amazonaws.codedeploy#Alarm": {
@@ -293,17 +292,20 @@
     "com.amazonaws.codedeploy#ApplicationRevisionSortBy": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "registerTime": {
+        "smithy.api#enum": [
+          {
+            "value": "registerTime",
             "name": "RegisterTime"
           },
-          "firstUsedTime": {
+          {
+            "value": "firstUsedTime",
             "name": "FirstUsedTime"
           },
-          "lastUsedTime": {
+          {
+            "value": "lastUsedTime",
             "name": "LastUsedTime"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#ApplicationsInfoList": {
@@ -365,17 +367,20 @@
     "com.amazonaws.codedeploy#AutoRollbackEvent": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DEPLOYMENT_FAILURE": {
+        "smithy.api#enum": [
+          {
+            "value": "DEPLOYMENT_FAILURE",
             "name": "DEPLOYMENT_FAILURE"
           },
-          "DEPLOYMENT_STOP_ON_ALARM": {
+          {
+            "value": "DEPLOYMENT_STOP_ON_ALARM",
             "name": "DEPLOYMENT_STOP_ON_ALARM"
           },
-          "DEPLOYMENT_STOP_ON_REQUEST": {
+          {
+            "value": "DEPLOYMENT_STOP_ON_REQUEST",
             "name": "DEPLOYMENT_STOP_ON_REQUEST"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#AutoRollbackEventsList": {
@@ -461,14 +466,14 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application about which to get revision\n            information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "revisions": {
           "target": "com.amazonaws.codedeploy#RevisionLocationList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>RevisionLocation</code> objects that specify information to get about the application revisions, including type and\n            location. The maximum number of <code>RevisionLocation</code> objects you can specify is 25.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -535,7 +540,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationsList",
           "traits": {
             "smithy.api#documentation": "<p>A list of application names separated by spaces. The maximum number of application names you can specify is 25.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -599,14 +604,14 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the applicable IAM user or\n            AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "deploymentGroupNames": {
           "target": "com.amazonaws.codedeploy#DeploymentGroupsList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the deployment groups.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -679,14 +684,14 @@
           "target": "com.amazonaws.codedeploy#DeploymentId",
           "traits": {
             "smithy.api#documentation": "<p> The unique ID of a deployment. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceIds": {
           "target": "com.amazonaws.codedeploy#InstancesList",
           "traits": {
             "smithy.api#documentation": "<p>The unique IDs of instances used in the deployment. The maximum number of instance IDs you can specify is 25.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -810,7 +815,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentsList",
           "traits": {
             "smithy.api#documentation": "<p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -862,7 +867,7 @@
           "target": "com.amazonaws.codedeploy#InstanceNameList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -966,23 +971,28 @@
     "com.amazonaws.codedeploy#BundleType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "tar": {
+        "smithy.api#enum": [
+          {
+            "value": "tar",
             "name": "Tar"
           },
-          "tgz": {
+          {
+            "value": "tgz",
             "name": "TarGZip"
           },
-          "zip": {
+          {
+            "value": "zip",
             "name": "Zip"
           },
-          "YAML": {
+          {
+            "value": "YAML",
             "name": "YAML"
           },
-          "JSON": {
+          {
+            "value": "JSON",
             "name": "JSON"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#CodeDeploy_20141006": {
@@ -1005,10 +1015,10 @@
           "target": "com.amazonaws.codedeploy#BatchGetDeploymentInstances"
         },
         {
-          "target": "com.amazonaws.codedeploy#BatchGetDeploymentTargets"
+          "target": "com.amazonaws.codedeploy#BatchGetDeployments"
         },
         {
-          "target": "com.amazonaws.codedeploy#BatchGetDeployments"
+          "target": "com.amazonaws.codedeploy#BatchGetDeploymentTargets"
         },
         {
           "target": "com.amazonaws.codedeploy#BatchGetOnPremisesInstances"
@@ -1083,10 +1093,10 @@
           "target": "com.amazonaws.codedeploy#ListDeploymentInstances"
         },
         {
-          "target": "com.amazonaws.codedeploy#ListDeploymentTargets"
+          "target": "com.amazonaws.codedeploy#ListDeployments"
         },
         {
-          "target": "com.amazonaws.codedeploy#ListDeployments"
+          "target": "com.amazonaws.codedeploy#ListDeploymentTargets"
         },
         {
           "target": "com.amazonaws.codedeploy#ListGitHubAccountTokenNames"
@@ -1135,15 +1145,11 @@
           "cloudFormationName": "CodeDeploy",
           "cloudTrailEventSource": "codedeploy.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "codedeploy"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AWS CodeDeploy</fullname>\n        <p>AWS CodeDeploy is a deployment service that automates application deployments to\n            Amazon EC2 instances, on-premises instances running in your own facility, serverless\n            AWS Lambda functions, or applications in an Amazon ECS service.</p>\n        <p>You can deploy a nearly unlimited variety of application content, such as an updated\n            Lambda function, updated applications in an Amazon ECS service, code, web and configuration \n            files, executables, packages, scripts,\n            multimedia files, and so on. AWS CodeDeploy can deploy application content stored in\n            Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to\n            make changes to your existing code before you can use AWS CodeDeploy.</p>\n        <p>AWS CodeDeploy makes it easier for you to rapidly release new features, helps you\n            avoid downtime during application deployment, and handles the complexity of updating\n            your applications, without many of the risks associated with error-prone manual\n            deployments.</p>\n        <p>\n            <b>AWS CodeDeploy Components</b>\n        </p>\n        <p>Use the information in this guide to help you work with the following AWS CodeDeploy\n            components:</p>\n        <ul>\n            <li>\n                <p>\n                    <b>Application</b>: A name that uniquely identifies\n                    the application you want to deploy. AWS CodeDeploy uses this name, which\n                    functions as a container, to ensure the correct combination of revision,\n                    deployment configuration, and deployment group are referenced during a\n                    deployment.</p>\n            </li>\n            <li>\n                <p>\n                    <b>Deployment group</b>: A set of individual\n                    instances, CodeDeploy Lambda deployment configuration settings, or an Amazon ECS\n                    service and network details. A Lambda deployment group specifies how to route\n                    traffic to a new version of a Lambda function. An Amazon ECS deployment group\n                    specifies the service created in Amazon ECS to deploy, a load balancer, and a\n                    listener to reroute production traffic to an updated containerized application.\n                    An EC2/On-premises deployment group contains individually tagged instances,\n                    Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or both. All deployment\n                    groups can specify optional trigger, alarm, and rollback settings.</p>\n            </li>\n            <li>\n                <p>\n                    <b>Deployment configuration</b>: A set of deployment\n                    rules and deployment success and failure conditions used by AWS CodeDeploy\n                    during a deployment.</p>\n            </li>\n            <li>\n                <p>\n                    <b>Deployment</b>: The process and the components used\n                    when updating a Lambda function, a containerized application in an Amazon ECS\n                    service, or of installing content on one or more instances. </p>\n            </li>\n            <li>\n                <p>\n                    <b>Application revisions</b>: For an AWS Lambda\n                    deployment, this is an AppSpec file that specifies the Lambda function to be\n                    updated and one or more functions to validate deployment lifecycle events. For\n                    an Amazon ECS deployment, this is an AppSpec file that specifies the Amazon ECS\n                    task definition, container, and port where production traffic is rerouted. For\n                    an EC2/On-premises deployment, this is an archive file that contains source\n                    content—source code, webpages, executable files, and deployment scripts—along\n                    with an AppSpec file. Revisions are stored in Amazon S3 buckets or GitHub\n                    repositories. For Amazon S3, a revision is uniquely identified by its Amazon S3\n                    object key and its ETag, version, or both. For GitHub, a revision is uniquely\n                    identified by its commit ID.</p>\n            </li>\n         </ul>\n        <p>This guide also contains information to help you get details about the instances in\n            your deployments, to make on-premises instances available for AWS CodeDeploy\n            deployments, to get details about a Lambda function deployment, and to get details about\n            Amazon ECS service deployments.</p>\n        <p>\n            <b>AWS CodeDeploy Information Resources</b>\n         </p>\n        <ul>\n            <li>\n                <p>\n                  <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide\">AWS CodeDeploy\n                        User Guide</a>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <a href=\"https://docs.aws.amazon.com/codedeploy/latest/APIReference/\">AWS\n                        CodeDeploy API Reference Guide</a>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <a href=\"https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html\">AWS\n                        CLI Reference for AWS CodeDeploy</a>\n               </p>\n            </li>\n            <li>\n                <p>\n                    <a href=\"https://forums.aws.amazon.com/forum.jspa?forumID=179\">AWS CodeDeploy\n                        Developer Forum</a>\n                </p>\n            </li>\n         </ul>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS CodeDeploy",
         "smithy.api#xmlNamespace": {
           "uri": "http://codedeploy.amazonaws.com/doc/2014-10-06/"
@@ -1156,17 +1162,20 @@
     "com.amazonaws.codedeploy#ComputePlatform": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Server": {
+        "smithy.api#enum": [
+          {
+            "value": "Server",
             "name": "SERVER"
           },
-          "Lambda": {
+          {
+            "value": "Lambda",
             "name": "LAMBDA"
           },
-          "ECS": {
+          {
+            "value": "ECS",
             "name": "ECS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#ContinueDeployment": {
@@ -1260,7 +1269,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application. This name must be unique with the applicable IAM user or\n            AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "computePlatform": {
@@ -1425,7 +1434,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentConfigName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the deployment configuration to create.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "minimumHealthyHosts": {
@@ -1582,7 +1591,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "autoRollbackConfiguration": {
@@ -1613,7 +1622,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a new deployment group for the specified application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "deploymentStyle": {
@@ -1662,7 +1671,7 @@
           "target": "com.amazonaws.codedeploy#Role",
           "traits": {
             "smithy.api#documentation": "<p>A service role ARN that allows AWS CodeDeploy to act on the user's behalf when\n            interacting with AWS services.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -1703,7 +1712,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "autoRollbackConfiguration": {
@@ -1806,7 +1815,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1844,7 +1853,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentConfigName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a deployment configuration associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1888,14 +1897,14 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "deploymentGroupName": {
           "target": "com.amazonaws.codedeploy#DeploymentGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a deployment group for the specified application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2129,17 +2138,20 @@
     "com.amazonaws.codedeploy#DeploymentCreator": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "user": {
+        "smithy.api#enum": [
+          {
+            "value": "user",
             "name": "User"
           },
-          "autoscaling": {
+          {
+            "value": "autoscaling",
             "name": "Autoscaling"
           },
-          "codeDeployRollback": {
+          {
+            "value": "codeDeployRollback",
             "name": "CodeDeployRollback"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#DeploymentDoesNotExistException": {
@@ -2611,14 +2623,16 @@
     "com.amazonaws.codedeploy#DeploymentOption": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "WITH_TRAFFIC_CONTROL": {
+        "smithy.api#enum": [
+          {
+            "value": "WITH_TRAFFIC_CONTROL",
             "name": "WITH_TRAFFIC_CONTROL"
           },
-          "WITHOUT_TRAFFIC_CONTROL": {
+          {
+            "value": "WITHOUT_TRAFFIC_CONTROL",
             "name": "WITHOUT_TRAFFIC_CONTROL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#DeploymentOverview": {
@@ -2668,14 +2682,16 @@
     "com.amazonaws.codedeploy#DeploymentReadyAction": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CONTINUE_DEPLOYMENT": {
+        "smithy.api#enum": [
+          {
+            "value": "CONTINUE_DEPLOYMENT",
             "name": "CONTINUE_DEPLOYMENT"
           },
-          "STOP_DEPLOYMENT": {
+          {
+            "value": "STOP_DEPLOYMENT",
             "name": "STOP_DEPLOYMENT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#DeploymentReadyOption": {
@@ -2701,29 +2717,36 @@
     "com.amazonaws.codedeploy#DeploymentStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Created": {
+        "smithy.api#enum": [
+          {
+            "value": "Created",
             "name": "CREATED"
           },
-          "Queued": {
+          {
+            "value": "Queued",
             "name": "QUEUED"
           },
-          "InProgress": {
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "SUCCEEDED"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "FAILED"
           },
-          "Stopped": {
+          {
+            "value": "Stopped",
             "name": "STOPPED"
           },
-          "Ready": {
+          {
+            "value": "Ready",
             "name": "READY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#DeploymentStatusList": {
@@ -2844,43 +2867,50 @@
     "com.amazonaws.codedeploy#DeploymentTargetType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "InstanceTarget": {
+        "smithy.api#enum": [
+          {
+            "value": "InstanceTarget",
             "name": "INSTANCE_TARGET"
           },
-          "LambdaTarget": {
+          {
+            "value": "LambdaTarget",
             "name": "LAMBDA_TARGET"
           },
-          "ECSTarget": {
+          {
+            "value": "ECSTarget",
             "name": "ECS_TARGET"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#DeploymentType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IN_PLACE": {
+        "smithy.api#enum": [
+          {
+            "value": "IN_PLACE",
             "name": "IN_PLACE"
           },
-          "BLUE_GREEN": {
+          {
+            "value": "BLUE_GREEN",
             "name": "BLUE_GREEN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#DeploymentWaitType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "READY_WAIT": {
+        "smithy.api#enum": [
+          {
+            "value": "READY_WAIT",
             "name": "READY_WAIT"
           },
-          "TERMINATION_WAIT": {
+          {
+            "value": "TERMINATION_WAIT",
             "name": "TERMINATION_WAIT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#DeploymentsInfoList": {
@@ -2919,7 +2949,7 @@
           "target": "com.amazonaws.codedeploy#InstanceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the on-premises instance to deregister.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3015,17 +3045,20 @@
     "com.amazonaws.codedeploy#EC2TagFilterType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "KEY_ONLY": {
+        "smithy.api#enum": [
+          {
+            "value": "KEY_ONLY",
             "name": "KEY_ONLY"
           },
-          "VALUE_ONLY": {
+          {
+            "value": "VALUE_ONLY",
             "name": "VALUE_ONLY"
           },
-          "KEY_AND_VALUE": {
+          {
+            "value": "KEY_AND_VALUE",
             "name": "KEY_AND_VALUE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#EC2TagSet": {
@@ -3245,107 +3278,140 @@
     "com.amazonaws.codedeploy#ErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AGENT_ISSUE": {
+        "smithy.api#enum": [
+          {
+            "value": "AGENT_ISSUE",
             "name": "AGENT_ISSUE"
           },
-          "ALARM_ACTIVE": {
+          {
+            "value": "ALARM_ACTIVE",
             "name": "ALARM_ACTIVE"
           },
-          "APPLICATION_MISSING": {
+          {
+            "value": "APPLICATION_MISSING",
             "name": "APPLICATION_MISSING"
           },
-          "AUTOSCALING_VALIDATION_ERROR": {
+          {
+            "value": "AUTOSCALING_VALIDATION_ERROR",
             "name": "AUTOSCALING_VALIDATION_ERROR"
           },
-          "AUTO_SCALING_CONFIGURATION": {
+          {
+            "value": "AUTO_SCALING_CONFIGURATION",
             "name": "AUTO_SCALING_CONFIGURATION"
           },
-          "AUTO_SCALING_IAM_ROLE_PERMISSIONS": {
+          {
+            "value": "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
             "name": "AUTO_SCALING_IAM_ROLE_PERMISSIONS"
           },
-          "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND": {
+          {
+            "value": "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
             "name": "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND"
           },
-          "CUSTOMER_APPLICATION_UNHEALTHY": {
+          {
+            "value": "CUSTOMER_APPLICATION_UNHEALTHY",
             "name": "CUSTOMER_APPLICATION_UNHEALTHY"
           },
-          "DEPLOYMENT_GROUP_MISSING": {
+          {
+            "value": "DEPLOYMENT_GROUP_MISSING",
             "name": "DEPLOYMENT_GROUP_MISSING"
           },
-          "ECS_UPDATE_ERROR": {
+          {
+            "value": "ECS_UPDATE_ERROR",
             "name": "ECS_UPDATE_ERROR"
           },
-          "ELASTIC_LOAD_BALANCING_INVALID": {
+          {
+            "value": "ELASTIC_LOAD_BALANCING_INVALID",
             "name": "ELASTIC_LOAD_BALANCING_INVALID"
           },
-          "ELB_INVALID_INSTANCE": {
+          {
+            "value": "ELB_INVALID_INSTANCE",
             "name": "ELB_INVALID_INSTANCE"
           },
-          "HEALTH_CONSTRAINTS": {
+          {
+            "value": "HEALTH_CONSTRAINTS",
             "name": "HEALTH_CONSTRAINTS"
           },
-          "HEALTH_CONSTRAINTS_INVALID": {
+          {
+            "value": "HEALTH_CONSTRAINTS_INVALID",
             "name": "HEALTH_CONSTRAINTS_INVALID"
           },
-          "HOOK_EXECUTION_FAILURE": {
+          {
+            "value": "HOOK_EXECUTION_FAILURE",
             "name": "HOOK_EXECUTION_FAILURE"
           },
-          "IAM_ROLE_MISSING": {
+          {
+            "value": "IAM_ROLE_MISSING",
             "name": "IAM_ROLE_MISSING"
           },
-          "IAM_ROLE_PERMISSIONS": {
+          {
+            "value": "IAM_ROLE_PERMISSIONS",
             "name": "IAM_ROLE_PERMISSIONS"
           },
-          "INTERNAL_ERROR": {
+          {
+            "value": "INTERNAL_ERROR",
             "name": "INTERNAL_ERROR"
           },
-          "INVALID_ECS_SERVICE": {
+          {
+            "value": "INVALID_ECS_SERVICE",
             "name": "INVALID_ECS_SERVICE"
           },
-          "INVALID_LAMBDA_CONFIGURATION": {
+          {
+            "value": "INVALID_LAMBDA_CONFIGURATION",
             "name": "INVALID_LAMBDA_CONFIGURATION"
           },
-          "INVALID_LAMBDA_FUNCTION": {
+          {
+            "value": "INVALID_LAMBDA_FUNCTION",
             "name": "INVALID_LAMBDA_FUNCTION"
           },
-          "INVALID_REVISION": {
+          {
+            "value": "INVALID_REVISION",
             "name": "INVALID_REVISION"
           },
-          "MANUAL_STOP": {
+          {
+            "value": "MANUAL_STOP",
             "name": "MANUAL_STOP"
           },
-          "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION": {
+          {
+            "value": "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
             "name": "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION"
           },
-          "MISSING_ELB_INFORMATION": {
+          {
+            "value": "MISSING_ELB_INFORMATION",
             "name": "MISSING_ELB_INFORMATION"
           },
-          "MISSING_GITHUB_TOKEN": {
+          {
+            "value": "MISSING_GITHUB_TOKEN",
             "name": "MISSING_GITHUB_TOKEN"
           },
-          "NO_EC2_SUBSCRIPTION": {
+          {
+            "value": "NO_EC2_SUBSCRIPTION",
             "name": "NO_EC2_SUBSCRIPTION"
           },
-          "NO_INSTANCES": {
+          {
+            "value": "NO_INSTANCES",
             "name": "NO_INSTANCES"
           },
-          "OVER_MAX_INSTANCES": {
+          {
+            "value": "OVER_MAX_INSTANCES",
             "name": "OVER_MAX_INSTANCES"
           },
-          "RESOURCE_LIMIT_EXCEEDED": {
+          {
+            "value": "RESOURCE_LIMIT_EXCEEDED",
             "name": "RESOURCE_LIMIT_EXCEEDED"
           },
-          "REVISION_MISSING": {
+          {
+            "value": "REVISION_MISSING",
             "name": "REVISION_MISSING"
           },
-          "THROTTLED": {
+          {
+            "value": "THROTTLED",
             "name": "THROTTLED"
           },
-          "TIMEOUT": {
+          {
+            "value": "TIMEOUT",
             "name": "TIMEOUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#ErrorInformation": {
@@ -3374,17 +3440,20 @@
     "com.amazonaws.codedeploy#FileExistsBehavior": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DISALLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "DISALLOW",
             "name": "DISALLOW"
           },
-          "OVERWRITE": {
+          {
+            "value": "OVERWRITE",
             "name": "OVERWRITE"
           },
-          "RETAIN": {
+          {
+            "value": "RETAIN",
             "name": "RETAIN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#FilterValue": {
@@ -3464,7 +3533,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3525,14 +3594,14 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the application that corresponds to the revision.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "revision": {
           "target": "com.amazonaws.codedeploy#RevisionLocation",
           "traits": {
             "smithy.api#documentation": "<p>Information about the application revision to get, including type and location.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3622,7 +3691,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentConfigName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a deployment configuration associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3686,14 +3755,14 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "deploymentGroupName": {
           "target": "com.amazonaws.codedeploy#DeploymentGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a deployment group for the specified application.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3722,7 +3791,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentId",
           "traits": {
             "smithy.api#documentation": "<p> The unique ID of a deployment associated with the IAM user or AWS account. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3775,14 +3844,14 @@
           "target": "com.amazonaws.codedeploy#DeploymentId",
           "traits": {
             "smithy.api#documentation": "<p> The unique ID of a deployment. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceId": {
           "target": "com.amazonaws.codedeploy#InstanceId",
           "traits": {
             "smithy.api#documentation": "<p> The unique ID of an instance in the deployment group. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3914,7 +3983,7 @@
           "target": "com.amazonaws.codedeploy#InstanceName",
           "traits": {
             "smithy.api#documentation": "<p> The name of the on-premises instance about which to get information. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3998,14 +4067,16 @@
     "com.amazonaws.codedeploy#GreenFleetProvisioningAction": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DISCOVER_EXISTING": {
+        "smithy.api#enum": [
+          {
+            "value": "DISCOVER_EXISTING",
             "name": "DISCOVER_EXISTING"
           },
-          "COPY_AUTO_SCALING_GROUP": {
+          {
+            "value": "COPY_AUTO_SCALING_GROUP",
             "name": "COPY_AUTO_SCALING_GROUP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#GreenFleetProvisioningOption": {
@@ -4091,14 +4162,16 @@
     "com.amazonaws.codedeploy#InstanceAction": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TERMINATE": {
+        "smithy.api#enum": [
+          {
+            "value": "TERMINATE",
             "name": "TERMINATE"
           },
-          "KEEP_ALIVE": {
+          {
+            "value": "KEEP_ALIVE",
             "name": "KEEP_ALIVE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#InstanceArn": {
@@ -4277,29 +4350,36 @@
         "smithy.api#deprecated": {
           "message": "InstanceStatus is deprecated, use TargetStatus instead."
         },
-        "smithy.api#enum": {
-          "Pending": {
+        "smithy.api#enum": [
+          {
+            "value": "Pending",
             "name": "PENDING"
           },
-          "InProgress": {
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "SUCCEEDED"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "FAILED"
           },
-          "Skipped": {
+          {
+            "value": "Skipped",
             "name": "SKIPPED"
           },
-          "Unknown": {
+          {
+            "value": "Unknown",
             "name": "UNKNOWN"
           },
-          "Ready": {
+          {
+            "value": "Ready",
             "name": "READY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#InstanceStatusList": {
@@ -4414,14 +4494,16 @@
     "com.amazonaws.codedeploy#InstanceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Blue": {
+        "smithy.api#enum": [
+          {
+            "value": "Blue",
             "name": "BLUE"
           },
-          "Green": {
+          {
+            "value": "Green",
             "name": "GREEN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#InstanceTypeList": {
@@ -5363,26 +5445,32 @@
     "com.amazonaws.codedeploy#LifecycleErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Success": {
+        "smithy.api#enum": [
+          {
+            "value": "Success",
             "name": "SUCCESS"
           },
-          "ScriptMissing": {
+          {
+            "value": "ScriptMissing",
             "name": "SCRIPT_MISSING"
           },
-          "ScriptNotExecutable": {
+          {
+            "value": "ScriptNotExecutable",
             "name": "SCRIPT_NOT_EXECUTABLE"
           },
-          "ScriptTimedOut": {
+          {
+            "value": "ScriptTimedOut",
             "name": "SCRIPT_TIMED_OUT"
           },
-          "ScriptFailed": {
+          {
+            "value": "ScriptFailed",
             "name": "SCRIPT_FAILED"
           },
-          "UnknownError": {
+          {
+            "value": "UnknownError",
             "name": "UNKNOWN_ERROR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#LifecycleEvent": {
@@ -5453,26 +5541,32 @@
     "com.amazonaws.codedeploy#LifecycleEventStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Pending": {
+        "smithy.api#enum": [
+          {
+            "value": "Pending",
             "name": "PENDING"
           },
-          "InProgress": {
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "SUCCEEDED"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "FAILED"
           },
-          "Skipped": {
+          {
+            "value": "Skipped",
             "name": "SKIPPED"
           },
-          "Unknown": {
+          {
+            "value": "Unknown",
             "name": "UNKNOWN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#LifecycleHookLimitExceededException": {
@@ -5549,7 +5643,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p> The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "deployed": {
@@ -5763,7 +5857,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "nextToken": {
@@ -5862,7 +5956,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentId",
           "traits": {
             "smithy.api#documentation": "<p> The unique ID of a deployment. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceStatusFilter": {
@@ -6219,17 +6313,20 @@
     "com.amazonaws.codedeploy#ListStateFilterAction": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "include": {
+        "smithy.api#enum": [
+          {
+            "value": "include",
             "name": "Include"
           },
-          "exclude": {
+          {
+            "value": "exclude",
             "name": "Exclude"
           },
-          "ignore": {
+          {
+            "value": "ignore",
             "name": "Ignore"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#ListTagsForResource": {
@@ -6268,7 +6365,7 @@
           "target": "com.amazonaws.codedeploy#Arn",
           "traits": {
             "smithy.api#documentation": "<p>\n            The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the tags associated with the \n            resource that is identified by the <code>ResourceArn</code>.\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6354,10 +6451,14 @@
     "com.amazonaws.codedeploy#MinimumHealthyHostsType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "HOST_COUNT": { },
-          "FLEET_PERCENT": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "HOST_COUNT"
+          },
+          {
+            "value": "FLEET_PERCENT"
+          }
+        ]
       }
     },
     "com.amazonaws.codedeploy#MinimumHealthyHostsValue": {
@@ -6384,7 +6485,7 @@
     "com.amazonaws.codedeploy#NullableBoolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.codedeploy#OnPremisesTagSet": {
@@ -6559,7 +6660,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The name of an AWS CodeDeploy application associated with the IAM user or AWS\n            account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "description": {
@@ -6572,7 +6673,7 @@
           "target": "com.amazonaws.codedeploy#RevisionLocation",
           "traits": {
             "smithy.api#documentation": "<p>Information about the application revision to register, including type and\n            location.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -6640,7 +6741,7 @@
           "target": "com.amazonaws.codedeploy#InstanceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the on-premises instance to register.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -6651,14 +6752,16 @@
     "com.amazonaws.codedeploy#RegistrationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Registered": {
+        "smithy.api#enum": [
+          {
+            "value": "Registered",
             "name": "Registered"
           },
-          "Deregistered": {
+          {
+            "value": "Deregistered",
             "name": "Deregistered"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#RemoveTagsFromOnPremisesInstances": {
@@ -6700,14 +6803,14 @@
           "target": "com.amazonaws.codedeploy#InstanceNameList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the on-premises instances from which to remove tags.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.amazonaws.codedeploy#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tag key-value pairs to remove from the on-premises instances.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -6836,20 +6939,24 @@
     "com.amazonaws.codedeploy#RevisionLocationType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "S3": {
+        "smithy.api#enum": [
+          {
+            "value": "S3",
             "name": "S3"
           },
-          "GitHub": {
+          {
+            "value": "GitHub",
             "name": "GitHub"
           },
-          "String": {
+          {
+            "value": "String",
             "name": "String"
           },
-          "AppSpecContent": {
+          {
+            "value": "AppSpecContent",
             "name": "AppSpecContent"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#RevisionRequiredException": {
@@ -7004,14 +7111,16 @@
     "com.amazonaws.codedeploy#SortOrder": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ascending": {
+        "smithy.api#enum": [
+          {
+            "value": "ascending",
             "name": "Ascending"
           },
-          "descending": {
+          {
+            "value": "descending",
             "name": "Descending"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#StopDeployment": {
@@ -7056,7 +7165,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentId",
           "traits": {
             "smithy.api#documentation": "<p> The unique ID of a deployment. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -7087,14 +7196,16 @@
     "com.amazonaws.codedeploy#StopStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Pending": {
+        "smithy.api#enum": [
+          {
+            "value": "Pending",
             "name": "PENDING"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "SUCCEEDED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#Tag": {
@@ -7152,17 +7263,20 @@
     "com.amazonaws.codedeploy#TagFilterType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "KEY_ONLY": {
+        "smithy.api#enum": [
+          {
+            "value": "KEY_ONLY",
             "name": "KEY_ONLY"
           },
-          "VALUE_ONLY": {
+          {
+            "value": "VALUE_ONLY",
             "name": "VALUE_ONLY"
           },
-          "KEY_AND_VALUE": {
+          {
+            "value": "KEY_AND_VALUE",
             "name": "KEY_AND_VALUE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#TagKeyList": {
@@ -7252,21 +7366,21 @@
           "target": "com.amazonaws.codedeploy#Arn",
           "traits": {
             "smithy.api#documentation": "<p>\n            The ARN of a resource, such as a CodeDeploy application or deployment group.\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.codedeploy#TagList",
           "traits": {
             "smithy.api#documentation": "<p>\n            A list of tags that <code>TagResource</code> associates with a resource. The resource is identified by the <code>ResourceArn</code> input parameter.\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codedeploy#TagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codedeploy#TagSetListLimitExceededException": {
       "type": "structure",
@@ -7289,14 +7403,16 @@
     "com.amazonaws.codedeploy#TargetFilterName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TargetStatus": {
+        "smithy.api#enum": [
+          {
+            "value": "TargetStatus",
             "name": "TARGET_STATUS"
           },
-          "ServerInstanceLabel": {
+          {
+            "value": "ServerInstanceLabel",
             "name": "SERVER_INSTANCE_LABEL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#TargetFilters": {
@@ -7401,42 +7517,51 @@
     "com.amazonaws.codedeploy#TargetLabel": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Blue": {
+        "smithy.api#enum": [
+          {
+            "value": "Blue",
             "name": "BLUE"
           },
-          "Green": {
+          {
+            "value": "Green",
             "name": "GREEN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#TargetStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Pending": {
+        "smithy.api#enum": [
+          {
+            "value": "Pending",
             "name": "PENDING"
           },
-          "InProgress": {
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "SUCCEEDED"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "FAILED"
           },
-          "Skipped": {
+          {
+            "value": "Skipped",
             "name": "SKIPPED"
           },
-          "Unknown": {
+          {
+            "value": "Unknown",
             "name": "UNKNOWN"
           },
-          "Ready": {
+          {
+            "value": "Ready",
             "name": "READY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#ThrottlingException": {
@@ -7563,17 +7688,20 @@
     "com.amazonaws.codedeploy#TrafficRoutingType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TimeBasedCanary": {
+        "smithy.api#enum": [
+          {
+            "value": "TimeBasedCanary",
             "name": "TimeBasedCanary"
           },
-          "TimeBasedLinear": {
+          {
+            "value": "TimeBasedLinear",
             "name": "TimeBasedLinear"
           },
-          "AllAtOnce": {
+          {
+            "value": "AllAtOnce",
             "name": "AllAtOnce"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#TrafficWeight": {
@@ -7614,38 +7742,48 @@
     "com.amazonaws.codedeploy#TriggerEventType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DeploymentStart": {
+        "smithy.api#enum": [
+          {
+            "value": "DeploymentStart",
             "name": "DEPLOYMENT_START"
           },
-          "DeploymentSuccess": {
+          {
+            "value": "DeploymentSuccess",
             "name": "DEPLOYMENT_SUCCESS"
           },
-          "DeploymentFailure": {
+          {
+            "value": "DeploymentFailure",
             "name": "DEPLOYMENT_FAILURE"
           },
-          "DeploymentStop": {
+          {
+            "value": "DeploymentStop",
             "name": "DEPLOYMENT_STOP"
           },
-          "DeploymentRollback": {
+          {
+            "value": "DeploymentRollback",
             "name": "DEPLOYMENT_ROLLBACK"
           },
-          "DeploymentReady": {
+          {
+            "value": "DeploymentReady",
             "name": "DEPLOYMENT_READY"
           },
-          "InstanceStart": {
+          {
+            "value": "InstanceStart",
             "name": "INSTANCE_START"
           },
-          "InstanceSuccess": {
+          {
+            "value": "InstanceSuccess",
             "name": "INSTANCE_SUCCESS"
           },
-          "InstanceFailure": {
+          {
+            "value": "InstanceFailure",
             "name": "INSTANCE_FAILURE"
           },
-          "InstanceReady": {
+          {
+            "value": "InstanceReady",
             "name": "INSTANCE_READY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.codedeploy#TriggerEventTypeList": {
@@ -7735,21 +7873,21 @@
           "target": "com.amazonaws.codedeploy#Arn",
           "traits": {
             "smithy.api#documentation": "<p>\n            The ARN that specifies from which resource to disassociate the tags with the keys in the <code>TagKeys</code> input paramter.\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.codedeploy#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>\n            A list of keys of <code>Tag</code> objects. The <code>Tag</code> objects identified by the keys are disassociated from the resource \n            specified by the <code>ResourceArn</code> input parameter.\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.codedeploy#UntagResourceOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.codedeploy#UpdateApplication": {
       "type": "operation",
@@ -7911,7 +8049,7 @@
           "target": "com.amazonaws.codedeploy#ApplicationName",
           "traits": {
             "smithy.api#documentation": "<p>The application name that corresponds to the deployment group to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "autoRollbackConfiguration": {
@@ -7936,7 +8074,7 @@
           "target": "com.amazonaws.codedeploy#DeploymentGroupName",
           "traits": {
             "smithy.api#documentation": "<p>The current name of the deployment group.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "deploymentConfigName": {

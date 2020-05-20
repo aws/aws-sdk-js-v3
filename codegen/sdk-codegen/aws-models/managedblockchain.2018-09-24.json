@@ -1,61 +1,60 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.taiga.webservice.api#AccessDeniedException": {
+    "com.amazonaws.managedblockchain#AccessDeniedException": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.taiga.webservice.api#ApprovalThresholdPolicy": {
+    "com.amazonaws.managedblockchain#ApprovalThresholdPolicy": {
       "type": "structure",
       "members": {
         "ProposalDurationInHours": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalDurationInt",
+          "target": "com.amazonaws.managedblockchain#ProposalDurationInt",
           "traits": {
             "smithy.api#documentation": "<p>The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> are not carried out.</p>"
           }
         },
         "ThresholdComparator": {
-          "target": "com.amazonaws.taiga.webservice.api#ThresholdComparator",
+          "target": "com.amazonaws.managedblockchain#ThresholdComparator",
           "traits": {
             "smithy.api#documentation": "<p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>"
           }
         },
         "ThresholdPercentage": {
-          "target": "com.amazonaws.taiga.webservice.api#ThresholdPercentageInt",
+          "target": "com.amazonaws.managedblockchain#ThresholdPercentageInt",
           "traits": {
             "smithy.api#documentation": "<p>The percentage of votes among all members that must be <code>YES</code> for a proposal to be approved. For example, a <code>ThresholdPercentage</code> value of <code>50</code> indicates 50%. The <code>ThresholdComparator</code> determines the precise comparison. If a <code>ThresholdPercentage</code> value of <code>50</code> is specified on a network with 10 members, along with a <code>ThresholdComparator</code> value of <code>GREATER_THAN</code>, this indicates that 6 <code>YES</code> votes are required for the proposal to be approved.</p>"
           }
@@ -65,10 +64,10 @@
         "smithy.api#documentation": "<p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#AvailabilityZoneString": {
+    "com.amazonaws.managedblockchain#AvailabilityZoneString": {
       "type": "string"
     },
-    "com.amazonaws.taiga.webservice.api#ClientRequestTokenString": {
+    "com.amazonaws.managedblockchain#ClientRequestTokenString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -77,38 +76,38 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateMember": {
+    "com.amazonaws.managedblockchain#CreateMember": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateMemberInput"
+        "target": "com.amazonaws.managedblockchain#CreateMemberInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateMemberOutput"
+        "target": "com.amazonaws.managedblockchain#CreateMemberOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.managedblockchain#ResourceAlreadyExistsException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException"
+          "target": "com.amazonaws.managedblockchain#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotReadyException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -120,78 +119,78 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateMemberInput": {
+    "com.amazonaws.managedblockchain#CreateMemberInput": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.taiga.webservice.api#ClientRequestTokenString",
+          "target": "com.amazonaws.managedblockchain#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         },
         "InvitationId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the invitation that is sent to the member to join the network.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MemberConfiguration": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberConfiguration",
+          "target": "com.amazonaws.managedblockchain#MemberConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Member configuration parameters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network in which the member is created.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateMemberOutput": {
+    "com.amazonaws.managedblockchain#CreateMemberOutput": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateNetwork": {
+    "com.amazonaws.managedblockchain#CreateNetwork": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateNetworkInput"
+        "target": "com.amazonaws.managedblockchain#CreateNetworkInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateNetworkOutput"
+        "target": "com.amazonaws.managedblockchain#CreateNetworkOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.managedblockchain#ResourceAlreadyExistsException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException"
+          "target": "com.amazonaws.managedblockchain#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -203,115 +202,115 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateNetworkInput": {
+    "com.amazonaws.managedblockchain#CreateNetworkInput": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.taiga.webservice.api#ClientRequestTokenString",
+          "target": "com.amazonaws.managedblockchain#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>An optional description for the network.</p>"
           }
         },
         "Framework": {
-          "target": "com.amazonaws.taiga.webservice.api#Framework",
+          "target": "com.amazonaws.managedblockchain#Framework",
           "traits": {
             "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FrameworkConfiguration": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkFrameworkConfiguration",
+          "target": "com.amazonaws.managedblockchain#NetworkFrameworkConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>\n         Configuration properties of the blockchain framework relevant to the network configuration.\n      </p>"
           }
         },
         "FrameworkVersion": {
-          "target": "com.amazonaws.taiga.webservice.api#FrameworkVersionString",
+          "target": "com.amazonaws.managedblockchain#FrameworkVersionString",
           "traits": {
             "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MemberConfiguration": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberConfiguration",
+          "target": "com.amazonaws.managedblockchain#MemberConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Configuration properties for the first member within the network.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#NameString",
+          "target": "com.amazonaws.managedblockchain#NameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the network.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VotingPolicy": {
-          "target": "com.amazonaws.taiga.webservice.api#VotingPolicy",
+          "target": "com.amazonaws.managedblockchain#VotingPolicy",
           "traits": {
             "smithy.api#documentation": "<p>\n         The voting rules used by the network to determine if a proposal is approved.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateNetworkOutput": {
+    "com.amazonaws.managedblockchain#CreateNetworkOutput": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the first member within the network.</p>"
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the network.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateNode": {
+    "com.amazonaws.managedblockchain#CreateNode": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateNodeInput"
+        "target": "com.amazonaws.managedblockchain#CreateNodeInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateNodeOutput"
+        "target": "com.amazonaws.managedblockchain#CreateNodeOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.managedblockchain#ResourceAlreadyExistsException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException"
+          "target": "com.amazonaws.managedblockchain#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotReadyException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -323,79 +322,79 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateNodeInput": {
+    "com.amazonaws.managedblockchain#CreateNodeInput": {
       "type": "structure",
       "members": {
         "ClientRequestToken": {
-          "target": "com.amazonaws.taiga.webservice.api#ClientRequestTokenString",
+          "target": "com.amazonaws.managedblockchain#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         },
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network in which this node runs.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NodeConfiguration": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeConfiguration",
+          "target": "com.amazonaws.managedblockchain#NodeConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The properties of a node configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateNodeOutput": {
+    "com.amazonaws.managedblockchain#CreateNodeOutput": {
       "type": "structure",
       "members": {
         "NodeId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateProposal": {
+    "com.amazonaws.managedblockchain#CreateProposal": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateProposalInput"
+        "target": "com.amazonaws.managedblockchain#CreateProposalInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#CreateProposalOutput"
+        "target": "com.amazonaws.managedblockchain#CreateProposalOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotReadyException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -407,84 +406,84 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateProposalInput": {
+    "com.amazonaws.managedblockchain#CreateProposalInput": {
       "type": "structure",
       "members": {
         "Actions": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalActions",
+          "target": "com.amazonaws.managedblockchain#ProposalActions",
           "traits": {
             "smithy.api#documentation": "<p>The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ClientRequestToken": {
-          "target": "com.amazonaws.taiga.webservice.api#ClientRequestTokenString",
+          "target": "com.amazonaws.managedblockchain#ClientRequestTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>",
-            "smithy.api#idempotencyToken": true,
-            "smithy.api#required": true
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\"</p>"
           }
         },
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single AWS account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the network for which the proposal is made.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#CreateProposalOutput": {
+    "com.amazonaws.managedblockchain#CreateProposalOutput": {
       "type": "structure",
       "members": {
         "ProposalId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the proposal.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#DeleteMember": {
+    "com.amazonaws.managedblockchain#DeleteMember": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#DeleteMemberInput"
+        "target": "com.amazonaws.managedblockchain#DeleteMemberInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#DeleteMemberOutput"
+        "target": "com.amazonaws.managedblockchain#DeleteMemberOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotReadyException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -496,57 +495,57 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#DeleteMemberInput": {
+    "com.amazonaws.managedblockchain#DeleteMemberInput": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member to remove.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network from which the member is removed.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#DeleteMemberOutput": {
+    "com.amazonaws.managedblockchain#DeleteMemberOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.taiga.webservice.api#DeleteNode": {
+    "com.amazonaws.managedblockchain#DeleteNode": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#DeleteNodeInput"
+        "target": "com.amazonaws.managedblockchain#DeleteNodeInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#DeleteNodeOutput"
+        "target": "com.amazonaws.managedblockchain#DeleteNodeOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotReadyException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -558,40 +557,40 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#DeleteNodeInput": {
+    "com.amazonaws.managedblockchain#DeleteNodeInput": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network that the node belongs to.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NodeId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#DeleteNodeOutput": {
+    "com.amazonaws.managedblockchain#DeleteNodeOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.taiga.webservice.api#DescriptionString": {
+    "com.amazonaws.managedblockchain#DescriptionString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -600,30 +599,33 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#Edition": {
+    "com.amazonaws.managedblockchain#Edition": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STARTER": {
+        "smithy.api#enum": [
+          {
+            "value": "STARTER",
             "name": "STARTER"
           },
-          "STANDARD": {
+          {
+            "value": "STANDARD",
             "name": "STANDARD"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#Framework": {
+    "com.amazonaws.managedblockchain#Framework": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "HYPERLEDGER_FABRIC": {
+        "smithy.api#enum": [
+          {
+            "value": "HYPERLEDGER_FABRIC",
             "name": "HYPERLEDGER_FABRIC"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#FrameworkVersionString": {
+    "com.amazonaws.managedblockchain#FrameworkVersionString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -632,29 +634,29 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetMember": {
+    "com.amazonaws.managedblockchain#GetMember": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#GetMemberInput"
+        "target": "com.amazonaws.managedblockchain#GetMemberInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#GetMemberOutput"
+        "target": "com.amazonaws.managedblockchain#GetMemberOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -666,61 +668,61 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetMemberInput": {
+    "com.amazonaws.managedblockchain#GetMemberInput": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network to which the member belongs.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetMemberOutput": {
+    "com.amazonaws.managedblockchain#GetMemberOutput": {
       "type": "structure",
       "members": {
         "Member": {
-          "target": "com.amazonaws.taiga.webservice.api#Member",
+          "target": "com.amazonaws.managedblockchain#Member",
           "traits": {
             "smithy.api#documentation": "<p>The properties of a member.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetNetwork": {
+    "com.amazonaws.managedblockchain#GetNetwork": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#GetNetworkInput"
+        "target": "com.amazonaws.managedblockchain#GetNetworkInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#GetNetworkOutput"
+        "target": "com.amazonaws.managedblockchain#GetNetworkOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -732,53 +734,53 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetNetworkInput": {
+    "com.amazonaws.managedblockchain#GetNetworkInput": {
       "type": "structure",
       "members": {
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network to get information about.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetNetworkOutput": {
+    "com.amazonaws.managedblockchain#GetNetworkOutput": {
       "type": "structure",
       "members": {
         "Network": {
-          "target": "com.amazonaws.taiga.webservice.api#Network",
+          "target": "com.amazonaws.managedblockchain#Network",
           "traits": {
             "smithy.api#documentation": "<p>An object containing network configuration parameters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetNode": {
+    "com.amazonaws.managedblockchain#GetNode": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#GetNodeInput"
+        "target": "com.amazonaws.managedblockchain#GetNodeInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#GetNodeOutput"
+        "target": "com.amazonaws.managedblockchain#GetNodeOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -790,69 +792,69 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetNodeInput": {
+    "com.amazonaws.managedblockchain#GetNodeInput": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member that owns the node.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network to which the node belongs.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NodeId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetNodeOutput": {
+    "com.amazonaws.managedblockchain#GetNodeOutput": {
       "type": "structure",
       "members": {
         "Node": {
-          "target": "com.amazonaws.taiga.webservice.api#Node",
+          "target": "com.amazonaws.managedblockchain#Node",
           "traits": {
             "smithy.api#documentation": "<p>Properties of the node configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetProposal": {
+    "com.amazonaws.managedblockchain#GetProposal": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#GetProposalInput"
+        "target": "com.amazonaws.managedblockchain#GetProposalInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#GetProposalOutput"
+        "target": "com.amazonaws.managedblockchain#GetProposalOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -864,43 +866,43 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetProposalInput": {
+    "com.amazonaws.managedblockchain#GetProposalInput": {
       "type": "structure",
       "members": {
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network for which the proposal is made.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ProposalId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the proposal.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#GetProposalOutput": {
+    "com.amazonaws.managedblockchain#GetProposalOutput": {
       "type": "structure",
       "members": {
         "Proposal": {
-          "target": "com.amazonaws.taiga.webservice.api#Proposal",
+          "target": "com.amazonaws.managedblockchain#Proposal",
           "traits": {
             "smithy.api#documentation": "<p>Information about a proposal.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#IllegalActionException": {
+    "com.amazonaws.managedblockchain#IllegalActionException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.taiga.webservice.api#String"
+          "target": "com.amazonaws.managedblockchain#String"
         }
       },
       "traits": {
@@ -909,23 +911,23 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.taiga.webservice.api#InstanceTypeString": {
+    "com.amazonaws.managedblockchain#InstanceTypeString": {
       "type": "string"
     },
-    "com.amazonaws.taiga.webservice.api#InternalServiceErrorException": {
+    "com.amazonaws.managedblockchain#InternalServiceErrorException": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The request processing has failed because of an unknown error, exception or failure.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.taiga.webservice.api#InvalidRequestException": {
+    "com.amazonaws.managedblockchain#InvalidRequestException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.taiga.webservice.api#String"
+          "target": "com.amazonaws.managedblockchain#String"
         }
       },
       "traits": {
@@ -934,32 +936,32 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.taiga.webservice.api#Invitation": {
+    "com.amazonaws.managedblockchain#Invitation": {
       "type": "structure",
       "members": {
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the invitation was created.</p>"
           }
         },
         "ExpirationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the invitation expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, the invitee can no longer create a member and join the network using this <code>InvitationId</code>.</p>"
           }
         },
         "InvitationId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the invitation.</p>"
           }
         },
         "NetworkSummary": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkSummary"
+          "target": "com.amazonaws.managedblockchain#NetworkSummary"
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#InvitationStatus",
+          "target": "com.amazonaws.managedblockchain#InvitationStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the invitation:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PENDING</code> - The invitee has not created a member to join the network, and the invitation has not yet expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACCEPTING</code> - The invitee has begun creating a member, and creation has not yet completed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACCEPTED</code> - The invitee created a member and joined the network using the <code>InvitationID</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REJECTED</code> - The invitee rejected the invitation.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXPIRED</code> - The invitee neither created a member nor rejected the invitation before the <code>ExpirationDate</code>.</p>\n            </li>\n         </ul>"
           }
@@ -969,42 +971,47 @@
         "smithy.api#documentation": "<p>An invitation to an AWS account to create a member and join the network.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#InvitationList": {
+    "com.amazonaws.managedblockchain#InvitationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#Invitation"
+        "target": "com.amazonaws.managedblockchain#Invitation"
       }
     },
-    "com.amazonaws.taiga.webservice.api#InvitationStatus": {
+    "com.amazonaws.managedblockchain#InvitationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "ACCEPTED": {
+          {
+            "value": "ACCEPTED",
             "name": "ACCEPTED"
           },
-          "ACCEPTING": {
+          {
+            "value": "ACCEPTING",
             "name": "ACCEPTING"
           },
-          "REJECTED": {
+          {
+            "value": "REJECTED",
             "name": "REJECTED"
           },
-          "EXPIRED": {
+          {
+            "value": "EXPIRED",
             "name": "EXPIRED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#InviteAction": {
+    "com.amazonaws.managedblockchain#InviteAction": {
       "type": "structure",
       "members": {
         "Principal": {
-          "target": "com.amazonaws.taiga.webservice.api#PrincipalString",
+          "target": "com.amazonaws.managedblockchain#PrincipalString",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID to invite.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1012,44 +1019,44 @@
         "smithy.api#documentation": "<p>An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#InviteActionList": {
+    "com.amazonaws.managedblockchain#InviteActionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#InviteAction"
+        "target": "com.amazonaws.managedblockchain#InviteAction"
       }
     },
-    "com.amazonaws.taiga.webservice.api#IsOwned": {
+    "com.amazonaws.managedblockchain#IsOwned": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListInvitations": {
+    "com.amazonaws.managedblockchain#ListInvitations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#ListInvitationsInput"
+        "target": "com.amazonaws.managedblockchain#ListInvitationsInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#ListInvitationsOutput"
+        "target": "com.amazonaws.managedblockchain#ListInvitationsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException"
+          "target": "com.amazonaws.managedblockchain#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -1066,18 +1073,18 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListInvitationsInput": {
+    "com.amazonaws.managedblockchain#ListInvitationsInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalListMaxResults",
+          "target": "com.amazonaws.managedblockchain#ProposalListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of invitations to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1085,43 +1092,43 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListInvitationsOutput": {
+    "com.amazonaws.managedblockchain#ListInvitationsOutput": {
       "type": "structure",
       "members": {
         "Invitations": {
-          "target": "com.amazonaws.taiga.webservice.api#InvitationList",
+          "target": "com.amazonaws.managedblockchain#InvitationList",
           "traits": {
             "smithy.api#documentation": "<p>The invitations for the network.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListMembers": {
+    "com.amazonaws.managedblockchain#ListMembers": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#ListMembersInput"
+        "target": "com.amazonaws.managedblockchain#ListMembersInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#ListMembersOutput"
+        "target": "com.amazonaws.managedblockchain#ListMembersOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -1138,47 +1145,47 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListMembersInput": {
+    "com.amazonaws.managedblockchain#ListMembersInput": {
       "type": "structure",
       "members": {
         "IsOwned": {
-          "target": "com.amazonaws.taiga.webservice.api#IsOwned",
+          "target": "com.amazonaws.managedblockchain#IsOwned",
           "traits": {
             "smithy.api#documentation": "<p>An optional Boolean value. If provided, the request is limited either to\n         members that the current AWS account owns (<code>true</code>) or that other AWS accounts\n         own (<code>false</code>). If omitted, all members are listed.</p>",
             "smithy.api#httpQuery": "isOwned"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberListMaxResults",
+          "target": "com.amazonaws.managedblockchain#MemberListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of members to return in the request.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#String",
+          "target": "com.amazonaws.managedblockchain#String",
           "traits": {
             "smithy.api#documentation": "<p>The optional name of the member to list.</p>",
             "smithy.api#httpQuery": "name"
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network for which to list members.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberStatus",
+          "target": "com.amazonaws.managedblockchain#MemberStatus",
           "traits": {
             "smithy.api#documentation": "<p>An optional status specifier. If provided, only members currently in this status are listed.</p>",
             "smithy.api#httpQuery": "status"
@@ -1186,43 +1193,43 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListMembersOutput": {
+    "com.amazonaws.managedblockchain#ListMembersOutput": {
       "type": "structure",
       "members": {
         "Members": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberSummaryList",
+          "target": "com.amazonaws.managedblockchain#MemberSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListNetworks": {
+    "com.amazonaws.managedblockchain#ListNetworks": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#ListNetworksInput"
+        "target": "com.amazonaws.managedblockchain#ListNetworksInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#ListNetworksOutput"
+        "target": "com.amazonaws.managedblockchain#ListNetworksOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -1239,39 +1246,39 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListNetworksInput": {
+    "com.amazonaws.managedblockchain#ListNetworksInput": {
       "type": "structure",
       "members": {
         "Framework": {
-          "target": "com.amazonaws.taiga.webservice.api#Framework",
+          "target": "com.amazonaws.managedblockchain#Framework",
           "traits": {
             "smithy.api#documentation": "<p>An optional framework specifier. If provided, only networks of this framework type are listed.</p>",
             "smithy.api#httpQuery": "framework"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkListMaxResults",
+          "target": "com.amazonaws.managedblockchain#NetworkListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of networks to list.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#String",
+          "target": "com.amazonaws.managedblockchain#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the network.</p>",
             "smithy.api#httpQuery": "name"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkStatus",
+          "target": "com.amazonaws.managedblockchain#NetworkStatus",
           "traits": {
             "smithy.api#documentation": "<p>An optional status specifier. If provided, only networks currently in this status are listed.</p>",
             "smithy.api#httpQuery": "status"
@@ -1279,43 +1286,43 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListNetworksOutput": {
+    "com.amazonaws.managedblockchain#ListNetworksOutput": {
       "type": "structure",
       "members": {
         "Networks": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkSummaryList",
+          "target": "com.amazonaws.managedblockchain#NetworkSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListNodes": {
+    "com.amazonaws.managedblockchain#ListNodes": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#ListNodesInput"
+        "target": "com.amazonaws.managedblockchain#ListNodesInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#ListNodesOutput"
+        "target": "com.amazonaws.managedblockchain#ListNodesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -1332,41 +1339,41 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListNodesInput": {
+    "com.amazonaws.managedblockchain#ListNodesInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeListMaxResults",
+          "target": "com.amazonaws.managedblockchain#NodeListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of nodes to list.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member who owns the nodes to list.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network for which to list nodes.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeStatus",
+          "target": "com.amazonaws.managedblockchain#NodeStatus",
           "traits": {
             "smithy.api#documentation": "<p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>",
             "smithy.api#httpQuery": "status"
@@ -1374,43 +1381,43 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListNodesOutput": {
+    "com.amazonaws.managedblockchain#ListNodesOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         },
         "Nodes": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeSummaryList",
+          "target": "com.amazonaws.managedblockchain#NodeSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListProposalVotes": {
+    "com.amazonaws.managedblockchain#ListProposalVotes": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#ListProposalVotesInput"
+        "target": "com.amazonaws.managedblockchain#ListProposalVotesInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#ListProposalVotesOutput"
+        "target": "com.amazonaws.managedblockchain#ListProposalVotesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -1427,81 +1434,81 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListProposalVotesInput": {
+    "com.amazonaws.managedblockchain#ListProposalVotesInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalListMaxResults",
+          "target": "com.amazonaws.managedblockchain#ProposalListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>\n         The maximum number of votes to return.\n      </p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the network.\n      </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>\n         The pagination token that indicates the next set of results to retrieve.\n      </p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "ProposalId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the proposal.\n      </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListProposalVotesOutput": {
+    "com.amazonaws.managedblockchain#ListProposalVotesOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>\n         The pagination token that indicates the next set of results to retrieve.\n      </p>"
           }
         },
         "ProposalVotes": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalVoteList",
+          "target": "com.amazonaws.managedblockchain#ProposalVoteList",
           "traits": {
             "smithy.api#documentation": "<p>\n         The listing of votes.\n      </p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListProposals": {
+    "com.amazonaws.managedblockchain#ListProposals": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#ListProposalsInput"
+        "target": "com.amazonaws.managedblockchain#ListProposalsInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#ListProposalsOutput"
+        "target": "com.amazonaws.managedblockchain#ListProposalsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -1518,26 +1525,26 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListProposalsInput": {
+    "com.amazonaws.managedblockchain#ListProposalsInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalListMaxResults",
+          "target": "com.amazonaws.managedblockchain#ProposalListMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>\n         The maximum number of proposals to return.\n      </p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the network.\n      </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>\n         The pagination token that indicates the next set of results to retrieve.\n      </p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1545,64 +1552,64 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ListProposalsOutput": {
+    "com.amazonaws.managedblockchain#ListProposalsOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.taiga.webservice.api#PaginationToken",
+          "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
           }
         },
         "Proposals": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalSummaryList",
+          "target": "com.amazonaws.managedblockchain#ProposalSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>The summary of each proposal made on the network.</p>"
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#Member": {
+    "com.amazonaws.managedblockchain#Member": {
       "type": "structure",
       "members": {
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the member was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>An optional description for the member.</p>"
           }
         },
         "FrameworkAttributes": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberFrameworkAttributes",
+          "target": "com.amazonaws.managedblockchain#MemberFrameworkAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkMemberNameString",
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the member.</p>"
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network to which the member belongs.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberStatus",
+          "target": "com.amazonaws.managedblockchain#MemberStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of a member.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code> - The AWS account is in the process of creating a member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AVAILABLE</code> - The member has been created and can participate in the network.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n         </ul>"
           }
@@ -1612,27 +1619,27 @@
         "smithy.api#documentation": "<p>Member configuration properties.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberConfiguration": {
+    "com.amazonaws.managedblockchain#MemberConfiguration": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>An optional description of the member.</p>"
           }
         },
         "FrameworkConfiguration": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberFrameworkConfiguration",
+          "target": "com.amazonaws.managedblockchain#MemberFrameworkConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Configuration properties of the blockchain framework relevant to the member.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkMemberNameString",
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the member.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1640,17 +1647,17 @@
         "smithy.api#documentation": "<p>Configuration properties of the member.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberFabricAttributes": {
+    "com.amazonaws.managedblockchain#MemberFabricAttributes": {
       "type": "structure",
       "members": {
         "AdminUsername": {
-          "target": "com.amazonaws.taiga.webservice.api#UsernameString",
+          "target": "com.amazonaws.managedblockchain#UsernameString",
           "traits": {
             "smithy.api#documentation": "<p>The user name for the initial administrator user for the member.</p>"
           }
         },
         "CaEndpoint": {
-          "target": "com.amazonaws.taiga.webservice.api#String",
+          "target": "com.amazonaws.managedblockchain#String",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint used to access the member's certificate authority.</p>"
           }
@@ -1660,21 +1667,21 @@
         "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberFabricConfiguration": {
+    "com.amazonaws.managedblockchain#MemberFabricConfiguration": {
       "type": "structure",
       "members": {
         "AdminPassword": {
-          "target": "com.amazonaws.taiga.webservice.api#PasswordString",
+          "target": "com.amazonaws.managedblockchain#PasswordString",
           "traits": {
             "smithy.api#documentation": "<p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quote(‘), double quote(“), forward slash(/), backward slash(\\), @, or a space.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AdminUsername": {
-          "target": "com.amazonaws.taiga.webservice.api#UsernameString",
+          "target": "com.amazonaws.managedblockchain#UsernameString",
           "traits": {
             "smithy.api#documentation": "<p>The user name for the member's initial administrative user.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1682,11 +1689,11 @@
         "smithy.api#documentation": "<p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberFrameworkAttributes": {
+    "com.amazonaws.managedblockchain#MemberFrameworkAttributes": {
       "type": "structure",
       "members": {
         "Fabric": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberFabricAttributes",
+          "target": "com.amazonaws.managedblockchain#MemberFabricAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric relevant to a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>"
           }
@@ -1696,11 +1703,11 @@
         "smithy.api#documentation": "<p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberFrameworkConfiguration": {
+    "com.amazonaws.managedblockchain#MemberFrameworkConfiguration": {
       "type": "structure",
       "members": {
         "Fabric": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberFabricConfiguration",
+          "target": "com.amazonaws.managedblockchain#MemberFabricConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>"
           }
@@ -1710,73 +1717,78 @@
         "smithy.api#documentation": "<p>Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberListMaxResults": {
+    "com.amazonaws.managedblockchain#MemberListMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberStatus": {
+    "com.amazonaws.managedblockchain#MemberStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "CREATE_FAILED": {
+          {
+            "value": "CREATE_FAILED",
             "name": "CREATE_FAILED"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberSummary": {
+    "com.amazonaws.managedblockchain#MemberSummary": {
       "type": "structure",
       "members": {
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the member was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>An optional description of the member.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member.</p>"
           }
         },
         "IsOwned": {
-          "target": "com.amazonaws.taiga.webservice.api#IsOwned",
+          "target": "com.amazonaws.managedblockchain#IsOwned",
           "traits": {
             "smithy.api#documentation": "<p>An indicator of whether the member is owned by your AWS account or a different AWS account.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkMemberNameString",
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the member.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#MemberStatus",
+          "target": "com.amazonaws.managedblockchain#MemberStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the member.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CREATING</code> - The AWS account is in the process of creating a member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AVAILABLE</code> - The member has been created and can participate in the network.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CREATE_FAILED</code> - The AWS account attempted to create a member and creation failed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code> \n                  <code>PROPOSAL</code> to remove the member.</p>\n            </li>\n         </ul>"
           }
@@ -1786,13 +1798,13 @@
         "smithy.api#documentation": "<p>A summary of configuration properties for a member.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#MemberSummaryList": {
+    "com.amazonaws.managedblockchain#MemberSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#MemberSummary"
+        "target": "com.amazonaws.managedblockchain#MemberSummary"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NameString": {
+    "com.amazonaws.managedblockchain#NameString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1802,65 +1814,65 @@
         "smithy.api#pattern": ".*\\S.*"
       }
     },
-    "com.amazonaws.taiga.webservice.api#Network": {
+    "com.amazonaws.managedblockchain#Network": {
       "type": "structure",
       "members": {
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of the blockchain framework for the network.</p>"
           }
         },
         "Framework": {
-          "target": "com.amazonaws.taiga.webservice.api#Framework",
+          "target": "com.amazonaws.managedblockchain#Framework",
           "traits": {
             "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>"
           }
         },
         "FrameworkAttributes": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkFrameworkAttributes",
+          "target": "com.amazonaws.managedblockchain#NetworkFrameworkAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of the blockchain framework that the network uses.</p>"
           }
         },
         "FrameworkVersion": {
-          "target": "com.amazonaws.taiga.webservice.api#FrameworkVersionString",
+          "target": "com.amazonaws.managedblockchain#FrameworkVersionString",
           "traits": {
             "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#NameString",
+          "target": "com.amazonaws.managedblockchain#NameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the network.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkStatus",
+          "target": "com.amazonaws.managedblockchain#NetworkStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the network.</p>"
           }
         },
         "VotingPolicy": {
-          "target": "com.amazonaws.taiga.webservice.api#VotingPolicy",
+          "target": "com.amazonaws.managedblockchain#VotingPolicy",
           "traits": {
             "smithy.api#documentation": "<p>The voting rules for the network to decide if a proposal is accepted.</p>"
           }
         },
         "VpcEndpointServiceName": {
-          "target": "com.amazonaws.taiga.webservice.api#String",
+          "target": "com.amazonaws.managedblockchain#String",
           "traits": {
             "smithy.api#documentation": "<p>The VPC endpoint service name of the VPC endpoint service of the network. Members use the VPC endpoint service name to create a VPC endpoint to access network resources.</p>"
           }
@@ -1870,17 +1882,17 @@
         "smithy.api#documentation": "<p>Network configuration properties.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkFabricAttributes": {
+    "com.amazonaws.managedblockchain#NetworkFabricAttributes": {
       "type": "structure",
       "members": {
         "Edition": {
-          "target": "com.amazonaws.taiga.webservice.api#Edition",
+          "target": "com.amazonaws.managedblockchain#Edition",
           "traits": {
             "smithy.api#documentation": "<p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href=\"https://aws.amazon.com/managed-blockchain/pricing/\">Amazon Managed Blockchain Pricing</a>.</p>"
           }
         },
         "OrderingServiceEndpoint": {
-          "target": "com.amazonaws.taiga.webservice.api#String",
+          "target": "com.amazonaws.managedblockchain#String",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint of the ordering service for the network.</p>"
           }
@@ -1890,14 +1902,14 @@
         "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a network.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkFabricConfiguration": {
+    "com.amazonaws.managedblockchain#NetworkFabricConfiguration": {
       "type": "structure",
       "members": {
         "Edition": {
-          "target": "com.amazonaws.taiga.webservice.api#Edition",
+          "target": "com.amazonaws.managedblockchain#Edition",
           "traits": {
             "smithy.api#documentation": "<p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href=\"https://aws.amazon.com/managed-blockchain/pricing/\">Amazon Managed Blockchain Pricing</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1905,11 +1917,11 @@
         "smithy.api#documentation": "<p>Hyperledger Fabric configuration properties for the network.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkFrameworkAttributes": {
+    "com.amazonaws.managedblockchain#NetworkFrameworkAttributes": {
       "type": "structure",
       "members": {
         "Fabric": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkFabricAttributes",
+          "target": "com.amazonaws.managedblockchain#NetworkFabricAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a Managed Blockchain network that uses Hyperledger Fabric.</p>"
           }
@@ -1919,11 +1931,11 @@
         "smithy.api#documentation": "<p>Attributes relevant to the network for the blockchain framework that the network uses.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkFrameworkConfiguration": {
+    "com.amazonaws.managedblockchain#NetworkFrameworkConfiguration": {
       "type": "structure",
       "members": {
         "Fabric": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkFabricConfiguration",
+          "target": "com.amazonaws.managedblockchain#NetworkFabricConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>\n         Hyperledger Fabric configuration properties for a Managed Blockchain network that uses Hyperledger Fabric.\n      </p>"
           }
@@ -1933,17 +1945,17 @@
         "smithy.api#documentation": "<p>\n         Configuration properties relevant to the network for the blockchain framework that the network uses.\n      </p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkListMaxResults": {
+    "com.amazonaws.managedblockchain#NetworkListMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkMemberNameString": {
+    "com.amazonaws.managedblockchain#NetworkMemberNameString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1953,69 +1965,74 @@
         "smithy.api#pattern": "^(?!-)^[^0-9](?!.*--)[A-Za-z0-9-]+[^- ]$"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkStatus": {
+    "com.amazonaws.managedblockchain#NetworkStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "CREATE_FAILED": {
+          {
+            "value": "CREATE_FAILED",
             "name": "CREATE_FAILED"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkSummary": {
+    "com.amazonaws.managedblockchain#NetworkSummary": {
       "type": "structure",
       "members": {
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>An optional description of the network.</p>"
           }
         },
         "Framework": {
-          "target": "com.amazonaws.taiga.webservice.api#Framework",
+          "target": "com.amazonaws.managedblockchain#Framework",
           "traits": {
             "smithy.api#documentation": "<p>The blockchain framework that the network uses.</p>"
           }
         },
         "FrameworkVersion": {
-          "target": "com.amazonaws.taiga.webservice.api#FrameworkVersionString",
+          "target": "com.amazonaws.managedblockchain#FrameworkVersionString",
           "traits": {
             "smithy.api#documentation": "<p>The version of the blockchain framework that the network uses.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.taiga.webservice.api#NameString",
+          "target": "com.amazonaws.managedblockchain#NameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the network.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkStatus",
+          "target": "com.amazonaws.managedblockchain#NetworkStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the network.</p>"
           }
@@ -2025,59 +2042,59 @@
         "smithy.api#documentation": "<p>A summary of network configuration properties.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NetworkSummaryList": {
+    "com.amazonaws.managedblockchain#NetworkSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#NetworkSummary"
+        "target": "com.amazonaws.managedblockchain#NetworkSummary"
       }
     },
-    "com.amazonaws.taiga.webservice.api#Node": {
+    "com.amazonaws.managedblockchain#Node": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
-          "target": "com.amazonaws.taiga.webservice.api#AvailabilityZoneString",
+          "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>"
           }
         },
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the node was created.</p>"
           }
         },
         "FrameworkAttributes": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeFrameworkAttributes",
+          "target": "com.amazonaws.managedblockchain#NodeFrameworkAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of the blockchain framework being used.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>"
           }
         },
         "InstanceType": {
-          "target": "com.amazonaws.taiga.webservice.api#InstanceTypeString",
+          "target": "com.amazonaws.managedblockchain#InstanceTypeString",
           "traits": {
             "smithy.api#documentation": "<p>The instance type of the node.</p>"
           }
         },
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member to which the node belongs.</p>"
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network that the node is in.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeStatus",
+          "target": "com.amazonaws.managedblockchain#NodeStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the node.</p>"
           }
@@ -2087,21 +2104,21 @@
         "smithy.api#documentation": "<p>Configuration properties of a peer node.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NodeConfiguration": {
+    "com.amazonaws.managedblockchain#NodeConfiguration": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
-          "target": "com.amazonaws.taiga.webservice.api#AvailabilityZoneString",
+          "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InstanceType": {
-          "target": "com.amazonaws.taiga.webservice.api#InstanceTypeString",
+          "target": "com.amazonaws.managedblockchain#InstanceTypeString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Managed Blockchain instance type for the node.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2109,17 +2126,17 @@
         "smithy.api#documentation": "<p>Configuration properties of a peer node.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NodeFabricAttributes": {
+    "com.amazonaws.managedblockchain#NodeFabricAttributes": {
       "type": "structure",
       "members": {
         "PeerEndpoint": {
-          "target": "com.amazonaws.taiga.webservice.api#String",
+          "target": "com.amazonaws.managedblockchain#String",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint that identifies the peer node for all services except peer channel-based event services.</p>"
           }
         },
         "PeerEventEndpoint": {
-          "target": "com.amazonaws.taiga.webservice.api#String",
+          "target": "com.amazonaws.managedblockchain#String",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint that identifies the peer node for peer channel-based event services.</p>"
           }
@@ -2129,11 +2146,11 @@
         "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NodeFrameworkAttributes": {
+    "com.amazonaws.managedblockchain#NodeFrameworkAttributes": {
       "type": "structure",
       "members": {
         "Fabric": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeFabricAttributes",
+          "target": "com.amazonaws.managedblockchain#NodeFabricAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>"
           }
@@ -2143,70 +2160,76 @@
         "smithy.api#documentation": "<p>Attributes relevant to a peer node on a Managed Blockchain network for the blockchain framework that the network uses.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NodeListMaxResults": {
+    "com.amazonaws.managedblockchain#NodeListMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 20
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#NodeStatus": {
+    "com.amazonaws.managedblockchain#NodeStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "CREATE_FAILED": {
+          {
+            "value": "CREATE_FAILED",
             "name": "CREATE_FAILED"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#NodeSummary": {
+    "com.amazonaws.managedblockchain#NodeSummary": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
-          "target": "com.amazonaws.taiga.webservice.api#AvailabilityZoneString",
+          "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>"
           }
         },
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the node was created.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the node.</p>"
           }
         },
         "InstanceType": {
-          "target": "com.amazonaws.taiga.webservice.api#InstanceTypeString",
+          "target": "com.amazonaws.managedblockchain#InstanceTypeString",
           "traits": {
             "smithy.api#documentation": "<p>The EC2 instance type for the node.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#NodeStatus",
+          "target": "com.amazonaws.managedblockchain#NodeStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the node.</p>"
           }
@@ -2216,13 +2239,13 @@
         "smithy.api#documentation": "<p>A summary of configuration properties for a peer node.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#NodeSummaryList": {
+    "com.amazonaws.managedblockchain#NodeSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#NodeSummary"
+        "target": "com.amazonaws.managedblockchain#NodeSummary"
       }
     },
-    "com.amazonaws.taiga.webservice.api#PaginationToken": {
+    "com.amazonaws.managedblockchain#PaginationToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2231,7 +2254,7 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#PasswordString": {
+    "com.amazonaws.managedblockchain#PasswordString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2239,83 +2262,83 @@
           "max": 32
         },
         "smithy.api#pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?!.*[@'\\\\\"/])[a-zA-Z0-9\\S]*$",
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.taiga.webservice.api#PrincipalString": {
+    "com.amazonaws.managedblockchain#PrincipalString": {
       "type": "string"
     },
-    "com.amazonaws.taiga.webservice.api#Proposal": {
+    "com.amazonaws.managedblockchain#Proposal": {
       "type": "structure",
       "members": {
         "Actions": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalActions",
+          "target": "com.amazonaws.managedblockchain#ProposalActions",
           "traits": {
             "smithy.api#documentation": "<p>The actions to perform on the network if the proposal is <code>APPROVED</code>.</p>"
           }
         },
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>\n         The date and time that the proposal was created.\n      </p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>The description of the proposal.</p>"
           }
         },
         "ExpirationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>\n         The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.\n      </p>"
           }
         },
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the network for which the proposal is made.</p>"
           }
         },
         "NoVoteCount": {
-          "target": "com.amazonaws.taiga.webservice.api#VoteCount",
+          "target": "com.amazonaws.managedblockchain#VoteCount",
           "traits": {
             "smithy.api#documentation": "<p>\n         The current total of <code>NO</code> votes cast on the proposal by members.\n      </p>"
           }
         },
         "OutstandingVoteCount": {
-          "target": "com.amazonaws.taiga.webservice.api#VoteCount",
+          "target": "com.amazonaws.managedblockchain#VoteCount",
           "traits": {
             "smithy.api#documentation": "<p>\n         The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of <code>YES</code> votes and <code>NO</code> votes.\n      </p>"
           }
         },
         "ProposalId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the proposal.</p>"
           }
         },
         "ProposedByMemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member that created the proposal.</p>"
           }
         },
         "ProposedByMemberName": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkMemberNameString",
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
             "smithy.api#documentation": "<p>The name of the member that created the proposal.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalStatus",
+          "target": "com.amazonaws.managedblockchain#ProposalStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the proposal. Values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p>\n            </li>\n            <li>\n               <p>\n                  <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error.</p>\n            </li>\n         </ul>"
           }
         },
         "YesVoteCount": {
-          "target": "com.amazonaws.taiga.webservice.api#VoteCount",
+          "target": "com.amazonaws.managedblockchain#VoteCount",
           "traits": {
             "smithy.api#documentation": "<p>\n         The current total of <code>YES</code> votes cast on the proposal by members.\n      </p>"
           }
@@ -2325,17 +2348,17 @@
         "smithy.api#documentation": "<p>Properties of a proposal on a Managed Blockchain network.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#ProposalActions": {
+    "com.amazonaws.managedblockchain#ProposalActions": {
       "type": "structure",
       "members": {
         "Invitations": {
-          "target": "com.amazonaws.taiga.webservice.api#InviteActionList",
+          "target": "com.amazonaws.managedblockchain#InviteActionList",
           "traits": {
             "smithy.api#documentation": "<p>\n         The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network. \n      </p>"
           }
         },
         "Removals": {
-          "target": "com.amazonaws.taiga.webservice.api#RemoveActionList",
+          "target": "com.amazonaws.managedblockchain#RemoveActionList",
           "traits": {
             "smithy.api#documentation": "<p>\n         The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network. \n      </p>"
           }
@@ -2345,89 +2368,94 @@
         "smithy.api#documentation": "<p>\n         The actions to carry out if a proposal is <code>APPROVED</code>.\n      </p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#ProposalDurationInt": {
+    "com.amazonaws.managedblockchain#ProposalDurationInt": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 168
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ProposalListMaxResults": {
+    "com.amazonaws.managedblockchain#ProposalListMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ProposalStatus": {
+    "com.amazonaws.managedblockchain#ProposalStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IN_PROGRESS": {
+        "smithy.api#enum": [
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "APPROVED": {
+          {
+            "value": "APPROVED",
             "name": "APPROVED"
           },
-          "REJECTED": {
+          {
+            "value": "REJECTED",
             "name": "REJECTED"
           },
-          "EXPIRED": {
+          {
+            "value": "EXPIRED",
             "name": "EXPIRED"
           },
-          "ACTION_FAILED": {
+          {
+            "value": "ACTION_FAILED",
             "name": "ACTION_FAILED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#ProposalSummary": {
+    "com.amazonaws.managedblockchain#ProposalSummary": {
       "type": "structure",
       "members": {
         "CreationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>\n         The date and time that the proposal was created.\n      </p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.taiga.webservice.api#DescriptionString",
+          "target": "com.amazonaws.managedblockchain#DescriptionString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The description of the proposal.\n      </p>"
           }
         },
         "ExpirationDate": {
-          "target": "com.amazonaws.taiga.webservice.api#Timestamp",
+          "target": "com.amazonaws.managedblockchain#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>\n         The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>.  After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.\n      </p>"
           }
         },
         "ProposalId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the proposal.\n      </p>"
           }
         },
         "ProposedByMemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the member that created the proposal.\n      </p>"
           }
         },
         "ProposedByMemberName": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkMemberNameString",
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The name of the member that created the proposal.\n      </p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.taiga.webservice.api#ProposalStatus",
+          "target": "com.amazonaws.managedblockchain#ProposalStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the proposal. Values are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p>\n            </li>\n            <li>\n               <p>\n                  <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXPIRED</code> - Members did not cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> are not carried out.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved could not be completed because of an error.</p>\n            </li>\n         </ul>"
           }
@@ -2437,44 +2465,44 @@
         "smithy.api#documentation": "<p>Properties of a proposal.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#ProposalSummaryList": {
+    "com.amazonaws.managedblockchain#ProposalSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#ProposalSummary"
+        "target": "com.amazonaws.managedblockchain#ProposalSummary"
       }
     },
-    "com.amazonaws.taiga.webservice.api#ProposalVoteList": {
+    "com.amazonaws.managedblockchain#ProposalVoteList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#VoteSummary"
+        "target": "com.amazonaws.managedblockchain#VoteSummary"
       }
     },
-    "com.amazonaws.taiga.webservice.api#RejectInvitation": {
+    "com.amazonaws.managedblockchain#RejectInvitation": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#RejectInvitationInput"
+        "target": "com.amazonaws.managedblockchain#RejectInvitationInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#RejectInvitationOutput"
+        "target": "com.amazonaws.managedblockchain#RejectInvitationOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#IllegalActionException"
+          "target": "com.amazonaws.managedblockchain#IllegalActionException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -2486,31 +2514,31 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#RejectInvitationInput": {
+    "com.amazonaws.managedblockchain#RejectInvitationInput": {
       "type": "structure",
       "members": {
         "InvitationId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the invitation to reject.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#RejectInvitationOutput": {
+    "com.amazonaws.managedblockchain#RejectInvitationOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.taiga.webservice.api#RemoveAction": {
+    "com.amazonaws.managedblockchain#RemoveAction": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member to remove.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2518,17 +2546,17 @@
         "smithy.api#documentation": "<p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#RemoveActionList": {
+    "com.amazonaws.managedblockchain#RemoveActionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.taiga.webservice.api#RemoveAction"
+        "target": "com.amazonaws.managedblockchain#RemoveAction"
       }
     },
-    "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException": {
+    "com.amazonaws.managedblockchain#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.taiga.webservice.api#String"
+          "target": "com.amazonaws.managedblockchain#String"
         }
       },
       "traits": {
@@ -2537,7 +2565,7 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.taiga.webservice.api#ResourceIdString": {
+    "com.amazonaws.managedblockchain#ResourceIdString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2546,11 +2574,11 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException": {
+    "com.amazonaws.managedblockchain#ResourceLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.taiga.webservice.api#String"
+          "target": "com.amazonaws.managedblockchain#String"
         }
       },
       "traits": {
@@ -2559,11 +2587,11 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.taiga.webservice.api#ResourceNotFoundException": {
+    "com.amazonaws.managedblockchain#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.taiga.webservice.api#String"
+          "target": "com.amazonaws.managedblockchain#String"
         }
       },
       "traits": {
@@ -2572,11 +2600,11 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.taiga.webservice.api#ResourceNotReadyException": {
+    "com.amazonaws.managedblockchain#ResourceNotReadyException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.taiga.webservice.api#String"
+          "target": "com.amazonaws.managedblockchain#String"
         }
       },
       "traits": {
@@ -2585,66 +2613,66 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.taiga.webservice.api#String": {
+    "com.amazonaws.managedblockchain#String": {
       "type": "string"
     },
-    "com.amazonaws.taiga.webservice.api#TaigaWebService": {
+    "com.amazonaws.managedblockchain#TaigaWebService": {
       "type": "service",
       "version": "2018-09-24",
       "operations": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#CreateMember"
+          "target": "com.amazonaws.managedblockchain#CreateMember"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#CreateNetwork"
+          "target": "com.amazonaws.managedblockchain#CreateNetwork"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#CreateNode"
+          "target": "com.amazonaws.managedblockchain#CreateNode"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#CreateProposal"
+          "target": "com.amazonaws.managedblockchain#CreateProposal"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#DeleteMember"
+          "target": "com.amazonaws.managedblockchain#DeleteMember"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#DeleteNode"
+          "target": "com.amazonaws.managedblockchain#DeleteNode"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#GetMember"
+          "target": "com.amazonaws.managedblockchain#GetMember"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#GetNetwork"
+          "target": "com.amazonaws.managedblockchain#GetNetwork"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#GetNode"
+          "target": "com.amazonaws.managedblockchain#GetNode"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#GetProposal"
+          "target": "com.amazonaws.managedblockchain#GetProposal"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ListInvitations"
+          "target": "com.amazonaws.managedblockchain#ListInvitations"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ListMembers"
+          "target": "com.amazonaws.managedblockchain#ListMembers"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ListNetworks"
+          "target": "com.amazonaws.managedblockchain#ListNetworks"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ListNodes"
+          "target": "com.amazonaws.managedblockchain#ListNodes"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ListProposalVotes"
+          "target": "com.amazonaws.managedblockchain#ListProposals"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ListProposals"
+          "target": "com.amazonaws.managedblockchain#ListProposalVotes"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#RejectInvitation"
+          "target": "com.amazonaws.managedblockchain#RejectInvitation"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#VoteOnProposal"
+          "target": "com.amazonaws.managedblockchain#VoteOnProposal"
         }
       ],
       "traits": {
@@ -2654,57 +2682,55 @@
           "cloudFormationName": "ManagedBlockchain",
           "cloudTrailEventSource": "api.webservice.taiga.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "managedblockchain"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p></p>\n         <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework. </p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Managed Blockchain"
       }
     },
-    "com.amazonaws.taiga.webservice.api#ThresholdComparator": {
+    "com.amazonaws.managedblockchain#ThresholdComparator": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "GREATER_THAN": {
+        "smithy.api#enum": [
+          {
+            "value": "GREATER_THAN",
             "name": "GREATER_THAN"
           },
-          "GREATER_THAN_OR_EQUAL_TO": {
+          {
+            "value": "GREATER_THAN_OR_EQUAL_TO",
             "name": "GREATER_THAN_OR_EQUAL_TO"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#ThresholdPercentageInt": {
+    "com.amazonaws.managedblockchain#ThresholdPercentageInt": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#ThrottlingException": {
+    "com.amazonaws.managedblockchain#ThrottlingException": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The request or operation could not be performed because a service is throttling requests. The most common source of throttling errors is launching EC2 instances such that your service limit for EC2 instances is exceeded. Request a limit increase or delete unused resources if possible.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.taiga.webservice.api#Timestamp": {
+    "com.amazonaws.managedblockchain#Timestamp": {
       "type": "timestamp",
       "traits": {
         "smithy.api#timestampFormat": "date-time"
       }
     },
-    "com.amazonaws.taiga.webservice.api#UsernameString": {
+    "com.amazonaws.managedblockchain#UsernameString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2714,38 +2740,38 @@
         "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9]*$"
       }
     },
-    "com.amazonaws.taiga.webservice.api#VoteCount": {
+    "com.amazonaws.managedblockchain#VoteCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.taiga.webservice.api#VoteOnProposal": {
+    "com.amazonaws.managedblockchain#VoteOnProposal": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.taiga.webservice.api#VoteOnProposalInput"
+        "target": "com.amazonaws.managedblockchain#VoteOnProposalInput"
       },
       "output": {
-        "target": "com.amazonaws.taiga.webservice.api#VoteOnProposalOutput"
+        "target": "com.amazonaws.managedblockchain#VoteOnProposalOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.taiga.webservice.api#AccessDeniedException"
+          "target": "com.amazonaws.managedblockchain#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#IllegalActionException"
+          "target": "com.amazonaws.managedblockchain#IllegalActionException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InternalServiceErrorException"
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#InvalidRequestException"
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceNotFoundException"
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.taiga.webservice.api#ThrottlingException"
+          "target": "com.amazonaws.managedblockchain#ThrottlingException"
         }
       ],
       "traits": {
@@ -2757,62 +2783,62 @@
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#VoteOnProposalInput": {
+    "com.amazonaws.managedblockchain#VoteOnProposalInput": {
       "type": "structure",
       "members": {
         "NetworkId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the network.\n      </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ProposalId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the proposal.\n      </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Vote": {
-          "target": "com.amazonaws.taiga.webservice.api#VoteValue",
+          "target": "com.amazonaws.managedblockchain#VoteValue",
           "traits": {
             "smithy.api#documentation": "<p>\n         The value of the vote.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VoterMemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the member casting the vote.\n      </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.taiga.webservice.api#VoteOnProposalOutput": {
+    "com.amazonaws.managedblockchain#VoteOnProposalOutput": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.taiga.webservice.api#VoteSummary": {
+    "com.amazonaws.managedblockchain#VoteSummary": {
       "type": "structure",
       "members": {
         "MemberId": {
-          "target": "com.amazonaws.taiga.webservice.api#ResourceIdString",
+          "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The unique identifier of the member that cast the vote.\n      </p>"
           }
         },
         "MemberName": {
-          "target": "com.amazonaws.taiga.webservice.api#NetworkMemberNameString",
+          "target": "com.amazonaws.managedblockchain#NetworkMemberNameString",
           "traits": {
             "smithy.api#documentation": "<p>\n         The name of the member that cast the vote.\n      </p>"
           }
         },
         "Vote": {
-          "target": "com.amazonaws.taiga.webservice.api#VoteValue",
+          "target": "com.amazonaws.managedblockchain#VoteValue",
           "traits": {
             "smithy.api#documentation": "<p>\n         The vote value, either <code>YES</code> or <code>NO</code>.\n      </p>"
           }
@@ -2822,24 +2848,26 @@
         "smithy.api#documentation": "<p>\n         Properties of an individual vote that a member cast for a proposal.\n      </p>"
       }
     },
-    "com.amazonaws.taiga.webservice.api#VoteValue": {
+    "com.amazonaws.managedblockchain#VoteValue": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "YES": {
+        "smithy.api#enum": [
+          {
+            "value": "YES",
             "name": "YES"
           },
-          "NO": {
+          {
+            "value": "NO",
             "name": "NO"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.taiga.webservice.api#VotingPolicy": {
+    "com.amazonaws.managedblockchain#VotingPolicy": {
       "type": "structure",
       "members": {
         "ApprovalThresholdPolicy": {
-          "target": "com.amazonaws.taiga.webservice.api#ApprovalThresholdPolicy",
+          "target": "com.amazonaws.managedblockchain#ApprovalThresholdPolicy",
           "traits": {
             "smithy.api#documentation": "<p>Defines the rules for the network for voting on proposals, such as the percentage of <code>YES</code> votes required for the proposal to be approved and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>"
           }

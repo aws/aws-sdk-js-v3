@@ -1,42 +1,41 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException": {
+    "com.amazonaws.connectparticipant#AccessDeniedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#Message",
+          "target": "com.amazonaws.connectparticipant#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -46,24 +45,24 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#AmazonConnectParticipantServiceLambda": {
+    "com.amazonaws.connectparticipant#AmazonConnectParticipantServiceLambda": {
       "type": "service",
       "version": "2018-09-07",
       "operations": [
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#CreateParticipantConnection"
+          "target": "com.amazonaws.connectparticipant#CreateParticipantConnection"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#DisconnectParticipant"
+          "target": "com.amazonaws.connectparticipant#DisconnectParticipant"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#GetTranscript"
+          "target": "com.amazonaws.connectparticipant#GetTranscript"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#SendEvent"
+          "target": "com.amazonaws.connectparticipant#SendEvent"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#SendMessage"
+          "target": "com.amazonaws.connectparticipant#SendMessage"
         }
       ],
       "traits": {
@@ -73,19 +72,15 @@
           "cloudFormationName": "ConnectParticipant",
           "cloudTrailEventSource": "v20180907.amazonconnectparticipantservice.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "execute-api"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage\n            a customer contact center and provide reliable customer engagement at any scale.</p>\n        <p>Amazon Connect enables customer contacts through voice or chat.</p>\n\n        <p>The APIs described here are used by chat participants, such as agents and\n            customers.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Connect Participant Service"
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ChatContent": {
+    "com.amazonaws.connectparticipant#ChatContent": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -94,16 +89,7 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatContent": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 1024
-        }
-      }
-    },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ChatContentType": {
+    "com.amazonaws.connectparticipant#ChatContentType": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -112,7 +98,7 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId": {
+    "com.amazonaws.connectparticipant#ChatItemId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -121,23 +107,26 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemType": {
+    "com.amazonaws.connectparticipant#ChatItemType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "MESSAGE": {
+        "smithy.api#enum": [
+          {
+            "value": "MESSAGE",
             "name": "MESSAGE"
           },
-          "EVENT": {
+          {
+            "value": "EVENT",
             "name": "EVENT"
           },
-          "CONNECTION_ACK": {
+          {
+            "value": "CONNECTION_ACK",
             "name": "CONNECTION_ACK"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ClientToken": {
+    "com.amazonaws.connectparticipant#ClientToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -146,17 +135,17 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ConnectionCredentials": {
+    "com.amazonaws.connectparticipant#ConnectionCredentials": {
       "type": "structure",
       "members": {
         "ConnectionToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
             "smithy.api#documentation": "<p>The connection token.</p>"
           }
         },
         "Expiry": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ISO8601Datetime",
+          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
           "traits": {
             "smithy.api#documentation": "<p>The expiration of the token.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
@@ -166,23 +155,25 @@
         "smithy.api#documentation": "<p>Connection credentials. </p>"
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ConnectionType": {
+    "com.amazonaws.connectparticipant#ConnectionType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "WEBSOCKET": {
+        "smithy.api#enum": [
+          {
+            "value": "WEBSOCKET",
             "name": "WEBSOCKET"
           },
-          "CONNECTION_CREDENTIALS": {
+          {
+            "value": "CONNECTION_CREDENTIALS",
             "name": "CONNECTION_CREDENTIALS"
           }
-        }
+        ]
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#ConnectionTypeList": {
+    "com.amazonaws.connectparticipant#ConnectionTypeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.amazonconnect.commonexternaltypes#ConnectionType"
+        "target": "com.amazonaws.connectparticipant#ConnectionType"
       },
       "traits": {
         "smithy.api#length": {
@@ -190,7 +181,7 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ContactId": {
+    "com.amazonaws.connectparticipant#ContactId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -199,26 +190,26 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#CreateParticipantConnection": {
+    "com.amazonaws.connectparticipant#CreateParticipantConnection": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#CreateParticipantConnectionRequest"
+        "target": "com.amazonaws.connectparticipant#CreateParticipantConnectionRequest"
       },
       "output": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#CreateParticipantConnectionResponse"
+        "target": "com.amazonaws.connectparticipant#CreateParticipantConnectionResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException"
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException"
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException"
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException"
+          "target": "com.amazonaws.connectparticipant#ValidationException"
         }
       ],
       "traits": {
@@ -230,63 +221,63 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#CreateParticipantConnectionRequest": {
+    "com.amazonaws.connectparticipant#CreateParticipantConnectionRequest": {
       "type": "structure",
       "members": {
         "ParticipantToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
             "smithy.api#documentation": "<p>Participant Token as obtained from <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html\">StartChatContact</a> API response.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ConnectionTypeList",
+          "target": "com.amazonaws.connectparticipant#ConnectionTypeList",
           "traits": {
             "smithy.api#documentation": "<p>Type of connection information required.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#CreateParticipantConnectionResponse": {
+    "com.amazonaws.connectparticipant#CreateParticipantConnectionResponse": {
       "type": "structure",
       "members": {
         "ConnectionCredentials": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ConnectionCredentials",
+          "target": "com.amazonaws.connectparticipant#ConnectionCredentials",
           "traits": {
             "smithy.api#documentation": "<p>Creates the participant's connection credentials. The authentication token associated\n            with the participant's connection.</p>"
           }
         },
         "Websocket": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#Websocket",
+          "target": "com.amazonaws.connectparticipant#Websocket",
           "traits": {
             "smithy.api#documentation": "<p>Creates the participant's websocket connection.</p>"
           }
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#DisconnectParticipant": {
+    "com.amazonaws.connectparticipant#DisconnectParticipant": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#DisconnectParticipantRequest"
+        "target": "com.amazonaws.connectparticipant#DisconnectParticipantRequest"
       },
       "output": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#DisconnectParticipantResponse"
+        "target": "com.amazonaws.connectparticipant#DisconnectParticipantResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException"
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException"
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException"
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException"
+          "target": "com.amazonaws.connectparticipant#ValidationException"
         }
       ],
       "traits": {
@@ -298,31 +289,31 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#DisconnectParticipantRequest": {
+    "com.amazonaws.connectparticipant#DisconnectParticipantRequest": {
       "type": "structure",
       "members": {
         "ClientToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ClientToken",
+          "target": "com.amazonaws.connectparticipant#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "ConnectionToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
             "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#DisconnectParticipantResponse": {
+    "com.amazonaws.connectparticipant#DisconnectParticipantResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#DisplayName": {
+    "com.amazonaws.connectparticipant#DisplayName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -331,26 +322,26 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#GetTranscript": {
+    "com.amazonaws.connectparticipant#GetTranscript": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#GetTranscriptRequest"
+        "target": "com.amazonaws.connectparticipant#GetTranscriptRequest"
       },
       "output": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#GetTranscriptResponse"
+        "target": "com.amazonaws.connectparticipant#GetTranscriptResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException"
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException"
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException"
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException"
+          "target": "com.amazonaws.connectparticipant#ValidationException"
         }
       ],
       "traits": {
@@ -367,83 +358,83 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#GetTranscriptRequest": {
+    "com.amazonaws.connectparticipant#GetTranscriptRequest": {
       "type": "structure",
       "members": {
         "ConnectionToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
             "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ContactId": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ContactId",
+          "target": "com.amazonaws.connectparticipant#ContactId",
           "traits": {
             "smithy.api#documentation": "<p>The contactId from the current contact chain for which transcript is needed.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#MaxResults",
+          "target": "com.amazonaws.connectparticipant#MaxResults",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The maximum number of results to return in the page. Default: 10. \n           </p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#NextToken",
+          "target": "com.amazonaws.connectparticipant#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
           }
         },
         "ScanDirection": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ScanDirection",
+          "target": "com.amazonaws.connectparticipant#ScanDirection",
           "traits": {
             "smithy.api#documentation": "<p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>"
           }
         },
         "SortOrder": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#SortKey",
+          "target": "com.amazonaws.connectparticipant#SortKey",
           "traits": {
             "smithy.api#documentation": "<p>The sort order for the records. Default: DESCENDING.</p>"
           }
         },
         "StartPosition": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#StartPosition",
+          "target": "com.amazonaws.connectparticipant#StartPosition",
           "traits": {
             "smithy.api#documentation": "<p>A filtering option for where to start.</p>"
           }
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#GetTranscriptResponse": {
+    "com.amazonaws.connectparticipant#GetTranscriptResponse": {
       "type": "structure",
       "members": {
         "InitialContactId": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ContactId",
+          "target": "com.amazonaws.connectparticipant#ContactId",
           "traits": {
             "smithy.api#documentation": "<p>The initial contact ID for the contact. </p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#NextToken",
+          "target": "com.amazonaws.connectparticipant#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
           }
         },
         "Transcript": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Transcript",
+          "target": "com.amazonaws.connectparticipant#Transcript",
           "traits": {
             "smithy.api#documentation": "<p>The list of messages in the session.</p>"
           }
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ISO8601Datetime": {
+    "com.amazonaws.connectparticipant#ISO8601Datetime": {
       "type": "string"
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant": {
+    "com.amazonaws.connectparticipant#Instant": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -452,13 +443,13 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException": {
+    "com.amazonaws.connectparticipant#InternalServerException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#Message",
+          "target": "com.amazonaws.connectparticipant#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -468,53 +459,53 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#Item": {
+    "com.amazonaws.connectparticipant#Item": {
       "type": "structure",
       "members": {
         "AbsoluteTime": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
+          "target": "com.amazonaws.connectparticipant#Instant",
           "traits": {
             "smithy.api#documentation": "<p>The time when the message or event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Content": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatContent",
+          "target": "com.amazonaws.connectparticipant#ChatContent",
           "traits": {
             "smithy.api#documentation": "<p>The content of the message or event.</p>"
           }
         },
         "ContentType": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContentType",
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
           "traits": {
             "smithy.api#documentation": "<p>The type of content of the item.</p>"
           }
         },
         "DisplayName": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#DisplayName",
+          "target": "com.amazonaws.connectparticipant#DisplayName",
           "traits": {
             "smithy.api#documentation": "<p>The chat display name of the sender.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the item.</p>"
           }
         },
         "ParticipantId": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantId",
+          "target": "com.amazonaws.connectparticipant#ParticipantId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the sender in the session.</p>"
           }
         },
         "ParticipantRole": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantRole",
+          "target": "com.amazonaws.connectparticipant#ParticipantRole",
           "traits": {
             "smithy.api#documentation": "<p>The role of the sender. For example, is it a customer, agent, or system.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemType",
+          "target": "com.amazonaws.connectparticipant#ChatItemType",
           "traits": {
             "smithy.api#documentation": "<p>Type of the item: message or event. </p>"
           }
@@ -524,7 +515,7 @@
         "smithy.api#documentation": "<p>An item - message or event - that has been sent. </p>"
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#MaxResults": {
+    "com.amazonaws.connectparticipant#MaxResults": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -533,10 +524,10 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#Message": {
+    "com.amazonaws.connectparticipant#Message": {
       "type": "string"
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#MostRecent": {
+    "com.amazonaws.connectparticipant#MostRecent": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -545,7 +536,7 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#NextToken": {
+    "com.amazonaws.connectparticipant#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -554,7 +545,7 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantId": {
+    "com.amazonaws.connectparticipant#ParticipantId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -563,23 +554,26 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantRole": {
+    "com.amazonaws.connectparticipant#ParticipantRole": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AGENT": {
+        "smithy.api#enum": [
+          {
+            "value": "AGENT",
             "name": "AGENT"
           },
-          "CUSTOMER": {
+          {
+            "value": "CUSTOMER",
             "name": "CUSTOMER"
           },
-          "SYSTEM": {
+          {
+            "value": "SYSTEM",
             "name": "SYSTEM"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken": {
+    "com.amazonaws.connectparticipant#ParticipantToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -588,7 +582,7 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#PreSignedConnectionUrl": {
+    "com.amazonaws.connectparticipant#PreSignedConnectionUrl": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -597,7 +591,7 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#Reason": {
+    "com.amazonaws.connectparticipant#Reason": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -606,39 +600,41 @@
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#ScanDirection": {
+    "com.amazonaws.connectparticipant#ScanDirection": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FORWARD": {
+        "smithy.api#enum": [
+          {
+            "value": "FORWARD",
             "name": "FORWARD"
           },
-          "BACKWARD": {
+          {
+            "value": "BACKWARD",
             "name": "BACKWARD"
           }
-        }
+        ]
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#SendEvent": {
+    "com.amazonaws.connectparticipant#SendEvent": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#SendEventRequest"
+        "target": "com.amazonaws.connectparticipant#SendEventRequest"
       },
       "output": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#SendEventResponse"
+        "target": "com.amazonaws.connectparticipant#SendEventResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException"
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException"
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException"
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException"
+          "target": "com.amazonaws.connectparticipant#ValidationException"
         }
       ],
       "traits": {
@@ -650,76 +646,76 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#SendEventRequest": {
+    "com.amazonaws.connectparticipant#SendEventRequest": {
       "type": "structure",
       "members": {
         "ClientToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ClientToken",
+          "target": "com.amazonaws.connectparticipant#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "ConnectionToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
             "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Content": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContent",
+          "target": "com.amazonaws.connectparticipant#ChatContent",
           "traits": {
             "smithy.api#documentation": "<p>The content of the event to be sent (for example, message text). This is not yet\n            supported.</p>"
           }
         },
         "ContentType": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContentType",
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
           "traits": {
             "smithy.api#documentation": "<p>The content type of the request. Supported types are:</p>\n\n        <ul>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.typing</p>\n            </li>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#SendEventResponse": {
+    "com.amazonaws.connectparticipant#SendEventResponse": {
       "type": "structure",
       "members": {
         "AbsoluteTime": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
+          "target": "com.amazonaws.connectparticipant#Instant",
           "traits": {
             "smithy.api#documentation": "<p>The time when the event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the response.</p>"
           }
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#SendMessage": {
+    "com.amazonaws.connectparticipant#SendMessage": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#SendMessageRequest"
+        "target": "com.amazonaws.connectparticipant#SendMessageRequest"
       },
       "output": {
-        "target": "com.amazon.amazonconnectparticipantservice.v20180907#SendMessageResponse"
+        "target": "com.amazonaws.connectparticipant#SendMessageResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException"
+          "target": "com.amazonaws.connectparticipant#AccessDeniedException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#InternalServerException"
+          "target": "com.amazonaws.connectparticipant#InternalServerException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException"
+          "target": "com.amazonaws.connectparticipant#ThrottlingException"
         },
         {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException"
+          "target": "com.amazonaws.connectparticipant#ValidationException"
         }
       ],
       "traits": {
@@ -731,87 +727,89 @@
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#SendMessageRequest": {
+    "com.amazonaws.connectparticipant#SendMessageRequest": {
       "type": "structure",
       "members": {
         "ClientToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ClientToken",
+          "target": "com.amazonaws.connectparticipant#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "ConnectionToken": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
+          "target": "com.amazonaws.connectparticipant#ParticipantToken",
           "traits": {
             "smithy.api#documentation": "<p>The authentication token associated with the connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Content": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContent",
+          "target": "com.amazonaws.connectparticipant#ChatContent",
           "traits": {
             "smithy.api#documentation": "<p>The content of the message.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ContentType": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContentType",
+          "target": "com.amazonaws.connectparticipant#ChatContentType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the content. Supported types are text/plain.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#SendMessageResponse": {
+    "com.amazonaws.connectparticipant#SendMessageResponse": {
       "type": "structure",
       "members": {
         "AbsoluteTime": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
+          "target": "com.amazonaws.connectparticipant#Instant",
           "traits": {
             "smithy.api#documentation": "<p>The time when the message was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the message.</p>"
           }
         }
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#SortKey": {
+    "com.amazonaws.connectparticipant#SortKey": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DESCENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "DESCENDING",
             "name": "DESCENDING"
           },
-          "ASCENDING": {
+          {
+            "value": "ASCENDING",
             "name": "ASCENDING"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#StartPosition": {
+    "com.amazonaws.connectparticipant#StartPosition": {
       "type": "structure",
       "members": {
         "AbsoluteTime": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
+          "target": "com.amazonaws.connectparticipant#Instant",
           "traits": {
             "smithy.api#documentation": "<p>The time in ISO format where to start.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Id": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
+          "target": "com.amazonaws.connectparticipant#ChatItemId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the message or event where to start. </p>"
           }
         },
         "MostRecent": {
-          "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#MostRecent",
+          "target": "com.amazonaws.connectparticipant#MostRecent",
           "traits": {
             "smithy.api#documentation": "<p>The start position of the most recent message where you want to start. </p>"
           }
@@ -821,13 +819,13 @@
         "smithy.api#documentation": "<p>A filtering option for where to start. For example, if you sent 100 messages, start\n            with message 50. </p>"
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException": {
+    "com.amazonaws.connectparticipant#ThrottlingException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.amazonconnectparticipantservice.v20180907#Message",
+          "target": "com.amazonaws.connectparticipant#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -837,19 +835,19 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.amazonconnect.commonchatexternaltypes#Transcript": {
+    "com.amazonaws.connectparticipant#Transcript": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Item"
+        "target": "com.amazonaws.connectparticipant#Item"
       }
     },
-    "com.amazon.amazonconnectparticipantservice.v20180907#ValidationException": {
+    "com.amazonaws.connectparticipant#ValidationException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#Reason",
+          "target": "com.amazonaws.connectparticipant#Reason",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -859,17 +857,17 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.amazonconnect.commonexternaltypes#Websocket": {
+    "com.amazonaws.connectparticipant#Websocket": {
       "type": "structure",
       "members": {
         "ConnectionExpiry": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#ISO8601Datetime",
+          "target": "com.amazonaws.connectparticipant#ISO8601Datetime",
           "traits": {
             "smithy.api#documentation": "<p>The URL expiration timestamp in ISO date format.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Url": {
-          "target": "com.amazonaws.amazonconnect.commonexternaltypes#PreSignedConnectionUrl",
+          "target": "com.amazonaws.connectparticipant#PreSignedConnectionUrl",
           "traits": {
             "smithy.api#documentation": "<p>The URL of the websocket.</p>"
           }

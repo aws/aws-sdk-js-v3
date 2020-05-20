@@ -1,83 +1,82 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.ledger.v20190102#AmazonQLDB": {
+    "com.amazonaws.qldb#AmazonQLDB": {
       "type": "service",
       "version": "2019-01-02",
       "operations": [
         {
-          "target": "com.amazonaws.ledger.v20190102#CreateLedger"
+          "target": "com.amazonaws.qldb#CreateLedger"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#DeleteLedger"
+          "target": "com.amazonaws.qldb#DeleteLedger"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#DescribeJournalS3Export"
+          "target": "com.amazonaws.qldb#DescribeJournalS3Export"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#DescribeLedger"
+          "target": "com.amazonaws.qldb#DescribeLedger"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ExportJournalToS3"
+          "target": "com.amazonaws.qldb#ExportJournalToS3"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#GetBlock"
+          "target": "com.amazonaws.qldb#GetBlock"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#GetDigest"
+          "target": "com.amazonaws.qldb#GetDigest"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#GetRevision"
+          "target": "com.amazonaws.qldb#GetRevision"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ListJournalS3Exports"
+          "target": "com.amazonaws.qldb#ListJournalS3Exports"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ListJournalS3ExportsForLedger"
+          "target": "com.amazonaws.qldb#ListJournalS3ExportsForLedger"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ListLedgers"
+          "target": "com.amazonaws.qldb#ListLedgers"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ListTagsForResource"
+          "target": "com.amazonaws.qldb#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#TagResource"
+          "target": "com.amazonaws.qldb#TagResource"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#UntagResource"
+          "target": "com.amazonaws.qldb#UntagResource"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#UpdateLedger"
+          "target": "com.amazonaws.qldb#UpdateLedger"
         }
       ],
       "traits": {
@@ -87,22 +86,18 @@
           "cloudFormationName": "QLDB",
           "cloudTrailEventSource": "v20190102.ledger.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "qldb"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>The control plane for Amazon QLDB</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon QLDB",
         "smithy.api#xmlNamespace": {
           "uri": "http://ledger.amazonaws.com/doc/2019-01-02/"
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#Arn": {
+    "com.amazonaws.qldb#Arn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -111,26 +106,26 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#CreateLedger": {
+    "com.amazonaws.qldb#CreateLedger": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#CreateLedgerRequest"
+        "target": "com.amazonaws.qldb#CreateLedgerRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#CreateLedgerResponse"
+        "target": "com.amazonaws.qldb#CreateLedgerResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#LimitExceededException"
+          "target": "com.amazonaws.qldb#LimitExceededException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceAlreadyExistsException"
+          "target": "com.amazonaws.qldb#ResourceAlreadyExistsException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceInUseException"
+          "target": "com.amazonaws.qldb#ResourceInUseException"
         }
       ],
       "traits": {
@@ -142,89 +137,89 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#CreateLedgerRequest": {
+    "com.amazonaws.qldb#CreateLedgerRequest": {
       "type": "structure",
       "members": {
         "DeletionProtection": {
-          "target": "com.amazonaws.ledger.v20190102#DeletionProtection",
+          "target": "com.amazonaws.qldb#DeletionProtection",
           "traits": {
             "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger that you want to create. The name must be unique among all of\n         your ledgers in the current AWS Region.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "PermissionsMode": {
-          "target": "com.amazonaws.ledger.v20190102#PermissionsMode",
+          "target": "com.amazonaws.qldb#PermissionsMode",
           "traits": {
             "smithy.api#documentation": "<p>The permissions mode to assign to the ledger that you want to create.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.ledger.v20190102#Tags",
+          "target": "com.amazonaws.qldb#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The key-value pairs to add as tags to the ledger that you want to create. Tag keys are\n         case sensitive. Tag values are case sensitive and can be null.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#CreateLedgerResponse": {
+    "com.amazonaws.qldb#CreateLedgerResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the ledger.</p>"
           }
         },
         "CreationDateTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
           }
         },
         "DeletionProtection": {
-          "target": "com.amazonaws.ledger.v20190102#DeletionProtection",
+          "target": "com.amazonaws.qldb#DeletionProtection",
           "traits": {
             "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerState",
+          "target": "com.amazonaws.qldb#LedgerState",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the ledger.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DeleteLedger": {
+    "com.amazonaws.qldb#DeleteLedger": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#DeleteLedgerRequest"
+        "target": "com.amazonaws.qldb#DeleteLedgerRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceInUseException"
+          "target": "com.amazonaws.qldb#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException"
+          "target": "com.amazonaws.qldb#ResourcePreconditionNotMetException"
         }
       ],
       "traits": {
@@ -236,36 +231,36 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DeleteLedgerRequest": {
+    "com.amazonaws.qldb#DeleteLedgerRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger that you want to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DeletionProtection": {
+    "com.amazonaws.qldb#DeletionProtection": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.ledger.v20190102#DescribeJournalS3Export": {
+    "com.amazonaws.qldb#DescribeJournalS3Export": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#DescribeJournalS3ExportRequest"
+        "target": "com.amazonaws.qldb#DescribeJournalS3ExportRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#DescribeJournalS3ExportResponse"
+        "target": "com.amazonaws.qldb#DescribeJournalS3ExportResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -277,53 +272,53 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DescribeJournalS3ExportRequest": {
+    "com.amazonaws.qldb#DescribeJournalS3ExportRequest": {
       "type": "structure",
       "members": {
         "ExportId": {
-          "target": "com.amazonaws.ledger.v20190102#UniqueId",
+          "target": "com.amazonaws.qldb#UniqueId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the journal export job that you want to describe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DescribeJournalS3ExportResponse": {
+    "com.amazonaws.qldb#DescribeJournalS3ExportResponse": {
       "type": "structure",
       "members": {
         "ExportDescription": {
-          "target": "com.amazonaws.ledger.v20190102#JournalS3ExportDescription",
+          "target": "com.amazonaws.qldb#JournalS3ExportDescription",
           "traits": {
             "smithy.api#documentation": "<p>Information about the journal export job returned by a\n            <code>DescribeJournalS3Export</code> request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DescribeLedger": {
+    "com.amazonaws.qldb#DescribeLedger": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#DescribeLedgerRequest"
+        "target": "com.amazonaws.qldb#DescribeLedgerRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#DescribeLedgerResponse"
+        "target": "com.amazonaws.qldb#DescribeLedgerResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -335,55 +330,55 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DescribeLedgerRequest": {
+    "com.amazonaws.qldb#DescribeLedgerRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger that you want to describe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#DescribeLedgerResponse": {
+    "com.amazonaws.qldb#DescribeLedgerResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the ledger.</p>"
           }
         },
         "CreationDateTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
           }
         },
         "DeletionProtection": {
-          "target": "com.amazonaws.ledger.v20190102#DeletionProtection",
+          "target": "com.amazonaws.qldb#DeletionProtection",
           "traits": {
             "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerState",
+          "target": "com.amazonaws.qldb#LedgerState",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the ledger.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#Digest": {
+    "com.amazonaws.qldb#Digest": {
       "type": "blob",
       "traits": {
         "smithy.api#length": {
@@ -392,23 +387,23 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ErrorMessage": {
+    "com.amazonaws.qldb#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.ledger.v20190102#ExportJournalToS3": {
+    "com.amazonaws.qldb#ExportJournalToS3": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#ExportJournalToS3Request"
+        "target": "com.amazonaws.qldb#ExportJournalToS3Request"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#ExportJournalToS3Response"
+        "target": "com.amazonaws.qldb#ExportJournalToS3Response"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException"
+          "target": "com.amazonaws.qldb#ResourcePreconditionNotMetException"
         }
       ],
       "traits": {
@@ -420,92 +415,95 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ExportJournalToS3Request": {
+    "com.amazonaws.qldb#ExportJournalToS3Request": {
       "type": "structure",
       "members": {
         "ExclusiveEndTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The exclusive end date and time for the range of journal contents that you want to\n         export.</p>\n         <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format\n         and in Universal Coordinated Time (UTC). For example:\n         <code>2019-06-13T21:36:34Z</code>\n         </p>\n         <p>The <code>ExclusiveEndTime</code> must be less than or equal to the current UTC date and\n         time.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InclusiveStartTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The inclusive start date and time for the range of journal contents that you want to\n         export.</p>\n         <p>The <code>InclusiveStartTime</code> must be in <code>ISO 8601</code> date and time\n         format and in Universal Coordinated Time (UTC). For example:\n            <code>2019-06-13T21:36:34Z</code>\n         </p>\n         <p>The <code>InclusiveStartTime</code> must be before <code>ExclusiveEndTime</code>.</p>\n         <p>If you provide an <code>InclusiveStartTime</code> that is before the ledger's\n            <code>CreationDateTime</code>, Amazon QLDB defaults it to the ledger's\n            <code>CreationDateTime</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RoleArn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a\n         journal export job to do the following:</p>\n         <ul>\n            <li>\n               <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>\n            </li>\n            <li>\n               <p>(Optional) Use your customer master key (CMK) in AWS Key Management Service (AWS\n               KMS) for server-side encryption of your exported data.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "S3ExportConfiguration": {
-          "target": "com.amazonaws.ledger.v20190102#S3ExportConfiguration",
+          "target": "com.amazonaws.qldb#S3ExportConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration settings of the Amazon S3 bucket destination for your export\n         request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ExportJournalToS3Response": {
+    "com.amazonaws.qldb#ExportJournalToS3Response": {
       "type": "structure",
       "members": {
         "ExportId": {
-          "target": "com.amazonaws.ledger.v20190102#UniqueId",
+          "target": "com.amazonaws.qldb#UniqueId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID that QLDB assigns to each journal export job.</p>\n         <p>To describe your export request and check the status of the job, you can use\n            <code>ExportId</code> to call <code>DescribeJournalS3Export</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ExportStatus": {
+    "com.amazonaws.qldb#ExportStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IN_PROGRESS": {
+        "smithy.api#enum": [
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "COMPLETED": {
+          {
+            "value": "COMPLETED",
             "name": "COMPLETED"
           },
-          "CANCELLED": {
+          {
+            "value": "CANCELLED",
             "name": "CANCELLED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.ledger.v20190102#GetBlock": {
+    "com.amazonaws.qldb#GetBlock": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#GetBlockRequest"
+        "target": "com.amazonaws.qldb#GetBlockRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#GetBlockResponse"
+        "target": "com.amazonaws.qldb#GetBlockResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException"
+          "target": "com.amazonaws.qldb#ResourcePreconditionNotMetException"
         }
       ],
       "traits": {
@@ -517,67 +515,67 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetBlockRequest": {
+    "com.amazonaws.qldb#GetBlockRequest": {
       "type": "structure",
       "members": {
         "BlockAddress": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The location of the block that you want to request. An address is an Amazon Ion\n         structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}</code>\n         </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DigestTipAddress": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The latest block location covered by the digest for which to request a proof. An address\n         is an Amazon Ion structure that has two fields: <code>strandId</code> and\n            <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}</code>\n         </p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetBlockResponse": {
+    "com.amazonaws.qldb#GetBlockResponse": {
       "type": "structure",
       "members": {
         "Block": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The block data object in Amazon Ion format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Proof": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The proof object in Amazon Ion format returned by a <code>GetBlock</code> request. A\n         proof contains the list of hash values required to recalculate the specified digest using a\n         Merkle tree, starting with the specified block.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetDigest": {
+    "com.amazonaws.qldb#GetDigest": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#GetDigestRequest"
+        "target": "com.amazonaws.qldb#GetDigestRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#GetDigestResponse"
+        "target": "com.amazonaws.qldb#GetDigestResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException"
+          "target": "com.amazonaws.qldb#ResourcePreconditionNotMetException"
         }
       ],
       "traits": {
@@ -589,55 +587,55 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetDigestRequest": {
+    "com.amazonaws.qldb#GetDigestRequest": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetDigestResponse": {
+    "com.amazonaws.qldb#GetDigestResponse": {
       "type": "structure",
       "members": {
         "Digest": {
-          "target": "com.amazonaws.ledger.v20190102#Digest",
+          "target": "com.amazonaws.qldb#Digest",
           "traits": {
             "smithy.api#documentation": "<p>The 256-bit hash value representing the digest returned by a <code>GetDigest</code>\n         request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DigestTipAddress": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The latest block location covered by the digest that you requested. An address is an\n         Amazon Ion structure that has two fields: <code>strandId</code> and\n         <code>sequenceNo</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetRevision": {
+    "com.amazonaws.qldb#GetRevision": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#GetRevisionRequest"
+        "target": "com.amazonaws.qldb#GetRevisionRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#GetRevisionResponse"
+        "target": "com.amazonaws.qldb#GetRevisionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException"
+          "target": "com.amazonaws.qldb#ResourcePreconditionNotMetException"
         }
       ],
       "traits": {
@@ -649,65 +647,65 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetRevisionRequest": {
+    "com.amazonaws.qldb#GetRevisionRequest": {
       "type": "structure",
       "members": {
         "BlockAddress": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The block location of the document revision to be verified. An address is an Amazon Ion\n         structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}</code>\n         </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DigestTipAddress": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The latest block location covered by the digest for which to request a proof. An address\n         is an Amazon Ion structure that has two fields: <code>strandId</code> and\n            <code>sequenceNo</code>.</p>\n         <p>For example: <code>{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}</code>\n         </p>"
           }
         },
         "DocumentId": {
-          "target": "com.amazonaws.ledger.v20190102#UniqueId",
+          "target": "com.amazonaws.qldb#UniqueId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the document to be verified.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#GetRevisionResponse": {
+    "com.amazonaws.qldb#GetRevisionResponse": {
       "type": "structure",
       "members": {
         "Proof": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A\n         proof contains the list of hash values that are required to recalculate the specified\n         digest using a Merkle tree, starting with the specified document revision.</p>"
           }
         },
         "Revision": {
-          "target": "com.amazonaws.ledger.v20190102#ValueHolder",
+          "target": "com.amazonaws.qldb#ValueHolder",
           "traits": {
             "smithy.api#documentation": "<p>The document revision data object in Amazon Ion format.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#InvalidParameterException": {
+    "com.amazonaws.qldb#InvalidParameterException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ledger.v20190102#ErrorMessage"
+          "target": "com.amazonaws.qldb#ErrorMessage"
         },
         "ParameterName": {
-          "target": "com.amazonaws.ledger.v20190102#ParameterName",
+          "target": "com.amazonaws.qldb#ParameterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the invalid parameter.</p>"
           }
@@ -719,72 +717,72 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.ledger.v20190102#IonText": {
+    "com.amazonaws.qldb#IonText": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 1048576
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.ledger.v20190102#JournalS3ExportDescription": {
+    "com.amazonaws.qldb#JournalS3ExportDescription": {
       "type": "structure",
       "members": {
         "ExclusiveEndTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The exclusive end date and time for the range of journal contents that are specified in\n         the original export request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ExportCreationTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in epoch time format, when the export job was created. (Epoch time\n         format is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ExportId": {
-          "target": "com.amazonaws.ledger.v20190102#UniqueId",
+          "target": "com.amazonaws.qldb#UniqueId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID of the journal export job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InclusiveStartTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The inclusive start date and time for the range of journal contents that are specified\n         in the original export request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LedgerName": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RoleArn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a\n         journal export job to do the following:</p>\n         <ul>\n            <li>\n               <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>\n            </li>\n            <li>\n               <p>(Optional) Use your customer master key (CMK) in AWS Key Management Service (AWS\n               KMS) for server-side encryption of your exported data.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "S3ExportConfiguration": {
-          "target": "com.amazonaws.ledger.v20190102#S3ExportConfiguration",
+          "target": "com.amazonaws.qldb#S3ExportConfiguration",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Status": {
-          "target": "com.amazonaws.ledger.v20190102#ExportStatus",
+          "target": "com.amazonaws.qldb#ExportStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current state of the journal export job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -792,19 +790,19 @@
         "smithy.api#documentation": "<p>The information about a journal export job, including the ledger name, export ID, when\n         it was created, current status, and its start and end time export parameters.</p>"
       }
     },
-    "com.amazonaws.ledger.v20190102#JournalS3ExportList": {
+    "com.amazonaws.qldb#JournalS3ExportList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ledger.v20190102#JournalS3ExportDescription"
+        "target": "com.amazonaws.qldb#JournalS3ExportDescription"
       }
     },
-    "com.amazonaws.ledger.v20190102#LedgerList": {
+    "com.amazonaws.qldb#LedgerList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ledger.v20190102#LedgerSummary"
+        "target": "com.amazonaws.qldb#LedgerSummary"
       }
     },
-    "com.amazonaws.ledger.v20190102#LedgerName": {
+    "com.amazonaws.qldb#LedgerName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -814,42 +812,46 @@
         "smithy.api#pattern": "(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$"
       }
     },
-    "com.amazonaws.ledger.v20190102#LedgerState": {
+    "com.amazonaws.qldb#LedgerState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.ledger.v20190102#LedgerSummary": {
+    "com.amazonaws.qldb#LedgerSummary": {
       "type": "structure",
       "members": {
         "CreationDateTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerState",
+          "target": "com.amazonaws.qldb#LedgerState",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the ledger.</p>"
           }
@@ -859,14 +861,14 @@
         "smithy.api#documentation": "<p>Information about a ledger, including its name, state, and when it was created.</p>"
       }
     },
-    "com.amazonaws.ledger.v20190102#LimitExceededException": {
+    "com.amazonaws.qldb#LimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ledger.v20190102#ErrorMessage"
+          "target": "com.amazonaws.qldb#ErrorMessage"
         },
         "ResourceType": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceType",
+          "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
@@ -878,13 +880,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.ledger.v20190102#ListJournalS3Exports": {
+    "com.amazonaws.qldb#ListJournalS3Exports": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#ListJournalS3ExportsRequest"
+        "target": "com.amazonaws.qldb#ListJournalS3ExportsRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#ListJournalS3ExportsResponse"
+        "target": "com.amazonaws.qldb#ListJournalS3ExportsResponse"
       },
       "traits": {
         "smithy.api#documentation": "<p>Returns an array of journal export job descriptions for all ledgers that are associated\n         with the current AWS account and Region.</p>\n         <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that\n         you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple\n         times.</p>",
@@ -900,13 +902,13 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListJournalS3ExportsForLedger": {
+    "com.amazonaws.qldb#ListJournalS3ExportsForLedger": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#ListJournalS3ExportsForLedgerRequest"
+        "target": "com.amazonaws.qldb#ListJournalS3ExportsForLedgerRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#ListJournalS3ExportsForLedgerResponse"
+        "target": "com.amazonaws.qldb#ListJournalS3ExportsForLedgerResponse"
       },
       "traits": {
         "smithy.api#documentation": "<p>Returns an array of journal export job descriptions for a specified ledger.</p>\n         <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that\n         you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>\n         multiple times.</p>",
@@ -922,26 +924,26 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListJournalS3ExportsForLedgerRequest": {
+    "com.amazonaws.qldb#ListJournalS3ExportsForLedgerRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.ledger.v20190102#MaxResults",
+          "target": "com.amazonaws.qldb#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single\n            <code>ListJournalS3ExportsForLedger</code> request. (The actual number of results\n         returned might be fewer.)</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ledger.v20190102#NextToken",
+          "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token, indicating that you want to retrieve the next page of results. If\n         you received a value for <code>NextToken</code> in the response from a previous\n            <code>ListJournalS3ExportsForLedger</code> call, then you should use that value as input\n         here.</p>",
             "smithy.api#httpQuery": "next_token"
@@ -949,35 +951,35 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListJournalS3ExportsForLedgerResponse": {
+    "com.amazonaws.qldb#ListJournalS3ExportsForLedgerResponse": {
       "type": "structure",
       "members": {
         "JournalS3Exports": {
-          "target": "com.amazonaws.ledger.v20190102#JournalS3ExportList",
+          "target": "com.amazonaws.qldb#JournalS3ExportList",
           "traits": {
             "smithy.api#documentation": "<p>The array of journal export job descriptions that are associated with the specified\n         ledger.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ledger.v20190102#NextToken",
+          "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<ul>\n            <li>\n               <p>If <code>NextToken</code> is empty, then the last page of results has been\n               processed and there are no more results to be retrieved.</p>\n            </li>\n            <li>\n               <p>If <code>NextToken</code> is <i>not</i> empty, then there are more\n               results available. To retrieve the next page of results, use the value of\n                  <code>NextToken</code> in a subsequent <code>ListJournalS3ExportsForLedger</code>\n               call.</p>\n            </li>\n         </ul>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListJournalS3ExportsRequest": {
+    "com.amazonaws.qldb#ListJournalS3ExportsRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.ledger.v20190102#MaxResults",
+          "target": "com.amazonaws.qldb#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single <code>ListJournalS3Exports</code>\n         request. (The actual number of results returned might be fewer.)</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ledger.v20190102#NextToken",
+          "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token, indicating that you want to retrieve the next page of results. If\n         you received a value for <code>NextToken</code> in the response from a previous\n            <code>ListJournalS3Exports</code> call, then you should use that value as input\n         here.</p>",
             "smithy.api#httpQuery": "next_token"
@@ -985,30 +987,30 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListJournalS3ExportsResponse": {
+    "com.amazonaws.qldb#ListJournalS3ExportsResponse": {
       "type": "structure",
       "members": {
         "JournalS3Exports": {
-          "target": "com.amazonaws.ledger.v20190102#JournalS3ExportList",
+          "target": "com.amazonaws.qldb#JournalS3ExportList",
           "traits": {
             "smithy.api#documentation": "<p>The array of journal export job descriptions for all ledgers that are associated with\n         the current AWS account and Region.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ledger.v20190102#NextToken",
+          "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<ul>\n            <li>\n               <p>If <code>NextToken</code> is empty, then the last page of results has been\n               processed and there are no more results to be retrieved.</p>\n            </li>\n            <li>\n               <p>If <code>NextToken</code> is <i>not</i> empty, then there are more\n               results available. To retrieve the next page of results, use the value of\n                  <code>NextToken</code> in a subsequent <code>ListJournalS3Exports</code>\n               call.</p>\n            </li>\n         </ul>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListLedgers": {
+    "com.amazonaws.qldb#ListLedgers": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#ListLedgersRequest"
+        "target": "com.amazonaws.qldb#ListLedgersRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#ListLedgersResponse"
+        "target": "com.amazonaws.qldb#ListLedgersResponse"
       },
       "traits": {
         "smithy.api#documentation": "<p>Returns an array of ledger summaries that are associated with the current AWS account\n         and Region.</p>\n         <p>This action returns a maximum of 100 items and is paginated so that you can\n         retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>",
@@ -1024,18 +1026,18 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListLedgersRequest": {
+    "com.amazonaws.qldb#ListLedgersRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.ledger.v20190102#MaxResults",
+          "target": "com.amazonaws.qldb#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single <code>ListLedgers</code> request.\n         (The actual number of results returned might be fewer.)</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ledger.v20190102#NextToken",
+          "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token, indicating that you want to retrieve the next page of results. If\n         you received a value for <code>NextToken</code> in the response from a previous\n            <code>ListLedgers</code> call, then you should use that value as input here.</p>",
             "smithy.api#httpQuery": "next_token"
@@ -1043,37 +1045,37 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListLedgersResponse": {
+    "com.amazonaws.qldb#ListLedgersResponse": {
       "type": "structure",
       "members": {
         "Ledgers": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerList",
+          "target": "com.amazonaws.qldb#LedgerList",
           "traits": {
             "smithy.api#documentation": "<p>The array of ledger summaries that are associated with the current AWS account and\n         Region.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ledger.v20190102#NextToken",
+          "target": "com.amazonaws.qldb#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token, indicating whether there are more results available:</p>\n         <ul>\n            <li>\n               <p>If <code>NextToken</code> is empty, then the last page of results has been\n               processed and there are no more results to be retrieved.</p>\n            </li>\n            <li>\n               <p>If <code>NextToken</code> is <i>not</i> empty, then there are more\n               results available. To retrieve the next page of results, use the value of\n                  <code>NextToken</code> in a subsequent <code>ListLedgers</code> call.</p>\n            </li>\n         </ul>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListTagsForResource": {
+    "com.amazonaws.qldb#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#ListTagsForResourceRequest"
+        "target": "com.amazonaws.qldb#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#ListTagsForResourceResponse"
+        "target": "com.amazonaws.qldb#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -1085,41 +1087,41 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListTagsForResourceRequest": {
+    "com.amazonaws.qldb#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for which you want to list the tags. For example:</p>\n         <p>\n            <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code>\n         </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ListTagsForResourceResponse": {
+    "com.amazonaws.qldb#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "Tags": {
-          "target": "com.amazonaws.ledger.v20190102#Tags",
+          "target": "com.amazonaws.qldb#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags that are currently associated with the specified Amazon QLDB resource.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#MaxResults": {
+    "com.amazonaws.qldb#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#NextToken": {
+    "com.amazonaws.qldb#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1129,33 +1131,34 @@
         "smithy.api#pattern": "^[A-Za-z-0-9+/=]+$"
       }
     },
-    "com.amazonaws.ledger.v20190102#ParameterName": {
+    "com.amazonaws.qldb#ParameterName": {
       "type": "string"
     },
-    "com.amazonaws.ledger.v20190102#PermissionsMode": {
+    "com.amazonaws.qldb#PermissionsMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALLOW_ALL": {
+        "smithy.api#enum": [
+          {
+            "value": "ALLOW_ALL",
             "name": "ALLOW_ALL"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.ledger.v20190102#ResourceAlreadyExistsException": {
+    "com.amazonaws.qldb#ResourceAlreadyExistsException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ledger.v20190102#ErrorMessage"
+          "target": "com.amazonaws.qldb#ErrorMessage"
         },
         "ResourceName": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceName",
+          "target": "com.amazonaws.qldb#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceType",
+          "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
@@ -1167,20 +1170,20 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.ledger.v20190102#ResourceInUseException": {
+    "com.amazonaws.qldb#ResourceInUseException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ledger.v20190102#ErrorMessage"
+          "target": "com.amazonaws.qldb#ErrorMessage"
         },
         "ResourceName": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceName",
+          "target": "com.amazonaws.qldb#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceType",
+          "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
@@ -1192,23 +1195,23 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.ledger.v20190102#ResourceName": {
+    "com.amazonaws.qldb#ResourceName": {
       "type": "string"
     },
-    "com.amazonaws.ledger.v20190102#ResourceNotFoundException": {
+    "com.amazonaws.qldb#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ledger.v20190102#ErrorMessage"
+          "target": "com.amazonaws.qldb#ErrorMessage"
         },
         "ResourceName": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceName",
+          "target": "com.amazonaws.qldb#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceType",
+          "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
@@ -1220,20 +1223,20 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException": {
+    "com.amazonaws.qldb#ResourcePreconditionNotMetException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ledger.v20190102#ErrorMessage"
+          "target": "com.amazonaws.qldb#ErrorMessage"
         },
         "ResourceName": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceName",
+          "target": "com.amazonaws.qldb#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.ledger.v20190102#ResourceType",
+          "target": "com.amazonaws.qldb#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource.</p>"
           }
@@ -1245,10 +1248,10 @@
         "smithy.api#httpError": 412
       }
     },
-    "com.amazonaws.ledger.v20190102#ResourceType": {
+    "com.amazonaws.qldb#ResourceType": {
       "type": "string"
     },
-    "com.amazonaws.ledger.v20190102#S3Bucket": {
+    "com.amazonaws.qldb#S3Bucket": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1258,20 +1261,20 @@
         "smithy.api#pattern": "^[A-Za-z-0-9-_.]+$"
       }
     },
-    "com.amazonaws.ledger.v20190102#S3EncryptionConfiguration": {
+    "com.amazonaws.qldb#S3EncryptionConfiguration": {
       "type": "structure",
       "members": {
         "KmsKeyArn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a customer master key (CMK) in AWS Key Management\n         Service (AWS KMS).</p>\n         <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the\n            <code>ObjectEncryptionType</code>.</p>\n         <p>\n            <code>KmsKeyArn</code> is not required if you specify <code>SSE_S3</code> as the\n            <code>ObjectEncryptionType</code>.</p>"
           }
         },
         "ObjectEncryptionType": {
-          "target": "com.amazonaws.ledger.v20190102#S3ObjectEncryptionType",
+          "target": "com.amazonaws.qldb#S3ObjectEncryptionType",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 object encryption type.</p>\n         <p>To learn more about server-side encryption options in Amazon S3, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html\">Protecting Data\n            Using Server-Side Encryption</a> in the <i>Amazon S3 Developer\n         Guide</i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1279,28 +1282,28 @@
         "smithy.api#documentation": "<p>The encryption settings that are used by a journal export job to write data in an\n         Amazon Simple Storage Service (Amazon S3) bucket.</p>"
       }
     },
-    "com.amazonaws.ledger.v20190102#S3ExportConfiguration": {
+    "com.amazonaws.qldb#S3ExportConfiguration": {
       "type": "structure",
       "members": {
         "Bucket": {
-          "target": "com.amazonaws.ledger.v20190102#S3Bucket",
+          "target": "com.amazonaws.qldb#S3Bucket",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon S3 bucket name in which a journal export job writes the journal contents.</p>\n         <p>The bucket name must comply with the Amazon S3 bucket naming conventions. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket Restrictions and\n            Limitations</a> in the <i>Amazon S3 Developer Guide</i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EncryptionConfiguration": {
-          "target": "com.amazonaws.ledger.v20190102#S3EncryptionConfiguration",
+          "target": "com.amazonaws.qldb#S3EncryptionConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The encryption settings that are used by a journal export job to write data in an Amazon S3\n         bucket.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Prefix": {
-          "target": "com.amazonaws.ledger.v20190102#S3Prefix",
+          "target": "com.amazonaws.qldb#S3Prefix",
           "traits": {
             "smithy.api#documentation": "<p>The prefix for the Amazon S3 bucket in which a journal export job writes the journal\n         contents.</p>\n         <p>The prefix must comply with Amazon S3 key naming rules and restrictions. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html\">Object Key and Metadata</a> in the <i>Amazon S3 Developer\n         Guide</i>.</p>\n         <p>The following are examples of valid <code>Prefix</code> values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>JournalExports-ForMyLedger/Testing/</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>JournalExports</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>My:Tests/</code>\n               </p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1308,23 +1311,26 @@
         "smithy.api#documentation": "<p>The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal\n         contents.</p>"
       }
     },
-    "com.amazonaws.ledger.v20190102#S3ObjectEncryptionType": {
+    "com.amazonaws.qldb#S3ObjectEncryptionType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SSE_KMS": {
+        "smithy.api#enum": [
+          {
+            "value": "SSE_KMS",
             "name": "SSE_KMS"
           },
-          "SSE_S3": {
+          {
+            "value": "SSE_S3",
             "name": "SSE_S3"
           },
-          "NO_ENCRYPTION": {
+          {
+            "value": "NO_ENCRYPTION",
             "name": "NO_ENCRYPTION"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.ledger.v20190102#S3Prefix": {
+    "com.amazonaws.qldb#S3Prefix": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1333,7 +1339,7 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#TagKey": {
+    "com.amazonaws.qldb#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1342,10 +1348,10 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#TagKeyList": {
+    "com.amazonaws.qldb#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ledger.v20190102#TagKey"
+        "target": "com.amazonaws.qldb#TagKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -1354,20 +1360,20 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#TagResource": {
+    "com.amazonaws.qldb#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#TagResourceRequest"
+        "target": "com.amazonaws.qldb#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#TagResourceResponse"
+        "target": "com.amazonaws.qldb#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -1379,31 +1385,31 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#TagResourceRequest": {
+    "com.amazonaws.qldb#TagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) to which you want to add the tags. For example:</p>\n         <p>\n            <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code>\n         </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.ledger.v20190102#Tags",
+          "target": "com.amazonaws.qldb#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The key-value pairs to add as tags to the specified QLDB resource. Tag keys are case\n         sensitive. If you specify a key that already exists for the resource, your request fails\n         and returns an error. Tag values are case sensitive and can be null.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#TagResourceResponse": {
+    "com.amazonaws.qldb#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.ledger.v20190102#TagValue": {
+    "com.amazonaws.qldb#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1412,13 +1418,13 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#Tags": {
+    "com.amazonaws.qldb#Tags": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.ledger.v20190102#TagKey"
+        "target": "com.amazonaws.qldb#TagKey"
       },
       "value": {
-        "target": "com.amazonaws.ledger.v20190102#TagValue"
+        "target": "com.amazonaws.qldb#TagValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -1427,10 +1433,10 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#Timestamp": {
+    "com.amazonaws.qldb#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.ledger.v20190102#UniqueId": {
+    "com.amazonaws.qldb#UniqueId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1440,20 +1446,20 @@
         "smithy.api#pattern": "^[A-Za-z-0-9]+$"
       }
     },
-    "com.amazonaws.ledger.v20190102#UntagResource": {
+    "com.amazonaws.qldb#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#UntagResourceRequest"
+        "target": "com.amazonaws.qldb#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#UntagResourceResponse"
+        "target": "com.amazonaws.qldb#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -1465,45 +1471,45 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#UntagResourceRequest": {
+    "com.amazonaws.qldb#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) from which you want to remove the tags. For\n         example:</p>\n         <p>\n            <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code>\n         </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazonaws.ledger.v20190102#TagKeyList",
+          "target": "com.amazonaws.qldb#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tag keys that you want to remove.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#UntagResourceResponse": {
+    "com.amazonaws.qldb#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.ledger.v20190102#UpdateLedger": {
+    "com.amazonaws.qldb#UpdateLedger": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ledger.v20190102#UpdateLedgerRequest"
+        "target": "com.amazonaws.qldb#UpdateLedgerRequest"
       },
       "output": {
-        "target": "com.amazonaws.ledger.v20190102#UpdateLedgerResponse"
+        "target": "com.amazonaws.qldb#UpdateLedgerResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ledger.v20190102#InvalidParameterException"
+          "target": "com.amazonaws.qldb#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.ledger.v20190102#ResourceNotFoundException"
+          "target": "com.amazonaws.qldb#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -1515,65 +1521,65 @@
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#UpdateLedgerRequest": {
+    "com.amazonaws.qldb#UpdateLedgerRequest": {
       "type": "structure",
       "members": {
         "DeletionProtection": {
-          "target": "com.amazonaws.ledger.v20190102#DeletionProtection",
+          "target": "com.amazonaws.qldb#DeletionProtection",
           "traits": {
             "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#UpdateLedgerResponse": {
+    "com.amazonaws.qldb#UpdateLedgerResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ledger.v20190102#Arn",
+          "target": "com.amazonaws.qldb#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the ledger.</p>"
           }
         },
         "CreationDateTime": {
-          "target": "com.amazonaws.ledger.v20190102#Timestamp",
+          "target": "com.amazonaws.qldb#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time, in epoch time format, when the ledger was created. (Epoch time format\n         is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>"
           }
         },
         "DeletionProtection": {
-          "target": "com.amazonaws.ledger.v20190102#DeletionProtection",
+          "target": "com.amazonaws.qldb#DeletionProtection",
           "traits": {
             "smithy.api#documentation": "<p>The flag that prevents a ledger from being deleted by any user. If not provided on\n         ledger creation, this feature is enabled (<code>true</code>) by default.</p>\n         <p>If deletion protection is enabled, you must first disable it before you can delete the\n         ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the\n            <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB\n         console disables deletion protection for you when you use it to delete a ledger.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerName",
+          "target": "com.amazonaws.qldb#LedgerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the ledger.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.ledger.v20190102#LedgerState",
+          "target": "com.amazonaws.qldb#LedgerState",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the ledger.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ledger.v20190102#ValueHolder": {
+    "com.amazonaws.qldb#ValueHolder": {
       "type": "structure",
       "members": {
         "IonText": {
-          "target": "com.amazonaws.ledger.v20190102#IonText",
+          "target": "com.amazonaws.qldb#IonText",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>"
           }
@@ -1581,7 +1587,7 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A structure that can contain an Amazon Ion value in multiple encoding formats.</p>",
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     }
   }

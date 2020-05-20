@@ -1,42 +1,41 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException": {
+    "com.amazonaws.networkmanager#AccessDeniedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -46,35 +45,35 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#AssociateCustomerGateway": {
+    "com.amazonaws.networkmanager#AssociateCustomerGateway": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#AssociateCustomerGatewayRequest"
+        "target": "com.amazonaws.networkmanager#AssociateCustomerGatewayRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#AssociateCustomerGatewayResponse"
+        "target": "com.amazonaws.networkmanager#AssociateCustomerGatewayResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -86,79 +85,79 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#AssociateCustomerGatewayRequest": {
+    "com.amazonaws.networkmanager#AssociateCustomerGatewayRequest": {
       "type": "structure",
       "members": {
         "CustomerGatewayArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see\n                <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#AssociateCustomerGatewayResponse": {
+    "com.amazonaws.networkmanager#AssociateCustomerGatewayResponse": {
       "type": "structure",
       "members": {
         "CustomerGatewayAssociation": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociation",
+          "target": "com.amazonaws.networkmanager#CustomerGatewayAssociation",
           "traits": {
             "smithy.api#documentation": "<p>The customer gateway association.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#AssociateLink": {
+    "com.amazonaws.networkmanager#AssociateLink": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#AssociateLinkRequest"
+        "target": "com.amazonaws.networkmanager#AssociateLinkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#AssociateLinkResponse"
+        "target": "com.amazonaws.networkmanager#AssociateLinkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -170,55 +169,55 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#AssociateLinkRequest": {
+    "com.amazonaws.networkmanager#AssociateLinkRequest": {
       "type": "structure",
       "members": {
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#AssociateLinkResponse": {
+    "com.amazonaws.networkmanager#AssociateLinkResponse": {
       "type": "structure",
       "members": {
         "LinkAssociation": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#LinkAssociation",
+          "target": "com.amazonaws.networkmanager#LinkAssociation",
           "traits": {
             "smithy.api#documentation": "<p>The link association.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#Bandwidth": {
+    "com.amazonaws.networkmanager#Bandwidth": {
       "type": "structure",
       "members": {
         "DownloadSpeed": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Integer",
+          "target": "com.amazonaws.networkmanager#Integer",
           "traits": {
             "smithy.api#documentation": "<p>Download speed in Mbps.</p>"
           }
         },
         "UploadSpeed": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Integer",
+          "target": "com.amazonaws.networkmanager#Integer",
           "traits": {
             "smithy.api#documentation": "<p>Upload speed in Mbps.</p>"
           }
@@ -228,27 +227,27 @@
         "smithy.api#documentation": "<p>Describes bandwidth information.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ConflictException": {
+    "com.amazonaws.networkmanager#ConflictException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -258,35 +257,35 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateDevice": {
+    "com.amazonaws.networkmanager#CreateDevice": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateDeviceRequest"
+        "target": "com.amazonaws.networkmanager#CreateDeviceRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateDeviceResponse"
+        "target": "com.amazonaws.networkmanager#CreateDeviceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -298,104 +297,104 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateDeviceRequest": {
+    "com.amazonaws.networkmanager#CreateDeviceRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the device.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Location": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Location",
+          "target": "com.amazonaws.networkmanager#Location",
           "traits": {
             "smithy.api#documentation": "<p>The location of the device.</p>"
           }
         },
         "Model": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The model of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "SerialNumber": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The serial number of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of the device.</p>"
           }
         },
         "Vendor": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The vendor of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateDeviceResponse": {
+    "com.amazonaws.networkmanager#CreateDeviceResponse": {
       "type": "structure",
       "members": {
         "Device": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Device",
+          "target": "com.amazonaws.networkmanager#Device",
           "traits": {
             "smithy.api#documentation": "<p>Information about the device.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateGlobalNetwork": {
+    "com.amazonaws.networkmanager#CreateGlobalNetwork": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateGlobalNetworkRequest"
+        "target": "com.amazonaws.networkmanager#CreateGlobalNetworkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateGlobalNetworkResponse"
+        "target": "com.amazonaws.networkmanager#CreateGlobalNetworkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -407,63 +406,63 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateGlobalNetworkRequest": {
+    "com.amazonaws.networkmanager#CreateGlobalNetworkRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the global network.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateGlobalNetworkResponse": {
+    "com.amazonaws.networkmanager#CreateGlobalNetworkResponse": {
       "type": "structure",
       "members": {
         "GlobalNetwork": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GlobalNetwork",
+          "target": "com.amazonaws.networkmanager#GlobalNetwork",
           "traits": {
             "smithy.api#documentation": "<p>Information about the global network object.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateLink": {
+    "com.amazonaws.networkmanager#CreateLink": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateLinkRequest"
+        "target": "com.amazonaws.networkmanager#CreateLinkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateLinkResponse"
+        "target": "com.amazonaws.networkmanager#CreateLinkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -475,97 +474,97 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateLinkRequest": {
+    "com.amazonaws.networkmanager#CreateLinkRequest": {
       "type": "structure",
       "members": {
         "Bandwidth": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Bandwidth",
+          "target": "com.amazonaws.networkmanager#Bandwidth",
           "traits": {
             "smithy.api#documentation": "<p> The upload speed and download speed in Mbps. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the link.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Provider": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The provider of the link.</p>\n        <p>Constraints: Cannot include the following characters: | \\ ^</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of the link.</p>\n        <p>Constraints: Cannot include the following characters: | \\ ^</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateLinkResponse": {
+    "com.amazonaws.networkmanager#CreateLinkResponse": {
       "type": "structure",
       "members": {
         "Link": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Link",
+          "target": "com.amazonaws.networkmanager#Link",
           "traits": {
             "smithy.api#documentation": "<p>Information about the link.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateSite": {
+    "com.amazonaws.networkmanager#CreateSite": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateSiteRequest"
+        "target": "com.amazonaws.networkmanager#CreateSiteRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CreateSiteResponse"
+        "target": "com.amazonaws.networkmanager#CreateSiteResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -577,77 +576,77 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateSiteRequest": {
+    "com.amazonaws.networkmanager#CreateSiteRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of your site.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Location": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Location",
+          "target": "com.amazonaws.networkmanager#Location",
           "traits": {
             "smithy.api#documentation": "<p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>\n        <ul>\n            <li>\n               <p>\n                  <code>Address</code>: The physical address of the site.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Latitude</code>: The latitude of the site. </p>\n            </li>\n            <li>\n               <p>\n                  <code>Longitude</code>: The longitude of the site.</p>\n            </li>\n         </ul>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the resource during creation.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CreateSiteResponse": {
+    "com.amazonaws.networkmanager#CreateSiteResponse": {
       "type": "structure",
       "members": {
         "Site": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Site",
+          "target": "com.amazonaws.networkmanager#Site",
           "traits": {
             "smithy.api#documentation": "<p>Information about the site.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociation": {
+    "com.amazonaws.networkmanager#CustomerGatewayAssociation": {
       "type": "structure",
       "members": {
         "CustomerGatewayArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the customer gateway.</p>"
           }
         },
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociationState",
+          "target": "com.amazonaws.networkmanager#CustomerGatewayAssociationState",
           "traits": {
             "smithy.api#documentation": "<p>The association state.</p>"
           }
@@ -657,60 +656,64 @@
         "smithy.api#documentation": "<p>Describes the association between a customer gateway, a device, and a link.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociationList": {
+    "com.amazonaws.networkmanager#CustomerGatewayAssociationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociation"
+        "target": "com.amazonaws.networkmanager#CustomerGatewayAssociation"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociationState": {
+    "com.amazonaws.networkmanager#CustomerGatewayAssociationState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "pending"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "available"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "deleting"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "deleted"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DateTime": {
+    "com.amazonaws.networkmanager#DateTime": {
       "type": "timestamp"
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteDevice": {
+    "com.amazonaws.networkmanager#DeleteDevice": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteDeviceRequest"
+        "target": "com.amazonaws.networkmanager#DeleteDeviceRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteDeviceResponse"
+        "target": "com.amazonaws.networkmanager#DeleteDeviceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -722,64 +725,64 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteDeviceRequest": {
+    "com.amazonaws.networkmanager#DeleteDeviceRequest": {
       "type": "structure",
       "members": {
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteDeviceResponse": {
+    "com.amazonaws.networkmanager#DeleteDeviceResponse": {
       "type": "structure",
       "members": {
         "Device": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Device",
+          "target": "com.amazonaws.networkmanager#Device",
           "traits": {
             "smithy.api#documentation": "<p>Information about the device.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteGlobalNetwork": {
+    "com.amazonaws.networkmanager#DeleteGlobalNetwork": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteGlobalNetworkRequest"
+        "target": "com.amazonaws.networkmanager#DeleteGlobalNetworkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteGlobalNetworkResponse"
+        "target": "com.amazonaws.networkmanager#DeleteGlobalNetworkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -791,56 +794,56 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteGlobalNetworkRequest": {
+    "com.amazonaws.networkmanager#DeleteGlobalNetworkRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteGlobalNetworkResponse": {
+    "com.amazonaws.networkmanager#DeleteGlobalNetworkResponse": {
       "type": "structure",
       "members": {
         "GlobalNetwork": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GlobalNetwork",
+          "target": "com.amazonaws.networkmanager#GlobalNetwork",
           "traits": {
             "smithy.api#documentation": "<p>Information about the global network.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteLink": {
+    "com.amazonaws.networkmanager#DeleteLink": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteLinkRequest"
+        "target": "com.amazonaws.networkmanager#DeleteLinkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteLinkResponse"
+        "target": "com.amazonaws.networkmanager#DeleteLinkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -852,64 +855,64 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteLinkRequest": {
+    "com.amazonaws.networkmanager#DeleteLinkRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteLinkResponse": {
+    "com.amazonaws.networkmanager#DeleteLinkResponse": {
       "type": "structure",
       "members": {
         "Link": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Link",
+          "target": "com.amazonaws.networkmanager#Link",
           "traits": {
             "smithy.api#documentation": "<p>Information about the link.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteSite": {
+    "com.amazonaws.networkmanager#DeleteSite": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteSiteRequest"
+        "target": "com.amazonaws.networkmanager#DeleteSiteRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteSiteResponse"
+        "target": "com.amazonaws.networkmanager#DeleteSiteResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -921,64 +924,64 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteSiteRequest": {
+    "com.amazonaws.networkmanager#DeleteSiteRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeleteSiteResponse": {
+    "com.amazonaws.networkmanager#DeleteSiteResponse": {
       "type": "structure",
       "members": {
         "Site": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Site",
+          "target": "com.amazonaws.networkmanager#Site",
           "traits": {
             "smithy.api#documentation": "<p>Information about the site.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeregisterTransitGateway": {
+    "com.amazonaws.networkmanager#DeregisterTransitGateway": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeregisterTransitGatewayRequest"
+        "target": "com.amazonaws.networkmanager#DeregisterTransitGatewayRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DeregisterTransitGatewayResponse"
+        "target": "com.amazonaws.networkmanager#DeregisterTransitGatewayResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -990,61 +993,61 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeregisterTransitGatewayRequest": {
+    "com.amazonaws.networkmanager#DeregisterTransitGatewayRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TransitGatewayArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the transit gateway.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeregisterTransitGatewayResponse": {
+    "com.amazonaws.networkmanager#DeregisterTransitGatewayResponse": {
       "type": "structure",
       "members": {
         "TransitGatewayRegistration": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistration",
+          "target": "com.amazonaws.networkmanager#TransitGatewayRegistration",
           "traits": {
             "smithy.api#documentation": "<p>The transit gateway registration information.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DescribeGlobalNetworks": {
+    "com.amazonaws.networkmanager#DescribeGlobalNetworks": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DescribeGlobalNetworksRequest"
+        "target": "com.amazonaws.networkmanager#DescribeGlobalNetworksRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DescribeGlobalNetworksResponse"
+        "target": "com.amazonaws.networkmanager#DescribeGlobalNetworksResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1061,25 +1064,25 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DescribeGlobalNetworksRequest": {
+    "com.amazonaws.networkmanager#DescribeGlobalNetworksRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkIds": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#StringList",
+          "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of one or more global networks. The maximum is 10.</p>",
             "smithy.api#httpQuery": "globalNetworkIds"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#MaxResults",
+          "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1087,100 +1090,100 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DescribeGlobalNetworksResponse": {
+    "com.amazonaws.networkmanager#DescribeGlobalNetworksResponse": {
       "type": "structure",
       "members": {
         "GlobalNetworks": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GlobalNetworkList",
+          "target": "com.amazonaws.networkmanager#GlobalNetworkList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the global networks.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#Device": {
+    "com.amazonaws.networkmanager#Device": {
       "type": "structure",
       "members": {
         "CreatedAt": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DateTime",
+          "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the site was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The description of the device.</p>"
           }
         },
         "DeviceArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the device.</p>"
           }
         },
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
         "Location": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Location",
+          "target": "com.amazonaws.networkmanager#Location",
           "traits": {
             "smithy.api#documentation": "<p>The site location.</p>"
           }
         },
         "Model": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device model.</p>"
           }
         },
         "SerialNumber": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device serial number.</p>"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The site ID.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DeviceState",
+          "target": "com.amazonaws.networkmanager#DeviceState",
           "traits": {
             "smithy.api#documentation": "<p>The device state.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the device.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device type.</p>"
           }
         },
         "Vendor": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device vendor.</p>"
           }
@@ -1190,57 +1193,61 @@
         "smithy.api#documentation": "<p>Describes a device.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeviceList": {
+    "com.amazonaws.networkmanager#DeviceList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#Device"
+        "target": "com.amazonaws.networkmanager#Device"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DeviceState": {
+    "com.amazonaws.networkmanager#DeviceState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "pending"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "available"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "deleting"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "updating"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DisassociateCustomerGateway": {
+    "com.amazonaws.networkmanager#DisassociateCustomerGateway": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DisassociateCustomerGatewayRequest"
+        "target": "com.amazonaws.networkmanager#DisassociateCustomerGatewayRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DisassociateCustomerGatewayResponse"
+        "target": "com.amazonaws.networkmanager#DisassociateCustomerGatewayResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1252,64 +1259,64 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DisassociateCustomerGatewayRequest": {
+    "com.amazonaws.networkmanager#DisassociateCustomerGatewayRequest": {
       "type": "structure",
       "members": {
         "CustomerGatewayArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see\n                <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DisassociateCustomerGatewayResponse": {
+    "com.amazonaws.networkmanager#DisassociateCustomerGatewayResponse": {
       "type": "structure",
       "members": {
         "CustomerGatewayAssociation": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociation",
+          "target": "com.amazonaws.networkmanager#CustomerGatewayAssociation",
           "traits": {
             "smithy.api#documentation": "<p>Information about the customer gateway association.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DisassociateLink": {
+    "com.amazonaws.networkmanager#DisassociateLink": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DisassociateLinkRequest"
+        "target": "com.amazonaws.networkmanager#DisassociateLinkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#DisassociateLinkResponse"
+        "target": "com.amazonaws.networkmanager#DisassociateLinkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1321,72 +1328,72 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DisassociateLinkRequest": {
+    "com.amazonaws.networkmanager#DisassociateLinkRequest": {
       "type": "structure",
       "members": {
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>",
             "smithy.api#httpQuery": "deviceId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>",
             "smithy.api#httpQuery": "linkId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#DisassociateLinkResponse": {
+    "com.amazonaws.networkmanager#DisassociateLinkResponse": {
       "type": "structure",
       "members": {
         "LinkAssociation": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#LinkAssociation",
+          "target": "com.amazonaws.networkmanager#LinkAssociation",
           "traits": {
             "smithy.api#documentation": "<p>Information about the link association.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetCustomerGatewayAssociations": {
+    "com.amazonaws.networkmanager#GetCustomerGatewayAssociations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetCustomerGatewayAssociationsRequest"
+        "target": "com.amazonaws.networkmanager#GetCustomerGatewayAssociationsRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetCustomerGatewayAssociationsResponse"
+        "target": "com.amazonaws.networkmanager#GetCustomerGatewayAssociationsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1403,33 +1410,33 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetCustomerGatewayAssociationsRequest": {
+    "com.amazonaws.networkmanager#GetCustomerGatewayAssociationsRequest": {
       "type": "structure",
       "members": {
         "CustomerGatewayArns": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#StringList",
+          "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>One or more customer gateway Amazon Resource Names (ARNs). For more information, see\n                <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>. The maximum is 10.</p>",
             "smithy.api#httpQuery": "customerGatewayArns"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#MaxResults",
+          "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1437,46 +1444,46 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetCustomerGatewayAssociationsResponse": {
+    "com.amazonaws.networkmanager#GetCustomerGatewayAssociationsResponse": {
       "type": "structure",
       "members": {
         "CustomerGatewayAssociations": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CustomerGatewayAssociationList",
+          "target": "com.amazonaws.networkmanager#CustomerGatewayAssociationList",
           "traits": {
             "smithy.api#documentation": "<p>The customer gateway associations.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetDevices": {
+    "com.amazonaws.networkmanager#GetDevices": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetDevicesRequest"
+        "target": "com.amazonaws.networkmanager#GetDevicesRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetDevicesResponse"
+        "target": "com.amazonaws.networkmanager#GetDevicesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1493,40 +1500,40 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetDevicesRequest": {
+    "com.amazonaws.networkmanager#GetDevicesRequest": {
       "type": "structure",
       "members": {
         "DeviceIds": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#StringList",
+          "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>One or more device IDs. The maximum is 10.</p>",
             "smithy.api#httpQuery": "deviceIds"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#MaxResults",
+          "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>",
             "smithy.api#httpQuery": "siteId"
@@ -1534,46 +1541,46 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetDevicesResponse": {
+    "com.amazonaws.networkmanager#GetDevicesResponse": {
       "type": "structure",
       "members": {
         "Devices": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DeviceList",
+          "target": "com.amazonaws.networkmanager#DeviceList",
           "traits": {
             "smithy.api#documentation": "<p>The devices.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetLinkAssociations": {
+    "com.amazonaws.networkmanager#GetLinkAssociations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetLinkAssociationsRequest"
+        "target": "com.amazonaws.networkmanager#GetLinkAssociationsRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetLinkAssociationsResponse"
+        "target": "com.amazonaws.networkmanager#GetLinkAssociationsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1590,40 +1597,40 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetLinkAssociationsRequest": {
+    "com.amazonaws.networkmanager#GetLinkAssociationsRequest": {
       "type": "structure",
       "members": {
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>",
             "smithy.api#httpQuery": "deviceId"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>",
             "smithy.api#httpQuery": "linkId"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#MaxResults",
+          "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1631,46 +1638,46 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetLinkAssociationsResponse": {
+    "com.amazonaws.networkmanager#GetLinkAssociationsResponse": {
       "type": "structure",
       "members": {
         "LinkAssociations": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#LinkAssociationList",
+          "target": "com.amazonaws.networkmanager#LinkAssociationList",
           "traits": {
             "smithy.api#documentation": "<p>The link associations.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetLinks": {
+    "com.amazonaws.networkmanager#GetLinks": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetLinksRequest"
+        "target": "com.amazonaws.networkmanager#GetLinksRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetLinksResponse"
+        "target": "com.amazonaws.networkmanager#GetLinksResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1687,54 +1694,54 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetLinksRequest": {
+    "com.amazonaws.networkmanager#GetLinksRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LinkIds": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#StringList",
+          "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>One or more link IDs. The maximum is 10.</p>",
             "smithy.api#httpQuery": "linkIds"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#MaxResults",
+          "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "Provider": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The link provider.</p>",
             "smithy.api#httpQuery": "provider"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>",
             "smithy.api#httpQuery": "siteId"
           }
         },
         "Type": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The link type.</p>",
             "smithy.api#httpQuery": "type"
@@ -1742,46 +1749,46 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetLinksResponse": {
+    "com.amazonaws.networkmanager#GetLinksResponse": {
       "type": "structure",
       "members": {
         "Links": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#LinkList",
+          "target": "com.amazonaws.networkmanager#LinkList",
           "traits": {
             "smithy.api#documentation": "<p>The links.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetSites": {
+    "com.amazonaws.networkmanager#GetSites": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetSitesRequest"
+        "target": "com.amazonaws.networkmanager#GetSitesRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetSitesResponse"
+        "target": "com.amazonaws.networkmanager#GetSitesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1798,33 +1805,33 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetSitesRequest": {
+    "com.amazonaws.networkmanager#GetSitesRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#MaxResults",
+          "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "SiteIds": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#StringList",
+          "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>One or more site IDs. The maximum is 10.</p>",
             "smithy.api#httpQuery": "siteIds"
@@ -1832,46 +1839,46 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetSitesResponse": {
+    "com.amazonaws.networkmanager#GetSitesResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "Sites": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#SiteList",
+          "target": "com.amazonaws.networkmanager#SiteList",
           "traits": {
             "smithy.api#documentation": "<p>The sites.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetTransitGatewayRegistrations": {
+    "com.amazonaws.networkmanager#GetTransitGatewayRegistrations": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetTransitGatewayRegistrationsRequest"
+        "target": "com.amazonaws.networkmanager#GetTransitGatewayRegistrationsRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GetTransitGatewayRegistrationsResponse"
+        "target": "com.amazonaws.networkmanager#GetTransitGatewayRegistrationsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -1888,33 +1895,33 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetTransitGatewayRegistrationsRequest": {
+    "com.amazonaws.networkmanager#GetTransitGatewayRegistrationsRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#MaxResults",
+          "target": "com.amazonaws.networkmanager#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "TransitGatewayArns": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#StringList",
+          "target": "com.amazonaws.networkmanager#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is\n            10.</p>",
             "smithy.api#httpQuery": "transitGatewayArns"
@@ -1922,58 +1929,58 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GetTransitGatewayRegistrationsResponse": {
+    "com.amazonaws.networkmanager#GetTransitGatewayRegistrationsResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next page of results.</p>"
           }
         },
         "TransitGatewayRegistrations": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistrationList",
+          "target": "com.amazonaws.networkmanager#TransitGatewayRegistrationList",
           "traits": {
             "smithy.api#documentation": "<p>The transit gateway registrations.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GlobalNetwork": {
+    "com.amazonaws.networkmanager#GlobalNetwork": {
       "type": "structure",
       "members": {
         "CreatedAt": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DateTime",
+          "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the global network was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The description of the global network.</p>"
           }
         },
         "GlobalNetworkArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the global network.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GlobalNetworkState",
+          "target": "com.amazonaws.networkmanager#GlobalNetworkState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the global network.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the global network.</p>"
           }
@@ -1983,48 +1990,52 @@
         "smithy.api#documentation": "<p>Describes a global network.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GlobalNetworkList": {
+    "com.amazonaws.networkmanager#GlobalNetworkList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#GlobalNetwork"
+        "target": "com.amazonaws.networkmanager#GlobalNetwork"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#GlobalNetworkState": {
+    "com.amazonaws.networkmanager#GlobalNetworkState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "pending"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "available"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "deleting"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "updating"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#Integer": {
+    "com.amazonaws.networkmanager#Integer": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#InternalServerException": {
+    "com.amazonaws.networkmanager#InternalServerException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RetryAfterSeconds": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#RetryAfterSeconds",
+          "target": "com.amazonaws.networkmanager#RetryAfterSeconds",
           "traits": {
             "smithy.api#documentation": "<p>Indicates when to retry the request.</p>",
             "smithy.api#httpHeader": "Retry-After"
@@ -2037,71 +2048,71 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#Link": {
+    "com.amazonaws.networkmanager#Link": {
       "type": "structure",
       "members": {
         "Bandwidth": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Bandwidth",
+          "target": "com.amazonaws.networkmanager#Bandwidth",
           "traits": {
             "smithy.api#documentation": "<p>The bandwidth for the link.</p>"
           }
         },
         "CreatedAt": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DateTime",
+          "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the link was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The description of the link.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
         "LinkArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the link.</p>"
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>"
           }
         },
         "Provider": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The provider of the link.</p>"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#LinkState",
+          "target": "com.amazonaws.networkmanager#LinkState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the link.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the link.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of the link.</p>"
           }
@@ -2111,29 +2122,29 @@
         "smithy.api#documentation": "<p>Describes a link.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#LinkAssociation": {
+    "com.amazonaws.networkmanager#LinkAssociation": {
       "type": "structure",
       "members": {
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The device ID for the link association.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
         "LinkAssociationState": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#LinkAssociationState",
+          "target": "com.amazonaws.networkmanager#LinkAssociationState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the association.</p>"
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>"
           }
@@ -2143,79 +2154,87 @@
         "smithy.api#documentation": "<p>Describes the association between a device and a link.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#LinkAssociationList": {
+    "com.amazonaws.networkmanager#LinkAssociationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#LinkAssociation"
+        "target": "com.amazonaws.networkmanager#LinkAssociation"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#LinkAssociationState": {
+    "com.amazonaws.networkmanager#LinkAssociationState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "pending"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "available"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "deleting"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "deleted"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#LinkList": {
+    "com.amazonaws.networkmanager#LinkList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#Link"
+        "target": "com.amazonaws.networkmanager#Link"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#LinkState": {
+    "com.amazonaws.networkmanager#LinkState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "pending"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "available"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "deleting"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "updating"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ListTagsForResource": {
+    "com.amazonaws.networkmanager#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#ListTagsForResourceRequest"
+        "target": "com.amazonaws.networkmanager#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#ListTagsForResourceResponse"
+        "target": "com.amazonaws.networkmanager#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -2227,47 +2246,47 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ListTagsForResourceRequest": {
+    "com.amazonaws.networkmanager#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceARN",
+          "target": "com.amazonaws.networkmanager#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ListTagsForResourceResponse": {
+    "com.amazonaws.networkmanager#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "TagList": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The list of tags.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#Location": {
+    "com.amazonaws.networkmanager#Location": {
       "type": "structure",
       "members": {
         "Address": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The physical address.</p>"
           }
         },
         "Latitude": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The latitude.</p>"
           }
         },
         "Longitude": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The longitude.</p>"
           }
@@ -2277,103 +2296,103 @@
         "smithy.api#documentation": "<p>Describes a location.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#MaxResults": {
+    "com.amazonaws.networkmanager#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 500
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#NetworkManager": {
+    "com.amazonaws.networkmanager#NetworkManager": {
       "type": "service",
       "version": "2019-07-05",
       "operations": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AssociateCustomerGateway"
+          "target": "com.amazonaws.networkmanager#AssociateCustomerGateway"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AssociateLink"
+          "target": "com.amazonaws.networkmanager#AssociateLink"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CreateDevice"
+          "target": "com.amazonaws.networkmanager#CreateDevice"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CreateGlobalNetwork"
+          "target": "com.amazonaws.networkmanager#CreateGlobalNetwork"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CreateLink"
+          "target": "com.amazonaws.networkmanager#CreateLink"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#CreateSite"
+          "target": "com.amazonaws.networkmanager#CreateSite"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteDevice"
+          "target": "com.amazonaws.networkmanager#DeleteDevice"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteGlobalNetwork"
+          "target": "com.amazonaws.networkmanager#DeleteGlobalNetwork"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteLink"
+          "target": "com.amazonaws.networkmanager#DeleteLink"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DeleteSite"
+          "target": "com.amazonaws.networkmanager#DeleteSite"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DeregisterTransitGateway"
+          "target": "com.amazonaws.networkmanager#DeregisterTransitGateway"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DescribeGlobalNetworks"
+          "target": "com.amazonaws.networkmanager#DescribeGlobalNetworks"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DisassociateCustomerGateway"
+          "target": "com.amazonaws.networkmanager#DisassociateCustomerGateway"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DisassociateLink"
+          "target": "com.amazonaws.networkmanager#DisassociateLink"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GetCustomerGatewayAssociations"
+          "target": "com.amazonaws.networkmanager#GetCustomerGatewayAssociations"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GetDevices"
+          "target": "com.amazonaws.networkmanager#GetDevices"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GetLinkAssociations"
+          "target": "com.amazonaws.networkmanager#GetLinkAssociations"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GetLinks"
+          "target": "com.amazonaws.networkmanager#GetLinks"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GetSites"
+          "target": "com.amazonaws.networkmanager#GetSites"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GetTransitGatewayRegistrations"
+          "target": "com.amazonaws.networkmanager#GetTransitGatewayRegistrations"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ListTagsForResource"
+          "target": "com.amazonaws.networkmanager#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#RegisterTransitGateway"
+          "target": "com.amazonaws.networkmanager#RegisterTransitGateway"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagResource"
+          "target": "com.amazonaws.networkmanager#TagResource"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#UntagResource"
+          "target": "com.amazonaws.networkmanager#UntagResource"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateDevice"
+          "target": "com.amazonaws.networkmanager#UpdateDevice"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateGlobalNetwork"
+          "target": "com.amazonaws.networkmanager#UpdateGlobalNetwork"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateLink"
+          "target": "com.amazonaws.networkmanager#UpdateLink"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateSite"
+          "target": "com.amazonaws.networkmanager#UpdateSite"
         }
       ],
       "traits": {
@@ -2383,44 +2402,40 @@
           "cloudFormationName": "NetworkManager",
           "cloudTrailEventSource": "V2019_07_05.networkmanager.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "networkmanager"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your\n            AWS and on-premises networks that are built around transit gateways.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Network Manager"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#RegisterTransitGateway": {
+    "com.amazonaws.networkmanager#RegisterTransitGateway": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#RegisterTransitGatewayRequest"
+        "target": "com.amazonaws.networkmanager#RegisterTransitGatewayRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#RegisterTransitGatewayResponse"
+        "target": "com.amazonaws.networkmanager#RegisterTransitGatewayResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -2432,61 +2447,61 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#RegisterTransitGatewayRequest": {
+    "com.amazonaws.networkmanager#RegisterTransitGatewayRequest": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TransitGatewayArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the transit gateway. For more information, see\n                <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#RegisterTransitGatewayResponse": {
+    "com.amazonaws.networkmanager#RegisterTransitGatewayResponse": {
       "type": "structure",
       "members": {
         "TransitGatewayRegistration": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistration",
+          "target": "com.amazonaws.networkmanager#TransitGatewayRegistration",
           "traits": {
             "smithy.api#documentation": "<p>Information about the transit gateway registration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ResourceARN": {
+    "com.amazonaws.networkmanager#ResourceARN": {
       "type": "string"
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException": {
+    "com.amazonaws.networkmanager#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2496,46 +2511,46 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#RetryAfterSeconds": {
+    "com.amazonaws.networkmanager#RetryAfterSeconds": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException": {
+    "com.amazonaws.networkmanager#ServiceQuotaExceededException": {
       "type": "structure",
       "members": {
         "LimitCode": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The limit code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The error message.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The resource type.</p>"
           }
         },
         "ServiceCode": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The service code.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2545,53 +2560,53 @@
         "smithy.api#httpError": 402
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#Site": {
+    "com.amazonaws.networkmanager#Site": {
       "type": "structure",
       "members": {
         "CreatedAt": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#DateTime",
+          "target": "com.amazonaws.networkmanager#DateTime",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the site was created.</p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The description of the site.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
         "Location": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Location",
+          "target": "com.amazonaws.networkmanager#Location",
           "traits": {
             "smithy.api#documentation": "<p>The location of the site.</p>"
           }
         },
         "SiteArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the site.</p>"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#SiteState",
+          "target": "com.amazonaws.networkmanager#SiteState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the site.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the site.</p>"
           }
@@ -2601,51 +2616,55 @@
         "smithy.api#documentation": "<p>Describes a site.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#SiteList": {
+    "com.amazonaws.networkmanager#SiteList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#Site"
+        "target": "com.amazonaws.networkmanager#Site"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#SiteState": {
+    "com.amazonaws.networkmanager#SiteState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "pending"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "available"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "deleting"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "updating"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#String": {
+    "com.amazonaws.networkmanager#String": {
       "type": "string"
     },
-    "com.amazonaws.networkmanager.V2019_07_05#StringList": {
+    "com.amazonaws.networkmanager#StringList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#String"
+        "target": "com.amazonaws.networkmanager#String"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#Tag": {
+    "com.amazonaws.networkmanager#Tag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagKey",
+          "target": "com.amazonaws.networkmanager#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The tag key.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "Value": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagValue",
+          "target": "com.amazonaws.networkmanager#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>The tag value.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
@@ -2655,50 +2674,50 @@
         "smithy.api#documentation": "<p>Describes a tag.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TagKey": {
+    "com.amazonaws.networkmanager#TagKey": {
       "type": "string"
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TagKeyList": {
+    "com.amazonaws.networkmanager#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#TagKey"
+        "target": "com.amazonaws.networkmanager#TagKey"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TagList": {
+    "com.amazonaws.networkmanager#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#Tag"
+        "target": "com.amazonaws.networkmanager#Tag"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TagResource": {
+    "com.amazonaws.networkmanager#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#TagResourceRequest"
+        "target": "com.amazonaws.networkmanager#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#TagResourceResponse"
+        "target": "com.amazonaws.networkmanager#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -2710,44 +2729,44 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TagResourceRequest": {
+    "com.amazonaws.networkmanager#TagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceARN",
+          "target": "com.amazonaws.networkmanager#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagList",
+          "target": "com.amazonaws.networkmanager#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the specified resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TagResourceResponse": {
+    "com.amazonaws.networkmanager#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TagValue": {
+    "com.amazonaws.networkmanager#TagValue": {
       "type": "string"
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException": {
+    "com.amazonaws.networkmanager#ThrottlingException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RetryAfterSeconds": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#RetryAfterSeconds",
+          "target": "com.amazonaws.networkmanager#RetryAfterSeconds",
           "traits": {
             "smithy.api#documentation": "<p>Indicates when to retry the request.</p>",
             "smithy.api#httpHeader": "Retry-After"
@@ -2760,23 +2779,23 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistration": {
+    "com.amazonaws.networkmanager#TransitGatewayRegistration": {
       "type": "structure",
       "members": {
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistrationStateReason",
+          "target": "com.amazonaws.networkmanager#TransitGatewayRegistrationStateReason",
           "traits": {
             "smithy.api#documentation": "<p>The state of the transit gateway registration.</p>"
           }
         },
         "TransitGatewayArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the transit gateway.</p>"
           }
@@ -2786,45 +2805,50 @@
         "smithy.api#documentation": "<p>Describes the registration of a transit gateway to a global network.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistrationList": {
+    "com.amazonaws.networkmanager#TransitGatewayRegistrationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistration"
+        "target": "com.amazonaws.networkmanager#TransitGatewayRegistration"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistrationState": {
+    "com.amazonaws.networkmanager#TransitGatewayRegistrationState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "pending"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "available"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "deleting"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "deleted"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "failed"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistrationStateReason": {
+    "com.amazonaws.networkmanager#TransitGatewayRegistrationStateReason": {
       "type": "structure",
       "members": {
         "Code": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TransitGatewayRegistrationState",
+          "target": "com.amazonaws.networkmanager#TransitGatewayRegistrationState",
           "traits": {
             "smithy.api#documentation": "<p>The code for the state reason.</p>"
           }
         },
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The message for the state reason.</p>"
           }
@@ -2834,32 +2858,32 @@
         "smithy.api#documentation": "<p>Describes the status of a transit gateway registration.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UntagResource": {
+    "com.amazonaws.networkmanager#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UntagResourceRequest"
+        "target": "com.amazonaws.networkmanager#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UntagResourceResponse"
+        "target": "com.amazonaws.networkmanager#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -2871,57 +2895,57 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UntagResourceRequest": {
+    "com.amazonaws.networkmanager#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceARN",
+          "target": "com.amazonaws.networkmanager#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#TagKeyList",
+          "target": "com.amazonaws.networkmanager#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The tag keys to remove from the specified resource.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UntagResourceResponse": {
+    "com.amazonaws.networkmanager#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateDevice": {
+    "com.amazonaws.networkmanager#UpdateDevice": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateDeviceRequest"
+        "target": "com.amazonaws.networkmanager#UpdateDeviceRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateDeviceResponse"
+        "target": "com.amazonaws.networkmanager#UpdateDeviceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -2933,103 +2957,103 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateDeviceRequest": {
+    "com.amazonaws.networkmanager#UpdateDeviceRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the device.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "DeviceId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the device.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Location": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Location"
+          "target": "com.amazonaws.networkmanager#Location"
         },
         "Model": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The model of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "SerialNumber": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The serial number of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the site.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of the device.</p>"
           }
         },
         "Vendor": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The vendor of the device.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateDeviceResponse": {
+    "com.amazonaws.networkmanager#UpdateDeviceResponse": {
       "type": "structure",
       "members": {
         "Device": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Device",
+          "target": "com.amazonaws.networkmanager#Device",
           "traits": {
             "smithy.api#documentation": "<p>Information about the device.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateGlobalNetwork": {
+    "com.amazonaws.networkmanager#UpdateGlobalNetwork": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateGlobalNetworkRequest"
+        "target": "com.amazonaws.networkmanager#UpdateGlobalNetworkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateGlobalNetworkResponse"
+        "target": "com.amazonaws.networkmanager#UpdateGlobalNetworkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -3041,65 +3065,65 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateGlobalNetworkRequest": {
+    "com.amazonaws.networkmanager#UpdateGlobalNetworkRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the global network.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of your global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateGlobalNetworkResponse": {
+    "com.amazonaws.networkmanager#UpdateGlobalNetworkResponse": {
       "type": "structure",
       "members": {
         "GlobalNetwork": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#GlobalNetwork",
+          "target": "com.amazonaws.networkmanager#GlobalNetwork",
           "traits": {
             "smithy.api#documentation": "<p>Information about the global network object.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateLink": {
+    "com.amazonaws.networkmanager#UpdateLink": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateLinkRequest"
+        "target": "com.amazonaws.networkmanager#UpdateLinkRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateLinkResponse"
+        "target": "com.amazonaws.networkmanager#UpdateLinkResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException"
+          "target": "com.amazonaws.networkmanager#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -3111,88 +3135,88 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateLinkRequest": {
+    "com.amazonaws.networkmanager#UpdateLinkRequest": {
       "type": "structure",
       "members": {
         "Bandwidth": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Bandwidth",
+          "target": "com.amazonaws.networkmanager#Bandwidth",
           "traits": {
             "smithy.api#documentation": "<p>The upload and download speed in Mbps. </p>"
           }
         },
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of the link.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LinkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the link.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Provider": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The provider of the link.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The type of the link.</p>\n        <p>Length Constraints: Maximum length of 128 characters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateLinkResponse": {
+    "com.amazonaws.networkmanager#UpdateLinkResponse": {
       "type": "structure",
       "members": {
         "Link": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Link",
+          "target": "com.amazonaws.networkmanager#Link",
           "traits": {
             "smithy.api#documentation": "<p>Information about the link.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateSite": {
+    "com.amazonaws.networkmanager#UpdateSite": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateSiteRequest"
+        "target": "com.amazonaws.networkmanager#UpdateSiteRequest"
       },
       "output": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#UpdateSiteResponse"
+        "target": "com.amazonaws.networkmanager#UpdateSiteResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException"
+          "target": "com.amazonaws.networkmanager#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ConflictException"
+          "target": "com.amazonaws.networkmanager#ConflictException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#InternalServerException"
+          "target": "com.amazonaws.networkmanager#InternalServerException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException"
+          "target": "com.amazonaws.networkmanager#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException"
+          "target": "com.amazonaws.networkmanager#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationException"
+          "target": "com.amazonaws.networkmanager#ValidationException"
         }
       ],
       "traits": {
@@ -3204,67 +3228,67 @@
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateSiteRequest": {
+    "com.amazonaws.networkmanager#UpdateSiteRequest": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>A description of your site.</p>\n        <p>Length Constraints: Maximum length of 256 characters.</p>"
           }
         },
         "GlobalNetworkId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the global network.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Location": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Location",
+          "target": "com.amazonaws.networkmanager#Location",
           "traits": {
             "smithy.api#documentation": "<p>The site location:</p>\n        <ul>\n            <li>\n               <p>\n                  <code>Address</code>: The physical address of the site.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Latitude</code>: The latitude of the site. </p>\n            </li>\n            <li>\n               <p>\n                  <code>Longitude</code>: The longitude of the site.</p>\n            </li>\n         </ul>"
           }
         },
         "SiteId": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of your site.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#UpdateSiteResponse": {
+    "com.amazonaws.networkmanager#UpdateSiteResponse": {
       "type": "structure",
       "members": {
         "Site": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#Site",
+          "target": "com.amazonaws.networkmanager#Site",
           "traits": {
             "smithy.api#documentation": "<p>Information about the site.</p>"
           }
         }
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ValidationException": {
+    "com.amazonaws.networkmanager#ValidationException": {
       "type": "structure",
       "members": {
         "Fields": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationExceptionFieldList",
+          "target": "com.amazonaws.networkmanager#ValidationExceptionFieldList",
           "traits": {
             "smithy.api#documentation": "<p>The fields that caused the error, if applicable.</p>"
           }
         },
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Reason": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationExceptionReason",
+          "target": "com.amazonaws.networkmanager#ValidationExceptionReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason for the error.</p>"
           }
@@ -3276,21 +3300,21 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ValidationExceptionField": {
+    "com.amazonaws.networkmanager#ValidationExceptionField": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The message for the field.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.networkmanager.V2019_07_05#String",
+          "target": "com.amazonaws.networkmanager#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the field.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3298,29 +3322,33 @@
         "smithy.api#documentation": "<p>Describes a validation exception for a field.</p>"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ValidationExceptionFieldList": {
+    "com.amazonaws.networkmanager#ValidationExceptionFieldList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.networkmanager.V2019_07_05#ValidationExceptionField"
+        "target": "com.amazonaws.networkmanager#ValidationExceptionField"
       }
     },
-    "com.amazonaws.networkmanager.V2019_07_05#ValidationExceptionReason": {
+    "com.amazonaws.networkmanager#ValidationExceptionReason": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "UnknownOperation": {
+        "smithy.api#enum": [
+          {
+            "value": "UnknownOperation",
             "name": "UNKNOWN_OPERATION"
           },
-          "CannotParse": {
+          {
+            "value": "CannotParse",
             "name": "CANNOT_PARSE"
           },
-          "FieldValidationFailed": {
+          {
+            "value": "FieldValidationFailed",
             "name": "FIELD_VALIDATION_FAILED"
           },
-          "Other": {
+          {
+            "value": "Other",
             "name": "OTHER"
           }
-        }
+        ]
       }
     }
   }

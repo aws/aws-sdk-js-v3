@@ -1,44 +1,43 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.kinesisvideo.signaling#AWSAcuitySignalingService": {
+    "com.amazonaws.kinesisvideosignaling#AWSAcuitySignalingService": {
       "type": "service",
       "version": "2019-12-04",
       "operations": [
         {
-          "target": "com.amazonaws.kinesisvideo.signaling#GetIceServerConfig"
+          "target": "com.amazonaws.kinesisvideosignaling#GetIceServerConfig"
         },
         {
-          "target": "com.amazonaws.kinesisvideo.signaling#SendAlexaOfferToMaster"
+          "target": "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMaster"
         }
       ],
       "traits": {
@@ -48,19 +47,15 @@
           "cloudFormationName": "KinesisVideoSignaling",
           "cloudTrailEventSource": "signaling.kinesisvideo.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "kinesisvideo"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Kinesis Video Streams Signaling Service is a intermediate service that establishes a\n            communication channel for discovering peers, transmitting offers and answers in order to\n            establish peer-to-peer connection in webRTC technology.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Kinesis Video Signaling Channels"
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#Answer": {
+    "com.amazonaws.kinesisvideosignaling#Answer": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -69,7 +64,7 @@
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#ClientId": {
+    "com.amazonaws.kinesisvideosignaling#ClientId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -79,11 +74,11 @@
         "smithy.api#pattern": "[a-zA-Z0-9_.-]+"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ClientLimitExceededException": {
+    "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideosignaling#ErrorMessage"
         }
       },
       "traits": {
@@ -92,35 +87,35 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#ErrorMessage": {
+    "com.amazonaws.kinesisvideosignaling#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.kinesisvideo.signaling#GetIceServerConfig": {
+    "com.amazonaws.kinesisvideosignaling#GetIceServerConfig": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.kinesisvideo.signaling#GetIceServerConfigRequest"
+        "target": "com.amazonaws.kinesisvideosignaling#GetIceServerConfigRequest"
       },
       "output": {
-        "target": "com.amazonaws.kinesisvideo.signaling#GetIceServerConfigResponse"
+        "target": "com.amazonaws.kinesisvideosignaling#GetIceServerConfigResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.kinesis.video.v20170930#ClientLimitExceededException"
+          "target": "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidArgumentException"
+          "target": "com.amazonaws.kinesisvideosignaling#InvalidArgumentException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NotAuthorizedException"
+          "target": "com.amazonaws.kinesisvideosignaling#InvalidClientException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceNotFoundException"
+          "target": "com.amazonaws.kinesisvideosignaling#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.kinesisvideo.signaling#InvalidClientException"
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.kinesisvideo.signaling#SessionExpiredException"
+          "target": "com.amazonaws.kinesisvideosignaling#SessionExpiredException"
         }
       ],
       "traits": {
@@ -132,70 +127,70 @@
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#GetIceServerConfigRequest": {
+    "com.amazonaws.kinesisvideosignaling#GetIceServerConfigRequest": {
       "type": "structure",
       "members": {
         "ChannelARN": {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceARN",
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the signaling channel to be used for the peer-to-peer connection between\n            configured peers. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ClientId": {
-          "target": "com.amazonaws.kinesisvideo.signaling#ClientId",
+          "target": "com.amazonaws.kinesisvideosignaling#ClientId",
           "traits": {
             "smithy.api#documentation": "<p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>"
           }
         },
         "Service": {
-          "target": "com.amazonaws.kinesisvideo.signaling#Service",
+          "target": "com.amazonaws.kinesisvideosignaling#Service",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the desired service. Currently, <code>TURN</code> is the only valid\n            value.</p>"
           }
         },
         "Username": {
-          "target": "com.amazonaws.kinesisvideo.signaling#Username",
+          "target": "com.amazonaws.kinesisvideosignaling#Username",
           "traits": {
             "smithy.api#documentation": "<p>An optional user ID to be associated with the credentials.</p>"
           }
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#GetIceServerConfigResponse": {
+    "com.amazonaws.kinesisvideosignaling#GetIceServerConfigResponse": {
       "type": "structure",
       "members": {
         "IceServerList": {
-          "target": "com.amazonaws.kinesisvideo.signaling#IceServerList",
+          "target": "com.amazonaws.kinesisvideosignaling#IceServerList",
           "traits": {
             "smithy.api#documentation": "<p>The list of ICE server information objects.</p>"
           }
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#IceServer": {
+    "com.amazonaws.kinesisvideosignaling#IceServer": {
       "type": "structure",
       "members": {
         "Password": {
-          "target": "com.amazonaws.kinesisvideo.signaling#Password",
+          "target": "com.amazonaws.kinesisvideosignaling#Password",
           "traits": {
             "smithy.api#documentation": "<p>A password to login to the ICE server.</p>"
           }
         },
         "Ttl": {
-          "target": "com.amazonaws.kinesisvideo.signaling#Ttl",
+          "target": "com.amazonaws.kinesisvideosignaling#Ttl",
           "traits": {
             "smithy.api#documentation": "<p>The period of time, in seconds, during which the username and password are\n            valid.</p>"
           }
         },
         "Uris": {
-          "target": "com.amazonaws.kinesisvideo.signaling#Uris",
+          "target": "com.amazonaws.kinesisvideosignaling#Uris",
           "traits": {
             "smithy.api#documentation": "<p>An array of URIs, in the form specified in the <a href=\"https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03\">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different\n            addresses and/or protocols that can be used to reach the TURN server.</p>"
           }
         },
         "Username": {
-          "target": "com.amazonaws.kinesisvideo.signaling#Username",
+          "target": "com.amazonaws.kinesisvideosignaling#Username",
           "traits": {
             "smithy.api#documentation": "<p>A username to login to the ICE server.</p>"
           }
@@ -205,17 +200,17 @@
         "smithy.api#documentation": "<p>A structure for the ICE server connection data.</p>"
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#IceServerList": {
+    "com.amazonaws.kinesisvideosignaling#IceServerList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.kinesisvideo.signaling#IceServer"
+        "target": "com.amazonaws.kinesisvideosignaling#IceServer"
       }
     },
-    "com.amazon.kinesis.video.v20170930#InvalidArgumentException": {
+    "com.amazonaws.kinesisvideosignaling#InvalidArgumentException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideosignaling#ErrorMessage"
         }
       },
       "traits": {
@@ -224,11 +219,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#InvalidClientException": {
+    "com.amazonaws.kinesisvideosignaling#InvalidClientException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.kinesisvideo.signaling#errorMessage"
+          "target": "com.amazonaws.kinesisvideosignaling#ErrorMessage"
         }
       },
       "traits": {
@@ -237,7 +232,7 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#MessagePayload": {
+    "com.amazonaws.kinesisvideosignaling#MessagePayload": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -247,11 +242,11 @@
         "smithy.api#pattern": "[a-zA-Z0-9+/=]+"
       }
     },
-    "com.amazon.kinesis.video.v20170930#NotAuthorizedException": {
+    "com.amazonaws.kinesisvideosignaling#NotAuthorizedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideosignaling#ErrorMessage"
         }
       },
       "traits": {
@@ -260,7 +255,7 @@
         "smithy.api#httpError": 401
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#Password": {
+    "com.amazonaws.kinesisvideosignaling#Password": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -270,7 +265,7 @@
         "smithy.api#pattern": "[a-zA-Z0-9_.-]+"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ResourceARN": {
+    "com.amazonaws.kinesisvideosignaling#ResourceARN": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -280,11 +275,11 @@
         "smithy.api#pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ResourceNotFoundException": {
+    "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideosignaling#ErrorMessage"
         }
       },
       "traits": {
@@ -293,26 +288,26 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#SendAlexaOfferToMaster": {
+    "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMaster": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.kinesisvideo.signaling#SendAlexaOfferToMasterRequest"
+        "target": "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMasterRequest"
       },
       "output": {
-        "target": "com.amazonaws.kinesisvideo.signaling#SendAlexaOfferToMasterResponse"
+        "target": "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMasterResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.kinesis.video.v20170930#ClientLimitExceededException"
+          "target": "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidArgumentException"
+          "target": "com.amazonaws.kinesisvideosignaling#InvalidArgumentException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NotAuthorizedException"
+          "target": "com.amazonaws.kinesisvideosignaling#NotAuthorizedException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceNotFoundException"
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -324,58 +319,59 @@
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#SendAlexaOfferToMasterRequest": {
+    "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMasterRequest": {
       "type": "structure",
       "members": {
         "ChannelARN": {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceARN",
+          "target": "com.amazonaws.kinesisvideosignaling#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the signaling channel by which Alexa and the master peer\n            communicate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MessagePayload": {
-          "target": "com.amazonaws.kinesisvideo.signaling#MessagePayload",
+          "target": "com.amazonaws.kinesisvideosignaling#MessagePayload",
           "traits": {
             "smithy.api#documentation": "<p>The base64-encoded SDP offer content.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SenderClientId": {
-          "target": "com.amazonaws.kinesisvideo.signaling#ClientId",
+          "target": "com.amazonaws.kinesisvideosignaling#ClientId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for the sender client.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#SendAlexaOfferToMasterResponse": {
+    "com.amazonaws.kinesisvideosignaling#SendAlexaOfferToMasterResponse": {
       "type": "structure",
       "members": {
         "Answer": {
-          "target": "com.amazonaws.kinesisvideo.signaling#Answer",
+          "target": "com.amazonaws.kinesisvideosignaling#Answer",
           "traits": {
             "smithy.api#documentation": "<p>The base64-encoded SDP answer content.</p>"
           }
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#Service": {
+    "com.amazonaws.kinesisvideosignaling#Service": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TURN": {
+        "smithy.api#enum": [
+          {
+            "value": "TURN",
             "name": "TURN"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#SessionExpiredException": {
+    "com.amazonaws.kinesisvideosignaling#SessionExpiredException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.kinesisvideo.signaling#errorMessage"
+          "target": "com.amazonaws.kinesisvideosignaling#ErrorMessage"
         }
       },
       "traits": {
@@ -384,7 +380,7 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#Ttl": {
+    "com.amazonaws.kinesisvideosignaling#Ttl": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -393,7 +389,7 @@
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#Uri": {
+    "com.amazonaws.kinesisvideosignaling#Uri": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -402,13 +398,13 @@
         }
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#Uris": {
+    "com.amazonaws.kinesisvideosignaling#Uris": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.kinesisvideo.signaling#Uri"
+        "target": "com.amazonaws.kinesisvideosignaling#Uri"
       }
     },
-    "com.amazonaws.kinesisvideo.signaling#Username": {
+    "com.amazonaws.kinesisvideosignaling#Username": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -417,9 +413,6 @@
         },
         "smithy.api#pattern": "[a-zA-Z0-9_.-]+"
       }
-    },
-    "com.amazonaws.kinesisvideo.signaling#errorMessage": {
-      "type": "string"
     }
   }
 }

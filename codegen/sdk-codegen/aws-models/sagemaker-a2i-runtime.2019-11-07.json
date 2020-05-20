@@ -1,53 +1,52 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.sagemaker.a2i.runtime#AmazonSageMakerA2IRuntime": {
+    "com.amazonaws.sagemakera2iruntime#AmazonSageMakerA2IRuntime": {
       "type": "service",
       "version": "2019-11-07",
       "operations": [
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#DeleteHumanLoop"
+          "target": "com.amazonaws.sagemakera2iruntime#DeleteHumanLoop"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#DescribeHumanLoop"
+          "target": "com.amazonaws.sagemakera2iruntime#DescribeHumanLoop"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ListHumanLoops"
+          "target": "com.amazonaws.sagemakera2iruntime#ListHumanLoops"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#StartHumanLoop"
+          "target": "com.amazonaws.sagemakera2iruntime#StartHumanLoop"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#StopHumanLoop"
+          "target": "com.amazonaws.sagemakera2iruntime#StopHumanLoop"
         }
       ],
       "traits": {
@@ -57,38 +56,36 @@
           "cloudFormationName": "SageMakerA2IRuntime",
           "cloudTrailEventSource": "runtime.a2i.sagemaker.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "sagemaker"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Amazon Augmented AI (Augmented AI) (Preview) is a service that adds human judgment to any machine learning application. Human reviewers can take over when an AI application can't evaluate data with a high degree of confidence.</p>\n         <p>From fraudulent bank transaction identification to document processing to image analysis, machine learning models can be trained to make decisions as well as or better than a human. Nevertheless, some decisions require contextual \n      interpretation, such as when you need to decide whether an image is appropriate for a given audience. Content moderation guidelines are nuanced and highly dependent on context, and they vary between countries.  \n      When trying to apply AI in these situations, you can be forced to choose between \"ML only\" systems with unacceptably high error rates or \"human only\" systems that are expensive and difficult to scale, and that slow down decision making.</p>\n         <p>This API reference includes information about API actions and data types you can use to interact with Augmented AI programmatically. </p>\n         <p>You can create a flow definition against the Augmented AI API. Provide the Amazon Resource Name (ARN) of a flow definition to integrate AI service APIs, such as <code>Textract.AnalyzeDocument</code> and <code>Rekognition.DetectModerationLabels</code>. \n      These AI services, in turn, invoke the <a>StartHumanLoop</a> API, which evaluates conditions under which humans will be invoked. If humans are required, Augmented AI creates a human loop. \n      Results of human work are available asynchronously in Amazon Simple Storage Service (Amazon S3). You can use Amazon CloudWatch Events to detect human work results.</p>\n         <p>You can find additional Augmented AI API documentation in the following reference guides: <a href=\"https://aws.amazon.com/rekognition/latest/dg/API_Reference.html\">Amazon Rekognition</a>, <a href=\"https://aws.amazon.com/sagemaker/latest/dg/API_Reference.html\">Amazon SageMaker</a>, and <a href=\"https://aws.amazon.com/textract/latest/dg/API_Reference.html\">Amazon Textract</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Augmented AI Runtime"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#Boolean": {
+    "com.amazonaws.sagemakera2iruntime#Boolean": {
       "type": "boolean"
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ContentClassifier": {
+    "com.amazonaws.sagemakera2iruntime#ContentClassifier": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FreeOfPersonallyIdentifiableInformation": {
+        "smithy.api#enum": [
+          {
+            "value": "FreeOfPersonallyIdentifiableInformation",
             "name": "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
           },
-          "FreeOfAdultContent": {
+          {
+            "value": "FreeOfAdultContent",
             "name": "FREE_OF_ADULT_CONTENT"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ContentClassifiers": {
+    "com.amazonaws.sagemakera2iruntime#ContentClassifiers": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#ContentClassifier"
+        "target": "com.amazonaws.sagemakera2iruntime#ContentClassifier"
       },
       "traits": {
         "smithy.api#length": {
@@ -97,26 +94,26 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#DeleteHumanLoop": {
+    "com.amazonaws.sagemakera2iruntime#DeleteHumanLoop": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#DeleteHumanLoopRequest"
+        "target": "com.amazonaws.sagemakera2iruntime#DeleteHumanLoopRequest"
       },
       "output": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#DeleteHumanLoopResponse"
+        "target": "com.amazonaws.sagemakera2iruntime#DeleteHumanLoopResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#InternalServerException"
+          "target": "com.amazonaws.sagemakera2iruntime#InternalServerException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ResourceNotFoundException"
+          "target": "com.amazonaws.sagemakera2iruntime#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ThrottlingException"
+          "target": "com.amazonaws.sagemakera2iruntime#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ValidationException"
+          "target": "com.amazonaws.sagemakera2iruntime#ValidationException"
         }
       ],
       "traits": {
@@ -128,43 +125,43 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#DeleteHumanLoopRequest": {
+    "com.amazonaws.sagemakera2iruntime#DeleteHumanLoopRequest": {
       "type": "structure",
       "members": {
         "HumanLoopName": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the human loop you want to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#DeleteHumanLoopResponse": {
+    "com.amazonaws.sagemakera2iruntime#DeleteHumanLoopResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.sagemaker.a2i.runtime#DescribeHumanLoop": {
+    "com.amazonaws.sagemakera2iruntime#DescribeHumanLoop": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#DescribeHumanLoopRequest"
+        "target": "com.amazonaws.sagemakera2iruntime#DescribeHumanLoopRequest"
       },
       "output": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#DescribeHumanLoopResponse"
+        "target": "com.amazonaws.sagemakera2iruntime#DescribeHumanLoopResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#InternalServerException"
+          "target": "com.amazonaws.sagemakera2iruntime#InternalServerException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ResourceNotFoundException"
+          "target": "com.amazonaws.sagemakera2iruntime#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ThrottlingException"
+          "target": "com.amazonaws.sagemakera2iruntime#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ValidationException"
+          "target": "com.amazonaws.sagemakera2iruntime#ValidationException"
         }
       ],
       "traits": {
@@ -176,85 +173,85 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#DescribeHumanLoopRequest": {
+    "com.amazonaws.sagemakera2iruntime#DescribeHumanLoopRequest": {
       "type": "structure",
       "members": {
         "HumanLoopName": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the human loop.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#DescribeHumanLoopResponse": {
+    "com.amazonaws.sagemakera2iruntime#DescribeHumanLoopResponse": {
       "type": "structure",
       "members": {
         "CreationTimestamp": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
+          "target": "com.amazonaws.sagemakera2iruntime#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when Amazon Augmented AI created the human loop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FailureCode": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#String",
+          "target": "com.amazonaws.sagemakera2iruntime#String",
           "traits": {
             "smithy.api#documentation": "<p>A failure code denoting a specific type of failure.</p>"
           }
         },
         "FailureReason": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#String",
+          "target": "com.amazonaws.sagemakera2iruntime#String",
           "traits": {
             "smithy.api#documentation": "<p>The reason why a human loop has failed. The failure reason is returned when the human loop status is <code>Failed</code>.</p>"
           }
         },
         "FlowDefinitionArn": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FlowDefinitionArn",
+          "target": "com.amazonaws.sagemakera2iruntime#FlowDefinitionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopArn": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopArn",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the human loop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopInput": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopInputContent",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopInputContent",
           "traits": {
             "smithy.api#documentation": "<p>An object containing information about the human loop input.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopName": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the human loop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopOutput": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopOutputContent",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopOutputContent",
           "traits": {
             "smithy.api#documentation": "<p>An object containing information about the output of the human loop.</p>"
           }
         },
         "HumanLoopStatus": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopStatus",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the human loop. Valid values:</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#FailureReason": {
+    "com.amazonaws.sagemakera2iruntime#FailureReason": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -263,7 +260,7 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#FlowDefinitionArn": {
+    "com.amazonaws.sagemakera2iruntime#FlowDefinitionArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -273,11 +270,11 @@
         "smithy.api#pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:flow-definition/.*"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopActivationReason": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopActivationReason": {
       "type": "structure",
       "members": {
         "ConditionsMatched": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#Boolean",
+          "target": "com.amazonaws.sagemakera2iruntime#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>True if the specified conditions were matched to trigger the human loop.</p>"
           }
@@ -287,17 +284,17 @@
         "smithy.api#documentation": "<p>Contains information about why a human loop was triggered. If at least one activation reason is evaluated to be true, the human loop is activated.</p>"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopActivationResults": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopActivationResults": {
       "type": "structure",
       "members": {
         "HumanLoopActivationConditionsEvaluationResults": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#String",
+          "target": "com.amazonaws.sagemakera2iruntime#String",
           "traits": {
             "smithy.api#documentation": "<p>A copy of the human loop activation conditions of the flow definition, augmented with the results of evaluating those conditions on the input provided to the <code>StartHumanLoop</code> operation.</p>"
           }
         },
         "HumanLoopActivationReason": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopActivationReason",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopActivationReason",
           "traits": {
             "smithy.api#documentation": "<p>An object containing information about why a human loop was triggered.</p>"
           }
@@ -307,7 +304,7 @@
         "smithy.api#documentation": "<p>Information about the corresponding flow definition's human loop activation condition evaluation. Null if <code>StartHumanLoop</code> was invoked directly.</p>"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopArn": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -317,14 +314,14 @@
         "smithy.api#pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:human-loop/.*"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopInputContent": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopInputContent": {
       "type": "structure",
       "members": {
         "InputContent": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#InputContent",
+          "target": "com.amazonaws.sagemakera2iruntime#InputContent",
           "traits": {
             "smithy.api#documentation": "<p>Serialized input from the human loop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -332,7 +329,7 @@
         "smithy.api#documentation": "<p>An object containing the input.</p>"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -342,14 +339,14 @@
         "smithy.api#pattern": "^[a-z0-9](-*[a-z0-9])*$"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopOutputContent": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopOutputContent": {
       "type": "structure",
       "members": {
         "OutputS3Uri": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#String",
+          "target": "com.amazonaws.sagemakera2iruntime#String",
           "traits": {
             "smithy.api#documentation": "<p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output. The output is stored at the following location: \n      <code>s3://S3OutputPath/HumanLoopName/CreationTime/output.json</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -357,63 +354,68 @@
         "smithy.api#documentation": "<p>Information about where the human output will be stored.</p>"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopStatus": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "InProgress": {
+        "smithy.api#enum": [
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "FAILED"
           },
-          "Completed": {
+          {
+            "value": "Completed",
             "name": "COMPLETED"
           },
-          "Stopped": {
+          {
+            "value": "Stopped",
             "name": "STOPPED"
           },
-          "Stopping": {
+          {
+            "value": "Stopping",
             "name": "STOPPING"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopSummaries": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopSummaries": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopSummary"
+        "target": "com.amazonaws.sagemakera2iruntime#HumanLoopSummary"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanLoopSummary": {
+    "com.amazonaws.sagemakera2iruntime#HumanLoopSummary": {
       "type": "structure",
       "members": {
         "CreationTime": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
+          "target": "com.amazonaws.sagemakera2iruntime#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>When Amazon Augmented AI created the human loop.</p>"
           }
         },
         "FailureReason": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FailureReason",
+          "target": "com.amazonaws.sagemakera2iruntime#FailureReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason why the human loop failed. A failure reason is returned only when the status of the human loop is <code>Failed</code>.</p>"
           }
         },
         "FlowDefinitionArn": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FlowDefinitionArn",
+          "target": "com.amazonaws.sagemakera2iruntime#FlowDefinitionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>"
           }
         },
         "HumanLoopName": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the human loop.</p>"
           }
         },
         "HumanLoopStatus": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopStatus",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the human loop. Valid values:</p>"
           }
@@ -423,14 +425,14 @@
         "smithy.api#documentation": "<p>Summary information about the human loop.</p>"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#HumanReviewDataAttributes": {
+    "com.amazonaws.sagemakera2iruntime#HumanReviewDataAttributes": {
       "type": "structure",
       "members": {
         "ContentClassifiers": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ContentClassifiers",
+          "target": "com.amazonaws.sagemakera2iruntime#ContentClassifiers",
           "traits": {
             "smithy.api#documentation": "<p>Declares that your content is free of personally identifiable information or adult content.\n      Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task based on this information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -438,7 +440,7 @@
         "smithy.api#documentation": "<p>Attributes of the data specified by the customer. Use these to describe the data to be labeled.</p>"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#InputContent": {
+    "com.amazonaws.sagemakera2iruntime#InputContent": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -447,11 +449,11 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#InternalServerException": {
+    "com.amazonaws.sagemakera2iruntime#InternalServerException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FailureReason"
+          "target": "com.amazonaws.sagemakera2iruntime#FailureReason"
         }
       },
       "traits": {
@@ -460,23 +462,23 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ListHumanLoops": {
+    "com.amazonaws.sagemakera2iruntime#ListHumanLoops": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#ListHumanLoopsRequest"
+        "target": "com.amazonaws.sagemakera2iruntime#ListHumanLoopsRequest"
       },
       "output": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#ListHumanLoopsResponse"
+        "target": "com.amazonaws.sagemakera2iruntime#ListHumanLoopsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#InternalServerException"
+          "target": "com.amazonaws.sagemakera2iruntime#InternalServerException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ThrottlingException"
+          "target": "com.amazonaws.sagemakera2iruntime#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ValidationException"
+          "target": "com.amazonaws.sagemakera2iruntime#ValidationException"
         }
       ],
       "traits": {
@@ -493,40 +495,40 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ListHumanLoopsRequest": {
+    "com.amazonaws.sagemakera2iruntime#ListHumanLoopsRequest": {
       "type": "structure",
       "members": {
         "CreationTimeAfter": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
+          "target": "com.amazonaws.sagemakera2iruntime#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The timestamp of the date when you want the human loops to begin. For example, <code>1551000000</code>.</p>",
             "smithy.api#httpQuery": "CreationTimeAfter"
           }
         },
         "CreationTimeBefore": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
+          "target": "com.amazonaws.sagemakera2iruntime#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The timestamp of the date before which you want the human loops to begin. For example, <code>1550000000</code>.</p>",
             "smithy.api#httpQuery": "CreationTimeBefore"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#MaxResults",
+          "target": "com.amazonaws.sagemakera2iruntime#MaxResults",
           "traits": {
-            "smithy.api#box": true,
+            "smithy.api#box": {},
             "smithy.api#documentation": "<p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>",
             "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#NextToken",
+          "target": "com.amazonaws.sagemakera2iruntime#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token to resume pagination.</p>",
             "smithy.api#httpQuery": "NextToken"
           }
         },
         "SortOrder": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#SortOrder",
+          "target": "com.amazonaws.sagemakera2iruntime#SortOrder",
           "traits": {
             "smithy.api#documentation": "<p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>",
             "smithy.api#httpQuery": "SortOrder"
@@ -534,25 +536,25 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ListHumanLoopsResponse": {
+    "com.amazonaws.sagemakera2iruntime#ListHumanLoopsResponse": {
       "type": "structure",
       "members": {
         "HumanLoopSummaries": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopSummaries",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopSummaries",
           "traits": {
             "smithy.api#documentation": "<p>An array of objects containing information about the human loops.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#NextToken",
+          "target": "com.amazonaws.sagemakera2iruntime#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>A token to resume pagination.</p>"
           }
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#MaxResults": {
+    "com.amazonaws.sagemakera2iruntime#MaxResults": {
       "type": "integer",
       "traits": {
         "smithy.api#range": {
@@ -561,7 +563,7 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#NextToken": {
+    "com.amazonaws.sagemakera2iruntime#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -571,11 +573,11 @@
         "smithy.api#pattern": ".*"
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ResourceNotFoundException": {
+    "com.amazonaws.sagemakera2iruntime#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FailureReason"
+          "target": "com.amazonaws.sagemakera2iruntime#FailureReason"
         }
       },
       "traits": {
@@ -584,11 +586,11 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ServiceQuotaExceededException": {
+    "com.amazonaws.sagemakera2iruntime#ServiceQuotaExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FailureReason"
+          "target": "com.amazonaws.sagemakera2iruntime#FailureReason"
         }
       },
       "traits": {
@@ -597,39 +599,41 @@
         "smithy.api#httpError": 402
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#SortOrder": {
+    "com.amazonaws.sagemakera2iruntime#SortOrder": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Ascending": {
+        "smithy.api#enum": [
+          {
+            "value": "Ascending",
             "name": "ASCENDING"
           },
-          "Descending": {
+          {
+            "value": "Descending",
             "name": "DESCENDING"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#StartHumanLoop": {
+    "com.amazonaws.sagemakera2iruntime#StartHumanLoop": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#StartHumanLoopRequest"
+        "target": "com.amazonaws.sagemakera2iruntime#StartHumanLoopRequest"
       },
       "output": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#StartHumanLoopResponse"
+        "target": "com.amazonaws.sagemakera2iruntime#StartHumanLoopResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#InternalServerException"
+          "target": "com.amazonaws.sagemakera2iruntime#InternalServerException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ServiceQuotaExceededException"
+          "target": "com.amazonaws.sagemakera2iruntime#ServiceQuotaExceededException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ThrottlingException"
+          "target": "com.amazonaws.sagemakera2iruntime#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ValidationException"
+          "target": "com.amazonaws.sagemakera2iruntime#ValidationException"
         }
       ],
       "traits": {
@@ -641,75 +645,75 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#StartHumanLoopRequest": {
+    "com.amazonaws.sagemakera2iruntime#StartHumanLoopRequest": {
       "type": "structure",
       "members": {
         "DataAttributes": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanReviewDataAttributes",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanReviewDataAttributes",
           "traits": {
             "smithy.api#documentation": "<p>Attributes of the data specified by the customer.</p>"
           }
         },
         "FlowDefinitionArn": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FlowDefinitionArn",
+          "target": "com.amazonaws.sagemakera2iruntime#FlowDefinitionArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopInput": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopInputContent",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopInputContent",
           "traits": {
             "smithy.api#documentation": "<p>An object containing information about the human loop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HumanLoopName": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the human loop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#StartHumanLoopResponse": {
+    "com.amazonaws.sagemakera2iruntime#StartHumanLoopResponse": {
       "type": "structure",
       "members": {
         "HumanLoopActivationResults": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopActivationResults",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopActivationResults",
           "traits": {
             "smithy.api#documentation": "<p>An object containing information about the human loop activation.</p>"
           }
         },
         "HumanLoopArn": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopArn",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the human loop.</p>"
           }
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#StopHumanLoop": {
+    "com.amazonaws.sagemakera2iruntime#StopHumanLoop": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#StopHumanLoopRequest"
+        "target": "com.amazonaws.sagemakera2iruntime#StopHumanLoopRequest"
       },
       "output": {
-        "target": "com.amazonaws.sagemaker.a2i.runtime#StopHumanLoopResponse"
+        "target": "com.amazonaws.sagemakera2iruntime#StopHumanLoopResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#InternalServerException"
+          "target": "com.amazonaws.sagemakera2iruntime#InternalServerException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ResourceNotFoundException"
+          "target": "com.amazonaws.sagemakera2iruntime#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ThrottlingException"
+          "target": "com.amazonaws.sagemakera2iruntime#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#ValidationException"
+          "target": "com.amazonaws.sagemakera2iruntime#ValidationException"
         }
       ],
       "traits": {
@@ -721,30 +725,30 @@
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#StopHumanLoopRequest": {
+    "com.amazonaws.sagemakera2iruntime#StopHumanLoopRequest": {
       "type": "structure",
       "members": {
         "HumanLoopName": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
+          "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the human loop you want to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#StopHumanLoopResponse": {
+    "com.amazonaws.sagemakera2iruntime#StopHumanLoopResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.sagemaker.a2i.runtime#String": {
+    "com.amazonaws.sagemakera2iruntime#String": {
       "type": "string"
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ThrottlingException": {
+    "com.amazonaws.sagemakera2iruntime#ThrottlingException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FailureReason"
+          "target": "com.amazonaws.sagemakera2iruntime#FailureReason"
         }
       },
       "traits": {
@@ -753,14 +757,14 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.sagemaker.a2i.runtime#Timestamp": {
+    "com.amazonaws.sagemakera2iruntime#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.sagemaker.a2i.runtime#ValidationException": {
+    "com.amazonaws.sagemakera2iruntime#ValidationException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.sagemaker.a2i.runtime#FailureReason"
+          "target": "com.amazonaws.sagemakera2iruntime#FailureReason"
         }
       },
       "traits": {

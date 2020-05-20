@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -33,17 +32,20 @@
     "com.amazonaws.mediapackage#AdMarkers": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "SCTE35_ENHANCED": {
+          {
+            "value": "SCTE35_ENHANCED",
             "name": "SCTE35_ENHANCED"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#AdTriggers": {
@@ -59,20 +61,24 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to\ndetermine whether a message signals an ad.  Choosing \"NONE\" means no SCTE-35 messages become\nads.  Choosing \"RESTRICTED\" means SCTE-35 messages of the types specified in AdTriggers that\ncontain delivery restrictions will be treated as ads.  Choosing \"UNRESTRICTED\" means SCTE-35\nmessages of the types specified in AdTriggers that do not contain delivery restrictions will\nbe treated as ads.  Choosing \"BOTH\" means all SCTE-35 messages of the types specified in\nAdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags\nand are always treated as ads if specified in AdTriggers.",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "RESTRICTED": {
+          {
+            "value": "RESTRICTED",
             "name": "RESTRICTED"
           },
-          "UNRESTRICTED": {
+          {
+            "value": "UNRESTRICTED",
             "name": "UNRESTRICTED"
           },
-          "BOTH": {
+          {
+            "value": "BOTH",
             "name": "BOTH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#Authorization": {
@@ -83,7 +89,7 @@
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.",
             "smithy.api#jsonName": "cdnIdentifierSecret",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SecretsRoleArn": {
@@ -91,7 +97,7 @@
           "traits": {
             "smithy.api#documentation": "The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.",
             "smithy.api#jsonName": "secretsRoleArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -154,7 +160,7 @@
           "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
           "traits": {
             "smithy.api#jsonName": "spekeKeyProvider",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -296,7 +302,7 @@
           "traits": {
             "smithy.api#documentation": "The ID of the Channel. The ID must be unique within the region and it\ncannot be changed after a Channel is created.",
             "smithy.api#jsonName": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -393,7 +399,7 @@
           "traits": {
             "smithy.api#documentation": "The end of the time-window which will be harvested",
             "smithy.api#jsonName": "endTime",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Id": {
@@ -401,7 +407,7 @@
           "traits": {
             "smithy.api#documentation": "The ID of the HarvestJob. The ID must be unique within the region\nand it cannot be changed after the HarvestJob is submitted",
             "smithy.api#jsonName": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OriginEndpointId": {
@@ -409,14 +415,14 @@
           "traits": {
             "smithy.api#documentation": "The ID of the OriginEndpoint that the HarvestJob will harvest from.\nThis cannot be changed after the HarvestJob is submitted.",
             "smithy.api#jsonName": "originEndpointId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "S3Destination": {
           "target": "com.amazonaws.mediapackage#S3Destination",
           "traits": {
             "smithy.api#jsonName": "s3Destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StartTime": {
@@ -424,7 +430,7 @@
           "traits": {
             "smithy.api#documentation": "The start of the time-window which will be harvested",
             "smithy.api#jsonName": "startTime",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -550,7 +556,7 @@
           "traits": {
             "smithy.api#documentation": "The ID of the Channel that the OriginEndpoint will be associated with.\nThis cannot be changed after the OriginEndpoint is created.",
             "smithy.api#jsonName": "channelId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CmafPackage": {
@@ -583,7 +589,7 @@
           "traits": {
             "smithy.api#documentation": "The ID of the OriginEndpoint.  The ID must be unique within the region\nand it cannot be changed after the OriginEndpoint is created.",
             "smithy.api#jsonName": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ManifestName": {
@@ -763,7 +769,7 @@
           "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
           "traits": {
             "smithy.api#jsonName": "spekeKeyProvider",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -910,15 +916,15 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Channel to delete.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediapackage#DeleteChannelResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediapackage#DeleteOriginEndpoint": {
       "type": "operation",
@@ -964,15 +970,15 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the OriginEndpoint to delete.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.mediapackage#DeleteOriginEndpointResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.mediapackage#DescribeChannel": {
       "type": "operation",
@@ -1018,8 +1024,8 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of a Channel.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1106,8 +1112,8 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the HarvestJob.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1223,8 +1229,8 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the OriginEndpoint.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1343,14 +1349,16 @@
     "com.amazonaws.mediapackage#EncryptionMethod": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AES_128": {
+        "smithy.api#enum": [
+          {
+            "value": "AES_128",
             "name": "AES_128"
           },
-          "SAMPLE_AES": {
+          {
+            "value": "SAMPLE_AES",
             "name": "SAMPLE_AES"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#ForbiddenException": {
@@ -1474,7 +1482,7 @@
           "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
           "traits": {
             "smithy.api#jsonName": "spekeKeyProvider",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1512,7 +1520,7 @@
           "traits": {
             "smithy.api#documentation": "The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.",
             "smithy.api#jsonName": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IncludeIframeOnlyStream": {
@@ -1589,7 +1597,7 @@
           "traits": {
             "smithy.api#documentation": "The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.",
             "smithy.api#jsonName": "id",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IncludeIframeOnlyStream": {
@@ -2033,8 +2041,8 @@
         "ResourceArn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2053,14 +2061,16 @@
     "com.amazonaws.mediapackage#ManifestLayout": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FULL": {
+        "smithy.api#enum": [
+          {
+            "value": "FULL",
             "name": "FULL"
           },
-          "COMPACT": {
+          {
+            "value": "COMPACT",
             "name": "COMPACT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#MaxResults": {
@@ -2138,15 +2148,11 @@
           "cloudFormationName": "MediaPackage",
           "cloudTrailEventSource": "mediapackage.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "mediapackage"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "AWS Elemental MediaPackage",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Elemental MediaPackage"
       }
     },
@@ -2157,7 +2163,7 @@
           "target": "com.amazonaws.mediapackage#SpekeKeyProvider",
           "traits": {
             "smithy.api#jsonName": "spekeKeyProvider",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2332,43 +2338,50 @@
     "com.amazonaws.mediapackage#Origination": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "ALLOW",
             "name": "ALLOW"
           },
-          "DENY": {
+          {
+            "value": "DENY",
             "name": "DENY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#PlaylistType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "EVENT": {
+          {
+            "value": "EVENT",
             "name": "EVENT"
           },
-          "VOD": {
+          {
+            "value": "VOD",
             "name": "VOD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#Profile": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "HBBTV_1_5": {
+          {
+            "value": "HBBTV_1_5",
             "name": "HBBTV_1_5"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#RotateChannelCredentials": {
@@ -2418,13 +2431,13 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the channel to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#deprecated": { }
+        "smithy.api#deprecated": {}
       }
     },
     "com.amazonaws.mediapackage#RotateChannelCredentialsResponse": {
@@ -2465,7 +2478,7 @@
         }
       },
       "traits": {
-        "smithy.api#deprecated": { }
+        "smithy.api#deprecated": {}
       }
     },
     "com.amazonaws.mediapackage#RotateIngestEndpointCredentials": {
@@ -2512,16 +2525,16 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the channel the IngestEndpoint is on.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IngestEndpointId": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The id of the IngestEndpoint whose credentials should be rotated",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2572,7 +2585,7 @@
           "traits": {
             "smithy.api#documentation": "The name of an S3 bucket within which harvested content will be exported",
             "smithy.api#jsonName": "bucketName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ManifestKey": {
@@ -2580,7 +2593,7 @@
           "traits": {
             "smithy.api#documentation": "The key in the specified S3 bucket where the harvested top-level manifest will be placed.",
             "smithy.api#jsonName": "manifestKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RoleArn": {
@@ -2588,7 +2601,7 @@
           "traits": {
             "smithy.api#documentation": "The IAM role used to write to the specified S3 bucket",
             "smithy.api#jsonName": "roleArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2599,17 +2612,20 @@
     "com.amazonaws.mediapackage#SegmentTemplateFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NUMBER_WITH_TIMELINE": {
+        "smithy.api#enum": [
+          {
+            "value": "NUMBER_WITH_TIMELINE",
             "name": "NUMBER_WITH_TIMELINE"
           },
-          "TIME_WITH_TIMELINE": {
+          {
+            "value": "TIME_WITH_TIMELINE",
             "name": "TIME_WITH_TIMELINE"
           },
-          "NUMBER_WITH_DURATION": {
+          {
+            "value": "NUMBER_WITH_DURATION",
             "name": "NUMBER_WITH_DURATION"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#ServiceUnavailableException": {
@@ -2643,7 +2659,7 @@
           "traits": {
             "smithy.api#documentation": "The resource ID to include in key requests.",
             "smithy.api#jsonName": "resourceId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RoleArn": {
@@ -2651,7 +2667,7 @@
           "traits": {
             "smithy.api#documentation": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.",
             "smithy.api#jsonName": "roleArn",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SystemIds": {
@@ -2659,7 +2675,7 @@
           "traits": {
             "smithy.api#documentation": "The system IDs to include in key requests.",
             "smithy.api#jsonName": "systemIds",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Url": {
@@ -2667,7 +2683,7 @@
           "traits": {
             "smithy.api#documentation": "The URL of the external key provider service.",
             "smithy.api#jsonName": "url",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2678,33 +2694,39 @@
     "com.amazonaws.mediapackage#Status": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IN_PROGRESS": {
+        "smithy.api#enum": [
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "SUCCEEDED": {
+          {
+            "value": "SUCCEEDED",
             "name": "SUCCEEDED"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#StreamOrder": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ORIGINAL": {
+        "smithy.api#enum": [
+          {
+            "value": "ORIGINAL",
             "name": "ORIGINAL"
           },
-          "VIDEO_BITRATE_ASCENDING": {
+          {
+            "value": "VIDEO_BITRATE_ASCENDING",
             "name": "VIDEO_BITRATE_ASCENDING"
           },
-          "VIDEO_BITRATE_DESCENDING": {
+          {
+            "value": "VIDEO_BITRATE_DESCENDING",
             "name": "VIDEO_BITRATE_DESCENDING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#StreamSelection": {
@@ -2755,15 +2777,15 @@
         "ResourceArn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.mediapackage#__mapOf__string",
           "traits": {
             "smithy.api#jsonName": "tags",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2831,8 +2853,8 @@
         "ResourceArn": {
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -2840,7 +2862,7 @@
           "traits": {
             "smithy.api#documentation": "The key(s) of tag to be deleted",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2896,8 +2918,8 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the Channel to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3018,8 +3040,8 @@
           "target": "com.amazonaws.mediapackage#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the OriginEndpoint to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ManifestName": {
@@ -3182,42 +3204,51 @@
     "com.amazonaws.mediapackage#__AdTriggersElement": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SPLICE_INSERT": {
+        "smithy.api#enum": [
+          {
+            "value": "SPLICE_INSERT",
             "name": "SPLICE_INSERT"
           },
-          "BREAK": {
+          {
+            "value": "BREAK",
             "name": "BREAK"
           },
-          "PROVIDER_ADVERTISEMENT": {
+          {
+            "value": "PROVIDER_ADVERTISEMENT",
             "name": "PROVIDER_ADVERTISEMENT"
           },
-          "DISTRIBUTOR_ADVERTISEMENT": {
+          {
+            "value": "DISTRIBUTOR_ADVERTISEMENT",
             "name": "DISTRIBUTOR_ADVERTISEMENT"
           },
-          "PROVIDER_PLACEMENT_OPPORTUNITY": {
+          {
+            "value": "PROVIDER_PLACEMENT_OPPORTUNITY",
             "name": "PROVIDER_PLACEMENT_OPPORTUNITY"
           },
-          "DISTRIBUTOR_PLACEMENT_OPPORTUNITY": {
+          {
+            "value": "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
             "name": "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
           },
-          "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY": {
+          {
+            "value": "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
             "name": "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
           },
-          "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY": {
+          {
+            "value": "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
             "name": "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#__PeriodTriggersElement": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ADS": {
+        "smithy.api#enum": [
+          {
+            "value": "ADS",
             "name": "ADS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.mediapackage#__boolean": {

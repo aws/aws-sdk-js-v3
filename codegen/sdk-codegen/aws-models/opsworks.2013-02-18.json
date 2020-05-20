@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -160,26 +159,48 @@
     "com.amazonaws.opsworks#AppAttributesKeys": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DocumentRoot": { },
-          "RailsEnv": { },
-          "AutoBundleOnDeploy": { },
-          "AwsFlowRubySettings": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "DocumentRoot"
+          },
+          {
+            "value": "RailsEnv"
+          },
+          {
+            "value": "AutoBundleOnDeploy"
+          },
+          {
+            "value": "AwsFlowRubySettings"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#AppType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "aws-flow-ruby": { },
-          "java": { },
-          "rails": { },
-          "php": { },
-          "nodejs": { },
-          "static": { },
-          "other": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "aws-flow-ruby"
+          },
+          {
+            "value": "java"
+          },
+          {
+            "value": "rails"
+          },
+          {
+            "value": "php"
+          },
+          {
+            "value": "nodejs"
+          },
+          {
+            "value": "static"
+          },
+          {
+            "value": "other"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#Apps": {
@@ -191,10 +212,14 @@
     "com.amazonaws.opsworks#Architecture": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "x86_64": { },
-          "i386": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "x86_64"
+          },
+          {
+            "value": "i386"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#AssignInstance": {
@@ -221,14 +246,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LayerIds": {
           "target": "com.amazonaws.opsworks#Strings",
           "traits": {
             "smithy.api#documentation": "<p>The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -263,7 +288,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The volume ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -292,7 +317,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Elastic IP address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InstanceId": {
@@ -327,14 +352,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Elastic Load Balancing instance's name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LayerId": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the layer to which the Elastic Load Balancing instance is to be attached.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -392,10 +417,14 @@
     "com.amazonaws.opsworks#AutoScalingType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "load": { },
-          "timer": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "load"
+          },
+          {
+            "value": "timer"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#BlockDeviceMapping": {
@@ -439,7 +468,7 @@
     "com.amazonaws.opsworks#Boolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.opsworks#ChefConfiguration": {
@@ -591,14 +620,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS\n      resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an\n      existing IAM role. If you create a stack by using the AWS OpsWorks Stacks console, it creates the role for\n      you. You can obtain an existing stack's IAM ARN programmatically by calling\n        <a>DescribePermissions</a>. For more information about IAM ARNs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">Using\n      Identifiers</a>.</p>\n         <note>\n            <p>You must set this parameter to a valid service role ARN or the action will fail; there is no default value. You can specify the source stack's service role ARN, if you prefer, but you must do so explicitly.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SourceStackId": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The source stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UseCustomCookbooks": {
@@ -659,110 +688,298 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Specifies the encoding of the log file so that the file can be read correctly. The default is <code>utf_8</code>. Encodings supported by Python <code>codecs.decode()</code> can be used here.</p>",
-        "smithy.api#enum": {
-          "ascii": { },
-          "big5": { },
-          "big5hkscs": { },
-          "cp037": { },
-          "cp424": { },
-          "cp437": { },
-          "cp500": { },
-          "cp720": { },
-          "cp737": { },
-          "cp775": { },
-          "cp850": { },
-          "cp852": { },
-          "cp855": { },
-          "cp856": { },
-          "cp857": { },
-          "cp858": { },
-          "cp860": { },
-          "cp861": { },
-          "cp862": { },
-          "cp863": { },
-          "cp864": { },
-          "cp865": { },
-          "cp866": { },
-          "cp869": { },
-          "cp874": { },
-          "cp875": { },
-          "cp932": { },
-          "cp949": { },
-          "cp950": { },
-          "cp1006": { },
-          "cp1026": { },
-          "cp1140": { },
-          "cp1250": { },
-          "cp1251": { },
-          "cp1252": { },
-          "cp1253": { },
-          "cp1254": { },
-          "cp1255": { },
-          "cp1256": { },
-          "cp1257": { },
-          "cp1258": { },
-          "euc_jp": { },
-          "euc_jis_2004": { },
-          "euc_jisx0213": { },
-          "euc_kr": { },
-          "gb2312": { },
-          "gbk": { },
-          "gb18030": { },
-          "hz": { },
-          "iso2022_jp": { },
-          "iso2022_jp_1": { },
-          "iso2022_jp_2": { },
-          "iso2022_jp_2004": { },
-          "iso2022_jp_3": { },
-          "iso2022_jp_ext": { },
-          "iso2022_kr": { },
-          "latin_1": { },
-          "iso8859_2": { },
-          "iso8859_3": { },
-          "iso8859_4": { },
-          "iso8859_5": { },
-          "iso8859_6": { },
-          "iso8859_7": { },
-          "iso8859_8": { },
-          "iso8859_9": { },
-          "iso8859_10": { },
-          "iso8859_13": { },
-          "iso8859_14": { },
-          "iso8859_15": { },
-          "iso8859_16": { },
-          "johab": { },
-          "koi8_r": { },
-          "koi8_u": { },
-          "mac_cyrillic": { },
-          "mac_greek": { },
-          "mac_iceland": { },
-          "mac_latin2": { },
-          "mac_roman": { },
-          "mac_turkish": { },
-          "ptcp154": { },
-          "shift_jis": { },
-          "shift_jis_2004": { },
-          "shift_jisx0213": { },
-          "utf_32": { },
-          "utf_32_be": { },
-          "utf_32_le": { },
-          "utf_16": { },
-          "utf_16_be": { },
-          "utf_16_le": { },
-          "utf_7": { },
-          "utf_8": { },
-          "utf_8_sig": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ascii"
+          },
+          {
+            "value": "big5"
+          },
+          {
+            "value": "big5hkscs"
+          },
+          {
+            "value": "cp037"
+          },
+          {
+            "value": "cp424"
+          },
+          {
+            "value": "cp437"
+          },
+          {
+            "value": "cp500"
+          },
+          {
+            "value": "cp720"
+          },
+          {
+            "value": "cp737"
+          },
+          {
+            "value": "cp775"
+          },
+          {
+            "value": "cp850"
+          },
+          {
+            "value": "cp852"
+          },
+          {
+            "value": "cp855"
+          },
+          {
+            "value": "cp856"
+          },
+          {
+            "value": "cp857"
+          },
+          {
+            "value": "cp858"
+          },
+          {
+            "value": "cp860"
+          },
+          {
+            "value": "cp861"
+          },
+          {
+            "value": "cp862"
+          },
+          {
+            "value": "cp863"
+          },
+          {
+            "value": "cp864"
+          },
+          {
+            "value": "cp865"
+          },
+          {
+            "value": "cp866"
+          },
+          {
+            "value": "cp869"
+          },
+          {
+            "value": "cp874"
+          },
+          {
+            "value": "cp875"
+          },
+          {
+            "value": "cp932"
+          },
+          {
+            "value": "cp949"
+          },
+          {
+            "value": "cp950"
+          },
+          {
+            "value": "cp1006"
+          },
+          {
+            "value": "cp1026"
+          },
+          {
+            "value": "cp1140"
+          },
+          {
+            "value": "cp1250"
+          },
+          {
+            "value": "cp1251"
+          },
+          {
+            "value": "cp1252"
+          },
+          {
+            "value": "cp1253"
+          },
+          {
+            "value": "cp1254"
+          },
+          {
+            "value": "cp1255"
+          },
+          {
+            "value": "cp1256"
+          },
+          {
+            "value": "cp1257"
+          },
+          {
+            "value": "cp1258"
+          },
+          {
+            "value": "euc_jp"
+          },
+          {
+            "value": "euc_jis_2004"
+          },
+          {
+            "value": "euc_jisx0213"
+          },
+          {
+            "value": "euc_kr"
+          },
+          {
+            "value": "gb2312"
+          },
+          {
+            "value": "gbk"
+          },
+          {
+            "value": "gb18030"
+          },
+          {
+            "value": "hz"
+          },
+          {
+            "value": "iso2022_jp"
+          },
+          {
+            "value": "iso2022_jp_1"
+          },
+          {
+            "value": "iso2022_jp_2"
+          },
+          {
+            "value": "iso2022_jp_2004"
+          },
+          {
+            "value": "iso2022_jp_3"
+          },
+          {
+            "value": "iso2022_jp_ext"
+          },
+          {
+            "value": "iso2022_kr"
+          },
+          {
+            "value": "latin_1"
+          },
+          {
+            "value": "iso8859_2"
+          },
+          {
+            "value": "iso8859_3"
+          },
+          {
+            "value": "iso8859_4"
+          },
+          {
+            "value": "iso8859_5"
+          },
+          {
+            "value": "iso8859_6"
+          },
+          {
+            "value": "iso8859_7"
+          },
+          {
+            "value": "iso8859_8"
+          },
+          {
+            "value": "iso8859_9"
+          },
+          {
+            "value": "iso8859_10"
+          },
+          {
+            "value": "iso8859_13"
+          },
+          {
+            "value": "iso8859_14"
+          },
+          {
+            "value": "iso8859_15"
+          },
+          {
+            "value": "iso8859_16"
+          },
+          {
+            "value": "johab"
+          },
+          {
+            "value": "koi8_r"
+          },
+          {
+            "value": "koi8_u"
+          },
+          {
+            "value": "mac_cyrillic"
+          },
+          {
+            "value": "mac_greek"
+          },
+          {
+            "value": "mac_iceland"
+          },
+          {
+            "value": "mac_latin2"
+          },
+          {
+            "value": "mac_roman"
+          },
+          {
+            "value": "mac_turkish"
+          },
+          {
+            "value": "ptcp154"
+          },
+          {
+            "value": "shift_jis"
+          },
+          {
+            "value": "shift_jis_2004"
+          },
+          {
+            "value": "shift_jisx0213"
+          },
+          {
+            "value": "utf_32"
+          },
+          {
+            "value": "utf_32_be"
+          },
+          {
+            "value": "utf_32_le"
+          },
+          {
+            "value": "utf_16"
+          },
+          {
+            "value": "utf_16_be"
+          },
+          {
+            "value": "utf_16_le"
+          },
+          {
+            "value": "utf_7"
+          },
+          {
+            "value": "utf_8"
+          },
+          {
+            "value": "utf_8_sig"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#CloudWatchLogsInitialPosition": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file. It's only used if there is no state persisted for that log stream.</p>",
-        "smithy.api#enum": {
-          "start_of_file": { },
-          "end_of_file": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "start_of_file"
+          },
+          {
+            "value": "end_of_file"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#CloudWatchLogsLogStream": {
@@ -852,10 +1069,14 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The preferred time zone for logs streamed to CloudWatch Logs. Valid values are <code>LOCAL</code> and <code>UTC</code>, for Coordinated Universal Time.</p>",
-        "smithy.api#enum": {
-          "LOCAL": { },
-          "UTC": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "LOCAL"
+          },
+          {
+            "value": "UTC"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#Command": {
@@ -1001,7 +1222,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The app name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Shortname": {
@@ -1020,14 +1241,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.opsworks#AppType",
           "traits": {
             "smithy.api#documentation": "<p>The app type. Each supported type is associated with a particular layer. For example, PHP\n      applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances\n      that are members of the corresponding layer. If your app isn't one of the standard types, or\n      you prefer to implement your own Deploy recipes, specify <code>other</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1079,7 +1300,7 @@
           "target": "com.amazonaws.opsworks#DeploymentCommand",
           "traits": {
             "smithy.api#documentation": "<p>A <code>DeploymentCommand</code> object that specifies the deployment command and any\n      associated arguments.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Comment": {
@@ -1110,7 +1331,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1210,14 +1431,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance type, such as <code>t2.micro</code>. For a list of supported instance types,\n      open the stack in the console, choose <b>Instances</b>, and choose <b>+ Instance</b>.\n      The <b>Size</b> list contains the currently supported types. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance\n        Families and Types</a>. The parameter values that you use to specify the various types are\n      in the <b>API Name</b> column of the <b>Available Instance Types</b> table.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LayerIds": {
           "target": "com.amazonaws.opsworks#Strings",
           "traits": {
             "smithy.api#documentation": "<p>An array that contains the instance's layer IDs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Os": {
@@ -1242,7 +1463,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SubnetId": {
@@ -1372,7 +1593,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The layer name, which is used by the console.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Packages": {
@@ -1385,21 +1606,21 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.</p>\n         <p>The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <a href=\"https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html\">Layer Reference</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StackId": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The layer stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
           "target": "com.amazonaws.opsworks#LayerType",
           "traits": {
             "smithy.api#documentation": "<p>The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UseEbsOptimizedInstances": {
@@ -1496,7 +1717,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances.\n      For more information about IAM ARNs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">Using\n      Identifiers</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DefaultOs": {
@@ -1533,21 +1754,21 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Region": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack's AWS region, such as <code>ap-south-1</code>. For more information about\n            Amazon regions, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html\">Regions and Endpoints</a>.</p>\n         <note>\n            <p>In the AWS CLI, this API maps to the <code>--stack-region</code> parameter. If the\n                    <code>--stack-region</code> parameter and the AWS CLI common parameter\n                    <code>--region</code> are set to the same value, the stack uses a\n                    <i>regional</i> endpoint. If the <code>--stack-region</code>\n                parameter is not set, but the AWS CLI <code>--region</code> parameter is, this also\n                results in a stack with a <i>regional</i> endpoint. However, if the\n                    <code>--region</code> parameter is set to <code>us-east-1</code>, and the\n                    <code>--stack-region</code> parameter is set to one of the following, then the\n                stack uses a legacy or <i>classic</i> region: <code>us-west-1,\n                    us-west-2, sa-east-1, eu-central-1, eu-west-1, ap-northeast-1, ap-southeast-1,\n                    ap-southeast-2</code>. In this case, the actual API endpoint of the stack is in\n                    <code>us-east-1</code>. Only the preceding regions are supported as classic\n                regions in the <code>us-east-1</code> API endpoint. Because it is a best practice to\n                choose the regional endpoint that is closest to where you manage AWS, we recommend\n                that you use regional endpoints for new stacks. The AWS CLI common\n                    <code>--region</code> parameter always specifies a regional API endpoint; it\n                cannot be used to specify a classic AWS OpsWorks Stacks region.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceRoleArn": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS\n      resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an\n      existing IAM role. For more information about IAM ARNs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">Using\n      Identifiers</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UseCustomCookbooks": {
@@ -1614,7 +1835,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The user's IAM ARN; this can also be a federated user's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKey": {
@@ -1713,7 +1934,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The app ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1754,7 +1975,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1783,7 +2004,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The layer ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1812,7 +2033,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1841,7 +2062,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The user's IAM ARN. This can also be a federated user's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1939,7 +2160,7 @@
           "target": "com.amazonaws.opsworks#DeploymentCommandName",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the operation. You can specify only one command.</p>\n         <p>For stacks, the following commands are available:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>execute_recipes</code>: Execute one or more recipes. To specify the recipes, set an\n          <code>Args</code> parameter named <code>recipes</code> to the list of recipes to be\n        executed. For example, to execute <code>phpapp::appsetup</code>, set <code>Args</code> to\n          <code>{\"recipes\":[\"phpapp::appsetup\"]}</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>install_dependencies</code>: Install the stack's dependencies.</p>\n            </li>\n            <li>\n               <p>\n                  <code>update_custom_cookbooks</code>: Update the stack's custom cookbooks.</p>\n            </li>\n            <li>\n               <p>\n                  <code>update_dependencies</code>: Update the stack's dependencies.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The update_dependencies and install_dependencies commands are supported only for Linux instances. You can run the commands successfully on Windows instances, but they do nothing.</p>\n         </note>\n         <p>For apps, the following commands are available:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>deploy</code>: Deploy an app. Ruby on Rails apps have an optional <code>Args</code>\n        parameter named <code>migrate</code>. Set <code>Args</code> to {\"migrate\":[\"true\"]} to\n        migrate the database. The default setting is {\"migrate\":[\"false\"]}.</p>\n            </li>\n            <li>\n               <p>\n                  <code>rollback</code> Roll the app back to the previous version. When you update an app,\n        AWS OpsWorks Stacks stores the previous version, up to a maximum of five versions. You can use this\n        command to roll an app back as many as four versions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>start</code>: Start the app's web or application server.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stop</code>: Stop the app's web or application server.</p>\n            </li>\n            <li>\n               <p>\n                  <code>restart</code>: Restart the app's web or application server.</p>\n            </li>\n            <li>\n               <p>\n                  <code>undeploy</code>: Undeploy the app.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1959,20 +2180,44 @@
     "com.amazonaws.opsworks#DeploymentCommandName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "install_dependencies": { },
-          "update_dependencies": { },
-          "update_custom_cookbooks": { },
-          "execute_recipes": { },
-          "configure": { },
-          "setup": { },
-          "deploy": { },
-          "rollback": { },
-          "start": { },
-          "stop": { },
-          "restart": { },
-          "undeploy": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "install_dependencies"
+          },
+          {
+            "value": "update_dependencies"
+          },
+          {
+            "value": "update_custom_cookbooks"
+          },
+          {
+            "value": "execute_recipes"
+          },
+          {
+            "value": "configure"
+          },
+          {
+            "value": "setup"
+          },
+          {
+            "value": "deploy"
+          },
+          {
+            "value": "rollback"
+          },
+          {
+            "value": "start"
+          },
+          {
+            "value": "stop"
+          },
+          {
+            "value": "restart"
+          },
+          {
+            "value": "undeploy"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#Deployments": {
@@ -2005,7 +2250,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The cluster's Amazon Resource Number (ARN).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2034,7 +2279,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Elastic IP address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2063,7 +2308,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2092,7 +2337,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon RDS instance's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2121,7 +2366,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2660,7 +2905,7 @@
           "target": "com.amazonaws.opsworks#Strings",
           "traits": {
             "smithy.api#documentation": "<p>An array of layer IDs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2866,7 +3111,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2969,7 +3214,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3021,7 +3266,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3112,7 +3357,7 @@
           "target": "com.amazonaws.opsworks#Strings",
           "traits": {
             "smithy.api#documentation": "<p>An array of instance IDs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3260,14 +3505,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Elastic Load Balancing instance's name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LayerId": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the layer that the Elastic Load Balancing instance is attached to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3296,7 +3541,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Elastic IP address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3304,7 +3549,7 @@
     "com.amazonaws.opsworks#Double": {
       "type": "double",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.opsworks#EbsBlockDevice": {
@@ -3502,7 +3747,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>(Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Secure": {
@@ -3515,7 +3760,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>(Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3556,7 +3801,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The layer ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3608,7 +3853,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance's AWS OpsWorks Stacks ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ValidForInMinutes": {
@@ -4047,7 +4292,7 @@
     "com.amazonaws.opsworks#Integer": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.opsworks#Layer": {
@@ -4208,52 +4453,126 @@
     "com.amazonaws.opsworks#LayerAttributesKeys": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EcsClusterArn": { },
-          "EnableHaproxyStats": { },
-          "HaproxyStatsUrl": { },
-          "HaproxyStatsUser": { },
-          "HaproxyStatsPassword": { },
-          "HaproxyHealthCheckUrl": { },
-          "HaproxyHealthCheckMethod": { },
-          "MysqlRootPassword": { },
-          "MysqlRootPasswordUbiquitous": { },
-          "GangliaUrl": { },
-          "GangliaUser": { },
-          "GangliaPassword": { },
-          "MemcachedMemory": { },
-          "NodejsVersion": { },
-          "RubyVersion": { },
-          "RubygemsVersion": { },
-          "ManageBundler": { },
-          "BundlerVersion": { },
-          "RailsStack": { },
-          "PassengerVersion": { },
-          "Jvm": { },
-          "JvmVersion": { },
-          "JvmOptions": { },
-          "JavaAppServer": { },
-          "JavaAppServerVersion": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "EcsClusterArn"
+          },
+          {
+            "value": "EnableHaproxyStats"
+          },
+          {
+            "value": "HaproxyStatsUrl"
+          },
+          {
+            "value": "HaproxyStatsUser"
+          },
+          {
+            "value": "HaproxyStatsPassword"
+          },
+          {
+            "value": "HaproxyHealthCheckUrl"
+          },
+          {
+            "value": "HaproxyHealthCheckMethod"
+          },
+          {
+            "value": "MysqlRootPassword"
+          },
+          {
+            "value": "MysqlRootPasswordUbiquitous"
+          },
+          {
+            "value": "GangliaUrl"
+          },
+          {
+            "value": "GangliaUser"
+          },
+          {
+            "value": "GangliaPassword"
+          },
+          {
+            "value": "MemcachedMemory"
+          },
+          {
+            "value": "NodejsVersion"
+          },
+          {
+            "value": "RubyVersion"
+          },
+          {
+            "value": "RubygemsVersion"
+          },
+          {
+            "value": "ManageBundler"
+          },
+          {
+            "value": "BundlerVersion"
+          },
+          {
+            "value": "RailsStack"
+          },
+          {
+            "value": "PassengerVersion"
+          },
+          {
+            "value": "Jvm"
+          },
+          {
+            "value": "JvmVersion"
+          },
+          {
+            "value": "JvmOptions"
+          },
+          {
+            "value": "JavaAppServer"
+          },
+          {
+            "value": "JavaAppServerVersion"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#LayerType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "aws-flow-ruby": { },
-          "ecs-cluster": { },
-          "java-app": { },
-          "lb": { },
-          "web": { },
-          "php-app": { },
-          "rails-app": { },
-          "nodejs-app": { },
-          "memcached": { },
-          "db-master": { },
-          "monitoring-master": { },
-          "custom": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "aws-flow-ruby"
+          },
+          {
+            "value": "ecs-cluster"
+          },
+          {
+            "value": "java-app"
+          },
+          {
+            "value": "lb"
+          },
+          {
+            "value": "web"
+          },
+          {
+            "value": "php-app"
+          },
+          {
+            "value": "rails-app"
+          },
+          {
+            "value": "nodejs-app"
+          },
+          {
+            "value": "memcached"
+          },
+          {
+            "value": "db-master"
+          },
+          {
+            "value": "monitoring-master"
+          },
+          {
+            "value": "custom"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#Layers": {
@@ -4315,7 +4634,7 @@
           "target": "com.amazonaws.opsworks#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The stack or layer's Amazon Resource Number (ARN).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4384,7 +4703,7 @@
     "com.amazonaws.opsworks#Minute": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -4595,10 +4914,10 @@
           "target": "com.amazonaws.opsworks#DescribeStackProvisioningParameters"
         },
         {
-          "target": "com.amazonaws.opsworks#DescribeStackSummary"
+          "target": "com.amazonaws.opsworks#DescribeStacks"
         },
         {
-          "target": "com.amazonaws.opsworks#DescribeStacks"
+          "target": "com.amazonaws.opsworks#DescribeStackSummary"
         },
         {
           "target": "com.amazonaws.opsworks#DescribeTimeBasedAutoScaling"
@@ -4710,15 +5029,11 @@
           "cloudFormationName": "OpsWorks",
           "cloudTrailEventSource": "opsworks.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "opsworks"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AWS OpsWorks</fullname>\n         <p>Welcome to the <i>AWS OpsWorks Stacks API Reference</i>. This guide provides descriptions, syntax, and\n      usage examples for AWS OpsWorks Stacks actions and data types, including common parameters and error\n      codes. </p>\n         <p>AWS OpsWorks Stacks is an application management service that provides an integrated experience for\n      overseeing the complete application lifecycle. For information about this product, go to the\n        <a href=\"http://aws.amazon.com/opsworks/\">AWS OpsWorks</a> details page. </p>\n\n         <p>\n            <b>SDKs and CLI</b>\n         </p>\n         <p>The most common way to use the AWS OpsWorks Stacks API is by using the AWS Command Line Interface (CLI) or by using one of the AWS SDKs to implement applications in your preferred language. For more information, see:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html\">AWS CLI</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html\">AWS SDK for Java</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm\">AWS SDK for\n          .NET</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html\">AWS\n          SDK for PHP 2</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"http://docs.aws.amazon.com/sdkforruby/api/\">AWS SDK for Ruby</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"http://aws.amazon.com/documentation/sdkforjavascript/\">AWS SDK for Node.js</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"http://docs.pythonboto.org/en/latest/ref/opsworks.html\">AWS SDK for\n          Python(Boto)</a>\n               </p>\n            </li>\n         </ul>\n\n         <p>\n            <b>Endpoints</b>\n         </p>\n         <p>AWS OpsWorks Stacks supports the following endpoints, all HTTPS. You must connect to one of the following endpoints. Stacks \n          can only be accessed or managed within the endpoint in which they are created.</p>\n         <ul>\n            <li>\n               <p>opsworks.us-east-1.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.us-east-2.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.us-west-1.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.us-west-2.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.ca-central-1.amazonaws.com (API only; not available in the AWS console)</p>\n            </li>\n            <li>\n               <p>opsworks.eu-west-1.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.eu-west-2.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.eu-west-3.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.eu-central-1.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.ap-northeast-1.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.ap-northeast-2.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.ap-south-1.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.ap-southeast-1.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.ap-southeast-2.amazonaws.com</p>\n            </li>\n            <li>\n               <p>opsworks.sa-east-1.amazonaws.com</p>\n            </li>\n         </ul>\n         <p>\n            <b>Chef Versions</b>\n         </p>\n         <p>When you call <a>CreateStack</a>, <a>CloneStack</a>, or <a>UpdateStack</a> we recommend you\n      use the <code>ConfigurationManager</code> parameter to specify the Chef version.\n      The recommended and default value for Linux stacks is currently 12. Windows stacks use Chef 12.2. For more information,\n      see <a href=\"https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html\">Chef Versions</a>.</p>\n         <note>\n            <p>You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.</p>\n         </note>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS OpsWorks",
         "smithy.api#xmlNamespace": {
           "uri": "http://opsworks.amazonaws.com/doc/2013-02-18/"
@@ -4962,7 +5277,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5032,14 +5347,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The cluster's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StackId": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5085,14 +5400,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Elastic IP address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StackId": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5174,7 +5489,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the stack that the instance is to be registered with.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5217,28 +5532,28 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The database password.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DbUser": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The database's master user name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RdsDbInstanceArn": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon RDS instance's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StackId": {
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5276,7 +5591,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5342,10 +5657,14 @@
     "com.amazonaws.opsworks#RootDeviceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ebs": { },
-          "instance-store": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ebs"
+          },
+          {
+            "value": "instance-store"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#SelfUserProfile": {
@@ -5466,7 +5785,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The layer ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UpScaling": {
@@ -5513,7 +5832,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The user's IAM ARN. This can also be a federated user's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Level": {
@@ -5526,7 +5845,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5561,7 +5880,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5633,12 +5952,20 @@
     "com.amazonaws.opsworks#SourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "git": { },
-          "svn": { },
-          "archive": { },
-          "s3": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "git"
+          },
+          {
+            "value": "svn"
+          },
+          {
+            "value": "archive"
+          },
+          {
+            "value": "s3"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#SslConfiguration": {
@@ -5648,7 +5975,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The contents of the certificate's domain.crt file.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Chain": {
@@ -5661,7 +5988,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The private key; the contents of the certificate's domain.kex file.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5821,9 +6148,11 @@
     "com.amazonaws.opsworks#StackAttributesKeys": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Color": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "Color"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#StackConfigurationManager": {
@@ -5920,7 +6249,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5949,7 +6278,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5984,7 +6313,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6013,7 +6342,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6063,14 +6392,14 @@
           "target": "com.amazonaws.opsworks#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The stack or layer's Amazon Resource Number (ARN).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
           "target": "com.amazonaws.opsworks#Tags",
           "traits": {
             "smithy.api#documentation": "<p>A map that contains tag keys and tag values that are attached to a stack or layer.</p>\n         <ul>\n            <li>\n               <p>The key cannot be empty.</p>\n            </li>\n            <li>\n               <p>The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>\n               </p>\n            </li>\n            <li>\n               <p>Leading and trailing white spaces are trimmed from both the key and value.</p>\n            </li>\n            <li>\n               <p>A maximum of 40 tags is allowed for any resource.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6169,7 +6498,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6198,7 +6527,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The volume ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6227,14 +6556,14 @@
           "target": "com.amazonaws.opsworks#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The stack or layer's Amazon Resource Number (ARN).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.opsworks#TagKeys",
           "traits": {
             "smithy.api#documentation": "<p>A list of the keys of tags to be removed from a stack or layer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6263,7 +6592,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The app ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AppSource": {
@@ -6352,7 +6681,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The IP address for which you want to update the name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -6429,7 +6758,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The instance ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InstanceType": {
@@ -6542,7 +6871,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The layer ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LifecycleEventConfiguration": {
@@ -6644,7 +6973,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon RDS instance's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6763,7 +7092,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The stack ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UseCustomCookbooks": {
@@ -6810,7 +7139,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The user IAM ARN. This can also be a federated user's ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKey": {
@@ -6863,7 +7192,7 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The volume ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6915,7 +7244,7 @@
     "com.amazonaws.opsworks#ValidForInMinutes": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 60,
           "max": 1440
@@ -6940,10 +7269,14 @@
     "com.amazonaws.opsworks#VirtualizationType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "paravirtual": { },
-          "hvm": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "paravirtual"
+          },
+          {
+            "value": "hvm"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#Volume": {
@@ -7057,14 +7390,14 @@
           "target": "com.amazonaws.opsworks#String",
           "traits": {
             "smithy.api#documentation": "<p>The volume mount point. For example \"/dev/sdh\".</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NumberOfDisks": {
           "target": "com.amazonaws.opsworks#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The number of disks in the volume.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RaidLevel": {
@@ -7077,7 +7410,7 @@
           "target": "com.amazonaws.opsworks#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The volume size.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VolumeType": {
@@ -7100,11 +7433,17 @@
     "com.amazonaws.opsworks#VolumeType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "gp2": { },
-          "io1": { },
-          "standard": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "gp2"
+          },
+          {
+            "value": "io1"
+          },
+          {
+            "value": "standard"
+          }
+        ]
       }
     },
     "com.amazonaws.opsworks#Volumes": {

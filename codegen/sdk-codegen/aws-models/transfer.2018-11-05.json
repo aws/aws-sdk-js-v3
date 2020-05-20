@@ -1,45 +1,44 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.necco.coral#AddressAllocationId": {
+    "com.amazonaws.transfer#AddressAllocationId": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#AddressAllocationIds": {
+    "com.amazonaws.transfer#AddressAllocationIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#AddressAllocationId"
+        "target": "com.amazonaws.transfer#AddressAllocationId"
       }
     },
-    "com.amazonaws.necco.coral#Arn": {
+    "com.amazonaws.transfer#Arn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -49,13 +48,13 @@
         "smithy.api#pattern": "arn:.*"
       }
     },
-    "com.amazonaws.necco.coral#ConflictException": {
+    "com.amazonaws.transfer#ConflictException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.necco.coral#Message",
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -65,513 +64,513 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.necco.coral#CreateServer": {
+    "com.amazonaws.transfer#CreateServer": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#CreateServerRequest"
+        "target": "com.amazonaws.transfer#CreateServerRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#CreateServerResponse"
+        "target": "com.amazonaws.transfer#CreateServerResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceExistsException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceExistsException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Instantiates an autoscaling virtual server based on Secure File Transfer Protocol (SFTP)\n      in AWS. When you make updates to your server or when you work with users, use the\n      service-generated <code>ServerId</code> property that is assigned to the newly created\n      server.</p>"
       }
     },
-    "com.amazonaws.necco.coral#CreateServerRequest": {
+    "com.amazonaws.transfer#CreateServerRequest": {
       "type": "structure",
       "members": {
         "EndpointDetails": {
-          "target": "com.amazonaws.necco.coral#EndpointDetails",
+          "target": "com.amazonaws.transfer#EndpointDetails",
           "traits": {
             "smithy.api#documentation": "<p>The virtual private cloud (VPC) endpoint settings that are configured for your SFTP server. With a VPC endpoint, \n      you can restrict access to your SFTP server to resources only within your VPC. \n      To control incoming internet traffic, you will need to invoke the <code>UpdateServer</code> API and attach an Elastic IP to your server's endpoint. </p>"
           }
         },
         "EndpointType": {
-          "target": "com.amazonaws.necco.coral#EndpointType",
+          "target": "com.amazonaws.transfer#EndpointType",
           "traits": {
             "smithy.api#documentation": "<p>The type of VPC endpoint that you want your SFTP server to connect to. \n      You can choose to connect to the public internet or a virtual private cloud (VPC) endpoint. With a VPC endpoint, \n      you can restrict access to your SFTP server and resources only within your VPC.</p>"
           }
         },
         "HostKey": {
-          "target": "com.amazonaws.necco.coral#HostKey",
+          "target": "com.amazonaws.transfer#HostKey",
           "traits": {
             "smithy.api#documentation": "<p>The RSA private key as generated by the <code>ssh-keygen -N \"\" -f my-new-server-key</code> command.</p>\n         <important>\n            <p>If you aren't planning to migrate existing users from an existing SFTP server to a new\n        AWS SFTP server, don't update the host key. Accidentally changing a server's host\n        key can be disruptive.</p>\n         </important>\n      \n         <p> For more information, see\n      \"https://alpha-docs-aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key\" in the <i>AWS\n        SFTP User Guide.</i>\n         </p>"
           }
         },
         "IdentityProviderDetails": {
-          "target": "com.amazonaws.necco.coral#IdentityProviderDetails",
+          "target": "com.amazonaws.transfer#IdentityProviderDetails",
           "traits": {
             "smithy.api#documentation": "<p>This parameter is required when the <code>IdentityProviderType</code>\n      is set to <code>API_GATEWAY</code>. Accepts an array containing all of the information required to call a customer-supplied\n      authentication API, including the API Gateway URL. This property is not required when the <code>IdentityProviderType</code>\n      is set to <code>SERVICE_MANAGED</code>.</p>"
           }
         },
         "IdentityProviderType": {
-          "target": "com.amazonaws.necco.coral#IdentityProviderType",
+          "target": "com.amazonaws.transfer#IdentityProviderType",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the mode of authentication for the SFTP server. The default value is\n        <code>SERVICE_MANAGED</code>, which allows you to store and access SFTP user credentials\n      within the AWS Transfer for SFTP service. Use the <code>API_GATEWAY</code> value to integrate with an\n      identity provider of your choosing. The <code>API_GATEWAY</code> setting requires you to\n      provide an API Gateway endpoint URL to call for authentication using the\n        <code>IdentityProviderDetails</code> parameter.</p>"
           }
         },
         "LoggingRole": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>A value that allows the service to write your SFTP users' activity to your Amazon\n      CloudWatch logs for monitoring and auditing purposes.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.necco.coral#Tags",
+          "target": "com.amazonaws.transfer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>Key-value pairs that can be used to group and search for servers.</p>"
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#CreateServerResponse": {
+    "com.amazonaws.transfer#CreateServerResponse": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>The service-assigned ID of the SFTP server that is created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#CreateUser": {
+    "com.amazonaws.transfer#CreateUser": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#CreateUserRequest"
+        "target": "com.amazonaws.transfer#CreateUserRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#CreateUserResponse"
+        "target": "com.amazonaws.transfer#CreateUserResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceExistsException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceExistsException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a user and associates them with an existing Secure File Transfer Protocol (SFTP)\n      server. You can only create and associate users with SFTP servers that have the <code>IdentityProviderType</code>\n      set to <code>SERVICE_MANAGED</code>. Using parameters for <code>CreateUser</code>, you can specify the user name, set the\n      home directory, store the user's public key, and assign the user's AWS Identity and Access\n      Management (IAM) role. You can also optionally add a scope-down policy, and assign metadata\n      with tags that can be used to group and search for users.</p>"
       }
     },
-    "com.amazonaws.necco.coral#CreateUserRequest": {
+    "com.amazonaws.transfer#CreateUserRequest": {
       "type": "structure",
       "members": {
         "HomeDirectory": {
-          "target": "com.amazonaws.necco.coral#HomeDirectory",
+          "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
             "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using their SFTP\n      client. </p>\n         <p>An example is <<code>your-Amazon-S3-bucket-name>/home/username</code>.</p>"
           }
         },
         "HomeDirectoryMappings": {
-          "target": "com.amazonaws.necco.coral#HomeDirectoryMappings",
+          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
             "smithy.api#documentation": "<p>Logical directory mappings that specify what S3 paths and keys should be visible to your\n      user and how you want to make them visible. You will need to specify the \"<code>Entry</code>\"\n      and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the path is made visible\n      and <code>Target</code> is the actual S3 path. If you only specify a target, it will be\n      displayed as is. You will need to also make sure that your AWS IAM Role provides access to\n      paths in <code>Target</code>. The following is an example.</p>\n         <p>\n            <code>'[ \"/bucket2/documentation\", { \"Entry\": \"your-personal-report.pdf\", \"Target\":\n        \"/bucket3/customized-reports/${transfer:UserName}.pdf\" } ]'</code>\n         </p>\n         <p>In most cases, you can use this value instead of the scope down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value. </p>\n         <note>\n            <p>If the target of a logical directory entry does not exist in S3, the entry will be ignored. As\n        a workaround, you can use the S3 api to create 0 byte objects as place holders for your\n        directory. If using the CLI, use the s3api call instead of s3 so you can use the put-object\n        operation. For example, you use the following: <code>aws s3api put-object --bucket\n          bucketname --key path/to/folder/</code>.  Make sure that the end of the key name ends in a\n        / for it to be considered a folder. </p>\n     \n         </note>"
           }
         },
         "HomeDirectoryType": {
-          "target": "com.amazonaws.necco.coral#HomeDirectoryType",
+          "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
             "smithy.api#documentation": "<p>The type of landing directory (folder) you want your users' home directory to be when they\n      log into the SFTP server. If you set it to <code>PATH</code>, the user will see the absolute\n      Amazon S3 bucket paths as is in their SFTP clients. If you set it <code>LOGICAL</code>, you\n      will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make\n      S3 paths visible to your user.</p>"
           }
         },
         "Policy": {
-          "target": "com.amazonaws.necco.coral#Policy",
+          "target": "com.amazonaws.transfer#Policy",
           "traits": {
             "smithy.api#documentation": "<p>A scope-down policy for your user so you can use the same IAM role across multiple users.\n      This policy scopes down user access to portions of their Amazon S3 bucket. Variables that you\n      can use inside this policy include <code>${Transfer:UserName}</code>,\n        <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>\n         <note>\n            <p>For scope-down policies, AWS Transfer for SFTP stores the policy as a JSON blob, instead\n        of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass\n        it in the\n          <code>Policy</code>\n        argument.</p>\n         \n            <p>For an example of a scope-down policy, see\n        \"https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down\">Creating\n        a Scope-Down Policy.</p>\n      \n         \n            <p>For more information, see\n        \"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html\" in the\n          <i>AWS Security Token Service API Reference</i>.</p>\n      \n         </note>"
           }
         },
         "Role": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role that controls your user's access to your Amazon S3 bucket. The policies\n      attached to this role will determine the level of access you want to provide your users when\n      transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also\n      contain a trust relationship that allows the SFTP server to access your resources when\n      servicing your SFTP user's transfer requests.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server instance. This is the specific SFTP\n      server that you added your user to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKeyBody": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeyBody",
+          "target": "com.amazonaws.transfer#SshPublicKeyBody",
           "traits": {
             "smithy.api#documentation": "<p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the SFTP\n      server.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.necco.coral#Tags",
+          "target": "com.amazonaws.transfer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>Key-value pairs that can be used to group and search for users. Tags are metadata attached\n      to users for any purpose.</p>"
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>A unique string that identifies a user and is associated with a server as specified by the\n        <code>ServerId</code>. This user name must be a minimum of 3 and a maximum of 32 characters\n      long. The following are valid characters: a-z, A-Z, 0-9, underscore, and hyphen. The user name\n      can't start with a hyphen.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#CreateUserResponse": {
+    "com.amazonaws.transfer#CreateUserResponse": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the SFTP server that the user is attached to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>A unique string that identifies a user account associated with an SFTP server.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DateImported": {
+    "com.amazonaws.transfer#DateImported": {
       "type": "timestamp"
     },
-    "com.amazonaws.necco.coral#DeleteServer": {
+    "com.amazonaws.transfer#DeleteServer": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#DeleteServerRequest"
+        "target": "com.amazonaws.transfer#DeleteServerRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the Secure File Transfer Protocol (SFTP) server that you specify.</p>\n\n\n         <p>No response returns from this operation.</p>"
       }
     },
-    "com.amazonaws.necco.coral#DeleteServerRequest": {
+    "com.amazonaws.transfer#DeleteServerRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A unique system-assigned identifier for an SFTP server instance.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DeleteSshPublicKey": {
+    "com.amazonaws.transfer#DeleteSshPublicKey": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#DeleteSshPublicKeyRequest"
+        "target": "com.amazonaws.transfer#DeleteSshPublicKeyRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ThrottlingException"
+          "target": "com.amazonaws.transfer#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes a user's Secure Shell (SSH) public key.</p>\n\n         <p>No response is returned from this operation.</p>"
       }
     },
-    "com.amazonaws.necco.coral#DeleteSshPublicKeyRequest": {
+    "com.amazonaws.transfer#DeleteSshPublicKeyRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for a Secure File Transfer Protocol (SFTP) server\n      instance that has the user assigned to it.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKeyId": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeyId",
+          "target": "com.amazonaws.transfer#SshPublicKeyId",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier used to reference your user's specific SSH key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>A unique string that identifies a user whose public key is being deleted.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DeleteUser": {
+    "com.amazonaws.transfer#DeleteUser": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#DeleteUserRequest"
+        "target": "com.amazonaws.transfer#DeleteUserRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the user belonging to the server you specify.</p>\n\n         <p>No response returns from this operation.</p>\n\n         <note>\n            <p>When you delete a user from a server, the user's information is lost.</p>\n         </note>"
       }
     },
-    "com.amazonaws.necco.coral#DeleteUserRequest": {
+    "com.amazonaws.transfer#DeleteUserRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server instance that has the user assigned\n      to it.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>A unique string that identifies a user that is being deleted from the server.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DescribeServer": {
+    "com.amazonaws.transfer#DescribeServer": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#DescribeServerRequest"
+        "target": "com.amazonaws.transfer#DescribeServerRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#DescribeServerResponse"
+        "target": "com.amazonaws.transfer#DescribeServerResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes the server that you specify by passing the <code>ServerId</code>\n      parameter.</p>\n\n         <p>The response contains a description of the server's properties. When you set\n        <code>EndpointType</code> to VPC, the response will contain the\n      <code>EndpointDetails</code>.</p>"
       }
     },
-    "com.amazonaws.necco.coral#DescribeServerRequest": {
+    "com.amazonaws.transfer#DescribeServerRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DescribeServerResponse": {
+    "com.amazonaws.transfer#DescribeServerResponse": {
       "type": "structure",
       "members": {
         "Server": {
-          "target": "com.amazonaws.necco.coral#DescribedServer",
+          "target": "com.amazonaws.transfer#DescribedServer",
           "traits": {
             "smithy.api#documentation": "<p>An array containing the properties of the server with the <code>ServerID</code> you\n      specified.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DescribeUser": {
+    "com.amazonaws.transfer#DescribeUser": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#DescribeUserRequest"
+        "target": "com.amazonaws.transfer#DescribeUserRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#DescribeUserResponse"
+        "target": "com.amazonaws.transfer#DescribeUserResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes the user assigned to a specific server, as identified by its\n        <code>ServerId</code> property.</p>\n\n         <p>The response from this call returns the properties of the user associated with the\n        <code>ServerId</code> value that was specified.</p>"
       }
     },
-    "com.amazonaws.necco.coral#DescribeUserRequest": {
+    "com.amazonaws.transfer#DescribeUserRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server that has this user assigned.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the user assigned to one or more servers. User names are part of the sign-in\n      credentials to use the AWS Transfer for SFTP service and perform file transfer tasks.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DescribeUserResponse": {
+    "com.amazonaws.transfer#DescribeUserResponse": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server that has this user assigned.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "User": {
-          "target": "com.amazonaws.necco.coral#DescribedUser",
+          "target": "com.amazonaws.transfer#DescribedUser",
           "traits": {
             "smithy.api#documentation": "<p>An array containing the properties of the user account for the <code>ServerID</code> value\n      that you specified.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#DescribedServer": {
+    "com.amazonaws.transfer#DescribedServer": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the unique Amazon Resource Name (ARN) for the server to be described.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EndpointDetails": {
-          "target": "com.amazonaws.necco.coral#EndpointDetails",
+          "target": "com.amazonaws.transfer#EndpointDetails",
           "traits": {
             "smithy.api#documentation": "<p>The virtual private cloud (VPC) endpoint settings that you configured for your SFTP server.</p>"
           }
         },
         "EndpointType": {
-          "target": "com.amazonaws.necco.coral#EndpointType",
+          "target": "com.amazonaws.transfer#EndpointType",
           "traits": {
             "smithy.api#documentation": "<p>The type of endpoint that your SFTP server is connected to. If your SFTP server is\n      connected to a VPC endpoint, your server isn't accessible over the public internet.</p>"
           }
         },
         "HostKeyFingerprint": {
-          "target": "com.amazonaws.necco.coral#HostKeyFingerprint",
+          "target": "com.amazonaws.transfer#HostKeyFingerprint",
           "traits": {
             "smithy.api#documentation": "<p>This value contains the message-digest algorithm (MD5) hash of the server's host key. This\n      value is equivalent to the output of the <code>ssh-keygen -l -E md5 -f\n        my-new-server-key</code> command.</p>"
           }
         },
         "IdentityProviderDetails": {
-          "target": "com.amazonaws.necco.coral#IdentityProviderDetails",
+          "target": "com.amazonaws.transfer#IdentityProviderDetails",
           "traits": {
             "smithy.api#documentation": "<p>Specifies information to call a customer-supplied authentication API. This field is not\n      populated when the <code>IdentityProviderType</code> of the server is\n        <code>SERVICE_MANAGED</code>>.</p>"
           }
         },
         "IdentityProviderType": {
-          "target": "com.amazonaws.necco.coral#IdentityProviderType",
+          "target": "com.amazonaws.transfer#IdentityProviderType",
           "traits": {
             "smithy.api#documentation": "<p>This property defines the mode of authentication method enabled for this service. A value\n      of <code>SERVICE_MANAGED</code> means that you are using this server to store and access SFTP\n      user credentials within the service. A value of <code>API_GATEWAY</code> indicates that you\n      have integrated an API Gateway endpoint that will be invoked for authenticating your user into\n      the service.</p>"
           }
         },
         "LoggingRole": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>This property is an AWS Identity and Access Management (IAM) entity that allows the server\n      to turn on Amazon CloudWatch logging for Amazon S3 events. When set, user activity can be\n      viewed in your CloudWatch logs.</p>"
           }
         },
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>This property is a unique system-assigned identifier for the SFTP server that you\n      instantiate.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.necco.coral#State",
+          "target": "com.amazonaws.transfer#State",
           "traits": {
             "smithy.api#documentation": "<p>The condition of the SFTP server for the server that was described. A value of\n        <code>ONLINE</code> indicates that the server can accept jobs and transfer files. A\n        <code>State</code> value of <code>OFFLINE</code> means that the server cannot perform file\n      transfer operations.</p>\n\n         <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is\n      in an intermediate state, either not fully able to respond, or not fully offline. The values\n      of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error\n      condition.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.necco.coral#Tags",
+          "target": "com.amazonaws.transfer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>This property contains the key-value pairs that you can use to search for and group\n      servers that were assigned to the server that was described.</p>"
           }
         },
         "UserCount": {
-          "target": "com.amazonaws.necco.coral#UserCount",
+          "target": "com.amazonaws.transfer#UserCount",
           "traits": {
             "smithy.api#documentation": "<p>The number of users that are assigned to the SFTP server you specified with the\n        <code>ServerId</code>.</p>"
           }
@@ -581,60 +580,60 @@
         "smithy.api#documentation": "<p>Describes the properties of the server that was specified. Information returned includes\n      the following: the server Amazon Resource Name (ARN), the authentication configuration and\n      type, the logging role, the server ID and state, and assigned tags or metadata. </p>"
       }
     },
-    "com.amazonaws.necco.coral#DescribedUser": {
+    "com.amazonaws.transfer#DescribedUser": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>This property contains the unique Amazon Resource Name (ARN) for the user that was\n      requested to be described.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HomeDirectory": {
-          "target": "com.amazonaws.necco.coral#HomeDirectory",
+          "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
             "smithy.api#documentation": "<p>This property specifies the landing directory (or\n      folder),\n      which is the location that files are written to or read from in an Amazon S3 bucket for the\n      described user. An example is <code>/<i>your s3 bucket\n          name</i>/home/<i>username</i>\n            </code>.</p>"
           }
         },
         "HomeDirectoryMappings": {
-          "target": "com.amazonaws.necco.coral#HomeDirectoryMappings",
+          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
             "smithy.api#documentation": "<p>Logical directory mappings that you specified for what S3 paths and keys should be visible\n      to your user and how you want to make them visible. You will need to specify the\n        \"<code>Entry</code>\" and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the\n      path is made visible and <code>Target</code> is the actual S3 path. If you only specify a\n      target, it will be displayed as is. You will need to also make sure that your AWS IAM Role\n      provides access to paths in <code>Target</code>.</p>\n         <p>In most cases, you can use this value instead of the scope down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value. </p>\n         <p>In most cases, you can use this value instead of the scope down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>"
           }
         },
         "HomeDirectoryType": {
-          "target": "com.amazonaws.necco.coral#HomeDirectoryType",
+          "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
             "smithy.api#documentation": "<p>The type of landing directory (folder) you mapped for your users' to see when they log\n      into the SFTP server. If you set it to <code>PATH</code>, the user will see the absolute\n      Amazon S3 bucket paths as is in their SFTP clients. If you set it <code>LOGICAL</code>, you\n      will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make\n      S3 paths visible to your user.</p>"
           }
         },
         "Policy": {
-          "target": "com.amazonaws.necco.coral#Policy",
+          "target": "com.amazonaws.transfer#Policy",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the name of the policy in use for the described user.</p>"
           }
         },
         "Role": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>This property specifies the IAM role that controls your user's access to your Amazon S3\n      bucket. The policies attached to this role will determine the level of access you want to\n      provide your users when transferring files into and out of your Amazon S3 bucket or buckets.\n      The IAM role should also contain a trust relationship that allows the SFTP server to access\n      your resources when servicing your SFTP user's transfer requests.</p>"
           }
         },
         "SshPublicKeys": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeys",
+          "target": "com.amazonaws.transfer#SshPublicKeys",
           "traits": {
             "smithy.api#documentation": "<p>This property contains the public key portion of the Secure Shell (SSH) keys stored for\n      the described user.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.necco.coral#Tags",
+          "target": "com.amazonaws.transfer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>This property contains the key-value pairs for the user requested. Tag can be used to\n      search for and group users for a variety of purposes.</p>"
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>This property is the name of the user that was requested to be described. User names are\n      used for authentication purposes. This is the string that will be used by your user when they\n      log in to your SFTP server.</p>"
           }
@@ -644,29 +643,29 @@
         "smithy.api#documentation": "<p>Returns properties of the user that you want to describe.</p>"
       }
     },
-    "com.amazonaws.necco.coral#EndpointDetails": {
+    "com.amazonaws.transfer#EndpointDetails": {
       "type": "structure",
       "members": {
         "AddressAllocationIds": {
-          "target": "com.amazonaws.necco.coral#AddressAllocationIds",
+          "target": "com.amazonaws.transfer#AddressAllocationIds",
           "traits": {
             "smithy.api#documentation": "<p>A list of address allocation IDs that are required to attach an Elastic IP address to your\n      SFTP server's endpoint. This is only valid in the <code>UpdateServer</code> API.</p>\n         <note>\n            <p>This property can only be use when <code>EndpointType</code> is set to\n        <code>VPC</code>.</p>\n         </note>"
           }
         },
         "SubnetIds": {
-          "target": "com.amazonaws.necco.coral#SubnetIds",
+          "target": "com.amazonaws.transfer#SubnetIds",
           "traits": {
             "smithy.api#documentation": "<p>A list of subnet IDs that are required to host your SFTP server endpoint in your\n      VPC.</p>"
           }
         },
         "VpcEndpointId": {
-          "target": "com.amazonaws.necco.coral#VpcEndpointId",
+          "target": "com.amazonaws.transfer#VpcEndpointId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the VPC endpoint.</p>"
           }
         },
         "VpcId": {
-          "target": "com.amazonaws.necco.coral#VpcId",
+          "target": "com.amazonaws.transfer#VpcId",
           "traits": {
             "smithy.api#documentation": "<p>The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted.</p>"
           }
@@ -676,23 +675,26 @@
         "smithy.api#documentation": "<p>The virtual private cloud (VPC) endpoint settings that are configured for your SFTP server. \n      With a VPC endpoint, you can restrict access to your SFTP server and resources only within your VPC. \n      To control incoming internet traffic, invoke the <code>UpdateServer</code> API and attach an Elastic IP to your server's endpoint. </p>"
       }
     },
-    "com.amazonaws.necco.coral#EndpointType": {
+    "com.amazonaws.transfer#EndpointType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PUBLIC": {
+        "smithy.api#enum": [
+          {
+            "value": "PUBLIC",
             "name": "PUBLIC"
           },
-          "VPC": {
+          {
+            "value": "VPC",
             "name": "VPC"
           },
-          "VPC_ENDPOINT": {
+          {
+            "value": "VPC_ENDPOINT",
             "name": "VPC_ENDPOINT"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.necco.coral#HomeDirectory": {
+    "com.amazonaws.transfer#HomeDirectory": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -702,21 +704,21 @@
         "smithy.api#pattern": "^$|/.*"
       }
     },
-    "com.amazonaws.necco.coral#HomeDirectoryMapEntry": {
+    "com.amazonaws.transfer#HomeDirectoryMapEntry": {
       "type": "structure",
       "members": {
         "Entry": {
-          "target": "com.amazonaws.necco.coral#MapEntry",
+          "target": "com.amazonaws.transfer#MapEntry",
           "traits": {
             "smithy.api#documentation": "<p>Represents an entry and a target for <code>HomeDirectoryMappings</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Target": {
-          "target": "com.amazonaws.necco.coral#MapTarget",
+          "target": "com.amazonaws.transfer#MapTarget",
           "traits": {
             "smithy.api#documentation": "<p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -724,10 +726,10 @@
         "smithy.api#documentation": "<p>Represents an object that contains entries and a targets for\n        <code>HomeDirectoryMappings</code>.</p>"
       }
     },
-    "com.amazonaws.necco.coral#HomeDirectoryMappings": {
+    "com.amazonaws.transfer#HomeDirectoryMappings": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#HomeDirectoryMapEntry"
+        "target": "com.amazonaws.transfer#HomeDirectoryMapEntry"
       },
       "traits": {
         "smithy.api#length": {
@@ -736,43 +738,45 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#HomeDirectoryType": {
+    "com.amazonaws.transfer#HomeDirectoryType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PATH": {
+        "smithy.api#enum": [
+          {
+            "value": "PATH",
             "name": "PATH"
           },
-          "LOGICAL": {
+          {
+            "value": "LOGICAL",
             "name": "LOGICAL"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.necco.coral#HostKey": {
+    "com.amazonaws.transfer#HostKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 4096
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.necco.coral#HostKeyFingerprint": {
+    "com.amazonaws.transfer#HostKeyFingerprint": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#IdentityProviderDetails": {
+    "com.amazonaws.transfer#IdentityProviderDetails": {
       "type": "structure",
       "members": {
         "InvocationRole": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>The <code>InvocationRole</code> parameter provides the type of <code>InvocationRole</code> used to\n      authenticate the user account.</p>"
           }
         },
         "Url": {
-          "target": "com.amazonaws.necco.coral#Url",
+          "target": "com.amazonaws.transfer#Url",
           "traits": {
             "smithy.api#documentation": "<p>The <code>Url</code> parameter provides contains the location of the service\n      endpoint used to authenticate users.</p>"
           }
@@ -782,100 +786,102 @@
         "smithy.api#documentation": "<p>Returns information related to the type of user authentication that is in use for a\n      server's users. A server can have only one method of authentication.</p>"
       }
     },
-    "com.amazonaws.necco.coral#IdentityProviderType": {
+    "com.amazonaws.transfer#IdentityProviderType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Returns information related to the type of user authentication that is in use for a\n      server's users. For <code>SERVICE_MANAGED</code> authentication, the Secure Shell (SSH) public\n      keys are stored with a user on an SFTP server instance. For <code>API_GATEWAY</code>\n      authentication, your custom authentication method is implemented by using an API call. A\n      server can have only one method of authentication.</p>",
-        "smithy.api#enum": {
-          "SERVICE_MANAGED": {
+        "smithy.api#enum": [
+          {
+            "value": "SERVICE_MANAGED",
             "name": "SERVICE_MANAGED"
           },
-          "API_GATEWAY": {
+          {
+            "value": "API_GATEWAY",
             "name": "API_GATEWAY"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.necco.coral#ImportSshPublicKey": {
+    "com.amazonaws.transfer#ImportSshPublicKey": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#ImportSshPublicKeyRequest"
+        "target": "com.amazonaws.transfer#ImportSshPublicKeyRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#ImportSshPublicKeyResponse"
+        "target": "com.amazonaws.transfer#ImportSshPublicKeyResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceExistsException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceExistsException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ThrottlingException"
+          "target": "com.amazonaws.transfer#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Adds a Secure Shell (SSH) public key to a user account identified by a\n        <code>UserName</code> value assigned to a specific server, identified by\n        <code>ServerId</code>.</p>\n\n         <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and\n      the name of the <code>SshPublicKeyId</code>.</p>"
       }
     },
-    "com.amazonaws.necco.coral#ImportSshPublicKeyRequest": {
+    "com.amazonaws.transfer#ImportSshPublicKeyRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKeyBody": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeyBody",
+          "target": "com.amazonaws.transfer#SshPublicKeyBody",
           "traits": {
             "smithy.api#documentation": "<p>The public key portion of an SSH key pair.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the user account that is assigned to one or more servers.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ImportSshPublicKeyResponse": {
+    "com.amazonaws.transfer#ImportSshPublicKeyResponse": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKeyId": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeyId",
+          "target": "com.amazonaws.transfer#SshPublicKeyId",
           "traits": {
             "smithy.api#documentation": "<p>This identifier is the name given to a public key by the system that was imported.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>A user name assigned to the <code>ServerID</code> value that you specified.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -883,13 +889,13 @@
         "smithy.api#documentation": "<p>This response identifies the user, the server they belong to, and the identifier of the\n      SSH public key associated with that user. A user can have more than one key on each server\n      that they are associated with.</p>"
       }
     },
-    "com.amazonaws.necco.coral#InternalServiceError": {
+    "com.amazonaws.transfer#InternalServiceError": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.necco.coral#Message",
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -899,13 +905,13 @@
         "smithy.api#httpError": 503
       }
     },
-    "com.amazonaws.necco.coral#InvalidNextTokenException": {
+    "com.amazonaws.transfer#InvalidNextTokenException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.necco.coral#Message",
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -915,13 +921,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.necco.coral#InvalidRequestException": {
+    "com.amazonaws.transfer#InvalidRequestException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.necco.coral#Message",
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -931,26 +937,26 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.necco.coral#ListServers": {
+    "com.amazonaws.transfer#ListServers": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#ListServersRequest"
+        "target": "com.amazonaws.transfer#ListServersRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#ListServersResponse"
+        "target": "com.amazonaws.transfer#ListServersResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidNextTokenException"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -962,61 +968,61 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#ListServersRequest": {
+    "com.amazonaws.transfer#ListServersRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.necco.coral#MaxResults",
+          "target": "com.amazonaws.transfer#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of servers to return as a response to the <code>ListServers</code>\n      query.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.necco.coral#NextToken",
+          "target": "com.amazonaws.transfer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When additional results are obtained from the\n        <code>ListServers</code>\n      command, a <code>NextToken</code> parameter is returned in the output. You can then pass the\n        <code>NextToken</code> parameter in a subsequent command to continue listing additional\n      servers.</p>"
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ListServersResponse": {
+    "com.amazonaws.transfer#ListServersResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.necco.coral#NextToken",
+          "target": "com.amazonaws.transfer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When you can get additional results from the <code>ListServers</code> operation, a\n        <code>NextToken</code> parameter is returned in the output. In a following command, you can\n      pass in the <code>NextToken</code> parameter to continue listing additional servers.</p>"
           }
         },
         "Servers": {
-          "target": "com.amazonaws.necco.coral#ListedServers",
+          "target": "com.amazonaws.transfer#ListedServers",
           "traits": {
             "smithy.api#documentation": "<p>An array of servers that were listed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ListTagsForResource": {
+    "com.amazonaws.transfer#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#ListTagsForResourceRequest"
+        "target": "com.amazonaws.transfer#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#ListTagsForResourceResponse"
+        "target": "com.amazonaws.transfer#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidNextTokenException"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1028,76 +1034,76 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#ListTagsForResourceRequest": {
+    "com.amazonaws.transfer#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN is an\n      identifier for a specific AWS resource, such as a server, user, or role.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.necco.coral#MaxResults",
+          "target": "com.amazonaws.transfer#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of tags to return as a response to the\n        <code>ListTagsForResource</code> request.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.necco.coral#NextToken",
+          "target": "com.amazonaws.transfer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When you request additional results from the <code>ListTagsForResource</code> operation, a\n        <code>NextToken</code> parameter is returned in the input. You can then pass in a subsequent\n      command to the <code>NextToken</code> parameter to continue listing additional tags.</p>"
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ListTagsForResourceResponse": {
+    "com.amazonaws.transfer#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>This value is the ARN you specified to list the tags of.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.necco.coral#NextToken",
+          "target": "com.amazonaws.transfer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When you can get additional results from the <code>ListTagsForResource</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      tags.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.necco.coral#Tags",
+          "target": "com.amazonaws.transfer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>Key-value pairs that are assigned to a resource, usually for the purpose of grouping and\n      searching for items. Tags are metadata that you define.</p>"
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ListUsers": {
+    "com.amazonaws.transfer#ListUsers": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#ListUsersRequest"
+        "target": "com.amazonaws.transfer#ListUsersRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#ListUsersResponse"
+        "target": "com.amazonaws.transfer#ListUsersResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidNextTokenException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidNextTokenException"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1109,97 +1115,97 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#ListUsersRequest": {
+    "com.amazonaws.transfer#ListUsersRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.necco.coral#MaxResults",
+          "target": "com.amazonaws.transfer#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of users to return as a response to the <code>ListUsers</code>\n      request.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.necco.coral#NextToken",
+          "target": "com.amazonaws.transfer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When you can get additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      users.</p>"
           }
         },
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for a Secure File Transfer Protocol (SFTP) server that\n      has users assigned to it.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ListUsersResponse": {
+    "com.amazonaws.transfer#ListUsersResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.necco.coral#NextToken",
+          "target": "com.amazonaws.transfer#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>When you can get additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      users.</p>"
           }
         },
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server that the users are assigned\n      to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Users": {
-          "target": "com.amazonaws.necco.coral#ListedUsers",
+          "target": "com.amazonaws.transfer#ListedUsers",
           "traits": {
             "smithy.api#documentation": "<p>Returns the user accounts and their properties for the <code>ServerId</code> value that\n      you specify.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ListedServer": {
+    "com.amazonaws.transfer#ListedServer": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The unique Amazon Resource Name (ARN) for the server to be listed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EndpointType": {
-          "target": "com.amazonaws.necco.coral#EndpointType",
+          "target": "com.amazonaws.transfer#EndpointType",
           "traits": {
             "smithy.api#documentation": "<p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP server is\n      connected to a VPC endpoint, your server isn't accessible over the public internet.</p>"
           }
         },
         "IdentityProviderType": {
-          "target": "com.amazonaws.necco.coral#IdentityProviderType",
+          "target": "com.amazonaws.transfer#IdentityProviderType",
           "traits": {
             "smithy.api#documentation": "<p>The authentication method used to validate a user for the server that was specified. This\n      can include Secure Shell (SSH), user name and password combinations, or your own custom\n      authentication method. Valid values include <code>SERVICE_MANAGED</code> or\n        <code>API_GATEWAY</code>.</p>"
           }
         },
         "LoggingRole": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Identity and Access Management entity that allows the server to turn on Amazon\n      CloudWatch logging.</p>"
           }
         },
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>This value is the unique system assigned identifier for the SFTP servers that were\n      listed.</p>"
           }
         },
         "State": {
-          "target": "com.amazonaws.necco.coral#State",
+          "target": "com.amazonaws.transfer#State",
           "traits": {
             "smithy.api#documentation": "<p>This property describes the condition of the SFTP server for the server that was\n      described. A value of <code>ONLINE</code>> indicates that the server can accept jobs and\n      transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server\n      cannot perform file transfer operations.</p>\n\n         <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is\n      in an intermediate state, either not fully able to respond, or not fully offline. The values\n      of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error\n      condition.</p>"
           }
         },
         "UserCount": {
-          "target": "com.amazonaws.necco.coral#UserCount",
+          "target": "com.amazonaws.transfer#UserCount",
           "traits": {
             "smithy.api#documentation": "<p>This property is a numeric value that indicates the number of users that are assigned to\n      the SFTP server you specified with the <code>ServerId</code>.</p>"
           }
@@ -1209,48 +1215,48 @@
         "smithy.api#documentation": "<p>Returns properties of the server that was specified.</p>"
       }
     },
-    "com.amazonaws.necco.coral#ListedServers": {
+    "com.amazonaws.transfer#ListedServers": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#ListedServer"
+        "target": "com.amazonaws.transfer#ListedServer"
       }
     },
-    "com.amazonaws.necco.coral#ListedUser": {
+    "com.amazonaws.transfer#ListedUser": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>This property is the unique Amazon Resource Name (ARN) for the user that you want to learn\n      about.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "HomeDirectory": {
-          "target": "com.amazonaws.necco.coral#HomeDirectory",
+          "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
             "smithy.api#documentation": "<p>This value specifies the location that files are written to or read from an Amazon S3\n      bucket for the user you specify by their ARN.</p>"
           }
         },
         "HomeDirectoryType": {
-          "target": "com.amazonaws.necco.coral#HomeDirectoryType",
+          "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
             "smithy.api#documentation": "<p>The type of landing directory (folder) you mapped for your users' home directory. If you\n      set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket paths as is in\n      their SFTP clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in\n      the <code>HomeDirectoryMappings</code> for how you want to make S3 paths visible to your\n      user.</p>"
           }
         },
         "Role": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>The role in use by this user. A <i>role</i> is an AWS Identity and Access\n      Management (IAM) entity\n      that,\n      in this\n      case,\n      allows the SFTP server to act on a user's behalf. It allows the server to inherit the trust\n      relationship that enables that user to perform file operations to their Amazon S3\n      bucket.</p>"
           }
         },
         "SshPublicKeyCount": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeyCount",
+          "target": "com.amazonaws.transfer#SshPublicKeyCount",
           "traits": {
             "smithy.api#documentation": "<p>This value is the number of SSH public keys stored for the user you specified.</p>"
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the user whose ARN was specified. User names are used for authentication\n      purposes.</p>"
           }
@@ -1260,13 +1266,13 @@
         "smithy.api#documentation": "<p>Returns properties of the user that you specify.</p>"
       }
     },
-    "com.amazonaws.necco.coral#ListedUsers": {
+    "com.amazonaws.transfer#ListedUsers": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#ListedUser"
+        "target": "com.amazonaws.transfer#ListedUser"
       }
     },
-    "com.amazonaws.necco.coral#MapEntry": {
+    "com.amazonaws.transfer#MapEntry": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1276,7 +1282,7 @@
         "smithy.api#pattern": "^/.*"
       }
     },
-    "com.amazonaws.necco.coral#MapTarget": {
+    "com.amazonaws.transfer#MapTarget": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1286,20 +1292,20 @@
         "smithy.api#pattern": "^/.*"
       }
     },
-    "com.amazonaws.necco.coral#MaxResults": {
+    "com.amazonaws.transfer#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
         }
       }
     },
-    "com.amazonaws.necco.coral#Message": {
+    "com.amazonaws.transfer#Message": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#NextToken": {
+    "com.amazonaws.transfer#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1308,7 +1314,7 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#NullableRole": {
+    "com.amazonaws.transfer#NullableRole": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1318,7 +1324,7 @@
         "smithy.api#pattern": "^$|arn:.*role/.*"
       }
     },
-    "com.amazonaws.necco.coral#Policy": {
+    "com.amazonaws.transfer#Policy": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1327,28 +1333,28 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#Resource": {
+    "com.amazonaws.transfer#Resource": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#ResourceExistsException": {
+    "com.amazonaws.transfer#ResourceExistsException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.necco.coral#Message",
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Resource": {
-          "target": "com.amazonaws.necco.coral#Resource",
+          "target": "com.amazonaws.transfer#Resource",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.necco.coral#ResourceType",
+          "target": "com.amazonaws.transfer#ResourceType",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1358,25 +1364,25 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.necco.coral#ResourceNotFoundException": {
+    "com.amazonaws.transfer#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.necco.coral#Message",
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Resource": {
-          "target": "com.amazonaws.necco.coral#Resource",
+          "target": "com.amazonaws.transfer#Resource",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.necco.coral#ResourceType",
+          "target": "com.amazonaws.transfer#ResourceType",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1386,16 +1392,16 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.necco.coral#ResourceType": {
+    "com.amazonaws.transfer#ResourceType": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#Response": {
+    "com.amazonaws.transfer#Response": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#RetryAfterSeconds": {
+    "com.amazonaws.transfer#RetryAfterSeconds": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#Role": {
+    "com.amazonaws.transfer#Role": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1405,7 +1411,7 @@
         "smithy.api#pattern": "arn:.*role/.*"
       }
     },
-    "com.amazonaws.necco.coral#ServerId": {
+    "com.amazonaws.transfer#ServerId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1415,14 +1421,14 @@
         "smithy.api#pattern": "^s-([0-9a-f]{17})$"
       }
     },
-    "com.amazon.coral.service#ServiceErrorMessage": {
+    "com.amazonaws.transfer#ServiceErrorMessage": {
       "type": "string"
     },
-    "com.amazon.coral.service#ServiceUnavailableException": {
+    "com.amazonaws.transfer#ServiceUnavailableException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.coral.service#ServiceErrorMessage"
+          "target": "com.amazonaws.transfer#ServiceErrorMessage"
         }
       },
       "traits": {
@@ -1431,28 +1437,28 @@
         "smithy.api#httpError": 503
       }
     },
-    "com.amazonaws.necco.coral#SshPublicKey": {
+    "com.amazonaws.transfer#SshPublicKey": {
       "type": "structure",
       "members": {
         "DateImported": {
-          "target": "com.amazonaws.necco.coral#DateImported",
+          "target": "com.amazonaws.transfer#DateImported",
           "traits": {
             "smithy.api#documentation": "<p>The date that the public key was added to the user account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKeyBody": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeyBody",
+          "target": "com.amazonaws.transfer#SshPublicKeyBody",
           "traits": {
             "smithy.api#documentation": "<p>The content of the SSH public key as specified by the <code>PublicKeyId</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SshPublicKeyId": {
-          "target": "com.amazonaws.necco.coral#SshPublicKeyId",
+          "target": "com.amazonaws.transfer#SshPublicKeyId",
           "traits": {
             "smithy.api#documentation": "<p>The <code>SshPublicKeyId</code> parameter contains the identifier of the public\n      key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1460,7 +1466,7 @@
         "smithy.api#documentation": "<p>Provides information about the public Secure Shell (SSH) key that is associated with a\n      user account for a specific server (as identified by <code>ServerId</code>). The information\n      returned includes the date the key was imported, the public key contents, and the public key\n      ID. A user can store more than one SSH public key associated with their user name on a\n      specific SFTP server.</p>"
       }
     },
-    "com.amazonaws.necco.coral#SshPublicKeyBody": {
+    "com.amazonaws.transfer#SshPublicKeyBody": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1470,13 +1476,13 @@
         "smithy.api#pattern": "^ssh-rsa\\s+[A-Za-z0-9+/]+[=]{0,3}(\\s+.+)?\\s*$"
       }
     },
-    "com.amazonaws.necco.coral#SshPublicKeyCount": {
+    "com.amazonaws.transfer#SshPublicKeyCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.necco.coral#SshPublicKeyId": {
+    "com.amazonaws.transfer#SshPublicKeyId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1486,10 +1492,10 @@
         "smithy.api#pattern": "^key-[0-9a-f]{17}$"
       }
     },
-    "com.amazonaws.necco.coral#SshPublicKeys": {
+    "com.amazonaws.transfer#SshPublicKeys": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#SshPublicKey"
+        "target": "com.amazonaws.transfer#SshPublicKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -1498,135 +1504,141 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#StartServer": {
+    "com.amazonaws.transfer#StartServer": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#StartServerRequest"
+        "target": "com.amazonaws.transfer#StartServerRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ThrottlingException"
+          "target": "com.amazonaws.transfer#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Changes the state of a Secure File Transfer Protocol (SFTP) server from\n        <code>OFFLINE</code> to <code>ONLINE</code>. It has no impact on an SFTP server that is\n      already <code>ONLINE</code>. An <code>ONLINE</code> server can accept and process file\n      transfer jobs.</p>\n\n         <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state,\n      either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>\n      can indicate an error condition. </p>\n\n         <p>No response is returned from this call.</p>"
       }
     },
-    "com.amazonaws.necco.coral#StartServerRequest": {
+    "com.amazonaws.transfer#StartServerRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server that you start.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#State": {
+    "com.amazonaws.transfer#State": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Describes the condition of the SFTP server with respect to its ability to perform file\n      operations. There are six possible states: <code>OFFLINE</code>, <code>ONLINE</code>,\n        <code>STARTING</code>, <code>STOPPING</code>, <code>START_FAILED</code>, and\n        <code>STOP_FAILED</code>.</p>\n\n         <p>\n            <code>OFFLINE</code> indicates that the SFTP server exists, but that it is not available\n      for file operations. <code>ONLINE</code> indicates that the SFTP server is available to\n      perform file operations. <code>STARTING</code> indicates that the SFTP server's was\n      instantiated, but the server is not yet available to perform file operations. Under normal\n      conditions, it can take a couple of minutes for an SFTP server to be completely operational.\n      Both <code>START_FAILED</code> and <code>STOP_FAILED</code> are error conditions.</p>",
-        "smithy.api#enum": {
-          "OFFLINE": {
+        "smithy.api#enum": [
+          {
+            "value": "OFFLINE",
             "name": "OFFLINE"
           },
-          "ONLINE": {
+          {
+            "value": "ONLINE",
             "name": "ONLINE"
           },
-          "STARTING": {
+          {
+            "value": "STARTING",
             "name": "STARTING"
           },
-          "STOPPING": {
+          {
+            "value": "STOPPING",
             "name": "STOPPING"
           },
-          "START_FAILED": {
+          {
+            "value": "START_FAILED",
             "name": "START_FAILED"
           },
-          "STOP_FAILED": {
+          {
+            "value": "STOP_FAILED",
             "name": "STOP_FAILED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.necco.coral#StatusCode": {
+    "com.amazonaws.transfer#StatusCode": {
       "type": "integer"
     },
-    "com.amazonaws.necco.coral#StopServer": {
+    "com.amazonaws.transfer#StopServer": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#StopServerRequest"
+        "target": "com.amazonaws.transfer#StopServerRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ThrottlingException"
+          "target": "com.amazonaws.transfer#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Changes the state of an SFTP server from <code>ONLINE</code> to <code>OFFLINE</code>. An\n        <code>OFFLINE</code> server cannot accept and process file transfer jobs. Information tied\n      to your server such as server and user properties are not affected by stopping your server.\n      Stopping a server will not reduce or impact your Secure File Transfer Protocol (SFTP) endpoint\n      billing.</p>\n\n         <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state,\n      either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code>\n      can indicate an error condition.</p>\n\n         <p>No response is returned from this call.</p>"
       }
     },
-    "com.amazonaws.necco.coral#StopServerRequest": {
+    "com.amazonaws.transfer#StopServerRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server that you stopped.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#SubnetId": {
+    "com.amazonaws.transfer#SubnetId": {
       "type": "string"
     },
-    "com.amazonaws.necco.coral#SubnetIds": {
+    "com.amazonaws.transfer#SubnetIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#SubnetId"
+        "target": "com.amazonaws.transfer#SubnetId"
       }
     },
-    "com.amazonaws.necco.coral#Tag": {
+    "com.amazonaws.transfer#Tag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazonaws.necco.coral#TagKey",
+          "target": "com.amazonaws.transfer#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>The name assigned to the tag that you create.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
-          "target": "com.amazonaws.necco.coral#TagValue",
+          "target": "com.amazonaws.transfer#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>This property contains one or more values that you assigned to the key name you\n      create.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1634,7 +1646,7 @@
         "smithy.api#documentation": "<p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to\n      search for and group a resource for various purposes. You can apply tags to servers, users,\n      and roles. A tag key can take more than one value. For example, to group servers for\n      accounting purposes, you might create a tag called <code>Group</code> and assign the values\n        <code>Research</code> and <code>Accounting</code> to that group.</p>"
       }
     },
-    "com.amazonaws.necco.coral#TagKey": {
+    "com.amazonaws.transfer#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1643,10 +1655,10 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#TagKeys": {
+    "com.amazonaws.transfer#TagKeys": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#TagKey"
+        "target": "com.amazonaws.transfer#TagKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -1655,49 +1667,49 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#TagResource": {
+    "com.amazonaws.transfer#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#TagResourceRequest"
+        "target": "com.amazonaws.transfer#TagResourceRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN).\n      Resources are users, servers, roles, and other entities.</p>\n\n         <p>There is no response returned from this call.</p>"
       }
     },
-    "com.amazonaws.necco.coral#TagResourceRequest": {
+    "com.amazonaws.transfer#TagResourceRequest": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>An Amazon Resource Name (ARN) for a specific AWS resource, such as a server, user, or\n      role.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.necco.coral#Tags",
+          "target": "com.amazonaws.transfer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>Key-value pairs assigned to ARNs that you can use to group and search for resources by\n      type. You can attach this metadata to user accounts for any purpose.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#TagValue": {
+    "com.amazonaws.transfer#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1706,10 +1718,10 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#Tags": {
+    "com.amazonaws.transfer#Tags": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.necco.coral#Tag"
+        "target": "com.amazonaws.transfer#Tag"
       },
       "traits": {
         "smithy.api#length": {
@@ -1718,93 +1730,93 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#TestIdentityProvider": {
+    "com.amazonaws.transfer#TestIdentityProvider": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#TestIdentityProviderRequest"
+        "target": "com.amazonaws.transfer#TestIdentityProviderRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#TestIdentityProviderResponse"
+        "target": "com.amazonaws.transfer#TestIdentityProviderResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>, tests\n      whether your API Gateway is set up successfully. We highly recommend that you call this\n      operation to test your authentication method as soon as you create your server. By doing so,\n      you can troubleshoot issues with the API Gateway integration to ensure that your users can\n      successfully use the service.</p>"
       }
     },
-    "com.amazonaws.necco.coral#TestIdentityProviderRequest": {
+    "com.amazonaws.transfer#TestIdentityProviderRequest": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned identifier for a specific server. That server's user authentication\n      method is tested with a user name and password.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>This request parameter is the name of the user account to be tested.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserPassword": {
-          "target": "com.amazonaws.necco.coral#UserPassword",
+          "target": "com.amazonaws.transfer#UserPassword",
           "traits": {
             "smithy.api#documentation": "<p>The password of the user account to be tested.</p>"
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#TestIdentityProviderResponse": {
+    "com.amazonaws.transfer#TestIdentityProviderResponse": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.necco.coral#Message",
+          "target": "com.amazonaws.transfer#Message",
           "traits": {
             "smithy.api#documentation": "<p>A message that indicates whether the test was successful or not. </p>"
           }
         },
         "Response": {
-          "target": "com.amazonaws.necco.coral#Response",
+          "target": "com.amazonaws.transfer#Response",
           "traits": {
             "smithy.api#documentation": "<p>The response that is returned from your API Gateway.</p>"
           }
         },
         "StatusCode": {
-          "target": "com.amazonaws.necco.coral#StatusCode",
+          "target": "com.amazonaws.transfer#StatusCode",
           "traits": {
             "smithy.api#documentation": "<p>The HTTP status code that is the response from your API Gateway.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Url": {
-          "target": "com.amazonaws.necco.coral#Url",
+          "target": "com.amazonaws.transfer#Url",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint of the service used to authenticate a user.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#ThrottlingException": {
+    "com.amazonaws.transfer#ThrottlingException": {
       "type": "structure",
       "members": {
         "RetryAfterSeconds": {
-          "target": "com.amazonaws.necco.coral#RetryAfterSeconds",
+          "target": "com.amazonaws.transfer#RetryAfterSeconds",
           "traits": {
             "smithy.api#httpHeader": "Retry-After"
           }
@@ -1816,63 +1828,63 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.necco.coral#TransferService": {
+    "com.amazonaws.transfer#TransferService": {
       "type": "service",
       "version": "2018-11-05",
       "operations": [
         {
-          "target": "com.amazonaws.necco.coral#CreateServer"
+          "target": "com.amazonaws.transfer#CreateServer"
         },
         {
-          "target": "com.amazonaws.necco.coral#CreateUser"
+          "target": "com.amazonaws.transfer#CreateUser"
         },
         {
-          "target": "com.amazonaws.necco.coral#DeleteServer"
+          "target": "com.amazonaws.transfer#DeleteServer"
         },
         {
-          "target": "com.amazonaws.necco.coral#DeleteSshPublicKey"
+          "target": "com.amazonaws.transfer#DeleteSshPublicKey"
         },
         {
-          "target": "com.amazonaws.necco.coral#DeleteUser"
+          "target": "com.amazonaws.transfer#DeleteUser"
         },
         {
-          "target": "com.amazonaws.necco.coral#DescribeServer"
+          "target": "com.amazonaws.transfer#DescribeServer"
         },
         {
-          "target": "com.amazonaws.necco.coral#DescribeUser"
+          "target": "com.amazonaws.transfer#DescribeUser"
         },
         {
-          "target": "com.amazonaws.necco.coral#ImportSshPublicKey"
+          "target": "com.amazonaws.transfer#ImportSshPublicKey"
         },
         {
-          "target": "com.amazonaws.necco.coral#ListServers"
+          "target": "com.amazonaws.transfer#ListServers"
         },
         {
-          "target": "com.amazonaws.necco.coral#ListTagsForResource"
+          "target": "com.amazonaws.transfer#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.necco.coral#ListUsers"
+          "target": "com.amazonaws.transfer#ListUsers"
         },
         {
-          "target": "com.amazonaws.necco.coral#StartServer"
+          "target": "com.amazonaws.transfer#StartServer"
         },
         {
-          "target": "com.amazonaws.necco.coral#StopServer"
+          "target": "com.amazonaws.transfer#StopServer"
         },
         {
-          "target": "com.amazonaws.necco.coral#TagResource"
+          "target": "com.amazonaws.transfer#TagResource"
         },
         {
-          "target": "com.amazonaws.necco.coral#TestIdentityProvider"
+          "target": "com.amazonaws.transfer#TestIdentityProvider"
         },
         {
-          "target": "com.amazonaws.necco.coral#UntagResource"
+          "target": "com.amazonaws.transfer#UntagResource"
         },
         {
-          "target": "com.amazonaws.necco.coral#UpdateServer"
+          "target": "com.amazonaws.transfer#UpdateServer"
         },
         {
-          "target": "com.amazonaws.necco.coral#UpdateUser"
+          "target": "com.amazonaws.transfer#UpdateUser"
         }
       ],
       "traits": {
@@ -1882,242 +1894,238 @@
           "cloudFormationName": "Transfer",
           "cloudTrailEventSource": "coral.necco.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "transfer"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>AWS Transfer for SFTP is a fully managed service that enables the transfer of files\n      directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known\n      as Secure Shell (SSH) File Transfer Protocol. AWS helps you seamlessly migrate your file\n      transfer workflows to AWS Transfer for SFTP—by integrating with existing authentication\n      systems, and providing DNS routing with Amazon Route 53—so nothing changes for your customers\n      and partners, or their applications. With your data in S3, you can use it with AWS services\n      for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer\n      for SFTP (AWS SFTP) is easy; there is no infrastructure to buy and set\n      up. </p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Transfer for SFTP"
       }
     },
-    "com.amazonaws.necco.coral#UntagResource": {
+    "com.amazonaws.transfer#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#UntagResourceRequest"
+        "target": "com.amazonaws.transfer#UntagResourceRequest"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name\n      (ARN). Resources are users, servers, roles, and other entities.</p>\n         <p>No response is returned from this call.</p>"
       }
     },
-    "com.amazonaws.necco.coral#UntagResourceRequest": {
+    "com.amazonaws.transfer#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.necco.coral#Arn",
+          "target": "com.amazonaws.transfer#Arn",
           "traits": {
             "smithy.api#documentation": "<p>This is the value of the resource that will have the tag removed. An Amazon Resource Name\n      (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazonaws.necco.coral#TagKeys",
+          "target": "com.amazonaws.transfer#TagKeys",
           "traits": {
             "smithy.api#documentation": "<p>TagKeys are key-value pairs assigned to ARNs that can be used to group and search for\n      resources by type. This metadata can be attached to resources for any purpose.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#UpdateServer": {
+    "com.amazonaws.transfer#UpdateServer": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#UpdateServerRequest"
+        "target": "com.amazonaws.transfer#UpdateServerRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#UpdateServerResponse"
+        "target": "com.amazonaws.transfer#UpdateServerResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#ConflictException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ConflictException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceExistsException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceExistsException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ThrottlingException"
+          "target": "com.amazonaws.transfer#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates the server properties after that server has been created.</p>\n\n         <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the Secure File\n      Transfer Protocol (SFTP) server you updated.</p>"
       }
     },
-    "com.amazonaws.necco.coral#UpdateServerRequest": {
+    "com.amazonaws.transfer#UpdateServerRequest": {
       "type": "structure",
       "members": {
         "EndpointDetails": {
-          "target": "com.amazonaws.necco.coral#EndpointDetails",
+          "target": "com.amazonaws.transfer#EndpointDetails",
           "traits": {
             "smithy.api#documentation": "<p>The virtual private cloud (VPC) endpoint settings that are configured for your SFTP server. \n      With a VPC endpoint, you can restrict access to your SFTP server to resources only within your VPC. \n      To control incoming internet traffic, you will need to associate one or more Elastic IP addresses with  your server's endpoint. </p>"
           }
         },
         "EndpointType": {
-          "target": "com.amazonaws.necco.coral#EndpointType",
+          "target": "com.amazonaws.transfer#EndpointType",
           "traits": {
             "smithy.api#documentation": "<p>The type of endpoint that you want your SFTP server to connect to. You can choose to\n      connect to the public internet or a virtual private cloud (VPC) endpoint. With a VPC endpoint,\n      your SFTP server isn't accessible over the public internet. </p>"
           }
         },
         "HostKey": {
-          "target": "com.amazonaws.necco.coral#HostKey",
+          "target": "com.amazonaws.transfer#HostKey",
           "traits": {
             "smithy.api#documentation": "<p>The RSA private key as generated by <code>ssh-keygen -N \"\" -f my-new-server-key</code>.</p>\n    \n         <important>\n            <p>If you aren't planning to migrate existing users from an existing SFTP server to a new\n      AWS SFTP server, don't update the host key. Accidentally changing a server's host\n      key can be disruptive.</p>\n         </important> \n      \n         <p> For more information, see \"https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key\" in the <i>AWS SFTP User Guide.</i>\n         </p>"
           }
         },
         "IdentityProviderDetails": {
-          "target": "com.amazonaws.necco.coral#IdentityProviderDetails",
+          "target": "com.amazonaws.transfer#IdentityProviderDetails",
           "traits": {
             "smithy.api#documentation": "<p>This response parameter is an array containing all of the information required to call a\n      customer's authentication API method.</p>"
           }
         },
         "LoggingRole": {
-          "target": "com.amazonaws.necco.coral#NullableRole",
+          "target": "com.amazonaws.transfer#NullableRole",
           "traits": {
             "smithy.api#documentation": "<p>A value that changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 events to\n      be logged in Amazon CloudWatch, turning logging on or off.</p>"
           }
         },
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server instance that the user account is\n      assigned to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#UpdateServerResponse": {
+    "com.amazonaws.transfer#UpdateServerResponse": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server that the user account is assigned\n      to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#UpdateUser": {
+    "com.amazonaws.transfer#UpdateUser": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.necco.coral#UpdateUserRequest"
+        "target": "com.amazonaws.transfer#UpdateUserRequest"
       },
       "output": {
-        "target": "com.amazonaws.necco.coral#UpdateUserResponse"
+        "target": "com.amazonaws.transfer#UpdateUserResponse"
       },
       "errors": [
         {
-          "target": "com.amazon.coral.service#ServiceUnavailableException"
+          "target": "com.amazonaws.transfer#InternalServiceError"
         },
         {
-          "target": "com.amazonaws.necco.coral#InternalServiceError"
+          "target": "com.amazonaws.transfer#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.necco.coral#InvalidRequestException"
+          "target": "com.amazonaws.transfer#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ResourceNotFoundException"
+          "target": "com.amazonaws.transfer#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.necco.coral#ThrottlingException"
+          "target": "com.amazonaws.transfer#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Assigns new properties to a user. Parameters you pass modify any or all of the following:\n      the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>\n      you specify.</p>\n\n         <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the\n      updated user.</p>"
       }
     },
-    "com.amazonaws.necco.coral#UpdateUserRequest": {
+    "com.amazonaws.transfer#UpdateUserRequest": {
       "type": "structure",
       "members": {
         "HomeDirectory": {
-          "target": "com.amazonaws.necco.coral#HomeDirectory",
+          "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
             "smithy.api#documentation": "<p>A parameter that specifies the landing directory (folder) for a user when they log in to\n      the server using their client. </p>\n         <p>An example is <code><your-Amazon-S3-bucket-name>/home/username</code>.</p>"
           }
         },
         "HomeDirectoryMappings": {
-          "target": "com.amazonaws.necco.coral#HomeDirectoryMappings",
+          "target": "com.amazonaws.transfer#HomeDirectoryMappings",
           "traits": {
             "smithy.api#documentation": "<p>Logical directory mappings that specify what S3 paths and keys should be visible to your\n      user and how you want to make them visible. You will need to specify the \"<code>Entry</code>\"\n      and \"<code>Target</code>\" pair, where <code>Entry</code> shows how the path is made visible\n      and <code>Target</code> is the actual S3 path. If you only specify a target, it will be\n      displayed as is. You will need to also make sure that your AWS IAM Role provides access to\n      paths in <code>Target</code>. The following is an example.</p>\n         <p>\n            <code>'[ \"/bucket2/documentation\", { \"Entry\": \"your-personal-report.pdf\", \"Target\":\n        \"/bucket3/customized-reports/${transfer:UserName}.pdf\" } ]'</code>\n         </p>\n         <p>In most cases, you can use this value instead of the scope down policy to lock your user\n      down to the designated home directory (\"chroot\"). To do this, you can set <code>Entry</code>\n      to '/' and set <code>Target</code> to the HomeDirectory parameter value. </p>\n         <note>\n            <p>If the target of a logical directory entry does not exist in S3, the entry will be ignored. As\n      a workaround, you can use the S3 api to create 0 byte objects as place holders for your\n      directory. If using the CLI, use the s3api call instead of s3 so you can use the put-object\n      operation. For example, you use the following: <code>aws s3api put-object --bucket\n        bucketname --key path/to/folder/</code>.  Make sure that the end of the key name ends in a\n      / for it to be considered a folder. </p>\n      \n         </note>"
           }
         },
         "HomeDirectoryType": {
-          "target": "com.amazonaws.necco.coral#HomeDirectoryType",
+          "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
             "smithy.api#documentation": "<p>The type of landing directory (folder) you want your users' home directory to be when they\n      log into the SFTP serve. If you set it to <code>PATH</code>, the user will see the absolute\n      Amazon S3 bucket paths as is in their SFTP clients. If you set it <code>LOGICAL</code>, you\n      will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to make\n      S3 paths visible to your user.</p>"
           }
         },
         "Policy": {
-          "target": "com.amazonaws.necco.coral#Policy",
+          "target": "com.amazonaws.transfer#Policy",
           "traits": {
             "smithy.api#documentation": "<p>Allows you to supply a scope-down policy for your user so you can use the same AWS\n      Identity and Access Management (IAM) role across multiple users. The policy scopes down user\n      access to portions of your Amazon S3 bucket. Variables you can use inside this policy include\n        <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and\n        <code>${Transfer:HomeBucket}</code>.</p>\n         <note>\n            <p>For scope-down policies, AWS Transfer for SFTP stores the policy as a JSON blob, instead\n        of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass\n        it in the <code>Policy</code> argument.</p>\n         \n            <p>For an example of a scope-down policy, see \"https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down\">Creating a Scope-Down Policy.</p>\n      \n         \n            <p>For more information, see\n        \"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html\" in the\n        <i>AWS Security Token Service API Reference</i>.</p>\n         </note>"
           }
         },
         "Role": {
-          "target": "com.amazonaws.necco.coral#Role",
+          "target": "com.amazonaws.transfer#Role",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role that controls your user's access to your Amazon S3 bucket. The policies\n      attached to this role will determine the level of access you want to provide your users when\n      transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also\n      contain a trust relationship that allows the Secure File Transfer Protocol (SFTP) server to\n      access your resources when servicing your SFTP user's transfer requests.</p>"
           }
         },
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server instance that the user account is\n      assigned to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>A unique string that identifies a user and is associated with a server as specified by the\n        <code>ServerId</code>. This is the string that will be used by your user when they log in to\n      your SFTP server. This user name is a minimum of 3 and a maximum of 32 characters long. The\n      following are valid characters: a-z, A-Z, 0-9, underscore, and hyphen. The user name can't\n      start with a hyphen.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.necco.coral#UpdateUserResponse": {
+    "com.amazonaws.transfer#UpdateUserResponse": {
       "type": "structure",
       "members": {
         "ServerId": {
-          "target": "com.amazonaws.necco.coral#ServerId",
+          "target": "com.amazonaws.transfer#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>A system-assigned unique identifier for an SFTP server instance that the user account is\n      assigned to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "UserName": {
-          "target": "com.amazonaws.necco.coral#UserName",
+          "target": "com.amazonaws.transfer#UserName",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier for a user that is assigned to the SFTP server instance that was\n      specified in the request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2125,7 +2133,7 @@
         "smithy.api#documentation": "<p>\n            <code>UpdateUserResponse</code> returns the user name and server identifier for the\n      request to update a user's properties.</p>"
       }
     },
-    "com.amazonaws.necco.coral#Url": {
+    "com.amazonaws.transfer#Url": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2134,13 +2142,13 @@
         }
       }
     },
-    "com.amazonaws.necco.coral#UserCount": {
+    "com.amazonaws.transfer#UserCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.necco.coral#UserName": {
+    "com.amazonaws.transfer#UserName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2150,17 +2158,17 @@
         "smithy.api#pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$"
       }
     },
-    "com.amazonaws.necco.coral#UserPassword": {
+    "com.amazonaws.transfer#UserPassword": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 2048
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.necco.coral#VpcEndpointId": {
+    "com.amazonaws.transfer#VpcEndpointId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2170,7 +2178,7 @@
         "smithy.api#pattern": "^vpce-[0-9a-f]{17}$"
       }
     },
-    "com.amazonaws.necco.coral#VpcId": {
+    "com.amazonaws.transfer#VpcId": {
       "type": "string"
     }
   }

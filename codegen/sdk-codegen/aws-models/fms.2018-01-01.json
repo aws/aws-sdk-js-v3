@@ -1,36 +1,35 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId": {
+    "com.amazonaws.fms#AWSAccountId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -40,60 +39,60 @@
         "smithy.api#pattern": "^[0-9]+$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#AWSFMS_20180101": {
+    "com.amazonaws.fms#AWSFMS_20180101": {
       "type": "service",
       "version": "2018-01-01",
       "operations": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AssociateAdminAccount"
+          "target": "com.amazonaws.fms#AssociateAdminAccount"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#DeleteNotificationChannel"
+          "target": "com.amazonaws.fms#DeleteNotificationChannel"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#DeletePolicy"
+          "target": "com.amazonaws.fms#DeletePolicy"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#DisassociateAdminAccount"
+          "target": "com.amazonaws.fms#DisassociateAdminAccount"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#GetAdminAccount"
+          "target": "com.amazonaws.fms#GetAdminAccount"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#GetComplianceDetail"
+          "target": "com.amazonaws.fms#GetComplianceDetail"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#GetNotificationChannel"
+          "target": "com.amazonaws.fms#GetNotificationChannel"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#GetPolicy"
+          "target": "com.amazonaws.fms#GetPolicy"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#GetProtectionStatus"
+          "target": "com.amazonaws.fms#GetProtectionStatus"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ListComplianceStatus"
+          "target": "com.amazonaws.fms#ListComplianceStatus"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ListMemberAccounts"
+          "target": "com.amazonaws.fms#ListMemberAccounts"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ListPolicies"
+          "target": "com.amazonaws.fms#ListPolicies"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ListTagsForResource"
+          "target": "com.amazonaws.fms#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PutNotificationChannel"
+          "target": "com.amazonaws.fms#PutNotificationChannel"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PutPolicy"
+          "target": "com.amazonaws.fms#PutPolicy"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TagResource"
+          "target": "com.amazonaws.fms#TagResource"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#UntagResource"
+          "target": "com.amazonaws.fms#UntagResource"
         }
       ],
       "traits": {
@@ -103,95 +102,96 @@
           "cloudFormationName": "FMS",
           "cloudTrailEventSource": "v20180101.customerapi.roshi.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "fms"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AWS Firewall Manager</fullname>\n         <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for\n      developers who need detailed information about the AWS Firewall Manager API actions, data\n      types, and errors. For detailed information about AWS Firewall Manager features, see the\n        <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html\">AWS Firewall\n        Manager Developer Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Firewall Management Service"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#AccountRoleStatus": {
+    "com.amazonaws.fms#AccountRoleStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "READY": {
+        "smithy.api#enum": [
+          {
+            "value": "READY",
             "name": "Ready"
           },
-          "CREATING": {
+          {
+            "value": "CREATING",
             "name": "Creating"
           },
-          "PENDING_DELETION": {
+          {
+            "value": "PENDING_DELETION",
             "name": "PendingDeletion"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "Deleting"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "Deleted"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#AssociateAdminAccount": {
+    "com.amazonaws.fms#AssociateAdminAccount": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#AssociateAdminAccountRequest"
+        "target": "com.amazonaws.fms#AssociateAdminAccountRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException"
+          "target": "com.amazonaws.fms#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be\n      associated with the master account of your AWS organization or associated with a member\n      account that has the appropriate permissions. If the account ID that you submit is not an AWS\n      Organizations master account, AWS Firewall Manager will set the appropriate permissions for\n      the given member account.</p>\n         <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall\n      Manager administrator account. </p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#AssociateAdminAccountRequest": {
+    "com.amazonaws.fms#AssociateAdminAccountRequest": {
       "type": "structure",
       "members": {
         "AdminAccount": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager\n      administrator account. This can be an AWS Organizations master account or a member account.\n      For more information about AWS Organizations and master accounts, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the AWS Accounts in Your Organization</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#Boolean": {
+    "com.amazonaws.fms#Boolean": {
       "type": "boolean"
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ComplianceViolator": {
+    "com.amazonaws.fms#ComplianceViolator": {
       "type": "structure",
       "members": {
         "ResourceId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceId",
+          "target": "com.amazonaws.fms#ResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The resource ID.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceType",
+          "target": "com.amazonaws.fms#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The resource type. This is in the format shown in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a>. For example:\n        <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> or\n        <code>AWS::CloudFront::Distribution</code>.</p>"
           }
         },
         "ViolationReason": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ViolationReason",
+          "target": "com.amazonaws.fms#ViolationReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason that the resource is not protected by the policy.</p>"
           }
@@ -201,13 +201,13 @@
         "smithy.api#documentation": "<p>Details of the resource that is not protected by the policy.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ComplianceViolators": {
+    "com.amazonaws.fms#ComplianceViolators": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ComplianceViolator"
+        "target": "com.amazonaws.fms#ComplianceViolator"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeId": {
+    "com.amazonaws.fms#CustomerPolicyScopeId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -217,113 +217,118 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeIdList": {
+    "com.amazonaws.fms#CustomerPolicyScopeIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeId"
+        "target": "com.amazonaws.fms#CustomerPolicyScopeId"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeIdType": {
+    "com.amazonaws.fms#CustomerPolicyScopeIdType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ACCOUNT": {
+        "smithy.api#enum": [
+          {
+            "value": "ACCOUNT",
             "name": "ACCOUNT"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeMap": {
+    "com.amazonaws.fms#CustomerPolicyScopeMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeIdType"
+        "target": "com.amazonaws.fms#CustomerPolicyScopeIdType"
       },
       "value": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeIdList"
+        "target": "com.amazonaws.fms#CustomerPolicyScopeIdList"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DeleteNotificationChannel": {
+    "com.amazonaws.fms#DeleteNotificationChannel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#DeleteNotificationChannelRequest"
+        "target": "com.amazonaws.fms#DeleteNotificationChannelRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple\n      Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DeleteNotificationChannelRequest": {
+    "com.amazonaws.fms#DeleteNotificationChannelRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DeletePolicy": {
+    "com.amazonaws.fms#DeletePolicy": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#DeletePolicyRequest"
+        "target": "com.amazonaws.fms#DeletePolicyRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Permanently deletes an AWS Firewall Manager policy. </p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DeletePolicyRequest": {
+    "com.amazonaws.fms#DeletePolicyRequest": {
       "type": "structure",
       "members": {
         "DeleteAllPolicyResources": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Boolean",
+          "target": "com.amazonaws.fms#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>If <code>True</code>, the request performs cleanup according to the policy type. </p>\n         <p>For AWS WAF and Shield Advanced policies, the cleanup does the following:</p>\n         <ul>\n            <li>\n               <p>Deletes rule groups created by AWS Firewall Manager</p>\n            </li>\n            <li>\n               <p>Removes web ACLs from in-scope resources</p>\n            </li>\n            <li>\n               <p>Deletes web ACLs that contain no rules or rule groups</p>\n            </li>\n         </ul>\n         <p>For security group policies, the cleanup does the following for each security group in\n      the policy:</p>\n         <ul>\n            <li>\n               <p>Disassociates the security group from in-scope resources </p>\n            </li>\n            <li>\n               <p>Deletes the security group if it was created through Firewall Manager and if it's\n          no longer associated with any resources through another policy</p>\n            </li>\n         </ul>\n         <p>After the cleanup, in-scope resources are no longer protected by web ACLs in this policy.\n      Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you\n      create and accounts that you associate with the policy. When creating the policy, if you\n      specify that only resources in specific accounts or with specific tags are in scope of the\n      policy, those accounts and resources are handled by the policy. All others are out of scope.\n      If you don't specify tags or accounts, all resources are in scope. </p>"
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the policy that you want to delete. <code>PolicyId</code> is returned by\n        <code>PutPolicy</code> and by <code>ListPolicies</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DependentServiceName": {
+    "com.amazonaws.fms#DependentServiceName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AWSCONFIG": {
+        "smithy.api#enum": [
+          {
+            "value": "AWSCONFIG",
             "name": "AWSConfig"
           },
-          "AWSWAF": {
+          {
+            "value": "AWSWAF",
             "name": "AWSWAF"
           },
-          "AWSSHIELD_ADVANCED": {
+          {
+            "value": "AWSSHIELD_ADVANCED",
             "name": "AWSShieldAdvanced"
           },
-          "AWSVPC": {
+          {
+            "value": "AWSVPC",
             "name": "AWSVirtualPrivateCloud"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DetailedInfo": {
+    "com.amazonaws.fms#DetailedInfo": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -333,50 +338,50 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DisassociateAdminAccount": {
+    "com.amazonaws.fms#DisassociateAdminAccount": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#DisassociateAdminAccountRequest"
+        "target": "com.amazonaws.fms#DisassociateAdminAccountRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Disassociates the account that has been set as the AWS Firewall Manager administrator\n      account. To set a different account as the administrator account, you must submit an\n        <code>AssociateAdminAccount</code> request.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#DisassociateAdminAccountRequest": {
+    "com.amazonaws.fms#DisassociateAdminAccountRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ErrorMessage": {
+    "com.amazonaws.fms#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.roshi.customerapi.v20180101#EvaluationResult": {
+    "com.amazonaws.fms#EvaluationResult": {
       "type": "structure",
       "members": {
         "ComplianceStatus": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceStatusType",
+          "target": "com.amazonaws.fms#PolicyComplianceStatusType",
           "traits": {
             "smithy.api#documentation": "<p>Describes an AWS account's compliance with the AWS Firewall Manager policy.</p>"
           }
         },
         "EvaluationLimitExceeded": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Boolean",
+          "target": "com.amazonaws.fms#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates that over 100 resources are noncompliant with the AWS Firewall Manager\n      policy.</p>"
           }
         },
         "ViolatorCount": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceCount",
+          "target": "com.amazonaws.fms#ResourceCount",
           "traits": {
             "smithy.api#documentation": "<p>The number of resources that are noncompliant with the specified policy. For AWS WAF and\n      Shield Advanced policies, a resource is considered noncompliant if it is not associated with\n      the policy. For security group policies, a resource is considered noncompliant if it doesn't\n      comply with the rules of the policy and remediation is disabled or not possible.</p>"
           }
@@ -386,304 +391,304 @@
         "smithy.api#documentation": "<p>Describes the compliance status for the account. An account is considered noncompliant if\n      it includes resources that are not protected by the specified policy or that don't comply with\n      the policy.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#EvaluationResults": {
+    "com.amazonaws.fms#EvaluationResults": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#EvaluationResult"
+        "target": "com.amazonaws.fms#EvaluationResult"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetAdminAccount": {
+    "com.amazonaws.fms#GetAdminAccount": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetAdminAccountRequest"
+        "target": "com.amazonaws.fms#GetAdminAccountRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetAdminAccountResponse"
+        "target": "com.amazonaws.fms#GetAdminAccountResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the AWS Organizations master account that is associated with AWS Firewall Manager\n      as the AWS Firewall Manager administrator.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetAdminAccountRequest": {
+    "com.amazonaws.fms#GetAdminAccountRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetAdminAccountResponse": {
+    "com.amazonaws.fms#GetAdminAccountResponse": {
       "type": "structure",
       "members": {
         "AdminAccount": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account that is set as the AWS Firewall Manager administrator.</p>"
           }
         },
         "RoleStatus": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AccountRoleStatus",
+          "target": "com.amazonaws.fms#AccountRoleStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the AWS account that you set as the AWS Firewall Manager\n      administrator.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetComplianceDetail": {
+    "com.amazonaws.fms#GetComplianceDetail": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetComplianceDetailRequest"
+        "target": "com.amazonaws.fms#GetComplianceDetailRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetComplianceDetailResponse"
+        "target": "com.amazonaws.fms#GetComplianceDetailResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns detailed compliance information about the specified member account. Details\n      include resources that are in and out of compliance with the specified policy. Resources are\n      considered noncompliant for AWS WAF and Shield Advanced policies if the specified policy has\n      not been applied to them. Resources are considered noncompliant for security group policies if\n      they are in scope of the policy, they violate one or more of the policy rules, and remediation\n      is disabled or not possible. </p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetComplianceDetailRequest": {
+    "com.amazonaws.fms#GetComplianceDetailRequest": {
       "type": "structure",
       "members": {
         "MemberAccount": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account that owns the resources that you want to get the details for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the policy that you want to get the details for. <code>PolicyId</code> is\n      returned by <code>PutPolicy</code> and by <code>ListPolicies</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetComplianceDetailResponse": {
+    "com.amazonaws.fms#GetComplianceDetailResponse": {
       "type": "structure",
       "members": {
         "PolicyComplianceDetail": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceDetail",
+          "target": "com.amazonaws.fms#PolicyComplianceDetail",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resources and the policy that you specified in the\n        <code>GetComplianceDetail</code> request.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetNotificationChannel": {
+    "com.amazonaws.fms#GetNotificationChannel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetNotificationChannelRequest"
+        "target": "com.amazonaws.fms#GetNotificationChannelRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetNotificationChannelResponse"
+        "target": "com.amazonaws.fms#GetNotificationChannelResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Information\n      about the Amazon Simple Notification Service (SNS) topic that is used to\n      record AWS Firewall Manager SNS logs.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetNotificationChannelRequest": {
+    "com.amazonaws.fms#GetNotificationChannelRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetNotificationChannelResponse": {
+    "com.amazonaws.fms#GetNotificationChannelResponse": {
       "type": "structure",
       "members": {
         "SnsRoleName": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role that is used by AWS Firewall Manager to record activity to SNS.</p>"
           }
         },
         "SnsTopicArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The SNS topic that records AWS Firewall Manager activity. </p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetPolicy": {
+    "com.amazonaws.fms#GetPolicy": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetPolicyRequest"
+        "target": "com.amazonaws.fms#GetPolicyRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetPolicyResponse"
+        "target": "com.amazonaws.fms#GetPolicyResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidTypeException"
+          "target": "com.amazonaws.fms#InvalidTypeException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns information about the specified AWS Firewall Manager policy.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetPolicyRequest": {
+    "com.amazonaws.fms#GetPolicyRequest": {
       "type": "structure",
       "members": {
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Firewall Manager policy that you want the details for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetPolicyResponse": {
+    "com.amazonaws.fms#GetPolicyResponse": {
       "type": "structure",
       "members": {
         "Policy": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Policy",
+          "target": "com.amazonaws.fms#Policy",
           "traits": {
             "smithy.api#documentation": "<p>Information about the specified AWS Firewall Manager policy.</p>"
           }
         },
         "PolicyArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the specified policy.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetProtectionStatus": {
+    "com.amazonaws.fms#GetProtectionStatus": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetProtectionStatusRequest"
+        "target": "com.amazonaws.fms#GetProtectionStatusRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#GetProtectionStatusResponse"
+        "target": "com.amazonaws.fms#GetProtectionStatusResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException"
+          "target": "com.amazonaws.fms#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>If you created a Shield Advanced policy, returns policy-level attack summary information\n         in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetProtectionStatusRequest": {
+    "com.amazonaws.fms#GetProtectionStatusRequest": {
       "type": "structure",
       "members": {
         "EndTime": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TimeStamp",
+          "target": "com.amazonaws.fms#TimeStamp",
           "traits": {
             "smithy.api#documentation": "<p>The end of the time period to query for the attacks. This is a <code>timestamp</code> type. The\n         request syntax listing indicates a <code>number</code> type because the default used by AWS Firewall\n         Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is\n         allowed.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationMaxResults",
+          "target": "com.amazonaws.fms#PaginationMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of objects that you want AWS Firewall Manager to return for this request. If you have more \n        objects than the number that you specify for <code>MaxResults</code>, the response includes a \n         <code>NextToken</code> value that you can use to get another batch of objects.</p>"
           }
         },
         "MemberAccountId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account that is in scope of the policy that you want to get the details\n         for.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more objects than the number that you specify \n         for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response, which you can use to retrieve another group of \n         objects. For the second and subsequent <code>GetProtectionStatus</code> requests, specify the value of <code>NextToken</code> \n         from the previous response to get information about another batch of objects.</p>"
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the policy for which you want to get the attack information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StartTime": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TimeStamp",
+          "target": "com.amazonaws.fms#TimeStamp",
           "traits": {
             "smithy.api#documentation": "<p>The start of the time period to query for the attacks. This is a <code>timestamp</code> type. The\n          request syntax listing indicates a <code>number</code> type because the default used by AWS Firewall\n         Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is\n         allowed.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#GetProtectionStatusResponse": {
+    "com.amazonaws.fms#GetProtectionStatusResponse": {
       "type": "structure",
       "members": {
         "AdminAccountId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Firewall administrator account for this policy.</p>"
           }
         },
         "Data": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ProtectionData",
+          "target": "com.amazonaws.fms#ProtectionData",
           "traits": {
             "smithy.api#documentation": "<p>Details about the attack, including the following:</p>\n         <ul>\n            <li>\n               <p>Attack type</p>\n            </li>\n            <li>\n               <p>Account ID</p>\n            </li>\n            <li>\n               <p>ARN of the resource attacked</p>\n            </li>\n            <li>\n               <p>Start time of the attack</p>\n            </li>\n            <li>\n               <p>End time of the attack (ongoing attacks will not have an end time)</p>\n            </li>\n         </ul>\n         <p>The details are in JSON format. </p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you have more objects than the number that you specified for <code>MaxResults</code> in the request, \n         the response includes a <code>NextToken</code> value. To list more objects, submit another \n         <code>GetProtectionStatus</code> request, and specify the <code>NextToken</code> value from the response in the \n         <code>NextToken</code> value in the next request.</p>\n         <p>AWS SDKs provide auto-pagination that identify <code>NextToken</code> in a response and\n         make subsequent request calls automatically on your behalf. However, this feature is not\n         supported by <code>GetProtectionStatus</code>. You must submit subsequent requests with\n            <code>NextToken</code> using your own processes. </p>"
           }
         },
         "ServiceType": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#SecurityServiceType",
+          "target": "com.amazonaws.fms#SecurityServiceType",
           "traits": {
             "smithy.api#documentation": "<p>The service type that is protected by the policy. Currently, this is always\n            <code>SHIELD_ADVANCED</code>.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException": {
+    "com.amazonaws.fms#InternalErrorException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ErrorMessage"
+          "target": "com.amazonaws.fms#ErrorMessage"
         }
       },
       "traits": {
@@ -691,11 +696,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException": {
+    "com.amazonaws.fms#InvalidInputException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ErrorMessage"
+          "target": "com.amazonaws.fms#ErrorMessage"
         }
       },
       "traits": {
@@ -703,11 +708,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException": {
+    "com.amazonaws.fms#InvalidOperationException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ErrorMessage"
+          "target": "com.amazonaws.fms#ErrorMessage"
         }
       },
       "traits": {
@@ -715,11 +720,11 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#InvalidTypeException": {
+    "com.amazonaws.fms#InvalidTypeException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ErrorMessage"
+          "target": "com.amazonaws.fms#ErrorMessage"
         }
       },
       "traits": {
@@ -727,20 +732,20 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#IssueInfoMap": {
+    "com.amazonaws.fms#IssueInfoMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#DependentServiceName"
+        "target": "com.amazonaws.fms#DependentServiceName"
       },
       "value": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#DetailedInfo"
+        "target": "com.amazonaws.fms#DetailedInfo"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException": {
+    "com.amazonaws.fms#LimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ErrorMessage"
+          "target": "com.amazonaws.fms#ErrorMessage"
         }
       },
       "traits": {
@@ -748,20 +753,20 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListComplianceStatus": {
+    "com.amazonaws.fms#ListComplianceStatus": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListComplianceStatusRequest"
+        "target": "com.amazonaws.fms#ListComplianceStatusRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListComplianceStatusResponse"
+        "target": "com.amazonaws.fms#ListComplianceStatusResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -774,61 +779,61 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListComplianceStatusRequest": {
+    "com.amazonaws.fms#ListComplianceStatusRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationMaxResults",
+          "target": "com.amazonaws.fms#PaginationMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of <code>PolicyComplianceStatus</code> objects that you want AWS\n      Firewall Manager to return for this request. If you have more\n        <code>PolicyComplianceStatus</code> objects than the number that you specify for\n        <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can\n      use to get another batch of <code>PolicyComplianceStatus</code> objects.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more\n        <code>PolicyComplianceStatus</code> objects than the number that you specify for\n        <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the\n      response that allows you to list another group of <code>PolicyComplianceStatus</code> objects.\n      For the second and subsequent <code>ListComplianceStatus</code> requests, specify the value of\n        <code>NextToken</code> from the previous response to get information about another batch of\n        <code>PolicyComplianceStatus</code> objects.</p>"
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Firewall Manager policy that you want the details for.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListComplianceStatusResponse": {
+    "com.amazonaws.fms#ListComplianceStatusResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>PolicyComplianceStatus</code> objects than the number that you\n      specified for <code>MaxResults</code> in the request, the response includes a\n        <code>NextToken</code> value. To list more <code>PolicyComplianceStatus</code> objects,\n      submit another <code>ListComplianceStatus</code> request, and specify the\n        <code>NextToken</code> value from the response in the <code>NextToken</code> value in the\n      next request.</p>"
           }
         },
         "PolicyComplianceStatusList": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceStatusList",
+          "target": "com.amazonaws.fms#PolicyComplianceStatusList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>PolicyComplianceStatus</code> objects.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListMemberAccounts": {
+    "com.amazonaws.fms#ListMemberAccounts": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListMemberAccountsRequest"
+        "target": "com.amazonaws.fms#ListMemberAccountsRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListMemberAccountsResponse"
+        "target": "com.amazonaws.fms#ListMemberAccountsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -841,60 +846,60 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListMemberAccountsRequest": {
+    "com.amazonaws.fms#ListMemberAccountsRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationMaxResults",
+          "target": "com.amazonaws.fms#PaginationMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of member account IDs that you want AWS Firewall Manager to return\n      for this request. If you have more IDs than the number that you specify for\n        <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can\n      use to get another batch of member account IDs.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more account IDs than the\n      number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a\n        <code>NextToken</code> value in the response that allows you to list another group of IDs.\n      For the second and subsequent <code>ListMemberAccountsRequest</code> requests, specify the\n      value of <code>NextToken</code> from the previous response to get information about another\n      batch of member account IDs.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListMemberAccountsResponse": {
+    "com.amazonaws.fms#ListMemberAccountsResponse": {
       "type": "structure",
       "members": {
         "MemberAccounts": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#MemberAccounts",
+          "target": "com.amazonaws.fms#MemberAccounts",
           "traits": {
             "smithy.api#documentation": "<p>An array of account IDs.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you have more member account IDs than the number that you specified for\n        <code>MaxResults</code> in the request, the response includes a <code>NextToken</code>\n      value. To list more IDs, submit another <code>ListMemberAccounts</code> request, and specify\n      the <code>NextToken</code> value from the response in the <code>NextToken</code> value in the\n      next request.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListPolicies": {
+    "com.amazonaws.fms#ListPolicies": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListPoliciesRequest"
+        "target": "com.amazonaws.fms#ListPoliciesRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListPoliciesResponse"
+        "target": "com.amazonaws.fms#ListPoliciesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException"
+          "target": "com.amazonaws.fms#LimitExceededException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -907,90 +912,90 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListPoliciesRequest": {
+    "com.amazonaws.fms#ListPoliciesRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationMaxResults",
+          "target": "com.amazonaws.fms#PaginationMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the number of <code>PolicySummary</code> objects that you want AWS Firewall\n      Manager to return for this request. If you have more <code>PolicySummary</code> objects than\n      the number that you specify for <code>MaxResults</code>, the response includes a\n        <code>NextToken</code> value that you can use to get another batch of\n        <code>PolicySummary</code> objects.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more\n        <code>PolicySummary</code> objects than the number that you specify for\n        <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the\n      response that allows you to list another group of <code>PolicySummary</code> objects. For the\n      second and subsequent <code>ListPolicies</code> requests, specify the value of\n        <code>NextToken</code> from the previous response to get information about another batch of\n        <code>PolicySummary</code> objects.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListPoliciesResponse": {
+    "com.amazonaws.fms#ListPoliciesResponse": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PaginationToken",
+          "target": "com.amazonaws.fms#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you have more <code>PolicySummary</code> objects than the number that you specified for\n        <code>MaxResults</code> in the request, the response includes a <code>NextToken</code>\n      value. To list more <code>PolicySummary</code> objects, submit another\n        <code>ListPolicies</code> request, and specify the <code>NextToken</code> value from the\n      response in the <code>NextToken</code> value in the next request.</p>"
           }
         },
         "PolicyList": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicySummaryList",
+          "target": "com.amazonaws.fms#PolicySummaryList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>PolicySummary</code> objects.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListTagsForResource": {
+    "com.amazonaws.fms#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListTagsForResourceRequest"
+        "target": "com.amazonaws.fms#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ListTagsForResourceResponse"
+        "target": "com.amazonaws.fms#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException"
+          "target": "com.amazonaws.fms#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieves the list of tags for the specified AWS resource.   </p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListTagsForResourceRequest": {
+    "com.amazonaws.fms#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager policy is the only AWS resource that supports tagging, so this ARN is a policy ARN..</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ListTagsForResourceResponse": {
+    "com.amazonaws.fms#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "TagList": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TagList",
+          "target": "com.amazonaws.fms#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags associated with the resource.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ManagedServiceData": {
+    "com.amazonaws.fms#ManagedServiceData": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -999,23 +1004,23 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#MemberAccounts": {
+    "com.amazonaws.fms#MemberAccounts": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId"
+        "target": "com.amazonaws.fms#AWSAccountId"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PaginationMaxResults": {
+    "com.amazonaws.fms#PaginationMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PaginationToken": {
+    "com.amazonaws.fms#PaginationToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1025,78 +1030,78 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#Policy": {
+    "com.amazonaws.fms#Policy": {
       "type": "structure",
       "members": {
         "ExcludeMap": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeMap",
+          "target": "com.amazonaws.fms#CustomerPolicyScopeMap",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the AWS account IDs to exclude from the policy. The <code>IncludeMap</code>\n      values are evaluated first, with all the appropriate account IDs added to the policy. Then the\n      accounts listed in <code>ExcludeMap</code> are removed, resulting in the final list of\n      accounts to add to the policy.</p>\n         <p>The key to the map is <code>ACCOUNT</code>. For example, a valid <code>ExcludeMap</code>\n      would be <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p>"
           }
         },
         "ExcludeResourceTags": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Boolean",
+          "target": "com.amazonaws.fms#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>If set to <code>True</code>, resources with the tags that are specified in the\n        <code>ResourceTag</code> array are not in scope of the policy. If set to <code>False</code>,\n      and the <code>ResourceTag</code> array is not null, only resources with the specified tags are\n      in scope of the policy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IncludeMap": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#CustomerPolicyScopeMap",
+          "target": "com.amazonaws.fms#CustomerPolicyScopeMap",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the AWS account IDs to include in the policy. If <code>IncludeMap</code> is\n      null, all accounts in the organization in AWS Organizations are included in the policy. If\n        <code>IncludeMap</code> is not null, only values listed in <code>IncludeMap</code> are\n      included in the policy.</p>\n         <p>The key to the map is <code>ACCOUNT</code>. For example, a valid <code>IncludeMap</code>\n      would be <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p>"
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Firewall Manager policy.</p>"
           }
         },
         "PolicyName": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceName",
+          "target": "com.amazonaws.fms#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the AWS Firewall Manager policy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "PolicyUpdateToken": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyUpdateToken",
+          "target": "com.amazonaws.fms#PolicyUpdateToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique identifier for each update to the policy. When issuing a <code>PutPolicy</code>\n      request, the <code>PolicyUpdateToken</code> in the request must match the\n        <code>PolicyUpdateToken</code> of the current policy version. To get the\n        <code>PolicyUpdateToken</code> of the current policy version, use a <code>GetPolicy</code>\n      request.</p>"
           }
         },
         "RemediationEnabled": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Boolean",
+          "target": "com.amazonaws.fms#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates if the policy should be automatically applied to new resources.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceTags": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceTags",
+          "target": "com.amazonaws.fms#ResourceTags",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>ResourceTag</code> objects.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceType",
+          "target": "com.amazonaws.fms#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource protected by or in scope of the policy. This is in the format shown\n      in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a>. For AWS WAF and Shield Advanced, examples include\n        <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and\n        <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values\n      are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a\n      security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>,\n        <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security\n      group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceTypeList": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceTypeList",
+          "target": "com.amazonaws.fms#ResourceTypeList",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>ResourceType</code>.</p>"
           }
         },
         "SecurityServicePolicyData": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#SecurityServicePolicyData",
+          "target": "com.amazonaws.fms#SecurityServicePolicyData",
           "traits": {
             "smithy.api#documentation": "<p>Details about the security service that is being used to protect the resources.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1104,47 +1109,47 @@
         "smithy.api#documentation": "<p>An AWS Firewall Manager policy.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceDetail": {
+    "com.amazonaws.fms#PolicyComplianceDetail": {
       "type": "structure",
       "members": {
         "EvaluationLimitExceeded": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Boolean",
+          "target": "com.amazonaws.fms#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates if over 100 resources are noncompliant with the AWS Firewall Manager\n      policy.</p>"
           }
         },
         "ExpiredAt": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TimeStamp",
+          "target": "com.amazonaws.fms#TimeStamp",
           "traits": {
             "smithy.api#documentation": "<p>A timestamp that indicates when the returned information should be considered out of\n      date.</p>"
           }
         },
         "IssueInfoMap": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#IssueInfoMap",
+          "target": "com.amazonaws.fms#IssueInfoMap",
           "traits": {
             "smithy.api#documentation": "<p>Details about problems with dependent services, such as AWS WAF or AWS Config, that are\n      causing a resource to be noncompliant. The details include the name of the dependent service\n      and the error message received that indicates the problem with the service.</p>"
           }
         },
         "MemberAccount": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID.</p>"
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Firewall Manager policy.</p>"
           }
         },
         "PolicyOwner": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account that created the AWS Firewall Manager policy.</p>"
           }
         },
         "Violators": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ComplianceViolators",
+          "target": "com.amazonaws.fms#ComplianceViolators",
           "traits": {
             "smithy.api#documentation": "<p>An array of resources that aren't protected by the AWS WAF or Shield Advanced policy or\n      that aren't in compliance with the security group policy.</p>"
           }
@@ -1154,47 +1159,47 @@
         "smithy.api#documentation": "<p>Describes\n      the noncompliant resources in a member account for a specific AWS Firewall\n      Manager policy. A maximum of 100 entries are displayed. If more than 100 resources are\n      noncompliant, <code>EvaluationLimitExceeded</code> is set to <code>True</code>.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceStatus": {
+    "com.amazonaws.fms#PolicyComplianceStatus": {
       "type": "structure",
       "members": {
         "EvaluationResults": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#EvaluationResults",
+          "target": "com.amazonaws.fms#EvaluationResults",
           "traits": {
             "smithy.api#documentation": "<p>An array of <code>EvaluationResult</code> objects.</p>"
           }
         },
         "IssueInfoMap": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#IssueInfoMap",
+          "target": "com.amazonaws.fms#IssueInfoMap",
           "traits": {
             "smithy.api#documentation": "<p>Details about problems with dependent services, such as AWS WAF or AWS Config, that are\n      causing a resource to be noncompliant. The details include the name of the dependent service\n      and the error message received that indicates the problem with the service.</p>"
           }
         },
         "LastUpdated": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TimeStamp",
+          "target": "com.amazonaws.fms#TimeStamp",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of the last update to the <code>EvaluationResult</code> objects.</p>"
           }
         },
         "MemberAccount": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The member account ID.</p>"
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AWS Firewall Manager policy.</p>"
           }
         },
         "PolicyName": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceName",
+          "target": "com.amazonaws.fms#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the AWS Firewall Manager policy.</p>"
           }
         },
         "PolicyOwner": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#AWSAccountId",
+          "target": "com.amazonaws.fms#AWSAccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account that created the AWS Firewall Manager policy.</p>"
           }
@@ -1204,26 +1209,28 @@
         "smithy.api#documentation": "<p>Indicates whether the account is compliant with the specified policy. An account is\n      considered noncompliant if it includes resources that are not protected by the policy, for AWS\n      WAF and Shield Advanced policies, or that are noncompliant with the policy, for security group\n      policies.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceStatusList": {
+    "com.amazonaws.fms#PolicyComplianceStatusList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceStatus"
+        "target": "com.amazonaws.fms#PolicyComplianceStatus"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicyComplianceStatusType": {
+    "com.amazonaws.fms#PolicyComplianceStatusType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "COMPLIANT": {
+        "smithy.api#enum": [
+          {
+            "value": "COMPLIANT",
             "name": "Compliant"
           },
-          "NON_COMPLIANT": {
+          {
+            "value": "NON_COMPLIANT",
             "name": "NonCompliant"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicyId": {
+    "com.amazonaws.fms#PolicyId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1233,41 +1240,41 @@
         "smithy.api#pattern": "^[a-z0-9A-Z-]{36}$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicySummary": {
+    "com.amazonaws.fms#PolicySummary": {
       "type": "structure",
       "members": {
         "PolicyArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the specified policy.</p>"
           }
         },
         "PolicyId": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#PolicyId",
+          "target": "com.amazonaws.fms#PolicyId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the specified policy.</p>"
           }
         },
         "PolicyName": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceName",
+          "target": "com.amazonaws.fms#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The friendly name of the specified policy.</p>"
           }
         },
         "RemediationEnabled": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Boolean",
+          "target": "com.amazonaws.fms#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates if the policy should be automatically applied to new resources.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceType",
+          "target": "com.amazonaws.fms#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The type of resource protected by or in scope of the policy. This is in the format shown\n      in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS Resource Types Reference</a>. For AWS WAF and Shield Advanced, examples include\n        <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and\n        <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values\n      are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a\n      security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>,\n        <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security\n      group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. </p>"
           }
         },
         "SecurityServiceType": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#SecurityServiceType",
+          "target": "com.amazonaws.fms#SecurityServiceType",
           "traits": {
             "smithy.api#documentation": "<p>The service that the policy is using to protect the resources. This specifies the type of\n      policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security\n      group policy.</p>"
           }
@@ -1277,13 +1284,13 @@
         "smithy.api#documentation": "<p>Details of the AWS Firewall Manager policy. </p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicySummaryList": {
+    "com.amazonaws.fms#PolicySummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#PolicySummary"
+        "target": "com.amazonaws.fms#PolicySummary"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PolicyUpdateToken": {
+    "com.amazonaws.fms#PolicyUpdateToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1293,116 +1300,116 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ProtectionData": {
+    "com.amazonaws.fms#ProtectionData": {
       "type": "string"
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PutNotificationChannel": {
+    "com.amazonaws.fms#PutNotificationChannel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#PutNotificationChannelRequest"
+        "target": "com.amazonaws.fms#PutNotificationChannelRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS\n      Firewall Manager uses to record SNS logs.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PutNotificationChannelRequest": {
+    "com.amazonaws.fms#PutNotificationChannelRequest": {
       "type": "structure",
       "members": {
         "SnsRoleName": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS\n      Firewall Manager activity. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SnsTopicArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS\n      Firewall Manager.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PutPolicy": {
+    "com.amazonaws.fms#PutPolicy": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#PutPolicyRequest"
+        "target": "com.amazonaws.fms#PutPolicyRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#PutPolicyResponse"
+        "target": "com.amazonaws.fms#PutPolicyResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException"
+          "target": "com.amazonaws.fms#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidTypeException"
+          "target": "com.amazonaws.fms#InvalidTypeException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException"
+          "target": "com.amazonaws.fms#LimitExceededException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates an AWS Firewall Manager policy.</p>\n         <p>Firewall Manager provides the following types of policies: </p>\n         <ul>\n            <li>\n               <p>A Shield Advanced policy, which applies Shield Advanced protection to specified\n          accounts and resources</p>\n            </li>\n            <li>\n               <p>An AWS WAF policy, which contains a rule group and defines which resources are to be\n          protected by that rule group</p>\n            </li>\n            <li>\n               <p>A security group policy, which manages VPC security groups across your AWS\n          organization. </p>\n            </li>\n         </ul>\n         <p>Each policy is specific to one of the three types. If you want to enforce more than one\n      policy type across accounts, you can create multiple policies. You can create multiple\n      policies for each type.</p>\n         <p>You must be subscribed to Shield Advanced to create a Shield Advanced policy. For more\n      information about subscribing to Shield Advanced, see <a href=\"https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html\">CreateSubscription</a>.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PutPolicyRequest": {
+    "com.amazonaws.fms#PutPolicyRequest": {
       "type": "structure",
       "members": {
         "Policy": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Policy",
+          "target": "com.amazonaws.fms#Policy",
           "traits": {
             "smithy.api#documentation": "<p>The details of the AWS Firewall Manager policy to be created.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagList": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TagList",
+          "target": "com.amazonaws.fms#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add to the AWS resource.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#PutPolicyResponse": {
+    "com.amazonaws.fms#PutPolicyResponse": {
       "type": "structure",
       "members": {
         "Policy": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#Policy",
+          "target": "com.amazonaws.fms#Policy",
           "traits": {
             "smithy.api#documentation": "<p>The details of the AWS Firewall Manager policy that was created.</p>"
           }
         },
         "PolicyArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the policy that was created.</p>"
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceArn": {
+    "com.amazonaws.fms#ResourceArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1412,7 +1419,7 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceCount": {
+    "com.amazonaws.fms#ResourceCount": {
       "type": "long",
       "traits": {
         "smithy.api#range": {
@@ -1420,7 +1427,7 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceId": {
+    "com.amazonaws.fms#ResourceId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1430,7 +1437,7 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceName": {
+    "com.amazonaws.fms#ResourceName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1440,11 +1447,11 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException": {
+    "com.amazonaws.fms#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ErrorMessage"
+          "target": "com.amazonaws.fms#ErrorMessage"
         }
       },
       "traits": {
@@ -1452,18 +1459,18 @@
         "smithy.api#error": "client"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceTag": {
+    "com.amazonaws.fms#ResourceTag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceTagKey",
+          "target": "com.amazonaws.fms#ResourceTagKey",
           "traits": {
             "smithy.api#documentation": "<p>The resource tag key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceTagValue",
+          "target": "com.amazonaws.fms#ResourceTagValue",
           "traits": {
             "smithy.api#documentation": "<p>The resource tag value.</p>"
           }
@@ -1473,7 +1480,7 @@
         "smithy.api#documentation": "<p>The resource tags that AWS Firewall Manager uses to determine if a particular resource\n      should be included or excluded from the AWS Firewall Manager policy. Tags enable you to\n      categorize your AWS resources in different ways, for example, by purpose, owner, or\n      environment. Each tag consists of a key and an optional value. Firewall Manager combines the\n      tags with \"AND\" so that, if you add more than one tag to a policy scope, a resource must have\n      all the specified tags to be included or excluded. For more information, see <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html\">Working with\n        Tag Editor</a>.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceTagKey": {
+    "com.amazonaws.fms#ResourceTagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1483,7 +1490,7 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceTagValue": {
+    "com.amazonaws.fms#ResourceTagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1493,10 +1500,10 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceTags": {
+    "com.amazonaws.fms#ResourceTags": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceTag"
+        "target": "com.amazonaws.fms#ResourceTag"
       },
       "traits": {
         "smithy.api#length": {
@@ -1505,7 +1512,7 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceType": {
+    "com.amazonaws.fms#ResourceType": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1515,26 +1522,26 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ResourceTypeList": {
+    "com.amazonaws.fms#ResourceTypeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceType"
+        "target": "com.amazonaws.fms#ResourceType"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#SecurityServicePolicyData": {
+    "com.amazonaws.fms#SecurityServicePolicyData": {
       "type": "structure",
       "members": {
         "ManagedServiceData": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ManagedServiceData",
+          "target": "com.amazonaws.fms#ManagedServiceData",
           "traits": {
             "smithy.api#documentation": "<p>Details about the service that are specific to the service type, in JSON format. For\n      service type <code>SHIELD_ADVANCED</code>, this is an empty string.</p>\n         <ul>\n            <li>\n               <p>Example: <code>WAF</code>\n               </p>\n               <p>\n                  <code>ManagedServiceData\": \"{\\\"type\\\": \\\"WAF\\\", \\\"ruleGroups\\\": [{\\\"id\\\":\n            \\\"12345678-1bcd-9012-efga-0987654321ab\\\", \\\"overrideAction\\\" : {\\\"type\\\": \\\"COUNT\\\"}}],\n            \\\"defaultAction\\\": {\\\"type\\\": \\\"BLOCK\\\"}}</code>\n               </p>\n            </li>\n            <li>\n               <p>Example: <code>SECURITY_GROUPS_COMMON</code>\n               </p>\n               <p>\n                  <code>\"SecurityServicePolicyData\":{\"Type\":\"SECURITY_GROUPS_COMMON\",\"ManagedServiceData\":\"{\\\"type\\\":\\\"SECURITY_GROUPS_COMMON\\\",\\\"revertManualSecurityGroupChanges\\\":false,\\\"exclusiveResourceSecurityGroupManagement\\\":false,\\\"securityGroups\\\":[{\\\"id\\\":\\\"\n            sg-000e55995d61a06bd\\\"}]}\"},\"RemediationEnabled\":false,\"ResourceType\":\"AWS::EC2::NetworkInterface\"}</code>\n               </p>\n            </li>\n            <li>\n               <p>Example: <code>SECURITY_GROUPS_CONTENT_AUDIT</code>\n               </p>\n               <p>\n                  <code>\"SecurityServicePolicyData\":{\"Type\":\"SECURITY_GROUPS_CONTENT_AUDIT\",\"ManagedServiceData\":\"{\\\"type\\\":\\\"SECURITY_GROUPS_CONTENT_AUDIT\\\",\\\"securityGroups\\\":[{\\\"id\\\":\\\"\n            sg-000e55995d61a06bd\n            \\\"}],\\\"securityGroupAction\\\":{\\\"type\\\":\\\"ALLOW\\\"}}\"},\"RemediationEnabled\":false,\"ResourceType\":\"AWS::EC2::NetworkInterface\"}</code>\n               </p>\n               <p>The security group action for content audit can be <code>ALLOW</code> or\n            <code>DENY</code>. For <code>ALLOW</code>, all in-scope security group rules must be\n          within the allowed range of the policy's security group rules. For <code>DENY</code>, all\n          in-scope security group rules must not contain a value or a range that matches a rule\n          value or range in the policy security group.</p>\n            </li>\n            <li>\n               <p>Example: <code>SECURITY_GROUPS_USAGE_AUDIT</code>\n               </p>\n               <p>\n                  <code>\"SecurityServicePolicyData\":{\"Type\":\"SECURITY_GROUPS_USAGE_AUDIT\",\"ManagedServiceData\":\"{\\\"type\\\":\\\"SECURITY_GROUPS_USAGE_AUDIT\\\",\\\"deleteUnusedSecurityGroups\\\":true,\\\"coalesceRedundantSecurityGroups\\\":true}\"},\"RemediationEnabled\":false,\"Resou\n            rceType\":\"AWS::EC2::SecurityGroup\"}</code>\n               </p>\n            </li>\n         </ul>"
           }
         },
         "Type": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#SecurityServiceType",
+          "target": "com.amazonaws.fms#SecurityServiceType",
           "traits": {
             "smithy.api#documentation": "<p>The service that the policy is using to protect the resources. This specifies the type of\n      policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security\n      group policy. For security group policies, Firewall Manager supports one security group for\n      each common policy and for each content audit policy. This is an adjustable limit that you can\n      increase by contacting AWS Support.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1542,43 +1549,48 @@
         "smithy.api#documentation": "<p>Details about the security service that is being used to protect the resources.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#SecurityServiceType": {
+    "com.amazonaws.fms#SecurityServiceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "WAF": {
+        "smithy.api#enum": [
+          {
+            "value": "WAF",
             "name": "WAF"
           },
-          "SHIELD_ADVANCED": {
+          {
+            "value": "SHIELD_ADVANCED",
             "name": "SHIELD_ADVANCED"
           },
-          "SECURITY_GROUPS_COMMON": {
+          {
+            "value": "SECURITY_GROUPS_COMMON",
             "name": "SECURITY_GROUPS_COMMON"
           },
-          "SECURITY_GROUPS_CONTENT_AUDIT": {
+          {
+            "value": "SECURITY_GROUPS_CONTENT_AUDIT",
             "name": "SECURITY_GROUPS_CONTENT_AUDIT"
           },
-          "SECURITY_GROUPS_USAGE_AUDIT": {
+          {
+            "value": "SECURITY_GROUPS_USAGE_AUDIT",
             "name": "SECURITY_GROUPS_USAGE_AUDIT"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#Tag": {
+    "com.amazonaws.fms#Tag": {
       "type": "structure",
       "members": {
         "Key": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TagKey",
+          "target": "com.amazonaws.fms#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are case-sensitive.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TagValue",
+          "target": "com.amazonaws.fms#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as \"companyA\" or \"companyB.\" Tag values are case-sensitive.  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1586,7 +1598,7 @@
         "smithy.api#documentation": "<p>A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 tags to each AWS resource.  </p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TagKey": {
+    "com.amazonaws.fms#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1596,10 +1608,10 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TagKeyList": {
+    "com.amazonaws.fms#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#TagKey"
+        "target": "com.amazonaws.fms#TagKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -1608,10 +1620,10 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TagList": {
+    "com.amazonaws.fms#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#Tag"
+        "target": "com.amazonaws.fms#Tag"
       },
       "traits": {
         "smithy.api#length": {
@@ -1620,59 +1632,59 @@
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TagResource": {
+    "com.amazonaws.fms#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#TagResourceRequest"
+        "target": "com.amazonaws.fms#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#TagResourceResponse"
+        "target": "com.amazonaws.fms#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException"
+          "target": "com.amazonaws.fms#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException"
+          "target": "com.amazonaws.fms#LimitExceededException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Adds one or more tags to an AWS resource.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TagResourceRequest": {
+    "com.amazonaws.fms#TagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. The Firewall Manager policy is the only AWS resource that supports tagging, so this ARN is a policy ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagList": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TagList",
+          "target": "com.amazonaws.fms#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add to the resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TagResourceResponse": {
+    "com.amazonaws.fms#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TagValue": {
+    "com.amazonaws.fms#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1682,90 +1694,99 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#TimeStamp": {
+    "com.amazonaws.fms#TimeStamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.roshi.customerapi.v20180101#UntagResource": {
+    "com.amazonaws.fms#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#UntagResourceRequest"
+        "target": "com.amazonaws.fms#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.roshi.customerapi.v20180101#UntagResourceResponse"
+        "target": "com.amazonaws.fms#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException"
+          "target": "com.amazonaws.fms#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException"
+          "target": "com.amazonaws.fms#InvalidInputException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException"
+          "target": "com.amazonaws.fms#InvalidOperationException"
         },
         {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException"
+          "target": "com.amazonaws.fms#ResourceNotFoundException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Removes one or more tags from an AWS resource.</p>"
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#UntagResourceRequest": {
+    "com.amazonaws.fms#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#ResourceArn",
+          "target": "com.amazonaws.fms#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. The Firewall Manager policy is the only AWS resource that supports tagging, so this ARN is a policy ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
-          "target": "com.amazonaws.roshi.customerapi.v20180101#TagKeyList",
+          "target": "com.amazonaws.fms#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The keys of the tags to remove from the resource. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.roshi.customerapi.v20180101#UntagResourceResponse": {
+    "com.amazonaws.fms#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.roshi.customerapi.v20180101#ViolationReason": {
+    "com.amazonaws.fms#ViolationReason": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "WEB_ACL_MISSING_RULE_GROUP": {
+        "smithy.api#enum": [
+          {
+            "value": "WEB_ACL_MISSING_RULE_GROUP",
             "name": "WebAclMissingRuleGroup"
           },
-          "RESOURCE_MISSING_WEB_ACL": {
+          {
+            "value": "RESOURCE_MISSING_WEB_ACL",
             "name": "ResourceMissingWebAcl"
           },
-          "RESOURCE_INCORRECT_WEB_ACL": {
+          {
+            "value": "RESOURCE_INCORRECT_WEB_ACL",
             "name": "ResourceIncorrectWebAcl"
           },
-          "RESOURCE_MISSING_SHIELD_PROTECTION": {
+          {
+            "value": "RESOURCE_MISSING_SHIELD_PROTECTION",
             "name": "ResourceMissingShieldProtection"
           },
-          "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION": {
+          {
+            "value": "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION",
             "name": "ResourceMissingWebaclOrShieldProtection"
           },
-          "RESOURCE_MISSING_SECURITY_GROUP": {
+          {
+            "value": "RESOURCE_MISSING_SECURITY_GROUP",
             "name": "ResourceMissingSecurityGroup"
           },
-          "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP": {
+          {
+            "value": "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
             "name": "ResourceViolatesAuditSecurityGroup"
           },
-          "SECURITY_GROUP_UNUSED": {
+          {
+            "value": "SECURITY_GROUP_UNUSED",
             "name": "SecurityGroupUnused"
           },
-          "SECURITY_GROUP_REDUNDANT": {
+          {
+            "value": "SECURITY_GROUP_REDUNDANT",
             "name": "SecurityGroupRedundant"
           }
-        }
+        ]
       }
     }
   }

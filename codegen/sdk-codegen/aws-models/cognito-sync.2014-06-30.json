@@ -1,89 +1,88 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.cognito.sync.model#AWSCognitoSyncService": {
+    "com.amazonaws.cognitosync#AWSCognitoSyncService": {
       "type": "service",
       "version": "2014-06-30",
       "operations": [
         {
-          "target": "com.amazonaws.cognito.sync.model#BulkPublish"
+          "target": "com.amazonaws.cognitosync#BulkPublish"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#DeleteDataset"
+          "target": "com.amazonaws.cognitosync#DeleteDataset"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#DescribeDataset"
+          "target": "com.amazonaws.cognitosync#DescribeDataset"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsage"
+          "target": "com.amazonaws.cognitosync#DescribeIdentityPoolUsage"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#DescribeIdentityUsage"
+          "target": "com.amazonaws.cognitosync#DescribeIdentityUsage"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#GetBulkPublishDetails"
+          "target": "com.amazonaws.cognitosync#GetBulkPublishDetails"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#GetCognitoEvents"
+          "target": "com.amazonaws.cognitosync#GetCognitoEvents"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#GetIdentityPoolConfiguration"
+          "target": "com.amazonaws.cognitosync#GetIdentityPoolConfiguration"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ListDatasets"
+          "target": "com.amazonaws.cognitosync#ListDatasets"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ListIdentityPoolUsage"
+          "target": "com.amazonaws.cognitosync#ListIdentityPoolUsage"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ListRecords"
+          "target": "com.amazonaws.cognitosync#ListRecords"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#RegisterDevice"
+          "target": "com.amazonaws.cognitosync#RegisterDevice"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#SetCognitoEvents"
+          "target": "com.amazonaws.cognitosync#SetCognitoEvents"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#SetIdentityPoolConfiguration"
+          "target": "com.amazonaws.cognitosync#SetIdentityPoolConfiguration"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#SubscribeToDataset"
+          "target": "com.amazonaws.cognitosync#SubscribeToDataset"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#UnsubscribeFromDataset"
+          "target": "com.amazonaws.cognitosync#UnsubscribeFromDataset"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#UpdateRecords"
+          "target": "com.amazonaws.cognitosync#UpdateRecords"
         }
       ],
       "traits": {
@@ -93,29 +92,25 @@
           "cloudFormationName": "CognitoSync",
           "cloudTrailEventSource": "model.sync.cognito.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "cognito-sync"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<fullname>Amazon Cognito Sync</fullname>\n         <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.</p>\n         <p>With Amazon Cognito Sync, the data stored for each identity is accessible only to\n         credentials assigned to that identity. In order to use the Cognito Sync service, you need\n         to make API calls using credentials retrieved with <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html\">Amazon Cognito Identity service</a>.</p>\n         <p>If you want to use Cognito Sync in an Android or iOS application, you will probably want to\n         make API calls via the AWS Mobile SDK. To learn more, see the <a href=\"https://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html\">Developer Guide for Android</a> and the <a href=\"https://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html\">Developer Guide for iOS</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Cognito Sync",
         "smithy.api#xmlNamespace": {
           "uri": "http://cognito-sync.amazonaws.com/doc/2014-06-30/"
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#AlreadyStreamedException": {
+    "com.amazonaws.cognitosync#AlreadyStreamedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message associated with the AlreadyStreamedException exception.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -125,19 +120,19 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#ApplicationArn": {
+    "com.amazonaws.cognitosync#ApplicationArn": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "arn:aws:sns:[-0-9a-z]+:\\d+:app/[A-Z_]+/[a-zA-Z0-9_.-]+"
       }
     },
-    "com.amazonaws.cognito.sync.model#ApplicationArnList": {
+    "com.amazonaws.cognitosync#ApplicationArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.cognito.sync.model#ApplicationArn"
+        "target": "com.amazonaws.cognitosync#ApplicationArn"
       }
     },
-    "com.amazonaws.cognito.sync.model#AssumeRoleArn": {
+    "com.amazonaws.cognitosync#AssumeRoleArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -147,35 +142,35 @@
         "smithy.api#pattern": "arn:aws:iam::\\d+:role/.*"
       }
     },
-    "com.amazonaws.cognito.sync.model#Boolean": {
+    "com.amazonaws.cognitosync#Boolean": {
       "type": "boolean"
     },
-    "com.amazonaws.cognito.sync.model#BulkPublish": {
+    "com.amazonaws.cognitosync#BulkPublish": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#BulkPublishRequest"
+        "target": "com.amazonaws.cognitosync#BulkPublishRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#BulkPublishResponse"
+        "target": "com.amazonaws.cognitosync#BulkPublishResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#AlreadyStreamedException"
+          "target": "com.amazonaws.cognitosync#AlreadyStreamedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#DuplicateRequestException"
+          "target": "com.amazonaws.cognitosync#DuplicateRequestException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -187,15 +182,15 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#BulkPublishRequest": {
+    "com.amazonaws.cognitosync#BulkPublishRequest": {
       "type": "structure",
       "members": {
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -203,11 +198,11 @@
         "smithy.api#documentation": "<p>The input for the BulkPublish operation.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#BulkPublishResponse": {
+    "com.amazonaws.cognitosync#BulkPublishResponse": {
       "type": "structure",
       "members": {
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
@@ -217,54 +212,58 @@
         "smithy.api#documentation": "<p>The output for the BulkPublish operation.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#BulkPublishStatus": {
+    "com.amazonaws.cognitosync#BulkPublishStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NOT_STARTED": {
+        "smithy.api#enum": [
+          {
+            "value": "NOT_STARTED",
             "name": "NOT_STARTED"
           },
-          "IN_PROGRESS": {
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "SUCCEEDED": {
+          {
+            "value": "SUCCEEDED",
             "name": "SUCCEEDED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.cognito.sync.model#ClientContext": {
+    "com.amazonaws.cognitosync#ClientContext": {
       "type": "string"
     },
-    "com.amazonaws.cognito.sync.model#CognitoEventType": {
+    "com.amazonaws.cognitosync#CognitoEventType": {
       "type": "string"
     },
-    "com.amazonaws.cognito.sync.model#CognitoStreams": {
+    "com.amazonaws.cognitosync#CognitoStreams": {
       "type": "structure",
       "members": {
         "DisabledReason": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A string containing the reason why streaming of updates to the identity pool was disabled.</p>"
           }
         },
         "RoleArn": {
-          "target": "com.amazonaws.cognito.sync.model#AssumeRoleArn",
+          "target": "com.amazonaws.cognitosync#AssumeRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.</p>"
           }
         },
         "StreamName": {
-          "target": "com.amazonaws.cognito.sync.model#StreamName",
+          "target": "com.amazonaws.cognitosync#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.</p>"
           }
         },
         "StreamingStatus": {
-          "target": "com.amazonaws.cognito.sync.model#StreamingStatus",
+          "target": "com.amazonaws.cognitosync#StreamingStatus",
           "traits": {
             "smithy.api#documentation": "<p>Status of the Cognito streams. Valid values are:</p>\n         <ul>\n            <li>\n               <p>ENABLED - Streaming of updates to identity pool is enabled.</p>\n            </li>\n            <li>\n               <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>\n            </li>\n         </ul>"
           }
@@ -274,14 +273,14 @@
         "smithy.api#documentation": "<p>Configuration options for configure Cognito streams.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#ConcurrentModificationException": {
+    "com.amazonaws.cognitosync#ConcurrentModificationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>The message returned by a ConcurrentModificationException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -291,47 +290,47 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#Dataset": {
+    "com.amazonaws.cognitosync#Dataset": {
       "type": "structure",
       "members": {
         "CreationDate": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>Date on which the dataset was created.</p>"
           }
         },
         "DataStorage": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>Total size in bytes of the records in this dataset.</p>"
           }
         },
         "DatasetName": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetName",
+          "target": "com.amazonaws.cognitosync#DatasetName",
           "traits": {
             "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>"
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "LastModifiedBy": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>The device that made the last change to this dataset.</p>"
           }
         },
         "LastModifiedDate": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>Date when the dataset was last modified.</p>"
           }
         },
         "NumRecords": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>Number of records in this dataset.</p>"
           }
@@ -341,13 +340,13 @@
         "smithy.api#documentation": "<p>A collection of data for an identity pool. An identity pool can have multiple\n       datasets. A dataset is per identity and can be general or associated with a particular entity\n       in an application (like a saved game). Datasets are automatically created if they don't\n       exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DatasetList": {
+    "com.amazonaws.cognitosync#DatasetList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.cognito.sync.model#Dataset"
+        "target": "com.amazonaws.cognitosync#Dataset"
       }
     },
-    "com.amazonaws.cognito.sync.model#DatasetName": {
+    "com.amazonaws.cognitosync#DatasetName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -357,35 +356,35 @@
         "smithy.api#pattern": "[a-zA-Z0-9_.:-]+"
       }
     },
-    "com.amazonaws.cognito.sync.model#Date": {
+    "com.amazonaws.cognitosync#Date": {
       "type": "timestamp"
     },
-    "com.amazonaws.cognito.sync.model#DeleteDataset": {
+    "com.amazonaws.cognitosync#DeleteDataset": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#DeleteDatasetRequest"
+        "target": "com.amazonaws.cognitosync#DeleteDatasetRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#DeleteDatasetResponse"
+        "target": "com.amazonaws.cognitosync#DeleteDatasetResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceConflictException"
+          "target": "com.amazonaws.cognitosync#ResourceConflictException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -397,31 +396,31 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#DeleteDatasetRequest": {
+    "com.amazonaws.cognitosync#DeleteDatasetRequest": {
       "type": "structure",
       "members": {
         "DatasetName": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetName",
+          "target": "com.amazonaws.cognitosync#DatasetName",
           "traits": {
             "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n       (underscore), '-' (dash), and '.' (dot). </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -429,11 +428,11 @@
         "smithy.api#documentation": "<p>A request to delete the specific dataset.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DeleteDatasetResponse": {
+    "com.amazonaws.cognitosync#DeleteDatasetResponse": {
       "type": "structure",
       "members": {
         "Dataset": {
-          "target": "com.amazonaws.cognito.sync.model#Dataset",
+          "target": "com.amazonaws.cognitosync#Dataset",
           "traits": {
             "smithy.api#documentation": "<p>A collection of data for an identity pool. An identity pool can have multiple\n       datasets. A dataset is per identity and can be general or associated with a particular entity\n       in an application (like a saved game). Datasets are automatically created if they don't\n       exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>"
           }
@@ -443,29 +442,29 @@
         "smithy.api#documentation": "<p>Response to a successful DeleteDataset request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeDataset": {
+    "com.amazonaws.cognitosync#DescribeDataset": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#DescribeDatasetRequest"
+        "target": "com.amazonaws.cognitosync#DescribeDatasetRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#DescribeDatasetResponse"
+        "target": "com.amazonaws.cognitosync#DescribeDatasetResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -477,31 +476,31 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeDatasetRequest": {
+    "com.amazonaws.cognitosync#DescribeDatasetRequest": {
       "type": "structure",
       "members": {
         "DatasetName": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetName",
+          "target": "com.amazonaws.cognitosync#DatasetName",
           "traits": {
             "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n       (underscore), '-' (dash), and '.' (dot).</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -509,11 +508,11 @@
         "smithy.api#documentation": "<p>A request for meta data about a dataset (creation date, number of records, size) by\n       owner and dataset name.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeDatasetResponse": {
+    "com.amazonaws.cognitosync#DescribeDatasetResponse": {
       "type": "structure",
       "members": {
         "Dataset": {
-          "target": "com.amazonaws.cognito.sync.model#Dataset",
+          "target": "com.amazonaws.cognitosync#Dataset",
           "traits": {
             "smithy.api#documentation": "<p>Metadata for a collection of data for an identity. An identity can have multiple\n       datasets. A dataset can be general or associated with a particular entity in an application\n       (like a saved game). Datasets are automatically created if they don't exist. Data is synced\n       by dataset, and a dataset can hold up to 1MB of key-value pairs</p>"
           }
@@ -523,29 +522,29 @@
         "smithy.api#documentation": "<p>Response to a successful DescribeDataset request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsage": {
+    "com.amazonaws.cognitosync#DescribeIdentityPoolUsage": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsageRequest"
+        "target": "com.amazonaws.cognitosync#DescribeIdentityPoolUsageRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsageResponse"
+        "target": "com.amazonaws.cognitosync#DescribeIdentityPoolUsageResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -557,15 +556,15 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsageRequest": {
+    "com.amazonaws.cognitosync#DescribeIdentityPoolUsageRequest": {
       "type": "structure",
       "members": {
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -573,11 +572,11 @@
         "smithy.api#documentation": "<p>A request for usage information about the identity pool.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsageResponse": {
+    "com.amazonaws.cognitosync#DescribeIdentityPoolUsageResponse": {
       "type": "structure",
       "members": {
         "IdentityPoolUsage": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolUsage",
+          "target": "com.amazonaws.cognitosync#IdentityPoolUsage",
           "traits": {
             "smithy.api#documentation": "<p>Information about the usage of the identity pool.</p>"
           }
@@ -587,29 +586,29 @@
         "smithy.api#documentation": "<p>Response to a successful DescribeIdentityPoolUsage request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeIdentityUsage": {
+    "com.amazonaws.cognitosync#DescribeIdentityUsage": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#DescribeIdentityUsageRequest"
+        "target": "com.amazonaws.cognitosync#DescribeIdentityUsageRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#DescribeIdentityUsageResponse"
+        "target": "com.amazonaws.cognitosync#DescribeIdentityUsageResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -621,23 +620,23 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeIdentityUsageRequest": {
+    "com.amazonaws.cognitosync#DescribeIdentityUsageRequest": {
       "type": "structure",
       "members": {
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -645,11 +644,11 @@
         "smithy.api#documentation": "<p>A request for information about the usage of an identity pool.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DescribeIdentityUsageResponse": {
+    "com.amazonaws.cognitosync#DescribeIdentityUsageResponse": {
       "type": "structure",
       "members": {
         "IdentityUsage": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityUsage",
+          "target": "com.amazonaws.cognitosync#IdentityUsage",
           "traits": {
             "smithy.api#documentation": "<p>Usage information for the identity.</p>"
           }
@@ -659,7 +658,7 @@
         "smithy.api#documentation": "<p>The response to a successful DescribeIdentityUsage request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#DeviceId": {
+    "com.amazonaws.cognitosync#DeviceId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -668,14 +667,14 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#DuplicateRequestException": {
+    "com.amazonaws.cognitosync#DuplicateRequestException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message associated with the DuplicateRequestException exception.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -685,13 +684,13 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#Events": {
+    "com.amazonaws.cognitosync#Events": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.cognito.sync.model#CognitoEventType"
+        "target": "com.amazonaws.cognitosync#CognitoEventType"
       },
       "value": {
-        "target": "com.amazonaws.cognito.sync.model#LambdaFunctionArn"
+        "target": "com.amazonaws.cognitosync#LambdaFunctionArn"
       },
       "traits": {
         "smithy.api#length": {
@@ -700,29 +699,29 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#ExceptionMessage": {
+    "com.amazonaws.cognitosync#ExceptionMessage": {
       "type": "string"
     },
-    "com.amazonaws.cognito.sync.model#GetBulkPublishDetails": {
+    "com.amazonaws.cognitosync#GetBulkPublishDetails": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#GetBulkPublishDetailsRequest"
+        "target": "com.amazonaws.cognitosync#GetBulkPublishDetailsRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#GetBulkPublishDetailsResponse"
+        "target": "com.amazonaws.cognitosync#GetBulkPublishDetailsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -734,15 +733,15 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#GetBulkPublishDetailsRequest": {
+    "com.amazonaws.cognitosync#GetBulkPublishDetailsRequest": {
       "type": "structure",
       "members": {
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -750,35 +749,35 @@
         "smithy.api#documentation": "<p>The input for the GetBulkPublishDetails operation.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#GetBulkPublishDetailsResponse": {
+    "com.amazonaws.cognitosync#GetBulkPublishDetailsResponse": {
       "type": "structure",
       "members": {
         "BulkPublishCompleteTime": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</p>"
           }
         },
         "BulkPublishStartTime": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date/time at which the last bulk publish was initiated.</p>"
           }
         },
         "BulkPublishStatus": {
-          "target": "com.amazonaws.cognito.sync.model#BulkPublishStatus",
+          "target": "com.amazonaws.cognitosync#BulkPublishStatus",
           "traits": {
             "smithy.api#documentation": "<p>Status of the last bulk publish operation, valid values are: </p>\n         <ul>\n            <li>\n               <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p>\n            </li>\n            <li>\n               <p>IN_PROGRESS - Data is being published to the configured stream</p>\n            </li>\n            <li>\n               <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p>\n            </li>\n            <li>\n               <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>\n            </li>\n         </ul>"
           }
         },
         "FailureMessage": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</p>"
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
@@ -788,29 +787,29 @@
         "smithy.api#documentation": "<p>The output for the GetBulkPublishDetails operation.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#GetCognitoEvents": {
+    "com.amazonaws.cognitosync#GetCognitoEvents": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#GetCognitoEventsRequest"
+        "target": "com.amazonaws.cognitosync#GetCognitoEventsRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#GetCognitoEventsResponse"
+        "target": "com.amazonaws.cognitosync#GetCognitoEventsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -822,15 +821,15 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#GetCognitoEventsRequest": {
+    "com.amazonaws.cognitosync#GetCognitoEventsRequest": {
       "type": "structure",
       "members": {
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>The Cognito Identity Pool ID for the request</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -838,11 +837,11 @@
         "smithy.api#documentation": "<p>A request for a list of the configured Cognito Events</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#GetCognitoEventsResponse": {
+    "com.amazonaws.cognitosync#GetCognitoEventsResponse": {
       "type": "structure",
       "members": {
         "Events": {
-          "target": "com.amazonaws.cognito.sync.model#Events",
+          "target": "com.amazonaws.cognitosync#Events",
           "traits": {
             "smithy.api#documentation": "<p>The Cognito Events returned from the GetCognitoEvents request</p>"
           }
@@ -852,29 +851,29 @@
         "smithy.api#documentation": "<p>The response from the GetCognitoEvents request</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#GetIdentityPoolConfiguration": {
+    "com.amazonaws.cognitosync#GetIdentityPoolConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#GetIdentityPoolConfigurationRequest"
+        "target": "com.amazonaws.cognitosync#GetIdentityPoolConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#GetIdentityPoolConfigurationResponse"
+        "target": "com.amazonaws.cognitosync#GetIdentityPoolConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -886,15 +885,15 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#GetIdentityPoolConfigurationRequest": {
+    "com.amazonaws.cognitosync#GetIdentityPoolConfigurationRequest": {
       "type": "structure",
       "members": {
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -902,23 +901,23 @@
         "smithy.api#documentation": "<p>The input for the GetIdentityPoolConfiguration operation.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#GetIdentityPoolConfigurationResponse": {
+    "com.amazonaws.cognitosync#GetIdentityPoolConfigurationResponse": {
       "type": "structure",
       "members": {
         "CognitoStreams": {
-          "target": "com.amazonaws.cognito.sync.model#CognitoStreams",
+          "target": "com.amazonaws.cognitosync#CognitoStreams",
           "traits": {
             "smithy.api#documentation": "<p>Options to apply to this identity pool for Amazon Cognito streams.</p>"
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>"
           }
         },
         "PushSync": {
-          "target": "com.amazonaws.cognito.sync.model#PushSync",
+          "target": "com.amazonaws.cognitosync#PushSync",
           "traits": {
             "smithy.api#documentation": "<p>Options to apply to this identity pool for push synchronization.</p>"
           }
@@ -928,7 +927,7 @@
         "smithy.api#documentation": "<p>The output for the GetIdentityPoolConfiguration operation.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#IdentityId": {
+    "com.amazonaws.cognitosync#IdentityId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -938,7 +937,7 @@
         "smithy.api#pattern": "[\\w-]+:[0-9a-f-]+"
       }
     },
-    "com.amazonaws.cognito.sync.model#IdentityPoolId": {
+    "com.amazonaws.cognitosync#IdentityPoolId": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -948,29 +947,29 @@
         "smithy.api#pattern": "[\\w-]+:[0-9a-f-]+"
       }
     },
-    "com.amazonaws.cognito.sync.model#IdentityPoolUsage": {
+    "com.amazonaws.cognitosync#IdentityPoolUsage": {
       "type": "structure",
       "members": {
         "DataStorage": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>Data storage information for the identity pool.</p>"
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "LastModifiedDate": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>Date on which the identity pool was last modified.</p>"
           }
         },
         "SyncSessionsCount": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>Number of sync sessions for the identity pool.</p>"
           }
@@ -980,41 +979,41 @@
         "smithy.api#documentation": "<p>Usage information for the identity pool.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#IdentityPoolUsageList": {
+    "com.amazonaws.cognitosync#IdentityPoolUsageList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.cognito.sync.model#IdentityPoolUsage"
+        "target": "com.amazonaws.cognitosync#IdentityPoolUsage"
       }
     },
-    "com.amazonaws.cognito.sync.model#IdentityUsage": {
+    "com.amazonaws.cognitosync#IdentityUsage": {
       "type": "structure",
       "members": {
         "DataStorage": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>Total data storage for this identity.</p>"
           }
         },
         "DatasetCount": {
-          "target": "com.amazonaws.cognito.sync.model#Integer",
+          "target": "com.amazonaws.cognitosync#Integer",
           "traits": {
             "smithy.api#documentation": "<p>Number of datasets for the identity.</p>"
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "LastModifiedDate": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>Date on which the identity was last modified.</p>"
           }
@@ -1024,20 +1023,20 @@
         "smithy.api#documentation": "<p>Usage information for the identity.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#Integer": {
+    "com.amazonaws.cognitosync#Integer": {
       "type": "integer"
     },
-    "com.amazonaws.cognito.sync.model#IntegerString": {
+    "com.amazonaws.cognitosync#IntegerString": {
       "type": "integer"
     },
-    "com.amazonaws.cognito.sync.model#InternalErrorException": {
+    "com.amazonaws.cognitosync#InternalErrorException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>Message returned by InternalErrorException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1047,14 +1046,14 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.cognito.sync.model#InvalidConfigurationException": {
+    "com.amazonaws.cognitosync#InvalidConfigurationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>Message returned by InvalidConfigurationException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1064,14 +1063,14 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#InvalidLambdaFunctionOutputException": {
+    "com.amazonaws.cognitosync#InvalidLambdaFunctionOutputException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message returned when an InvalidLambdaFunctionOutputException occurs</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1081,14 +1080,14 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#InvalidParameterException": {
+    "com.amazonaws.cognitosync#InvalidParameterException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>Message returned by InvalidParameterException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1098,16 +1097,16 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#LambdaFunctionArn": {
+    "com.amazonaws.cognitosync#LambdaFunctionArn": {
       "type": "string"
     },
-    "com.amazonaws.cognito.sync.model#LambdaSocketTimeoutException": {
+    "com.amazonaws.cognitosync#LambdaSocketTimeoutException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1117,14 +1116,14 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#LambdaThrottledException": {
+    "com.amazonaws.cognitosync#LambdaThrottledException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message returned when an LambdaThrottledException is thrown</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1134,14 +1133,14 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.cognito.sync.model#LimitExceededException": {
+    "com.amazonaws.cognitosync#LimitExceededException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>Message returned by LimitExceededException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1151,26 +1150,26 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.cognito.sync.model#ListDatasets": {
+    "com.amazonaws.cognitosync#ListDatasets": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#ListDatasetsRequest"
+        "target": "com.amazonaws.cognitosync#ListDatasetsRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#ListDatasetsResponse"
+        "target": "com.amazonaws.cognitosync#ListDatasetsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1182,34 +1181,34 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#ListDatasetsRequest": {
+    "com.amazonaws.cognitosync#ListDatasetsRequest": {
       "type": "structure",
       "members": {
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.cognito.sync.model#PostiveIntString",
+          "target": "com.amazonaws.cognitosync#PostiveIntString",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1220,23 +1219,23 @@
         "smithy.api#documentation": "<p>Request for a list of datasets for an identity.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#ListDatasetsResponse": {
+    "com.amazonaws.cognitosync#ListDatasetsResponse": {
       "type": "structure",
       "members": {
         "Count": {
-          "target": "com.amazonaws.cognito.sync.model#Integer",
+          "target": "com.amazonaws.cognitosync#Integer",
           "traits": {
             "smithy.api#documentation": "<p>Number of datasets returned.</p>"
           }
         },
         "Datasets": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetList",
+          "target": "com.amazonaws.cognitosync#DatasetList",
           "traits": {
             "smithy.api#documentation": "<p>A set of datasets.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>"
           }
@@ -1246,26 +1245,26 @@
         "smithy.api#documentation": "<p>Returned for a successful ListDatasets request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#ListIdentityPoolUsage": {
+    "com.amazonaws.cognitosync#ListIdentityPoolUsage": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#ListIdentityPoolUsageRequest"
+        "target": "com.amazonaws.cognitosync#ListIdentityPoolUsageRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#ListIdentityPoolUsageResponse"
+        "target": "com.amazonaws.cognitosync#ListIdentityPoolUsageResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1277,18 +1276,18 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#ListIdentityPoolUsageRequest": {
+    "com.amazonaws.cognitosync#ListIdentityPoolUsageRequest": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.cognito.sync.model#IntegerString",
+          "target": "com.amazonaws.cognitosync#IntegerString",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1299,29 +1298,29 @@
         "smithy.api#documentation": "<p>A request for usage information on an identity pool.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#ListIdentityPoolUsageResponse": {
+    "com.amazonaws.cognitosync#ListIdentityPoolUsageResponse": {
       "type": "structure",
       "members": {
         "Count": {
-          "target": "com.amazonaws.cognito.sync.model#Integer",
+          "target": "com.amazonaws.cognitosync#Integer",
           "traits": {
             "smithy.api#documentation": "<p>Total number of identities for the identity pool.</p>"
           }
         },
         "IdentityPoolUsages": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolUsageList",
+          "target": "com.amazonaws.cognitosync#IdentityPoolUsageList",
           "traits": {
             "smithy.api#documentation": "<p>Usage information for the identity pools.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.cognito.sync.model#Integer",
+          "target": "com.amazonaws.cognitosync#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>"
           }
@@ -1331,26 +1330,26 @@
         "smithy.api#documentation": "<p>Returned for a successful ListIdentityPoolUsage request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#ListRecords": {
+    "com.amazonaws.cognitosync#ListRecords": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#ListRecordsRequest"
+        "target": "com.amazonaws.cognitosync#ListRecordsRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#ListRecordsResponse"
+        "target": "com.amazonaws.cognitosync#ListRecordsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1362,56 +1361,56 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#ListRecordsRequest": {
+    "com.amazonaws.cognitosync#ListRecordsRequest": {
       "type": "structure",
       "members": {
         "DatasetName": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetName",
+          "target": "com.amazonaws.cognitosync#DatasetName",
           "traits": {
             "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "LastSyncCount": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>The last server sync count for this record.</p>",
             "smithy.api#httpQuery": "lastSyncCount"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.cognito.sync.model#IntegerString",
+          "target": "com.amazonaws.cognitosync#IntegerString",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "SyncSessionToken": {
-          "target": "com.amazonaws.cognito.sync.model#SyncSessionToken",
+          "target": "com.amazonaws.cognitosync#SyncSessionToken",
           "traits": {
             "smithy.api#documentation": "<p>A token containing a session ID, identity ID, and expiration.</p>",
             "smithy.api#httpQuery": "syncSessionToken"
@@ -1422,59 +1421,59 @@
         "smithy.api#documentation": "<p>A request for a list of records.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#ListRecordsResponse": {
+    "com.amazonaws.cognitosync#ListRecordsResponse": {
       "type": "structure",
       "members": {
         "Count": {
-          "target": "com.amazonaws.cognito.sync.model#Integer",
+          "target": "com.amazonaws.cognitosync#Integer",
           "traits": {
             "smithy.api#documentation": "<p>Total number of records.</p>"
           }
         },
         "DatasetDeletedAfterRequestedSyncCount": {
-          "target": "com.amazonaws.cognito.sync.model#Boolean",
+          "target": "com.amazonaws.cognitosync#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>A boolean value specifying whether to delete the dataset locally.</p>"
           }
         },
         "DatasetExists": {
-          "target": "com.amazonaws.cognito.sync.model#Boolean",
+          "target": "com.amazonaws.cognitosync#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the dataset exists.</p>"
           }
         },
         "DatasetSyncCount": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>Server sync count for this dataset.</p>"
           }
         },
         "LastModifiedBy": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>The user/device that made the last change to this record.</p>"
           }
         },
         "MergedDatasetNames": {
-          "target": "com.amazonaws.cognito.sync.model#MergedDatasetNameList",
+          "target": "com.amazonaws.cognitosync#MergedDatasetNameList",
           "traits": {
             "smithy.api#documentation": "<p>Names of merged datasets.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>"
           }
         },
         "Records": {
-          "target": "com.amazonaws.cognito.sync.model#RecordList",
+          "target": "com.amazonaws.cognitosync#RecordList",
           "traits": {
             "smithy.api#documentation": "<p>A list of all records.</p>"
           }
         },
         "SyncSessionToken": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>A token containing a session ID, identity ID, and expiration.</p>"
           }
@@ -1484,26 +1483,26 @@
         "smithy.api#documentation": "<p>Returned for a successful ListRecordsRequest.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#Long": {
+    "com.amazonaws.cognitosync#Long": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.cognito.sync.model#MergedDatasetNameList": {
+    "com.amazonaws.cognitosync#MergedDatasetNameList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.cognito.sync.model#String"
+        "target": "com.amazonaws.cognitosync#String"
       }
     },
-    "com.amazonaws.cognito.sync.model#NotAuthorizedException": {
+    "com.amazonaws.cognitosync#NotAuthorizedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message returned by a NotAuthorizedException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1513,27 +1512,39 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.cognito.sync.model#Operation": {
+    "com.amazonaws.cognitosync#Operation": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "replace": { },
-          "remove": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "replace"
+          },
+          {
+            "value": "remove"
+          }
+        ]
       }
     },
-    "com.amazonaws.cognito.sync.model#Platform": {
+    "com.amazonaws.cognitosync#Platform": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "APNS": { },
-          "APNS_SANDBOX": { },
-          "GCM": { },
-          "ADM": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "APNS"
+          },
+          {
+            "value": "APNS_SANDBOX"
+          },
+          {
+            "value": "GCM"
+          },
+          {
+            "value": "ADM"
+          }
+        ]
       }
     },
-    "com.amazonaws.cognito.sync.model#PostiveIntString": {
+    "com.amazonaws.cognitosync#PostiveIntString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1543,17 +1554,17 @@
         "smithy.api#pattern": "^[1-9]\\d*"
       }
     },
-    "com.amazonaws.cognito.sync.model#PushSync": {
+    "com.amazonaws.cognitosync#PushSync": {
       "type": "structure",
       "members": {
         "ApplicationArns": {
-          "target": "com.amazonaws.cognito.sync.model#ApplicationArnList",
+          "target": "com.amazonaws.cognitosync#ApplicationArnList",
           "traits": {
             "smithy.api#documentation": "<p>List of SNS platform application ARNs that could be used by clients.</p>"
           }
         },
         "RoleArn": {
-          "target": "com.amazonaws.cognito.sync.model#AssumeRoleArn",
+          "target": "com.amazonaws.cognitosync#AssumeRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>"
           }
@@ -1563,44 +1574,44 @@
         "smithy.api#documentation": "<p>Configuration options to be applied to the identity pool.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#PushToken": {
+    "com.amazonaws.cognitosync#PushToken": {
       "type": "string"
     },
-    "com.amazonaws.cognito.sync.model#Record": {
+    "com.amazonaws.cognitosync#Record": {
       "type": "structure",
       "members": {
         "DeviceLastModifiedDate": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>The last modified date of the client device.</p>"
           }
         },
         "Key": {
-          "target": "com.amazonaws.cognito.sync.model#RecordKey",
+          "target": "com.amazonaws.cognitosync#RecordKey",
           "traits": {
             "smithy.api#documentation": "<p>The key for the record.</p>"
           }
         },
         "LastModifiedBy": {
-          "target": "com.amazonaws.cognito.sync.model#String",
+          "target": "com.amazonaws.cognitosync#String",
           "traits": {
             "smithy.api#documentation": "<p>The user/device that made the last change to this record.</p>"
           }
         },
         "LastModifiedDate": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>The date on which the record was last modified.</p>"
           }
         },
         "SyncCount": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>The server sync count for this record.</p>"
           }
         },
         "Value": {
-          "target": "com.amazonaws.cognito.sync.model#RecordValue",
+          "target": "com.amazonaws.cognitosync#RecordValue",
           "traits": {
             "smithy.api#documentation": "<p>The value for the record.</p>"
           }
@@ -1610,7 +1621,7 @@
         "smithy.api#documentation": "<p>The basic data structure of a dataset.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#RecordKey": {
+    "com.amazonaws.cognitosync#RecordKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1619,44 +1630,44 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#RecordList": {
+    "com.amazonaws.cognitosync#RecordList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.cognito.sync.model#Record"
+        "target": "com.amazonaws.cognitosync#Record"
       }
     },
-    "com.amazonaws.cognito.sync.model#RecordPatch": {
+    "com.amazonaws.cognitosync#RecordPatch": {
       "type": "structure",
       "members": {
         "DeviceLastModifiedDate": {
-          "target": "com.amazonaws.cognito.sync.model#Date",
+          "target": "com.amazonaws.cognitosync#Date",
           "traits": {
             "smithy.api#documentation": "<p>The last modified date of the client device.</p>"
           }
         },
         "Key": {
-          "target": "com.amazonaws.cognito.sync.model#RecordKey",
+          "target": "com.amazonaws.cognitosync#RecordKey",
           "traits": {
             "smithy.api#documentation": "<p>The key associated with the record patch.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Op": {
-          "target": "com.amazonaws.cognito.sync.model#Operation",
+          "target": "com.amazonaws.cognitosync#Operation",
           "traits": {
             "smithy.api#documentation": "<p>An operation, either replace or remove.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SyncCount": {
-          "target": "com.amazonaws.cognito.sync.model#Long",
+          "target": "com.amazonaws.cognitosync#Long",
           "traits": {
             "smithy.api#documentation": "<p>Last known server sync count for this record. Set to 0 if unknown.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Value": {
-          "target": "com.amazonaws.cognito.sync.model#RecordValue",
+          "target": "com.amazonaws.cognitosync#RecordValue",
           "traits": {
             "smithy.api#documentation": "<p>The value associated with the record patch.</p>"
           }
@@ -1666,13 +1677,13 @@
         "smithy.api#documentation": "<p>An update operation for a record.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#RecordPatchList": {
+    "com.amazonaws.cognitosync#RecordPatchList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.cognito.sync.model#RecordPatch"
+        "target": "com.amazonaws.cognitosync#RecordPatch"
       }
     },
-    "com.amazonaws.cognito.sync.model#RecordValue": {
+    "com.amazonaws.cognitosync#RecordValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1681,32 +1692,32 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#RegisterDevice": {
+    "com.amazonaws.cognitosync#RegisterDevice": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#RegisterDeviceRequest"
+        "target": "com.amazonaws.cognitosync#RegisterDeviceRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#RegisterDeviceResponse"
+        "target": "com.amazonaws.cognitosync#RegisterDeviceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidConfigurationException"
+          "target": "com.amazonaws.cognitosync#InvalidConfigurationException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1718,37 +1729,37 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#RegisterDeviceRequest": {
+    "com.amazonaws.cognitosync#RegisterDeviceRequest": {
       "type": "structure",
       "members": {
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID for this identity.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Platform": {
-          "target": "com.amazonaws.cognito.sync.model#Platform",
+          "target": "com.amazonaws.cognitosync#Platform",
           "traits": {
             "smithy.api#documentation": "<p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Token": {
-          "target": "com.amazonaws.cognito.sync.model#PushToken",
+          "target": "com.amazonaws.cognitosync#PushToken",
           "traits": {
             "smithy.api#documentation": "<p>The push token.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1756,11 +1767,11 @@
         "smithy.api#documentation": "<p>A request to RegisterDevice.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#RegisterDeviceResponse": {
+    "com.amazonaws.cognitosync#RegisterDeviceResponse": {
       "type": "structure",
       "members": {
         "DeviceId": {
-          "target": "com.amazonaws.cognito.sync.model#DeviceId",
+          "target": "com.amazonaws.cognitosync#DeviceId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>"
           }
@@ -1770,14 +1781,14 @@
         "smithy.api#documentation": "<p>Response to a RegisterDevice request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#ResourceConflictException": {
+    "com.amazonaws.cognitosync#ResourceConflictException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>The message returned by a ResourceConflictException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1787,14 +1798,14 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.cognito.sync.model#ResourceNotFoundException": {
+    "com.amazonaws.cognitosync#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>Message returned by a ResourceNotFoundException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1804,26 +1815,26 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.cognito.sync.model#SetCognitoEvents": {
+    "com.amazonaws.cognitosync#SetCognitoEvents": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#SetCognitoEventsRequest"
+        "target": "com.amazonaws.cognitosync#SetCognitoEventsRequest"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1835,22 +1846,22 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#SetCognitoEventsRequest": {
+    "com.amazonaws.cognitosync#SetCognitoEventsRequest": {
       "type": "structure",
       "members": {
         "Events": {
-          "target": "com.amazonaws.cognito.sync.model#Events",
+          "target": "com.amazonaws.cognitosync#Events",
           "traits": {
             "smithy.api#documentation": "<p>The events to configure</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>The Cognito Identity Pool to use when configuring Cognito Events</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -1858,32 +1869,32 @@
         "smithy.api#documentation": "<p>A request to configure Cognito Events.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#SetIdentityPoolConfiguration": {
+    "com.amazonaws.cognitosync#SetIdentityPoolConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#SetIdentityPoolConfigurationRequest"
+        "target": "com.amazonaws.cognitosync#SetIdentityPoolConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#SetIdentityPoolConfigurationResponse"
+        "target": "com.amazonaws.cognitosync#SetIdentityPoolConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#ConcurrentModificationException"
+          "target": "com.amazonaws.cognitosync#ConcurrentModificationException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1895,25 +1906,25 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#SetIdentityPoolConfigurationRequest": {
+    "com.amazonaws.cognitosync#SetIdentityPoolConfigurationRequest": {
       "type": "structure",
       "members": {
         "CognitoStreams": {
-          "target": "com.amazonaws.cognito.sync.model#CognitoStreams",
+          "target": "com.amazonaws.cognitosync#CognitoStreams",
           "traits": {
             "smithy.api#documentation": "<p>Options to apply to this identity pool for Amazon Cognito streams.</p>"
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "PushSync": {
-          "target": "com.amazonaws.cognito.sync.model#PushSync",
+          "target": "com.amazonaws.cognitosync#PushSync",
           "traits": {
             "smithy.api#documentation": "<p>Options to apply to this identity pool for push synchronization.</p>"
           }
@@ -1923,23 +1934,23 @@
         "smithy.api#documentation": "<p>The input for the SetIdentityPoolConfiguration operation.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#SetIdentityPoolConfigurationResponse": {
+    "com.amazonaws.cognitosync#SetIdentityPoolConfigurationResponse": {
       "type": "structure",
       "members": {
         "CognitoStreams": {
-          "target": "com.amazonaws.cognito.sync.model#CognitoStreams",
+          "target": "com.amazonaws.cognitosync#CognitoStreams",
           "traits": {
             "smithy.api#documentation": "<p>Options to apply to this identity pool for Amazon Cognito streams.</p>"
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>"
           }
         },
         "PushSync": {
-          "target": "com.amazonaws.cognito.sync.model#PushSync",
+          "target": "com.amazonaws.cognitosync#PushSync",
           "traits": {
             "smithy.api#documentation": "<p>Options to apply to this identity pool for push synchronization.</p>"
           }
@@ -1949,7 +1960,7 @@
         "smithy.api#documentation": "<p>The output for the SetIdentityPoolConfiguration operation</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#StreamName": {
+    "com.amazonaws.cognitosync#StreamName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1958,44 +1969,48 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#StreamingStatus": {
+    "com.amazonaws.cognitosync#StreamingStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ENABLED": { },
-          "DISABLED": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED"
+          },
+          {
+            "value": "DISABLED"
+          }
+        ]
       }
     },
-    "com.amazonaws.cognito.sync.model#String": {
+    "com.amazonaws.cognitosync#String": {
       "type": "string"
     },
-    "com.amazonaws.cognito.sync.model#SubscribeToDataset": {
+    "com.amazonaws.cognitosync#SubscribeToDataset": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#SubscribeToDatasetRequest"
+        "target": "com.amazonaws.cognitosync#SubscribeToDatasetRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#SubscribeToDatasetResponse"
+        "target": "com.amazonaws.cognitosync#SubscribeToDatasetResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidConfigurationException"
+          "target": "com.amazonaws.cognitosync#InvalidConfigurationException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -2007,39 +2022,39 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#SubscribeToDatasetRequest": {
+    "com.amazonaws.cognitosync#SubscribeToDatasetRequest": {
       "type": "structure",
       "members": {
         "DatasetName": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetName",
+          "target": "com.amazonaws.cognitosync#DatasetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the dataset to subcribe to.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DeviceId": {
-          "target": "com.amazonaws.cognito.sync.model#DeviceId",
+          "target": "com.amazonaws.cognitosync#DeviceId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>Unique ID for this identity.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -2047,24 +2062,24 @@
         "smithy.api#documentation": "<p>A request to SubscribeToDatasetRequest.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#SubscribeToDatasetResponse": {
+    "com.amazonaws.cognitosync#SubscribeToDatasetResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Response to a SubscribeToDataset request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#SyncSessionToken": {
+    "com.amazonaws.cognitosync#SyncSessionToken": {
       "type": "string"
     },
-    "com.amazonaws.cognito.sync.model#TooManyRequestsException": {
+    "com.amazonaws.cognitosync#TooManyRequestsException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
+          "target": "com.amazonaws.cognitosync#ExceptionMessage",
           "traits": {
             "smithy.api#documentation": "<p>Message returned by a TooManyRequestsException.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2074,32 +2089,32 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.cognito.sync.model#UnsubscribeFromDataset": {
+    "com.amazonaws.cognitosync#UnsubscribeFromDataset": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#UnsubscribeFromDatasetRequest"
+        "target": "com.amazonaws.cognitosync#UnsubscribeFromDatasetRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#UnsubscribeFromDatasetResponse"
+        "target": "com.amazonaws.cognitosync#UnsubscribeFromDatasetResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidConfigurationException"
+          "target": "com.amazonaws.cognitosync#InvalidConfigurationException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -2111,39 +2126,39 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#UnsubscribeFromDatasetRequest": {
+    "com.amazonaws.cognitosync#UnsubscribeFromDatasetRequest": {
       "type": "structure",
       "members": {
         "DatasetName": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetName",
+          "target": "com.amazonaws.cognitosync#DatasetName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the dataset from which to unsubcribe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DeviceId": {
-          "target": "com.amazonaws.cognito.sync.model#DeviceId",
+          "target": "com.amazonaws.cognitosync#DeviceId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>Unique ID for this identity.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -2151,51 +2166,51 @@
         "smithy.api#documentation": "<p>A request to UnsubscribeFromDataset.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#UnsubscribeFromDatasetResponse": {
+    "com.amazonaws.cognitosync#UnsubscribeFromDatasetResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>Response to an UnsubscribeFromDataset request.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#UpdateRecords": {
+    "com.amazonaws.cognitosync#UpdateRecords": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.cognito.sync.model#UpdateRecordsRequest"
+        "target": "com.amazonaws.cognitosync#UpdateRecordsRequest"
       },
       "output": {
-        "target": "com.amazonaws.cognito.sync.model#UpdateRecordsResponse"
+        "target": "com.amazonaws.cognitosync#UpdateRecordsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.cognito.sync.model#InternalErrorException"
+          "target": "com.amazonaws.cognitosync#InternalErrorException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidLambdaFunctionOutputException"
+          "target": "com.amazonaws.cognitosync#InvalidLambdaFunctionOutputException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#InvalidParameterException"
+          "target": "com.amazonaws.cognitosync#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#LambdaSocketTimeoutException"
+          "target": "com.amazonaws.cognitosync#LambdaSocketTimeoutException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#LambdaThrottledException"
+          "target": "com.amazonaws.cognitosync#LambdaThrottledException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#LimitExceededException"
+          "target": "com.amazonaws.cognitosync#LimitExceededException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#NotAuthorizedException"
+          "target": "com.amazonaws.cognitosync#NotAuthorizedException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceConflictException"
+          "target": "com.amazonaws.cognitosync#ResourceConflictException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#ResourceNotFoundException"
+          "target": "com.amazonaws.cognitosync#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.cognito.sync.model#TooManyRequestsException"
+          "target": "com.amazonaws.cognitosync#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -2207,57 +2222,57 @@
         }
       }
     },
-    "com.amazonaws.cognito.sync.model#UpdateRecordsRequest": {
+    "com.amazonaws.cognitosync#UpdateRecordsRequest": {
       "type": "structure",
       "members": {
         "ClientContext": {
-          "target": "com.amazonaws.cognito.sync.model#ClientContext",
+          "target": "com.amazonaws.cognitosync#ClientContext",
           "traits": {
             "smithy.api#documentation": "<p>Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.</p>",
             "smithy.api#httpHeader": "x-amz-Client-Context"
           }
         },
         "DatasetName": {
-          "target": "com.amazonaws.cognito.sync.model#DatasetName",
+          "target": "com.amazonaws.cognitosync#DatasetName",
           "traits": {
             "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DeviceId": {
-          "target": "com.amazonaws.cognito.sync.model#DeviceId",
+          "target": "com.amazonaws.cognitosync#DeviceId",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>"
           }
         },
         "IdentityId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityId",
+          "target": "com.amazonaws.cognitosync#IdentityId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IdentityPoolId": {
-          "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
+          "target": "com.amazonaws.cognitosync#IdentityPoolId",
           "traits": {
             "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RecordPatches": {
-          "target": "com.amazonaws.cognito.sync.model#RecordPatchList",
+          "target": "com.amazonaws.cognitosync#RecordPatchList",
           "traits": {
             "smithy.api#documentation": "<p>A list of patch operations.</p>"
           }
         },
         "SyncSessionToken": {
-          "target": "com.amazonaws.cognito.sync.model#SyncSessionToken",
+          "target": "com.amazonaws.cognitosync#SyncSessionToken",
           "traits": {
             "smithy.api#documentation": "<p>The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2265,11 +2280,11 @@
         "smithy.api#documentation": "<p>A request to post updates to records or add and delete records for a dataset and user.</p>"
       }
     },
-    "com.amazonaws.cognito.sync.model#UpdateRecordsResponse": {
+    "com.amazonaws.cognitosync#UpdateRecordsResponse": {
       "type": "structure",
       "members": {
         "Records": {
-          "target": "com.amazonaws.cognito.sync.model#RecordList",
+          "target": "com.amazonaws.cognitosync#RecordList",
           "traits": {
             "smithy.api#documentation": "<p>A list of records that have been updated.</p>"
           }

@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -66,10 +65,10 @@
       },
       "errors": [
         {
-          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
         },
         {
           "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
@@ -96,11 +95,11 @@
     },
     "com.amazonaws.servicequotas#AssociateServiceQuotaTemplateRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.servicequotas#AssociateServiceQuotaTemplateResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.servicequotas#AwsRegion": {
       "type": "string",
@@ -128,10 +127,10 @@
       },
       "errors": [
         {
-          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
         },
         {
           "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
@@ -166,28 +165,28 @@
           "target": "com.amazonaws.servicequotas#AwsRegion",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the AWS Region for the quota that you want to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "QuotaCode": {
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the code for the quota that you want to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the code for the service that you want to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.servicequotas#DeleteServiceQuotaIncreaseRequestFromTemplateResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.servicequotas#DependencyAccessDeniedException": {
       "type": "structure",
@@ -212,10 +211,10 @@
       },
       "errors": [
         {
-          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
         },
         {
           "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
@@ -242,29 +241,33 @@
     },
     "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplateRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplateResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.servicequotas#ErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DEPENDENCY_ACCESS_DENIED_ERROR": {
+        "smithy.api#enum": [
+          {
+            "value": "DEPENDENCY_ACCESS_DENIED_ERROR",
             "name": "DEPENDENCY_ACCESS_DENIED_ERROR"
           },
-          "DEPENDENCY_THROTTLING_ERROR": {
+          {
+            "value": "DEPENDENCY_THROTTLING_ERROR",
             "name": "DEPENDENCY_THROTTLING_ERROR"
           },
-          "DEPENDENCY_SERVICE_ERROR": {
+          {
+            "value": "DEPENDENCY_SERVICE_ERROR",
             "name": "DEPENDENCY_SERVICE_ERROR"
           },
-          "SERVICE_QUOTA_NOT_AVAILABLE_ERROR": {
+          {
+            "value": "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
             "name": "SERVICE_QUOTA_NOT_AVAILABLE_ERROR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.servicequotas#ErrorMessage": {
@@ -329,14 +332,14 @@
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the service quota you want to select.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -362,10 +365,10 @@
       },
       "errors": [
         {
-          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
         },
         {
           "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
@@ -392,7 +395,7 @@
     },
     "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateResponse": {
       "type": "structure",
@@ -441,7 +444,7 @@
           "target": "com.amazonaws.servicequotas#RequestId",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the quota increase request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -496,10 +499,10 @@
       },
       "errors": [
         {
-          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
         },
         {
           "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
@@ -534,21 +537,21 @@
           "target": "com.amazonaws.servicequotas#AwsRegion",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the AWS Region for the quota that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "QuotaCode": {
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the quota you want.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -571,14 +574,14 @@
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the service quota you want to select.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -693,7 +696,7 @@
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -810,14 +813,14 @@
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service quota that you want to use</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Status": {
@@ -901,10 +904,10 @@
       },
       "errors": [
         {
-          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
         },
         {
           "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
@@ -1038,7 +1041,7 @@
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>The identifier for a service. When performing an operation, use the\n        <code>ServiceCode</code> to specify a particular service. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1132,7 +1135,7 @@
     "com.amazonaws.servicequotas#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -1244,35 +1247,42 @@
     "com.amazonaws.servicequotas#PeriodUnit": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "MICROSECOND": {
+        "smithy.api#enum": [
+          {
+            "value": "MICROSECOND",
             "name": "MICROSECOND"
           },
-          "MILLISECOND": {
+          {
+            "value": "MILLISECOND",
             "name": "MILLISECOND"
           },
-          "SECOND": {
+          {
+            "value": "SECOND",
             "name": "SECOND"
           },
-          "MINUTE": {
+          {
+            "value": "MINUTE",
             "name": "MINUTE"
           },
-          "HOUR": {
+          {
+            "value": "HOUR",
             "name": "HOUR"
           },
-          "DAY": {
+          {
+            "value": "DAY",
             "name": "DAY"
           },
-          "WEEK": {
+          {
+            "value": "WEEK",
             "name": "WEEK"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.servicequotas#PeriodValue": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplate": {
@@ -1285,10 +1295,10 @@
       },
       "errors": [
         {
-          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
+          "target": "com.amazonaws.servicequotas#AccessDeniedException"
         },
         {
-          "target": "com.amazonaws.servicequotas#AccessDeniedException"
+          "target": "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException"
         },
         {
           "target": "com.amazonaws.servicequotas#DependencyAccessDeniedException"
@@ -1326,28 +1336,28 @@
           "target": "com.amazonaws.servicequotas#AwsRegion",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the AWS Region for the quota. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DesiredValue": {
           "target": "com.amazonaws.servicequotas#QuotaValue",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the new, increased value for the quota. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "QuotaCode": {
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service quota that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1427,7 +1437,7 @@
     "com.amazonaws.servicequotas#QuotaValue": {
       "type": "double",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 10000000000
@@ -1492,21 +1502,21 @@
           "target": "com.amazonaws.servicequotas#QuotaValue",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the value submitted in the service quota increase request. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "QuotaCode": {
           "target": "com.amazonaws.servicequotas#QuotaCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service quota that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceCode": {
           "target": "com.amazonaws.servicequotas#ServiceCode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the service that you want to use.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1525,23 +1535,28 @@
     "com.amazonaws.servicequotas#RequestStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "CASE_OPENED": {
+          {
+            "value": "CASE_OPENED",
             "name": "CASE_OPENED"
           },
-          "APPROVED": {
+          {
+            "value": "APPROVED",
             "name": "APPROVED"
           },
-          "DENIED": {
+          {
+            "value": "DENIED",
             "name": "DENIED"
           },
-          "CASE_CLOSED": {
+          {
+            "value": "CASE_CLOSED",
             "name": "CASE_CLOSED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.servicequotas#RequestedServiceQuotaChange": {
@@ -1861,14 +1876,16 @@
     "com.amazonaws.servicequotas#ServiceQuotaTemplateAssociationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ASSOCIATED": {
+        "smithy.api#enum": [
+          {
+            "value": "ASSOCIATED",
             "name": "ASSOCIATED"
           },
-          "DISASSOCIATED": {
+          {
+            "value": "DISASSOCIATED",
             "name": "DISASSOCIATED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException": {
@@ -1898,10 +1915,10 @@
           "target": "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplate"
         },
         {
-          "target": "com.amazonaws.servicequotas#GetAWSDefaultServiceQuota"
+          "target": "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplate"
         },
         {
-          "target": "com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplate"
+          "target": "com.amazonaws.servicequotas#GetAWSDefaultServiceQuota"
         },
         {
           "target": "com.amazonaws.servicequotas#GetRequestedServiceQuotaChange"
@@ -1944,15 +1961,11 @@
           "cloudFormationName": "ServiceQuotas",
           "cloudTrailEventSource": "servicequotas.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "servicequotas"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p> Service Quotas is a web service that you can use to manage many of your AWS service\n      quotas. Quotas, also referred to as limits, are the maximum values for a resource, item, or\n      operation. This guide provide descriptions of the Service Quotas actions that you can call\n      from an API. For the Service Quotas user guide, which explains how to use Service Quotas from\n      the console, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">What is Service Quotas</a>. </p>\n\n         <note>\n            <p>AWS provides SDKs that consist of libraries and sample code for programming languages\n        and platforms (Java, Ruby, .NET, iOS, Android, etc...,). The SDKs provide a convenient way\n        to create programmatic access to Service Quotas and AWS. For information about the AWS SDKs,\n        including how to download and install them, see the <a href=\"https://docs.aws.amazon.com/aws.amazon.com/tools\">Tools for Amazon Web Services</a> page.</p>\n         </note>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Service Quotas"
       }
     },

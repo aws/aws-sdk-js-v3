@@ -1,40 +1,39 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException": {
+    "com.amazonaws.elasticinference#BadRequestException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String"
+          "target": "com.amazonaws.elasticinference#String"
         }
       },
       "traits": {
@@ -43,18 +42,18 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#EC2MatterhornCfSoothsayerApiGatewayLambda": {
+    "com.amazonaws.elasticinference#EC2MatterhornCfSoothsayerApiGatewayLambda": {
       "type": "service",
       "version": "2017-07-25",
       "operations": [
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResource"
+          "target": "com.amazonaws.elasticinference#ListTagsForResource"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResource"
+          "target": "com.amazonaws.elasticinference#TagResource"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResource"
+          "target": "com.amazonaws.elasticinference#UntagResource"
         }
       ],
       "traits": {
@@ -64,23 +63,19 @@
           "cloudFormationName": "ElasticInference",
           "cloudTrailEventSource": "ec2matterhorncfsoothsayerapigatewaylambda.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "elastic-inference"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "Elastic Inference public APIs.",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Elastic  Inference"
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException": {
+    "com.amazonaws.elasticinference#InternalServerException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String"
+          "target": "com.amazonaws.elasticinference#String"
         }
       },
       "traits": {
@@ -89,23 +84,23 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResource": {
+    "com.amazonaws.elasticinference#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceRequest"
+        "target": "com.amazonaws.elasticinference#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceResult"
+        "target": "com.amazonaws.elasticinference#ListTagsForResourceResult"
       },
       "errors": [
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException"
+          "target": "com.amazonaws.elasticinference#BadRequestException"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException"
+          "target": "com.amazonaws.elasticinference#InternalServerException"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException"
+          "target": "com.amazonaws.elasticinference#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -117,31 +112,31 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceRequest": {
+    "com.amazonaws.elasticinference#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
+          "target": "com.amazonaws.elasticinference#ResourceARN",
           "traits": {
             "smithy.api#documentation": "The ARN of the Elastic Inference Accelerator to list the tags for.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceResult": {
+    "com.amazonaws.elasticinference#ListTagsForResourceResult": {
       "type": "structure",
       "members": {
         "tags": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap",
+          "target": "com.amazonaws.elasticinference#TagMap",
           "traits": {
             "smithy.api#documentation": "The tags of the Elastic Inference Accelerator."
           }
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN": {
+    "com.amazonaws.elasticinference#ResourceARN": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -150,11 +145,11 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException": {
+    "com.amazonaws.elasticinference#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String"
+          "target": "com.amazonaws.elasticinference#String"
         }
       },
       "traits": {
@@ -163,10 +158,10 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String": {
+    "com.amazonaws.elasticinference#String": {
       "type": "string"
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKey": {
+    "com.amazonaws.elasticinference#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -175,10 +170,10 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKeyList": {
+    "com.amazonaws.elasticinference#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKey"
+        "target": "com.amazonaws.elasticinference#TagKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -187,13 +182,13 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap": {
+    "com.amazonaws.elasticinference#TagMap": {
       "type": "map",
       "key": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKey"
+        "target": "com.amazonaws.elasticinference#TagKey"
       },
       "value": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagValue"
+        "target": "com.amazonaws.elasticinference#TagValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -202,23 +197,23 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResource": {
+    "com.amazonaws.elasticinference#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceRequest"
+        "target": "com.amazonaws.elasticinference#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceResult"
+        "target": "com.amazonaws.elasticinference#TagResourceResult"
       },
       "errors": [
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException"
+          "target": "com.amazonaws.elasticinference#BadRequestException"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException"
+          "target": "com.amazonaws.elasticinference#InternalServerException"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException"
+          "target": "com.amazonaws.elasticinference#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -230,31 +225,31 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceRequest": {
+    "com.amazonaws.elasticinference#TagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
+          "target": "com.amazonaws.elasticinference#ResourceARN",
           "traits": {
             "smithy.api#documentation": "The ARN of the Elastic Inference Accelerator to tag.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap",
+          "target": "com.amazonaws.elasticinference#TagMap",
           "traits": {
             "smithy.api#documentation": "The tags to add to the Elastic Inference Accelerator.",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceResult": {
+    "com.amazonaws.elasticinference#TagResourceResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagValue": {
+    "com.amazonaws.elasticinference#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -263,23 +258,23 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResource": {
+    "com.amazonaws.elasticinference#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceRequest"
+        "target": "com.amazonaws.elasticinference#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceResult"
+        "target": "com.amazonaws.elasticinference#UntagResourceResult"
       },
       "errors": [
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException"
+          "target": "com.amazonaws.elasticinference#BadRequestException"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException"
+          "target": "com.amazonaws.elasticinference#InternalServerException"
         },
         {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException"
+          "target": "com.amazonaws.elasticinference#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -291,30 +286,30 @@
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceRequest": {
+    "com.amazonaws.elasticinference#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
+          "target": "com.amazonaws.elasticinference#ResourceARN",
           "traits": {
             "smithy.api#documentation": "The ARN of the Elastic Inference Accelerator to untag.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
-          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKeyList",
+          "target": "com.amazonaws.elasticinference#TagKeyList",
           "traits": {
             "smithy.api#documentation": "The list of tags to remove from the Elastic Inference Accelerator.",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceResult": {
+    "com.amazonaws.elasticinference#UntagResourceResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     }
   }
 }

@@ -1,122 +1,121 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.servermigration.V2016_10_24#AWSServerMigrationService_V2016_10_24": {
+    "com.amazonaws.sms#AWSServerMigrationService_V2016_10_24": {
       "type": "service",
       "version": "2016-10-24",
       "operations": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#CreateApp"
+          "target": "com.amazonaws.sms#CreateApp"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#CreateReplicationJob"
+          "target": "com.amazonaws.sms#CreateReplicationJob"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#DeleteApp"
+          "target": "com.amazonaws.sms#DeleteApp"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppLaunchConfiguration"
+          "target": "com.amazonaws.sms#DeleteAppLaunchConfiguration"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppReplicationConfiguration"
+          "target": "com.amazonaws.sms#DeleteAppReplicationConfiguration"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#DeleteReplicationJob"
+          "target": "com.amazonaws.sms#DeleteReplicationJob"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#DeleteServerCatalog"
+          "target": "com.amazonaws.sms#DeleteServerCatalog"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#DisassociateConnector"
+          "target": "com.amazonaws.sms#DisassociateConnector"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GenerateChangeSet"
+          "target": "com.amazonaws.sms#GenerateChangeSet"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GenerateTemplate"
+          "target": "com.amazonaws.sms#GenerateTemplate"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GetApp"
+          "target": "com.amazonaws.sms#GetApp"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GetAppLaunchConfiguration"
+          "target": "com.amazonaws.sms#GetAppLaunchConfiguration"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GetAppReplicationConfiguration"
+          "target": "com.amazonaws.sms#GetAppReplicationConfiguration"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GetConnectors"
+          "target": "com.amazonaws.sms#GetConnectors"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GetReplicationJobs"
+          "target": "com.amazonaws.sms#GetReplicationJobs"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GetReplicationRuns"
+          "target": "com.amazonaws.sms#GetReplicationRuns"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#GetServers"
+          "target": "com.amazonaws.sms#GetServers"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ImportServerCatalog"
+          "target": "com.amazonaws.sms#ImportServerCatalog"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LaunchApp"
+          "target": "com.amazonaws.sms#LaunchApp"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ListApps"
+          "target": "com.amazonaws.sms#ListApps"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#PutAppLaunchConfiguration"
+          "target": "com.amazonaws.sms#PutAppLaunchConfiguration"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#PutAppReplicationConfiguration"
+          "target": "com.amazonaws.sms#PutAppReplicationConfiguration"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#StartAppReplication"
+          "target": "com.amazonaws.sms#StartAppReplication"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#StartOnDemandReplicationRun"
+          "target": "com.amazonaws.sms#StartOnDemandReplicationRun"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#StopAppReplication"
+          "target": "com.amazonaws.sms#StopAppReplication"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#TerminateApp"
+          "target": "com.amazonaws.sms#TerminateApp"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UpdateApp"
+          "target": "com.amazonaws.sms#UpdateApp"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UpdateReplicationJob"
+          "target": "com.amazonaws.sms#UpdateReplicationJob"
         }
       ],
       "traits": {
@@ -126,269 +125,300 @@
           "cloudFormationName": "SMS",
           "cloudTrailEventSource": "V2016_10_24.servermigration.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "sms"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<fullname>AAWS Sever Migration Service</fullname>\n        <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions,\n            syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service\n            (AWS SMS). The topic for each action shows the Query API request parameters and the XML\n            response. You can also view the XML request elements in the WSDL.</p>\n        <p>Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the\n            programming language or platform that you're using. For more information, see <a href=\"http://aws.amazon.com/tools/#SDKs\">AWS SDKs</a>.</p>\n        <p>To learn more about the Server Migration Service, see the following resources:</p>\n        <ul>\n            <li>\n                <p>\n                  <a href=\"https://aws.amazon.com/server-migration-service/\">AWS Sever Migration Service\n                        product page</a>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <a href=\"https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html\">AWS Sever Migration Service User Guide</a>\n               </p>\n            </li>\n         </ul>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Server Migration Service",
         "smithy.api#xmlNamespace": {
           "uri": "http://ec2.amazon.com/servermigration/2016-10-24/"
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#AmiId": {
+    "com.amazonaws.sms#AmiId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppDescription": {
+    "com.amazonaws.sms#AppDescription": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppId": {
+    "com.amazonaws.sms#AppId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppIds": {
+    "com.amazonaws.sms#AppIds": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#AppId"
+        "target": "com.amazonaws.sms#AppId"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppLaunchStatus": {
+    "com.amazonaws.sms#AppLaunchStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "READY_FOR_CONFIGURATION": {
+        "smithy.api#enum": [
+          {
+            "value": "READY_FOR_CONFIGURATION",
             "name": "ReadyForConfiguration"
           },
-          "CONFIGURATION_IN_PROGRESS": {
+          {
+            "value": "CONFIGURATION_IN_PROGRESS",
             "name": "ConfigurationInProgress"
           },
-          "CONFIGURATION_INVALID": {
+          {
+            "value": "CONFIGURATION_INVALID",
             "name": "ConfigurationInvalid"
           },
-          "READY_FOR_LAUNCH": {
+          {
+            "value": "READY_FOR_LAUNCH",
             "name": "ReadyForLaunch"
           },
-          "VALIDATION_IN_PROGRESS": {
+          {
+            "value": "VALIDATION_IN_PROGRESS",
             "name": "ValidationInProgress"
           },
-          "LAUNCH_PENDING": {
+          {
+            "value": "LAUNCH_PENDING",
             "name": "LaunchPending"
           },
-          "LAUNCH_IN_PROGRESS": {
+          {
+            "value": "LAUNCH_IN_PROGRESS",
             "name": "LaunchInProgress"
           },
-          "LAUNCHED": {
+          {
+            "value": "LAUNCHED",
             "name": "Launched"
           },
-          "DELTA_LAUNCH_IN_PROGRESS": {
+          {
+            "value": "DELTA_LAUNCH_IN_PROGRESS",
             "name": "DeltaLaunchInProgress"
           },
-          "DELTA_LAUNCH_FAILED": {
+          {
+            "value": "DELTA_LAUNCH_FAILED",
             "name": "DeltaLaunchFailed"
           },
-          "LAUNCH_FAILED": {
+          {
+            "value": "LAUNCH_FAILED",
             "name": "LaunchFailed"
           },
-          "TERMINATE_IN_PROGRESS": {
+          {
+            "value": "TERMINATE_IN_PROGRESS",
             "name": "TerminateInProgress"
           },
-          "TERMINATE_FAILED": {
+          {
+            "value": "TERMINATE_FAILED",
             "name": "TerminateFailed"
           },
-          "TERMINATED": {
+          {
+            "value": "TERMINATED",
             "name": "Terminated"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppLaunchStatusMessage": {
+    "com.amazonaws.sms#AppLaunchStatusMessage": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppName": {
+    "com.amazonaws.sms#AppName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppReplicationStatus": {
+    "com.amazonaws.sms#AppReplicationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "READY_FOR_CONFIGURATION": {
+        "smithy.api#enum": [
+          {
+            "value": "READY_FOR_CONFIGURATION",
             "name": "ReadyForConfiguration"
           },
-          "CONFIGURATION_IN_PROGRESS": {
+          {
+            "value": "CONFIGURATION_IN_PROGRESS",
             "name": "ConfigurationInProgress"
           },
-          "CONFIGURATION_INVALID": {
+          {
+            "value": "CONFIGURATION_INVALID",
             "name": "ConfigurationInvalid"
           },
-          "READY_FOR_REPLICATION": {
+          {
+            "value": "READY_FOR_REPLICATION",
             "name": "ReadyForReplication"
           },
-          "VALIDATION_IN_PROGRESS": {
+          {
+            "value": "VALIDATION_IN_PROGRESS",
             "name": "ValidationInProgress"
           },
-          "REPLICATION_PENDING": {
+          {
+            "value": "REPLICATION_PENDING",
             "name": "ReplicationPending"
           },
-          "REPLICATION_IN_PROGRESS": {
+          {
+            "value": "REPLICATION_IN_PROGRESS",
             "name": "ReplicationInProgress"
           },
-          "REPLICATED": {
+          {
+            "value": "REPLICATED",
             "name": "Replicated"
           },
-          "DELTA_REPLICATION_IN_PROGRESS": {
+          {
+            "value": "DELTA_REPLICATION_IN_PROGRESS",
             "name": "DeltaReplicationInProgress"
           },
-          "DELTA_REPLICATED": {
+          {
+            "value": "DELTA_REPLICATED",
             "name": "DeltaReplicated"
           },
-          "DELTA_REPLICATION_FAILED": {
+          {
+            "value": "DELTA_REPLICATION_FAILED",
             "name": "DeltaReplicationFailed"
           },
-          "REPLICATION_FAILED": {
+          {
+            "value": "REPLICATION_FAILED",
             "name": "ReplicationFailed"
           },
-          "REPLICATION_STOPPING": {
+          {
+            "value": "REPLICATION_STOPPING",
             "name": "ReplicationStopping"
           },
-          "REPLICATION_STOP_FAILED": {
+          {
+            "value": "REPLICATION_STOP_FAILED",
             "name": "ReplicationStopFailed"
           },
-          "REPLICATION_STOPPED": {
+          {
+            "value": "REPLICATION_STOPPED",
             "name": "ReplicationStopped"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppReplicationStatusMessage": {
+    "com.amazonaws.sms#AppReplicationStatusMessage": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppStatus": {
+    "com.amazonaws.sms#AppStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "Creating"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "Active"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "Updating"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "Deleting"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "Deleted"
           },
-          "DELETE_FAILED": {
+          {
+            "value": "DELETE_FAILED",
             "name": "DELETE_FAILED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppStatusMessage": {
+    "com.amazonaws.sms#AppStatusMessage": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#AppSummary": {
+    "com.amazonaws.sms#AppSummary": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>Unique ID of the application.</p>"
           }
         },
         "creationTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Time of creation of this application.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppDescription",
+          "target": "com.amazonaws.sms#AppDescription",
           "traits": {
             "smithy.api#documentation": "<p>Description of the application.</p>"
           }
         },
         "lastModified": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of the application's creation.</p>"
           }
         },
         "latestReplicationTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of the application's most recent successful replication.</p>"
           }
         },
         "launchDetails": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LaunchDetails",
+          "target": "com.amazonaws.sms#LaunchDetails",
           "traits": {
             "smithy.api#documentation": "<p>Details about the latest launch of the application.</p>"
           }
         },
         "launchStatus": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppLaunchStatus",
+          "target": "com.amazonaws.sms#AppLaunchStatus",
           "traits": {
             "smithy.api#documentation": "<p>Launch status of the application.</p>"
           }
         },
         "launchStatusMessage": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppLaunchStatusMessage",
+          "target": "com.amazonaws.sms#AppLaunchStatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message related to the launch status of the application.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppName",
+          "target": "com.amazonaws.sms#AppName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the application.</p>"
           }
         },
         "replicationStatus": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppReplicationStatus",
+          "target": "com.amazonaws.sms#AppReplicationStatus",
           "traits": {
             "smithy.api#documentation": "<p>Replication status of the application.</p>"
           }
         },
         "replicationStatusMessage": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppReplicationStatusMessage",
+          "target": "com.amazonaws.sms#AppReplicationStatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message related to the replication status of the application.</p>"
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the service role in the customer's account used by AWS SMS.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppStatus",
+          "target": "com.amazonaws.sms#AppStatus",
           "traits": {
             "smithy.api#documentation": "<p>Status of the application.</p>"
           }
         },
         "statusMessage": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppStatusMessage",
+          "target": "com.amazonaws.sms#AppStatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message related to the status of the application</p>"
           }
         },
         "totalServerGroups": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#TotalServerGroups",
+          "target": "com.amazonaws.sms#TotalServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>Number of server groups present in the application.</p>"
           }
         },
         "totalServers": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#TotalServers",
+          "target": "com.amazonaws.sms#TotalServers",
           "traits": {
             "smithy.api#documentation": "<p>Number of servers present in the application.</p>"
           }
@@ -398,83 +428,83 @@
         "smithy.api#documentation": "<p>Information about the application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#Apps": {
+    "com.amazonaws.sms#Apps": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#AppSummary"
+        "target": "com.amazonaws.sms#AppSummary"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#AssociatePublicIpAddress": {
+    "com.amazonaws.sms#AssociatePublicIpAddress": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#BucketName": {
+    "com.amazonaws.sms#BucketName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ClientToken": {
+    "com.amazonaws.sms#ClientToken": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#Connector": {
+    "com.amazonaws.sms#Connector": {
       "type": "structure",
       "members": {
         "associatedOn": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time the connector was associated.</p>"
           }
         },
         "capabilityList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorCapabilityList",
+          "target": "com.amazonaws.sms#ConnectorCapabilityList",
           "traits": {
             "smithy.api#documentation": "<p>The capabilities of the connector.</p>"
           }
         },
         "connectorId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorId",
+          "target": "com.amazonaws.sms#ConnectorId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the connector.</p>"
           }
         },
         "ipAddress": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#IpAddress",
+          "target": "com.amazonaws.sms#IpAddress",
           "traits": {
             "smithy.api#documentation": "<p>The IP address of the connector.</p>"
           }
         },
         "macAddress": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MacAddress",
+          "target": "com.amazonaws.sms#MacAddress",
           "traits": {
             "smithy.api#documentation": "<p>The MAC address of the connector.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorStatus",
+          "target": "com.amazonaws.sms#ConnectorStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the connector.</p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorVersion",
+          "target": "com.amazonaws.sms#ConnectorVersion",
           "traits": {
             "smithy.api#documentation": "<p>The connector version.</p>"
           }
         },
         "vmManagerId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmManagerId",
+          "target": "com.amazonaws.sms#VmManagerId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the VM manager.</p>"
           }
         },
         "vmManagerName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmManagerName",
+          "target": "com.amazonaws.sms#VmManagerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the VM manager.</p>"
           }
         },
         "vmManagerType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmManagerType",
+          "target": "com.amazonaws.sms#VmManagerType",
           "traits": {
             "smithy.api#documentation": "<p>The VM management product.</p>"
           }
@@ -484,874 +514,880 @@
         "smithy.api#documentation": "<p>Represents a connector.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ConnectorCapability": {
+    "com.amazonaws.sms#ConnectorCapability": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "VSPHERE": {
+        "smithy.api#enum": [
+          {
+            "value": "VSPHERE",
             "name": "vSphere"
           },
-          "SCVMM": {
+          {
+            "value": "SCVMM",
             "name": "scvmm"
           },
-          "HYPERV-MANAGER": {
+          {
+            "value": "HYPERV-MANAGER",
             "name": "hyperVManager"
           },
-          "SNAPSHOT_BATCHING": {
+          {
+            "value": "SNAPSHOT_BATCHING",
             "name": "snapshotBatching"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ConnectorCapabilityList": {
+    "com.amazonaws.sms#ConnectorCapabilityList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorCapability",
+        "target": "com.amazonaws.sms#ConnectorCapability",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ConnectorId": {
+    "com.amazonaws.sms#ConnectorId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ConnectorList": {
+    "com.amazonaws.sms#ConnectorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#Connector",
+        "target": "com.amazonaws.sms#Connector",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ConnectorStatus": {
+    "com.amazonaws.sms#ConnectorStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "HEALTHY": {
+        "smithy.api#enum": [
+          {
+            "value": "HEALTHY",
             "name": "Healthy"
           },
-          "UNHEALTHY": {
+          {
+            "value": "UNHEALTHY",
             "name": "Unhealthy"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ConnectorVersion": {
+    "com.amazonaws.sms#ConnectorVersion": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#CreateApp": {
+    "com.amazonaws.sms#CreateApp": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#CreateAppRequest"
+        "target": "com.amazonaws.sms#CreateAppRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#CreateAppResponse"
+        "target": "com.amazonaws.sms#CreateAppResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates an application. An application consists of one or more server groups. Each\n            server group contain one or more servers.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#CreateAppRequest": {
+    "com.amazonaws.sms#CreateAppRequest": {
       "type": "structure",
       "members": {
         "clientToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ClientToken",
+          "target": "com.amazonaws.sms#ClientToken",
           "traits": {
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier you provide to ensure idempotency of application\n            creation.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppDescription",
+          "target": "com.amazonaws.sms#AppDescription",
           "traits": {
             "smithy.api#documentation": "<p>Description of the new application</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppName",
+          "target": "com.amazonaws.sms#AppName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the new application.</p>"
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>Name of service role in customer's account to be used by AWS SMS.</p>"
           }
         },
         "serverGroups": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroups",
+          "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>List of server groups to include in the application.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Tags",
+          "target": "com.amazonaws.sms#Tags",
           "traits": {
             "smithy.api#documentation": "<p>List of tags to be associated with the application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#CreateAppResponse": {
+    "com.amazonaws.sms#CreateAppResponse": {
       "type": "structure",
       "members": {
         "appSummary": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppSummary",
+          "target": "com.amazonaws.sms#AppSummary",
           "traits": {
             "smithy.api#documentation": "<p>Summary description of the application.</p>"
           }
         },
         "serverGroups": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroups",
+          "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>List of server groups included in the application.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Tags",
+          "target": "com.amazonaws.sms#Tags",
           "traits": {
             "smithy.api#documentation": "<p>List of taags associated with the application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#CreateReplicationJob": {
+    "com.amazonaws.sms#CreateReplicationJob": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#CreateReplicationJobRequest"
+        "target": "com.amazonaws.sms#CreateReplicationJobRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#CreateReplicationJobResponse"
+        "target": "com.amazonaws.sms#CreateReplicationJobResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NoConnectorsAvailableException"
+          "target": "com.amazonaws.sms#NoConnectorsAvailableException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobAlreadyExistsException"
+          "target": "com.amazonaws.sms#ReplicationJobAlreadyExistsException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerCannotBeReplicatedException"
+          "target": "com.amazonaws.sms#ServerCannotBeReplicatedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#TemporarilyUnavailableException"
+          "target": "com.amazonaws.sms#TemporarilyUnavailableException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a replication job. The replication job schedules periodic replication runs\n            to replicate your server to AWS. Each replication run creates an Amazon Machine Image\n            (AMI).</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#CreateReplicationJobRequest": {
+    "com.amazonaws.sms#CreateReplicationJobRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Description",
+          "target": "com.amazonaws.sms#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the replication job.</p>"
           }
         },
         "encrypted": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Encrypted",
+          "target": "com.amazonaws.sms#Encrypted",
           "traits": {
             "smithy.api#documentation": "<p>When <i>true</i>, the replication job produces encrypted AMIs. See also\n                <code>KmsKeyId</code> below.</p>"
           }
         },
         "frequency": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Frequency",
+          "target": "com.amazonaws.sms#Frequency",
           "traits": {
             "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
           }
         },
         "kmsKeyId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#KmsKeyId",
+          "target": "com.amazonaws.sms#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
           }
         },
         "licenseType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LicenseType",
+          "target": "com.amazonaws.sms#LicenseType",
           "traits": {
             "smithy.api#documentation": "<p>The license type to be used for the AMI created by a successful replication\n            run.</p>"
           }
         },
         "numberOfRecentAmisToKeep": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NumberOfRecentAmisToKeep",
+          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the\n            maximum number is reached and a new AMI is created.</p>"
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the IAM role to be used by the AWS SMS.</p>"
           }
         },
         "runOnce": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RunOnce",
+          "target": "com.amazonaws.sms#RunOnce",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
         "seedReplicationTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The seed replication time.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "serverId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerId",
+          "target": "com.amazonaws.sms#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the server.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#CreateReplicationJobResponse": {
+    "com.amazonaws.sms#CreateReplicationJobResponse": {
       "type": "structure",
       "members": {
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the replication job.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteApp": {
+    "com.amazonaws.sms#DeleteApp": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppRequest"
+        "target": "com.amazonaws.sms#DeleteAppRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppResponse"
+        "target": "com.amazonaws.sms#DeleteAppResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes an existing application. Optionally deletes the launched stack associated with\n            the application and all AWS SMS replication jobs for servers in the application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppLaunchConfiguration": {
+    "com.amazonaws.sms#DeleteAppLaunchConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppLaunchConfigurationRequest"
+        "target": "com.amazonaws.sms#DeleteAppLaunchConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppLaunchConfigurationResponse"
+        "target": "com.amazonaws.sms#DeleteAppLaunchConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes existing launch configuration for an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppLaunchConfigurationRequest": {
+    "com.amazonaws.sms#DeleteAppLaunchConfigurationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application associated with the launch configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppLaunchConfigurationResponse": {
+    "com.amazonaws.sms#DeleteAppLaunchConfigurationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppReplicationConfiguration": {
+    "com.amazonaws.sms#DeleteAppReplicationConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppReplicationConfigurationRequest"
+        "target": "com.amazonaws.sms#DeleteAppReplicationConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteAppReplicationConfigurationResponse"
+        "target": "com.amazonaws.sms#DeleteAppReplicationConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes existing replication configuration for an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppReplicationConfigurationRequest": {
+    "com.amazonaws.sms#DeleteAppReplicationConfigurationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application associated with the replication configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppReplicationConfigurationResponse": {
+    "com.amazonaws.sms#DeleteAppReplicationConfigurationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppRequest": {
+    "com.amazonaws.sms#DeleteAppRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application to delete.</p>"
           }
         },
         "forceStopAppReplication": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ForceStopAppReplication",
+          "target": "com.amazonaws.sms#ForceStopAppReplication",
           "traits": {
             "smithy.api#documentation": "<p>While deleting the application, stop all replication jobs corresponding to the servers\n            in the application.</p>"
           }
         },
         "forceTerminateApp": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ForceTerminateApp",
+          "target": "com.amazonaws.sms#ForceTerminateApp",
           "traits": {
             "smithy.api#documentation": "<p>While deleting the application, terminate the stack corresponding to the\n            application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteAppResponse": {
+    "com.amazonaws.sms#DeleteAppResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteReplicationJob": {
+    "com.amazonaws.sms#DeleteReplicationJob": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteReplicationJobRequest"
+        "target": "com.amazonaws.sms#DeleteReplicationJobRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteReplicationJobResponse"
+        "target": "com.amazonaws.sms#DeleteReplicationJobResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException"
+          "target": "com.amazonaws.sms#ReplicationJobNotFoundException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified replication job.</p>\n        <p>After you delete a replication job, there are no further replication runs. AWS\n            deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created\n            by the replication runs are not deleted.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteReplicationJobRequest": {
+    "com.amazonaws.sms#DeleteReplicationJobRequest": {
       "type": "structure",
       "members": {
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteReplicationJobResponse": {
+    "com.amazonaws.sms#DeleteReplicationJobResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteServerCatalog": {
+    "com.amazonaws.sms#DeleteServerCatalog": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteServerCatalogRequest"
+        "target": "com.amazonaws.sms#DeleteServerCatalogRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DeleteServerCatalogResponse"
+        "target": "com.amazonaws.sms#DeleteServerCatalogResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes all servers from your server catalog.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteServerCatalogRequest": {
+    "com.amazonaws.sms#DeleteServerCatalogRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#DeleteServerCatalogResponse": {
+    "com.amazonaws.sms#DeleteServerCatalogResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#Description": {
+    "com.amazonaws.sms#Description": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#DisassociateConnector": {
+    "com.amazonaws.sms#DisassociateConnector": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DisassociateConnectorRequest"
+        "target": "com.amazonaws.sms#DisassociateConnectorRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#DisassociateConnectorResponse"
+        "target": "com.amazonaws.sms#DisassociateConnectorResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Disassociates the specified connector from AWS SMS.</p>\n        <p>After you disassociate a connector, it is no longer available to support\n            replication jobs.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DisassociateConnectorRequest": {
+    "com.amazonaws.sms#DisassociateConnectorRequest": {
       "type": "structure",
       "members": {
         "connectorId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorId",
+          "target": "com.amazonaws.sms#ConnectorId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the connector.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#DisassociateConnectorResponse": {
+    "com.amazonaws.sms#DisassociateConnectorResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#EC2KeyName": {
+    "com.amazonaws.sms#EC2KeyName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#Encrypted": {
+    "com.amazonaws.sms#Encrypted": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ErrorMessage": {
+    "com.amazonaws.sms#ErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ForceStopAppReplication": {
+    "com.amazonaws.sms#ForceStopAppReplication": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ForceTerminateApp": {
+    "com.amazonaws.sms#ForceTerminateApp": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#Frequency": {
+    "com.amazonaws.sms#Frequency": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GenerateChangeSet": {
+    "com.amazonaws.sms#GenerateChangeSet": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GenerateChangeSetRequest"
+        "target": "com.amazonaws.sms#GenerateChangeSetRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GenerateChangeSetResponse"
+        "target": "com.amazonaws.sms#GenerateChangeSetResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Generates a target change set for a currently launched stack and writes it to an Amazon S3\n            object in the customer’s Amazon S3 bucket.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GenerateChangeSetRequest": {
+    "com.amazonaws.sms#GenerateChangeSetRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application associated with the change set.</p>"
           }
         },
         "changesetFormat": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OutputFormat",
+          "target": "com.amazonaws.sms#OutputFormat",
           "traits": {
             "smithy.api#documentation": "<p>Format for the change set.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GenerateChangeSetResponse": {
+    "com.amazonaws.sms#GenerateChangeSetResponse": {
       "type": "structure",
       "members": {
         "s3Location": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#S3Location",
+          "target": "com.amazonaws.sms#S3Location",
           "traits": {
             "smithy.api#documentation": "<p>Location of the Amazon S3 object.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GenerateTemplate": {
+    "com.amazonaws.sms#GenerateTemplate": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GenerateTemplateRequest"
+        "target": "com.amazonaws.sms#GenerateTemplateRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GenerateTemplateResponse"
+        "target": "com.amazonaws.sms#GenerateTemplateResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Generates an Amazon CloudFormation template based on the current launch configuration and writes it to\n            an Amazon S3 object in the customer’s Amazon S3 bucket.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GenerateTemplateRequest": {
+    "com.amazonaws.sms#GenerateTemplateRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application associated with the Amazon CloudFormation template.</p>"
           }
         },
         "templateFormat": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OutputFormat",
+          "target": "com.amazonaws.sms#OutputFormat",
           "traits": {
             "smithy.api#documentation": "<p>Format for generating the Amazon CloudFormation template.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GenerateTemplateResponse": {
+    "com.amazonaws.sms#GenerateTemplateResponse": {
       "type": "structure",
       "members": {
         "s3Location": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#S3Location",
+          "target": "com.amazonaws.sms#S3Location",
           "traits": {
             "smithy.api#documentation": "<p>Location of the Amazon S3 object.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetApp": {
+    "com.amazonaws.sms#GetApp": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetAppRequest"
+        "target": "com.amazonaws.sms#GetAppRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetAppResponse"
+        "target": "com.amazonaws.sms#GetAppResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieve information about an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppLaunchConfiguration": {
+    "com.amazonaws.sms#GetAppLaunchConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetAppLaunchConfigurationRequest"
+        "target": "com.amazonaws.sms#GetAppLaunchConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetAppLaunchConfigurationResponse"
+        "target": "com.amazonaws.sms#GetAppLaunchConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieves the application launch configuration associated with an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppLaunchConfigurationRequest": {
+    "com.amazonaws.sms#GetAppLaunchConfigurationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application launch configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppLaunchConfigurationResponse": {
+    "com.amazonaws.sms#GetAppLaunchConfigurationResponse": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application associated with the launch configuration.</p>"
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the service role in the customer's account that Amazon CloudFormation uses to launch the\n            application.</p>"
           }
         },
         "serverGroupLaunchConfigurations": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupLaunchConfigurations",
+          "target": "com.amazonaws.sms#ServerGroupLaunchConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>List of launch configurations for server groups in this application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppReplicationConfiguration": {
+    "com.amazonaws.sms#GetAppReplicationConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetAppReplicationConfigurationRequest"
+        "target": "com.amazonaws.sms#GetAppReplicationConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetAppReplicationConfigurationResponse"
+        "target": "com.amazonaws.sms#GetAppReplicationConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieves an application replication configuration associatd with an\n            application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppReplicationConfigurationRequest": {
+    "com.amazonaws.sms#GetAppReplicationConfigurationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application associated with the replication configuration.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppReplicationConfigurationResponse": {
+    "com.amazonaws.sms#GetAppReplicationConfigurationResponse": {
       "type": "structure",
       "members": {
         "serverGroupReplicationConfigurations": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupReplicationConfigurations",
+          "target": "com.amazonaws.sms#ServerGroupReplicationConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Replication configurations associated with server groups in this application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppRequest": {
+    "com.amazonaws.sms#GetAppRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application whose information is being retrieved.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetAppResponse": {
+    "com.amazonaws.sms#GetAppResponse": {
       "type": "structure",
       "members": {
         "appSummary": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppSummary",
+          "target": "com.amazonaws.sms#AppSummary",
           "traits": {
             "smithy.api#documentation": "<p>Information about the application.</p>"
           }
         },
         "serverGroups": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroups",
+          "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>List of server groups belonging to the application.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Tags",
+          "target": "com.amazonaws.sms#Tags",
           "traits": {
             "smithy.api#documentation": "<p>List of tags associated with the application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetConnectors": {
+    "com.amazonaws.sms#GetConnectors": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetConnectorsRequest"
+        "target": "com.amazonaws.sms#GetConnectorsRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetConnectorsResponse"
+        "target": "com.amazonaws.sms#GetConnectorsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
@@ -1364,57 +1400,57 @@
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetConnectorsRequest": {
+    "com.amazonaws.sms#GetConnectorsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MaxResults",
+          "target": "com.amazonaws.sms#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetConnectorsResponse": {
+    "com.amazonaws.sms#GetConnectorsResponse": {
       "type": "structure",
       "members": {
         "connectorList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorList",
+          "target": "com.amazonaws.sms#ConnectorList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the registered connectors.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetReplicationJobs": {
+    "com.amazonaws.sms#GetReplicationJobs": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetReplicationJobsRequest"
+        "target": "com.amazonaws.sms#GetReplicationJobsRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetReplicationJobsResponse"
+        "target": "com.amazonaws.sms#GetReplicationJobsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
@@ -1427,63 +1463,63 @@
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetReplicationJobsRequest": {
+    "com.amazonaws.sms#GetReplicationJobsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MaxResults",
+          "target": "com.amazonaws.sms#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
           }
         },
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication job.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetReplicationJobsResponse": {
+    "com.amazonaws.sms#GetReplicationJobsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
           }
         },
         "replicationJobList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobList",
+          "target": "com.amazonaws.sms#ReplicationJobList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the replication jobs.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetReplicationRuns": {
+    "com.amazonaws.sms#GetReplicationRuns": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetReplicationRunsRequest"
+        "target": "com.amazonaws.sms#GetReplicationRunsRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetReplicationRunsResponse"
+        "target": "com.amazonaws.sms#GetReplicationRunsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
@@ -1496,64 +1532,64 @@
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetReplicationRunsRequest": {
+    "com.amazonaws.sms#GetReplicationRunsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MaxResults",
+          "target": "com.amazonaws.sms#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
           }
         },
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetReplicationRunsResponse": {
+    "com.amazonaws.sms#GetReplicationRunsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
           }
         },
         "replicationJob": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJob",
+          "target": "com.amazonaws.sms#ReplicationJob",
           "traits": {
             "smithy.api#documentation": "<p>Information about the replication job.</p>"
           }
         },
         "replicationRunList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunList",
+          "target": "com.amazonaws.sms#ReplicationRunList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the replication runs.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetServers": {
+    "com.amazonaws.sms#GetServers": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetServersRequest"
+        "target": "com.amazonaws.sms#GetServersRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#GetServersResponse"
+        "target": "com.amazonaws.sms#GetServersResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
@@ -1566,103 +1602,103 @@
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetServersRequest": {
+    "com.amazonaws.sms#GetServersRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MaxResults",
+          "target": "com.amazonaws.sms#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is 50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
           }
         },
         "vmServerAddressList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmServerAddressList",
+          "target": "com.amazonaws.sms#VmServerAddressList",
           "traits": {
             "smithy.api#documentation": "<p>List of <code>VmServerAddress</code> objects</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#GetServersResponse": {
+    "com.amazonaws.sms#GetServersResponse": {
       "type": "structure",
       "members": {
         "lastModifiedOn": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time when the server was last modified.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when\n            there are no more results to return.</p>"
           }
         },
         "serverCatalogStatus": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerCatalogStatus",
+          "target": "com.amazonaws.sms#ServerCatalogStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the server catalog.</p>"
           }
         },
         "serverList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerList",
+          "target": "com.amazonaws.sms#ServerList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the servers.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ImportServerCatalog": {
+    "com.amazonaws.sms#ImportServerCatalog": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ImportServerCatalogRequest"
+        "target": "com.amazonaws.sms#ImportServerCatalogRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ImportServerCatalogResponse"
+        "target": "com.amazonaws.sms#ImportServerCatalogResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NoConnectorsAvailableException"
+          "target": "com.amazonaws.sms#NoConnectorsAvailableException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gathers a complete list of on-premises servers. Connectors must be installed and\n            monitoring all servers that you want to import.</p>\n        <p>This call returns immediately, but might take additional time to retrieve all the\n            servers.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ImportServerCatalogRequest": {
+    "com.amazonaws.sms#ImportServerCatalogRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#ImportServerCatalogResponse": {
+    "com.amazonaws.sms#ImportServerCatalogResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#InstanceType": {
+    "com.amazonaws.sms#InstanceType": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#InternalError": {
+    "com.amazonaws.sms#InternalError": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -1671,11 +1707,11 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException": {
+    "com.amazonaws.sms#InvalidParameterException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -1684,76 +1720,76 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#IpAddress": {
+    "com.amazonaws.sms#IpAddress": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#KeyName": {
+    "com.amazonaws.sms#KeyName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#KmsKeyId": {
+    "com.amazonaws.sms#KmsKeyId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#LaunchApp": {
+    "com.amazonaws.sms#LaunchApp": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#LaunchAppRequest"
+        "target": "com.amazonaws.sms#LaunchAppRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#LaunchAppResponse"
+        "target": "com.amazonaws.sms#LaunchAppResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Launches an application stack.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#LaunchAppRequest": {
+    "com.amazonaws.sms#LaunchAppRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application to launch.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#LaunchAppResponse": {
+    "com.amazonaws.sms#LaunchAppResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#LaunchDetails": {
+    "com.amazonaws.sms#LaunchDetails": {
       "type": "structure",
       "members": {
         "latestLaunchTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Latest time this application was launched successfully.</p>"
           }
         },
         "stackId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#StackId",
+          "target": "com.amazonaws.sms#StackId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the latest stack launched for this application.</p>"
           }
         },
         "stackName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#StackName",
+          "target": "com.amazonaws.sms#StackName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the latest stack launched for this application.</p>"
           }
@@ -1763,111 +1799,113 @@
         "smithy.api#documentation": "<p>Details about the latest launch of an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#LaunchOrder": {
+    "com.amazonaws.sms#LaunchOrder": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#LicenseType": {
+    "com.amazonaws.sms#LicenseType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AWS": {
+        "smithy.api#enum": [
+          {
+            "value": "AWS",
             "name": "AWS"
           },
-          "BYOL": {
+          {
+            "value": "BYOL",
             "name": "BYOL"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ListApps": {
+    "com.amazonaws.sms#ListApps": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ListAppsRequest"
+        "target": "com.amazonaws.sms#ListAppsRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ListAppsResponse"
+        "target": "com.amazonaws.sms#ListAppsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns a list of summaries for all applications.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ListAppsRequest": {
+    "com.amazonaws.sms#ListAppsRequest": {
       "type": "structure",
       "members": {
         "appIds": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppIds",
+          "target": "com.amazonaws.sms#AppIds",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MaxResults",
+          "target": "com.amazonaws.sms#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return in a single call. The default value is\n            50.\n            To retrieve the remaining results, make another call with the returned\n                <code>NextToken</code> value. </p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ListAppsResponse": {
+    "com.amazonaws.sms#ListAppsResponse": {
       "type": "structure",
       "members": {
         "apps": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Apps",
+          "target": "com.amazonaws.sms#Apps",
           "traits": {
             "smithy.api#documentation": "<p>A list of application summaries.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NextToken",
+          "target": "com.amazonaws.sms#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token required to retrieve the next set of results. This value is null when there\n            are no more results to return.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#LogicalId": {
+    "com.amazonaws.sms#LogicalId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#MacAddress": {
+    "com.amazonaws.sms#MacAddress": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#MaxResults": {
+    "com.amazonaws.sms#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException": {
+    "com.amazonaws.sms#MissingRequiredParameterException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -1876,14 +1914,14 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#NextToken": {
+    "com.amazonaws.sms#NextToken": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#NoConnectorsAvailableException": {
+    "com.amazonaws.sms#NoConnectorsAvailableException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -1892,17 +1930,17 @@
         "smithy.api#httpError": 430
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#NumberOfRecentAmisToKeep": {
+    "com.amazonaws.sms#NumberOfRecentAmisToKeep": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException": {
+    "com.amazonaws.sms#OperationNotPermittedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -1911,232 +1949,234 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#OutputFormat": {
+    "com.amazonaws.sms#OutputFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "JSON": {
+        "smithy.api#enum": [
+          {
+            "value": "JSON",
             "name": "JSON"
           },
-          "YAML": {
+          {
+            "value": "YAML",
             "name": "YAML"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#PutAppLaunchConfiguration": {
+    "com.amazonaws.sms#PutAppLaunchConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#PutAppLaunchConfigurationRequest"
+        "target": "com.amazonaws.sms#PutAppLaunchConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#PutAppLaunchConfigurationResponse"
+        "target": "com.amazonaws.sms#PutAppLaunchConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a launch configuration for an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#PutAppLaunchConfigurationRequest": {
+    "com.amazonaws.sms#PutAppLaunchConfigurationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application associated with the launch configuration.</p>"
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>Name of service role in the customer's account that Amazon CloudFormation uses to launch the\n            application.</p>"
           }
         },
         "serverGroupLaunchConfigurations": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupLaunchConfigurations",
+          "target": "com.amazonaws.sms#ServerGroupLaunchConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Launch configurations for server groups in the application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#PutAppLaunchConfigurationResponse": {
+    "com.amazonaws.sms#PutAppLaunchConfigurationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#PutAppReplicationConfiguration": {
+    "com.amazonaws.sms#PutAppReplicationConfiguration": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#PutAppReplicationConfigurationRequest"
+        "target": "com.amazonaws.sms#PutAppReplicationConfigurationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#PutAppReplicationConfigurationResponse"
+        "target": "com.amazonaws.sms#PutAppReplicationConfigurationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates or updates a replication configuration for an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#PutAppReplicationConfigurationRequest": {
+    "com.amazonaws.sms#PutAppReplicationConfigurationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application tassociated with the replication configuration.</p>"
           }
         },
         "serverGroupReplicationConfigurations": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupReplicationConfigurations",
+          "target": "com.amazonaws.sms#ServerGroupReplicationConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Replication configurations for server groups in the application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#PutAppReplicationConfigurationResponse": {
+    "com.amazonaws.sms#PutAppReplicationConfigurationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJob": {
+    "com.amazonaws.sms#ReplicationJob": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Description",
+          "target": "com.amazonaws.sms#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the replication job.</p>"
           }
         },
         "encrypted": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Encrypted",
+          "target": "com.amazonaws.sms#Encrypted",
           "traits": {
             "smithy.api#documentation": "<p>Whether the replication job should produce encrypted AMIs or not. See also\n                <code>KmsKeyId</code> below.</p>"
           }
         },
         "frequency": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Frequency",
+          "target": "com.amazonaws.sms#Frequency",
           "traits": {
             "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
           }
         },
         "kmsKeyId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#KmsKeyId",
+          "target": "com.amazonaws.sms#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
           }
         },
         "latestAmiId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AmiId",
+          "target": "com.amazonaws.sms#AmiId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the latest Amazon Machine Image (AMI).</p>"
           }
         },
         "licenseType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LicenseType",
+          "target": "com.amazonaws.sms#LicenseType",
           "traits": {
             "smithy.api#documentation": "<p>The license type to be used for the AMI created by a successful replication\n            run.</p>"
           }
         },
         "nextReplicationRunStartTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
           }
         },
         "numberOfRecentAmisToKeep": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NumberOfRecentAmisToKeep",
+          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
           "traits": {
             "smithy.api#documentation": "<p>Number of recent AMIs to keep in the customer's account for a replication job. By\n            default the value is set to zero, meaning that all AMIs are kept.</p>"
           }
         },
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication job.</p>"
           }
         },
         "replicationRunList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunList",
+          "target": "com.amazonaws.sms#ReplicationRunList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the replication runs.</p>"
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the IAM role to be used by the Server Migration Service.</p>"
           }
         },
         "runOnce": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RunOnce",
+          "target": "com.amazonaws.sms#RunOnce",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
         "seedReplicationTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The seed replication time.</p>"
           }
         },
         "serverId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerId",
+          "target": "com.amazonaws.sms#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the server.</p>"
           }
         },
         "serverType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerType",
+          "target": "com.amazonaws.sms#ServerType",
           "traits": {
             "smithy.api#documentation": "<p>The type of server.</p>"
           }
         },
         "state": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobState",
+          "target": "com.amazonaws.sms#ReplicationJobState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the replication job.</p>"
           }
         },
         "statusMessage": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobStatusMessage",
+          "target": "com.amazonaws.sms#ReplicationJobStatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>The description of the current status of the replication job.</p>"
           }
         },
         "vmServer": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmServer",
+          "target": "com.amazonaws.sms#VmServer",
           "traits": {
             "smithy.api#documentation": "<p>Information about the VM server.</p>"
           }
@@ -2146,11 +2186,11 @@
         "smithy.api#documentation": "<p>Represents a replication job.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJobAlreadyExistsException": {
+    "com.amazonaws.sms#ReplicationJobAlreadyExistsException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -2159,23 +2199,23 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId": {
+    "com.amazonaws.sms#ReplicationJobId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJobList": {
+    "com.amazonaws.sms#ReplicationJobList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJob",
+        "target": "com.amazonaws.sms#ReplicationJob",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException": {
+    "com.amazonaws.sms#ReplicationJobNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -2184,111 +2224,119 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJobState": {
+    "com.amazonaws.sms#ReplicationJobState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "Pending"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "Active"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "Failed"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "Deleting"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "Deleted"
           },
-          "COMPLETED": {
+          {
+            "value": "COMPLETED",
             "name": "Completed"
           },
-          "PAUSED_ON_FAILURE": {
+          {
+            "value": "PAUSED_ON_FAILURE",
             "name": "PausedOnFailure"
           },
-          "FAILING": {
+          {
+            "value": "FAILING",
             "name": "Failing"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJobStatusMessage": {
+    "com.amazonaws.sms#ReplicationJobStatusMessage": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationJobTerminated": {
+    "com.amazonaws.sms#ReplicationJobTerminated": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRun": {
+    "com.amazonaws.sms#ReplicationRun": {
       "type": "structure",
       "members": {
         "amiId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AmiId",
+          "target": "com.amazonaws.sms#AmiId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the Amazon Machine Image (AMI) from the replication\n            run.</p>"
           }
         },
         "completedTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The completion time of the last replication run.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Description",
+          "target": "com.amazonaws.sms#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the replication run.</p>"
           }
         },
         "encrypted": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Encrypted",
+          "target": "com.amazonaws.sms#Encrypted",
           "traits": {
             "smithy.api#documentation": "<p>Whether the replication run should produce encrypted AMI or not. See also\n                <code>KmsKeyId</code> below.</p>"
           }
         },
         "kmsKeyId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#KmsKeyId",
+          "target": "com.amazonaws.sms#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
           }
         },
         "replicationRunId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunId",
+          "target": "com.amazonaws.sms#ReplicationRunId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication run.</p>"
           }
         },
         "scheduledStartTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
           }
         },
         "stageDetails": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStageDetails",
+          "target": "com.amazonaws.sms#ReplicationRunStageDetails",
           "traits": {
             "smithy.api#documentation": "<p>Details of the current stage of the replication run.</p>"
           }
         },
         "state": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunState",
+          "target": "com.amazonaws.sms#ReplicationRunState",
           "traits": {
             "smithy.api#documentation": "<p>The state of the replication run.</p>"
           }
         },
         "statusMessage": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStatusMessage",
+          "target": "com.amazonaws.sms#ReplicationRunStatusMessage",
           "traits": {
             "smithy.api#documentation": "<p>The description of the current status of the replication job.</p>"
           }
         },
         "type": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunType",
+          "target": "com.amazonaws.sms#ReplicationRunType",
           "traits": {
             "smithy.api#documentation": "<p>The type of replication run.</p>"
           }
@@ -2298,14 +2346,14 @@
         "smithy.api#documentation": "<p>Represents a replication run.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunId": {
+    "com.amazonaws.sms#ReplicationRunId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunLimitExceededException": {
+    "com.amazonaws.sms#ReplicationRunLimitExceededException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -2314,29 +2362,29 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunList": {
+    "com.amazonaws.sms#ReplicationRunList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRun",
+        "target": "com.amazonaws.sms#ReplicationRun",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStage": {
+    "com.amazonaws.sms#ReplicationRunStage": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStageDetails": {
+    "com.amazonaws.sms#ReplicationRunStageDetails": {
       "type": "structure",
       "members": {
         "stage": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStage",
+          "target": "com.amazonaws.sms#ReplicationRunStage",
           "traits": {
             "smithy.api#documentation": "<p>String describing the current stage of a replication run.</p>"
           }
         },
         "stageProgress": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStageProgress",
+          "target": "com.amazonaws.sms#ReplicationRunStageProgress",
           "traits": {
             "smithy.api#documentation": "<p>String describing the progress of the current stage of a replication run.</p>"
           }
@@ -2346,73 +2394,82 @@
         "smithy.api#documentation": "<p>Details of the current stage of a replication run.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStageProgress": {
+    "com.amazonaws.sms#ReplicationRunStageProgress": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunState": {
+    "com.amazonaws.sms#ReplicationRunState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "Pending"
           },
-          "MISSED": {
+          {
+            "value": "MISSED",
             "name": "Missed"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "Active"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "Failed"
           },
-          "COMPLETED": {
+          {
+            "value": "COMPLETED",
             "name": "Completed"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "Deleting"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "Deleted"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStatusMessage": {
+    "com.amazonaws.sms#ReplicationRunStatusMessage": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ReplicationRunType": {
+    "com.amazonaws.sms#ReplicationRunType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ON_DEMAND": {
+        "smithy.api#enum": [
+          {
+            "value": "ON_DEMAND",
             "name": "OnDemand"
           },
-          "AUTOMATIC": {
+          {
+            "value": "AUTOMATIC",
             "name": "Automatic"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#RoleName": {
+    "com.amazonaws.sms#RoleName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#RunOnce": {
+    "com.amazonaws.sms#RunOnce": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#S3Location": {
+    "com.amazonaws.sms#S3Location": {
       "type": "structure",
       "members": {
         "bucket": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#BucketName",
+          "target": "com.amazonaws.sms#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>Amazon S3 bucket name.</p>"
           }
         },
         "key": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#KeyName",
+          "target": "com.amazonaws.sms#KeyName",
           "traits": {
             "smithy.api#documentation": "<p>Amazon S3 bucket key.</p>"
           }
@@ -2422,38 +2479,38 @@
         "smithy.api#documentation": "<p>Location of the Amazon S3 object in the customer's account.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#SecurityGroup": {
+    "com.amazonaws.sms#SecurityGroup": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#Server": {
+    "com.amazonaws.sms#Server": {
       "type": "structure",
       "members": {
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication job.</p>"
           }
         },
         "replicationJobTerminated": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobTerminated",
+          "target": "com.amazonaws.sms#ReplicationJobTerminated",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the replication job is deleted or failed.</p>"
           }
         },
         "serverId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerId",
+          "target": "com.amazonaws.sms#ServerId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the server.</p>"
           }
         },
         "serverType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerType",
+          "target": "com.amazonaws.sms#ServerType",
           "traits": {
             "smithy.api#documentation": "<p>The type of server.</p>"
           }
         },
         "vmServer": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmServer",
+          "target": "com.amazonaws.sms#VmServer",
           "traits": {
             "smithy.api#documentation": "<p>Information about the VM server.</p>"
           }
@@ -2463,11 +2520,11 @@
         "smithy.api#documentation": "<p>Represents a server.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerCannotBeReplicatedException": {
+    "com.amazonaws.sms#ServerCannotBeReplicatedException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -2476,45 +2533,50 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerCatalogStatus": {
+    "com.amazonaws.sms#ServerCatalogStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NOT_IMPORTED": {
+        "smithy.api#enum": [
+          {
+            "value": "NOT_IMPORTED",
             "name": "NotImported"
           },
-          "IMPORTING": {
+          {
+            "value": "IMPORTING",
             "name": "Importing"
           },
-          "AVAILABLE": {
+          {
+            "value": "AVAILABLE",
             "name": "Available"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "Deleted"
           },
-          "EXPIRED": {
+          {
+            "value": "EXPIRED",
             "name": "Expired"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroup": {
+    "com.amazonaws.sms#ServerGroup": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupName",
+          "target": "com.amazonaws.sms#ServerGroupName",
           "traits": {
             "smithy.api#documentation": "<p>Name of a server group.</p>"
           }
         },
         "serverGroupId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupId",
+          "target": "com.amazonaws.sms#ServerGroupId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of a server group.</p>"
           }
         },
         "serverList": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerList",
+          "target": "com.amazonaws.sms#ServerList",
           "traits": {
             "smithy.api#documentation": "<p>List of servers belonging to a server group.</p>"
           }
@@ -2524,26 +2586,26 @@
         "smithy.api#documentation": "<p>A logical grouping of servers.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroupId": {
+    "com.amazonaws.sms#ServerGroupId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroupLaunchConfiguration": {
+    "com.amazonaws.sms#ServerGroupLaunchConfiguration": {
       "type": "structure",
       "members": {
         "launchOrder": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LaunchOrder",
+          "target": "com.amazonaws.sms#LaunchOrder",
           "traits": {
             "smithy.api#documentation": "<p>Launch order of servers in the server group.</p>"
           }
         },
         "serverGroupId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupId",
+          "target": "com.amazonaws.sms#ServerGroupId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the server group the launch configuration is associated with.</p>"
           }
         },
         "serverLaunchConfigurations": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerLaunchConfigurations",
+          "target": "com.amazonaws.sms#ServerLaunchConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Launch configuration for servers in the server group.</p>"
           }
@@ -2553,26 +2615,26 @@
         "smithy.api#documentation": "<p>Launch configuration for a server group.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroupLaunchConfigurations": {
+    "com.amazonaws.sms#ServerGroupLaunchConfigurations": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupLaunchConfiguration"
+        "target": "com.amazonaws.sms#ServerGroupLaunchConfiguration"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroupName": {
+    "com.amazonaws.sms#ServerGroupName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroupReplicationConfiguration": {
+    "com.amazonaws.sms#ServerGroupReplicationConfiguration": {
       "type": "structure",
       "members": {
         "serverGroupId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupId",
+          "target": "com.amazonaws.sms#ServerGroupId",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the server group this replication configuration is associated\n            with.</p>"
           }
         },
         "serverReplicationConfigurations": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerReplicationConfigurations",
+          "target": "com.amazonaws.sms#ServerReplicationConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Replication configuration for servers in the server group.</p>"
           }
@@ -2582,74 +2644,74 @@
         "smithy.api#documentation": "<p>Replication configuration for a server group.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroupReplicationConfigurations": {
+    "com.amazonaws.sms#ServerGroupReplicationConfigurations": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroupReplicationConfiguration"
+        "target": "com.amazonaws.sms#ServerGroupReplicationConfiguration"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerGroups": {
+    "com.amazonaws.sms#ServerGroups": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroup"
+        "target": "com.amazonaws.sms#ServerGroup"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerId": {
+    "com.amazonaws.sms#ServerId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerLaunchConfiguration": {
+    "com.amazonaws.sms#ServerLaunchConfiguration": {
       "type": "structure",
       "members": {
         "associatePublicIpAddress": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AssociatePublicIpAddress",
+          "target": "com.amazonaws.sms#AssociatePublicIpAddress",
           "traits": {
             "smithy.api#documentation": "<p>If true, a publicly accessible IP address is created when launching the server.</p>"
           }
         },
         "ec2KeyName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#EC2KeyName",
+          "target": "com.amazonaws.sms#EC2KeyName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the EC2 SSH Key to be used for connecting to the launched server.</p>"
           }
         },
         "instanceType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InstanceType",
+          "target": "com.amazonaws.sms#InstanceType",
           "traits": {
             "smithy.api#documentation": "<p>Instance type to be used for launching the server.</p>"
           }
         },
         "logicalId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LogicalId",
+          "target": "com.amazonaws.sms#LogicalId",
           "traits": {
             "smithy.api#documentation": "<p>Logical ID of the server in the Amazon CloudFormation template.</p>"
           }
         },
         "securityGroup": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#SecurityGroup",
+          "target": "com.amazonaws.sms#SecurityGroup",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the security group that applies to the launched server.</p>"
           }
         },
         "server": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Server",
+          "target": "com.amazonaws.sms#Server",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the server the launch configuration is associated with.</p>"
           }
         },
         "subnet": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Subnet",
+          "target": "com.amazonaws.sms#Subnet",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the subnet the server should be launched into.</p>"
           }
         },
         "userData": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UserData",
+          "target": "com.amazonaws.sms#UserData",
           "traits": {
             "smithy.api#documentation": "<p>Location of the user-data script to be executed when launching the server.</p>"
           }
         },
         "vpc": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VPC",
+          "target": "com.amazonaws.sms#VPC",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the VPC the server should be launched into.</p>"
           }
@@ -2659,32 +2721,32 @@
         "smithy.api#documentation": "<p>Launch configuration for a server.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerLaunchConfigurations": {
+    "com.amazonaws.sms#ServerLaunchConfigurations": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ServerLaunchConfiguration"
+        "target": "com.amazonaws.sms#ServerLaunchConfiguration"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerList": {
+    "com.amazonaws.sms#ServerList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#Server",
+        "target": "com.amazonaws.sms#Server",
         "traits": {
           "smithy.api#xmlName": "item"
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerReplicationConfiguration": {
+    "com.amazonaws.sms#ServerReplicationConfiguration": {
       "type": "structure",
       "members": {
         "server": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Server",
+          "target": "com.amazonaws.sms#Server",
           "traits": {
             "smithy.api#documentation": "<p>Identifier of the server this replication configuration is associated with.</p>"
           }
         },
         "serverReplicationParameters": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerReplicationParameters",
+          "target": "com.amazonaws.sms#ServerReplicationParameters",
           "traits": {
             "smithy.api#documentation": "<p>Parameters for replicating the server.</p>"
           }
@@ -2694,53 +2756,53 @@
         "smithy.api#documentation": "<p>Replication configuration of a server.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerReplicationConfigurations": {
+    "com.amazonaws.sms#ServerReplicationConfigurations": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ServerReplicationConfiguration"
+        "target": "com.amazonaws.sms#ServerReplicationConfiguration"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerReplicationParameters": {
+    "com.amazonaws.sms#ServerReplicationParameters": {
       "type": "structure",
       "members": {
         "encrypted": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Encrypted",
+          "target": "com.amazonaws.sms#Encrypted",
           "traits": {
             "smithy.api#documentation": "<p>When true, the replication job produces encrypted AMIs. See also <code>KmsKeyId</code>\n            below.</p>"
           }
         },
         "frequency": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Frequency",
+          "target": "com.amazonaws.sms#Frequency",
           "traits": {
             "smithy.api#documentation": "<p>Frequency of creating replication jobs for the server.</p>"
           }
         },
         "kmsKeyId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#KmsKeyId",
+          "target": "com.amazonaws.sms#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p></p>\n        <p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
           }
         },
         "licenseType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LicenseType",
+          "target": "com.amazonaws.sms#LicenseType",
           "traits": {
             "smithy.api#documentation": "<p>License type for creating a replication job for the server.</p>"
           }
         },
         "numberOfRecentAmisToKeep": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NumberOfRecentAmisToKeep",
+          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
           "traits": {
             "smithy.api#documentation": "<p>Number of recent AMIs to keep when creating a replication job for this server.</p>"
           }
         },
         "runOnce": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RunOnce",
+          "target": "com.amazonaws.sms#RunOnce",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
         "seedTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Seed time for creating a replication job for the server.</p>"
           }
@@ -2750,182 +2812,183 @@
         "smithy.api#documentation": "<p>Replication parameters for replicating a server.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#ServerType": {
+    "com.amazonaws.sms#ServerType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "VIRTUAL_MACHINE": {
+        "smithy.api#enum": [
+          {
+            "value": "VIRTUAL_MACHINE",
             "name": "VirtualMachine"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StackId": {
+    "com.amazonaws.sms#StackId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#StackName": {
+    "com.amazonaws.sms#StackName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#StartAppReplication": {
+    "com.amazonaws.sms#StartAppReplication": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#StartAppReplicationRequest"
+        "target": "com.amazonaws.sms#StartAppReplicationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#StartAppReplicationResponse"
+        "target": "com.amazonaws.sms#StartAppReplicationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Starts replicating an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StartAppReplicationRequest": {
+    "com.amazonaws.sms#StartAppReplicationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application to replicate.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StartAppReplicationResponse": {
+    "com.amazonaws.sms#StartAppReplicationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#StartOnDemandReplicationRun": {
+    "com.amazonaws.sms#StartOnDemandReplicationRun": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#StartOnDemandReplicationRunRequest"
+        "target": "com.amazonaws.sms#StartOnDemandReplicationRunRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#StartOnDemandReplicationRunResponse"
+        "target": "com.amazonaws.sms#StartOnDemandReplicationRunResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunLimitExceededException"
+          "target": "com.amazonaws.sms#ReplicationRunLimitExceededException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Starts an on-demand replication run for the specified replication job. This\n            replication run starts immediately. This replication run is in addition to the ones\n            already scheduled.</p>\n        <p>There is a limit on the number of on-demand replications runs you can request in a\n            24-hour period.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StartOnDemandReplicationRunRequest": {
+    "com.amazonaws.sms#StartOnDemandReplicationRunRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Description",
+          "target": "com.amazonaws.sms#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the replication run.</p>"
           }
         },
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StartOnDemandReplicationRunResponse": {
+    "com.amazonaws.sms#StartOnDemandReplicationRunResponse": {
       "type": "structure",
       "members": {
         "replicationRunId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRunId",
+          "target": "com.amazonaws.sms#ReplicationRunId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication run.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StopAppReplication": {
+    "com.amazonaws.sms#StopAppReplication": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#StopAppReplicationRequest"
+        "target": "com.amazonaws.sms#StopAppReplicationRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#StopAppReplicationResponse"
+        "target": "com.amazonaws.sms#StopAppReplicationResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Stops replicating an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StopAppReplicationRequest": {
+    "com.amazonaws.sms#StopAppReplicationRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application to stop replicating.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#StopAppReplicationResponse": {
+    "com.amazonaws.sms#StopAppReplicationResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#Subnet": {
+    "com.amazonaws.sms#Subnet": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#Tag": {
+    "com.amazonaws.sms#Tag": {
       "type": "structure",
       "members": {
         "key": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#TagKey",
+          "target": "com.amazonaws.sms#TagKey",
           "traits": {
             "smithy.api#documentation": "<p>Tag key.</p>"
           }
         },
         "value": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#TagValue",
+          "target": "com.amazonaws.sms#TagValue",
           "traits": {
             "smithy.api#documentation": "<p>Tag value.</p>"
           }
@@ -2935,91 +2998,91 @@
         "smithy.api#documentation": "<p>A label that can be assigned to an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#TagKey": {
+    "com.amazonaws.sms#TagKey": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#TagValue": {
+    "com.amazonaws.sms#TagValue": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#Tags": {
+    "com.amazonaws.sms#Tags": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#Tag"
+        "target": "com.amazonaws.sms#Tag"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#TemporarilyUnavailableException": {
+    "com.amazonaws.sms#TemporarilyUnavailableException": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The service is temporarily unavailable.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 503
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#TerminateApp": {
+    "com.amazonaws.sms#TerminateApp": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#TerminateAppRequest"
+        "target": "com.amazonaws.sms#TerminateAppRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#TerminateAppResponse"
+        "target": "com.amazonaws.sms#TerminateAppResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Terminates the stack for an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#TerminateAppRequest": {
+    "com.amazonaws.sms#TerminateAppRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application to terminate.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#TerminateAppResponse": {
+    "com.amazonaws.sms#TerminateAppResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#Timestamp": {
+    "com.amazonaws.sms#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.servermigration.V2016_10_24#TotalServerGroups": {
+    "com.amazonaws.sms#TotalServerGroups": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#TotalServers": {
+    "com.amazonaws.sms#TotalServers": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException": {
+    "com.amazonaws.sms#UnauthorizedOperationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ErrorMessage"
+          "target": "com.amazonaws.sms#ErrorMessage"
         }
       },
       "traits": {
@@ -3028,206 +3091,206 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#UpdateApp": {
+    "com.amazonaws.sms#UpdateApp": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#UpdateAppRequest"
+        "target": "com.amazonaws.sms#UpdateAppRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#UpdateAppResponse"
+        "target": "com.amazonaws.sms#UpdateAppResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates an application.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#UpdateAppRequest": {
+    "com.amazonaws.sms#UpdateAppRequest": {
       "type": "structure",
       "members": {
         "appId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppId",
+          "target": "com.amazonaws.sms#AppId",
           "traits": {
             "smithy.api#documentation": "<p>ID of the application to update.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppDescription",
+          "target": "com.amazonaws.sms#AppDescription",
           "traits": {
             "smithy.api#documentation": "<p>New description of the application.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppName",
+          "target": "com.amazonaws.sms#AppName",
           "traits": {
             "smithy.api#documentation": "<p>New name of the application.</p>"
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>Name of the service role in the customer's account used by AWS SMS.</p>"
           }
         },
         "serverGroups": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroups",
+          "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>List of server groups in the application to update.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Tags",
+          "target": "com.amazonaws.sms#Tags",
           "traits": {
             "smithy.api#documentation": "<p>List of tags to associate with the application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#UpdateAppResponse": {
+    "com.amazonaws.sms#UpdateAppResponse": {
       "type": "structure",
       "members": {
         "appSummary": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#AppSummary",
+          "target": "com.amazonaws.sms#AppSummary",
           "traits": {
             "smithy.api#documentation": "<p>Summary description of the application.</p>"
           }
         },
         "serverGroups": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerGroups",
+          "target": "com.amazonaws.sms#ServerGroups",
           "traits": {
             "smithy.api#documentation": "<p>List of updated server groups in the application.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Tags",
+          "target": "com.amazonaws.sms#Tags",
           "traits": {
             "smithy.api#documentation": "<p>List of tags associated with the application.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#UpdateReplicationJob": {
+    "com.amazonaws.sms#UpdateReplicationJob": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#UpdateReplicationJobRequest"
+        "target": "com.amazonaws.sms#UpdateReplicationJobRequest"
       },
       "output": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#UpdateReplicationJobResponse"
+        "target": "com.amazonaws.sms#UpdateReplicationJobResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InternalError"
+          "target": "com.amazonaws.sms#InternalError"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException"
+          "target": "com.amazonaws.sms#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#MissingRequiredParameterException"
+          "target": "com.amazonaws.sms#MissingRequiredParameterException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#OperationNotPermittedException"
+          "target": "com.amazonaws.sms#OperationNotPermittedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException"
+          "target": "com.amazonaws.sms#ReplicationJobNotFoundException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ServerCannotBeReplicatedException"
+          "target": "com.amazonaws.sms#ServerCannotBeReplicatedException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#TemporarilyUnavailableException"
+          "target": "com.amazonaws.sms#TemporarilyUnavailableException"
         },
         {
-          "target": "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException"
+          "target": "com.amazonaws.sms#UnauthorizedOperationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates the specified settings for the specified replication job.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#UpdateReplicationJobRequest": {
+    "com.amazonaws.sms#UpdateReplicationJobRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Description",
+          "target": "com.amazonaws.sms#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the replication job.</p>"
           }
         },
         "encrypted": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Encrypted",
+          "target": "com.amazonaws.sms#Encrypted",
           "traits": {
             "smithy.api#documentation": "<p>When true, the replication job produces encrypted AMIs . See also\n                <code>KmsKeyId</code> below.</p>"
           }
         },
         "frequency": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Frequency",
+          "target": "com.amazonaws.sms#Frequency",
           "traits": {
             "smithy.api#documentation": "<p>The time between consecutive replication runs, in hours.</p>"
           }
         },
         "kmsKeyId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#KmsKeyId",
+          "target": "com.amazonaws.sms#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p></p>\n        <p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the\n            following: </p>\n        <ul>\n            <li>\n                <p>KMS key ID</p>\n            </li>\n            <li>\n                <p>KMS key alias</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key ID</p>\n            </li>\n            <li>\n                <p>ARN referring to KMS key alias</p>\n            </li>\n         </ul>\n        <p> If encrypted is <i>true</i> but a KMS key id is not specified, the\n            customer's default KMS key for EBS is used. </p>"
           }
         },
         "licenseType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#LicenseType",
+          "target": "com.amazonaws.sms#LicenseType",
           "traits": {
             "smithy.api#documentation": "<p>The license type to be used for the AMI created by a successful replication\n            run.</p>"
           }
         },
         "nextReplicationRunStartTime": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#Timestamp",
+          "target": "com.amazonaws.sms#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time of the next replication run.</p>"
           }
         },
         "numberOfRecentAmisToKeep": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#NumberOfRecentAmisToKeep",
+          "target": "com.amazonaws.sms#NumberOfRecentAmisToKeep",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the\n            maximum number is reached and a new AMI is created.</p>"
           }
         },
         "replicationJobId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId",
+          "target": "com.amazonaws.sms#ReplicationJobId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the replication job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "roleName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#RoleName",
+          "target": "com.amazonaws.sms#RoleName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the IAM role to be used by AWS SMS.</p>"
           }
         }
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#UpdateReplicationJobResponse": {
+    "com.amazonaws.sms#UpdateReplicationJobResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.servermigration.V2016_10_24#UserData": {
+    "com.amazonaws.sms#UserData": {
       "type": "structure",
       "members": {
         "s3Location": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#S3Location",
+          "target": "com.amazonaws.sms#S3Location",
           "traits": {
             "smithy.api#documentation": "<p>Amazon S3 location of the user-data script.</p>"
           }
@@ -3237,69 +3300,72 @@
         "smithy.api#documentation": "<p>A script that runs on first launch of an Amazon EC2 instance. Used for configuring the\n            server during launch.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#VPC": {
+    "com.amazonaws.sms#VPC": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmId": {
+    "com.amazonaws.sms#VmId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmManagerId": {
+    "com.amazonaws.sms#VmManagerId": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmManagerName": {
+    "com.amazonaws.sms#VmManagerName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmManagerType": {
+    "com.amazonaws.sms#VmManagerType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "VSPHERE": {
+        "smithy.api#enum": [
+          {
+            "value": "VSPHERE",
             "name": "vSphere"
           },
-          "SCVMM": {
+          {
+            "value": "SCVMM",
             "name": "scvmm"
           },
-          "HYPERV-MANAGER": {
+          {
+            "value": "HYPERV-MANAGER",
             "name": "hyperVManager"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmName": {
+    "com.amazonaws.sms#VmName": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmPath": {
+    "com.amazonaws.sms#VmPath": {
       "type": "string"
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmServer": {
+    "com.amazonaws.sms#VmServer": {
       "type": "structure",
       "members": {
         "vmManagerName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmManagerName",
+          "target": "com.amazonaws.sms#VmManagerName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the VM manager.</p>"
           }
         },
         "vmManagerType": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmManagerType",
+          "target": "com.amazonaws.sms#VmManagerType",
           "traits": {
             "smithy.api#documentation": "<p>The type of VM management product.</p>"
           }
         },
         "vmName": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmName",
+          "target": "com.amazonaws.sms#VmName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the VM.</p>"
           }
         },
         "vmPath": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmPath",
+          "target": "com.amazonaws.sms#VmPath",
           "traits": {
             "smithy.api#documentation": "<p>The VM folder path in the vCenter Server virtual machine inventory tree.</p>"
           }
         },
         "vmServerAddress": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmServerAddress",
+          "target": "com.amazonaws.sms#VmServerAddress",
           "traits": {
             "smithy.api#documentation": "<p>Information about the VM server location.</p>"
           }
@@ -3309,17 +3375,17 @@
         "smithy.api#documentation": "<p>Represents a VM server.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmServerAddress": {
+    "com.amazonaws.sms#VmServerAddress": {
       "type": "structure",
       "members": {
         "vmId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmId",
+          "target": "com.amazonaws.sms#VmId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the VM.</p>"
           }
         },
         "vmManagerId": {
-          "target": "com.amazonaws.servermigration.V2016_10_24#VmManagerId",
+          "target": "com.amazonaws.sms#VmManagerId",
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the VM manager.</p>"
           }
@@ -3329,10 +3395,10 @@
         "smithy.api#documentation": "<p>Represents a VM server location.</p>"
       }
     },
-    "com.amazonaws.servermigration.V2016_10_24#VmServerAddressList": {
+    "com.amazonaws.sms#VmServerAddressList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#VmServerAddress"
+        "target": "com.amazonaws.sms#VmServerAddress"
       }
     }
   }

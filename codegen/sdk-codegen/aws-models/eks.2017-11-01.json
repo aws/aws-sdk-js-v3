@@ -1,110 +1,113 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.wesley.fe#AMITypes": {
+    "com.amazonaws.eks#AMITypes": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AL2_x86_64": { },
-          "AL2_x86_64_GPU": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "AL2_x86_64"
+          },
+          {
+            "value": "AL2_x86_64_GPU"
+          }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#AWSWesleyFrontend": {
+    "com.amazonaws.eks#AWSWesleyFrontend": {
       "type": "service",
       "version": "2017-11-01",
       "operations": [
         {
-          "target": "com.amazonaws.wesley.fe#CreateCluster"
+          "target": "com.amazonaws.eks#CreateCluster"
         },
         {
-          "target": "com.amazonaws.wesley.fe#CreateFargateProfile"
+          "target": "com.amazonaws.eks#CreateFargateProfile"
         },
         {
-          "target": "com.amazonaws.wesley.fe#CreateNodegroup"
+          "target": "com.amazonaws.eks#CreateNodegroup"
         },
         {
-          "target": "com.amazonaws.wesley.fe#DeleteCluster"
+          "target": "com.amazonaws.eks#DeleteCluster"
         },
         {
-          "target": "com.amazonaws.wesley.fe#DeleteFargateProfile"
+          "target": "com.amazonaws.eks#DeleteFargateProfile"
         },
         {
-          "target": "com.amazonaws.wesley.fe#DeleteNodegroup"
+          "target": "com.amazonaws.eks#DeleteNodegroup"
         },
         {
-          "target": "com.amazonaws.wesley.fe#DescribeCluster"
+          "target": "com.amazonaws.eks#DescribeCluster"
         },
         {
-          "target": "com.amazonaws.wesley.fe#DescribeFargateProfile"
+          "target": "com.amazonaws.eks#DescribeFargateProfile"
         },
         {
-          "target": "com.amazonaws.wesley.fe#DescribeNodegroup"
+          "target": "com.amazonaws.eks#DescribeNodegroup"
         },
         {
-          "target": "com.amazonaws.wesley.fe#DescribeUpdate"
+          "target": "com.amazonaws.eks#DescribeUpdate"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ListClusters"
+          "target": "com.amazonaws.eks#ListClusters"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ListFargateProfiles"
+          "target": "com.amazonaws.eks#ListFargateProfiles"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ListNodegroups"
+          "target": "com.amazonaws.eks#ListNodegroups"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ListTagsForResource"
+          "target": "com.amazonaws.eks#ListTagsForResource"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ListUpdates"
+          "target": "com.amazonaws.eks#ListUpdates"
         },
         {
-          "target": "com.amazonaws.wesley.fe#TagResource"
+          "target": "com.amazonaws.eks#TagResource"
         },
         {
-          "target": "com.amazonaws.wesley.fe#UntagResource"
+          "target": "com.amazonaws.eks#UntagResource"
         },
         {
-          "target": "com.amazonaws.wesley.fe#UpdateClusterConfig"
+          "target": "com.amazonaws.eks#UpdateClusterConfig"
         },
         {
-          "target": "com.amazonaws.wesley.fe#UpdateClusterVersion"
+          "target": "com.amazonaws.eks#UpdateClusterVersion"
         },
         {
-          "target": "com.amazonaws.wesley.fe#UpdateNodegroupConfig"
+          "target": "com.amazonaws.eks#UpdateNodegroupConfig"
         },
         {
-          "target": "com.amazonaws.wesley.fe#UpdateNodegroupVersion"
+          "target": "com.amazonaws.eks#UpdateNodegroupVersion"
         }
       ],
       "traits": {
@@ -114,23 +117,19 @@
           "cloudFormationName": "EKS",
           "cloudTrailEventSource": "fe.wesley.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "eks"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on\n            AWS without needing to stand up or maintain your own Kubernetes control plane.\n            Kubernetes is an open-source system for automating the deployment, scaling, and\n            management of containerized applications. </p>\n        <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use\n            all the existing plugins and tooling from the Kubernetes community. Applications running\n            on Amazon EKS are fully compatible with applications running on any standard Kubernetes\n            environment, whether running in on-premises data centers or public clouds. This means\n            that you can easily migrate any standard Kubernetes application to Amazon EKS without any\n            code modification required.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Elastic Kubernetes Service"
       }
     },
-    "com.amazonaws.wesley.fe#AutoScalingGroup": {
+    "com.amazonaws.eks#AutoScalingGroup": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Auto Scaling group associated with an Amazon EKS managed node group.</p>"
           }
@@ -140,17 +139,17 @@
         "smithy.api#documentation": "<p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#AutoScalingGroupList": {
+    "com.amazonaws.eks#AutoScalingGroupList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#AutoScalingGroup"
+        "target": "com.amazonaws.eks#AutoScalingGroup"
       }
     },
-    "com.amazonaws.wesley.fe#BadRequestException": {
+    "com.amazonaws.eks#BadRequestException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         }
       },
       "traits": {
@@ -159,35 +158,35 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wesley.fe#Boolean": {
+    "com.amazonaws.eks#Boolean": {
       "type": "boolean"
     },
-    "com.amazonaws.wesley.fe#BoxedBoolean": {
+    "com.amazonaws.eks#BoxedBoolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.wesley.fe#BoxedInteger": {
+    "com.amazonaws.eks#BoxedInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.wesley.fe#Capacity": {
+    "com.amazonaws.eks#Capacity": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
       }
     },
-    "com.amazonaws.wesley.fe#Certificate": {
+    "com.amazonaws.eks#Certificate": {
       "type": "structure",
       "members": {
         "data": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Base64-encoded certificate data required to communicate with your cluster. Add\n            this to the <code>certificate-authority-data</code> section of the\n                <code>kubeconfig</code> file for your cluster.</p>"
           }
@@ -197,20 +196,20 @@
         "smithy.api#documentation": "<p>An object representing the <code>certificate-authority-data</code> for your\n            cluster.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#ClientException": {
+    "com.amazonaws.eks#ClientException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
@@ -222,89 +221,89 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wesley.fe#Cluster": {
+    "com.amazonaws.eks#Cluster": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cluster.</p>"
           }
         },
         "certificateAuthority": {
-          "target": "com.amazonaws.wesley.fe#Certificate",
+          "target": "com.amazonaws.eks#Certificate",
           "traits": {
             "smithy.api#documentation": "<p>The <code>certificate-authority-data</code> for your cluster.</p>"
           }
         },
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>"
           }
         },
         "createdAt": {
-          "target": "com.amazonaws.wesley.fe#Timestamp",
+          "target": "com.amazonaws.eks#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The Unix epoch timestamp in seconds for when the cluster was created.</p>"
           }
         },
         "endpoint": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The endpoint for your Kubernetes API server.</p>"
           }
         },
         "identity": {
-          "target": "com.amazonaws.wesley.fe#Identity",
+          "target": "com.amazonaws.eks#Identity",
           "traits": {
             "smithy.api#documentation": "<p>The identity provider information for the cluster.</p>"
           }
         },
         "logging": {
-          "target": "com.amazonaws.wesley.fe#Logging",
+          "target": "com.amazonaws.eks#Logging",
           "traits": {
             "smithy.api#documentation": "<p>The logging configuration for your cluster.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the cluster.</p>"
           }
         },
         "platformVersion": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The platform version of your Amazon EKS cluster. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html\">Platform\n                Versions</a> in the <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>"
           }
         },
         "resourcesVpcConfig": {
-          "target": "com.amazonaws.wesley.fe#VpcConfigResponse",
+          "target": "com.amazonaws.eks#VpcConfigResponse",
           "traits": {
             "smithy.api#documentation": "<p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have\n            specific requirements to work properly with Kubernetes. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html\">Cluster VPC\n                Considerations</a> and <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html\">Cluster Security Group Considerations</a> in the\n            <i>Amazon EKS User Guide</i>.</p>"
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control\n            plane to make calls to AWS API operations on your behalf.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wesley.fe#ClusterStatus",
+          "target": "com.amazonaws.eks#ClusterStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the cluster.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The metadata that you apply to the cluster to assist with categorization and\n            organization. Each tag consists of a key and an optional value, both of which you\n            define. Cluster tags do not propagate to any other resources associated with the\n            cluster. </p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes server version for the cluster.</p>"
           }
@@ -314,7 +313,7 @@
         "smithy.api#documentation": "<p>An object representing an Amazon EKS cluster.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#ClusterName": {
+    "com.amazonaws.eks#ClusterName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -324,47 +323,57 @@
         "smithy.api#pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*"
       }
     },
-    "com.amazonaws.wesley.fe#ClusterStatus": {
+    "com.amazonaws.eks#ClusterStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": { },
-          "ACTIVE": { },
-          "DELETING": { },
-          "FAILED": { },
-          "UPDATING": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CREATING"
+          },
+          {
+            "value": "ACTIVE"
+          },
+          {
+            "value": "DELETING"
+          },
+          {
+            "value": "FAILED"
+          },
+          {
+            "value": "UPDATING"
+          }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#CreateCluster": {
+    "com.amazonaws.eks#CreateCluster": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#CreateClusterRequest"
+        "target": "com.amazonaws.eks#CreateClusterRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#CreateClusterResponse"
+        "target": "com.amazonaws.eks#CreateClusterResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceLimitExceededException"
+          "target": "com.amazonaws.eks#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#UnsupportedAvailabilityZoneException"
+          "target": "com.amazonaws.eks#UnsupportedAvailabilityZoneException"
         }
       ],
       "traits": {
@@ -376,94 +385,94 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateClusterRequest": {
+    "com.amazonaws.eks#CreateClusterRequest": {
       "type": "structure",
       "members": {
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "logging": {
-          "target": "com.amazonaws.wesley.fe#Logging",
+          "target": "com.amazonaws.eks#Logging",
           "traits": {
             "smithy.api#documentation": "<p>Enable or disable exporting the Kubernetes control plane logs for your cluster to\n            CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more\n            information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html\">Amazon EKS Cluster Control Plane Logs</a> in the\n                <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>\n        <note>\n            <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported\n                control plane logs. For more information, see <a href=\"http://aws.amazon.com/cloudwatch/pricing/\">Amazon CloudWatch Pricing</a>.</p>\n        </note>"
           }
         },
         "name": {
-          "target": "com.amazonaws.wesley.fe#ClusterName",
+          "target": "com.amazonaws.eks#ClusterName",
           "traits": {
             "smithy.api#documentation": "<p>The unique name to give to your cluster.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourcesVpcConfig": {
-          "target": "com.amazonaws.wesley.fe#VpcConfigRequest",
+          "target": "com.amazonaws.eks#VpcConfigRequest",
           "traits": {
             "smithy.api#documentation": "<p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have\n            specific requirements to work properly with Kubernetes. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html\">Cluster VPC\n                Considerations</a> and <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html\">Cluster Security Group Considerations</a> in the\n            <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You can specify up to five\n            security groups, but we recommend that you use a dedicated security group for your\n            cluster control plane.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "roleArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to\n            other AWS API operations on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html\">Amazon EKS Service\n                IAM Role</a> in the <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The metadata to apply to the cluster to assist with categorization and organization.\n            Each tag consists of a key and an optional value, both of which you define.</p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The desired Kubernetes version for your cluster. If you don't specify a value here,\n            the latest version available in Amazon EKS is used.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateClusterResponse": {
+    "com.amazonaws.eks#CreateClusterResponse": {
       "type": "structure",
       "members": {
         "cluster": {
-          "target": "com.amazonaws.wesley.fe#Cluster",
+          "target": "com.amazonaws.eks#Cluster",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your new cluster.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateFargateProfile": {
+    "com.amazonaws.eks#CreateFargateProfile": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#CreateFargateProfileRequest"
+        "target": "com.amazonaws.eks#CreateFargateProfileRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#CreateFargateProfileResponse"
+        "target": "com.amazonaws.eks#CreateFargateProfileResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidRequestException"
+          "target": "com.amazonaws.eks#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceLimitExceededException"
+          "target": "com.amazonaws.eks#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#UnsupportedAvailabilityZoneException"
+          "target": "com.amazonaws.eks#UnsupportedAvailabilityZoneException"
         }
       ],
       "traits": {
@@ -475,98 +484,98 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateFargateProfileRequest": {
+    "com.amazonaws.eks#CreateFargateProfileRequest": {
       "type": "structure",
       "members": {
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster to apply the Fargate profile to.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "fargateProfileName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Fargate profile.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "podExecutionRoleArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pod execution role to use for pods that match the selectors in\n            the Fargate profile. The pod execution role allows Fargate infrastructure to register with\n            your cluster as a node, and it provides read access to Amazon ECR image repositories. For\n            more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html\">Pod Execution Role</a> in the\n            <i>Amazon EKS User Guide</i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "selectors": {
-          "target": "com.amazonaws.wesley.fe#FargateProfileSelectors",
+          "target": "com.amazonaws.eks#FargateProfileSelectors",
           "traits": {
             "smithy.api#documentation": "<p>The selectors to match for pods to use this Fargate profile. Each selector must have an\n            associated namespace. Optionally, you can also specify labels for a namespace. You may\n            specify up to five selectors in a Fargate profile.</p>"
           }
         },
         "subnets": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of subnets to launch your pods into. At this time, pods running on Fargate are\n            not assigned public IP addresses, so only private subnets (with no direct route to an\n            Internet Gateway) are accepted for this parameter.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The metadata to apply to the Fargate profile to assist with categorization and\n            organization. Each tag consists of a key and an optional value, both of which you\n            define. Fargate profile tags do not propagate to any other resources associated with the\n            Fargate profile, such as the pods that are scheduled with it.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateFargateProfileResponse": {
+    "com.amazonaws.eks#CreateFargateProfileResponse": {
       "type": "structure",
       "members": {
         "fargateProfile": {
-          "target": "com.amazonaws.wesley.fe#FargateProfile",
+          "target": "com.amazonaws.eks#FargateProfile",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your new Fargate profile.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateNodegroup": {
+    "com.amazonaws.eks#CreateNodegroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#CreateNodegroupRequest"
+        "target": "com.amazonaws.eks#CreateNodegroupRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#CreateNodegroupResponse"
+        "target": "com.amazonaws.eks#CreateNodegroupResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidRequestException"
+          "target": "com.amazonaws.eks#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceLimitExceededException"
+          "target": "com.amazonaws.eks#ResourceLimitExceededException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -578,135 +587,135 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateNodegroupRequest": {
+    "com.amazonaws.eks#CreateNodegroupRequest": {
       "type": "structure",
       "members": {
         "amiType": {
-          "target": "com.amazonaws.wesley.fe#AMITypes",
+          "target": "com.amazonaws.eks#AMITypes",
           "traits": {
             "smithy.api#documentation": "<p>The AMI type for your node group. GPU instance types should use the\n                <code>AL2_x86_64_GPU</code> AMI type, which uses the Amazon EKS-optimized Linux AMI with\n            GPU support. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type, which\n            uses the Amazon EKS-optimized Linux AMI.</p>"
           }
         },
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the cluster to create the node group in.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "diskSize": {
-          "target": "com.amazonaws.wesley.fe#BoxedInteger",
+          "target": "com.amazonaws.eks#BoxedInteger",
           "traits": {
             "smithy.api#documentation": "<p>The root device disk size (in GiB) for your node group instances. The default disk\n            size is 20 GiB.</p>"
           }
         },
         "instanceTypes": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The instance type to use for your node group. Currently, you can specify a single\n            instance type for a node group. The default value for this parameter is\n                <code>t3.medium</code>. If you choose a GPU instance type, be sure to specify the\n                <code>AL2_x86_64_GPU</code> with the <code>amiType</code> parameter.</p>"
           }
         },
         "labels": {
-          "target": "com.amazonaws.wesley.fe#labelsMap",
+          "target": "com.amazonaws.eks#labelsMap",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes labels to be applied to the nodes in the node group when they are\n            created.</p>"
           }
         },
         "nodeRole": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role associated with your node group. The Amazon EKS worker node\n                <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Worker nodes\n            receive permissions for these API calls through an IAM instance profile and associated\n            policies. Before you can launch worker nodes and register them into a cluster, you must\n            create an IAM role for those worker nodes to use when they are launched. For more\n            information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html\">Amazon EKS Worker Node IAM Role</a> in the\n                <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The unique name to give your node group.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "releaseVersion": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The AMI version of the Amazon EKS-optimized AMI to use with your node group. By default,\n            the latest available AMI version for the node group's current Kubernetes version is\n            used. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html\">Amazon EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>.</p>"
           }
         },
         "remoteAccess": {
-          "target": "com.amazonaws.wesley.fe#RemoteAccessConfig",
+          "target": "com.amazonaws.eks#RemoteAccessConfig",
           "traits": {
             "smithy.api#documentation": "<p>The remote access (SSH) configuration to use with your node group.</p>"
           }
         },
         "scalingConfig": {
-          "target": "com.amazonaws.wesley.fe#NodegroupScalingConfig",
+          "target": "com.amazonaws.eks#NodegroupScalingConfig",
           "traits": {
             "smithy.api#documentation": "<p>The scaling configuration details for the Auto Scaling group that is created for your\n            node group.</p>"
           }
         },
         "subnets": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The subnets to use for the Auto Scaling group that is created for your node group.\n            These subnets must have the tag key <code>kubernetes.io/cluster/CLUSTER_NAME</code> with\n            a value of <code>shared</code>, where <code>CLUSTER_NAME</code> is replaced with the\n            name of your cluster.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The metadata to apply to the node group to assist with categorization and\n            organization. Each tag consists of a key and an optional value, both of which you\n            define. Node group tags do not propagate to any other resources associated with the node\n            group, such as the Amazon EC2 instances or subnets.</p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes version to use for your managed nodes. By default, the Kubernetes\n            version of the cluster is used, and this is the only accepted specified value.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#CreateNodegroupResponse": {
+    "com.amazonaws.eks#CreateNodegroupResponse": {
       "type": "structure",
       "members": {
         "nodegroup": {
-          "target": "com.amazonaws.wesley.fe#Nodegroup",
+          "target": "com.amazonaws.eks#Nodegroup",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your new node group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteCluster": {
+    "com.amazonaws.eks#DeleteCluster": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#DeleteClusterRequest"
+        "target": "com.amazonaws.eks#DeleteClusterRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#DeleteClusterResponse"
+        "target": "com.amazonaws.eks#DeleteClusterResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -718,50 +727,50 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteClusterRequest": {
+    "com.amazonaws.eks#DeleteClusterRequest": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the cluster to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteClusterResponse": {
+    "com.amazonaws.eks#DeleteClusterResponse": {
       "type": "structure",
       "members": {
         "cluster": {
-          "target": "com.amazonaws.wesley.fe#Cluster",
+          "target": "com.amazonaws.eks#Cluster",
           "traits": {
             "smithy.api#documentation": "<p>The full description of the cluster to delete.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteFargateProfile": {
+    "com.amazonaws.eks#DeleteFargateProfile": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#DeleteFargateProfileRequest"
+        "target": "com.amazonaws.eks#DeleteFargateProfileRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#DeleteFargateProfileResponse"
+        "target": "com.amazonaws.eks#DeleteFargateProfileResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -773,64 +782,64 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteFargateProfileRequest": {
+    "com.amazonaws.eks#DeleteFargateProfileRequest": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster associated with the Fargate profile to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "fargateProfileName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Fargate profile to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteFargateProfileResponse": {
+    "com.amazonaws.eks#DeleteFargateProfileResponse": {
       "type": "structure",
       "members": {
         "fargateProfile": {
-          "target": "com.amazonaws.wesley.fe#FargateProfile",
+          "target": "com.amazonaws.eks#FargateProfile",
           "traits": {
             "smithy.api#documentation": "<p>The deleted Fargate profile.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteNodegroup": {
+    "com.amazonaws.eks#DeleteNodegroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#DeleteNodegroupRequest"
+        "target": "com.amazonaws.eks#DeleteNodegroupRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#DeleteNodegroupResponse"
+        "target": "com.amazonaws.eks#DeleteNodegroupResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -842,58 +851,58 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteNodegroupRequest": {
+    "com.amazonaws.eks#DeleteNodegroupRequest": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster that is associated with your node group.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the node group to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DeleteNodegroupResponse": {
+    "com.amazonaws.eks#DeleteNodegroupResponse": {
       "type": "structure",
       "members": {
         "nodegroup": {
-          "target": "com.amazonaws.wesley.fe#Nodegroup",
+          "target": "com.amazonaws.eks#Nodegroup",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your deleted node group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeCluster": {
+    "com.amazonaws.eks#DescribeCluster": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#DescribeClusterRequest"
+        "target": "com.amazonaws.eks#DescribeClusterRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#DescribeClusterResponse"
+        "target": "com.amazonaws.eks#DescribeClusterResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -905,50 +914,50 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeClusterRequest": {
+    "com.amazonaws.eks#DescribeClusterRequest": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the cluster to describe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeClusterResponse": {
+    "com.amazonaws.eks#DescribeClusterResponse": {
       "type": "structure",
       "members": {
         "cluster": {
-          "target": "com.amazonaws.wesley.fe#Cluster",
+          "target": "com.amazonaws.eks#Cluster",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your specified cluster.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeFargateProfile": {
+    "com.amazonaws.eks#DescribeFargateProfile": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#DescribeFargateProfileRequest"
+        "target": "com.amazonaws.eks#DescribeFargateProfileRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#DescribeFargateProfileResponse"
+        "target": "com.amazonaws.eks#DescribeFargateProfileResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -960,61 +969,61 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeFargateProfileRequest": {
+    "com.amazonaws.eks#DescribeFargateProfileRequest": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster associated with the Fargate profile.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "fargateProfileName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Fargate profile to describe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeFargateProfileResponse": {
+    "com.amazonaws.eks#DescribeFargateProfileResponse": {
       "type": "structure",
       "members": {
         "fargateProfile": {
-          "target": "com.amazonaws.wesley.fe#FargateProfile",
+          "target": "com.amazonaws.eks#FargateProfile",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your Fargate profile.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeNodegroup": {
+    "com.amazonaws.eks#DescribeNodegroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#DescribeNodegroupRequest"
+        "target": "com.amazonaws.eks#DescribeNodegroupRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#DescribeNodegroupResponse"
+        "target": "com.amazonaws.eks#DescribeNodegroupResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1026,58 +1035,58 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeNodegroupRequest": {
+    "com.amazonaws.eks#DescribeNodegroupRequest": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster associated with the node group.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the node group to describe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeNodegroupResponse": {
+    "com.amazonaws.eks#DescribeNodegroupResponse": {
       "type": "structure",
       "members": {
         "nodegroup": {
-          "target": "com.amazonaws.wesley.fe#Nodegroup",
+          "target": "com.amazonaws.eks#Nodegroup",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your node group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeUpdate": {
+    "com.amazonaws.eks#DescribeUpdate": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#DescribeUpdateRequest"
+        "target": "com.amazonaws.eks#DescribeUpdateRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#DescribeUpdateResponse"
+        "target": "com.amazonaws.eks#DescribeUpdateResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -1089,102 +1098,113 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeUpdateRequest": {
+    "com.amazonaws.eks#DescribeUpdateRequest": {
       "type": "structure",
       "members": {
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster associated with the update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS node group associated with the update.</p>",
             "smithy.api#httpQuery": "nodegroupName"
           }
         },
         "updateId": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the update to describe.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#DescribeUpdateResponse": {
+    "com.amazonaws.eks#DescribeUpdateResponse": {
       "type": "structure",
       "members": {
         "update": {
-          "target": "com.amazonaws.wesley.fe#Update",
+          "target": "com.amazonaws.eks#Update",
           "traits": {
             "smithy.api#documentation": "<p>The full description of the specified update.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#ErrorCode": {
+    "com.amazonaws.eks#ErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SubnetNotFound": {
+        "smithy.api#enum": [
+          {
+            "value": "SubnetNotFound",
             "name": "SUBNET_NOT_FOUND"
           },
-          "SecurityGroupNotFound": {
+          {
+            "value": "SecurityGroupNotFound",
             "name": "SECURITY_GROUP_NOT_FOUND"
           },
-          "EniLimitReached": {
+          {
+            "value": "EniLimitReached",
             "name": "ENI_LIMIT_REACHED"
           },
-          "IpNotAvailable": {
+          {
+            "value": "IpNotAvailable",
             "name": "IP_NOT_AVAILABLE"
           },
-          "AccessDenied": {
+          {
+            "value": "AccessDenied",
             "name": "ACCESS_DENIED"
           },
-          "OperationNotPermitted": {
+          {
+            "value": "OperationNotPermitted",
             "name": "OPERATION_NOT_PERMITTED"
           },
-          "VpcIdNotFound": {
+          {
+            "value": "VpcIdNotFound",
             "name": "VPC_ID_NOT_FOUND"
           },
-          "Unknown": {
+          {
+            "value": "Unknown",
             "name": "UNKNOWN"
           },
-          "NodeCreationFailure": {
+          {
+            "value": "NodeCreationFailure",
             "name": "NODE_CREATION_FAILURE"
           },
-          "PodEvictionFailure": {
+          {
+            "value": "PodEvictionFailure",
             "name": "POD_EVICTION_FAILURE"
           },
-          "InsufficientFreeAddresses": {
+          {
+            "value": "InsufficientFreeAddresses",
             "name": "INSUFFICIENT_FREE_ADDRESSES"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#ErrorDetail": {
+    "com.amazonaws.eks#ErrorDetail": {
       "type": "structure",
       "members": {
         "errorCode": {
-          "target": "com.amazonaws.wesley.fe#ErrorCode",
+          "target": "com.amazonaws.eks#ErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>A brief description of the error. </p>\n        <ul>\n            <li>\n                <p>\n                  <b>SubnetNotFound</b>: We couldn't find one of the\n                    subnets associated with the cluster.</p>\n            </li>\n            <li>\n                <p>\n                  <b>SecurityGroupNotFound</b>: We couldn't find one\n                    of the security groups associated with the cluster.</p>\n            </li>\n            <li>\n                <p>\n                  <b>EniLimitReached</b>: You have reached the elastic\n                    network interface limit for your account.</p>\n            </li>\n            <li>\n                <p>\n                  <b>IpNotAvailable</b>: A subnet associated with the\n                    cluster doesn't have any free IP addresses.</p>\n            </li>\n            <li>\n                <p>\n                  <b>AccessDenied</b>: You don't have permissions to\n                    perform the specified operation.</p>\n            </li>\n            <li>\n                <p>\n                  <b>OperationNotPermitted</b>: The service role\n                    associated with the cluster doesn't have the required access permissions for\n                    Amazon EKS.</p>\n            </li>\n            <li>\n                <p>\n                  <b>VpcIdNotFound</b>: We couldn't find the VPC\n                    associated with the cluster.</p>\n            </li>\n         </ul>"
           }
         },
         "errorMessage": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>A more complete description of the error.</p>"
           }
         },
         "resourceIds": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>An optional field that contains the resource IDs associated with the error.</p>"
           }
@@ -1194,65 +1214,65 @@
         "smithy.api#documentation": "<p>An object representing an error when an asynchronous operation fails.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#ErrorDetails": {
+    "com.amazonaws.eks#ErrorDetails": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#ErrorDetail"
+        "target": "com.amazonaws.eks#ErrorDetail"
       }
     },
-    "com.amazonaws.wesley.fe#FargateProfile": {
+    "com.amazonaws.eks#FargateProfile": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster that the Fargate profile belongs to.</p>"
           }
         },
         "createdAt": {
-          "target": "com.amazonaws.wesley.fe#Timestamp",
+          "target": "com.amazonaws.eks#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The Unix epoch timestamp in seconds for when the Fargate profile was created.</p>"
           }
         },
         "fargateProfileArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The full Amazon Resource Name (ARN) of the Fargate profile.</p>"
           }
         },
         "fargateProfileName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Fargate profile.</p>"
           }
         },
         "podExecutionRoleArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the pod execution role to use for pods that match the selectors in\n            the Fargate profile. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html\">Pod\n                Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>"
           }
         },
         "selectors": {
-          "target": "com.amazonaws.wesley.fe#FargateProfileSelectors",
+          "target": "com.amazonaws.eks#FargateProfileSelectors",
           "traits": {
             "smithy.api#documentation": "<p>The selectors to match for pods to use this Fargate profile.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wesley.fe#FargateProfileStatus",
+          "target": "com.amazonaws.eks#FargateProfileStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the Fargate profile.</p>"
           }
         },
         "subnets": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of subnets to launch pods into.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The metadata applied to the Fargate profile to assist with categorization and\n            organization. Each tag consists of a key and an optional value, both of which you\n            define. Fargate profile tags do not propagate to any other resources associated with the\n            Fargate profile, such as the pods that are scheduled with it.</p>"
           }
@@ -1262,26 +1282,26 @@
         "smithy.api#documentation": "<p>An object representing an AWS Fargate profile.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#FargateProfileLabel": {
+    "com.amazonaws.eks#FargateProfileLabel": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.wesley.fe#String"
+        "target": "com.amazonaws.eks#String"
       },
       "value": {
-        "target": "com.amazonaws.wesley.fe#String"
+        "target": "com.amazonaws.eks#String"
       }
     },
-    "com.amazonaws.wesley.fe#FargateProfileSelector": {
+    "com.amazonaws.eks#FargateProfileSelector": {
       "type": "structure",
       "members": {
         "labels": {
-          "target": "com.amazonaws.wesley.fe#FargateProfileLabel",
+          "target": "com.amazonaws.eks#FargateProfileLabel",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes labels that the selector should match. A pod must contain all of the\n            labels that are specified in the selector for it to be considered a match.</p>"
           }
         },
         "namespace": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes namespace that the selector should match.</p>"
           }
@@ -1291,39 +1311,49 @@
         "smithy.api#documentation": "<p>An object representing an AWS Fargate profile selector.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#FargateProfileSelectors": {
+    "com.amazonaws.eks#FargateProfileSelectors": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#FargateProfileSelector"
+        "target": "com.amazonaws.eks#FargateProfileSelector"
       }
     },
-    "com.amazonaws.wesley.fe#FargateProfileStatus": {
+    "com.amazonaws.eks#FargateProfileStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": { },
-          "ACTIVE": { },
-          "DELETING": { },
-          "CREATE_FAILED": { },
-          "DELETE_FAILED": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CREATING"
+          },
+          {
+            "value": "ACTIVE"
+          },
+          {
+            "value": "DELETING"
+          },
+          {
+            "value": "CREATE_FAILED"
+          },
+          {
+            "value": "DELETE_FAILED"
+          }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#FargateProfilesRequestMaxResults": {
+    "com.amazonaws.eks#FargateProfilesRequestMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.wesley.fe#Identity": {
+    "com.amazonaws.eks#Identity": {
       "type": "structure",
       "members": {
         "oidc": {
-          "target": "com.amazonaws.wesley.fe#OIDC",
+          "target": "com.amazonaws.eks#OIDC",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://openid.net/connect/\">OpenID Connect</a> identity provider\n            information for the cluster.</p>"
           }
@@ -1333,26 +1363,26 @@
         "smithy.api#documentation": "<p>An object representing an identity provider for authentication credentials.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#InvalidParameterException": {
+    "com.amazonaws.eks#InvalidParameterException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "fargateProfileName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Fargate profile associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
@@ -1364,20 +1394,20 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wesley.fe#InvalidRequestException": {
+    "com.amazonaws.eks#InvalidRequestException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
@@ -1389,23 +1419,23 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wesley.fe#Issue": {
+    "com.amazonaws.eks#Issue": {
       "type": "structure",
       "members": {
         "code": {
-          "target": "com.amazonaws.wesley.fe#NodegroupIssueCode",
+          "target": "com.amazonaws.eks#NodegroupIssueCode",
           "traits": {
             "smithy.api#documentation": "<p>A brief description of the error.</p>\n        <ul>\n            <li>\n                <p>\n                  <b>AutoScalingGroupNotFound</b>: We couldn't find\n                    the Auto Scaling group associated with the managed node group. You may be able to\n                    recreate an Auto Scaling group with the same settings to recover.</p>\n            </li>\n            <li>\n                <p>\n                  <b>Ec2SecurityGroupNotFound</b>: We couldn't find\n                    the cluster security group for the cluster. You must recreate your\n                    cluster.</p>\n            </li>\n            <li>\n                <p>\n                  <b>Ec2SecurityGroupDeletionFailure</b>: We could not\n                    delete the remote access security group for your managed node group. Remove any\n                    dependencies from the security group.</p>\n            </li>\n            <li>\n                <p>\n                  <b>Ec2LaunchTemplateNotFound</b>: We couldn't find\n                    the Amazon EC2 launch template for your managed node group. You may be able to\n                    recreate a launch template with the same settings to recover.</p>\n            </li>\n            <li>\n                <p>\n                  <b>Ec2LaunchTemplateVersionMismatch</b>: The Amazon EC2\n                    launch template version for your managed node group does not match the version\n                    that Amazon EKS created. You may be able to revert to the version that Amazon EKS created\n                    to recover.</p>\n            </li>\n            <li>\n                <p>\n                  <b>IamInstanceProfileNotFound</b>: We couldn't find\n                    the IAM instance profile for your managed node group. You may be able to\n                    recreate an instance profile with the same settings to recover.</p>\n            </li>\n            <li>\n                <p>\n                  <b>IamNodeRoleNotFound</b>: We couldn't find the\n                    IAM role for your managed node group. You may be able to recreate an IAM role\n                    with the same settings to recover.</p>\n            </li>\n            <li>\n                <p>\n                  <b>AsgInstanceLaunchFailures</b>: Your Auto Scaling group is\n                    experiencing failures while attempting to launch instances.</p>\n            </li>\n            <li>\n                <p>\n                  <b>NodeCreationFailure</b>: Your launched instances\n                    are unable to register with your Amazon EKS cluster. Common causes of this failure\n                    are insufficient <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html\">worker node IAM\n                        role</a> permissions or lack of outbound internet access for the nodes.\n                </p>\n            </li>\n            <li>\n                <p>\n                  <b>InstanceLimitExceeded</b>: Your AWS account is\n                    unable to launch any more instances of the specified instance type. You may be\n                    able to request an Amazon EC2 instance limit increase to recover.</p>\n            </li>\n            <li>\n                <p>\n                  <b>InsufficientFreeAddresses</b>: One or more of the\n                    subnets associated with your managed node group does not have enough available\n                    IP addresses for new nodes.</p>\n            </li>\n            <li>\n                <p>\n                  <b>AccessDenied</b>: Amazon EKS or one or more of your\n                    managed nodes is unable to communicate with your cluster API server.</p>\n            </li>\n            <li>\n                <p>\n                  <b>InternalFailure</b>: These errors are usually\n                    caused by an Amazon EKS server-side issue.</p>\n            </li>\n         </ul>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The error message associated with the issue.</p>"
           }
         },
         "resourceIds": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The AWS resources that are afflicted by this issue.</p>"
           }
@@ -1415,32 +1445,32 @@
         "smithy.api#documentation": "<p>An object representing an issue with an Amazon EKS resource.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#IssueList": {
+    "com.amazonaws.eks#IssueList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#Issue"
+        "target": "com.amazonaws.eks#Issue"
       }
     },
-    "com.amazonaws.wesley.fe#ListClusters": {
+    "com.amazonaws.eks#ListClusters": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#ListClustersRequest"
+        "target": "com.amazonaws.eks#ListClustersRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#ListClustersResponse"
+        "target": "com.amazonaws.eks#ListClustersResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1458,18 +1488,18 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListClustersRequest": {
+    "com.amazonaws.eks#ListClustersRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.wesley.fe#ListClustersRequestMaxResults",
+          "target": "com.amazonaws.eks#ListClustersRequestMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of cluster results returned by <code>ListClusters</code> in\n            paginated output. When you use this parameter, <code>ListClusters</code> returns only\n                <code>maxResults</code> results in a single page along with a <code>nextToken</code>\n            response element. You can see the remaining results of the initial request by sending\n            another <code>ListClusters</code> request with the returned <code>nextToken</code>\n            value. This value can be between 1 and 100. If you don't\n            use this parameter, <code>ListClusters</code> returns up to 100\n            results and a <code>nextToken</code> value if applicable.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated\n                <code>ListClusters</code> request where <code>maxResults</code> was used and the\n            results exceeded the value of that parameter. Pagination continues from the end of the\n            previous results that returned the <code>nextToken</code> value.</p>\n        <note>\n            <p>This token should be treated as an opaque identifier that is used only to\n                retrieve the next items in a list and not for other programmatic purposes.</p>\n        </note>",
             "smithy.api#httpQuery": "nextToken"
@@ -1477,53 +1507,53 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListClustersRequestMaxResults": {
+    "com.amazonaws.eks#ListClustersRequestMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListClustersResponse": {
+    "com.amazonaws.eks#ListClustersResponse": {
       "type": "structure",
       "members": {
         "clusters": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list of all of the clusters for your account in the specified Region.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListClusters</code>\n            request. When the results of a <code>ListClusters</code> request exceed\n                <code>maxResults</code>, you can use this value to retrieve the next page of\n            results. This value is <code>null</code> when there are no more results to\n            return.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListFargateProfiles": {
+    "com.amazonaws.eks#ListFargateProfiles": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#ListFargateProfilesRequest"
+        "target": "com.amazonaws.eks#ListFargateProfilesRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#ListFargateProfilesResponse"
+        "target": "com.amazonaws.eks#ListFargateProfilesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -1541,26 +1571,26 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListFargateProfilesRequest": {
+    "com.amazonaws.eks#ListFargateProfilesRequest": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster that you would like to listFargate profiles in.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.wesley.fe#FargateProfilesRequestMaxResults",
+          "target": "com.amazonaws.eks#FargateProfilesRequestMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of Fargate profile results returned by\n                <code>ListFargateProfiles</code> in paginated output. When you use this parameter,\n                <code>ListFargateProfiles</code> returns only <code>maxResults</code> results in a\n            single page along with a <code>nextToken</code> response element. You can see the\n            remaining results of the initial request by sending another\n                <code>ListFargateProfiles</code> request with the returned <code>nextToken</code>\n            value. This value can be between 1 and 100. If you don't\n            use this parameter, <code>ListFargateProfiles</code> returns up to 100\n            results and a <code>nextToken</code> value if applicable.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated\n                <code>ListFargateProfiles</code> request where <code>maxResults</code> was used and\n            the results exceeded the value of that parameter. Pagination continues from the end of\n            the previous results that returned the <code>nextToken</code> value.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1568,46 +1598,46 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListFargateProfilesResponse": {
+    "com.amazonaws.eks#ListFargateProfilesResponse": {
       "type": "structure",
       "members": {
         "fargateProfileNames": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list of all of the Fargate profiles associated with the specified cluster.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future\n                <code>ListFargateProfiles</code> request. When the results of a\n                <code>ListFargateProfiles</code> request exceed <code>maxResults</code>, you can use\n            this value to retrieve the next page of results. This value is <code>null</code> when\n            there are no more results to return.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListNodegroups": {
+    "com.amazonaws.eks#ListNodegroups": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#ListNodegroupsRequest"
+        "target": "com.amazonaws.eks#ListNodegroupsRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#ListNodegroupsResponse"
+        "target": "com.amazonaws.eks#ListNodegroupsResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServiceUnavailableException"
+          "target": "com.amazonaws.eks#ServiceUnavailableException"
         }
       ],
       "traits": {
@@ -1625,26 +1655,26 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListNodegroupsRequest": {
+    "com.amazonaws.eks#ListNodegroupsRequest": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster that you would like to list node groups in.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.wesley.fe#ListNodegroupsRequestMaxResults",
+          "target": "com.amazonaws.eks#ListNodegroupsRequestMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of node group results returned by <code>ListNodegroups</code> in\n            paginated output. When you use this parameter, <code>ListNodegroups</code> returns only\n                <code>maxResults</code> results in a single page along with a <code>nextToken</code>\n            response element. You can see the remaining results of the initial request by sending\n            another <code>ListNodegroups</code> request with the returned <code>nextToken</code>\n            value. This value can be between 1 and 100. If you don't\n            use this parameter, <code>ListNodegroups</code> returns up to 100\n            results and a <code>nextToken</code> value if applicable.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated\n                <code>ListNodegroups</code> request where <code>maxResults</code> was used and the\n            results exceeded the value of that parameter. Pagination continues from the end of the\n            previous results that returned the <code>nextToken</code> value.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -1652,47 +1682,47 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListNodegroupsRequestMaxResults": {
+    "com.amazonaws.eks#ListNodegroupsRequestMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListNodegroupsResponse": {
+    "com.amazonaws.eks#ListNodegroupsResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListNodegroups</code>\n            request. When the results of a <code>ListNodegroups</code> request exceed\n                <code>maxResults</code>, you can use this value to retrieve the next page of\n            results. This value is <code>null</code> when there are no more results to\n            return.</p>"
           }
         },
         "nodegroups": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list of all of the node groups associated with the specified cluster.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListTagsForResource": {
+    "com.amazonaws.eks#ListTagsForResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#ListTagsForResourceRequest"
+        "target": "com.amazonaws.eks#ListTagsForResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#ListTagsForResourceResponse"
+        "target": "com.amazonaws.eks#ListTagsForResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#BadRequestException"
+          "target": "com.amazonaws.eks#BadRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#NotFoundException"
+          "target": "com.amazonaws.eks#NotFoundException"
         }
       ],
       "traits": {
@@ -1704,50 +1734,50 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListTagsForResourceRequest": {
+    "com.amazonaws.eks#ListTagsForResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the\n            supported resources are Amazon EKS clusters and managed node groups.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListTagsForResourceResponse": {
+    "com.amazonaws.eks#ListTagsForResourceResponse": {
       "type": "structure",
       "members": {
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The tags for the resource.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListUpdates": {
+    "com.amazonaws.eks#ListUpdates": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#ListUpdatesRequest"
+        "target": "com.amazonaws.eks#ListUpdatesRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#ListUpdatesResponse"
+        "target": "com.amazonaws.eks#ListUpdatesResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -1765,33 +1795,33 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListUpdatesRequest": {
+    "com.amazonaws.eks#ListUpdatesRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.wesley.fe#ListUpdatesRequestMaxResults",
+          "target": "com.amazonaws.eks#ListUpdatesRequestMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of update results returned by <code>ListUpdates</code> in paginated\n            output. When you use this parameter, <code>ListUpdates</code> returns only\n                <code>maxResults</code> results in a single page along with a <code>nextToken</code>\n            response element. You can see the remaining results of the initial request by sending\n            another <code>ListUpdates</code> request with the returned <code>nextToken</code> value.\n            This value can be between 1 and 100. If you don't use this\n            parameter, <code>ListUpdates</code> returns up to 100 results and a\n                <code>nextToken</code> value if applicable.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster to list updates for.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated\n                <code>ListUpdates</code> request where <code>maxResults</code> was used and the\n            results exceeded the value of that parameter. Pagination continues from the end of the\n            previous results that returned the <code>nextToken</code> value.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS managed node group to list updates for.</p>",
             "smithy.api#httpQuery": "nodegroupName"
@@ -1799,44 +1829,44 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListUpdatesRequestMaxResults": {
+    "com.amazonaws.eks#ListUpdatesRequestMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
         }
       }
     },
-    "com.amazonaws.wesley.fe#ListUpdatesResponse": {
+    "com.amazonaws.eks#ListUpdatesResponse": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The <code>nextToken</code> value to include in a future <code>ListUpdates</code>\n            request. When the results of a <code>ListUpdates</code> request exceed\n                <code>maxResults</code>, you can use this value to retrieve the next page of\n            results. This value is <code>null</code> when there are no more results to\n            return.</p>"
           }
         },
         "updateIds": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>A list of all the updates for the specified cluster and Region.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#LogSetup": {
+    "com.amazonaws.eks#LogSetup": {
       "type": "structure",
       "members": {
         "enabled": {
-          "target": "com.amazonaws.wesley.fe#BoxedBoolean",
+          "target": "com.amazonaws.eks#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>If a log type is enabled, that log type exports its control plane logs to CloudWatch Logs. If a\n            log type isn't enabled, that log type doesn't export its control plane logs. Each\n            individual log type can be enabled or disabled independently.</p>"
           }
         },
         "types": {
-          "target": "com.amazonaws.wesley.fe#LogTypes",
+          "target": "com.amazonaws.eks#LogTypes",
           "traits": {
             "smithy.api#documentation": "<p>The available cluster control plane log types.</p>"
           }
@@ -1846,45 +1876,50 @@
         "smithy.api#documentation": "<p>An object representing the enabled or disabled Kubernetes control plane logs for your\n            cluster.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#LogSetups": {
+    "com.amazonaws.eks#LogSetups": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#LogSetup"
+        "target": "com.amazonaws.eks#LogSetup"
       }
     },
-    "com.amazonaws.wesley.fe#LogType": {
+    "com.amazonaws.eks#LogType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "api": {
+        "smithy.api#enum": [
+          {
+            "value": "api",
             "name": "API"
           },
-          "audit": {
+          {
+            "value": "audit",
             "name": "AUDIT"
           },
-          "authenticator": {
+          {
+            "value": "authenticator",
             "name": "AUTHENTICATOR"
           },
-          "controllerManager": {
+          {
+            "value": "controllerManager",
             "name": "CONTROLLER_MANAGER"
           },
-          "scheduler": {
+          {
+            "value": "scheduler",
             "name": "SCHEDULER"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#LogTypes": {
+    "com.amazonaws.eks#LogTypes": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#LogType"
+        "target": "com.amazonaws.eks#LogType"
       }
     },
-    "com.amazonaws.wesley.fe#Logging": {
+    "com.amazonaws.eks#Logging": {
       "type": "structure",
       "members": {
         "clusterLogging": {
-          "target": "com.amazonaws.wesley.fe#LogSetups",
+          "target": "com.amazonaws.eks#LogSetups",
           "traits": {
             "smithy.api#documentation": "<p>The cluster control plane logging configuration for your cluster.</p>"
           }
@@ -1894,119 +1929,119 @@
         "smithy.api#documentation": "<p>An object representing the logging configuration for resources in your cluster.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#Nodegroup": {
+    "com.amazonaws.eks#Nodegroup": {
       "type": "structure",
       "members": {
         "amiType": {
-          "target": "com.amazonaws.wesley.fe#AMITypes",
+          "target": "com.amazonaws.eks#AMITypes",
           "traits": {
             "smithy.api#documentation": "<p>The AMI type associated with your node group. GPU instance types should use the\n                <code>AL2_x86_64_GPU</code> AMI type, which uses the Amazon EKS-optimized Linux AMI with\n            GPU support. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type, which\n            uses the Amazon EKS-optimized Linux AMI.</p>"
           }
         },
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the cluster that the managed node group resides in.</p>"
           }
         },
         "createdAt": {
-          "target": "com.amazonaws.wesley.fe#Timestamp",
+          "target": "com.amazonaws.eks#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The Unix epoch timestamp in seconds for when the managed node group was\n            created.</p>"
           }
         },
         "diskSize": {
-          "target": "com.amazonaws.wesley.fe#BoxedInteger",
+          "target": "com.amazonaws.eks#BoxedInteger",
           "traits": {
             "smithy.api#documentation": "<p>The root device disk size (in GiB) for your node group instances. The default disk\n            size is 20 GiB.</p>"
           }
         },
         "health": {
-          "target": "com.amazonaws.wesley.fe#NodegroupHealth",
+          "target": "com.amazonaws.eks#NodegroupHealth",
           "traits": {
             "smithy.api#documentation": "<p>The health status of the node group. If there are issues with your node group's\n            health, they are listed here.</p>"
           }
         },
         "instanceTypes": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The instance types associated with your node group.</p>"
           }
         },
         "labels": {
-          "target": "com.amazonaws.wesley.fe#labelsMap",
+          "target": "com.amazonaws.eks#labelsMap",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes labels applied to the nodes in the node group.</p>\n        <note>\n            <p>Only labels that are applied with the Amazon EKS API are shown here. There may be other\n                Kubernetes labels applied to the nodes in this group.</p>\n        </note>"
           }
         },
         "modifiedAt": {
-          "target": "com.amazonaws.wesley.fe#Timestamp",
+          "target": "com.amazonaws.eks#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The Unix epoch timestamp in seconds for when the managed node group was last\n            modified.</p>"
           }
         },
         "nodeRole": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role associated with your node group. The Amazon EKS worker node\n                <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Worker nodes\n            receive permissions for these API calls through an IAM instance profile and associated\n            policies. Before you can launch worker nodes and register them into a cluster, you must\n            create an IAM role for those worker nodes to use when they are launched. For more\n            information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html\">Amazon EKS Worker Node IAM Role</a> in the\n                <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>"
           }
         },
         "nodegroupArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) associated with the managed node group.</p>"
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name associated with an Amazon EKS managed node group.</p>"
           }
         },
         "releaseVersion": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The AMI version of the managed node group. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html\">Amazon EKS-Optimized Linux AMI Versions </a> in the <i>Amazon EKS User Guide</i>.</p>"
           }
         },
         "remoteAccess": {
-          "target": "com.amazonaws.wesley.fe#RemoteAccessConfig",
+          "target": "com.amazonaws.eks#RemoteAccessConfig",
           "traits": {
             "smithy.api#documentation": "<p>The remote access (SSH) configuration that is associated with the node group.</p>"
           }
         },
         "resources": {
-          "target": "com.amazonaws.wesley.fe#NodegroupResources",
+          "target": "com.amazonaws.eks#NodegroupResources",
           "traits": {
             "smithy.api#documentation": "<p>The resources associated with the node group, such as Auto Scaling groups and security\n            groups for remote access.</p>"
           }
         },
         "scalingConfig": {
-          "target": "com.amazonaws.wesley.fe#NodegroupScalingConfig",
+          "target": "com.amazonaws.eks#NodegroupScalingConfig",
           "traits": {
             "smithy.api#documentation": "<p>The scaling configuration details for the Auto Scaling group that is associated with\n            your node group.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wesley.fe#NodegroupStatus",
+          "target": "com.amazonaws.eks#NodegroupStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the managed node group.</p>"
           }
         },
         "subnets": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The subnets allowed for the Auto Scaling group that is associated with your node\n            group. These subnets must have the following tag:\n                <code>kubernetes.io/cluster/CLUSTER_NAME</code>, where <code>CLUSTER_NAME</code> is\n            replaced with the name of your cluster.</p>"
           }
         },
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The metadata applied to the node group to assist with categorization and organization.\n            Each tag consists of a key and an optional value, both of which you define. Node group\n            tags do not propagate to any other resources associated with the node group, such as the\n            Amazon EC2 instances or subnets. </p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes version of the managed node group.</p>"
           }
@@ -2016,11 +2051,11 @@
         "smithy.api#documentation": "<p>An object representing an Amazon EKS managed node group.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#NodegroupHealth": {
+    "com.amazonaws.eks#NodegroupHealth": {
       "type": "structure",
       "members": {
         "issues": {
-          "target": "com.amazonaws.wesley.fe#IssueList",
+          "target": "com.amazonaws.eks#IssueList",
           "traits": {
             "smithy.api#documentation": "<p>Any issues that are associated with the node group. </p>"
           }
@@ -2030,60 +2065,72 @@
         "smithy.api#documentation": "<p>An object representing the health status of the node group.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#NodegroupIssueCode": {
+    "com.amazonaws.eks#NodegroupIssueCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AutoScalingGroupNotFound": {
+        "smithy.api#enum": [
+          {
+            "value": "AutoScalingGroupNotFound",
             "name": "AUTO_SCALING_GROUP_NOT_FOUND"
           },
-          "Ec2SecurityGroupNotFound": {
+          {
+            "value": "Ec2SecurityGroupNotFound",
             "name": "EC2_SECURITY_GROUP_NOT_FOUND"
           },
-          "Ec2SecurityGroupDeletionFailure": {
+          {
+            "value": "Ec2SecurityGroupDeletionFailure",
             "name": "EC2_SECURITY_GROUP_DELETION_FAILURE"
           },
-          "Ec2LaunchTemplateNotFound": {
+          {
+            "value": "Ec2LaunchTemplateNotFound",
             "name": "EC2_LAUNCH_TEMPLATE_NOT_FOUND"
           },
-          "Ec2LaunchTemplateVersionMismatch": {
+          {
+            "value": "Ec2LaunchTemplateVersionMismatch",
             "name": "EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH"
           },
-          "IamInstanceProfileNotFound": {
+          {
+            "value": "IamInstanceProfileNotFound",
             "name": "IAM_INSTANCE_PROFILE_NOT_FOUND"
           },
-          "IamNodeRoleNotFound": {
+          {
+            "value": "IamNodeRoleNotFound",
             "name": "IAM_NODE_ROLE_NOT_FOUND"
           },
-          "AsgInstanceLaunchFailures": {
+          {
+            "value": "AsgInstanceLaunchFailures",
             "name": "ASG_INSTANCE_LAUNCH_FAILURES"
           },
-          "InstanceLimitExceeded": {
+          {
+            "value": "InstanceLimitExceeded",
             "name": "INSTANCE_LIMIT_EXCEEDED"
           },
-          "InsufficientFreeAddresses": {
+          {
+            "value": "InsufficientFreeAddresses",
             "name": "INSUFFICIENT_FREE_ADDRESSES"
           },
-          "AccessDenied": {
+          {
+            "value": "AccessDenied",
             "name": "ACCESS_DENIED"
           },
-          "InternalFailure": {
+          {
+            "value": "InternalFailure",
             "name": "INTERNAL_FAILURE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#NodegroupResources": {
+    "com.amazonaws.eks#NodegroupResources": {
       "type": "structure",
       "members": {
         "autoScalingGroups": {
-          "target": "com.amazonaws.wesley.fe#AutoScalingGroupList",
+          "target": "com.amazonaws.eks#AutoScalingGroupList",
           "traits": {
             "smithy.api#documentation": "<p>The Auto Scaling groups associated with the node group.</p>"
           }
         },
         "remoteAccessSecurityGroup": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The remote access security group associated with the node group. This security group\n            controls SSH access to the worker nodes.</p>"
           }
@@ -2093,23 +2140,23 @@
         "smithy.api#documentation": "<p>An object representing the resources associated with the node group, such as Auto\n            Scaling groups and security groups for remote access.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#NodegroupScalingConfig": {
+    "com.amazonaws.eks#NodegroupScalingConfig": {
       "type": "structure",
       "members": {
         "desiredSize": {
-          "target": "com.amazonaws.wesley.fe#Capacity",
+          "target": "com.amazonaws.eks#Capacity",
           "traits": {
             "smithy.api#documentation": "<p>The current number of worker nodes that the managed node group should maintain.</p>"
           }
         },
         "maxSize": {
-          "target": "com.amazonaws.wesley.fe#Capacity",
+          "target": "com.amazonaws.eks#Capacity",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of worker nodes that the managed node group can scale out to.\n            Managed node groups can support up to 100 nodes by default.</p>"
           }
         },
         "minSize": {
-          "target": "com.amazonaws.wesley.fe#Capacity",
+          "target": "com.amazonaws.eks#Capacity",
           "traits": {
             "smithy.api#documentation": "<p>The minimum number of worker nodes that the managed node group can scale in to. This\n            number must be greater than zero.</p>"
           }
@@ -2119,25 +2166,39 @@
         "smithy.api#documentation": "<p>An object representing the scaling configuration details for the Auto Scaling group\n            that is associated with your node group.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#NodegroupStatus": {
+    "com.amazonaws.eks#NodegroupStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CREATING": { },
-          "ACTIVE": { },
-          "UPDATING": { },
-          "DELETING": { },
-          "CREATE_FAILED": { },
-          "DELETE_FAILED": { },
-          "DEGRADED": { }
-        }
+        "smithy.api#enum": [
+          {
+            "value": "CREATING"
+          },
+          {
+            "value": "ACTIVE"
+          },
+          {
+            "value": "UPDATING"
+          },
+          {
+            "value": "DELETING"
+          },
+          {
+            "value": "CREATE_FAILED"
+          },
+          {
+            "value": "DELETE_FAILED"
+          },
+          {
+            "value": "DEGRADED"
+          }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#NotFoundException": {
+    "com.amazonaws.eks#NotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         }
       },
       "traits": {
@@ -2146,11 +2207,11 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.wesley.fe#OIDC": {
+    "com.amazonaws.eks#OIDC": {
       "type": "structure",
       "members": {
         "issuer": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The issuer URL for the OpenID Connect identity provider.</p>"
           }
@@ -2160,17 +2221,17 @@
         "smithy.api#documentation": "<p>An object representing the <a href=\"https://openid.net/connect/\">OpenID\n                Connect</a> identity provider information for the cluster.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#RemoteAccessConfig": {
+    "com.amazonaws.eks#RemoteAccessConfig": {
       "type": "structure",
       "members": {
         "ec2SshKey": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EC2 SSH key that provides access for SSH communication with the worker nodes in\n            the managed node group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 Key\n                Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</p>"
           }
         },
         "sourceSecurityGroups": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The security groups that are allowed SSH access (port 22) to the worker nodes. If you\n            specify an Amazon EC2 SSH key but do not specify a source security group when you create a\n            managed node group, then port 22 on the worker nodes is opened to the internet\n            (0.0.0.0/0). For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html\">Security\n                Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
           }
@@ -2180,20 +2241,20 @@
         "smithy.api#documentation": "<p>An object representing the remote access configuration for the managed node\n            group.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#ResourceInUseException": {
+    "com.amazonaws.eks#ResourceInUseException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
@@ -2205,20 +2266,20 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.wesley.fe#ResourceLimitExceededException": {
+    "com.amazonaws.eks#ResourceLimitExceededException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
@@ -2230,26 +2291,26 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wesley.fe#ResourceNotFoundException": {
+    "com.amazonaws.eks#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "fargateProfileName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Fargate profile associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
@@ -2261,20 +2322,20 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.wesley.fe#ServerException": {
+    "com.amazonaws.eks#ServerException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
@@ -2286,11 +2347,11 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.wesley.fe#ServiceUnavailableException": {
+    "com.amazonaws.eks#ServiceUnavailableException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         }
       },
       "traits": {
@@ -2299,16 +2360,16 @@
         "smithy.api#httpError": 503
       }
     },
-    "com.amazonaws.wesley.fe#String": {
+    "com.amazonaws.eks#String": {
       "type": "string"
     },
-    "com.amazonaws.wesley.fe#StringList": {
+    "com.amazonaws.eks#StringList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#String"
+        "target": "com.amazonaws.eks#String"
       }
     },
-    "com.amazonaws.wesley.fe#TagKey": {
+    "com.amazonaws.eks#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2317,10 +2378,10 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#TagKeyList": {
+    "com.amazonaws.eks#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#TagKey"
+        "target": "com.amazonaws.eks#TagKey"
       },
       "traits": {
         "smithy.api#length": {
@@ -2329,13 +2390,13 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#TagMap": {
+    "com.amazonaws.eks#TagMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.wesley.fe#TagKey"
+        "target": "com.amazonaws.eks#TagKey"
       },
       "value": {
-        "target": "com.amazonaws.wesley.fe#TagValue"
+        "target": "com.amazonaws.eks#TagValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -2344,20 +2405,20 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#TagResource": {
+    "com.amazonaws.eks#TagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#TagResourceRequest"
+        "target": "com.amazonaws.eks#TagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#TagResourceResponse"
+        "target": "com.amazonaws.eks#TagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#BadRequestException"
+          "target": "com.amazonaws.eks#BadRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#NotFoundException"
+          "target": "com.amazonaws.eks#NotFoundException"
         }
       ],
       "traits": {
@@ -2369,31 +2430,31 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#TagResourceRequest": {
+    "com.amazonaws.eks#TagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the supported resources\n            are Amazon EKS clusters and managed node groups.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tags": {
-          "target": "com.amazonaws.wesley.fe#TagMap",
+          "target": "com.amazonaws.eks#TagMap",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add to the resource. A tag is an array of key-value pairs.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#TagResourceResponse": {
+    "com.amazonaws.eks#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.wesley.fe#TagValue": {
+    "com.amazonaws.eks#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -2402,29 +2463,29 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#Timestamp": {
+    "com.amazonaws.eks#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazonaws.wesley.fe#UnsupportedAvailabilityZoneException": {
+    "com.amazonaws.eks#UnsupportedAvailabilityZoneException": {
       "type": "structure",
       "members": {
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS cluster associated with the exception.</p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.wesley.fe#String"
+          "target": "com.amazonaws.eks#String"
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EKS managed node group associated with the exception.</p>"
           }
         },
         "validZones": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The supported Availability Zones for your account. Choose subnets in these\n            Availability Zones for your cluster.</p>"
           }
@@ -2436,20 +2497,20 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.wesley.fe#UntagResource": {
+    "com.amazonaws.eks#UntagResource": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#UntagResourceRequest"
+        "target": "com.amazonaws.eks#UntagResourceRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#UntagResourceResponse"
+        "target": "com.amazonaws.eks#UntagResourceResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#BadRequestException"
+          "target": "com.amazonaws.eks#BadRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#NotFoundException"
+          "target": "com.amazonaws.eks#NotFoundException"
         }
       ],
       "traits": {
@@ -2461,66 +2522,66 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#UntagResourceRequest": {
+    "com.amazonaws.eks#UntagResourceRequest": {
       "type": "structure",
       "members": {
         "resourceArn": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently, the supported\n            resources are Amazon EKS clusters and managed node groups.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
-          "target": "com.amazonaws.wesley.fe#TagKeyList",
+          "target": "com.amazonaws.eks#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The keys of the tags to be removed.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#UntagResourceResponse": {
+    "com.amazonaws.eks#UntagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.wesley.fe#Update": {
+    "com.amazonaws.eks#Update": {
       "type": "structure",
       "members": {
         "createdAt": {
-          "target": "com.amazonaws.wesley.fe#Timestamp",
+          "target": "com.amazonaws.eks#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The Unix epoch timestamp in seconds for when the update was created.</p>"
           }
         },
         "errors": {
-          "target": "com.amazonaws.wesley.fe#ErrorDetails",
+          "target": "com.amazonaws.eks#ErrorDetails",
           "traits": {
             "smithy.api#documentation": "<p>Any errors associated with a <code>Failed</code> update.</p>"
           }
         },
         "id": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>A UUID that is used to track the update.</p>"
           }
         },
         "params": {
-          "target": "com.amazonaws.wesley.fe#UpdateParams",
+          "target": "com.amazonaws.eks#UpdateParams",
           "traits": {
             "smithy.api#documentation": "<p>A key-value map that contains the parameters associated with the update.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.wesley.fe#UpdateStatus",
+          "target": "com.amazonaws.eks#UpdateStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the update.</p>"
           }
         },
         "type": {
-          "target": "com.amazonaws.wesley.fe#UpdateType",
+          "target": "com.amazonaws.eks#UpdateType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the update.</p>"
           }
@@ -2530,32 +2591,32 @@
         "smithy.api#documentation": "<p>An object representing an asynchronous update.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#UpdateClusterConfig": {
+    "com.amazonaws.eks#UpdateClusterConfig": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#UpdateClusterConfigRequest"
+        "target": "com.amazonaws.eks#UpdateClusterConfigRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#UpdateClusterConfigResponse"
+        "target": "com.amazonaws.eks#UpdateClusterConfigResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidRequestException"
+          "target": "com.amazonaws.eks#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -2567,69 +2628,69 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateClusterConfigRequest": {
+    "com.amazonaws.eks#UpdateClusterConfigRequest": {
       "type": "structure",
       "members": {
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "logging": {
-          "target": "com.amazonaws.wesley.fe#Logging",
+          "target": "com.amazonaws.eks#Logging",
           "traits": {
             "smithy.api#documentation": "<p>Enable or disable exporting the Kubernetes control plane logs for your cluster to\n            CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more\n            information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html\">Amazon EKS Cluster Control Plane Logs</a> in the\n                <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>\n        <note>\n            <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported\n                control plane logs. For more information, see <a href=\"http://aws.amazon.com/cloudwatch/pricing/\">Amazon CloudWatch Pricing</a>.</p>\n        </note>"
           }
         },
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster to update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "resourcesVpcConfig": {
-          "target": "com.amazonaws.wesley.fe#VpcConfigRequest"
+          "target": "com.amazonaws.eks#VpcConfigRequest"
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateClusterConfigResponse": {
+    "com.amazonaws.eks#UpdateClusterConfigResponse": {
       "type": "structure",
       "members": {
         "update": {
-          "target": "com.amazonaws.wesley.fe#Update"
+          "target": "com.amazonaws.eks#Update"
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateClusterVersion": {
+    "com.amazonaws.eks#UpdateClusterVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#UpdateClusterVersionRequest"
+        "target": "com.amazonaws.eks#UpdateClusterVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#UpdateClusterVersionResponse"
+        "target": "com.amazonaws.eks#UpdateClusterVersionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidRequestException"
+          "target": "com.amazonaws.eks#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -2641,55 +2702,55 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateClusterVersionRequest": {
+    "com.amazonaws.eks#UpdateClusterVersionRequest": {
       "type": "structure",
       "members": {
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster to update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "version": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The desired Kubernetes version following a successful update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateClusterVersionResponse": {
+    "com.amazonaws.eks#UpdateClusterVersionResponse": {
       "type": "structure",
       "members": {
         "update": {
-          "target": "com.amazonaws.wesley.fe#Update",
+          "target": "com.amazonaws.eks#Update",
           "traits": {
             "smithy.api#documentation": "<p>The full description of the specified update</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateLabelsPayload": {
+    "com.amazonaws.eks#UpdateLabelsPayload": {
       "type": "structure",
       "members": {
         "addOrUpdateLabels": {
-          "target": "com.amazonaws.wesley.fe#labelsMap",
+          "target": "com.amazonaws.eks#labelsMap",
           "traits": {
             "smithy.api#documentation": "<p>Kubernetes labels to be added or updated.</p>"
           }
         },
         "removeLabels": {
-          "target": "com.amazonaws.wesley.fe#labelsKeyList",
+          "target": "com.amazonaws.eks#labelsKeyList",
           "traits": {
             "smithy.api#documentation": "<p>Kubernetes labels to be removed.</p>"
           }
@@ -2699,32 +2760,32 @@
         "smithy.api#documentation": "<p>An object representing a Kubernetes label change for a managed node group.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#UpdateNodegroupConfig": {
+    "com.amazonaws.eks#UpdateNodegroupConfig": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#UpdateNodegroupConfigRequest"
+        "target": "com.amazonaws.eks#UpdateNodegroupConfigRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#UpdateNodegroupConfigResponse"
+        "target": "com.amazonaws.eks#UpdateNodegroupConfigResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidRequestException"
+          "target": "com.amazonaws.eks#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -2736,80 +2797,80 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateNodegroupConfigRequest": {
+    "com.amazonaws.eks#UpdateNodegroupConfigRequest": {
       "type": "structure",
       "members": {
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster that the managed node group resides in.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "labels": {
-          "target": "com.amazonaws.wesley.fe#UpdateLabelsPayload",
+          "target": "com.amazonaws.eks#UpdateLabelsPayload",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes labels to be applied to the nodes in the node group after the\n            update.</p>"
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the managed node group to update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "scalingConfig": {
-          "target": "com.amazonaws.wesley.fe#NodegroupScalingConfig",
+          "target": "com.amazonaws.eks#NodegroupScalingConfig",
           "traits": {
             "smithy.api#documentation": "<p>The scaling configuration details for the Auto Scaling group after the update.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateNodegroupConfigResponse": {
+    "com.amazonaws.eks#UpdateNodegroupConfigResponse": {
       "type": "structure",
       "members": {
         "update": {
-          "target": "com.amazonaws.wesley.fe#Update"
+          "target": "com.amazonaws.eks#Update"
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateNodegroupVersion": {
+    "com.amazonaws.eks#UpdateNodegroupVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.wesley.fe#UpdateNodegroupVersionRequest"
+        "target": "com.amazonaws.eks#UpdateNodegroupVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.wesley.fe#UpdateNodegroupVersionResponse"
+        "target": "com.amazonaws.eks#UpdateNodegroupVersionResponse"
       },
       "errors": [
         {
-          "target": "com.amazonaws.wesley.fe#ClientException"
+          "target": "com.amazonaws.eks#ClientException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidParameterException"
+          "target": "com.amazonaws.eks#InvalidParameterException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#InvalidRequestException"
+          "target": "com.amazonaws.eks#InvalidRequestException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceInUseException"
+          "target": "com.amazonaws.eks#ResourceInUseException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ResourceNotFoundException"
+          "target": "com.amazonaws.eks#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.wesley.fe#ServerException"
+          "target": "com.amazonaws.eks#ServerException"
         }
       ],
       "traits": {
@@ -2821,71 +2882,71 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateNodegroupVersionRequest": {
+    "com.amazonaws.eks#UpdateNodegroupVersionRequest": {
       "type": "structure",
       "members": {
         "clientRequestToken": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
-            "smithy.api#idempotencyToken": true
+            "smithy.api#idempotencyToken": {}
           }
         },
         "clusterName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon EKS cluster that is associated with the managed node group to\n            update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "force": {
-          "target": "com.amazonaws.wesley.fe#Boolean",
+          "target": "com.amazonaws.eks#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Force the update if the existing node group's pods are unable to be drained due to a\n            pod disruption budget issue. If an update fails because pods could not be drained, you\n            can force the update after it fails to terminate the old node whether or not any pods\n            are running on the node.</p>"
           }
         },
         "nodegroupName": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the managed node group to update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "releaseVersion": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The AMI version of the Amazon EKS-optimized AMI to use for the update. By default, the\n            latest available AMI version for the node group's Kubernetes version is used. For more\n            information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html\">Amazon EKS-Optimized Linux AMI Versions </a> in the\n            <i>Amazon EKS User Guide</i>.</p>"
           }
         },
         "version": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The Kubernetes version to update to. If no version is specified, then the Kubernetes\n            version of the node group does not change. You can specify the Kubernetes version of the\n            cluster to update the node group to the latest AMI version of the cluster's Kubernetes\n            version.</p>"
           }
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateNodegroupVersionResponse": {
+    "com.amazonaws.eks#UpdateNodegroupVersionResponse": {
       "type": "structure",
       "members": {
         "update": {
-          "target": "com.amazonaws.wesley.fe#Update"
+          "target": "com.amazonaws.eks#Update"
         }
       }
     },
-    "com.amazonaws.wesley.fe#UpdateParam": {
+    "com.amazonaws.eks#UpdateParam": {
       "type": "structure",
       "members": {
         "type": {
-          "target": "com.amazonaws.wesley.fe#UpdateParamType",
+          "target": "com.amazonaws.eks#UpdateParamType",
           "traits": {
             "smithy.api#documentation": "<p>The keys associated with an update request.</p>"
           }
         },
         "value": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The value of the keys submitted as part of an update request.</p>"
           }
@@ -2895,122 +2956,142 @@
         "smithy.api#documentation": "<p>An object representing the details of an update request.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#UpdateParamType": {
+    "com.amazonaws.eks#UpdateParamType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Version": {
+        "smithy.api#enum": [
+          {
+            "value": "Version",
             "name": "VERSION"
           },
-          "PlatformVersion": {
+          {
+            "value": "PlatformVersion",
             "name": "PLATFORM_VERSION"
           },
-          "EndpointPrivateAccess": {
+          {
+            "value": "EndpointPrivateAccess",
             "name": "ENDPOINT_PRIVATE_ACCESS"
           },
-          "EndpointPublicAccess": {
+          {
+            "value": "EndpointPublicAccess",
             "name": "ENDPOINT_PUBLIC_ACCESS"
           },
-          "ClusterLogging": {
+          {
+            "value": "ClusterLogging",
             "name": "CLUSTER_LOGGING"
           },
-          "DesiredSize": {
+          {
+            "value": "DesiredSize",
             "name": "DESIRED_SIZE"
           },
-          "LabelsToAdd": {
+          {
+            "value": "LabelsToAdd",
             "name": "LABELS_TO_ADD"
           },
-          "LabelsToRemove": {
+          {
+            "value": "LabelsToRemove",
             "name": "LABELS_TO_REMOVE"
           },
-          "MaxSize": {
+          {
+            "value": "MaxSize",
             "name": "MAX_SIZE"
           },
-          "MinSize": {
+          {
+            "value": "MinSize",
             "name": "MIN_SIZE"
           },
-          "ReleaseVersion": {
+          {
+            "value": "ReleaseVersion",
             "name": "RELEASE_VERSION"
           },
-          "PublicAccessCidrs": {
+          {
+            "value": "PublicAccessCidrs",
             "name": "PUBLIC_ACCESS_CIDRS"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#UpdateParams": {
+    "com.amazonaws.eks#UpdateParams": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#UpdateParam"
+        "target": "com.amazonaws.eks#UpdateParam"
       }
     },
-    "com.amazonaws.wesley.fe#UpdateStatus": {
+    "com.amazonaws.eks#UpdateStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "InProgress": {
+        "smithy.api#enum": [
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "FAILED"
           },
-          "Cancelled": {
+          {
+            "value": "Cancelled",
             "name": "CANCELLED"
           },
-          "Successful": {
+          {
+            "value": "Successful",
             "name": "SUCCESSFUL"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#UpdateType": {
+    "com.amazonaws.eks#UpdateType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "VersionUpdate": {
+        "smithy.api#enum": [
+          {
+            "value": "VersionUpdate",
             "name": "VERSION_UPDATE"
           },
-          "EndpointAccessUpdate": {
+          {
+            "value": "EndpointAccessUpdate",
             "name": "ENDPOINT_ACCESS_UPDATE"
           },
-          "LoggingUpdate": {
+          {
+            "value": "LoggingUpdate",
             "name": "LOGGING_UPDATE"
           },
-          "ConfigUpdate": {
+          {
+            "value": "ConfigUpdate",
             "name": "CONFIG_UPDATE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.wesley.fe#VpcConfigRequest": {
+    "com.amazonaws.eks#VpcConfigRequest": {
       "type": "structure",
       "members": {
         "endpointPrivateAccess": {
-          "target": "com.amazonaws.wesley.fe#BoxedBoolean",
+          "target": "com.amazonaws.eks#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Set this value to <code>true</code> to enable private access for your cluster's\n            Kubernetes API server endpoint. If you enable private access, Kubernetes API requests\n            from within your cluster's VPC use the private VPC endpoint. The default value for this\n            parameter is <code>false</code>, which disables private access for your Kubernetes API\n            server. If you disable private access and you have worker nodes or AWS Fargate pods in the\n            cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR\n            blocks for communication with the worker nodes or Fargate pods. For more information, see\n                <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html\">Amazon EKS\n                Cluster Endpoint Access Control</a> in the\n            <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>"
           }
         },
         "endpointPublicAccess": {
-          "target": "com.amazonaws.wesley.fe#BoxedBoolean",
+          "target": "com.amazonaws.eks#BoxedBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Set this value to <code>false</code> to disable public access to your cluster's\n            Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes\n            API server can only receive requests from within the cluster VPC. The default value for\n            this parameter is <code>true</code>, which enables public access for your Kubernetes API\n            server. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html\">Amazon EKS Cluster\n                Endpoint Access Control</a> in the <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>"
           }
         },
         "publicAccessCidrs": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server\n            endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that\n            you specify is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled\n            private endpoint access and you have worker nodes or AWS Fargate pods in the cluster, then\n            ensure that you specify the necessary CIDR blocks. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html\">Amazon EKS Cluster\n                Endpoint Access Control</a> in the <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>"
           }
         },
         "securityGroupIds": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>Specify one or more security groups for the cross-account elastic network interfaces\n            that Amazon EKS creates to use to allow communication between your worker nodes and the\n            Kubernetes control plane. If you don't specify a security group, the default security\n            group for your VPC is used.</p>"
           }
         },
         "subnetIds": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account elastic\n            network interfaces in these subnets to allow communication between your worker nodes and\n            the Kubernetes control plane.</p>"
           }
@@ -3020,47 +3101,47 @@
         "smithy.api#documentation": "<p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#VpcConfigResponse": {
+    "com.amazonaws.eks#VpcConfigResponse": {
       "type": "structure",
       "members": {
         "clusterSecurityGroupId": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The cluster security group that was created by Amazon EKS for the cluster. Managed node\n            groups use this security group for control-plane-to-data-plane communication.</p>"
           }
         },
         "endpointPrivateAccess": {
-          "target": "com.amazonaws.wesley.fe#Boolean",
+          "target": "com.amazonaws.eks#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If\n            the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate\n            from within your cluster's VPC use the private VPC endpoint instead of traversing the\n            internet. If this value is disabled and you have worker nodes or AWS Fargate pods in the\n            cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR\n            blocks for communication with the worker nodes or Fargate pods. For more information, see\n                <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html\">Amazon EKS\n                Cluster Endpoint Access Control</a> in the\n            <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>"
           }
         },
         "endpointPublicAccess": {
-          "target": "com.amazonaws.wesley.fe#Boolean",
+          "target": "com.amazonaws.eks#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If\n            the Amazon EKS public API server endpoint is disabled, your cluster's Kubernetes API server\n            can only receive requests that originate from within the cluster VPC.</p>"
           }
         },
         "publicAccessCidrs": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server\n            endpoint. Communication to the endpoint from addresses outside of the listed CIDR blocks\n            is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled private\n            endpoint access and you have worker nodes or AWS Fargate pods in the cluster, then ensure\n            that the necessary CIDR blocks are listed. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html\">Amazon EKS Cluster\n                Endpoint Access Control</a> in the <i>\n               <i>Amazon EKS User Guide</i>\n            </i>.</p>"
           }
         },
         "securityGroupIds": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The security groups associated with the cross-account elastic network interfaces that\n            are used to allow communication between your worker nodes and the Kubernetes control\n            plane.</p>"
           }
         },
         "subnetIds": {
-          "target": "com.amazonaws.wesley.fe#StringList",
+          "target": "com.amazonaws.eks#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The subnets associated with your cluster.</p>"
           }
         },
         "vpcId": {
-          "target": "com.amazonaws.wesley.fe#String",
+          "target": "com.amazonaws.eks#String",
           "traits": {
             "smithy.api#documentation": "<p>The VPC associated with your cluster.</p>"
           }
@@ -3070,7 +3151,7 @@
         "smithy.api#documentation": "<p>An object representing an Amazon EKS cluster VPC configuration response.</p>"
       }
     },
-    "com.amazonaws.wesley.fe#labelKey": {
+    "com.amazonaws.eks#labelKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3079,7 +3160,7 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#labelValue": {
+    "com.amazonaws.eks#labelValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3088,19 +3169,19 @@
         }
       }
     },
-    "com.amazonaws.wesley.fe#labelsKeyList": {
+    "com.amazonaws.eks#labelsKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.wesley.fe#String"
+        "target": "com.amazonaws.eks#String"
       }
     },
-    "com.amazonaws.wesley.fe#labelsMap": {
+    "com.amazonaws.eks#labelsMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.wesley.fe#labelKey"
+        "target": "com.amazonaws.eks#labelKey"
       },
       "value": {
-        "target": "com.amazonaws.wesley.fe#labelValue"
+        "target": "com.amazonaws.eks#labelValue"
       }
     }
   }

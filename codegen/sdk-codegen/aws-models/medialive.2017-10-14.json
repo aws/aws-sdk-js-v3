@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -34,82 +33,96 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Aac Coding Mode",
-        "smithy.api#enum": {
-          "AD_RECEIVER_MIX": {
+        "smithy.api#enum": [
+          {
+            "value": "AD_RECEIVER_MIX",
             "name": "AD_RECEIVER_MIX"
           },
-          "CODING_MODE_1_0": {
+          {
+            "value": "CODING_MODE_1_0",
             "name": "CODING_MODE_1_0"
           },
-          "CODING_MODE_1_1": {
+          {
+            "value": "CODING_MODE_1_1",
             "name": "CODING_MODE_1_1"
           },
-          "CODING_MODE_2_0": {
+          {
+            "value": "CODING_MODE_2_0",
             "name": "CODING_MODE_2_0"
           },
-          "CODING_MODE_5_1": {
+          {
+            "value": "CODING_MODE_5_1",
             "name": "CODING_MODE_5_1"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AacInputType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Aac Input Type",
-        "smithy.api#enum": {
-          "BROADCASTER_MIXED_AD": {
+        "smithy.api#enum": [
+          {
+            "value": "BROADCASTER_MIXED_AD",
             "name": "BROADCASTER_MIXED_AD"
           },
-          "NORMAL": {
+          {
+            "value": "NORMAL",
             "name": "NORMAL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AacProfile": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Aac Profile",
-        "smithy.api#enum": {
-          "HEV1": {
+        "smithy.api#enum": [
+          {
+            "value": "HEV1",
             "name": "HEV1"
           },
-          "HEV2": {
+          {
+            "value": "HEV2",
             "name": "HEV2"
           },
-          "LC": {
+          {
+            "value": "LC",
             "name": "LC"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AacRateControlMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Aac Rate Control Mode",
-        "smithy.api#enum": {
-          "CBR": {
+        "smithy.api#enum": [
+          {
+            "value": "CBR",
             "name": "CBR"
           },
-          "VBR": {
+          {
+            "value": "VBR",
             "name": "VBR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AacRawFormat": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Aac Raw Format",
-        "smithy.api#enum": {
-          "LATM_LOAS": {
+        "smithy.api#enum": [
+          {
+            "value": "LATM_LOAS",
             "name": "LATM_LOAS"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AacSettings": {
@@ -187,128 +200,152 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Aac Spec",
-        "smithy.api#enum": {
-          "MPEG2": {
+        "smithy.api#enum": [
+          {
+            "value": "MPEG2",
             "name": "MPEG2"
           },
-          "MPEG4": {
+          {
+            "value": "MPEG4",
             "name": "MPEG4"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AacVbrQuality": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Aac Vbr Quality",
-        "smithy.api#enum": {
-          "HIGH": {
+        "smithy.api#enum": [
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "LOW": {
+          {
+            "value": "LOW",
             "name": "LOW"
           },
-          "MEDIUM_HIGH": {
+          {
+            "value": "MEDIUM_HIGH",
             "name": "MEDIUM_HIGH"
           },
-          "MEDIUM_LOW": {
+          {
+            "value": "MEDIUM_LOW",
             "name": "MEDIUM_LOW"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Ac3BitstreamMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Ac3 Bitstream Mode",
-        "smithy.api#enum": {
-          "COMMENTARY": {
+        "smithy.api#enum": [
+          {
+            "value": "COMMENTARY",
             "name": "COMMENTARY"
           },
-          "COMPLETE_MAIN": {
+          {
+            "value": "COMPLETE_MAIN",
             "name": "COMPLETE_MAIN"
           },
-          "DIALOGUE": {
+          {
+            "value": "DIALOGUE",
             "name": "DIALOGUE"
           },
-          "EMERGENCY": {
+          {
+            "value": "EMERGENCY",
             "name": "EMERGENCY"
           },
-          "HEARING_IMPAIRED": {
+          {
+            "value": "HEARING_IMPAIRED",
             "name": "HEARING_IMPAIRED"
           },
-          "MUSIC_AND_EFFECTS": {
+          {
+            "value": "MUSIC_AND_EFFECTS",
             "name": "MUSIC_AND_EFFECTS"
           },
-          "VISUALLY_IMPAIRED": {
+          {
+            "value": "VISUALLY_IMPAIRED",
             "name": "VISUALLY_IMPAIRED"
           },
-          "VOICE_OVER": {
+          {
+            "value": "VOICE_OVER",
             "name": "VOICE_OVER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Ac3CodingMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Ac3 Coding Mode",
-        "smithy.api#enum": {
-          "CODING_MODE_1_0": {
+        "smithy.api#enum": [
+          {
+            "value": "CODING_MODE_1_0",
             "name": "CODING_MODE_1_0"
           },
-          "CODING_MODE_1_1": {
+          {
+            "value": "CODING_MODE_1_1",
             "name": "CODING_MODE_1_1"
           },
-          "CODING_MODE_2_0": {
+          {
+            "value": "CODING_MODE_2_0",
             "name": "CODING_MODE_2_0"
           },
-          "CODING_MODE_3_2_LFE": {
+          {
+            "value": "CODING_MODE_3_2_LFE",
             "name": "CODING_MODE_3_2_LFE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Ac3DrcProfile": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Ac3 Drc Profile",
-        "smithy.api#enum": {
-          "FILM_STANDARD": {
+        "smithy.api#enum": [
+          {
+            "value": "FILM_STANDARD",
             "name": "FILM_STANDARD"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Ac3LfeFilter": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Ac3 Lfe Filter",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Ac3MetadataControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Ac3 Metadata Control",
-        "smithy.api#enum": {
-          "FOLLOW_INPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW_INPUT",
             "name": "FOLLOW_INPUT"
           },
-          "USE_CONFIGURED": {
+          {
+            "value": "USE_CONFIGURED",
             "name": "USE_CONFIGURED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Ac3Settings": {
@@ -372,17 +409,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Afd Signaling",
-        "smithy.api#enum": {
-          "AUTO": {
+        "smithy.api#enum": [
+          {
+            "value": "AUTO",
             "name": "AUTO"
           },
-          "FIXED": {
+          {
+            "value": "FIXED",
             "name": "FIXED"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ArchiveContainerSettings": {
@@ -407,7 +447,7 @@
           "traits": {
             "smithy.api#documentation": "A directory and base filename where archive files should be written.",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RolloverInterval": {
@@ -430,7 +470,7 @@
           "traits": {
             "smithy.api#documentation": "Settings specific to the container type of the file.",
             "smithy.api#jsonName": "containerSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Extension": {
@@ -454,14 +494,14 @@
     },
     "com.amazonaws.medialive#AribDestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Arib Destination Settings"
       }
     },
     "com.amazonaws.medialive#AribSourceSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Arib Source Settings"
       }
@@ -474,7 +514,7 @@
           "traits": {
             "smithy.api#documentation": "Indices and gain values for each input channel that should be remixed into this output channel.",
             "smithy.api#jsonName": "inputChannelLevels",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "OutputChannel": {
@@ -482,7 +522,7 @@
           "traits": {
             "smithy.api#documentation": "The index of the output channel being produced.",
             "smithy.api#jsonName": "outputChannel",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -543,7 +583,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the AudioSelector used as the source for this AudioDescription.",
             "smithy.api#jsonName": "audioSelectorName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AudioType": {
@@ -586,7 +626,7 @@
           "traits": {
             "smithy.api#documentation": "The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription.  Description names should be unique within this Live Event.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RemixSettings": {
@@ -612,28 +652,32 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Description Audio Type Control",
-        "smithy.api#enum": {
-          "FOLLOW_INPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW_INPUT",
             "name": "FOLLOW_INPUT"
           },
-          "USE_CONFIGURED": {
+          {
+            "value": "USE_CONFIGURED",
             "name": "USE_CONFIGURED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AudioDescriptionLanguageCodeControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Description Language Code Control",
-        "smithy.api#enum": {
-          "FOLLOW_INPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW_INPUT",
             "name": "FOLLOW_INPUT"
           },
-          "USE_CONFIGURED": {
+          {
+            "value": "USE_CONFIGURED",
             "name": "USE_CONFIGURED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AudioLanguageSelection": {
@@ -644,7 +688,7 @@
           "traits": {
             "smithy.api#documentation": "Selects a specific three-letter language code from within an audio source.",
             "smithy.api#jsonName": "languageCode",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LanguageSelectionPolicy": {
@@ -663,39 +707,44 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Language Selection Policy",
-        "smithy.api#enum": {
-          "LOOSE": {
+        "smithy.api#enum": [
+          {
+            "value": "LOOSE",
             "name": "LOOSE"
           },
-          "STRICT": {
+          {
+            "value": "STRICT",
             "name": "STRICT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AudioNormalizationAlgorithm": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Normalization Algorithm",
-        "smithy.api#enum": {
-          "ITU_1770_1": {
+        "smithy.api#enum": [
+          {
+            "value": "ITU_1770_1",
             "name": "ITU_1770_1"
           },
-          "ITU_1770_2": {
+          {
+            "value": "ITU_1770_2",
             "name": "ITU_1770_2"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AudioNormalizationAlgorithmControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Normalization Algorithm Control",
-        "smithy.api#enum": {
-          "CORRECT_AUDIO": {
+        "smithy.api#enum": [
+          {
+            "value": "CORRECT_AUDIO",
             "name": "CORRECT_AUDIO"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AudioNormalizationSettings": {
@@ -731,14 +780,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Only Hls Segment Type",
-        "smithy.api#enum": {
-          "AAC": {
+        "smithy.api#enum": [
+          {
+            "value": "AAC",
             "name": "AAC"
           },
-          "FMP4": {
+          {
+            "value": "FMP4",
             "name": "FMP4"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AudioOnlyHlsSettings": {
@@ -781,20 +832,24 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Only Hls Track Type",
-        "smithy.api#enum": {
-          "ALTERNATE_AUDIO_AUTO_SELECT": {
+        "smithy.api#enum": [
+          {
+            "value": "ALTERNATE_AUDIO_AUTO_SELECT",
             "name": "ALTERNATE_AUDIO_AUTO_SELECT"
           },
-          "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT": {
+          {
+            "value": "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
             "name": "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
           },
-          "ALTERNATE_AUDIO_NOT_AUTO_SELECT": {
+          {
+            "value": "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
             "name": "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
           },
-          "AUDIO_ONLY_VARIANT_STREAM": {
+          {
+            "value": "AUDIO_ONLY_VARIANT_STREAM",
             "name": "AUDIO_ONLY_VARIANT_STREAM"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AudioPidSelection": {
@@ -805,7 +860,7 @@
           "traits": {
             "smithy.api#documentation": "Selects a specific PID from within a source.",
             "smithy.api#jsonName": "pid",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -821,7 +876,7 @@
           "traits": {
             "smithy.api#documentation": "The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SelectorSettings": {
@@ -860,34 +915,40 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Audio Type",
-        "smithy.api#enum": {
-          "CLEAN_EFFECTS": {
+        "smithy.api#enum": [
+          {
+            "value": "CLEAN_EFFECTS",
             "name": "CLEAN_EFFECTS"
           },
-          "HEARING_IMPAIRED": {
+          {
+            "value": "HEARING_IMPAIRED",
             "name": "HEARING_IMPAIRED"
           },
-          "UNDEFINED": {
+          {
+            "value": "UNDEFINED",
             "name": "UNDEFINED"
           },
-          "VISUAL_IMPAIRED_COMMENTARY": {
+          {
+            "value": "VISUAL_IMPAIRED_COMMENTARY",
             "name": "VISUAL_IMPAIRED_COMMENTARY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AuthenticationScheme": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Authentication Scheme",
-        "smithy.api#enum": {
-          "AKAMAI": {
+        "smithy.api#enum": [
+          {
+            "value": "AKAMAI",
             "name": "AKAMAI"
           },
-          "COMMON": {
+          {
+            "value": "COMMON",
             "name": "COMMON"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AvailBlanking": {
@@ -916,14 +977,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Avail Blanking State",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#AvailConfiguration": {
@@ -1001,7 +1064,7 @@
           "traits": {
             "smithy.api#documentation": "A list of schedule actions to create.",
             "smithy.api#jsonName": "scheduleActions",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1017,7 +1080,7 @@
           "traits": {
             "smithy.api#documentation": "List of actions that have been created in the schedule.",
             "smithy.api#jsonName": "scheduleActions",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1033,7 +1096,7 @@
           "traits": {
             "smithy.api#documentation": "A list of schedule actions to delete.",
             "smithy.api#jsonName": "actionNames",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1049,7 +1112,7 @@
           "traits": {
             "smithy.api#documentation": "List of actions that have been deleted from the schedule.",
             "smithy.api#jsonName": "scheduleActions",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1107,8 +1170,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Id of the channel whose schedule is being updated.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Creates": {
@@ -1199,62 +1262,72 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Blackout Slate Network End Blackout",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#BlackoutSlateState": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Blackout Slate State",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#BurnInAlignment": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Burn In Alignment",
-        "smithy.api#enum": {
-          "CENTERED": {
+        "smithy.api#enum": [
+          {
+            "value": "CENTERED",
             "name": "CENTERED"
           },
-          "LEFT": {
+          {
+            "value": "LEFT",
             "name": "LEFT"
           },
-          "SMART": {
+          {
+            "value": "SMART",
             "name": "SMART"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#BurnInBackgroundColor": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Burn In Background Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#BurnInDestinationSettings": {
@@ -1388,83 +1461,100 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Burn In Font Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "BLUE": {
+          {
+            "value": "BLUE",
             "name": "BLUE"
           },
-          "GREEN": {
+          {
+            "value": "GREEN",
             "name": "GREEN"
           },
-          "RED": {
+          {
+            "value": "RED",
             "name": "RED"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           },
-          "YELLOW": {
+          {
+            "value": "YELLOW",
             "name": "YELLOW"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#BurnInOutlineColor": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Burn In Outline Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "BLUE": {
+          {
+            "value": "BLUE",
             "name": "BLUE"
           },
-          "GREEN": {
+          {
+            "value": "GREEN",
             "name": "GREEN"
           },
-          "RED": {
+          {
+            "value": "RED",
             "name": "RED"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           },
-          "YELLOW": {
+          {
+            "value": "YELLOW",
             "name": "YELLOW"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#BurnInShadowColor": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Burn In Shadow Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#BurnInTeletextGridControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Burn In Teletext Grid Control",
-        "smithy.api#enum": {
-          "FIXED": {
+        "smithy.api#enum": [
+          {
+            "value": "FIXED",
             "name": "FIXED"
           },
-          "SCALED": {
+          {
+            "value": "SCALED",
             "name": "SCALED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#CaptionDescription": {
@@ -1475,7 +1565,7 @@
           "traits": {
             "smithy.api#documentation": "Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.",
             "smithy.api#jsonName": "captionSelectorName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DestinationSettings": {
@@ -1504,7 +1594,7 @@
           "traits": {
             "smithy.api#documentation": "Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1600,7 +1690,7 @@
           "traits": {
             "smithy.api#documentation": "The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)",
             "smithy.api#jsonName": "captionChannel",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LanguageCode": {
@@ -1608,7 +1698,7 @@
           "traits": {
             "smithy.api#documentation": "Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)",
             "smithy.api#jsonName": "languageCode",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "LanguageDescription": {
@@ -1616,7 +1706,7 @@
           "traits": {
             "smithy.api#documentation": "Textual description of language",
             "smithy.api#jsonName": "languageDescription",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1639,7 +1729,7 @@
           "traits": {
             "smithy.api#documentation": "Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SelectorSettings": {
@@ -1812,14 +1902,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "A standard channel has two encoding pipelines and a single pipeline channel only has one.",
-        "smithy.api#enum": {
-          "STANDARD": {
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD",
             "name": "STANDARD"
           },
-          "SINGLE_PIPELINE": {
+          {
+            "value": "SINGLE_PIPELINE",
             "name": "SINGLE_PIPELINE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ChannelEgressEndpoint": {
@@ -1841,41 +1933,52 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for ChannelState",
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "CREATE_FAILED": {
+          {
+            "value": "CREATE_FAILED",
             "name": "CREATE_FAILED"
           },
-          "IDLE": {
+          {
+            "value": "IDLE",
             "name": "IDLE"
           },
-          "STARTING": {
+          {
+            "value": "STARTING",
             "name": "STARTING"
           },
-          "RUNNING": {
+          {
+            "value": "RUNNING",
             "name": "RUNNING"
           },
-          "RECOVERING": {
+          {
+            "value": "RECOVERING",
             "name": "RECOVERING"
           },
-          "STOPPING": {
+          {
+            "value": "STOPPING",
             "name": "STOPPING"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "UPDATING"
           },
-          "UPDATE_FAILED": {
+          {
+            "value": "UPDATE_FAILED",
             "name": "UPDATE_FAILED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ChannelSummary": {
@@ -1977,7 +2080,7 @@
     },
     "com.amazonaws.medialive#ColorSpacePassthroughSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Passthrough applies no color space conversion to the output"
       }
@@ -2095,14 +2198,14 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique request ID to be specified. This is needed to prevent retries from\ncreating multiple resources.",
-            "smithy.api#idempotencyToken": true,
+            "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "requestId"
           }
         },
         "Reserved": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "Deprecated field that's only usable by whitelisted customers.",
             "smithy.api#jsonName": "reserved"
           }
@@ -2212,7 +2315,7 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries.",
-            "smithy.api#idempotencyToken": true,
+            "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "requestId"
           }
         },
@@ -2434,8 +2537,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "ID of the multiplex where the program is to be created.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MultiplexProgramSettings": {
@@ -2443,7 +2546,7 @@
           "traits": {
             "smithy.api#documentation": "The settings for this multiplex program.",
             "smithy.api#jsonName": "multiplexProgramSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProgramName": {
@@ -2451,16 +2554,16 @@
           "traits": {
             "smithy.api#documentation": "Name of multiplex program.",
             "smithy.api#jsonName": "programName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RequestId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique request ID. This prevents retries from creating multiple\nresources.",
-            "smithy.api#idempotencyToken": true,
+            "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "requestId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2491,7 +2594,7 @@
           "traits": {
             "smithy.api#documentation": "A list of availability zones for the multiplex. You must specify exactly two.",
             "smithy.api#jsonName": "availabilityZones",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MultiplexSettings": {
@@ -2499,7 +2602,7 @@
           "traits": {
             "smithy.api#documentation": "Configuration for a multiplex event.",
             "smithy.api#jsonName": "multiplexSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -2507,16 +2610,16 @@
           "traits": {
             "smithy.api#documentation": "Name of multiplex.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RequestId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique request ID. This prevents retries from creating multiple\nresources.",
-            "smithy.api#idempotencyToken": true,
+            "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "requestId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -2580,8 +2683,8 @@
         "ResourceArn": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -2645,8 +2748,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique ID of the channel.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -2814,8 +2917,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique ID of the input",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -2825,7 +2928,7 @@
     },
     "com.amazonaws.medialive#DeleteInputResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for DeleteInputResponse"
       }
@@ -2877,8 +2980,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The Input Security Group to delete",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -2888,7 +2991,7 @@
     },
     "com.amazonaws.medialive#DeleteInputSecurityGroupResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for DeleteInputSecurityGroupResponse"
       }
@@ -2986,16 +3089,16 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex that the program belongs to.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ProgramName": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The multiplex program name.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3046,8 +3149,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3183,8 +3286,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique reservation ID, e.g. '1234567'",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3373,8 +3476,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Id of the channel whose schedule is being deleted.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3384,7 +3487,7 @@
     },
     "com.amazonaws.medialive#DeleteScheduleResponse": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for DeleteScheduleResponse"
       }
@@ -3423,8 +3526,8 @@
         "ResourceArn": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -3432,7 +3535,7 @@
           "traits": {
             "smithy.api#documentation": "An array of tag keys to delete",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3487,8 +3590,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "channel ID",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3653,8 +3756,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique ID of the input",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3813,8 +3916,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The id of the Input Security Group to describe",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -3959,16 +4062,16 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex that the program belongs to.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ProgramName": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The name of the program.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -4019,8 +4122,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -4153,8 +4256,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique offering ID, e.g. '87654321'",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -4294,8 +4397,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique reservation ID, e.g. '1234567'",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -4484,8 +4587,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Id of the channel whose schedule is being updated.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -4535,7 +4638,7 @@
           "traits": {
             "smithy.api#documentation": "The numeric value placed in the Network Information Table (NIT).",
             "smithy.api#jsonName": "networkId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NetworkName": {
@@ -4543,7 +4646,7 @@
           "traits": {
             "smithy.api#documentation": "The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters.",
             "smithy.api#jsonName": "networkName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RepInterval": {
@@ -4562,20 +4665,24 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Dvb Sdt Output Sdt",
-        "smithy.api#enum": {
-          "SDT_FOLLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "SDT_FOLLOW",
             "name": "SDT_FOLLOW"
           },
-          "SDT_FOLLOW_IF_PRESENT": {
+          {
+            "value": "SDT_FOLLOW_IF_PRESENT",
             "name": "SDT_FOLLOW_IF_PRESENT"
           },
-          "SDT_MANUAL": {
+          {
+            "value": "SDT_MANUAL",
             "name": "SDT_MANUAL"
           },
-          "SDT_NONE": {
+          {
+            "value": "SDT_NONE",
             "name": "SDT_NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#DvbSdtSettings": {
@@ -4618,86 +4725,104 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Dvb Sub Destination Alignment",
-        "smithy.api#enum": {
-          "CENTERED": {
+        "smithy.api#enum": [
+          {
+            "value": "CENTERED",
             "name": "CENTERED"
           },
-          "LEFT": {
+          {
+            "value": "LEFT",
             "name": "LEFT"
           },
-          "SMART": {
+          {
+            "value": "SMART",
             "name": "SMART"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#DvbSubDestinationBackgroundColor": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Dvb Sub Destination Background Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#DvbSubDestinationFontColor": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Dvb Sub Destination Font Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "BLUE": {
+          {
+            "value": "BLUE",
             "name": "BLUE"
           },
-          "GREEN": {
+          {
+            "value": "GREEN",
             "name": "GREEN"
           },
-          "RED": {
+          {
+            "value": "RED",
             "name": "RED"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           },
-          "YELLOW": {
+          {
+            "value": "YELLOW",
             "name": "YELLOW"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#DvbSubDestinationOutlineColor": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Dvb Sub Destination Outline Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "BLUE": {
+          {
+            "value": "BLUE",
             "name": "BLUE"
           },
-          "GREEN": {
+          {
+            "value": "GREEN",
             "name": "GREEN"
           },
-          "RED": {
+          {
+            "value": "RED",
             "name": "RED"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           },
-          "YELLOW": {
+          {
+            "value": "YELLOW",
             "name": "YELLOW"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#DvbSubDestinationSettings": {
@@ -4831,31 +4956,36 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Dvb Sub Destination Shadow Color",
-        "smithy.api#enum": {
-          "BLACK": {
+        "smithy.api#enum": [
+          {
+            "value": "BLACK",
             "name": "BLACK"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "WHITE": {
+          {
+            "value": "WHITE",
             "name": "WHITE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#DvbSubDestinationTeletextGridControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Dvb Sub Destination Teletext Grid Control",
-        "smithy.api#enum": {
-          "FIXED": {
+        "smithy.api#enum": [
+          {
+            "value": "FIXED",
             "name": "FIXED"
           },
-          "SCALED": {
+          {
+            "value": "SCALED",
             "name": "SCALED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#DvbSubSourceSettings": {
@@ -4892,190 +5022,224 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Attenuation Control",
-        "smithy.api#enum": {
-          "ATTENUATE_3_DB": {
+        "smithy.api#enum": [
+          {
+            "value": "ATTENUATE_3_DB",
             "name": "ATTENUATE_3_DB"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3BitstreamMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Bitstream Mode",
-        "smithy.api#enum": {
-          "COMMENTARY": {
+        "smithy.api#enum": [
+          {
+            "value": "COMMENTARY",
             "name": "COMMENTARY"
           },
-          "COMPLETE_MAIN": {
+          {
+            "value": "COMPLETE_MAIN",
             "name": "COMPLETE_MAIN"
           },
-          "EMERGENCY": {
+          {
+            "value": "EMERGENCY",
             "name": "EMERGENCY"
           },
-          "HEARING_IMPAIRED": {
+          {
+            "value": "HEARING_IMPAIRED",
             "name": "HEARING_IMPAIRED"
           },
-          "VISUALLY_IMPAIRED": {
+          {
+            "value": "VISUALLY_IMPAIRED",
             "name": "VISUALLY_IMPAIRED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3CodingMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Coding Mode",
-        "smithy.api#enum": {
-          "CODING_MODE_1_0": {
+        "smithy.api#enum": [
+          {
+            "value": "CODING_MODE_1_0",
             "name": "CODING_MODE_1_0"
           },
-          "CODING_MODE_2_0": {
+          {
+            "value": "CODING_MODE_2_0",
             "name": "CODING_MODE_2_0"
           },
-          "CODING_MODE_3_2": {
+          {
+            "value": "CODING_MODE_3_2",
             "name": "CODING_MODE_3_2"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3DcFilter": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Dc Filter",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3DrcLine": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Drc Line",
-        "smithy.api#enum": {
-          "FILM_LIGHT": {
+        "smithy.api#enum": [
+          {
+            "value": "FILM_LIGHT",
             "name": "FILM_LIGHT"
           },
-          "FILM_STANDARD": {
+          {
+            "value": "FILM_STANDARD",
             "name": "FILM_STANDARD"
           },
-          "MUSIC_LIGHT": {
+          {
+            "value": "MUSIC_LIGHT",
             "name": "MUSIC_LIGHT"
           },
-          "MUSIC_STANDARD": {
+          {
+            "value": "MUSIC_STANDARD",
             "name": "MUSIC_STANDARD"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "SPEECH": {
+          {
+            "value": "SPEECH",
             "name": "SPEECH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3DrcRf": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Drc Rf",
-        "smithy.api#enum": {
-          "FILM_LIGHT": {
+        "smithy.api#enum": [
+          {
+            "value": "FILM_LIGHT",
             "name": "FILM_LIGHT"
           },
-          "FILM_STANDARD": {
+          {
+            "value": "FILM_STANDARD",
             "name": "FILM_STANDARD"
           },
-          "MUSIC_LIGHT": {
+          {
+            "value": "MUSIC_LIGHT",
             "name": "MUSIC_LIGHT"
           },
-          "MUSIC_STANDARD": {
+          {
+            "value": "MUSIC_STANDARD",
             "name": "MUSIC_STANDARD"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "SPEECH": {
+          {
+            "value": "SPEECH",
             "name": "SPEECH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3LfeControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Lfe Control",
-        "smithy.api#enum": {
-          "LFE": {
+        "smithy.api#enum": [
+          {
+            "value": "LFE",
             "name": "LFE"
           },
-          "NO_LFE": {
+          {
+            "value": "NO_LFE",
             "name": "NO_LFE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3LfeFilter": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Lfe Filter",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3MetadataControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Metadata Control",
-        "smithy.api#enum": {
-          "FOLLOW_INPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW_INPUT",
             "name": "FOLLOW_INPUT"
           },
-          "USE_CONFIGURED": {
+          {
+            "value": "USE_CONFIGURED",
             "name": "USE_CONFIGURED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3PassthroughControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Passthrough Control",
-        "smithy.api#enum": {
-          "NO_PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_PASSTHROUGH",
             "name": "NO_PASSTHROUGH"
           },
-          "WHEN_POSSIBLE": {
+          {
+            "value": "WHEN_POSSIBLE",
             "name": "WHEN_POSSIBLE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3PhaseControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Phase Control",
-        "smithy.api#enum": {
-          "NO_SHIFT": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_SHIFT",
             "name": "NO_SHIFT"
           },
-          "SHIFT_90_DEGREES": {
+          {
+            "value": "SHIFT_90_DEGREES",
             "name": "SHIFT_90_DEGREES"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3Settings": {
@@ -5230,80 +5394,92 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Stereo Downmix",
-        "smithy.api#enum": {
-          "DPL2": {
+        "smithy.api#enum": [
+          {
+            "value": "DPL2",
             "name": "DPL2"
           },
-          "LO_RO": {
+          {
+            "value": "LO_RO",
             "name": "LO_RO"
           },
-          "LT_RT": {
+          {
+            "value": "LT_RT",
             "name": "LT_RT"
           },
-          "NOT_INDICATED": {
+          {
+            "value": "NOT_INDICATED",
             "name": "NOT_INDICATED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3SurroundExMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Surround Ex Mode",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "NOT_INDICATED": {
+          {
+            "value": "NOT_INDICATED",
             "name": "NOT_INDICATED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Eac3SurroundMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Eac3 Surround Mode",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           },
-          "NOT_INDICATED": {
+          {
+            "value": "NOT_INDICATED",
             "name": "NOT_INDICATED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#EmbeddedConvert608To708": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Embedded Convert608 To708",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "UPCONVERT": {
+          {
+            "value": "UPCONVERT",
             "name": "UPCONVERT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#EmbeddedDestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Embedded Destination Settings"
       }
     },
     "com.amazonaws.medialive#EmbeddedPlusScte20DestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Embedded Plus Scte20 Destination Settings"
       }
@@ -5312,14 +5488,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Embedded Scte20 Detection",
-        "smithy.api#enum": {
-          "AUTO": {
+        "smithy.api#enum": [
+          {
+            "value": "AUTO",
             "name": "AUTO"
           },
-          "OFF": {
+          {
+            "value": "OFF",
             "name": "OFF"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#EmbeddedSourceSettings": {
@@ -5365,7 +5543,7 @@
           "target": "com.amazonaws.medialive#__listOfAudioDescription",
           "traits": {
             "smithy.api#jsonName": "audioDescriptions",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AvailBlanking": {
@@ -5414,7 +5592,7 @@
           "target": "com.amazonaws.medialive#__listOfOutputGroup",
           "traits": {
             "smithy.api#jsonName": "outputGroups",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TimecodeConfig": {
@@ -5422,14 +5600,14 @@
           "traits": {
             "smithy.api#documentation": "Contains settings used to acquire and adjust timecode information from inputs.",
             "smithy.api#jsonName": "timecodeConfig",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VideoDescriptions": {
           "target": "com.amazonaws.medialive#__listOfVideoDescription",
           "traits": {
             "smithy.api#jsonName": "videoDescriptions",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5441,14 +5619,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Fec Output Include Fec",
-        "smithy.api#enum": {
-          "COLUMN": {
+        "smithy.api#enum": [
+          {
+            "value": "COLUMN",
             "name": "COLUMN"
           },
-          "COLUMN_AND_ROW": {
+          {
+            "value": "COLUMN_AND_ROW",
             "name": "COLUMN_AND_ROW"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#FecOutputSettings": {
@@ -5484,41 +5664,52 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Fixed Afd",
-        "smithy.api#enum": {
-          "AFD_0000": {
+        "smithy.api#enum": [
+          {
+            "value": "AFD_0000",
             "name": "AFD_0000"
           },
-          "AFD_0010": {
+          {
+            "value": "AFD_0010",
             "name": "AFD_0010"
           },
-          "AFD_0011": {
+          {
+            "value": "AFD_0011",
             "name": "AFD_0011"
           },
-          "AFD_0100": {
+          {
+            "value": "AFD_0100",
             "name": "AFD_0100"
           },
-          "AFD_1000": {
+          {
+            "value": "AFD_1000",
             "name": "AFD_1000"
           },
-          "AFD_1001": {
+          {
+            "value": "AFD_1001",
             "name": "AFD_1001"
           },
-          "AFD_1010": {
+          {
+            "value": "AFD_1010",
             "name": "AFD_1010"
           },
-          "AFD_1011": {
+          {
+            "value": "AFD_1011",
             "name": "AFD_1011"
           },
-          "AFD_1101": {
+          {
+            "value": "AFD_1101",
             "name": "AFD_1101"
           },
-          "AFD_1110": {
+          {
+            "value": "AFD_1110",
             "name": "AFD_1110"
           },
-          "AFD_1111": {
+          {
+            "value": "AFD_1111",
             "name": "AFD_1111"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#FixedModeScheduleActionStartSettings": {
@@ -5529,7 +5720,7 @@
           "traits": {
             "smithy.api#documentation": "Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants \"T\" for time and \"Z\" for \"UTC format\".",
             "smithy.api#jsonName": "time",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5560,7 +5751,7 @@
           "traits": {
             "smithy.api#documentation": "Identifies whether this action starts relative to the start or relative to the end of the reference action.",
             "smithy.api#jsonName": "followPoint",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ReferenceActionName": {
@@ -5568,7 +5759,7 @@
           "traits": {
             "smithy.api#documentation": "The action name of another action that this one refers to.",
             "smithy.api#jsonName": "referenceActionName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5580,14 +5771,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Follow reference point.",
-        "smithy.api#enum": {
-          "END": {
+        "smithy.api#enum": [
+          {
+            "value": "END",
             "name": "END"
           },
-          "START": {
+          {
+            "value": "START",
             "name": "START"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ForbiddenException": {
@@ -5614,7 +5807,7 @@
           "traits": {
             "smithy.api#documentation": "The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, \"curling_\") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curlingLow.00001.jpg",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -5626,14 +5819,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Frame Capture Interval Unit",
-        "smithy.api#enum": {
-          "MILLISECONDS": {
+        "smithy.api#enum": [
+          {
+            "value": "MILLISECONDS",
             "name": "MILLISECONDS"
           },
-          "SECONDS": {
+          {
+            "value": "SECONDS",
             "name": "SECONDS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#FrameCaptureOutputSettings": {
@@ -5659,7 +5854,7 @@
           "traits": {
             "smithy.api#documentation": "The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.",
             "smithy.api#jsonName": "captureInterval",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "CaptureIntervalUnits": {
@@ -5744,96 +5939,112 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Global Configuration Input End Action",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "SWITCH_AND_LOOP_INPUTS": {
+          {
+            "value": "SWITCH_AND_LOOP_INPUTS",
             "name": "SWITCH_AND_LOOP_INPUTS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#GlobalConfigurationLowFramerateInputs": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Global Configuration Low Framerate Inputs",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#GlobalConfigurationOutputLockingMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Global Configuration Output Locking Mode",
-        "smithy.api#enum": {
-          "EPOCH_LOCKING": {
+        "smithy.api#enum": [
+          {
+            "value": "EPOCH_LOCKING",
             "name": "EPOCH_LOCKING"
           },
-          "PIPELINE_LOCKING": {
+          {
+            "value": "PIPELINE_LOCKING",
             "name": "PIPELINE_LOCKING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#GlobalConfigurationOutputTimingSource": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Global Configuration Output Timing Source",
-        "smithy.api#enum": {
-          "INPUT_CLOCK": {
+        "smithy.api#enum": [
+          {
+            "value": "INPUT_CLOCK",
             "name": "INPUT_CLOCK"
           },
-          "SYSTEM_CLOCK": {
+          {
+            "value": "SYSTEM_CLOCK",
             "name": "SYSTEM_CLOCK"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264AdaptiveQuantization": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Adaptive Quantization",
-        "smithy.api#enum": {
-          "HIGH": {
+        "smithy.api#enum": [
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "HIGHER": {
+          {
+            "value": "HIGHER",
             "name": "HIGHER"
           },
-          "LOW": {
+          {
+            "value": "LOW",
             "name": "LOW"
           },
-          "MAX": {
+          {
+            "value": "MAX",
             "name": "MAX"
           },
-          "MEDIUM": {
+          {
+            "value": "MEDIUM",
             "name": "MEDIUM"
           },
-          "OFF": {
+          {
+            "value": "OFF",
             "name": "OFF"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264ColorMetadata": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Color Metadata",
-        "smithy.api#enum": {
-          "IGNORE": {
+        "smithy.api#enum": [
+          {
+            "value": "IGNORE",
             "name": "IGNORE"
           },
-          "INSERT": {
+          {
+            "value": "INSERT",
             "name": "INSERT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264ColorSpaceSettings": {
@@ -5866,234 +6077,280 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Entropy Encoding",
-        "smithy.api#enum": {
-          "CABAC": {
+        "smithy.api#enum": [
+          {
+            "value": "CABAC",
             "name": "CABAC"
           },
-          "CAVLC": {
+          {
+            "value": "CAVLC",
             "name": "CAVLC"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264FlickerAq": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Flicker Aq",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264FramerateControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Framerate Control",
-        "smithy.api#enum": {
-          "INITIALIZE_FROM_SOURCE": {
+        "smithy.api#enum": [
+          {
+            "value": "INITIALIZE_FROM_SOURCE",
             "name": "INITIALIZE_FROM_SOURCE"
           },
-          "SPECIFIED": {
+          {
+            "value": "SPECIFIED",
             "name": "SPECIFIED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264GopBReference": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Gop BReference",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264GopSizeUnits": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Gop Size Units",
-        "smithy.api#enum": {
-          "FRAMES": {
+        "smithy.api#enum": [
+          {
+            "value": "FRAMES",
             "name": "FRAMES"
           },
-          "SECONDS": {
+          {
+            "value": "SECONDS",
             "name": "SECONDS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264Level": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Level",
-        "smithy.api#enum": {
-          "H264_LEVEL_1": {
+        "smithy.api#enum": [
+          {
+            "value": "H264_LEVEL_1",
             "name": "H264_LEVEL_1"
           },
-          "H264_LEVEL_1_1": {
+          {
+            "value": "H264_LEVEL_1_1",
             "name": "H264_LEVEL_1_1"
           },
-          "H264_LEVEL_1_2": {
+          {
+            "value": "H264_LEVEL_1_2",
             "name": "H264_LEVEL_1_2"
           },
-          "H264_LEVEL_1_3": {
+          {
+            "value": "H264_LEVEL_1_3",
             "name": "H264_LEVEL_1_3"
           },
-          "H264_LEVEL_2": {
+          {
+            "value": "H264_LEVEL_2",
             "name": "H264_LEVEL_2"
           },
-          "H264_LEVEL_2_1": {
+          {
+            "value": "H264_LEVEL_2_1",
             "name": "H264_LEVEL_2_1"
           },
-          "H264_LEVEL_2_2": {
+          {
+            "value": "H264_LEVEL_2_2",
             "name": "H264_LEVEL_2_2"
           },
-          "H264_LEVEL_3": {
+          {
+            "value": "H264_LEVEL_3",
             "name": "H264_LEVEL_3"
           },
-          "H264_LEVEL_3_1": {
+          {
+            "value": "H264_LEVEL_3_1",
             "name": "H264_LEVEL_3_1"
           },
-          "H264_LEVEL_3_2": {
+          {
+            "value": "H264_LEVEL_3_2",
             "name": "H264_LEVEL_3_2"
           },
-          "H264_LEVEL_4": {
+          {
+            "value": "H264_LEVEL_4",
             "name": "H264_LEVEL_4"
           },
-          "H264_LEVEL_4_1": {
+          {
+            "value": "H264_LEVEL_4_1",
             "name": "H264_LEVEL_4_1"
           },
-          "H264_LEVEL_4_2": {
+          {
+            "value": "H264_LEVEL_4_2",
             "name": "H264_LEVEL_4_2"
           },
-          "H264_LEVEL_5": {
+          {
+            "value": "H264_LEVEL_5",
             "name": "H264_LEVEL_5"
           },
-          "H264_LEVEL_5_1": {
+          {
+            "value": "H264_LEVEL_5_1",
             "name": "H264_LEVEL_5_1"
           },
-          "H264_LEVEL_5_2": {
+          {
+            "value": "H264_LEVEL_5_2",
             "name": "H264_LEVEL_5_2"
           },
-          "H264_LEVEL_AUTO": {
+          {
+            "value": "H264_LEVEL_AUTO",
             "name": "H264_LEVEL_AUTO"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264LookAheadRateControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Look Ahead Rate Control",
-        "smithy.api#enum": {
-          "HIGH": {
+        "smithy.api#enum": [
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "LOW": {
+          {
+            "value": "LOW",
             "name": "LOW"
           },
-          "MEDIUM": {
+          {
+            "value": "MEDIUM",
             "name": "MEDIUM"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264ParControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Par Control",
-        "smithy.api#enum": {
-          "INITIALIZE_FROM_SOURCE": {
+        "smithy.api#enum": [
+          {
+            "value": "INITIALIZE_FROM_SOURCE",
             "name": "INITIALIZE_FROM_SOURCE"
           },
-          "SPECIFIED": {
+          {
+            "value": "SPECIFIED",
             "name": "SPECIFIED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264Profile": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Profile",
-        "smithy.api#enum": {
-          "BASELINE": {
+        "smithy.api#enum": [
+          {
+            "value": "BASELINE",
             "name": "BASELINE"
           },
-          "HIGH": {
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "HIGH_10BIT": {
+          {
+            "value": "HIGH_10BIT",
             "name": "HIGH_10BIT"
           },
-          "HIGH_422": {
+          {
+            "value": "HIGH_422",
             "name": "HIGH_422"
           },
-          "HIGH_422_10BIT": {
+          {
+            "value": "HIGH_422_10BIT",
             "name": "HIGH_422_10BIT"
           },
-          "MAIN": {
+          {
+            "value": "MAIN",
             "name": "MAIN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264RateControlMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Rate Control Mode",
-        "smithy.api#enum": {
-          "CBR": {
+        "smithy.api#enum": [
+          {
+            "value": "CBR",
             "name": "CBR"
           },
-          "MULTIPLEX": {
+          {
+            "value": "MULTIPLEX",
             "name": "MULTIPLEX"
           },
-          "QVBR": {
+          {
+            "value": "QVBR",
             "name": "QVBR"
           },
-          "VBR": {
+          {
+            "value": "VBR",
             "name": "VBR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264ScanType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Scan Type",
-        "smithy.api#enum": {
-          "INTERLACED": {
+        "smithy.api#enum": [
+          {
+            "value": "INTERLACED",
             "name": "INTERLACED"
           },
-          "PROGRESSIVE": {
+          {
+            "value": "PROGRESSIVE",
             "name": "PROGRESSIVE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264SceneChangeDetect": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Scene Change Detect",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264Settings": {
@@ -6374,124 +6631,144 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Spatial Aq",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264SubGopLength": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Sub Gop Length",
-        "smithy.api#enum": {
-          "DYNAMIC": {
+        "smithy.api#enum": [
+          {
+            "value": "DYNAMIC",
             "name": "DYNAMIC"
           },
-          "FIXED": {
+          {
+            "value": "FIXED",
             "name": "FIXED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264Syntax": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Syntax",
-        "smithy.api#enum": {
-          "DEFAULT": {
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT",
             "name": "DEFAULT"
           },
-          "RP2027": {
+          {
+            "value": "RP2027",
             "name": "RP2027"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264TemporalAq": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Temporal Aq",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H264TimecodeInsertionBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H264 Timecode Insertion Behavior",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "PIC_TIMING_SEI": {
+          {
+            "value": "PIC_TIMING_SEI",
             "name": "PIC_TIMING_SEI"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265AdaptiveQuantization": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Adaptive Quantization",
-        "smithy.api#enum": {
-          "HIGH": {
+        "smithy.api#enum": [
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "HIGHER": {
+          {
+            "value": "HIGHER",
             "name": "HIGHER"
           },
-          "LOW": {
+          {
+            "value": "LOW",
             "name": "LOW"
           },
-          "MAX": {
+          {
+            "value": "MAX",
             "name": "MAX"
           },
-          "MEDIUM": {
+          {
+            "value": "MEDIUM",
             "name": "MEDIUM"
           },
-          "OFF": {
+          {
+            "value": "OFF",
             "name": "OFF"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265AlternativeTransferFunction": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Alternative Transfer Function",
-        "smithy.api#enum": {
-          "INSERT": {
+        "smithy.api#enum": [
+          {
+            "value": "INSERT",
             "name": "INSERT"
           },
-          "OMIT": {
+          {
+            "value": "OMIT",
             "name": "OMIT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265ColorMetadata": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Color Metadata",
-        "smithy.api#enum": {
-          "IGNORE": {
+        "smithy.api#enum": [
+          {
+            "value": "IGNORE",
             "name": "IGNORE"
           },
-          "INSERT": {
+          {
+            "value": "INSERT",
             "name": "INSERT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265ColorSpaceSettings": {
@@ -6530,151 +6807,180 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Flicker Aq",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265GopSizeUnits": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Gop Size Units",
-        "smithy.api#enum": {
-          "FRAMES": {
+        "smithy.api#enum": [
+          {
+            "value": "FRAMES",
             "name": "FRAMES"
           },
-          "SECONDS": {
+          {
+            "value": "SECONDS",
             "name": "SECONDS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265Level": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Level",
-        "smithy.api#enum": {
-          "H265_LEVEL_1": {
+        "smithy.api#enum": [
+          {
+            "value": "H265_LEVEL_1",
             "name": "H265_LEVEL_1"
           },
-          "H265_LEVEL_2": {
+          {
+            "value": "H265_LEVEL_2",
             "name": "H265_LEVEL_2"
           },
-          "H265_LEVEL_2_1": {
+          {
+            "value": "H265_LEVEL_2_1",
             "name": "H265_LEVEL_2_1"
           },
-          "H265_LEVEL_3": {
+          {
+            "value": "H265_LEVEL_3",
             "name": "H265_LEVEL_3"
           },
-          "H265_LEVEL_3_1": {
+          {
+            "value": "H265_LEVEL_3_1",
             "name": "H265_LEVEL_3_1"
           },
-          "H265_LEVEL_4": {
+          {
+            "value": "H265_LEVEL_4",
             "name": "H265_LEVEL_4"
           },
-          "H265_LEVEL_4_1": {
+          {
+            "value": "H265_LEVEL_4_1",
             "name": "H265_LEVEL_4_1"
           },
-          "H265_LEVEL_5": {
+          {
+            "value": "H265_LEVEL_5",
             "name": "H265_LEVEL_5"
           },
-          "H265_LEVEL_5_1": {
+          {
+            "value": "H265_LEVEL_5_1",
             "name": "H265_LEVEL_5_1"
           },
-          "H265_LEVEL_5_2": {
+          {
+            "value": "H265_LEVEL_5_2",
             "name": "H265_LEVEL_5_2"
           },
-          "H265_LEVEL_6": {
+          {
+            "value": "H265_LEVEL_6",
             "name": "H265_LEVEL_6"
           },
-          "H265_LEVEL_6_1": {
+          {
+            "value": "H265_LEVEL_6_1",
             "name": "H265_LEVEL_6_1"
           },
-          "H265_LEVEL_6_2": {
+          {
+            "value": "H265_LEVEL_6_2",
             "name": "H265_LEVEL_6_2"
           },
-          "H265_LEVEL_AUTO": {
+          {
+            "value": "H265_LEVEL_AUTO",
             "name": "H265_LEVEL_AUTO"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265LookAheadRateControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Look Ahead Rate Control",
-        "smithy.api#enum": {
-          "HIGH": {
+        "smithy.api#enum": [
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "LOW": {
+          {
+            "value": "LOW",
             "name": "LOW"
           },
-          "MEDIUM": {
+          {
+            "value": "MEDIUM",
             "name": "MEDIUM"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265Profile": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Profile",
-        "smithy.api#enum": {
-          "MAIN": {
+        "smithy.api#enum": [
+          {
+            "value": "MAIN",
             "name": "MAIN"
           },
-          "MAIN_10BIT": {
+          {
+            "value": "MAIN_10BIT",
             "name": "MAIN_10BIT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265RateControlMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Rate Control Mode",
-        "smithy.api#enum": {
-          "CBR": {
+        "smithy.api#enum": [
+          {
+            "value": "CBR",
             "name": "CBR"
           },
-          "MULTIPLEX": {
+          {
+            "value": "MULTIPLEX",
             "name": "MULTIPLEX"
           },
-          "QVBR": {
+          {
+            "value": "QVBR",
             "name": "QVBR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265ScanType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Scan Type",
-        "smithy.api#enum": {
-          "PROGRESSIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "PROGRESSIVE",
             "name": "PROGRESSIVE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265SceneChangeDetect": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Scene Change Detect",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265Settings": {
@@ -6748,7 +7054,7 @@
           "traits": {
             "smithy.api#documentation": "Framerate denominator.",
             "smithy.api#jsonName": "framerateDenominator",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FramerateNumerator": {
@@ -6756,7 +7062,7 @@
           "traits": {
             "smithy.api#documentation": "Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.",
             "smithy.api#jsonName": "framerateNumerator",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "GopClosedCadence": {
@@ -6887,28 +7193,32 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Tier",
-        "smithy.api#enum": {
-          "HIGH": {
+        "smithy.api#enum": [
+          {
+            "value": "HIGH",
             "name": "HIGH"
           },
-          "MAIN": {
+          {
+            "value": "MAIN",
             "name": "MAIN"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#H265TimecodeInsertionBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "H265 Timecode Insertion Behavior",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "PIC_TIMING_SEI": {
+          {
+            "value": "PIC_TIMING_SEI",
             "name": "PIC_TIMING_SEI"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Hdr10Settings": {
@@ -6937,31 +7247,36 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Ad Markers",
-        "smithy.api#enum": {
-          "ADOBE": {
+        "smithy.api#enum": [
+          {
+            "value": "ADOBE",
             "name": "ADOBE"
           },
-          "ELEMENTAL": {
+          {
+            "value": "ELEMENTAL",
             "name": "ELEMENTAL"
           },
-          "ELEMENTAL_SCTE35": {
+          {
+            "value": "ELEMENTAL_SCTE35",
             "name": "ELEMENTAL_SCTE35"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsAkamaiHttpTransferMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Akamai Http Transfer Mode",
-        "smithy.api#enum": {
-          "CHUNKED": {
+        "smithy.api#enum": [
+          {
+            "value": "CHUNKED",
             "name": "CHUNKED"
           },
-          "NON_CHUNKED": {
+          {
+            "value": "NON_CHUNKED",
             "name": "NON_CHUNKED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsAkamaiSettings": {
@@ -7061,17 +7376,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Caption Language Setting",
-        "smithy.api#enum": {
-          "INSERT": {
+        "smithy.api#enum": [
+          {
+            "value": "INSERT",
             "name": "INSERT"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "OMIT": {
+          {
+            "value": "OMIT",
             "name": "OMIT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsCdnSettings": {
@@ -7110,56 +7428,64 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Client Cache",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsCodecSpecification": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Codec Specification",
-        "smithy.api#enum": {
-          "RFC_4281": {
+        "smithy.api#enum": [
+          {
+            "value": "RFC_4281",
             "name": "RFC_4281"
           },
-          "RFC_6381": {
+          {
+            "value": "RFC_6381",
             "name": "RFC_6381"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsDirectoryStructure": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Directory Structure",
-        "smithy.api#enum": {
-          "SINGLE_DIRECTORY": {
+        "smithy.api#enum": [
+          {
+            "value": "SINGLE_DIRECTORY",
             "name": "SINGLE_DIRECTORY"
           },
-          "SUBDIRECTORY_PER_STREAM": {
+          {
+            "value": "SUBDIRECTORY_PER_STREAM",
             "name": "SUBDIRECTORY_PER_STREAM"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsEncryptionType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Encryption Type",
-        "smithy.api#enum": {
-          "AES128": {
+        "smithy.api#enum": [
+          {
+            "value": "AES128",
             "name": "AES128"
           },
-          "SAMPLE_AES": {
+          {
+            "value": "SAMPLE_AES",
             "name": "SAMPLE_AES"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsGroupSettings": {
@@ -7240,7 +7566,7 @@
           "traits": {
             "smithy.api#documentation": "A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DirectoryStructure": {
@@ -7455,14 +7781,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls H265 Packaging Type",
-        "smithy.api#enum": {
-          "HEV1": {
+        "smithy.api#enum": [
+          {
+            "value": "HEV1",
             "name": "HEV1"
           },
-          "HVC1": {
+          {
+            "value": "HVC1",
             "name": "HVC1"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsId3SegmentTaggingScheduleActionSettings": {
@@ -7473,7 +7801,7 @@
           "traits": {
             "smithy.api#documentation": "ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html",
             "smithy.api#jsonName": "tag",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -7485,14 +7813,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "State of HLS ID3 Segment Tagging",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsInputSettings": {
@@ -7535,56 +7865,64 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Iv In Manifest",
-        "smithy.api#enum": {
-          "EXCLUDE": {
+        "smithy.api#enum": [
+          {
+            "value": "EXCLUDE",
             "name": "EXCLUDE"
           },
-          "INCLUDE": {
+          {
+            "value": "INCLUDE",
             "name": "INCLUDE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsIvSource": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Iv Source",
-        "smithy.api#enum": {
-          "EXPLICIT": {
+        "smithy.api#enum": [
+          {
+            "value": "EXPLICIT",
             "name": "EXPLICIT"
           },
-          "FOLLOWS_SEGMENT_NUMBER": {
+          {
+            "value": "FOLLOWS_SEGMENT_NUMBER",
             "name": "FOLLOWS_SEGMENT_NUMBER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsManifestCompression": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Manifest Compression",
-        "smithy.api#enum": {
-          "GZIP": {
+        "smithy.api#enum": [
+          {
+            "value": "GZIP",
             "name": "GZIP"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsManifestDurationFormat": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Manifest Duration Format",
-        "smithy.api#enum": {
-          "FLOATING_POINT": {
+        "smithy.api#enum": [
+          {
+            "value": "FLOATING_POINT",
             "name": "FLOATING_POINT"
           },
-          "INTEGER": {
+          {
+            "value": "INTEGER",
             "name": "INTEGER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsMediaStoreSettings": {
@@ -7634,39 +7972,44 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Media Store Storage Class",
-        "smithy.api#enum": {
-          "TEMPORAL": {
+        "smithy.api#enum": [
+          {
+            "value": "TEMPORAL",
             "name": "TEMPORAL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Mode",
-        "smithy.api#enum": {
-          "LIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "LIVE",
             "name": "LIVE"
           },
-          "VOD": {
+          {
+            "value": "VOD",
             "name": "VOD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsOutputSelection": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Output Selection",
-        "smithy.api#enum": {
-          "MANIFESTS_AND_SEGMENTS": {
+        "smithy.api#enum": [
+          {
+            "value": "MANIFESTS_AND_SEGMENTS",
             "name": "MANIFESTS_AND_SEGMENTS"
           },
-          "SEGMENTS_ONLY": {
+          {
+            "value": "SEGMENTS_ONLY",
             "name": "SEGMENTS_ONLY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsOutputSettings": {
@@ -7684,7 +8027,7 @@
           "traits": {
             "smithy.api#documentation": "Settings regarding the underlying stream. These settings are different for audio-only outputs.",
             "smithy.api#jsonName": "hlsSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NameModifier": {
@@ -7710,42 +8053,48 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Program Date Time",
-        "smithy.api#enum": {
-          "EXCLUDE": {
+        "smithy.api#enum": [
+          {
+            "value": "EXCLUDE",
             "name": "EXCLUDE"
           },
-          "INCLUDE": {
+          {
+            "value": "INCLUDE",
             "name": "INCLUDE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsRedundantManifest": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Redundant Manifest",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsSegmentationMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Segmentation Mode",
-        "smithy.api#enum": {
-          "USE_INPUT_SEGMENTATION": {
+        "smithy.api#enum": [
+          {
+            "value": "USE_INPUT_SEGMENTATION",
             "name": "USE_INPUT_SEGMENTATION"
           },
-          "USE_SEGMENT_DURATION": {
+          {
+            "value": "USE_SEGMENT_DURATION",
             "name": "USE_SEGMENT_DURATION"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsSettings": {
@@ -7778,31 +8127,36 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Stream Inf Resolution",
-        "smithy.api#enum": {
-          "EXCLUDE": {
+        "smithy.api#enum": [
+          {
+            "value": "EXCLUDE",
             "name": "EXCLUDE"
           },
-          "INCLUDE": {
+          {
+            "value": "INCLUDE",
             "name": "INCLUDE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsTimedMetadataId3Frame": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Timed Metadata Id3 Frame",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "PRIV": {
+          {
+            "value": "PRIV",
             "name": "PRIV"
           },
-          "TDRL": {
+          {
+            "value": "TDRL",
             "name": "TDRL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsTimedMetadataScheduleActionSettings": {
@@ -7813,7 +8167,7 @@
           "traits": {
             "smithy.api#documentation": "Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure",
             "smithy.api#jsonName": "id3",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -7825,28 +8179,32 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Ts File Mode",
-        "smithy.api#enum": {
-          "SEGMENTED_FILES": {
+        "smithy.api#enum": [
+          {
+            "value": "SEGMENTED_FILES",
             "name": "SEGMENTED_FILES"
           },
-          "SINGLE_FILE": {
+          {
+            "value": "SINGLE_FILE",
             "name": "SINGLE_FILE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsWebdavHttpTransferMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Hls Webdav Http Transfer Mode",
-        "smithy.api#enum": {
-          "CHUNKED": {
+        "smithy.api#enum": [
+          {
+            "value": "CHUNKED",
             "name": "CHUNKED"
           },
-          "NON_CHUNKED": {
+          {
+            "value": "NON_CHUNKED",
             "name": "NON_CHUNKED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#HlsWebdavSettings": {
@@ -7896,19 +8254,21 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "When set to \"standard\", an I-Frame only playlist will be written out for each video output in the output group. This I-Frame only playlist will contain byte range offsets pointing to the I-frame(s) in each segment.",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "STANDARD": {
+          {
+            "value": "STANDARD",
             "name": "STANDARD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ImmediateModeScheduleActionStartSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Settings to configure an action so that it occurs immediately. This is only supported for input switch actions currently."
       }
@@ -8054,7 +8414,7 @@
           "traits": {
             "smithy.api#documentation": "Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.",
             "smithy.api#jsonName": "gain",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputChannel": {
@@ -8062,7 +8422,7 @@
           "traits": {
             "smithy.api#documentation": "The index of the input channel used as a source.",
             "smithy.api#jsonName": "inputChannel",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -8074,14 +8434,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "A standard input has two sources and a single pipeline input only has one.",
-        "smithy.api#enum": {
-          "STANDARD": {
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD",
             "name": "STANDARD"
           },
-          "SINGLE_PIPELINE": {
+          {
+            "value": "SINGLE_PIPELINE",
             "name": "SINGLE_PIPELINE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputClippingSettings": {
@@ -8092,7 +8454,7 @@
           "traits": {
             "smithy.api#documentation": "The source of the timecodes in the source being clipped.",
             "smithy.api#jsonName": "inputTimecodeSource",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StartTimecode": {
@@ -8118,45 +8480,52 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "codec in increasing order of complexity",
-        "smithy.api#enum": {
-          "MPEG2": {
+        "smithy.api#enum": [
+          {
+            "value": "MPEG2",
             "name": "MPEG2"
           },
-          "AVC": {
+          {
+            "value": "AVC",
             "name": "AVC"
           },
-          "HEVC": {
+          {
+            "value": "HEVC",
             "name": "HEVC"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputDeblockFilter": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Deblock Filter",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputDenoiseFilter": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Denoise Filter",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputDestination": {
@@ -8235,17 +8604,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Filter",
-        "smithy.api#enum": {
-          "AUTO": {
+        "smithy.api#enum": [
+          {
+            "value": "AUTO",
             "name": "AUTO"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "FORCED": {
+          {
+            "value": "FORCED",
             "name": "FORCED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputLocation": {
@@ -8263,7 +8635,7 @@
           "traits": {
             "smithy.api#documentation": "Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\".",
             "smithy.api#jsonName": "uri",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Username": {
@@ -8282,59 +8654,68 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Loss Action For Hls Out",
-        "smithy.api#enum": {
-          "EMIT_OUTPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "EMIT_OUTPUT",
             "name": "EMIT_OUTPUT"
           },
-          "PAUSE_OUTPUT": {
+          {
+            "value": "PAUSE_OUTPUT",
             "name": "PAUSE_OUTPUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputLossActionForMsSmoothOut": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Loss Action For Ms Smooth Out",
-        "smithy.api#enum": {
-          "EMIT_OUTPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "EMIT_OUTPUT",
             "name": "EMIT_OUTPUT"
           },
-          "PAUSE_OUTPUT": {
+          {
+            "value": "PAUSE_OUTPUT",
             "name": "PAUSE_OUTPUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputLossActionForRtmpOut": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Loss Action For Rtmp Out",
-        "smithy.api#enum": {
-          "EMIT_OUTPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "EMIT_OUTPUT",
             "name": "EMIT_OUTPUT"
           },
-          "PAUSE_OUTPUT": {
+          {
+            "value": "PAUSE_OUTPUT",
             "name": "PAUSE_OUTPUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputLossActionForUdpOut": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Loss Action For Udp Out",
-        "smithy.api#enum": {
-          "DROP_PROGRAM": {
+        "smithy.api#enum": [
+          {
+            "value": "DROP_PROGRAM",
             "name": "DROP_PROGRAM"
           },
-          "DROP_TS": {
+          {
+            "value": "DROP_TS",
             "name": "DROP_TS"
           },
-          "EMIT_PROGRAM": {
+          {
+            "value": "EMIT_PROGRAM",
             "name": "EMIT_PROGRAM"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputLossBehavior": {
@@ -8384,48 +8765,56 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Loss Image Type",
-        "smithy.api#enum": {
-          "COLOR": {
+        "smithy.api#enum": [
+          {
+            "value": "COLOR",
             "name": "COLOR"
           },
-          "SLATE": {
+          {
+            "value": "SLATE",
             "name": "SLATE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputMaximumBitrate": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Maximum input bitrate in megabits per second. Bitrates up to 50 Mbps are supported currently.",
-        "smithy.api#enum": {
-          "MAX_10_MBPS": {
+        "smithy.api#enum": [
+          {
+            "value": "MAX_10_MBPS",
             "name": "MAX_10_MBPS"
           },
-          "MAX_20_MBPS": {
+          {
+            "value": "MAX_20_MBPS",
             "name": "MAX_20_MBPS"
           },
-          "MAX_50_MBPS": {
+          {
+            "value": "MAX_50_MBPS",
             "name": "MAX_50_MBPS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputResolution": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input resolution based on lines of vertical resolution in the input; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines",
-        "smithy.api#enum": {
-          "SD": {
+        "smithy.api#enum": [
+          {
+            "value": "SD",
             "name": "SD"
           },
-          "HD": {
+          {
+            "value": "HD",
             "name": "HD"
           },
-          "UHD": {
+          {
+            "value": "UHD",
             "name": "UHD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputSecurityGroup": {
@@ -8482,20 +8871,24 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for InputSecurityGroupState",
-        "smithy.api#enum": {
-          "IDLE": {
+        "smithy.api#enum": [
+          {
+            "value": "IDLE",
             "name": "IDLE"
           },
-          "IN_USE": {
+          {
+            "value": "IN_USE",
             "name": "IN_USE"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "UPDATING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputSettings": {
@@ -8602,14 +8995,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Input Source End Behavior",
-        "smithy.api#enum": {
-          "CONTINUE": {
+        "smithy.api#enum": [
+          {
+            "value": "CONTINUE",
             "name": "CONTINUE"
           },
-          "LOOP": {
+          {
+            "value": "LOOP",
             "name": "LOOP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputSourceRequest": {
@@ -8645,14 +9040,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "There are two types of input sources, static and dynamic. If an input source is dynamic you can\nchange the source url of the input dynamically using an input switch action. However, the only input type\nto support a dynamic url at this time is MP4_FILE. By default all input sources are static.",
-        "smithy.api#enum": {
-          "STATIC": {
+        "smithy.api#enum": [
+          {
+            "value": "STATIC",
             "name": "STATIC"
           },
-          "DYNAMIC": {
+          {
+            "value": "DYNAMIC",
             "name": "DYNAMIC"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputSpecification": {
@@ -8688,23 +9085,28 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for InputState",
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "DETACHED": {
+          {
+            "value": "DETACHED",
             "name": "DETACHED"
           },
-          "ATTACHED": {
+          {
+            "value": "ATTACHED",
             "name": "ATTACHED"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputSwitchScheduleActionSettings": {
@@ -8715,7 +9117,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.",
             "smithy.api#jsonName": "inputAttachmentNameReference",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "InputClippingSettings": {
@@ -8741,43 +9143,52 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Documentation update needed",
-        "smithy.api#enum": {
-          "ZEROBASED": {
+        "smithy.api#enum": [
+          {
+            "value": "ZEROBASED",
             "name": "ZEROBASED"
           },
-          "EMBEDDED": {
+          {
+            "value": "EMBEDDED",
             "name": "EMBEDDED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for InputType",
-        "smithy.api#enum": {
-          "UDP_PUSH": {
+        "smithy.api#enum": [
+          {
+            "value": "UDP_PUSH",
             "name": "UDP_PUSH"
           },
-          "RTP_PUSH": {
+          {
+            "value": "RTP_PUSH",
             "name": "RTP_PUSH"
           },
-          "RTMP_PUSH": {
+          {
+            "value": "RTMP_PUSH",
             "name": "RTMP_PUSH"
           },
-          "RTMP_PULL": {
+          {
+            "value": "RTMP_PULL",
             "name": "RTMP_PULL"
           },
-          "URL_PULL": {
+          {
+            "value": "URL_PULL",
             "name": "URL_PULL"
           },
-          "MP4_FILE": {
+          {
+            "value": "MP4_FILE",
             "name": "MP4_FILE"
           },
-          "MEDIACONNECT": {
+          {
+            "value": "MEDIACONNECT",
             "name": "MEDIACONNECT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#InputVpcRequest": {
@@ -8795,7 +9206,7 @@
           "traits": {
             "smithy.api#documentation": "A list of 2 VPC subnet IDs from the same VPC.\nSubnet IDs must be mapped to two unique availability zones (AZ).",
             "smithy.api#jsonName": "subnetIds",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -8867,14 +9278,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.",
-        "smithy.api#enum": {
-          "EXCLUDE_LAST_FRAME": {
+        "smithy.api#enum": [
+          {
+            "value": "EXCLUDE_LAST_FRAME",
             "name": "EXCLUDE_LAST_FRAME"
           },
-          "INCLUDE_LAST_FRAME": {
+          {
+            "value": "INCLUDE_LAST_FRAME",
             "name": "INCLUDE_LAST_FRAME"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ListChannels": {
@@ -9163,8 +9576,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex that the programs belong to.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -9603,8 +10016,8 @@
         "ResourceArn": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -9630,287 +10043,332 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The log level the user wants for their channel.",
-        "smithy.api#enum": {
-          "ERROR": {
+        "smithy.api#enum": [
+          {
+            "value": "ERROR",
             "name": "ERROR"
           },
-          "WARNING": {
+          {
+            "value": "WARNING",
             "name": "WARNING"
           },
-          "INFO": {
+          {
+            "value": "INFO",
             "name": "INFO"
           },
-          "DEBUG": {
+          {
+            "value": "DEBUG",
             "name": "DEBUG"
           },
-          "DISABLED": {
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsAbsentInputAudioBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Absent Input Audio Behavior",
-        "smithy.api#enum": {
-          "DROP": {
+        "smithy.api#enum": [
+          {
+            "value": "DROP",
             "name": "DROP"
           },
-          "ENCODE_SILENCE": {
+          {
+            "value": "ENCODE_SILENCE",
             "name": "ENCODE_SILENCE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsArib": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Arib",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsAribCaptionsPidControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Arib Captions Pid Control",
-        "smithy.api#enum": {
-          "AUTO": {
+        "smithy.api#enum": [
+          {
+            "value": "AUTO",
             "name": "AUTO"
           },
-          "USE_CONFIGURED": {
+          {
+            "value": "USE_CONFIGURED",
             "name": "USE_CONFIGURED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsAudioBufferModel": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Audio Buffer Model",
-        "smithy.api#enum": {
-          "ATSC": {
+        "smithy.api#enum": [
+          {
+            "value": "ATSC",
             "name": "ATSC"
           },
-          "DVB": {
+          {
+            "value": "DVB",
             "name": "DVB"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsAudioInterval": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Audio Interval",
-        "smithy.api#enum": {
-          "VIDEO_AND_FIXED_INTERVALS": {
+        "smithy.api#enum": [
+          {
+            "value": "VIDEO_AND_FIXED_INTERVALS",
             "name": "VIDEO_AND_FIXED_INTERVALS"
           },
-          "VIDEO_INTERVAL": {
+          {
+            "value": "VIDEO_INTERVAL",
             "name": "VIDEO_INTERVAL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsAudioStreamType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Audio Stream Type",
-        "smithy.api#enum": {
-          "ATSC": {
+        "smithy.api#enum": [
+          {
+            "value": "ATSC",
             "name": "ATSC"
           },
-          "DVB": {
+          {
+            "value": "DVB",
             "name": "DVB"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsBufferModel": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Buffer Model",
-        "smithy.api#enum": {
-          "MULTIPLEX": {
+        "smithy.api#enum": [
+          {
+            "value": "MULTIPLEX",
             "name": "MULTIPLEX"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsCcDescriptor": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Cc Descriptor",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsEbifControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Ebif Control",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsEbpPlacement": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Ebp Placement",
-        "smithy.api#enum": {
-          "VIDEO_AND_AUDIO_PIDS": {
+        "smithy.api#enum": [
+          {
+            "value": "VIDEO_AND_AUDIO_PIDS",
             "name": "VIDEO_AND_AUDIO_PIDS"
           },
-          "VIDEO_PID": {
+          {
+            "value": "VIDEO_PID",
             "name": "VIDEO_PID"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsEsRateInPes": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Es Rate In Pes",
-        "smithy.api#enum": {
-          "EXCLUDE": {
+        "smithy.api#enum": [
+          {
+            "value": "EXCLUDE",
             "name": "EXCLUDE"
           },
-          "INCLUDE": {
+          {
+            "value": "INCLUDE",
             "name": "INCLUDE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsKlv": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Klv",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsNielsenId3Behavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Nielsen Id3 Behavior",
-        "smithy.api#enum": {
-          "NO_PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_PASSTHROUGH",
             "name": "NO_PASSTHROUGH"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsPcrControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Pcr Control",
-        "smithy.api#enum": {
-          "CONFIGURED_PCR_PERIOD": {
+        "smithy.api#enum": [
+          {
+            "value": "CONFIGURED_PCR_PERIOD",
             "name": "CONFIGURED_PCR_PERIOD"
           },
-          "PCR_EVERY_PES_PACKET": {
+          {
+            "value": "PCR_EVERY_PES_PACKET",
             "name": "PCR_EVERY_PES_PACKET"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsRateMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Rate Mode",
-        "smithy.api#enum": {
-          "CBR": {
+        "smithy.api#enum": [
+          {
+            "value": "CBR",
             "name": "CBR"
           },
-          "VBR": {
+          {
+            "value": "VBR",
             "name": "VBR"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsScte35Control": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Scte35 Control",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsSegmentationMarkers": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Segmentation Markers",
-        "smithy.api#enum": {
-          "EBP": {
+        "smithy.api#enum": [
+          {
+            "value": "EBP",
             "name": "EBP"
           },
-          "EBP_LEGACY": {
+          {
+            "value": "EBP_LEGACY",
             "name": "EBP_LEGACY"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "PSI_SEGSTART": {
+          {
+            "value": "PSI_SEGSTART",
             "name": "PSI_SEGSTART"
           },
-          "RAI_ADAPT": {
+          {
+            "value": "RAI_ADAPT",
             "name": "RAI_ADAPT"
           },
-          "RAI_SEGSTART": {
+          {
+            "value": "RAI_SEGSTART",
             "name": "RAI_SEGSTART"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsSegmentationStyle": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Segmentation Style",
-        "smithy.api#enum": {
-          "MAINTAIN_CADENCE": {
+        "smithy.api#enum": [
+          {
+            "value": "MAINTAIN_CADENCE",
             "name": "MAINTAIN_CADENCE"
           },
-          "RESET_CADENCE": {
+          {
+            "value": "RESET_CADENCE",
             "name": "RESET_CADENCE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M2tsSettings": {
@@ -10254,56 +10712,64 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M2ts Timed Metadata Behavior",
-        "smithy.api#enum": {
-          "NO_PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_PASSTHROUGH",
             "name": "NO_PASSTHROUGH"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M3u8NielsenId3Behavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M3u8 Nielsen Id3 Behavior",
-        "smithy.api#enum": {
-          "NO_PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_PASSTHROUGH",
             "name": "NO_PASSTHROUGH"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M3u8PcrControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M3u8 Pcr Control",
-        "smithy.api#enum": {
-          "CONFIGURED_PCR_PERIOD": {
+        "smithy.api#enum": [
+          {
+            "value": "CONFIGURED_PCR_PERIOD",
             "name": "CONFIGURED_PCR_PERIOD"
           },
-          "PCR_EVERY_PES_PACKET": {
+          {
+            "value": "PCR_EVERY_PES_PACKET",
             "name": "PCR_EVERY_PES_PACKET"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M3u8Scte35Behavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M3u8 Scte35 Behavior",
-        "smithy.api#enum": {
-          "NO_PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_PASSTHROUGH",
             "name": "NO_PASSTHROUGH"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#M3u8Settings": {
@@ -10437,14 +10903,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "M3u8 Timed Metadata Behavior",
-        "smithy.api#enum": {
-          "NO_PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_PASSTHROUGH",
             "name": "NO_PASSTHROUGH"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#MaxResults": {
@@ -10564,16 +11032,16 @@
           "target": "com.amazonaws.medialive#ListChannels"
         },
         {
-          "target": "com.amazonaws.medialive#ListInputSecurityGroups"
-        },
-        {
           "target": "com.amazonaws.medialive#ListInputs"
         },
         {
-          "target": "com.amazonaws.medialive#ListMultiplexPrograms"
+          "target": "com.amazonaws.medialive#ListInputSecurityGroups"
         },
         {
           "target": "com.amazonaws.medialive#ListMultiplexes"
+        },
+        {
+          "target": "com.amazonaws.medialive#ListMultiplexPrograms"
         },
         {
           "target": "com.amazonaws.medialive#ListOfferings"
@@ -10628,15 +11096,11 @@
           "cloudFormationName": "MediaLive",
           "cloudTrailEventSource": "medialive.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "medialive"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "API for AWS Elemental MediaLive",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Elemental MediaLive"
       }
     },
@@ -10648,7 +11112,7 @@
           "traits": {
             "smithy.api#documentation": "MediaPackage channel destination.",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -10673,7 +11137,7 @@
     },
     "com.amazonaws.medialive#MediaPackageOutputSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Media Package Output Settings"
       }
@@ -10682,14 +11146,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Mp2 Coding Mode",
-        "smithy.api#enum": {
-          "CODING_MODE_1_0": {
+        "smithy.api#enum": [
+          {
+            "value": "CODING_MODE_1_0",
             "name": "CODING_MODE_1_0"
           },
-          "CODING_MODE_2_0": {
+          {
+            "value": "CODING_MODE_2_0",
             "name": "CODING_MODE_2_0"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Mp2Settings": {
@@ -10757,7 +11223,7 @@
           "traits": {
             "smithy.api#documentation": "Smooth Streaming publish point on an IIS server. Elemental Live acts as a \"Push\" encoder to IIS.",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "EventId": {
@@ -10867,14 +11333,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Ms Smooth H265 Packaging Type",
-        "smithy.api#enum": {
-          "HEV1": {
+        "smithy.api#enum": [
+          {
+            "value": "HEV1",
             "name": "HEV1"
           },
-          "HVC1": {
+          {
+            "value": "HVC1",
             "name": "HVC1"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#MsSmoothOutputSettings": {
@@ -10979,7 +11447,7 @@
     },
     "com.amazonaws.medialive#MultiplexGroupSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Multiplex Group Settings"
       }
@@ -11022,7 +11490,7 @@
           "traits": {
             "smithy.api#documentation": "Destination is a Multiplex.",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -11182,7 +11650,7 @@
           "traits": {
             "smithy.api#documentation": "Name of the provider.",
             "smithy.api#jsonName": "providerName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceName": {
@@ -11190,7 +11658,7 @@
           "traits": {
             "smithy.api#documentation": "Name of the service.",
             "smithy.api#jsonName": "serviceName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -11206,7 +11674,7 @@
           "traits": {
             "smithy.api#documentation": "Unique program number.",
             "smithy.api#jsonName": "programNumber",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ServiceDescriptor": {
@@ -11265,7 +11733,7 @@
           "traits": {
             "smithy.api#documentation": "Transport stream bit rate.",
             "smithy.api#jsonName": "transportStreamBitrate",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TransportStreamId": {
@@ -11273,7 +11741,7 @@
           "traits": {
             "smithy.api#documentation": "Transport stream ID.",
             "smithy.api#jsonName": "transportStreamId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TransportStreamReservedBitrate": {
@@ -11307,35 +11775,44 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "The current state of the multiplex.",
-        "smithy.api#enum": {
-          "CREATING": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
             "name": "CREATING"
           },
-          "CREATE_FAILED": {
+          {
+            "value": "CREATE_FAILED",
             "name": "CREATE_FAILED"
           },
-          "IDLE": {
+          {
+            "value": "IDLE",
             "name": "IDLE"
           },
-          "STARTING": {
+          {
+            "value": "STARTING",
             "name": "STARTING"
           },
-          "RUNNING": {
+          {
+            "value": "RUNNING",
             "name": "RUNNING"
           },
-          "RECOVERING": {
+          {
+            "value": "RECOVERING",
             "name": "RECOVERING"
           },
-          "STOPPING": {
+          {
+            "value": "STOPPING",
             "name": "STOPPING"
           },
-          "DELETING": {
+          {
+            "value": "DELETING",
             "name": "DELETING"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#MultiplexStatmuxVideoSettings": {
@@ -11457,14 +11934,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Network Input Server Validation",
-        "smithy.api#enum": {
-          "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME": {
+        "smithy.api#enum": [
+          {
+            "value": "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME",
             "name": "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME"
           },
-          "CHECK_CRYPTOGRAPHY_ONLY": {
+          {
+            "value": "CHECK_CRYPTOGRAPHY_ONLY",
             "name": "CHECK_CRYPTOGRAPHY_ONLY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#NetworkInputSettings": {
@@ -11515,14 +11994,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "State of Nielsen PCM to ID3 tagging",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "ENABLED": {
+          {
+            "value": "ENABLED",
             "name": "ENABLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#NotFoundException": {
@@ -11630,22 +12111,24 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Units for duration, e.g. 'MONTHS'",
-        "smithy.api#enum": {
-          "MONTHS": {
+        "smithy.api#enum": [
+          {
+            "value": "MONTHS",
             "name": "MONTHS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#OfferingType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Offering type, e.g. 'NO_UPFRONT'",
-        "smithy.api#enum": {
-          "NO_UPFRONT": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_UPFRONT",
             "name": "NO_UPFRONT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Output": {
@@ -11677,7 +12160,7 @@
           "traits": {
             "smithy.api#documentation": "Output type-specific settings.",
             "smithy.api#jsonName": "outputSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VideoDescriptionName": {
@@ -11779,14 +12262,14 @@
           "traits": {
             "smithy.api#documentation": "Settings associated with the output group.",
             "smithy.api#jsonName": "outputGroupSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Outputs": {
           "target": "com.amazonaws.medialive#__listOfOutput",
           "traits": {
             "smithy.api#jsonName": "outputs",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -11922,7 +12405,7 @@
     },
     "com.amazonaws.medialive#PassThroughSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Pass Through Settings"
       }
@@ -11974,14 +12457,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Pipeline ID",
-        "smithy.api#enum": {
-          "PIPELINE_0": {
+        "smithy.api#enum": [
+          {
+            "value": "PIPELINE_0",
             "name": "PIPELINE_0"
           },
-          "PIPELINE_1": {
+          {
+            "value": "PIPELINE_1",
             "name": "PIPELINE_1"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#PipelinePauseStateSettings": {
@@ -11992,7 +12477,7 @@
           "traits": {
             "smithy.api#documentation": "Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\").",
             "smithy.api#jsonName": "pipelineId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -12051,7 +12536,7 @@
           "traits": {
             "smithy.api#documentation": "Number of resources",
             "smithy.api#jsonName": "count",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -12065,15 +12550,15 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Offering to purchase, e.g. '87654321'",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RequestId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.",
-            "smithy.api#idempotencyToken": true,
+            "smithy.api#idempotencyToken": {},
             "smithy.api#jsonName": "requestId"
           }
         },
@@ -12112,14 +12597,14 @@
     },
     "com.amazonaws.medialive#Rec601Settings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Rec601 Settings"
       }
     },
     "com.amazonaws.medialive#Rec709Settings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Rec709 Settings"
       }
@@ -12132,7 +12617,7 @@
           "traits": {
             "smithy.api#documentation": "Mapping of input channels to output channels, with appropriate gain adjustments.",
             "smithy.api#jsonName": "channelMappings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ChannelsIn": {
@@ -12292,71 +12777,84 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Codec, 'MPEG2', 'AVC', 'HEVC', or 'AUDIO'",
-        "smithy.api#enum": {
-          "MPEG2": {
+        "smithy.api#enum": [
+          {
+            "value": "MPEG2",
             "name": "MPEG2"
           },
-          "AVC": {
+          {
+            "value": "AVC",
             "name": "AVC"
           },
-          "HEVC": {
+          {
+            "value": "HEVC",
             "name": "HEVC"
           },
-          "AUDIO": {
+          {
+            "value": "AUDIO",
             "name": "AUDIO"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ReservationMaximumBitrate": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Maximum bitrate in megabits per second",
-        "smithy.api#enum": {
-          "MAX_10_MBPS": {
+        "smithy.api#enum": [
+          {
+            "value": "MAX_10_MBPS",
             "name": "MAX_10_MBPS"
           },
-          "MAX_20_MBPS": {
+          {
+            "value": "MAX_20_MBPS",
             "name": "MAX_20_MBPS"
           },
-          "MAX_50_MBPS": {
+          {
+            "value": "MAX_50_MBPS",
             "name": "MAX_50_MBPS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ReservationMaximumFramerate": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Maximum framerate in frames per second (Outputs only)",
-        "smithy.api#enum": {
-          "MAX_30_FPS": {
+        "smithy.api#enum": [
+          {
+            "value": "MAX_30_FPS",
             "name": "MAX_30_FPS"
           },
-          "MAX_60_FPS": {
+          {
+            "value": "MAX_60_FPS",
             "name": "MAX_60_FPS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ReservationResolution": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Resolution based on lines of vertical resolution; SD is less than 720 lines, HD is 720 to 1080 lines, FHD is 1080 lines, UHD is greater than 1080 lines",
-        "smithy.api#enum": {
-          "SD": {
+        "smithy.api#enum": [
+          {
+            "value": "SD",
             "name": "SD"
           },
-          "HD": {
+          {
+            "value": "HD",
             "name": "HD"
           },
-          "FHD": {
+          {
+            "value": "FHD",
             "name": "FHD"
           },
-          "UHD": {
+          {
+            "value": "UHD",
             "name": "UHD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ReservationResourceSpecification": {
@@ -12427,107 +12925,125 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'",
-        "smithy.api#enum": {
-          "INPUT": {
+        "smithy.api#enum": [
+          {
+            "value": "INPUT",
             "name": "INPUT"
           },
-          "OUTPUT": {
+          {
+            "value": "OUTPUT",
             "name": "OUTPUT"
           },
-          "MULTIPLEX": {
+          {
+            "value": "MULTIPLEX",
             "name": "MULTIPLEX"
           },
-          "CHANNEL": {
+          {
+            "value": "CHANNEL",
             "name": "CHANNEL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ReservationSpecialFeature": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Special features, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'",
-        "smithy.api#enum": {
-          "ADVANCED_AUDIO": {
+        "smithy.api#enum": [
+          {
+            "value": "ADVANCED_AUDIO",
             "name": "ADVANCED_AUDIO"
           },
-          "AUDIO_NORMALIZATION": {
+          {
+            "value": "AUDIO_NORMALIZATION",
             "name": "AUDIO_NORMALIZATION"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ReservationState": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Current reservation state",
-        "smithy.api#enum": {
-          "ACTIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "EXPIRED": {
+          {
+            "value": "EXPIRED",
             "name": "EXPIRED"
           },
-          "CANCELED": {
+          {
+            "value": "CANCELED",
             "name": "CANCELED"
           },
-          "DELETED": {
+          {
+            "value": "DELETED",
             "name": "DELETED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#ReservationVideoQuality": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Video quality, e.g. 'STANDARD' (Outputs only)",
-        "smithy.api#enum": {
-          "STANDARD": {
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD",
             "name": "STANDARD"
           },
-          "ENHANCED": {
+          {
+            "value": "ENHANCED",
             "name": "ENHANCED"
           },
-          "PREMIUM": {
+          {
+            "value": "PREMIUM",
             "name": "PREMIUM"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#RtmpCacheFullBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Rtmp Cache Full Behavior",
-        "smithy.api#enum": {
-          "DISCONNECT_IMMEDIATELY": {
+        "smithy.api#enum": [
+          {
+            "value": "DISCONNECT_IMMEDIATELY",
             "name": "DISCONNECT_IMMEDIATELY"
           },
-          "WAIT_FOR_SERVER": {
+          {
+            "value": "WAIT_FOR_SERVER",
             "name": "WAIT_FOR_SERVER"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#RtmpCaptionData": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Rtmp Caption Data",
-        "smithy.api#enum": {
-          "ALL": {
+        "smithy.api#enum": [
+          {
+            "value": "ALL",
             "name": "ALL"
           },
-          "FIELD1_608": {
+          {
+            "value": "FIELD1_608",
             "name": "FIELD1_608"
           },
-          "FIELD1_AND_FIELD2_608": {
+          {
+            "value": "FIELD1_AND_FIELD2_608",
             "name": "FIELD1_AND_FIELD2_608"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#RtmpCaptionInfoDestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Rtmp Caption Info Destination Settings"
       }
@@ -12586,14 +13102,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Rtmp Output Certificate Mode",
-        "smithy.api#enum": {
-          "SELF_SIGNED": {
+        "smithy.api#enum": [
+          {
+            "value": "SELF_SIGNED",
             "name": "SELF_SIGNED"
           },
-          "VERIFY_AUTHENTICITY": {
+          {
+            "value": "VERIFY_AUTHENTICITY",
             "name": "VERIFY_AUTHENTICITY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#RtmpOutputSettings": {
@@ -12618,7 +13136,7 @@
           "traits": {
             "smithy.api#documentation": "The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NumRetries": {
@@ -12641,7 +13159,7 @@
           "traits": {
             "smithy.api#documentation": "The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.",
             "smithy.api#jsonName": "actionName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ScheduleActionSettings": {
@@ -12649,7 +13167,7 @@
           "traits": {
             "smithy.api#documentation": "Settings for this schedule action.",
             "smithy.api#jsonName": "scheduleActionSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ScheduleActionStartSettings": {
@@ -12657,7 +13175,7 @@
           "traits": {
             "smithy.api#documentation": "The time for the action to start in the channel.",
             "smithy.api#jsonName": "scheduleActionStartSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -12769,19 +13287,21 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Scte20 Convert608 To708",
-        "smithy.api#enum": {
-          "DISABLED": {
+        "smithy.api#enum": [
+          {
+            "value": "DISABLED",
             "name": "DISABLED"
           },
-          "UPCONVERT": {
+          {
+            "value": "UPCONVERT",
             "name": "UPCONVERT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte20PlusEmbeddedDestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Scte20 Plus Embedded Destination Settings"
       }
@@ -12810,7 +13330,7 @@
     },
     "com.amazonaws.medialive#Scte27DestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Scte27 Destination Settings"
       }
@@ -12834,42 +13354,48 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Scte35 Apos No Regional Blackout Behavior",
-        "smithy.api#enum": {
-          "FOLLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW",
             "name": "FOLLOW"
           },
-          "IGNORE": {
+          {
+            "value": "IGNORE",
             "name": "IGNORE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35AposWebDeliveryAllowedBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Scte35 Apos Web Delivery Allowed Behavior",
-        "smithy.api#enum": {
-          "FOLLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW",
             "name": "FOLLOW"
           },
-          "IGNORE": {
+          {
+            "value": "IGNORE",
             "name": "IGNORE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35ArchiveAllowedFlag": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Corresponds to the archive_allowed parameter. A value of ARCHIVE_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35 specification. If you include one of the \"restriction\" flags then you must include all four of them.",
-        "smithy.api#enum": {
-          "ARCHIVE_NOT_ALLOWED": {
+        "smithy.api#enum": [
+          {
+            "value": "ARCHIVE_NOT_ALLOWED",
             "name": "ARCHIVE_NOT_ALLOWED"
           },
-          "ARCHIVE_ALLOWED": {
+          {
+            "value": "ARCHIVE_ALLOWED",
             "name": "ARCHIVE_ALLOWED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35DeliveryRestrictions": {
@@ -12880,7 +13406,7 @@
           "traits": {
             "smithy.api#documentation": "Corresponds to SCTE-35 archive_allowed_flag.",
             "smithy.api#jsonName": "archiveAllowedFlag",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DeviceRestrictions": {
@@ -12888,7 +13414,7 @@
           "traits": {
             "smithy.api#documentation": "Corresponds to SCTE-35 device_restrictions parameter.",
             "smithy.api#jsonName": "deviceRestrictions",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "NoRegionalBlackoutFlag": {
@@ -12896,7 +13422,7 @@
           "traits": {
             "smithy.api#documentation": "Corresponds to SCTE-35 no_regional_blackout_flag parameter.",
             "smithy.api#jsonName": "noRegionalBlackoutFlag",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "WebDeliveryAllowedFlag": {
@@ -12904,7 +13430,7 @@
           "traits": {
             "smithy.api#documentation": "Corresponds to SCTE-35 web_delivery_allowed_flag parameter.",
             "smithy.api#jsonName": "webDeliveryAllowedFlag",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -12920,7 +13446,7 @@
           "traits": {
             "smithy.api#documentation": "SCTE-35 Descriptor Settings.",
             "smithy.api#jsonName": "scte35DescriptorSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -12936,7 +13462,7 @@
           "traits": {
             "smithy.api#documentation": "SCTE-35 Segmentation Descriptor.",
             "smithy.api#jsonName": "segmentationDescriptorScte35DescriptorSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -12948,34 +13474,40 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Corresponds to the device_restrictions parameter in a segmentation_descriptor. If you include one of the \"restriction\" flags then you must include all four of them.",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "RESTRICT_GROUP0": {
+          {
+            "value": "RESTRICT_GROUP0",
             "name": "RESTRICT_GROUP0"
           },
-          "RESTRICT_GROUP1": {
+          {
+            "value": "RESTRICT_GROUP1",
             "name": "RESTRICT_GROUP1"
           },
-          "RESTRICT_GROUP2": {
+          {
+            "value": "RESTRICT_GROUP2",
             "name": "RESTRICT_GROUP2"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35NoRegionalBlackoutFlag": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Corresponds to the no_regional_blackout_flag parameter. A value of REGIONAL_BLACKOUT corresponds to 0 (false) in the SCTE-35 specification. If you include one of the \"restriction\" flags then you must include all four of them.",
-        "smithy.api#enum": {
-          "REGIONAL_BLACKOUT": {
+        "smithy.api#enum": [
+          {
+            "value": "REGIONAL_BLACKOUT",
             "name": "REGIONAL_BLACKOUT"
           },
-          "NO_REGIONAL_BLACKOUT": {
+          {
+            "value": "NO_REGIONAL_BLACKOUT",
             "name": "NO_REGIONAL_BLACKOUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35ReturnToNetworkScheduleActionSettings": {
@@ -12986,7 +13518,7 @@
           "traits": {
             "smithy.api#documentation": "The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.",
             "smithy.api#jsonName": "spliceEventId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -12998,14 +13530,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Corresponds to SCTE-35 segmentation_event_cancel_indicator. SEGMENTATION_EVENT_NOT_CANCELED corresponds to 0 in the SCTE-35 specification and indicates that this is an insertion request. SEGMENTATION_EVENT_CANCELED corresponds to 1 in the SCTE-35 specification and indicates that this is a cancelation request, in which case complete this field and the existing event ID to cancel.",
-        "smithy.api#enum": {
-          "SEGMENTATION_EVENT_NOT_CANCELED": {
+        "smithy.api#enum": [
+          {
+            "value": "SEGMENTATION_EVENT_NOT_CANCELED",
             "name": "SEGMENTATION_EVENT_NOT_CANCELED"
           },
-          "SEGMENTATION_EVENT_CANCELED": {
+          {
+            "value": "SEGMENTATION_EVENT_CANCELED",
             "name": "SEGMENTATION_EVENT_CANCELED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35SegmentationDescriptor": {
@@ -13030,7 +13564,7 @@
           "traits": {
             "smithy.api#documentation": "Corresponds to SCTE-35 segmentation_event_cancel_indicator.",
             "smithy.api#jsonName": "segmentationCancelIndicator",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SegmentationDuration": {
@@ -13045,7 +13579,7 @@
           "traits": {
             "smithy.api#documentation": "Corresponds to SCTE-35 segmentation_event_id.",
             "smithy.api#jsonName": "segmentationEventId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SegmentationTypeId": {
@@ -13128,14 +13662,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Scte35 Splice Insert No Regional Blackout Behavior",
-        "smithy.api#enum": {
-          "FOLLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW",
             "name": "FOLLOW"
           },
-          "IGNORE": {
+          {
+            "value": "IGNORE",
             "name": "IGNORE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35SpliceInsertScheduleActionSettings": {
@@ -13153,7 +13689,7 @@
           "traits": {
             "smithy.api#documentation": "The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.",
             "smithy.api#jsonName": "spliceEventId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -13165,14 +13701,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Scte35 Splice Insert Web Delivery Allowed Behavior",
-        "smithy.api#enum": {
-          "FOLLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW",
             "name": "FOLLOW"
           },
-          "IGNORE": {
+          {
+            "value": "IGNORE",
             "name": "IGNORE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#Scte35TimeSignalApos": {
@@ -13212,7 +13750,7 @@
           "traits": {
             "smithy.api#documentation": "The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.",
             "smithy.api#jsonName": "scte35Descriptors",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -13224,134 +13762,153 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Corresponds to the web_delivery_allowed_flag parameter. A value of WEB_DELIVERY_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35 specification. If you include one of the \"restriction\" flags then you must include all four of them.",
-        "smithy.api#enum": {
-          "WEB_DELIVERY_NOT_ALLOWED": {
+        "smithy.api#enum": [
+          {
+            "value": "WEB_DELIVERY_NOT_ALLOWED",
             "name": "WEB_DELIVERY_NOT_ALLOWED"
           },
-          "WEB_DELIVERY_ALLOWED": {
+          {
+            "value": "WEB_DELIVERY_ALLOWED",
             "name": "WEB_DELIVERY_ALLOWED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupAudioOnlyTimecodeControl": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Audio Only Timecode Control",
-        "smithy.api#enum": {
-          "PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           },
-          "USE_CONFIGURED_CLOCK": {
+          {
+            "value": "USE_CONFIGURED_CLOCK",
             "name": "USE_CONFIGURED_CLOCK"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupCertificateMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Certificate Mode",
-        "smithy.api#enum": {
-          "SELF_SIGNED": {
+        "smithy.api#enum": [
+          {
+            "value": "SELF_SIGNED",
             "name": "SELF_SIGNED"
           },
-          "VERIFY_AUTHENTICITY": {
+          {
+            "value": "VERIFY_AUTHENTICITY",
             "name": "VERIFY_AUTHENTICITY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupEventIdMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Event Id Mode",
-        "smithy.api#enum": {
-          "NO_EVENT_ID": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_EVENT_ID",
             "name": "NO_EVENT_ID"
           },
-          "USE_CONFIGURED": {
+          {
+            "value": "USE_CONFIGURED",
             "name": "USE_CONFIGURED"
           },
-          "USE_TIMESTAMP": {
+          {
+            "value": "USE_TIMESTAMP",
             "name": "USE_TIMESTAMP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupEventStopBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Event Stop Behavior",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "SEND_EOS": {
+          {
+            "value": "SEND_EOS",
             "name": "SEND_EOS"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupSegmentationMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Segmentation Mode",
-        "smithy.api#enum": {
-          "USE_INPUT_SEGMENTATION": {
+        "smithy.api#enum": [
+          {
+            "value": "USE_INPUT_SEGMENTATION",
             "name": "USE_INPUT_SEGMENTATION"
           },
-          "USE_SEGMENT_DURATION": {
+          {
+            "value": "USE_SEGMENT_DURATION",
             "name": "USE_SEGMENT_DURATION"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupSparseTrackType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Sparse Track Type",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "SCTE_35": {
+          {
+            "value": "SCTE_35",
             "name": "SCTE_35"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupStreamManifestBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Stream Manifest Behavior",
-        "smithy.api#enum": {
-          "DO_NOT_SEND": {
+        "smithy.api#enum": [
+          {
+            "value": "DO_NOT_SEND",
             "name": "DO_NOT_SEND"
           },
-          "SEND": {
+          {
+            "value": "SEND",
             "name": "SEND"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmoothGroupTimestampOffsetMode": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Smooth Group Timestamp Offset Mode",
-        "smithy.api#enum": {
-          "USE_CONFIGURED_OFFSET": {
+        "smithy.api#enum": [
+          {
+            "value": "USE_CONFIGURED_OFFSET",
             "name": "USE_CONFIGURED_OFFSET"
           },
-          "USE_EVENT_START_DATE": {
+          {
+            "value": "USE_EVENT_START_DATE",
             "name": "USE_EVENT_START_DATE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#SmpteTtDestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Smpte Tt Destination Settings"
       }
@@ -13370,7 +13927,7 @@
           "target": "com.amazonaws.medialive#M3u8Settings",
           "traits": {
             "smithy.api#jsonName": "m3u8Settings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -13428,8 +13985,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "A request to start a channel",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -13597,8 +14154,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -13735,7 +14292,7 @@
           "traits": {
             "smithy.api#documentation": "The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.",
             "smithy.api#jsonName": "image",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ImageX": {
@@ -13815,7 +14372,7 @@
           "traits": {
             "smithy.api#documentation": "Static key value as a 32 character hexadecimal string.",
             "smithy.api#jsonName": "staticKeyValue",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -13873,8 +14430,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "A request to stop a running channel",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -14042,8 +14599,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -14165,7 +14722,7 @@
     },
     "com.amazonaws.medialive#TeletextDestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Teletext Destination Settings"
       }
@@ -14193,7 +14750,7 @@
           "traits": {
             "smithy.api#documentation": "Identifies the source for the timecode that will be associated with the events outputs.\n-Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using \"Start at 0\" (zerobased).\n-System Clock (systemclock): Use the UTC time.\n-Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.",
             "smithy.api#jsonName": "source",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SyncThreshold": {
@@ -14212,17 +14769,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Timecode Config Source",
-        "smithy.api#enum": {
-          "EMBEDDED": {
+        "smithy.api#enum": [
+          {
+            "value": "EMBEDDED",
             "name": "EMBEDDED"
           },
-          "SYSTEMCLOCK": {
+          {
+            "value": "SYSTEMCLOCK",
             "name": "SYSTEMCLOCK"
           },
-          "ZEROBASED": {
+          {
+            "value": "ZEROBASED",
             "name": "ZEROBASED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#TooManyRequestsException": {
@@ -14260,14 +14820,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Ttml Destination Style Control",
-        "smithy.api#enum": {
-          "PASSTHROUGH": {
+        "smithy.api#enum": [
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           },
-          "USE_CONFIGURED": {
+          {
+            "value": "USE_CONFIGURED",
             "name": "USE_CONFIGURED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#UdpContainerSettings": {
@@ -14327,7 +14889,7 @@
           "target": "com.amazonaws.medialive#UdpContainerSettings",
           "traits": {
             "smithy.api#jsonName": "containerSettings",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Destination": {
@@ -14335,7 +14897,7 @@
           "traits": {
             "smithy.api#documentation": "Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).",
             "smithy.api#jsonName": "destination",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FecOutputSettings": {
@@ -14354,17 +14916,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Udp Timed Metadata Id3 Frame",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "PRIV": {
+          {
+            "value": "PRIV",
             "name": "PRIV"
           },
-          "TDRL": {
+          {
+            "value": "TDRL",
             "name": "TDRL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#UnprocessableEntityException": {
@@ -14484,15 +15049,15 @@
           "traits": {
             "smithy.api#documentation": "The channel class that you wish to update this channel to use.",
             "smithy.api#jsonName": "channelClass",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ChannelId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Channel Id of the channel whose class should be updated.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Destinations": {
@@ -14528,8 +15093,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "channel ID",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Destinations": {
@@ -14653,8 +15218,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique ID of the input.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "InputSecurityGroups": {
@@ -14758,8 +15323,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The id of the Input Security Group to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -14888,8 +15453,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The ID of the multiplex of the program to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MultiplexProgramSettings": {
@@ -14903,8 +15468,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "The name of the program to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -14934,8 +15499,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "ID of the multiplex to update.",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MultiplexSettings": {
@@ -15029,8 +15594,8 @@
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "Unique reservation ID, e.g. '1234567'",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       },
@@ -15120,7 +15685,7 @@
           "traits": {
             "smithy.api#documentation": "The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RespondToAfd": {
@@ -15160,31 +15725,36 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Video Description Respond To Afd",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "PASSTHROUGH": {
+          {
+            "value": "PASSTHROUGH",
             "name": "PASSTHROUGH"
           },
-          "RESPOND": {
+          {
+            "value": "RESPOND",
             "name": "RESPOND"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#VideoDescriptionScalingBehavior": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Video Description Scaling Behavior",
-        "smithy.api#enum": {
-          "DEFAULT": {
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT",
             "name": "DEFAULT"
           },
-          "STRETCH_TO_OUTPUT": {
+          {
+            "value": "STRETCH_TO_OUTPUT",
             "name": "STRETCH_TO_OUTPUT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#VideoSelector": {
@@ -15220,31 +15790,36 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Video Selector Color Space",
-        "smithy.api#enum": {
-          "FOLLOW": {
+        "smithy.api#enum": [
+          {
+            "value": "FOLLOW",
             "name": "FOLLOW"
           },
-          "REC_601": {
+          {
+            "value": "REC_601",
             "name": "REC_601"
           },
-          "REC_709": {
+          {
+            "value": "REC_709",
             "name": "REC_709"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#VideoSelectorColorSpaceUsage": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Video Selector Color Space Usage",
-        "smithy.api#enum": {
-          "FALLBACK": {
+        "smithy.api#enum": [
+          {
+            "value": "FALLBACK",
             "name": "FALLBACK"
           },
-          "FORCE": {
+          {
+            "value": "FORCE",
             "name": "FORCE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.medialive#VideoSelectorPid": {
@@ -15299,7 +15874,7 @@
     },
     "com.amazonaws.medialive#WebvttDestinationSettings": {
       "type": "structure",
-      "members": { },
+      "members": {},
       "traits": {
         "smithy.api#documentation": "Webvtt Destination Settings"
       }

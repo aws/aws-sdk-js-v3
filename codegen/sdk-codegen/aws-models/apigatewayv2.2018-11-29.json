@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -131,7 +130,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the API.</p>",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProtocolType": {
@@ -139,7 +138,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The API protocol.</p>",
             "smithy.api#jsonName": "protocolType",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RouteSelectionExpression": {
@@ -147,7 +146,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>",
             "smithy.api#jsonName": "routeSelectionExpression",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -298,10 +297,10 @@
           "target": "com.amazonaws.apigatewayv2#GetModel"
         },
         {
-          "target": "com.amazonaws.apigatewayv2#GetModelTemplate"
+          "target": "com.amazonaws.apigatewayv2#GetModels"
         },
         {
-          "target": "com.amazonaws.apigatewayv2#GetModels"
+          "target": "com.amazonaws.apigatewayv2#GetModelTemplate"
         },
         {
           "target": "com.amazonaws.apigatewayv2#GetRoute"
@@ -377,15 +376,11 @@
           "cloudFormationName": "ApiGatewayV2",
           "cloudTrailEventSource": "apigatewayv2.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "apigateway"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Amazon API Gateway V2</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AmazonApiGatewayV2"
       }
     },
@@ -397,7 +392,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
             "smithy.api#jsonName": "apiId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ApiMappingId": {
@@ -419,7 +414,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The API stage.</p>",
             "smithy.api#jsonName": "stage",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -446,20 +441,24 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The authorization type. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer. For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>",
-        "smithy.api#enum": {
-          "NONE": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
             "name": "NONE"
           },
-          "AWS_IAM": {
+          {
+            "value": "AWS_IAM",
             "name": "AWS_IAM"
           },
-          "CUSTOM": {
+          {
+            "value": "CUSTOM",
             "name": "CUSTOM"
           },
-          "JWT": {
+          {
+            "value": "JWT",
             "name": "JWT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#Authorizer": {
@@ -526,7 +525,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the authorizer.</p>",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -538,14 +537,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The authorizer type. For WebSocket APIs, specify REQUEST for a Lambda function using incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.</p>",
-        "smithy.api#enum": {
-          "REQUEST": {
+        "smithy.api#enum": [
+          {
+            "value": "REQUEST",
             "name": "REQUEST"
           },
-          "JWT": {
+          {
+            "value": "JWT",
             "name": "JWT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#BadRequestException": {
@@ -586,28 +587,32 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Represents a connection type.</p>",
-        "smithy.api#enum": {
-          "INTERNET": {
+        "smithy.api#enum": [
+          {
+            "value": "INTERNET",
             "name": "INTERNET"
           },
-          "VPC_LINK": {
+          {
+            "value": "VPC_LINK",
             "name": "VPC_LINK"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#ContentHandlingStrategy": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Specifies how to handle response payload content type conversions. Supported only for WebSocket APIs.</p>",
-        "smithy.api#enum": {
-          "CONVERT_TO_BINARY": {
+        "smithy.api#enum": [
+          {
+            "value": "CONVERT_TO_BINARY",
             "name": "CONVERT_TO_BINARY"
           },
-          "CONVERT_TO_TEXT": {
+          {
+            "value": "CONVERT_TO_TEXT",
             "name": "CONVERT_TO_TEXT"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#Cors": {
@@ -757,7 +762,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
             "smithy.api#jsonName": "apiId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ApiMappingKey": {
@@ -771,8 +776,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Stage": {
@@ -780,7 +785,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The API stage.</p>",
             "smithy.api#jsonName": "stage",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -864,7 +869,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the API.</p>",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ProtocolType": {
@@ -872,7 +877,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The API protocol.</p>",
             "smithy.api#jsonName": "protocolType",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RouteKey": {
@@ -1056,8 +1061,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "AuthorizerCredentialsArn": {
@@ -1079,7 +1084,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The authorizer type. For WebSocket APIs, specify REQUEST for a Lambda function using incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.</p>",
             "smithy.api#jsonName": "authorizerType",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "AuthorizerUri": {
@@ -1094,7 +1099,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT )from inbound requests. Currently only header-based and query parameter-based selections are supported, for example \"$request.header.Authorization\".</p>",
             "smithy.api#jsonName": "identitySource",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IdentityValidationExpression": {
@@ -1116,7 +1121,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the authorizer.</p>",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1230,8 +1235,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -1342,7 +1347,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
             "smithy.api#jsonName": "domainName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DomainNameConfigurations": {
@@ -1435,8 +1440,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ConnectionId": {
@@ -1486,7 +1491,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a \"loopback\" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>",
             "smithy.api#jsonName": "integrationType",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "IntegrationUri": {
@@ -1581,8 +1586,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentHandlingStrategy": {
@@ -1596,8 +1601,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationResponseKey": {
@@ -1605,7 +1610,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The integration response key.</p>",
             "smithy.api#jsonName": "integrationResponseKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResponseParameters": {
@@ -1843,8 +1848,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentType": {
@@ -1866,7 +1871,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the model. Must be alphanumeric.</p>",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Schema": {
@@ -1874,7 +1879,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>",
             "smithy.api#jsonName": "schema",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1960,8 +1965,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ApiKeyRequired": {
@@ -2025,7 +2030,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The route key for the route.</p>",
             "smithy.api#jsonName": "routeKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RouteResponseSelectionExpression": {
@@ -2085,8 +2090,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ModelSelectionExpression": {
@@ -2114,8 +2119,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteResponseKey": {
@@ -2123,7 +2128,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The route response key.</p>",
             "smithy.api#jsonName": "routeResponseKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2312,8 +2317,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "AutoDeploy": {
@@ -2363,7 +2368,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the stage.</p>",
             "smithy.api#jsonName": "stageName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StageVariables": {
@@ -2542,16 +2547,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API mapping identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DomainName": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2563,8 +2568,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2598,16 +2603,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "AuthorizerId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The authorizer identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2641,8 +2646,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2676,16 +2681,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DeploymentId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The deployment ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2719,8 +2724,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2754,16 +2759,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2797,24 +2802,24 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationResponseId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration response ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2848,16 +2853,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ModelId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2891,16 +2896,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2934,24 +2939,24 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteResponseId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route response ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -2985,24 +2990,24 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteKey": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route key.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "StageName": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3036,16 +3041,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "StageName": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3104,17 +3109,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Represents a deployment status.</p>",
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "DEPLOYED": {
+          {
+            "value": "DEPLOYED",
             "name": "DEPLOYED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#DomainName": {
@@ -3132,7 +3140,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the DomainName resource.</p>",
             "smithy.api#jsonName": "domainName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "DomainNameConfigurations": {
@@ -3238,28 +3246,32 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The status of the domain name migration. The valid values are AVAILABLE and UPDATING. If the status is UPDATING, the domain cannot be modified further until the existing operation is complete. If it is AVAILABLE, the domain can be updated.</p>",
-        "smithy.api#enum": {
-          "AVAILABLE": {
+        "smithy.api#enum": [
+          {
+            "value": "AVAILABLE",
             "name": "AVAILABLE"
           },
-          "UPDATING": {
+          {
+            "value": "UPDATING",
             "name": "UPDATING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#EndpointType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Represents an endpoint type.</p>",
-        "smithy.api#enum": {
-          "REGIONAL": {
+        "smithy.api#enum": [
+          {
+            "value": "REGIONAL",
             "name": "REGIONAL"
           },
-          "EDGE": {
+          {
+            "value": "EDGE",
             "name": "EDGE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#GetApi": {
@@ -3322,16 +3334,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API mapping identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DomainName": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3404,8 +3416,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -3450,8 +3462,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3657,16 +3669,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "AuthorizerId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The authorizer identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3774,8 +3786,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -3845,16 +3857,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DeploymentId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The deployment ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -3941,8 +3953,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -4012,8 +4024,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4149,16 +4161,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4195,24 +4207,24 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationResponseId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration response ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4299,16 +4311,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -4505,8 +4517,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -4576,16 +4588,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ModelId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4662,16 +4674,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ModelId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4723,8 +4735,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -4794,16 +4806,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4840,24 +4852,24 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteResponseId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route response ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -4937,8 +4949,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -4959,8 +4971,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5115,8 +5127,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -5186,16 +5198,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "StageName": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5338,8 +5350,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -5415,8 +5427,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The resource ARN for the tag.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -5428,7 +5440,7 @@
           "target": "com.amazonaws.apigatewayv2#Tags",
           "traits": {
             "smithy.api#jsonName": "tags",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5494,7 +5506,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The OpenAPI definition. Supported only for HTTP APIs.</p>",
             "smithy.api#jsonName": "body",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FailOnWarnings": {
@@ -5803,7 +5815,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The integration response key.</p>",
             "smithy.api#jsonName": "integrationResponseKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResponseParameters": {
@@ -5836,23 +5848,28 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Represents an API method integration type.</p>",
-        "smithy.api#enum": {
-          "AWS": {
+        "smithy.api#enum": [
+          {
+            "value": "AWS",
             "name": "AWS"
           },
-          "HTTP": {
+          {
+            "value": "HTTP",
             "name": "HTTP"
           },
-          "MOCK": {
+          {
+            "value": "MOCK",
             "name": "MOCK"
           },
-          "HTTP_PROXY": {
+          {
+            "value": "HTTP_PROXY",
             "name": "HTTP_PROXY"
           },
-          "AWS_PROXY": {
+          {
+            "value": "AWS_PROXY",
             "name": "AWS_PROXY"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#JWTConfiguration": {
@@ -5881,17 +5898,20 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The logging level.</p>",
-        "smithy.api#enum": {
-          "ERROR": {
+        "smithy.api#enum": [
+          {
+            "value": "ERROR",
             "name": "ERROR"
           },
-          "INFO": {
+          {
+            "value": "INFO",
             "name": "INFO"
           },
-          "false": {
+          {
+            "value": "false",
             "name": "false"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#Model": {
@@ -5923,7 +5943,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the model. Must be alphanumeric.</p>",
             "smithy.api#jsonName": "name",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Schema": {
@@ -5987,31 +6007,36 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Represents passthrough behavior for an integration response. Supported only for WebSocket APIs.</p>",
-        "smithy.api#enum": {
-          "WHEN_NO_MATCH": {
+        "smithy.api#enum": [
+          {
+            "value": "WHEN_NO_MATCH",
             "name": "WHEN_NO_MATCH"
           },
-          "NEVER": {
+          {
+            "value": "NEVER",
             "name": "NEVER"
           },
-          "WHEN_NO_TEMPLATES": {
+          {
+            "value": "WHEN_NO_TEMPLATES",
             "name": "WHEN_NO_TEMPLATES"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#ProtocolType": {
       "type": "string",
       "traits": {
         "smithy.api#documentation": "Represents a protocol type.",
-        "smithy.api#enum": {
-          "WEBSOCKET": {
+        "smithy.api#enum": [
+          {
+            "value": "WEBSOCKET",
             "name": "WEBSOCKET"
           },
-          "HTTP": {
+          {
+            "value": "HTTP",
             "name": "HTTP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#ReimportApi": {
@@ -6052,8 +6077,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Basepath": {
@@ -6068,7 +6093,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The OpenAPI definition. Supported only for HTTP APIs.</p>",
             "smithy.api#jsonName": "body",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "FailOnWarnings": {
@@ -6264,7 +6289,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The route key for the route.</p>",
             "smithy.api#jsonName": "routeKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RouteResponseSelectionExpression": {
@@ -6346,7 +6371,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Represents the route response key of a route response.</p>",
             "smithy.api#jsonName": "routeResponseKey",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -6413,14 +6438,16 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.</p>",
-        "smithy.api#enum": {
-          "TLS_1_0": {
+        "smithy.api#enum": [
+          {
+            "value": "TLS_1_0",
             "name": "TLS_1_0"
           },
-          "TLS_1_2": {
+          {
+            "value": "TLS_1_2",
             "name": "TLS_1_2"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.apigatewayv2#SelectionExpression": {
@@ -6520,7 +6547,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the stage.</p>",
             "smithy.api#jsonName": "stageName",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StageVariables": {
@@ -6646,8 +6673,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The resource ARN for the tag.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -6664,7 +6691,7 @@
     },
     "com.amazonaws.apigatewayv2#TagResourceResponse": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.apigatewayv2#Tags": {
       "type": "map",
@@ -6749,8 +6776,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The resource ARN for the tag.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "TagKeys": {
@@ -6758,7 +6785,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The Tag keys to delete.</p>",
             "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6833,15 +6860,15 @@
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
             "smithy.api#jsonName": "apiId",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ApiMappingId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API mapping identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ApiMappingKey": {
@@ -6855,8 +6882,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Stage": {
@@ -6911,8 +6938,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ApiKeySelectionExpression": {
@@ -7131,8 +7158,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "AuthorizerCredentialsArn": {
@@ -7146,8 +7173,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The authorizer identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "AuthorizerResultTtlInSeconds": {
@@ -7310,16 +7337,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DeploymentId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The deployment ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -7419,8 +7446,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The domain name.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "DomainNameConfigurations": {
@@ -7506,8 +7533,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ConnectionId": {
@@ -7549,8 +7576,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationMethod": {
@@ -7659,8 +7686,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentHandlingStrategy": {
@@ -7674,16 +7701,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationResponseId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The integration response ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "IntegrationResponseKey": {
@@ -7928,8 +7955,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ContentType": {
@@ -7950,8 +7977,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Name": {
@@ -8051,8 +8078,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ApiKeyRequired": {
@@ -8115,8 +8142,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteKey": {
@@ -8183,8 +8210,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ModelSelectionExpression": {
@@ -8212,16 +8239,16 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteResponseId": {
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The route response ID.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "RouteResponseKey": {
@@ -8417,8 +8444,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The API identifier.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "AutoDeploy": {
@@ -8467,8 +8494,8 @@
           "target": "com.amazonaws.apigatewayv2#__string",
           "traits": {
             "smithy.api#documentation": "<p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "StageVariables": {

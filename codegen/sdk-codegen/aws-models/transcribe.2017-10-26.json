@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -46,7 +45,7 @@
     "com.amazonaws.transcribe#Boolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.transcribe#ConflictException": {
@@ -131,7 +130,7 @@
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language code of the words in the vocabulary filter. All words in the filter must\n            be in the same language. The vocabulary filter can only be used with transcription jobs\n            in the specified language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "VocabularyFilterFileUri": {
@@ -144,8 +143,8 @@
           "target": "com.amazonaws.transcribe#VocabularyFilterName",
           "traits": {
             "smithy.api#documentation": "<p>The vocabulary filter name. The name must be unique within the account that contains\n            it.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Words": {
@@ -186,7 +185,7 @@
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Phrases": {
@@ -205,8 +204,8 @@
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the vocabulary. The name must be unique within an AWS account. The name is\n            case-sensitive.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -287,8 +286,8 @@
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the transcription job to be deleted.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -356,8 +355,8 @@
           "target": "com.amazonaws.transcribe#VocabularyFilterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the vocabulary filter to remove.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -369,8 +368,8 @@
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the vocabulary to delete. </p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -416,8 +415,8 @@
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the job.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -502,8 +501,8 @@
           "target": "com.amazonaws.transcribe#VocabularyFilterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the vocabulary filter for which to return information.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -544,8 +543,8 @@
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the vocabulary to return information about. The name is\n            case-sensitive.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -637,101 +636,132 @@
     "com.amazonaws.transcribe#LanguageCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "en-US": {
+        "smithy.api#enum": [
+          {
+            "value": "en-US",
             "name": "EN_US"
           },
-          "es-US": {
+          {
+            "value": "es-US",
             "name": "ES_US"
           },
-          "en-AU": {
+          {
+            "value": "en-AU",
             "name": "EN_AU"
           },
-          "fr-CA": {
+          {
+            "value": "fr-CA",
             "name": "FR_CA"
           },
-          "en-GB": {
+          {
+            "value": "en-GB",
             "name": "EN_GB"
           },
-          "de-DE": {
+          {
+            "value": "de-DE",
             "name": "DE_DE"
           },
-          "pt-BR": {
+          {
+            "value": "pt-BR",
             "name": "PT_BR"
           },
-          "fr-FR": {
+          {
+            "value": "fr-FR",
             "name": "FR_FR"
           },
-          "it-IT": {
+          {
+            "value": "it-IT",
             "name": "IT_IT"
           },
-          "ko-KR": {
+          {
+            "value": "ko-KR",
             "name": "KO_KR"
           },
-          "es-ES": {
+          {
+            "value": "es-ES",
             "name": "ES_ES"
           },
-          "en-IN": {
+          {
+            "value": "en-IN",
             "name": "EN_IN"
           },
-          "hi-IN": {
+          {
+            "value": "hi-IN",
             "name": "HI_IN"
           },
-          "ar-SA": {
+          {
+            "value": "ar-SA",
             "name": "AR_SA"
           },
-          "ru-RU": {
+          {
+            "value": "ru-RU",
             "name": "RU_RU"
           },
-          "zh-CN": {
+          {
+            "value": "zh-CN",
             "name": "ZH_CN"
           },
-          "nl-NL": {
+          {
+            "value": "nl-NL",
             "name": "NL_NL"
           },
-          "id-ID": {
+          {
+            "value": "id-ID",
             "name": "ID_ID"
           },
-          "ta-IN": {
+          {
+            "value": "ta-IN",
             "name": "TA_IN"
           },
-          "fa-IR": {
+          {
+            "value": "fa-IR",
             "name": "FA_IR"
           },
-          "en-IE": {
+          {
+            "value": "en-IE",
             "name": "EN_IE"
           },
-          "en-AB": {
+          {
+            "value": "en-AB",
             "name": "EN_AB"
           },
-          "en-WL": {
+          {
+            "value": "en-WL",
             "name": "EN_WL"
           },
-          "pt-PT": {
+          {
+            "value": "pt-PT",
             "name": "PT_PT"
           },
-          "te-IN": {
+          {
+            "value": "te-IN",
             "name": "TE_IN"
           },
-          "tr-TR": {
+          {
+            "value": "tr-TR",
             "name": "TR_TR"
           },
-          "de-CH": {
+          {
+            "value": "de-CH",
             "name": "DE_CH"
           },
-          "he-IL": {
+          {
+            "value": "he-IL",
             "name": "HE_IL"
           },
-          "ms-MY": {
+          {
+            "value": "ms-MY",
             "name": "MS_MY"
           },
-          "ja-JP": {
+          {
+            "value": "ja-JP",
             "name": "JA_JP"
           },
-          "ar-AE": {
+          {
+            "value": "ar-AE",
             "name": "AR_AE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.transcribe#LimitExceededException": {
@@ -1004,7 +1034,7 @@
     "com.amazonaws.transcribe#MaxAlternatives": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 2,
           "max": 10
@@ -1014,7 +1044,7 @@
     "com.amazonaws.transcribe#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -1024,7 +1054,7 @@
     "com.amazonaws.transcribe#MaxSpeakers": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 2,
           "max": 10
@@ -1048,26 +1078,30 @@
     "com.amazonaws.transcribe#MediaFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "mp3": {
+        "smithy.api#enum": [
+          {
+            "value": "mp3",
             "name": "MP3"
           },
-          "mp4": {
+          {
+            "value": "mp4",
             "name": "MP4"
           },
-          "wav": {
+          {
+            "value": "wav",
             "name": "WAV"
           },
-          "flac": {
+          {
+            "value": "flac",
             "name": "FLAC"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.transcribe#MediaSampleRateHertz": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 8000,
           "max": 48000
@@ -1110,14 +1144,16 @@
     "com.amazonaws.transcribe#OutputLocationType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CUSTOMER_BUCKET": {
+        "smithy.api#enum": [
+          {
+            "value": "CUSTOMER_BUCKET",
             "name": "CUSTOMER_BUCKET"
           },
-          "SERVICE_BUCKET": {
+          {
+            "value": "SERVICE_BUCKET",
             "name": "SERVICE_BUCKET"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.transcribe#Phrase": {
@@ -1236,14 +1272,14 @@
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language code for the language used in the input media file.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Media": {
           "target": "com.amazonaws.transcribe#Media",
           "traits": {
             "smithy.api#documentation": "<p>An object that describes the input media for a transcription job.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MediaFormat": {
@@ -1280,8 +1316,8 @@
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the job. Note that you can't use the strings \".\" or \"..\" by themselves as\n            the job name. The name must also be unique within an AWS account.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1354,15 +1390,11 @@
           "cloudFormationName": "Transcribe",
           "cloudTrailEventSource": "transcribe.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "transcribe"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>Operations and objects for transcribing speech to text.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Transcribe Service"
       }
     },
@@ -1479,20 +1511,24 @@
     "com.amazonaws.transcribe#TranscriptionJobStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "QUEUED": {
+        "smithy.api#enum": [
+          {
+            "value": "QUEUED",
             "name": "QUEUED"
           },
-          "IN_PROGRESS": {
+          {
+            "value": "IN_PROGRESS",
             "name": "IN_PROGRESS"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           },
-          "COMPLETED": {
+          {
+            "value": "COMPLETED",
             "name": "COMPLETED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.transcribe#TranscriptionJobSummaries": {
@@ -1635,8 +1671,8 @@
           "target": "com.amazonaws.transcribe#VocabularyFilterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the vocabulary filter to update.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Words": {
@@ -1677,7 +1713,7 @@
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
             "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Phrases": {
@@ -1696,8 +1732,8 @@
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the vocabulary to update. The name is case-sensitive.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
@@ -1776,14 +1812,16 @@
     "com.amazonaws.transcribe#VocabularyFilterMethod": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "remove": {
+        "smithy.api#enum": [
+          {
+            "value": "remove",
             "name": "REMOVE"
           },
-          "mask": {
+          {
+            "value": "mask",
             "name": "MASK"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.transcribe#VocabularyFilterName": {
@@ -1847,17 +1885,20 @@
     "com.amazonaws.transcribe#VocabularyState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING",
             "name": "PENDING"
           },
-          "READY": {
+          {
+            "value": "READY",
             "name": "READY"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "FAILED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.transcribe#Word": {

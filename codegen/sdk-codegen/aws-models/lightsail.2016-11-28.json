@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -55,14 +54,16 @@
     "com.amazonaws.lightsail#AccessDirection": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "inbound": {
+        "smithy.api#enum": [
+          {
+            "value": "inbound",
             "name": "inbound"
           },
-          "outbound": {
+          {
+            "value": "outbound",
             "name": "outbound"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#AccountSetupInProgressException": {
@@ -132,7 +133,7 @@
           "target": "com.amazonaws.lightsail#AddOnType",
           "traits": {
             "smithy.api#documentation": "<p>The add-on type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "autoSnapshotAddOnRequest": {
@@ -155,11 +156,12 @@
     "com.amazonaws.lightsail#AddOnType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AutoSnapshot": {
+        "smithy.api#enum": [
+          {
+            "value": "AutoSnapshot",
             "name": "AutoSnapshot"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#AllocateStaticIp": {
@@ -209,7 +211,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the static IP address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -272,21 +274,21 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "diskPath": {
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Lightsail instance where you want to utilize the storage\n      disk.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -349,14 +351,14 @@
           "target": "com.amazonaws.lightsail#ResourceNameList",
           "traits": {
             "smithy.api#documentation": "<p>An array of strings representing the instance name(s) you want to attach to your load\n      balancer.</p>\n         <p>An instance must be <code>running</code> before you can attach it to your load\n      balancer.</p>\n         <p>There are no additional limits on the number of instances you can attach to your load\n      balancer, aside from the limit of Lightsail instances you can create in your account\n      (20).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loadBalancerName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -419,14 +421,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your SSL/TLS certificate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loadBalancerName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer to which you want to associate the SSL/TLS\n      certificate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -489,14 +491,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The instance name to which you want to attach the static IP address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "staticIpName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the static IP.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -608,20 +610,24 @@
     "com.amazonaws.lightsail#AutoSnapshotStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Success": {
+        "smithy.api#enum": [
+          {
+            "value": "Success",
             "name": "SUCCESS"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "FAILED"
           },
-          "InProgress": {
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "NotFound": {
+          {
+            "value": "NotFound",
             "name": "NOT_FOUND"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#AvailabilityZone": {
@@ -742,14 +748,16 @@
     "com.amazonaws.lightsail#BlueprintType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "os": {
+        "smithy.api#enum": [
+          {
+            "value": "os",
             "name": "os"
           },
-          "app": {
+          {
+            "value": "app",
             "name": "app"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#Bundle": {
@@ -879,14 +887,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance on which you're attempting to close the public\n      ports.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "portInfo": {
           "target": "com.amazonaws.lightsail#PortInfo",
           "traits": {
             "smithy.api#documentation": "<p>Information about the public port you are trying to close.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -999,11 +1007,12 @@
     "com.amazonaws.lightsail#CloudFormationStackRecordSourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ExportSnapshotRecord": {
+        "smithy.api#enum": [
+          {
+            "value": "ExportSnapshotRecord",
             "name": "ExportSnapshotRecord"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#CopySnapshot": {
@@ -1059,7 +1068,7 @@
           "target": "com.amazonaws.lightsail#RegionName",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region where the source manual or automatic snapshot is located.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sourceResourceName": {
@@ -1078,7 +1087,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the new manual snapshot to be created as a copy.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "useLatestRestorableAutoSnapshot": {
@@ -1147,7 +1156,7 @@
           "target": "com.amazonaws.lightsail#InstanceEntryList",
           "traits": {
             "smithy.api#documentation": "<p>An array of parameters that will be used to create the new Amazon EC2 instance. You can only\n      pass one instance entry at a time in this array. You will get an invalid parameter error if\n      you pass more than one instance entry in this array.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1256,14 +1265,14 @@
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone where you want to create the disk (e.g.,\n      <code>us-east-2a</code>). Choose the same Availability Zone as the Lightsail instance where\n      you want to create the disk.</p>\n         <p>Use the GetRegions operation to list the Availability Zones where Lightsail is\n      currently available.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "diskName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "diskSnapshotName": {
@@ -1282,7 +1291,7 @@
           "target": "com.amazonaws.lightsail#integer",
           "traits": {
             "smithy.api#documentation": "<p>The size of the disk in GB (e.g., <code>32</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sourceDiskName": {
@@ -1329,21 +1338,21 @@
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone where you want to create the disk (e.g.,\n      <code>us-east-2a</code>). Use the same Availability Zone as the Lightsail instance to which\n      you want to attach the disk.</p>\n         <p>Use the <code>get regions</code> operation to list the Availability Zones where\n      Lightsail is currently available.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "diskName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sizeInGb": {
           "target": "com.amazonaws.lightsail#integer",
           "traits": {
             "smithy.api#documentation": "<p>The size of the disk in GB (e.g., <code>32</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -1418,7 +1427,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the destination disk snapshot (e.g., <code>my-disk-snapshot</code>) based\n      on the source disk.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceName": {
@@ -1533,14 +1542,14 @@
           "target": "com.amazonaws.lightsail#DomainEntry",
           "traits": {
             "smithy.api#documentation": "<p>An array of key-value pairs containing information about the domain entry\n      request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "domainName": {
           "target": "com.amazonaws.lightsail#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The domain name (e.g., <code>example.com</code>) for which you want to create the\n      domain entry.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1563,7 +1572,7 @@
           "target": "com.amazonaws.lightsail#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The domain name to manage (e.g., <code>example.com</code>).</p>\n         <note>\n            <p>You cannot register a new domain name using Lightsail. You must register a domain\n        name using Amazon Route 53 or another domain name registrar. If you have already registered\n        your domain, you can enter its name in this parameter to manage the DNS records for that\n        domain.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -1632,14 +1641,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Lightsail instance on which to base your snapshot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceSnapshotName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name for your new snapshot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -1760,21 +1769,21 @@
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone where you want to create your instances. Use the following\n      formatting: <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones\n      by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get\n        regions</a> operation. Be sure to add the <code>include Availability Zones</code>\n      parameter to your request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "bundleId": {
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The bundle of specification information for your virtual private server (or\n        <i>instance</i>), including the pricing plan (e.g.,\n      <code>micro_1_0</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceNames": {
           "target": "com.amazonaws.lightsail#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The names for your new instances.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceSnapshotName": {
@@ -1845,27 +1854,27 @@
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone in which to create your instance. Use the following format:\n        <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones by using\n      the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get\n        regions</a> operation. Be sure to add the <code>include Availability Zones</code>\n      parameter to your request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "blueprintId": {
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID for a virtual private server image (e.g., <code>app_wordpress_4_4</code> or\n        <code>app_lamp_7_0</code>). Use the <code>get blueprints</code> operation to return a list\n      of available images (or <i>blueprints</i>).</p>\n         <note>\n            <p>Use active blueprints when creating new instances. Inactive blueprints are listed to\n        support customers with existing instances and are not necessarily available to create new\n        instances. Blueprints are marked inactive when they become outdated due to operating system\n        updates or new application releases.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "bundleId": {
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The bundle of specification information for your virtual private server (or\n        <i>instance</i>), including the pricing plan (e.g.,\n      <code>micro_1_0</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "customImageName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>(Deprecated) The name for your custom image.</p>\n         <note>\n            <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now\n        deprecated.</p>\n         </note>"
           }
         },
@@ -1873,7 +1882,7 @@
           "target": "com.amazonaws.lightsail#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The names to use for your new Lightsail instances. Separate multiple values using\n      quotation marks and commas, for example:\n      <code>[\"MyFirstInstance\",\"MySecondInstance\"]</code>\n         </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "keyPairName": {
@@ -1954,7 +1963,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name for your new key pair.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -2065,14 +2074,14 @@
           "target": "com.amazonaws.lightsail#Port",
           "traits": {
             "smithy.api#documentation": "<p>The instance port where you're creating your load balancer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loadBalancerName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your load balancer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -2147,21 +2156,21 @@
           "target": "com.amazonaws.lightsail#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The domain name (e.g., <code>example.com</code>) for your SSL/TLS\n      certificate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "certificateName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The SSL/TLS certificate name.</p>\n         <p>You can have up to 10 certificates in your account at one time. Each Lightsail load\n      balancer can have up to 2 certificates associated with it at one time. There is also an\n      overall limit to the number of certificates that can be issue in a 365-day period. For more\n      information, see <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html\">Limits</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loadBalancerName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The load balancer name where you want to create the SSL/TLS certificate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -2288,7 +2297,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name to use for your new database.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p>\n            </li>\n            <li>\n               <p>The first and last character must be a letter or number.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "relationalDatabaseSnapshotName": {
@@ -2347,7 +2356,7 @@
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the master database created when the Lightsail database resource is\n      created.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Must contain from 1 to 64 alphanumeric characters.</p>\n            </li>\n            <li>\n               <p>Cannot be a word reserved by the specified database engine</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "masterUserPassword": {
@@ -2360,7 +2369,7 @@
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The master user name for your new database.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Master user name is required.</p>\n            </li>\n            <li>\n               <p>Must contain from 1 to 16 alphanumeric characters.</p>\n            </li>\n            <li>\n               <p>The first character must be a letter.</p>\n            </li>\n            <li>\n               <p>Cannot be a reserved word for the database engine you choose.</p>\n               <p>For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and\n          Reserved Words articles for <a href=\"https://dev.mysql.com/doc/refman/5.6/en/keywords.html\">MySQL 5.6</a> or <a href=\"https://dev.mysql.com/doc/refman/5.7/en/keywords.html\">MySQL 5.7</a>\n          respectively.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "preferredBackupWindow": {
@@ -2385,21 +2394,21 @@
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The blueprint ID for your new database. A blueprint describes the major engine version\n      of a database.</p>\n         <p>You can get a list of database blueprints IDs by using the <code>get relational\n        database blueprints</code> operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "relationalDatabaseBundleId": {
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The bundle ID for your new database. A bundle describes the performance specifications\n      for your database.</p>\n         <p>You can get a list of database bundle IDs by using the <code>get relational database\n        bundles</code> operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "relationalDatabaseName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name to use for your new database.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p>\n            </li>\n            <li>\n               <p>The first and last character must be a letter or number.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -2468,14 +2477,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the database on which to base your new snapshot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "relationalDatabaseSnapshotName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name for your new database snapshot.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p>\n            </li>\n            <li>\n               <p>The first and last character must be a letter or number.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
@@ -2541,14 +2550,14 @@
           "target": "com.amazonaws.lightsail#AutoSnapshotDate",
           "traits": {
             "smithy.api#documentation": "<p>The date of the automatic snapshot to delete in <code>YYYY-MM-DD</code> format. Use the\n        <code>get auto snapshots</code> operation to get the available automatic snapshots for a\n      resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the source instance or disk from which to delete the automatic\n      snapshot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2611,7 +2620,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The unique name of the disk you want to delete (e.g., <code>my-disk</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "forceDeleteAddOns": {
@@ -2680,7 +2689,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the disk snapshot you want to delete (e.g.,\n      <code>my-disk-snapshot</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2783,14 +2792,14 @@
           "target": "com.amazonaws.lightsail#DomainEntry",
           "traits": {
             "smithy.api#documentation": "<p>An array of key-value pairs containing information about your domain entries.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "domainName": {
           "target": "com.amazonaws.lightsail#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the domain entry to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2813,7 +2822,7 @@
           "target": "com.amazonaws.lightsail#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The specific domain name to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2882,7 +2891,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -2945,7 +2954,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the snapshot to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3008,7 +3017,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the key pair to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3071,7 +3080,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance for which you want to reset the host key or certificate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3134,7 +3143,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer you want to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3197,7 +3206,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The SSL/TLS certificate name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "force": {
@@ -3210,7 +3219,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The load balancer name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3279,7 +3288,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the database that you are deleting.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "skipFinalSnapshot": {
@@ -3348,7 +3357,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the database snapshot that you are deleting.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3431,7 +3440,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The unique name of the disk you want to detach from your instance (e.g.,\n        <code>my-disk</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3494,14 +3503,14 @@
           "target": "com.amazonaws.lightsail#ResourceNameList",
           "traits": {
             "smithy.api#documentation": "<p>An array of strings containing the names of the instances you want to detach from the\n      load balancer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loadBalancerName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the Lightsail load balancer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3564,7 +3573,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the static IP to detach from the instance.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3624,14 +3633,14 @@
           "target": "com.amazonaws.lightsail#AddOnType",
           "traits": {
             "smithy.api#documentation": "<p>The add-on type to disable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the source resource for which to disable the add-on.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -3671,7 +3680,7 @@
         "attachmentState": {
           "target": "com.amazonaws.lightsail#string",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>(Deprecated) The attachment state of the disk.</p>\n         <note>\n            <p>In releases prior to November 14, 2017, this parameter returned <code>attached</code>\n        for system disks in the API response. It is now deprecated, but still included in the\n        response. Use <code>isAttached</code> instead.</p>\n         </note>"
           }
         },
@@ -3684,7 +3693,7 @@
         "gbInUse": {
           "target": "com.amazonaws.lightsail#integer",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>(Deprecated) The number of GB in use by the disk.</p>\n         <note>\n            <p>In releases prior to November 14, 2017, this parameter was not included in the API\n        response. It is now deprecated.</p>\n         </note>"
           }
         },
@@ -3950,42 +3959,51 @@
     "com.amazonaws.lightsail#DiskSnapshotState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "pending": {
+        "smithy.api#enum": [
+          {
+            "value": "pending",
             "name": "Pending"
           },
-          "completed": {
+          {
+            "value": "completed",
             "name": "Completed"
           },
-          "error": {
+          {
+            "value": "error",
             "name": "Error"
           },
-          "unknown": {
+          {
+            "value": "unknown",
             "name": "Unknown"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#DiskState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "pending": {
+        "smithy.api#enum": [
+          {
+            "value": "pending",
             "name": "Pending"
           },
-          "error": {
+          {
+            "value": "error",
             "name": "Error"
           },
-          "available": {
+          {
+            "value": "available",
             "name": "Available"
           },
-          "in-use": {
+          {
+            "value": "in-use",
             "name": "InUse"
           },
-          "unknown": {
+          {
+            "value": "unknown",
             "name": "Unknown"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#Domain": {
@@ -4068,7 +4086,7 @@
         "options": {
           "target": "com.amazonaws.lightsail#DomainEntryOptions",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>(Deprecated) The options for the domain entry.</p>\n         <note>\n            <p>In releases prior to November 29, 2017, this parameter was not included in the API\n        response. It is now deprecated.</p>\n         </note>"
           }
         },
@@ -4167,7 +4185,7 @@
     },
     "com.amazonaws.lightsail#DownloadDefaultKeyPairRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.lightsail#DownloadDefaultKeyPairResult": {
       "type": "structure",
@@ -4230,14 +4248,14 @@
           "target": "com.amazonaws.lightsail#AddOnRequest",
           "traits": {
             "smithy.api#documentation": "<p>An array of strings representing the add-on to enable or modify.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "resourceName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the source resource for which to enable or modify the add-on.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4414,14 +4432,16 @@
     "com.amazonaws.lightsail#ExportSnapshotRecordSourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "InstanceSnapshot": {
+        "smithy.api#enum": [
+          {
+            "value": "InstanceSnapshot",
             "name": "InstanceSnapshot"
           },
-          "DiskSnapshot": {
+          {
+            "value": "DiskSnapshot",
             "name": "DiskSnapshot"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#ExportSnapshotRequest": {
@@ -4431,7 +4451,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance or disk snapshot to be exported to Amazon EC2.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4559,7 +4579,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the source instance or disk from which to get automatic snapshot\n      information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4850,7 +4870,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the disk (e.g., <code>my-disk</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -4913,7 +4933,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5112,7 +5132,7 @@
           "target": "com.amazonaws.lightsail#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The domain name for which your want to return information about.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5351,7 +5371,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance to access.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "protocol": {
@@ -5420,49 +5440,49 @@
           "target": "com.amazonaws.lightsail#timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The end time of the time period.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance for which you want to get metrics data.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "metricName": {
           "target": "com.amazonaws.lightsail#InstanceMetricName",
           "traits": {
             "smithy.api#documentation": "<p>The metric name to get data about. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "period": {
           "target": "com.amazonaws.lightsail#MetricPeriod",
           "traits": {
             "smithy.api#documentation": "<p>The granularity, in seconds, of the returned data points.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "startTime": {
           "target": "com.amazonaws.lightsail#timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time of the time period.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "statistics": {
           "target": "com.amazonaws.lightsail#MetricStatisticList",
           "traits": {
             "smithy.api#documentation": "<p>The instance statistics. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "unit": {
           "target": "com.amazonaws.lightsail#MetricUnit",
           "traits": {
             "smithy.api#documentation": "<p>The unit. The list of valid values is below.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5531,7 +5551,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5554,7 +5574,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5617,7 +5637,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the snapshot for which you are requesting information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5748,7 +5768,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance to get state information about.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -5879,7 +5899,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the key pair for which you are requesting information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6050,49 +6070,49 @@
           "target": "com.amazonaws.lightsail#timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The end time of the period.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loadBalancerName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "metricName": {
           "target": "com.amazonaws.lightsail#LoadBalancerMetricName",
           "traits": {
             "smithy.api#documentation": "<p>The metric about which you want to return information. Valid values are listed below,\n      along with the most useful <code>statistics</code> to include in your request.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>\n                     <code>ClientTLSNegotiationErrorCount</code>\n                  </b> - The\n          number of TLS connections initiated by the client that did not establish a session with\n          the load balancer. Possible causes include a mismatch of ciphers or protocols.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>HealthyHostCount</code>\n                  </b> - The number of\n          target instances that are considered healthy.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic are <code>Average</code>,\n            <code>Minimum</code>, and <code>Maximum</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>UnhealthyHostCount</code>\n                  </b> - The number of\n          target instances that are considered unhealthy.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic are <code>Average</code>,\n            <code>Minimum</code>, and <code>Maximum</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>HTTPCode_LB_4XX_Count</code>\n                  </b> - The number of\n          HTTP 4XX client error codes that originate from the load balancer. Client errors are\n          generated when requests are malformed or incomplete. These requests have not been received\n          by the target instance. This count does not include any response codes generated by the\n          target instances.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that\n            <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return\n            <code>1</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>HTTPCode_LB_5XX_Count</code>\n                  </b> - The number of\n          HTTP 5XX server error codes that originate from the load balancer. This count does not\n          include any response codes generated by the target instances.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that\n            <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return\n            <code>1</code>. Note that <code>Minimum</code>, <code>Maximum</code>, and\n            <code>Average</code> all return <code>1</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>HTTPCode_Instance_2XX_Count</code>\n                  </b> - The\n          number of HTTP response codes generated by the target instances. This does not include any\n          response codes generated by the load balancer.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that\n            <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return\n            <code>1</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>HTTPCode_Instance_3XX_Count</code>\n                  </b> - The\n          number of HTTP response codes generated by the target instances. This does not include any\n          response codes generated by the load balancer. </p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that\n            <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return\n            <code>1</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>HTTPCode_Instance_4XX_Count</code>\n                  </b> - The\n          number of HTTP response codes generated by the target instances. This does not include any\n          response codes generated by the load balancer.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that\n            <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return\n            <code>1</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>HTTPCode_Instance_5XX_Count</code>\n                  </b> - The\n          number of HTTP response codes generated by the target instances. This does not include any\n          response codes generated by the load balancer.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that\n            <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return\n            <code>1</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>InstanceResponseTime</code>\n                  </b> - The time\n          elapsed, in seconds, after the request leaves the load balancer until a response from the\n          target instance is received.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is\n          <code>Average</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>RejectedConnectionCount</code>\n                  </b> - The number\n          of connections that were rejected because the load balancer had reached its maximum number\n          of connections.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>RequestCount</code>\n                  </b> - The number of requests\n          processed over IPv4. This count includes only the requests with a response generated by a\n          target instance of the load balancer.</p>\n               <p>\n                  <code>Statistics</code>: The most useful statistic is <code>Sum</code>. Note that\n            <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code> all return\n            <code>1</code>.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "period": {
           "target": "com.amazonaws.lightsail#MetricPeriod",
           "traits": {
             "smithy.api#documentation": "<p>The granularity, in seconds, of the returned data points.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "startTime": {
           "target": "com.amazonaws.lightsail#timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start time of the period.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "statistics": {
           "target": "com.amazonaws.lightsail#MetricStatisticList",
           "traits": {
             "smithy.api#documentation": "<p>An array of statistics that you want to request metrics for. Valid values are listed\n      below.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>\n                     <code>SampleCount</code>\n                  </b> - The count (number) of\n          data points used for the statistical calculation.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>Average</code>\n                  </b> - The value of Sum /\n          SampleCount during the specified period. By comparing this statistic with the Minimum and\n          Maximum, you can determine the full scope of a metric and how close the average use is to\n          the Minimum and Maximum. This comparison helps you to know when to increase or decrease\n          your resources as needed.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>Sum</code>\n                  </b> - All values submitted for the\n          matching metric added together. This statistic can be useful for determining the total\n          volume of a metric.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>Minimum</code>\n                  </b> - The lowest value observed\n          during the specified period. You can use this value to determine low volumes of activity\n          for your application.</p>\n            </li>\n            <li>\n               <p>\n                  <b>\n                     <code>Maximum</code>\n                  </b> - The highest value observed\n          during the specified period. You can use this value to determine high volumes of activity\n          for your application.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "unit": {
           "target": "com.amazonaws.lightsail#MetricUnit",
           "traits": {
             "smithy.api#documentation": "<p>The unit for the time period request. Valid values are listed below.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6121,7 +6141,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6184,7 +6204,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer you associated with your SSL/TLS certificate.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6315,7 +6335,7 @@
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>A GUID used to identify the operation.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6424,7 +6444,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource for which you are requesting information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6435,7 +6455,7 @@
         "nextPageCount": {
           "target": "com.amazonaws.lightsail#string",
           "traits": {
-            "smithy.api#deprecated": { },
+            "smithy.api#deprecated": {},
             "smithy.api#documentation": "<p>(Deprecated) Returns the number of pages of results that remain.</p>\n         <note>\n            <p>In releases prior to June 12, 2017, this parameter returned <code>null</code> by the\n        API. It is now deprecated, and the API returns the <code>next page token</code> parameter\n        instead.</p>\n         </note>"
           }
         },
@@ -6784,7 +6804,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the database from which to get events.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -6859,7 +6879,7 @@
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the log stream.</p>\n         <p>Use the <code>get relational database log streams</code> operation to get a list of\n      available log streams.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "pageToken": {
@@ -6872,7 +6892,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database for which to get log events.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "startFromHead": {
@@ -6959,7 +6979,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database for which to get log streams.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7028,7 +7048,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database for which to get the master user password.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7097,49 +7117,49 @@
           "target": "com.amazonaws.lightsail#IsoDate",
           "traits": {
             "smithy.api#documentation": "<p>The end of the time interval from which to get metric data.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Specified in Coordinated Universal Time (UTC).</p>\n            </li>\n            <li>\n               <p>Specified in the Unix time format.</p>\n               <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then\n          you input <code>1538424000</code> as the end time.</p>\n            \n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "metricName": {
           "target": "com.amazonaws.lightsail#RelationalDatabaseMetricName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the metric data to return.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "period": {
           "target": "com.amazonaws.lightsail#MetricPeriod",
           "traits": {
             "smithy.api#documentation": "<p>The granularity, in seconds, of the returned data points.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "relationalDatabaseName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database from which to get metric data.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "startTime": {
           "target": "com.amazonaws.lightsail#IsoDate",
           "traits": {
             "smithy.api#documentation": "<p>The start of the time interval from which to get metric data.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Specified in Coordinated Universal Time (UTC).</p>\n            </li>\n            <li>\n               <p>Specified in the Unix time format.</p>\n               <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then\n          you input <code>1538424000</code> as the start time.</p>\n            \n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "statistics": {
           "target": "com.amazonaws.lightsail#MetricStatisticList",
           "traits": {
             "smithy.api#documentation": "<p>The array of statistics for your metric data request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "unit": {
           "target": "com.amazonaws.lightsail#MetricUnit",
           "traits": {
             "smithy.api#documentation": "<p>The unit for the metric data request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7214,7 +7234,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database for which to get parameters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7243,7 +7263,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the database that you are looking up.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7306,7 +7326,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the database snapshot for which to get information.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7505,7 +7525,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the static IP in Lightsail.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7692,14 +7712,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the key pair for which you want to import the public key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "publicKeyBase64": {
           "target": "com.amazonaws.lightsail#Base64",
           "traits": {
             "smithy.api#documentation": "<p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -7914,14 +7934,16 @@
     "com.amazonaws.lightsail#InstanceAccessProtocol": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ssh": {
+        "smithy.api#enum": [
+          {
+            "value": "ssh",
             "name": "ssh"
           },
-          "rdp": {
+          {
+            "value": "rdp",
             "name": "rdp"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#InstanceEntry": {
@@ -7931,28 +7953,28 @@
           "target": "com.amazonaws.lightsail#string",
           "traits": {
             "smithy.api#documentation": "<p>The Availability Zone for the new Amazon EC2 instance.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "instanceType": {
           "target": "com.amazonaws.lightsail#NonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The instance type (e.g., <code>t2.micro</code>) to use for the new Amazon EC2 instance.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "portInfoSource": {
           "target": "com.amazonaws.lightsail#PortInfoSourceType",
           "traits": {
             "smithy.api#documentation": "<p>The port configuration to use for the new Amazon EC2 instance.</p>\n         <p>The following configuration options are available:</p>\n         <ul>\n            <li>\n               <p>DEFAULT — Use the default firewall settings from the image.</p>\n            </li>\n            <li>\n               <p>INSTANCE — Use the firewall settings from the source Lightsail instance.</p>\n            </li>\n            <li>\n               <p>NONE — Default to Amazon EC2.</p>\n            </li>\n            <li>\n               <p>CLOSED — All ports closed.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "sourceName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the export snapshot record, which contains the exported Lightsail instance\n      snapshot that will be used as the source of the new Amazon EC2 instance.</p>\n         <p>Use the <code>get export snapshot records</code> operation to get a list of export\n      snapshot records that you can use to create a CloudFormation stack.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "userData": {
@@ -8001,66 +8023,83 @@
     "com.amazonaws.lightsail#InstanceHealthReason": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Lb.RegistrationInProgress": {
+        "smithy.api#enum": [
+          {
+            "value": "Lb.RegistrationInProgress",
             "name": "LbRegistrationInProgress"
           },
-          "Lb.InitialHealthChecking": {
+          {
+            "value": "Lb.InitialHealthChecking",
             "name": "LbInitialHealthChecking"
           },
-          "Lb.InternalError": {
+          {
+            "value": "Lb.InternalError",
             "name": "LbInternalError"
           },
-          "Instance.ResponseCodeMismatch": {
+          {
+            "value": "Instance.ResponseCodeMismatch",
             "name": "InstanceResponseCodeMismatch"
           },
-          "Instance.Timeout": {
+          {
+            "value": "Instance.Timeout",
             "name": "InstanceTimeout"
           },
-          "Instance.FailedHealthChecks": {
+          {
+            "value": "Instance.FailedHealthChecks",
             "name": "InstanceFailedHealthChecks"
           },
-          "Instance.NotRegistered": {
+          {
+            "value": "Instance.NotRegistered",
             "name": "InstanceNotRegistered"
           },
-          "Instance.NotInUse": {
+          {
+            "value": "Instance.NotInUse",
             "name": "InstanceNotInUse"
           },
-          "Instance.DeregistrationInProgress": {
+          {
+            "value": "Instance.DeregistrationInProgress",
             "name": "InstanceDeregistrationInProgress"
           },
-          "Instance.InvalidState": {
+          {
+            "value": "Instance.InvalidState",
             "name": "InstanceInvalidState"
           },
-          "Instance.IpUnusable": {
+          {
+            "value": "Instance.IpUnusable",
             "name": "InstanceIpUnusable"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#InstanceHealthState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "initial": {
+        "smithy.api#enum": [
+          {
+            "value": "initial",
             "name": "Initial"
           },
-          "healthy": {
+          {
+            "value": "healthy",
             "name": "Healthy"
           },
-          "unhealthy": {
+          {
+            "value": "unhealthy",
             "name": "Unhealthy"
           },
-          "unused": {
+          {
+            "value": "unused",
             "name": "Unused"
           },
-          "draining": {
+          {
+            "value": "draining",
             "name": "Draining"
           },
-          "unavailable": {
+          {
+            "value": "unavailable",
             "name": "Unavailable"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#InstanceHealthSummary": {
@@ -8104,26 +8143,32 @@
     "com.amazonaws.lightsail#InstanceMetricName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CPUUtilization": {
+        "smithy.api#enum": [
+          {
+            "value": "CPUUtilization",
             "name": "CPUUtilization"
           },
-          "NetworkIn": {
+          {
+            "value": "NetworkIn",
             "name": "NetworkIn"
           },
-          "NetworkOut": {
+          {
+            "value": "NetworkOut",
             "name": "NetworkOut"
           },
-          "StatusCheckFailed": {
+          {
+            "value": "StatusCheckFailed",
             "name": "StatusCheckFailed"
           },
-          "StatusCheckFailed_Instance": {
+          {
+            "value": "StatusCheckFailed_Instance",
             "name": "StatusCheckFailed_Instance"
           },
-          "StatusCheckFailed_System": {
+          {
+            "value": "StatusCheckFailed_System",
             "name": "StatusCheckFailed_System"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#InstanceNetworking": {
@@ -8149,14 +8194,16 @@
     "com.amazonaws.lightsail#InstancePlatform": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "LINUX_UNIX": {
+        "smithy.api#enum": [
+          {
+            "value": "LINUX_UNIX",
             "name": "LinuxUnix"
           },
-          "WINDOWS": {
+          {
+            "value": "WINDOWS",
             "name": "Windows"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#InstancePlatformList": {
@@ -8398,17 +8445,20 @@
     "com.amazonaws.lightsail#InstanceSnapshotState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "pending": {
+        "smithy.api#enum": [
+          {
+            "value": "pending",
             "name": "Pending"
           },
-          "error": {
+          {
+            "value": "error",
             "name": "Error"
           },
-          "available": {
+          {
+            "value": "available",
             "name": "Available"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#InstanceState": {
@@ -8507,7 +8557,7 @@
     },
     "com.amazonaws.lightsail#IsVpcPeeredRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.lightsail#IsVpcPeeredResult": {
       "type": "structure",
@@ -8629,13 +8679,13 @@
           "target": "com.amazonaws.lightsail#CreateDomainEntry"
         },
         {
-          "target": "com.amazonaws.lightsail#CreateInstanceSnapshot"
-        },
-        {
           "target": "com.amazonaws.lightsail#CreateInstances"
         },
         {
           "target": "com.amazonaws.lightsail#CreateInstancesFromSnapshot"
+        },
+        {
+          "target": "com.amazonaws.lightsail#CreateInstanceSnapshot"
         },
         {
           "target": "com.amazonaws.lightsail#CreateKeyPair"
@@ -8734,13 +8784,13 @@
           "target": "com.amazonaws.lightsail#GetDisk"
         },
         {
+          "target": "com.amazonaws.lightsail#GetDisks"
+        },
+        {
           "target": "com.amazonaws.lightsail#GetDiskSnapshot"
         },
         {
           "target": "com.amazonaws.lightsail#GetDiskSnapshots"
-        },
-        {
-          "target": "com.amazonaws.lightsail#GetDisks"
         },
         {
           "target": "com.amazonaws.lightsail#GetDomain"
@@ -8764,6 +8814,9 @@
           "target": "com.amazonaws.lightsail#GetInstancePortStates"
         },
         {
+          "target": "com.amazonaws.lightsail#GetInstances"
+        },
+        {
           "target": "com.amazonaws.lightsail#GetInstanceSnapshot"
         },
         {
@@ -8771,9 +8824,6 @@
         },
         {
           "target": "com.amazonaws.lightsail#GetInstanceState"
-        },
-        {
-          "target": "com.amazonaws.lightsail#GetInstances"
         },
         {
           "target": "com.amazonaws.lightsail#GetKeyPair"
@@ -8788,10 +8838,10 @@
           "target": "com.amazonaws.lightsail#GetLoadBalancerMetricData"
         },
         {
-          "target": "com.amazonaws.lightsail#GetLoadBalancerTlsCertificates"
+          "target": "com.amazonaws.lightsail#GetLoadBalancers"
         },
         {
-          "target": "com.amazonaws.lightsail#GetLoadBalancers"
+          "target": "com.amazonaws.lightsail#GetLoadBalancerTlsCertificates"
         },
         {
           "target": "com.amazonaws.lightsail#GetOperation"
@@ -8833,13 +8883,13 @@
           "target": "com.amazonaws.lightsail#GetRelationalDatabaseParameters"
         },
         {
+          "target": "com.amazonaws.lightsail#GetRelationalDatabases"
+        },
+        {
           "target": "com.amazonaws.lightsail#GetRelationalDatabaseSnapshot"
         },
         {
           "target": "com.amazonaws.lightsail#GetRelationalDatabaseSnapshots"
-        },
-        {
-          "target": "com.amazonaws.lightsail#GetRelationalDatabases"
         },
         {
           "target": "com.amazonaws.lightsail#GetStaticIp"
@@ -8912,15 +8962,11 @@
           "cloudFormationName": "Lightsail",
           "cloudTrailEventSource": "lightsail.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "lightsail"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>Amazon Lightsail is the easiest way to get started with AWS for developers who just need\n      virtual private servers. Lightsail includes everything you need to launch your project\n      quickly - a virtual machine, a managed database, SSD-based storage, data transfer, DNS\n      management, and a static IP - for a low, predictable price. You manage those Lightsail\n      servers through the Lightsail console or by using the API or command-line interface\n      (CLI).</p>\n         <p>For more information about Lightsail concepts and tasks, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/all\">Lightsail Dev Guide</a>.</p>\n         <p>To use the Lightsail API or the CLI, you will need to use AWS Identity and\n      Access Management (IAM) to generate access keys. For details about how to set this up, see the\n        <a href=\"http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli\">Lightsail Dev Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Lightsail"
       }
     },
@@ -9031,17 +9077,20 @@
     "com.amazonaws.lightsail#LoadBalancerAttributeName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "HealthCheckPath": {
+        "smithy.api#enum": [
+          {
+            "value": "HealthCheckPath",
             "name": "HealthCheckPath"
           },
-          "SessionStickinessEnabled": {
+          {
+            "value": "SessionStickinessEnabled",
             "name": "SessionStickinessEnabled"
           },
-          "SessionStickiness_LB_CookieDurationSeconds": {
+          {
+            "value": "SessionStickiness_LB_CookieDurationSeconds",
             "name": "SessionStickiness_LB_CookieDurationSeconds"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerConfigurationOptions": {
@@ -9062,79 +9111,98 @@
     "com.amazonaws.lightsail#LoadBalancerMetricName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ClientTLSNegotiationErrorCount": {
+        "smithy.api#enum": [
+          {
+            "value": "ClientTLSNegotiationErrorCount",
             "name": "ClientTLSNegotiationErrorCount"
           },
-          "HealthyHostCount": {
+          {
+            "value": "HealthyHostCount",
             "name": "HealthyHostCount"
           },
-          "UnhealthyHostCount": {
+          {
+            "value": "UnhealthyHostCount",
             "name": "UnhealthyHostCount"
           },
-          "HTTPCode_LB_4XX_Count": {
+          {
+            "value": "HTTPCode_LB_4XX_Count",
             "name": "HTTPCode_LB_4XX_Count"
           },
-          "HTTPCode_LB_5XX_Count": {
+          {
+            "value": "HTTPCode_LB_5XX_Count",
             "name": "HTTPCode_LB_5XX_Count"
           },
-          "HTTPCode_Instance_2XX_Count": {
+          {
+            "value": "HTTPCode_Instance_2XX_Count",
             "name": "HTTPCode_Instance_2XX_Count"
           },
-          "HTTPCode_Instance_3XX_Count": {
+          {
+            "value": "HTTPCode_Instance_3XX_Count",
             "name": "HTTPCode_Instance_3XX_Count"
           },
-          "HTTPCode_Instance_4XX_Count": {
+          {
+            "value": "HTTPCode_Instance_4XX_Count",
             "name": "HTTPCode_Instance_4XX_Count"
           },
-          "HTTPCode_Instance_5XX_Count": {
+          {
+            "value": "HTTPCode_Instance_5XX_Count",
             "name": "HTTPCode_Instance_5XX_Count"
           },
-          "InstanceResponseTime": {
+          {
+            "value": "InstanceResponseTime",
             "name": "InstanceResponseTime"
           },
-          "RejectedConnectionCount": {
+          {
+            "value": "RejectedConnectionCount",
             "name": "RejectedConnectionCount"
           },
-          "RequestCount": {
+          {
+            "value": "RequestCount",
             "name": "RequestCount"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerProtocol": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "HTTP_HTTPS": {
+        "smithy.api#enum": [
+          {
+            "value": "HTTP_HTTPS",
             "name": "HTTP_HTTPS"
           },
-          "HTTP": {
+          {
+            "value": "HTTP",
             "name": "HTTP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "active": {
+        "smithy.api#enum": [
+          {
+            "value": "active",
             "name": "Active"
           },
-          "provisioning": {
+          {
+            "value": "provisioning",
             "name": "Provisioning"
           },
-          "active_impaired": {
+          {
+            "value": "active_impaired",
             "name": "ActiveImpaired"
           },
-          "failed": {
+          {
+            "value": "failed",
             "name": "Failed"
           },
-          "unknown": {
+          {
+            "value": "unknown",
             "name": "Unknown"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerTlsCertificate": {
@@ -9298,17 +9366,20 @@
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateDomainStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING_VALIDATION": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING_VALIDATION",
             "name": "PendingValidation"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "Failed"
           },
-          "SUCCESS": {
+          {
+            "value": "SUCCESS",
             "name": "Success"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateDomainValidationOption": {
@@ -9384,23 +9455,28 @@
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateFailureReason": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NO_AVAILABLE_CONTACTS": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_AVAILABLE_CONTACTS",
             "name": "NoAvailableContacts"
           },
-          "ADDITIONAL_VERIFICATION_REQUIRED": {
+          {
+            "value": "ADDITIONAL_VERIFICATION_REQUIRED",
             "name": "AdditionalVerificationRequired"
           },
-          "DOMAIN_NOT_ALLOWED": {
+          {
+            "value": "DOMAIN_NOT_ALLOWED",
             "name": "DomainNotAllowed"
           },
-          "INVALID_PUBLIC_DOMAIN": {
+          {
+            "value": "INVALID_PUBLIC_DOMAIN",
             "name": "InvalidPublicDomain"
           },
-          "OTHER": {
+          {
+            "value": "OTHER",
             "name": "Other"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateList": {
@@ -9412,20 +9488,24 @@
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateRenewalStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING_AUTO_RENEWAL": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING_AUTO_RENEWAL",
             "name": "PendingAutoRenewal"
           },
-          "PENDING_VALIDATION": {
+          {
+            "value": "PENDING_VALIDATION",
             "name": "PendingValidation"
           },
-          "SUCCESS": {
+          {
+            "value": "SUCCESS",
             "name": "Success"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "Failed"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateRenewalSummary": {
@@ -9451,69 +9531,87 @@
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateRevocationReason": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "UNSPECIFIED": {
+        "smithy.api#enum": [
+          {
+            "value": "UNSPECIFIED",
             "name": "Unspecified"
           },
-          "KEY_COMPROMISE": {
+          {
+            "value": "KEY_COMPROMISE",
             "name": "KeyCompromise"
           },
-          "CA_COMPROMISE": {
+          {
+            "value": "CA_COMPROMISE",
             "name": "CaCompromise"
           },
-          "AFFILIATION_CHANGED": {
+          {
+            "value": "AFFILIATION_CHANGED",
             "name": "AffiliationChanged"
           },
-          "SUPERCEDED": {
+          {
+            "value": "SUPERCEDED",
             "name": "Superceded"
           },
-          "CESSATION_OF_OPERATION": {
+          {
+            "value": "CESSATION_OF_OPERATION",
             "name": "CessationOfOperation"
           },
-          "CERTIFICATE_HOLD": {
+          {
+            "value": "CERTIFICATE_HOLD",
             "name": "CertificateHold"
           },
-          "REMOVE_FROM_CRL": {
+          {
+            "value": "REMOVE_FROM_CRL",
             "name": "RemoveFromCrl"
           },
-          "PRIVILEGE_WITHDRAWN": {
+          {
+            "value": "PRIVILEGE_WITHDRAWN",
             "name": "PrivilegeWithdrawn"
           },
-          "A_A_COMPROMISE": {
+          {
+            "value": "A_A_COMPROMISE",
             "name": "AACompromise"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PENDING_VALIDATION": {
+        "smithy.api#enum": [
+          {
+            "value": "PENDING_VALIDATION",
             "name": "PendingValidation"
           },
-          "ISSUED": {
+          {
+            "value": "ISSUED",
             "name": "Issued"
           },
-          "INACTIVE": {
+          {
+            "value": "INACTIVE",
             "name": "Inactive"
           },
-          "EXPIRED": {
+          {
+            "value": "EXPIRED",
             "name": "Expired"
           },
-          "VALIDATION_TIMED_OUT": {
+          {
+            "value": "VALIDATION_TIMED_OUT",
             "name": "ValidationTimedOut"
           },
-          "REVOKED": {
+          {
+            "value": "REVOKED",
             "name": "Revoked"
           },
-          "FAILED": {
+          {
+            "value": "FAILED",
             "name": "Failed"
           },
-          "UNKNOWN": {
+          {
+            "value": "UNKNOWN",
             "name": "Unknown"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#LoadBalancerTlsCertificateSummary": {
@@ -9636,23 +9734,28 @@
     "com.amazonaws.lightsail#MetricStatistic": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Minimum": {
+        "smithy.api#enum": [
+          {
+            "value": "Minimum",
             "name": "Minimum"
           },
-          "Maximum": {
+          {
+            "value": "Maximum",
             "name": "Maximum"
           },
-          "Sum": {
+          {
+            "value": "Sum",
             "name": "Sum"
           },
-          "Average": {
+          {
+            "value": "Average",
             "name": "Average"
           },
-          "SampleCount": {
+          {
+            "value": "SampleCount",
             "name": "SampleCount"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#MetricStatisticList": {
@@ -9664,89 +9767,116 @@
     "com.amazonaws.lightsail#MetricUnit": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Seconds": {
+        "smithy.api#enum": [
+          {
+            "value": "Seconds",
             "name": "Seconds"
           },
-          "Microseconds": {
+          {
+            "value": "Microseconds",
             "name": "Microseconds"
           },
-          "Milliseconds": {
+          {
+            "value": "Milliseconds",
             "name": "Milliseconds"
           },
-          "Bytes": {
+          {
+            "value": "Bytes",
             "name": "Bytes"
           },
-          "Kilobytes": {
+          {
+            "value": "Kilobytes",
             "name": "Kilobytes"
           },
-          "Megabytes": {
+          {
+            "value": "Megabytes",
             "name": "Megabytes"
           },
-          "Gigabytes": {
+          {
+            "value": "Gigabytes",
             "name": "Gigabytes"
           },
-          "Terabytes": {
+          {
+            "value": "Terabytes",
             "name": "Terabytes"
           },
-          "Bits": {
+          {
+            "value": "Bits",
             "name": "Bits"
           },
-          "Kilobits": {
+          {
+            "value": "Kilobits",
             "name": "Kilobits"
           },
-          "Megabits": {
+          {
+            "value": "Megabits",
             "name": "Megabits"
           },
-          "Gigabits": {
+          {
+            "value": "Gigabits",
             "name": "Gigabits"
           },
-          "Terabits": {
+          {
+            "value": "Terabits",
             "name": "Terabits"
           },
-          "Percent": {
+          {
+            "value": "Percent",
             "name": "Percent"
           },
-          "Count": {
+          {
+            "value": "Count",
             "name": "Count"
           },
-          "Bytes/Second": {
+          {
+            "value": "Bytes/Second",
             "name": "BytesSecond"
           },
-          "Kilobytes/Second": {
+          {
+            "value": "Kilobytes/Second",
             "name": "KilobytesSecond"
           },
-          "Megabytes/Second": {
+          {
+            "value": "Megabytes/Second",
             "name": "MegabytesSecond"
           },
-          "Gigabytes/Second": {
+          {
+            "value": "Gigabytes/Second",
             "name": "GigabytesSecond"
           },
-          "Terabytes/Second": {
+          {
+            "value": "Terabytes/Second",
             "name": "TerabytesSecond"
           },
-          "Bits/Second": {
+          {
+            "value": "Bits/Second",
             "name": "BitsSecond"
           },
-          "Kilobits/Second": {
+          {
+            "value": "Kilobits/Second",
             "name": "KilobitsSecond"
           },
-          "Megabits/Second": {
+          {
+            "value": "Megabits/Second",
             "name": "MegabitsSecond"
           },
-          "Gigabits/Second": {
+          {
+            "value": "Gigabits/Second",
             "name": "GigabitsSecond"
           },
-          "Terabits/Second": {
+          {
+            "value": "Terabits/Second",
             "name": "TerabitsSecond"
           },
-          "Count/Second": {
+          {
+            "value": "Count/Second",
             "name": "CountSecond"
           },
-          "None": {
+          {
+            "value": "None",
             "name": "None"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#MonthlyTransfer": {
@@ -9766,17 +9896,20 @@
     "com.amazonaws.lightsail#NetworkProtocol": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "tcp": {
+        "smithy.api#enum": [
+          {
+            "value": "tcp",
             "name": "TCP"
           },
-          "all": {
+          {
+            "value": "all",
             "name": "ALL"
           },
-          "udp": {
+          {
+            "value": "udp",
             "name": "UDP"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#NonEmptyString": {
@@ -9854,14 +9987,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance for which you want to open the public ports.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "portInfo": {
           "target": "com.amazonaws.lightsail#PortInfo",
           "traits": {
             "smithy.api#documentation": "<p>An array of key-value pairs containing information about the port mappings.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -9988,171 +10121,223 @@
     "com.amazonaws.lightsail#OperationStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "NotStarted": {
+        "smithy.api#enum": [
+          {
+            "value": "NotStarted",
             "name": "NotStarted"
           },
-          "Started": {
+          {
+            "value": "Started",
             "name": "Started"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "Failed"
           },
-          "Completed": {
+          {
+            "value": "Completed",
             "name": "Completed"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "Succeeded"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#OperationType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DeleteKnownHostKeys": {
+        "smithy.api#enum": [
+          {
+            "value": "DeleteKnownHostKeys",
             "name": "DeleteKnownHostKeys"
           },
-          "DeleteInstance": {
+          {
+            "value": "DeleteInstance",
             "name": "DeleteInstance"
           },
-          "CreateInstance": {
+          {
+            "value": "CreateInstance",
             "name": "CreateInstance"
           },
-          "StopInstance": {
+          {
+            "value": "StopInstance",
             "name": "StopInstance"
           },
-          "StartInstance": {
+          {
+            "value": "StartInstance",
             "name": "StartInstance"
           },
-          "RebootInstance": {
+          {
+            "value": "RebootInstance",
             "name": "RebootInstance"
           },
-          "OpenInstancePublicPorts": {
+          {
+            "value": "OpenInstancePublicPorts",
             "name": "OpenInstancePublicPorts"
           },
-          "PutInstancePublicPorts": {
+          {
+            "value": "PutInstancePublicPorts",
             "name": "PutInstancePublicPorts"
           },
-          "CloseInstancePublicPorts": {
+          {
+            "value": "CloseInstancePublicPorts",
             "name": "CloseInstancePublicPorts"
           },
-          "AllocateStaticIp": {
+          {
+            "value": "AllocateStaticIp",
             "name": "AllocateStaticIp"
           },
-          "ReleaseStaticIp": {
+          {
+            "value": "ReleaseStaticIp",
             "name": "ReleaseStaticIp"
           },
-          "AttachStaticIp": {
+          {
+            "value": "AttachStaticIp",
             "name": "AttachStaticIp"
           },
-          "DetachStaticIp": {
+          {
+            "value": "DetachStaticIp",
             "name": "DetachStaticIp"
           },
-          "UpdateDomainEntry": {
+          {
+            "value": "UpdateDomainEntry",
             "name": "UpdateDomainEntry"
           },
-          "DeleteDomainEntry": {
+          {
+            "value": "DeleteDomainEntry",
             "name": "DeleteDomainEntry"
           },
-          "CreateDomain": {
+          {
+            "value": "CreateDomain",
             "name": "CreateDomain"
           },
-          "DeleteDomain": {
+          {
+            "value": "DeleteDomain",
             "name": "DeleteDomain"
           },
-          "CreateInstanceSnapshot": {
+          {
+            "value": "CreateInstanceSnapshot",
             "name": "CreateInstanceSnapshot"
           },
-          "DeleteInstanceSnapshot": {
+          {
+            "value": "DeleteInstanceSnapshot",
             "name": "DeleteInstanceSnapshot"
           },
-          "CreateInstancesFromSnapshot": {
+          {
+            "value": "CreateInstancesFromSnapshot",
             "name": "CreateInstancesFromSnapshot"
           },
-          "CreateLoadBalancer": {
+          {
+            "value": "CreateLoadBalancer",
             "name": "CreateLoadBalancer"
           },
-          "DeleteLoadBalancer": {
+          {
+            "value": "DeleteLoadBalancer",
             "name": "DeleteLoadBalancer"
           },
-          "AttachInstancesToLoadBalancer": {
+          {
+            "value": "AttachInstancesToLoadBalancer",
             "name": "AttachInstancesToLoadBalancer"
           },
-          "DetachInstancesFromLoadBalancer": {
+          {
+            "value": "DetachInstancesFromLoadBalancer",
             "name": "DetachInstancesFromLoadBalancer"
           },
-          "UpdateLoadBalancerAttribute": {
+          {
+            "value": "UpdateLoadBalancerAttribute",
             "name": "UpdateLoadBalancerAttribute"
           },
-          "CreateLoadBalancerTlsCertificate": {
+          {
+            "value": "CreateLoadBalancerTlsCertificate",
             "name": "CreateLoadBalancerTlsCertificate"
           },
-          "DeleteLoadBalancerTlsCertificate": {
+          {
+            "value": "DeleteLoadBalancerTlsCertificate",
             "name": "DeleteLoadBalancerTlsCertificate"
           },
-          "AttachLoadBalancerTlsCertificate": {
+          {
+            "value": "AttachLoadBalancerTlsCertificate",
             "name": "AttachLoadBalancerTlsCertificate"
           },
-          "CreateDisk": {
+          {
+            "value": "CreateDisk",
             "name": "CreateDisk"
           },
-          "DeleteDisk": {
+          {
+            "value": "DeleteDisk",
             "name": "DeleteDisk"
           },
-          "AttachDisk": {
+          {
+            "value": "AttachDisk",
             "name": "AttachDisk"
           },
-          "DetachDisk": {
+          {
+            "value": "DetachDisk",
             "name": "DetachDisk"
           },
-          "CreateDiskSnapshot": {
+          {
+            "value": "CreateDiskSnapshot",
             "name": "CreateDiskSnapshot"
           },
-          "DeleteDiskSnapshot": {
+          {
+            "value": "DeleteDiskSnapshot",
             "name": "DeleteDiskSnapshot"
           },
-          "CreateDiskFromSnapshot": {
+          {
+            "value": "CreateDiskFromSnapshot",
             "name": "CreateDiskFromSnapshot"
           },
-          "CreateRelationalDatabase": {
+          {
+            "value": "CreateRelationalDatabase",
             "name": "CreateRelationalDatabase"
           },
-          "UpdateRelationalDatabase": {
+          {
+            "value": "UpdateRelationalDatabase",
             "name": "UpdateRelationalDatabase"
           },
-          "DeleteRelationalDatabase": {
+          {
+            "value": "DeleteRelationalDatabase",
             "name": "DeleteRelationalDatabase"
           },
-          "CreateRelationalDatabaseFromSnapshot": {
+          {
+            "value": "CreateRelationalDatabaseFromSnapshot",
             "name": "CreateRelationalDatabaseFromSnapshot"
           },
-          "CreateRelationalDatabaseSnapshot": {
+          {
+            "value": "CreateRelationalDatabaseSnapshot",
             "name": "CreateRelationalDatabaseSnapshot"
           },
-          "DeleteRelationalDatabaseSnapshot": {
+          {
+            "value": "DeleteRelationalDatabaseSnapshot",
             "name": "DeleteRelationalDatabaseSnapshot"
           },
-          "UpdateRelationalDatabaseParameters": {
+          {
+            "value": "UpdateRelationalDatabaseParameters",
             "name": "UpdateRelationalDatabaseParameters"
           },
-          "StartRelationalDatabase": {
+          {
+            "value": "StartRelationalDatabase",
             "name": "StartRelationalDatabase"
           },
-          "RebootRelationalDatabase": {
+          {
+            "value": "RebootRelationalDatabase",
             "name": "RebootRelationalDatabase"
           },
-          "StopRelationalDatabase": {
+          {
+            "value": "StopRelationalDatabase",
             "name": "StopRelationalDatabase"
           },
-          "EnableAddOn": {
+          {
+            "value": "EnableAddOn",
             "name": "EnableAddOn"
           },
-          "DisableAddOn": {
+          {
+            "value": "DisableAddOn",
             "name": "DisableAddOn"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#PasswordData": {
@@ -10217,7 +10402,7 @@
     },
     "com.amazonaws.lightsail#PeerVpcRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.lightsail#PeerVpcResult": {
       "type": "structure",
@@ -10300,14 +10485,16 @@
     "com.amazonaws.lightsail#PortAccessType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Public": {
+        "smithy.api#enum": [
+          {
+            "value": "Public",
             "name": "Public"
           },
-          "Private": {
+          {
+            "value": "Private",
             "name": "Private"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#PortInfo": {
@@ -10345,20 +10532,24 @@
     "com.amazonaws.lightsail#PortInfoSourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DEFAULT": {
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT",
             "name": "Default"
           },
-          "INSTANCE": {
+          {
+            "value": "INSTANCE",
             "name": "Instance"
           },
-          "NONE": {
+          {
+            "value": "NONE",
             "name": "None"
           },
-          "CLOSED": {
+          {
+            "value": "CLOSED",
             "name": "Closed"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#PortList": {
@@ -10370,14 +10561,16 @@
     "com.amazonaws.lightsail#PortState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "open": {
+        "smithy.api#enum": [
+          {
+            "value": "open",
             "name": "Open"
           },
-          "closed": {
+          {
+            "value": "closed",
             "name": "Closed"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#PutInstancePublicPorts": {
@@ -10427,14 +10620,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The Lightsail instance name of the public port(s) you are setting.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "portInfos": {
           "target": "com.amazonaws.lightsail#PortInfoList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies information about the public port(s).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -10497,7 +10690,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance to reboot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -10560,7 +10753,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database to reboot.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -10579,17 +10772,20 @@
     "com.amazonaws.lightsail#RecordState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Started": {
+        "smithy.api#enum": [
+          {
+            "value": "Started",
             "name": "Started"
           },
-          "Succeeded": {
+          {
+            "value": "Succeeded",
             "name": "Succeeded"
           },
-          "Failed": {
+          {
+            "value": "Failed",
             "name": "Failed"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#Region": {
@@ -10645,50 +10841,64 @@
     "com.amazonaws.lightsail#RegionName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "us-east-1": {
+        "smithy.api#enum": [
+          {
+            "value": "us-east-1",
             "name": "US_EAST_1"
           },
-          "us-east-2": {
+          {
+            "value": "us-east-2",
             "name": "US_EAST_2"
           },
-          "us-west-1": {
+          {
+            "value": "us-west-1",
             "name": "US_WEST_1"
           },
-          "us-west-2": {
+          {
+            "value": "us-west-2",
             "name": "US_WEST_2"
           },
-          "eu-west-1": {
+          {
+            "value": "eu-west-1",
             "name": "EU_WEST_1"
           },
-          "eu-west-2": {
+          {
+            "value": "eu-west-2",
             "name": "EU_WEST_2"
           },
-          "eu-west-3": {
+          {
+            "value": "eu-west-3",
             "name": "EU_WEST_3"
           },
-          "eu-central-1": {
+          {
+            "value": "eu-central-1",
             "name": "EU_CENTRAL_1"
           },
-          "ca-central-1": {
+          {
+            "value": "ca-central-1",
             "name": "CA_CENTRAL_1"
           },
-          "ap-south-1": {
+          {
+            "value": "ap-south-1",
             "name": "AP_SOUTH_1"
           },
-          "ap-southeast-1": {
+          {
+            "value": "ap-southeast-1",
             "name": "AP_SOUTHEAST_1"
           },
-          "ap-southeast-2": {
+          {
+            "value": "ap-southeast-2",
             "name": "AP_SOUTHEAST_2"
           },
-          "ap-northeast-1": {
+          {
+            "value": "ap-northeast-1",
             "name": "AP_NORTHEAST_1"
           },
-          "ap-northeast-2": {
+          {
+            "value": "ap-northeast-2",
             "name": "AP_NORTHEAST_2"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#RelationalDatabase": {
@@ -10996,11 +11206,12 @@
     "com.amazonaws.lightsail#RelationalDatabaseEngine": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "mysql": {
+        "smithy.api#enum": [
+          {
+            "value": "mysql",
             "name": "MYSQL"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#RelationalDatabaseEvent": {
@@ -11076,26 +11287,32 @@
     "com.amazonaws.lightsail#RelationalDatabaseMetricName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CPUUtilization": {
+        "smithy.api#enum": [
+          {
+            "value": "CPUUtilization",
             "name": "CPUUtilization"
           },
-          "DatabaseConnections": {
+          {
+            "value": "DatabaseConnections",
             "name": "DatabaseConnections"
           },
-          "DiskQueueDepth": {
+          {
+            "value": "DiskQueueDepth",
             "name": "DiskQueueDepth"
           },
-          "FreeStorageSpace": {
+          {
+            "value": "FreeStorageSpace",
             "name": "FreeStorageSpace"
           },
-          "NetworkReceiveThroughput": {
+          {
+            "value": "NetworkReceiveThroughput",
             "name": "NetworkReceiveThroughput"
           },
-          "NetworkTransmitThroughput": {
+          {
+            "value": "NetworkTransmitThroughput",
             "name": "NetworkTransmitThroughput"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#RelationalDatabaseParameter": {
@@ -11163,17 +11380,20 @@
     "com.amazonaws.lightsail#RelationalDatabasePasswordVersion": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CURRENT": {
+        "smithy.api#enum": [
+          {
+            "value": "CURRENT",
             "name": "CURRENT"
           },
-          "PREVIOUS": {
+          {
+            "value": "PREVIOUS",
             "name": "PREVIOUS"
           },
-          "PENDING": {
+          {
+            "value": "PENDING",
             "name": "PENDING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#RelationalDatabaseSnapshot": {
@@ -11327,7 +11547,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the static IP to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -11384,56 +11604,70 @@
     "com.amazonaws.lightsail#ResourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "Instance": {
+        "smithy.api#enum": [
+          {
+            "value": "Instance",
             "name": "Instance"
           },
-          "StaticIp": {
+          {
+            "value": "StaticIp",
             "name": "StaticIp"
           },
-          "KeyPair": {
+          {
+            "value": "KeyPair",
             "name": "KeyPair"
           },
-          "InstanceSnapshot": {
+          {
+            "value": "InstanceSnapshot",
             "name": "InstanceSnapshot"
           },
-          "Domain": {
+          {
+            "value": "Domain",
             "name": "Domain"
           },
-          "PeeredVpc": {
+          {
+            "value": "PeeredVpc",
             "name": "PeeredVpc"
           },
-          "LoadBalancer": {
+          {
+            "value": "LoadBalancer",
             "name": "LoadBalancer"
           },
-          "LoadBalancerTlsCertificate": {
+          {
+            "value": "LoadBalancerTlsCertificate",
             "name": "LoadBalancerTlsCertificate"
           },
-          "Disk": {
+          {
+            "value": "Disk",
             "name": "Disk"
           },
-          "DiskSnapshot": {
+          {
+            "value": "DiskSnapshot",
             "name": "DiskSnapshot"
           },
-          "RelationalDatabase": {
+          {
+            "value": "RelationalDatabase",
             "name": "RelationalDatabase"
           },
-          "RelationalDatabaseSnapshot": {
+          {
+            "value": "RelationalDatabaseSnapshot",
             "name": "RelationalDatabaseSnapshot"
           },
-          "ExportSnapshotRecord": {
+          {
+            "value": "ExportSnapshotRecord",
             "name": "ExportSnapshotRecord"
           },
-          "CloudFormationStackRecord": {
+          {
+            "value": "CloudFormationStackRecord",
             "name": "CloudFormationStackRecord"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.lightsail#SensitiveString": {
       "type": "string",
       "traits": {
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.lightsail#ServiceException": {
@@ -11505,7 +11739,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance (a virtual private server) to start.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -11568,7 +11802,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database to start.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -11705,7 +11939,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the instance (a virtual private server) to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -11768,7 +12002,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database to stop.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "relationalDatabaseSnapshotName": {
@@ -11893,14 +12127,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource to which you are adding tags.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.amazonaws.lightsail#TagList",
           "traits": {
             "smithy.api#documentation": "<p>The tag key and optional value.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -11989,7 +12223,7 @@
     },
     "com.amazonaws.lightsail#UnpeerVpcRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.lightsail#UnpeerVpcResult": {
       "type": "structure",
@@ -12055,14 +12289,14 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource from which you are removing a tag.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "tagKeys": {
           "target": "com.amazonaws.lightsail#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The tag keys to delete from the specified resource.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -12125,14 +12359,14 @@
           "target": "com.amazonaws.lightsail#DomainEntry",
           "traits": {
             "smithy.api#documentation": "<p>An array of key-value pairs containing information about the domain entry.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "domainName": {
           "target": "com.amazonaws.lightsail#DomainName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the domain recordset to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -12195,21 +12429,21 @@
           "target": "com.amazonaws.lightsail#LoadBalancerAttributeName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the attribute you want to update. Valid values are below.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "attributeValue": {
           "target": "com.amazonaws.lightsail#StringMax256",
           "traits": {
             "smithy.api#documentation": "<p>The value that you want to specify for the attribute name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "loadBalancerName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the load balancer that you want to modify (e.g.,\n        <code>my-load-balancer</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -12312,14 +12546,14 @@
           "target": "com.amazonaws.lightsail#RelationalDatabaseParameterList",
           "traits": {
             "smithy.api#documentation": "<p>The database parameters to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "relationalDatabaseName": {
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database for which to update parameters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -12390,7 +12624,7 @@
           "target": "com.amazonaws.lightsail#ResourceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of your database to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "rotateMasterUserPassword": {
@@ -12415,25 +12649,25 @@
     "com.amazonaws.lightsail#boolean": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.lightsail#double": {
       "type": "double",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.lightsail#float": {
       "type": "float",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.lightsail#integer": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.lightsail#string": {

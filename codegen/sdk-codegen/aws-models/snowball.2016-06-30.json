@@ -1,31 +1,30 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
@@ -99,15 +98,11 @@
           "cloudFormationName": "Snowball",
           "cloudTrailEventSource": "snowball.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "snowball"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>AWS Snowball is a petabyte-scale data transport solution that uses secure devices to\n      transfer large amounts of data between your on-premises data centers and Amazon Simple Storage\n      Service (Amazon S3). The Snowball commands described here provide access to the same\n      functionality that is available in the AWS Snowball Management Console, which enables you to\n      create and manage jobs for Snowball. To transfer data locally with a Snowball device, you'll\n      need to use the Snowball client or the Amazon S3 API adapter for Snowball. For more\n      information, see the <a href=\"https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html\">User Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Import/Export Snowball"
       }
     },
@@ -262,14 +257,14 @@
           "target": "com.amazonaws.snowball#ClusterId",
           "traits": {
             "smithy.api#documentation": "<p>The 39-character ID for the cluster that you want to cancel, for example\n        <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.snowball#CancelClusterResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.snowball#CancelJob": {
       "type": "operation",
@@ -301,14 +296,14 @@
           "target": "com.amazonaws.snowball#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The 39-character job ID for the job that you want to cancel, for example\n        <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
     "com.amazonaws.snowball#CancelJobResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.snowball#ClusterId": {
       "type": "string",
@@ -459,23 +454,28 @@
     "com.amazonaws.snowball#ClusterState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "AwaitingQuorum": {
+        "smithy.api#enum": [
+          {
+            "value": "AwaitingQuorum",
             "name": "AWAITING_QUORUM"
           },
-          "Pending": {
+          {
+            "value": "Pending",
             "name": "PENDING"
           },
-          "InUse": {
+          {
+            "value": "InUse",
             "name": "IN_USE"
           },
-          "Complete": {
+          {
+            "value": "Complete",
             "name": "COMPLETE"
           },
-          "Cancelled": {
+          {
+            "value": "Cancelled",
             "name": "CANCELLED"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.snowball#CompatibleImage": {
@@ -531,7 +531,7 @@
           "target": "com.amazonaws.snowball#Address",
           "traits": {
             "smithy.api#documentation": "<p>The address that you want the Snowball shipped to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -580,7 +580,7 @@
           "target": "com.amazonaws.snowball#AddressId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the address that you want the cluster shipped to.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -599,7 +599,7 @@
           "target": "com.amazonaws.snowball#JobType",
           "traits": {
             "smithy.api#documentation": "<p>The type of job for this cluster. Currently, the only job type supported for clusters\n      is <code>LOCAL_USE</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "KmsKeyARN": {
@@ -618,21 +618,21 @@
           "target": "com.amazonaws.snowball#JobResource",
           "traits": {
             "smithy.api#documentation": "<p>The resources associated with the cluster job. These resources include Amazon S3\n      buckets and optional AWS Lambda functions written in the Python language. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "RoleARN": {
           "target": "com.amazonaws.snowball#RoleARN",
           "traits": {
             "smithy.api#documentation": "<p>The <code>RoleARN</code> that you want to associate with this cluster.\n        <code>RoleArn</code> values are created by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html\">CreateRole</a> API action in AWS\n      Identity and Access Management (IAM).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ShippingOption": {
           "target": "com.amazonaws.snowball#ShippingOption",
           "traits": {
             "smithy.api#documentation": "<p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon\n      you'll get each Snowball Edge device, rather it represents how quickly each device moves to\n      its destination while in transit. Regional shipping speeds are as follows:</p>\n\n         <ul>\n            <li>\n               <p>In Australia, you have access to express shipping. Typically, devices shipped\n          express are delivered in about a day.</p>\n            </li>\n            <li>\n               <p>In the European Union (EU), you have access to express shipping. Typically,\n          Snowball Edges shipped express are delivered in about a day. In addition, most countries\n          in the EU have access to standard shipping, which typically takes less than a week, one\n          way.</p>\n            </li>\n            <li>\n               <p>In India, Snowball Edges are delivered in one to seven days.</p>\n            </li>\n            <li>\n               <p>In the US, you have access to one-day shipping and two-day shipping.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SnowballType": {
@@ -827,7 +827,7 @@
           "target": "com.amazonaws.snowball#AddressId",
           "traits": {
             "smithy.api#documentation": "<p>The automatically generated ID for a specific address.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -927,7 +927,7 @@
           "target": "com.amazonaws.snowball#ClusterId",
           "traits": {
             "smithy.api#documentation": "<p>The automatically generated ID for a cluster.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -967,7 +967,7 @@
           "target": "com.amazonaws.snowball#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The automatically generated ID for a job, for example\n        <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -996,7 +996,7 @@
           "target": "com.amazonaws.snowball#AmiId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AMI in Amazon EC2.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "SnowballAmiId": {
@@ -1075,7 +1075,7 @@
           "target": "com.amazonaws.snowball#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for a job that you want to get the manifest file for, for example\n        <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1118,7 +1118,7 @@
           "target": "com.amazonaws.snowball#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for\n      example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1148,7 +1148,7 @@
     },
     "com.amazonaws.snowball#GetSnowballUsageRequest": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.snowball#GetSnowballUsageResult": {
       "type": "structure",
@@ -1194,7 +1194,7 @@
           "target": "com.amazonaws.snowball#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for a job that you want to get the software update file for, for example\n      <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
@@ -1213,7 +1213,7 @@
     "com.amazonaws.snowball#Integer": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.snowball#InvalidAddressException": {
@@ -1519,47 +1519,60 @@
     "com.amazonaws.snowball#JobState": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "New": {
+        "smithy.api#enum": [
+          {
+            "value": "New",
             "name": "NEW"
           },
-          "PreparingAppliance": {
+          {
+            "value": "PreparingAppliance",
             "name": "PREPARING_APPLIANCE"
           },
-          "PreparingShipment": {
+          {
+            "value": "PreparingShipment",
             "name": "PREPARING_SHIPMENT"
           },
-          "InTransitToCustomer": {
+          {
+            "value": "InTransitToCustomer",
             "name": "IN_TRANSIT_TO_CUSTOMER"
           },
-          "WithCustomer": {
+          {
+            "value": "WithCustomer",
             "name": "WITH_CUSTOMER"
           },
-          "InTransitToAWS": {
+          {
+            "value": "InTransitToAWS",
             "name": "IN_TRANSIT_TO_AWS"
           },
-          "WithAWSSortingFacility": {
+          {
+            "value": "WithAWSSortingFacility",
             "name": "WITH_AWS_SORTING_FACILITY"
           },
-          "WithAWS": {
+          {
+            "value": "WithAWS",
             "name": "WITH_AWS"
           },
-          "InProgress": {
+          {
+            "value": "InProgress",
             "name": "IN_PROGRESS"
           },
-          "Complete": {
+          {
+            "value": "Complete",
             "name": "COMPLETE"
           },
-          "Cancelled": {
+          {
+            "value": "Cancelled",
             "name": "CANCELLED"
           },
-          "Listing": {
+          {
+            "value": "Listing",
             "name": "LISTING"
           },
-          "Pending": {
+          {
+            "value": "Pending",
             "name": "PENDING"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.snowball#JobStateList": {
@@ -1571,17 +1584,20 @@
     "com.amazonaws.snowball#JobType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "IMPORT": {
+        "smithy.api#enum": [
+          {
+            "value": "IMPORT",
             "name": "IMPORT"
           },
-          "EXPORT": {
+          {
+            "value": "EXPORT",
             "name": "EXPORT"
           },
-          "LOCAL_USE": {
+          {
+            "value": "LOCAL_USE",
             "name": "LOCAL_USE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.snowball#KMSRequestFailedException": {
@@ -1679,7 +1695,7 @@
           "target": "com.amazonaws.snowball#ClusterId",
           "traits": {
             "smithy.api#documentation": "<p>The 39-character ID for the cluster that you want to list, for example\n        <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
@@ -1878,7 +1894,7 @@
     "com.amazonaws.snowball#ListLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 100
@@ -2008,61 +2024,74 @@
     "com.amazonaws.snowball#ShippingOption": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SECOND_DAY": {
+        "smithy.api#enum": [
+          {
+            "value": "SECOND_DAY",
             "name": "SECOND_DAY"
           },
-          "NEXT_DAY": {
+          {
+            "value": "NEXT_DAY",
             "name": "NEXT_DAY"
           },
-          "EXPRESS": {
+          {
+            "value": "EXPRESS",
             "name": "EXPRESS"
           },
-          "STANDARD": {
+          {
+            "value": "STANDARD",
             "name": "STANDARD"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.snowball#SnowballCapacity": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "T50": {
+        "smithy.api#enum": [
+          {
+            "value": "T50",
             "name": "T50"
           },
-          "T80": {
+          {
+            "value": "T80",
             "name": "T80"
           },
-          "T100": {
+          {
+            "value": "T100",
             "name": "T100"
           },
-          "T42": {
+          {
+            "value": "T42",
             "name": "T42"
           },
-          "NoPreference": {
+          {
+            "value": "NoPreference",
             "name": "NO_PREFERENCE"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.snowball#SnowballType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STANDARD": {
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD",
             "name": "STANDARD"
           },
-          "EDGE": {
+          {
+            "value": "EDGE",
             "name": "EDGE"
           },
-          "EDGE_C": {
+          {
+            "value": "EDGE_C",
             "name": "EDGE_C"
           },
-          "EDGE_CG": {
+          {
+            "value": "EDGE_CG",
             "name": "EDGE_CG"
           }
-        }
+        ]
       }
     },
     "com.amazonaws.snowball#SnsTopicARN": {
@@ -2140,7 +2169,7 @@
           "target": "com.amazonaws.snowball#ClusterId",
           "traits": {
             "smithy.api#documentation": "<p>The cluster ID of the cluster that you want to update, for example\n        <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Description": {
@@ -2183,7 +2212,7 @@
     },
     "com.amazonaws.snowball#UpdateClusterResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
     "com.amazonaws.snowball#UpdateJob": {
       "type": "operation",
@@ -2242,7 +2271,7 @@
           "target": "com.amazonaws.snowball#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The job ID of the job that you want to update, for example\n        <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Notification": {
@@ -2279,7 +2308,7 @@
     },
     "com.amazonaws.snowball#UpdateJobResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     }
   }
 }

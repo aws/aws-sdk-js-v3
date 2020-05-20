@@ -1,41 +1,40 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.aws.acuity.ats.model#AWSAcuityInletService": {
+    "com.amazonaws.kinesisvideomedia#AWSAcuityInletService": {
       "type": "service",
       "version": "2017-09-30",
       "operations": [
         {
-          "target": "com.amazon.aws.acuity.ats.model#GetMedia"
+          "target": "com.amazonaws.kinesisvideomedia#GetMedia"
         }
       ],
       "traits": {
@@ -45,23 +44,19 @@
           "cloudFormationName": "KinesisVideoMedia",
           "cloudTrailEventSource": "model.ats.acuity.aws.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "kinesisvideo"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p></p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Kinesis Video Streams Media"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ClientLimitExceededException": {
+    "com.amazonaws.kinesisvideomedia#ClientLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideomedia#ErrorMessage"
         }
       },
       "traits": {
@@ -70,11 +65,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#ConnectionLimitExceededException": {
+    "com.amazonaws.kinesisvideomedia#ConnectionLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideomedia#ErrorMessage"
         }
       },
       "traits": {
@@ -83,7 +78,7 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#ContentType": {
+    "com.amazonaws.kinesisvideomedia#ContentType": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -93,7 +88,7 @@
         "smithy.api#pattern": "^[a-zA-Z0-9_\\.\\-]+$"
       }
     },
-    "com.amazon.aws.acuity.ats.model#ContinuationToken": {
+    "com.amazonaws.kinesisvideomedia#ContinuationToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -103,10 +98,10 @@
         "smithy.api#pattern": "^[a-zA-Z0-9_\\.\\-]+$"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ErrorMessage": {
+    "com.amazonaws.kinesisvideomedia#ErrorMessage": {
       "type": "string"
     },
-    "com.amazon.kinesis.video.v20170930#FragmentNumberString": {
+    "com.amazonaws.kinesisvideomedia#FragmentNumberString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -116,32 +111,32 @@
         "smithy.api#pattern": "^[0-9]+$"
       }
     },
-    "com.amazon.aws.acuity.ats.model#GetMedia": {
+    "com.amazonaws.kinesisvideomedia#GetMedia": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.aws.acuity.ats.model#GetMediaInput"
+        "target": "com.amazonaws.kinesisvideomedia#GetMediaInput"
       },
       "output": {
-        "target": "com.amazon.aws.acuity.ats.model#GetMediaOutput"
+        "target": "com.amazonaws.kinesisvideomedia#GetMediaOutput"
       },
       "errors": [
         {
-          "target": "com.amazon.kinesis.video.v20170930#ClientLimitExceededException"
+          "target": "com.amazonaws.kinesisvideomedia#ClientLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ConnectionLimitExceededException"
+          "target": "com.amazonaws.kinesisvideomedia#ConnectionLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidArgumentException"
+          "target": "com.amazonaws.kinesisvideomedia#InvalidArgumentException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidEndpointException"
+          "target": "com.amazonaws.kinesisvideomedia#InvalidEndpointException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NotAuthorizedException"
+          "target": "com.amazonaws.kinesisvideomedia#NotAuthorizedException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceNotFoundException"
+          "target": "com.amazonaws.kinesisvideomedia#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -153,55 +148,54 @@
         }
       }
     },
-    "com.amazon.aws.acuity.ats.model#GetMediaInput": {
+    "com.amazonaws.kinesisvideomedia#GetMediaInput": {
       "type": "structure",
       "members": {
         "StartSelector": {
-          "target": "com.amazon.aws.acuity.ats.model#StartSelector",
+          "target": "com.amazonaws.kinesisvideomedia#StartSelector",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the starting chunk to get from the specified stream. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StreamARN": {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceARN",
+          "target": "com.amazonaws.kinesisvideomedia#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the stream from where you want to get the media content. If you don't\n      specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>"
           }
         },
         "StreamName": {
-          "target": "com.amazon.kinesis.video.v20170930#StreamName",
+          "target": "com.amazonaws.kinesisvideomedia#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The Kinesis video stream name from where you want to get the media content. If you\n      don't specify the <code>streamName</code>, you must specify the\n      <code>streamARN</code>.</p>"
           }
         }
       }
     },
-    "com.amazon.aws.acuity.ats.model#GetMediaOutput": {
+    "com.amazonaws.kinesisvideomedia#GetMediaOutput": {
       "type": "structure",
       "members": {
         "ContentType": {
-          "target": "com.amazon.kinesis.video.v20170930#ContentType",
+          "target": "com.amazonaws.kinesisvideomedia#ContentType",
           "traits": {
             "smithy.api#documentation": "<p>The content type of the requested media.</p>",
             "smithy.api#httpHeader": "Content-Type"
           }
         },
         "Payload": {
-          "target": "com.amazon.kinesis.video.v20170930#Payload",
+          "target": "com.amazonaws.kinesisvideomedia#Payload",
           "traits": {
             "smithy.api#documentation": "<p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified\n      stream. For information about the chunks, see . The\n      chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the\n      following additional Matroska (MKV) tags: </p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_CONTINUATION_TOKEN (UTF-8 string) - In the event your\n            <code>GetMedia</code> call terminates, you can use this continuation token in your next\n          request to get the next chunk where the last request terminated.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_MILLIS_BEHIND_NOW (UTF-8 string) - Client applications can use\n          this tag value to determine how far behind the chunk returned in the response is from the\n          latest chunk on the stream. </p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_SERVER_TIMESTAMP - Server timestamp of the fragment.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_PRODUCER_TIMESTAMP - Producer timestamp of the fragment.</p>\n            </li>\n         </ul>\n         <p>The following tags will be present if an error occurs:</p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_CODE - String description of an error that caused GetMedia\n          to stop.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_ID: Integer code of the error.</p>\n            </li>\n         </ul>\n         <p>The error codes are as follows:</p>\n         <ul>\n            <li>\n               <p>3002 - Error writing to the stream</p>\n            </li>\n            <li>\n               <p>4000 - Requested fragment is not found</p>\n            </li>\n            <li>\n               <p>4500 - Access denied for the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4501 - Stream's KMS key is disabled</p>\n            </li>\n            <li>\n               <p>4502 - Validation error on the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4503 - KMS key specified in the stream is unavailable</p>\n            </li>\n            <li>\n               <p>4504 - Invalid usage of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4505 - Invalid state of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4506 - Unable to find the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>5000 - Internal error</p>\n            </li>\n         </ul>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#streaming": { }
+            "smithy.api#httpPayload": {}
           }
         }
       }
     },
-    "com.amazon.kinesis.video.v20170930#InvalidArgumentException": {
+    "com.amazonaws.kinesisvideomedia#InvalidArgumentException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideomedia#ErrorMessage"
         }
       },
       "traits": {
@@ -210,11 +204,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#InvalidEndpointException": {
+    "com.amazonaws.kinesisvideomedia#InvalidEndpointException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideomedia#ErrorMessage"
         }
       },
       "traits": {
@@ -223,11 +217,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#NotAuthorizedException": {
+    "com.amazonaws.kinesisvideomedia#NotAuthorizedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideomedia#ErrorMessage"
         }
       },
       "traits": {
@@ -236,10 +230,13 @@
         "smithy.api#httpError": 401
       }
     },
-    "com.amazon.kinesis.video.v20170930#Payload": {
-      "type": "blob"
+    "com.amazonaws.kinesisvideomedia#Payload": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#streaming": {}
+      }
     },
-    "com.amazon.kinesis.video.v20170930#ResourceARN": {
+    "com.amazonaws.kinesisvideomedia#ResourceARN": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -249,11 +246,11 @@
         "smithy.api#pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ResourceNotFoundException": {
+    "com.amazonaws.kinesisvideomedia#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideomedia#ErrorMessage"
         }
       },
       "traits": {
@@ -262,30 +259,30 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazon.aws.acuity.ats.model#StartSelector": {
+    "com.amazonaws.kinesisvideomedia#StartSelector": {
       "type": "structure",
       "members": {
         "AfterFragmentNumber": {
-          "target": "com.amazon.kinesis.video.v20170930#FragmentNumberString",
+          "target": "com.amazonaws.kinesisvideomedia#FragmentNumberString",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the fragment number from where you want the <code>GetMedia</code> API to\n      start returning the fragments. </p>"
           }
         },
         "ContinuationToken": {
-          "target": "com.amazon.aws.acuity.ats.model#ContinuationToken",
+          "target": "com.amazonaws.kinesisvideomedia#ContinuationToken",
           "traits": {
             "smithy.api#documentation": "<p>Continuation token that Kinesis Video Streams returned in the previous\n        <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk\n      identified by the continuation token.</p>"
           }
         },
         "StartSelectorType": {
-          "target": "com.amazon.aws.acuity.ats.model#StartSelectorType",
+          "target": "com.amazonaws.kinesisvideomedia#StartSelectorType",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the fragment on the Kinesis video stream where you want to start getting the\n      data from.</p>\n         <ul>\n            <li>\n               <p>NOW - Start with the latest chunk on the stream.</p>\n            </li>\n            <li>\n               <p>EARLIEST - Start with earliest available chunk on the stream.</p>\n            </li>\n            <li>\n               <p>FRAGMENT_NUMBER - Start with the chunk after a specific fragment. You must also\n          specify the <code>AfterFragmentNumber</code> parameter.</p>\n            </li>\n            <li>\n               <p>PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment\n          with the specified producer or server timestamp. You specify the timestamp by adding\n            <code>StartTimestamp</code>.</p>\n            </li>\n            <li>\n               <p> CONTINUATION_TOKEN - Read using the specified continuation token. </p>\n            </li>\n         </ul>\n         <note>\n            <p>If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the\n          <code>startSelectorType</code>, you don't provide any additional information in the\n          <code>startSelector</code>.</p>\n         </note>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StartTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideomedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the\n      SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then\n      starts with the chunk containing the fragment that has the specified timestamp.</p>"
           }
@@ -295,32 +292,38 @@
         "smithy.api#documentation": "<p>Identifies the chunk on the Kinesis video stream where you want the\n        <code>GetMedia</code> API to start returning media data. You have the following options to\n      identify the starting chunk: </p>\n         <ul>\n            <li>\n               <p>Choose the latest (or oldest) chunk.</p>\n            </li>\n            <li>\n               <p>Identify a specific chunk. You can identify a specific chunk either by providing a\n          fragment number or timestamp (server or producer). </p>\n            </li>\n            <li>\n               <p>Each chunk's metadata includes a continuation token as a Matroska (MKV) tag\n            (<code>AWS_KINESISVIDEO_CONTINUATION_TOKEN</code>). If your previous\n            <code>GetMedia</code> request terminated, you can use this tag value in your next\n            <code>GetMedia</code> request. The API then starts returning chunks starting where the\n          last API ended.</p>\n            </li>\n         </ul>"
       }
     },
-    "com.amazon.aws.acuity.ats.model#StartSelectorType": {
+    "com.amazonaws.kinesisvideomedia#StartSelectorType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FRAGMENT_NUMBER": {
+        "smithy.api#enum": [
+          {
+            "value": "FRAGMENT_NUMBER",
             "name": "FRAGMENT_NUMBER"
           },
-          "SERVER_TIMESTAMP": {
+          {
+            "value": "SERVER_TIMESTAMP",
             "name": "SERVER_TIMESTAMP"
           },
-          "PRODUCER_TIMESTAMP": {
+          {
+            "value": "PRODUCER_TIMESTAMP",
             "name": "PRODUCER_TIMESTAMP"
           },
-          "NOW": {
+          {
+            "value": "NOW",
             "name": "NOW"
           },
-          "EARLIEST": {
+          {
+            "value": "EARLIEST",
             "name": "EARLIEST"
           },
-          "CONTINUATION_TOKEN": {
+          {
+            "value": "CONTINUATION_TOKEN",
             "name": "CONTINUATION_TOKEN"
           }
-        }
+        ]
       }
     },
-    "com.amazon.kinesis.video.v20170930#StreamName": {
+    "com.amazonaws.kinesisvideomedia#StreamName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -330,7 +333,7 @@
         "smithy.api#pattern": "[a-zA-Z0-9_.-]+"
       }
     },
-    "com.amazon.kinesis.video.v20170930#Timestamp": {
+    "com.amazonaws.kinesisvideomedia#Timestamp": {
       "type": "timestamp"
     }
   }

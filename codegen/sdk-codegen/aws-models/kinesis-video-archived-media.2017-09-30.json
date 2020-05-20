@@ -1,50 +1,49 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazon.AWSAcuityReader#AWSAcuityReader": {
+    "com.amazonaws.kinesisvideoarchivedmedia#AWSAcuityReader": {
       "type": "service",
       "version": "2017-09-30",
       "operations": [
         {
-          "target": "com.amazon.AWSAcuityReader#GetDASHStreamingSessionURL"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#GetDASHStreamingSessionURL"
         },
         {
-          "target": "com.amazon.AWSAcuityReader#GetHLSStreamingSessionURL"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#GetHLSStreamingSessionURL"
         },
         {
-          "target": "com.amazon.AWSAcuityReader#GetMediaForFragmentList"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#GetMediaForFragmentList"
         },
         {
-          "target": "com.amazon.AWSAcuityReader#ListFragments"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ListFragments"
         }
       ],
       "traits": {
@@ -54,23 +53,19 @@
           "cloudFormationName": "KinesisVideoArchivedMedia",
           "cloudTrailEventSource": "AWSAcuityReader.amazon.com"
         },
+        "aws.auth#sigv4": {
+          "name": "kinesisvideo"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p></p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Kinesis Video Streams Archived Media"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ClientLimitExceededException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {
@@ -79,20 +74,22 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.AWSAcuityReader#ContainerFormat": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ContainerFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "FRAGMENTED_MP4": {
+        "smithy.api#enum": [
+          {
+            "value": "FRAGMENTED_MP4",
             "name": "FRAGMENTED_MP4"
           },
-          "MPEG_TS": {
+          {
+            "value": "MPEG_TS",
             "name": "MPEG_TS"
           }
-        }
+        ]
       }
     },
-    "com.amazon.kinesis.video.v20170930#ContentType": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ContentType": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -102,43 +99,47 @@
         "smithy.api#pattern": "^[a-zA-Z0-9_\\.\\-]+$"
       }
     },
-    "com.amazon.AWSAcuityReader#DASHDisplayFragmentNumber": {
+    "com.amazonaws.kinesisvideoarchivedmedia#DASHDisplayFragmentNumber": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALWAYS": {
+        "smithy.api#enum": [
+          {
+            "value": "ALWAYS",
             "name": "ALWAYS"
           },
-          "NEVER": {
+          {
+            "value": "NEVER",
             "name": "NEVER"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#DASHDisplayFragmentTimestamp": {
+    "com.amazonaws.kinesisvideoarchivedmedia#DASHDisplayFragmentTimestamp": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALWAYS": {
+        "smithy.api#enum": [
+          {
+            "value": "ALWAYS",
             "name": "ALWAYS"
           },
-          "NEVER": {
+          {
+            "value": "NEVER",
             "name": "NEVER"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#DASHFragmentSelector": {
+    "com.amazonaws.kinesisvideoarchivedmedia#DASHFragmentSelector": {
       "type": "structure",
       "members": {
         "FragmentSelectorType": {
-          "target": "com.amazon.AWSAcuityReader#DASHFragmentSelectorType",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#DASHFragmentSelectorType",
           "traits": {
             "smithy.api#documentation": "<p>The source of the timestamps for the requested media.</p>\n        <p>When <code>FragmentSelectorType</code> is set to <code>PRODUCER_TIMESTAMP</code> and\n                <a>GetDASHStreamingSessionURLInput$PlaybackMode</a> is\n                <code>ON_DEMAND</code> or <code>LIVE_REPLAY</code>, the first fragment ingested with\n            a producer timestamp within the specified <a>FragmentSelector$TimestampRange</a> is included in the media playlist. In\n            addition, the fragments with producer timestamps within the <code>TimestampRange</code>\n            ingested immediately following the first fragment (up to the <a>GetDASHStreamingSessionURLInput$MaxManifestFragmentResults</a> value) are\n            included. </p>\n        <p>Fragments that have duplicate producer timestamps are deduplicated. This means that if\n            producers are producing a stream of fragments with producer timestamps that are\n            approximately equal to the true clock time, the MPEG-DASH manifest will contain all of\n            the fragments within the requested timestamp range. If some fragments are ingested\n            within the same time range and very different points in time, only the oldest ingested\n            collection of fragments are returned.</p>\n        <p>When <code>FragmentSelectorType</code> is set to <code>PRODUCER_TIMESTAMP</code> and\n                <a>GetDASHStreamingSessionURLInput$PlaybackMode</a> is <code>LIVE</code>,\n            the producer timestamps are used in the MP4 fragments and for deduplication. But the\n            most recently ingested fragments based on server timestamps are included in the\n            MPEG-DASH manifest. This means that even if fragments ingested in the past have producer\n            timestamps with values now, they are not included in the HLS media playlist.</p>\n        <p>The default is <code>SERVER_TIMESTAMP</code>.</p>"
           }
         },
         "TimestampRange": {
-          "target": "com.amazon.AWSAcuityReader#DASHTimestampRange",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#DASHTimestampRange",
           "traits": {
             "smithy.api#documentation": "<p>The start and end of the timestamp range for the requested media.</p>\n        <p>This value should not be present if <code>PlaybackType</code> is\n            <code>LIVE</code>.</p>"
           }
@@ -148,49 +149,54 @@
         "smithy.api#documentation": "<p>Contains the range of timestamps for the requested media, and the source of the\n            timestamps. </p>"
       }
     },
-    "com.amazon.AWSAcuityReader#DASHFragmentSelectorType": {
+    "com.amazonaws.kinesisvideoarchivedmedia#DASHFragmentSelectorType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PRODUCER_TIMESTAMP": {
+        "smithy.api#enum": [
+          {
+            "value": "PRODUCER_TIMESTAMP",
             "name": "PRODUCER_TIMESTAMP"
           },
-          "SERVER_TIMESTAMP": {
+          {
+            "value": "SERVER_TIMESTAMP",
             "name": "SERVER_TIMESTAMP"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#DASHPlaybackMode": {
+    "com.amazonaws.kinesisvideoarchivedmedia#DASHPlaybackMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "LIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "LIVE",
             "name": "LIVE"
           },
-          "LIVE_REPLAY": {
+          {
+            "value": "LIVE_REPLAY",
             "name": "LIVE_REPLAY"
           },
-          "ON_DEMAND": {
+          {
+            "value": "ON_DEMAND",
             "name": "ON_DEMAND"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#DASHStreamingSessionURL": {
+    "com.amazonaws.kinesisvideoarchivedmedia#DASHStreamingSessionURL": {
       "type": "string"
     },
-    "com.amazon.AWSAcuityReader#DASHTimestampRange": {
+    "com.amazonaws.kinesisvideoarchivedmedia#DASHTimestampRange": {
       "type": "structure",
       "members": {
         "EndTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The end of the timestamp range for the requested media. This value must be within 3\n            hours of the specified <code>StartTimestamp</code>, and it must be later than the\n                <code>StartTimestamp</code> value.</p>\n        <p>If <code>FragmentSelectorType</code> for the request is <code>SERVER_TIMESTAMP</code>,\n            this value must be in the past.</p>\n\n        <p>The <code>EndTimestamp</code> value is required for <code>ON_DEMAND</code> mode, but\n            optional for <code>LIVE_REPLAY</code> mode. If the <code>EndTimestamp</code> is not set\n            for <code>LIVE_REPLAY</code> mode then the session will continue to include newly\n            ingested fragments until the session expires.</p>\n        <note>\n            <p>This value is inclusive. The <code>EndTimestamp</code> is compared to the\n                (starting) timestamp of the fragment. Fragments that start before the\n                    <code>EndTimestamp</code> value and continue past it are included in the\n                session.</p>\n        </note>"
           }
         },
         "StartTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start of the timestamp range for the requested media.</p>\n        <p>If the <code>DASHTimestampRange</code> value is specified, the\n                <code>StartTimestamp</code> value is required.</p>\n        <note>\n            <p>This value is inclusive. Fragments that start before the\n                    <code>StartTimestamp</code> and continue past it are included in the session. If\n                    <code>FragmentSelectorType</code> is <code>SERVER_TIMESTAMP</code>, the\n                    <code>StartTimestamp</code> must be later than the stream head.</p>\n        </note>"
           }
@@ -200,48 +206,48 @@
         "smithy.api#documentation": "<p>The start and end of the timestamp range for the requested media.</p>\n        <p>This value should not be present if <code>PlaybackType</code> is\n            <code>LIVE</code>.</p>\n        <note>\n            <p>The values in the <code>DASHimestampRange</code> are inclusive. Fragments that\n                begin before the start time but continue past it, or fragments that begin before the\n                end time but continue past it, are included in the session.</p>\n        </note>"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ErrorMessage": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage": {
       "type": "string"
     },
-    "com.amazon.AWSAcuityReader#Expires": {
+    "com.amazonaws.kinesisvideoarchivedmedia#Expires": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 300,
           "max": 43200
         }
       }
     },
-    "com.amazon.AWSAcuityReader#Fragment": {
+    "com.amazonaws.kinesisvideoarchivedmedia#Fragment": {
       "type": "structure",
       "members": {
         "FragmentLengthInMilliseconds": {
-          "target": "com.amazon.AWSAcuityReader#Long",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Long",
           "traits": {
             "smithy.api#documentation": "<p>The playback duration or other time value associated with the fragment.</p>"
           }
         },
         "FragmentNumber": {
-          "target": "com.amazon.AWSAcuityReader#String",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#String",
           "traits": {
             "smithy.api#documentation": "<p>The unique identifier of the fragment. This value monotonically increases based on the\n            ingestion order.</p>"
           }
         },
         "FragmentSizeInBytes": {
-          "target": "com.amazon.AWSAcuityReader#Long",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Long",
           "traits": {
             "smithy.api#documentation": "<p>The total fragment size, including information about the fragment and contained media\n            data.</p>"
           }
         },
         "ProducerTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp from the producer corresponding to the fragment.</p>"
           }
         },
         "ServerTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp from the AWS server corresponding to the fragment.</p>"
           }
@@ -251,16 +257,16 @@
         "smithy.api#documentation": "<p>Represents a segment of video or other time-delimited data.</p>"
       }
     },
-    "com.amazon.AWSAcuityReader#FragmentList": {
+    "com.amazonaws.kinesisvideoarchivedmedia#FragmentList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.AWSAcuityReader#Fragment"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#Fragment"
       }
     },
-    "com.amazon.AWSAcuityReader#FragmentNumberList": {
+    "com.amazonaws.kinesisvideoarchivedmedia#FragmentNumberList": {
       "type": "list",
       "member": {
-        "target": "com.amazon.kinesis.video.v20170930#FragmentNumberString"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#FragmentNumberString"
       },
       "traits": {
         "smithy.api#length": {
@@ -269,7 +275,7 @@
         }
       }
     },
-    "com.amazon.kinesis.video.v20170930#FragmentNumberString": {
+    "com.amazonaws.kinesisvideoarchivedmedia#FragmentNumberString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -279,21 +285,21 @@
         "smithy.api#pattern": "^[0-9]+$"
       }
     },
-    "com.amazon.AWSAcuityReader#FragmentSelector": {
+    "com.amazonaws.kinesisvideoarchivedmedia#FragmentSelector": {
       "type": "structure",
       "members": {
         "FragmentSelectorType": {
-          "target": "com.amazon.AWSAcuityReader#FragmentSelectorType",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#FragmentSelectorType",
           "traits": {
             "smithy.api#documentation": "<p>The origin of the timestamps to use (Server or Producer).</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "TimestampRange": {
-          "target": "com.amazon.AWSAcuityReader#TimestampRange",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#TimestampRange",
           "traits": {
             "smithy.api#documentation": "<p>The range of timestamps to return.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -301,51 +307,53 @@
         "smithy.api#documentation": "<p>Describes the timestamp range and timestamp origin of a range of fragments.</p>\n        <p>Only fragments with a start timestamp greater than or equal to the given start time\n            and less than or equal to the end time are returned. For example, if a stream contains\n            fragments with the following start timestamps: </p>\n        <ul>\n            <li>\n                <p>00:00:00</p>\n            </li>\n            <li>\n                <p>00:00:02</p>\n            </li>\n            <li>\n                <p>00:00:04</p>\n            </li>\n            <li>\n                <p>00:00:06</p>\n            </li>\n         </ul>\n        <p> A fragment selector range with a start time of 00:00:01 and end time of 00:00:04\n            would return the fragments with start times of 00:00:02 and 00:00:04. </p>"
       }
     },
-    "com.amazon.AWSAcuityReader#FragmentSelectorType": {
+    "com.amazonaws.kinesisvideoarchivedmedia#FragmentSelectorType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PRODUCER_TIMESTAMP": {
+        "smithy.api#enum": [
+          {
+            "value": "PRODUCER_TIMESTAMP",
             "name": "PRODUCER_TIMESTAMP"
           },
-          "SERVER_TIMESTAMP": {
+          {
+            "value": "SERVER_TIMESTAMP",
             "name": "SERVER_TIMESTAMP"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#GetDASHStreamingSessionURL": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetDASHStreamingSessionURL": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSAcuityReader#GetDASHStreamingSessionURLInput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#GetDASHStreamingSessionURLInput"
       },
       "output": {
-        "target": "com.amazon.AWSAcuityReader#GetDASHStreamingSessionURLOutput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#GetDASHStreamingSessionURLOutput"
       },
       "errors": [
         {
-          "target": "com.amazon.kinesis.video.v20170930#ClientLimitExceededException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidArgumentException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidCodecPrivateDataException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#MissingCodecPrivateDataException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NoDataRetentionException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NotAuthorizedException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceNotFoundException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#UnsupportedStreamMediaTypeException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException"
         }
       ],
       "traits": {
@@ -357,102 +365,102 @@
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetDASHStreamingSessionURLInput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetDASHStreamingSessionURLInput": {
       "type": "structure",
       "members": {
         "DASHFragmentSelector": {
-          "target": "com.amazon.AWSAcuityReader#DASHFragmentSelector",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#DASHFragmentSelector",
           "traits": {
             "smithy.api#documentation": "<p>The time range of the requested fragment and the source of the timestamps.</p>\n        <p>This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code> or\n                <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code></code>\n            <code>LIVE</code>. If <code>PlaybackMode</code> is <code>LIVE</code>, the\n                <code>FragmentSelectorType</code> can be set, but the <code>TimestampRange</code>\n            should not be set. If <code>PlaybackMode</code> is <code>ON_DEMAND</code> or\n                <code>LIVE_REPLAY</code>, both <code>FragmentSelectorType</code> and\n                <code>TimestampRange</code> must be set.</p>"
           }
         },
         "DisplayFragmentNumber": {
-          "target": "com.amazon.AWSAcuityReader#DASHDisplayFragmentNumber",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#DASHDisplayFragmentNumber",
           "traits": {
             "smithy.api#documentation": "<p>Fragments are identified in the manifest file based on their sequence number in the\n            session. If DisplayFragmentNumber is set to <code>ALWAYS</code>, the Kinesis Video\n            Streams fragment number is added to each S element in the manifest file with the\n            attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with\n            other APIs (e.g. <code>GetMedia</code> and <code>GetMediaForFragmentList</code>). A\n            custom MPEG-DASH media player is necessary to leverage these this custom\n            attribute.</p>\n        <p>The default value is <code>NEVER</code>.</p>"
           }
         },
         "DisplayFragmentTimestamp": {
-          "target": "com.amazon.AWSAcuityReader#DASHDisplayFragmentTimestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#DASHDisplayFragmentTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file\n            can be derived using attributes in the manifest itself. However, typically, MPEG-DASH\n            compatible media players do not properly handle gaps in the media timeline. Kinesis\n            Video Streams adjusts the media timeline in the manifest file to enable playback of\n            media with discontinuities. Therefore, the wall-clock time derived from the manifest\n            file may be inaccurate. If DisplayFragmentTimestamp is set to <code>ALWAYS</code>, the\n            accurate fragment timestamp is added to each S element in the manifest file with the\n            attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this\n            custom attribute.</p>\n        <p>The default value is <code>NEVER</code>. When <a>DASHFragmentSelector</a>\n            is <code>SERVER_TIMESTAMP</code>, the timestamps will be the server start timestamps.\n            Similarly, when <a>DASHFragmentSelector</a> is\n                <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start\n            timestamps. </p>"
           }
         },
         "Expires": {
-          "target": "com.amazon.AWSAcuityReader#Expires",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Expires",
           "traits": {
             "smithy.api#documentation": "<p>The time in seconds until the requested session expires. This value can be between 300\n            (5 minutes) and 43200 (12 hours).</p>\n        <p>When a session expires, no new calls to <code>GetDashManifest</code>,\n                <code>GetMP4InitFragment</code>, or <code>GetMP4MediaFragment</code> can be made for\n            that session.</p>\n        <p>The default is 300 (5 minutes).</p>"
           }
         },
         "MaxManifestFragmentResults": {
-          "target": "com.amazon.AWSAcuityReader#PageLimit",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#PageLimit",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of fragments that are returned in the MPEG-DASH manifest.</p>\n        <p>When the <code>PlaybackMode</code> is <code>LIVE</code>, the most recent fragments are\n            returned up to this value. When the <code>PlaybackMode</code> is <code>ON_DEMAND</code>,\n            the oldest fragments are returned, up to this maximum number.</p>\n        <p>When there are a higher number of fragments available in a live MPEG-DASH manifest,\n            video players often buffer content before starting playback. Increasing the buffer size\n            increases the playback latency, but it decreases the likelihood that rebuffering will\n            occur during playback. We recommend that a live MPEG-DASH manifest have a minimum of 3\n            fragments and a maximum of 10 fragments.</p>\n        <p>The default is 5 fragments if <code>PlaybackMode</code> is <code>LIVE</code> or\n                <code>LIVE_REPLAY</code>, and 1,000 if <code>PlaybackMode</code> is\n                <code>ON_DEMAND</code>. </p>\n        <p>The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on\n            streams with 1-second fragments, and more than 2 1/2 hours of video on streams with\n            10-second fragments.</p>"
           }
         },
         "PlaybackMode": {
-          "target": "com.amazon.AWSAcuityReader#DASHPlaybackMode",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#DASHPlaybackMode",
           "traits": {
             "smithy.api#documentation": "<p>Whether to retrieve live, live replay, or archived, on-demand data.</p>\n        <p>Features of the three types of sessions include the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <b>\n                     <code>LIVE</code>\n                  </b>: For sessions of this type,\n                    the MPEG-DASH manifest is continually updated with the latest fragments as they\n                    become available. We recommend that the media player retrieve a new manifest on\n                    a one-second interval. When this type of session is played in a media player,\n                    the user interface typically displays a \"live\" notification, with no scrubber\n                    control for choosing the position in the playback window to display.</p>\n                <note>\n                    <p>In <code>LIVE</code> mode, the newest available fragments are included in\n                        an MPEG-DASH manifest, even if there is a gap between fragments (that is, if\n                        a fragment is missing). A gap like this might cause a media player to halt\n                        or cause a jump in playback. In this mode, fragments are not added to the\n                        MPEG-DASH manifest if they are older than the newest fragment in the\n                        playlist. If the missing fragment becomes available after a subsequent\n                        fragment is added to the manifest, the older fragment is not added, and the\n                        gap is not filled.</p>\n                </note>\n            </li>\n            <li>\n                <p>\n                  <b>\n                     <code>LIVE_REPLAY</code>\n                  </b>: For sessions of\n                    this type, the MPEG-DASH manifest is updated similarly to how it is updated for\n                        <code>LIVE</code> mode except that it starts by including fragments from a\n                    given start time. Instead of fragments being added as they are ingested,\n                    fragments are added as the duration of the next fragment elapses. For example,\n                    if the fragments in the session are two seconds long, then a new fragment is\n                    added to the manifest every two seconds. This mode is useful to be able to start\n                    playback from when an event is detected and continue live streaming media that\n                    has not yet been ingested as of the time of the session creation. This mode is\n                    also useful to stream previously archived media without being limited by the\n                    1,000 fragment limit in the <code>ON_DEMAND</code> mode. </p>\n            </li>\n            <li>\n                <p>\n                  <b>\n                     <code>ON_DEMAND</code>\n                  </b>: For sessions of this\n                    type, the MPEG-DASH manifest contains all the fragments for the session, up to\n                    the number that is specified in <code>MaxMediaPlaylistFragmentResults</code>.\n                    The manifest must be retrieved only once for each session. When this type of\n                    session is played in a media player, the user interface typically displays a\n                    scrubber control for choosing the position in the playback window to\n                    display.</p>\n            </li>\n         </ul>\n        <p>In all playback modes, if <code>FragmentSelectorType</code> is\n                <code>PRODUCER_TIMESTAMP</code>, and if there are multiple fragments with the same\n            start timestamp, the fragment that has the larger fragment number (that is, the newer\n            fragment) is included in the MPEG-DASH manifest. The other fragments are not included.\n            Fragments that have different timestamps but have overlapping durations are still\n            included in the MPEG-DASH manifest. This can lead to unexpected behavior in the media\n            player.</p>\n        <p>The default is <code>LIVE</code>.</p>"
           }
         },
         "StreamARN": {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceARN",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH\n            manifest URL.</p>\n        <p>You must specify either the <code>StreamName</code> or the\n            <code>StreamARN</code>.</p>"
           }
         },
         "StreamName": {
-          "target": "com.amazon.kinesis.video.v20170930#StreamName",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream for which to retrieve the MPEG-DASH manifest URL.</p>\n        <p>You must specify either the <code>StreamName</code> or the\n            <code>StreamARN</code>.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetDASHStreamingSessionURLOutput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetDASHStreamingSessionURLOutput": {
       "type": "structure",
       "members": {
         "DASHStreamingSessionURL": {
-          "target": "com.amazon.AWSAcuityReader#DASHStreamingSessionURL",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#DASHStreamingSessionURL",
           "traits": {
             "smithy.api#documentation": "<p>The URL (containing the session token) that a media player can use to retrieve the\n            MPEG-DASH manifest.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetHLSStreamingSessionURL": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetHLSStreamingSessionURL": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSAcuityReader#GetHLSStreamingSessionURLInput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#GetHLSStreamingSessionURLInput"
       },
       "output": {
-        "target": "com.amazon.AWSAcuityReader#GetHLSStreamingSessionURLOutput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#GetHLSStreamingSessionURLOutput"
       },
       "errors": [
         {
-          "target": "com.amazon.kinesis.video.v20170930#ClientLimitExceededException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidArgumentException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidCodecPrivateDataException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#MissingCodecPrivateDataException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NoDataRetentionException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NotAuthorizedException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceNotFoundException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#UnsupportedStreamMediaTypeException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException"
         }
       ],
       "traits": {
@@ -464,96 +472,96 @@
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetHLSStreamingSessionURLInput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetHLSStreamingSessionURLInput": {
       "type": "structure",
       "members": {
         "ContainerFormat": {
-          "target": "com.amazon.AWSAcuityReader#ContainerFormat",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ContainerFormat",
           "traits": {
             "smithy.api#documentation": "<p>Specifies which format should be used for packaging the media. Specifying the\n                <code>FRAGMENTED_MP4</code> container format packages the media into MP4 fragments\n            (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging\n            overhead. The other container format option is <code>MPEG_TS</code>. HLS has supported\n            MPEG TS chunks since it was released and is sometimes the only supported packaging on\n            older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means\n            MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.</p>\n        <p>The default is <code>FRAGMENTED_MP4</code>.</p>"
           }
         },
         "DiscontinuityMode": {
-          "target": "com.amazon.AWSAcuityReader#HLSDiscontinuityMode",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#HLSDiscontinuityMode",
           "traits": {
             "smithy.api#documentation": "<p>Specifies when flags marking discontinuities between fragments are added to the media\n            playlists.</p>\n        <p>Media players typically build a timeline of media content to play, based on the\n            timestamps of each fragment. This means that if there is any overlap or gap between\n            fragments (as is typical if <a>HLSFragmentSelector</a> is set to\n                <code>SERVER_TIMESTAMP</code>), the media player timeline will also have small gaps\n            between fragments in some places, and will overwrite frames in other places. Gaps in the\n            media player timeline can cause playback to stall and overlaps can cause playback to be\n            jittery. When there are discontinuity flags between fragments, the media player is\n            expected to reset the timeline, resulting in the next fragment being played immediately\n            after the previous fragment. </p>\n        <p>The following modes are supported:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ALWAYS</code>: a discontinuity marker is placed between every fragment\n                    in the HLS media playlist. It is recommended to use a value of\n                        <code>ALWAYS</code> if the fragment timestamps are not accurate.</p>\n            </li>\n            <li>\n                <p>\n                  <code>NEVER</code>: no discontinuity markers are placed anywhere. It is\n                    recommended to use a value of <code>NEVER</code> to ensure the media player\n                    timeline most accurately maps to the producer timestamps. </p>\n            </li>\n            <li>\n                <p>\n                  <code>ON_DISCONTIUNITY</code>: a discontinuity marker is placed between\n                    fragments that have a gap or overlap of more than 50 milliseconds. For most\n                    playback scenarios, it is recommended to use a value of\n                        <code>ON_DISCONTINUITY</code> so that the media player timeline is only\n                    reset when there is a significant issue with the media timeline (e.g. a missing\n                    fragment).</p>\n            </li>\n         </ul>\n        <p>The default is <code>ALWAYS</code> when <a>HLSFragmentSelector</a> is set\n            to <code>SERVER_TIMESTAMP</code>, and <code>NEVER</code> when it is set to\n                <code>PRODUCER_TIMESTAMP</code>.</p>"
           }
         },
         "DisplayFragmentTimestamp": {
-          "target": "com.amazon.AWSAcuityReader#HLSDisplayFragmentTimestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#HLSDisplayFragmentTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>Specifies when the fragment start timestamps should be included in the HLS media\n            playlist. Typically, media players report the playhead position as a time relative to\n            the start of the first fragment in the playback session. However, when the start\n            timestamps are included in the HLS media playlist, some media players might report the\n            current playhead as an absolute time based on the fragment timestamps. This can be\n            useful for creating a playback experience that shows viewers the wall-clock time of the\n            media.</p>\n        <p>The default is <code>NEVER</code>. When <a>HLSFragmentSelector</a> is\n                <code>SERVER_TIMESTAMP</code>, the timestamps will be the server start timestamps.\n            Similarly, when <a>HLSFragmentSelector</a> is\n            <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start timestamps.\n        </p>"
           }
         },
         "Expires": {
-          "target": "com.amazon.AWSAcuityReader#Expires",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Expires",
           "traits": {
             "smithy.api#documentation": "<p>The time in seconds until the requested session expires. This value can be between 300\n            (5 minutes) and 43200 (12 hours).</p>\n        <p>When a session expires, no new calls to <code>GetHLSMasterPlaylist</code>,\n                <code>GetHLSMediaPlaylist</code>, <code>GetMP4InitFragment</code>,\n                <code>GetMP4MediaFragment</code>, or <code>GetTSFragment</code> can be made for that\n            session.</p>\n        <p>The default is 300 (5 minutes).</p>"
           }
         },
         "HLSFragmentSelector": {
-          "target": "com.amazon.AWSAcuityReader#HLSFragmentSelector",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#HLSFragmentSelector",
           "traits": {
             "smithy.api#documentation": "<p>The time range of the requested fragment and the source of the timestamps.</p>\n        <p>This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code> or\n                <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code></code>\n            <code>LIVE</code>. If <code>PlaybackMode</code> is <code>LIVE</code>, the\n                <code>FragmentSelectorType</code> can be set, but the <code>TimestampRange</code>\n            should not be set. If <code>PlaybackMode</code> is <code>ON_DEMAND</code> or\n                <code>LIVE_REPLAY</code>, both <code>FragmentSelectorType</code> and\n                <code>TimestampRange</code> must be set.</p>"
           }
         },
         "MaxMediaPlaylistFragmentResults": {
-          "target": "com.amazon.AWSAcuityReader#PageLimit",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#PageLimit",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of fragments that are returned in the HLS media playlists.</p>\n        <p>When the <code>PlaybackMode</code> is <code>LIVE</code>, the most recent fragments are\n            returned up to this value. When the <code>PlaybackMode</code> is <code>ON_DEMAND</code>,\n            the oldest fragments are returned, up to this maximum number.</p>\n        <p>When there are a higher number of fragments available in a live HLS media playlist,\n            video players often buffer content before starting playback. Increasing the buffer size\n            increases the playback latency, but it decreases the likelihood that rebuffering will\n            occur during playback. We recommend that a live HLS media playlist have a minimum of 3\n            fragments and a maximum of 10 fragments.</p>\n        <p>The default is 5 fragments if <code>PlaybackMode</code> is <code>LIVE</code> or\n                <code>LIVE_REPLAY</code>, and 1,000 if <code>PlaybackMode</code> is\n                <code>ON_DEMAND</code>. </p>\n        <p>The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on\n            streams with 1-second fragments, and more than 2 1/2 hours of video on streams with\n            10-second fragments.</p>"
           }
         },
         "PlaybackMode": {
-          "target": "com.amazon.AWSAcuityReader#HLSPlaybackMode",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#HLSPlaybackMode",
           "traits": {
             "smithy.api#documentation": "<p>Whether to retrieve live, live replay, or archived, on-demand data.</p>\n        <p>Features of the three types of sessions include the following:</p>\n        <ul>\n            <li>\n                <p>\n                  <b>\n                     <code>LIVE</code>\n                  </b>: For sessions of this type,\n                    the HLS media playlist is continually updated with the latest fragments as they\n                    become available. We recommend that the media player retrieve a new playlist on\n                    a one-second interval. When this type of session is played in a media player,\n                    the user interface typically displays a \"live\" notification, with no scrubber\n                    control for choosing the position in the playback window to display.</p>\n                <note>\n                    <p>In <code>LIVE</code> mode, the newest available fragments are included in\n                        an HLS media playlist, even if there is a gap between fragments (that is, if\n                        a fragment is missing). A gap like this might cause a media player to halt\n                        or cause a jump in playback. In this mode, fragments are not added to the\n                        HLS media playlist if they are older than the newest fragment in the\n                        playlist. If the missing fragment becomes available after a subsequent\n                        fragment is added to the playlist, the older fragment is not added, and the\n                        gap is not filled.</p>\n                </note>\n            </li>\n            <li>\n                <p>\n                  <b>\n                     <code>LIVE_REPLAY</code>\n                  </b>: For sessions of\n                    this type, the HLS media playlist is updated similarly to how it is updated for\n                        <code>LIVE</code> mode except that it starts by including fragments from a\n                    given start time. Instead of fragments being added as they are ingested,\n                    fragments are added as the duration of the next fragment elapses. For example,\n                    if the fragments in the session are two seconds long, then a new fragment is\n                    added to the media playlist every two seconds. This mode is useful to be able to\n                    start playback from when an event is detected and continue live streaming media\n                    that has not yet been ingested as of the time of the session creation. This mode\n                    is also useful to stream previously archived media without being limited by the\n                    1,000 fragment limit in the <code>ON_DEMAND</code> mode. </p>\n            </li>\n            <li>\n                <p>\n                  <b>\n                     <code>ON_DEMAND</code>\n                  </b>: For sessions of this\n                    type, the HLS media playlist contains all the fragments for the session, up to\n                    the number that is specified in <code>MaxMediaPlaylistFragmentResults</code>.\n                    The playlist must be retrieved only once for each session. When this type of\n                    session is played in a media player, the user interface typically displays a\n                    scrubber control for choosing the position in the playback window to\n                    display.</p>\n            </li>\n         </ul>\n        <p>In all playback modes, if <code>FragmentSelectorType</code> is\n                <code>PRODUCER_TIMESTAMP</code>, and if there are multiple fragments with the same\n            start timestamp, the fragment that has the larger fragment number (that is, the newer\n            fragment) is included in the HLS media playlist. The other fragments are not included.\n            Fragments that have different timestamps but have overlapping durations are still\n            included in the HLS media playlist. This can lead to unexpected behavior in the media\n            player.</p>\n        <p>The default is <code>LIVE</code>.</p>"
           }
         },
         "StreamARN": {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceARN",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ResourceARN",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master\n            playlist URL.</p>\n        <p>You must specify either the <code>StreamName</code> or the\n            <code>StreamARN</code>.</p>"
           }
         },
         "StreamName": {
-          "target": "com.amazon.kinesis.video.v20170930#StreamName",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream for which to retrieve the HLS master playlist URL.</p>\n        <p>You must specify either the <code>StreamName</code> or the\n            <code>StreamARN</code>.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetHLSStreamingSessionURLOutput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetHLSStreamingSessionURLOutput": {
       "type": "structure",
       "members": {
         "HLSStreamingSessionURL": {
-          "target": "com.amazon.AWSAcuityReader#HLSStreamingSessionURL",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#HLSStreamingSessionURL",
           "traits": {
             "smithy.api#documentation": "<p>The URL (containing the session token) that a media player can use to retrieve the HLS\n            master playlist.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetMediaForFragmentList": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetMediaForFragmentList": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSAcuityReader#GetMediaForFragmentListInput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#GetMediaForFragmentListInput"
       },
       "output": {
-        "target": "com.amazon.AWSAcuityReader#GetMediaForFragmentListOutput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#GetMediaForFragmentListOutput"
       },
       "errors": [
         {
-          "target": "com.amazon.kinesis.video.v20170930#ClientLimitExceededException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidArgumentException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NotAuthorizedException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceNotFoundException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -565,85 +573,89 @@
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetMediaForFragmentListInput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetMediaForFragmentListInput": {
       "type": "structure",
       "members": {
         "Fragments": {
-          "target": "com.amazon.AWSAcuityReader#FragmentNumberList",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#FragmentNumberList",
           "traits": {
             "smithy.api#documentation": "<p>A list of the numbers of fragments for which to retrieve media. You retrieve these\n            values with <a>ListFragments</a>.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StreamName": {
-          "target": "com.amazon.kinesis.video.v20170930#StreamName",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream from which to retrieve fragment media.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#GetMediaForFragmentListOutput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#GetMediaForFragmentListOutput": {
       "type": "structure",
       "members": {
         "ContentType": {
-          "target": "com.amazon.kinesis.video.v20170930#ContentType",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ContentType",
           "traits": {
             "smithy.api#documentation": "<p>The content type of the requested media.</p>",
             "smithy.api#httpHeader": "Content-Type"
           }
         },
         "Payload": {
-          "target": "com.amazon.kinesis.video.v20170930#Payload",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Payload",
           "traits": {
             "smithy.api#documentation": "<p>The payload that Kinesis Video Streams returns is a sequence of chunks from the\n            specified stream. For information about the chunks, see <a href=\"http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html\">PutMedia</a>. The chunks that\n            Kinesis Video Streams returns in the <code>GetMediaForFragmentList</code> call also\n            include the following additional Matroska (MKV) tags: </p>\n        <ul>\n            <li>\n                <p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the\n                    chunk.</p>\n            </li>\n            <li>\n                <p>AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of the\n                    fragment.</p>\n            </li>\n            <li>\n                <p>AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp of the\n                    fragment.</p>\n            </li>\n         </ul>\n        <p>The following tags will be included if an exception occurs:</p>\n        <ul>\n            <li>\n                <p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the\n                    exception</p>\n            </li>\n            <li>\n                <p>AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the\n                    exception</p>\n            </li>\n            <li>\n                <p>AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the\n                    exception</p>\n            </li>\n         </ul>",
-            "smithy.api#httpPayload": true,
-            "smithy.api#streaming": { }
+            "smithy.api#httpPayload": {}
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#HLSDiscontinuityMode": {
+    "com.amazonaws.kinesisvideoarchivedmedia#HLSDiscontinuityMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALWAYS": {
+        "smithy.api#enum": [
+          {
+            "value": "ALWAYS",
             "name": "ALWAYS"
           },
-          "NEVER": {
+          {
+            "value": "NEVER",
             "name": "NEVER"
           },
-          "ON_DISCONTINUITY": {
+          {
+            "value": "ON_DISCONTINUITY",
             "name": "ON_DISCONTINUITY"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#HLSDisplayFragmentTimestamp": {
+    "com.amazonaws.kinesisvideoarchivedmedia#HLSDisplayFragmentTimestamp": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ALWAYS": {
+        "smithy.api#enum": [
+          {
+            "value": "ALWAYS",
             "name": "ALWAYS"
           },
-          "NEVER": {
+          {
+            "value": "NEVER",
             "name": "NEVER"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#HLSFragmentSelector": {
+    "com.amazonaws.kinesisvideoarchivedmedia#HLSFragmentSelector": {
       "type": "structure",
       "members": {
         "FragmentSelectorType": {
-          "target": "com.amazon.AWSAcuityReader#HLSFragmentSelectorType",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#HLSFragmentSelectorType",
           "traits": {
             "smithy.api#documentation": "<p>The source of the timestamps for the requested media.</p>\n        <p>When <code>FragmentSelectorType</code> is set to <code>PRODUCER_TIMESTAMP</code> and\n                <a>GetHLSStreamingSessionURLInput$PlaybackMode</a> is\n                <code>ON_DEMAND</code> or <code>LIVE_REPLAY</code>, the first fragment ingested with\n            a producer timestamp within the specified <a>FragmentSelector$TimestampRange</a> is included in the media playlist. In\n            addition, the fragments with producer timestamps within the <code>TimestampRange</code>\n            ingested immediately following the first fragment (up to the <a>GetHLSStreamingSessionURLInput$MaxMediaPlaylistFragmentResults</a> value)\n            are included. </p>\n        <p>Fragments that have duplicate producer timestamps are deduplicated. This means that if\n            producers are producing a stream of fragments with producer timestamps that are\n            approximately equal to the true clock time, the HLS media playlists will contain all of\n            the fragments within the requested timestamp range. If some fragments are ingested\n            within the same time range and very different points in time, only the oldest ingested\n            collection of fragments are returned.</p>\n        <p>When <code>FragmentSelectorType</code> is set to <code>PRODUCER_TIMESTAMP</code> and\n                <a>GetHLSStreamingSessionURLInput$PlaybackMode</a> is <code>LIVE</code>,\n            the producer timestamps are used in the MP4 fragments and for deduplication. But the\n            most recently ingested fragments based on server timestamps are included in the HLS\n            media playlist. This means that even if fragments ingested in the past have producer\n            timestamps with values now, they are not included in the HLS media playlist.</p>\n        <p>The default is <code>SERVER_TIMESTAMP</code>.</p>"
           }
         },
         "TimestampRange": {
-          "target": "com.amazon.AWSAcuityReader#HLSTimestampRange",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#HLSTimestampRange",
           "traits": {
             "smithy.api#documentation": "<p>The start and end of the timestamp range for the requested media.</p>\n        <p>This value should not be present if <code>PlaybackType</code> is\n            <code>LIVE</code>.</p>"
           }
@@ -653,49 +665,54 @@
         "smithy.api#documentation": "<p>Contains the range of timestamps for the requested media, and the source of the\n            timestamps.</p>"
       }
     },
-    "com.amazon.AWSAcuityReader#HLSFragmentSelectorType": {
+    "com.amazonaws.kinesisvideoarchivedmedia#HLSFragmentSelectorType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "PRODUCER_TIMESTAMP": {
+        "smithy.api#enum": [
+          {
+            "value": "PRODUCER_TIMESTAMP",
             "name": "PRODUCER_TIMESTAMP"
           },
-          "SERVER_TIMESTAMP": {
+          {
+            "value": "SERVER_TIMESTAMP",
             "name": "SERVER_TIMESTAMP"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#HLSPlaybackMode": {
+    "com.amazonaws.kinesisvideoarchivedmedia#HLSPlaybackMode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "LIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "LIVE",
             "name": "LIVE"
           },
-          "LIVE_REPLAY": {
+          {
+            "value": "LIVE_REPLAY",
             "name": "LIVE_REPLAY"
           },
-          "ON_DEMAND": {
+          {
+            "value": "ON_DEMAND",
             "name": "ON_DEMAND"
           }
-        }
+        ]
       }
     },
-    "com.amazon.AWSAcuityReader#HLSStreamingSessionURL": {
+    "com.amazonaws.kinesisvideoarchivedmedia#HLSStreamingSessionURL": {
       "type": "string"
     },
-    "com.amazon.AWSAcuityReader#HLSTimestampRange": {
+    "com.amazonaws.kinesisvideoarchivedmedia#HLSTimestampRange": {
       "type": "structure",
       "members": {
         "EndTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The end of the timestamp range for the requested media. This value must be within 3\n            hours of the specified <code>StartTimestamp</code>, and it must be later than the\n                <code>StartTimestamp</code> value.</p>\n        <p>If <code>FragmentSelectorType</code> for the request is <code>SERVER_TIMESTAMP</code>,\n            this value must be in the past.</p>\n        <p>The <code>EndTimestamp</code> value is required for <code>ON_DEMAND</code> mode, but\n            optional for <code>LIVE_REPLAY</code> mode. If the <code>EndTimestamp</code> is not set\n            for <code>LIVE_REPLAY</code> mode then the session will continue to include newly\n            ingested fragments until the session expires.</p>\n        <note>\n            <p>This value is inclusive. The <code>EndTimestamp</code> is compared to the\n                (starting) timestamp of the fragment. Fragments that start before the\n                    <code>EndTimestamp</code> value and continue past it are included in the\n                session.</p>\n        </note>"
           }
         },
         "StartTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The start of the timestamp range for the requested media.</p>\n        <p>If the <code>HLSTimestampRange</code> value is specified, the\n                <code>StartTimestamp</code> value is required.</p>\n        <note>\n            <p>This value is inclusive. Fragments that start before the\n                    <code>StartTimestamp</code> and continue past it are included in the session. If\n                    <code>FragmentSelectorType</code> is <code>SERVER_TIMESTAMP</code>, the\n                    <code>StartTimestamp</code> must be later than the stream head.</p>\n        </note>"
           }
@@ -705,11 +722,11 @@
         "smithy.api#documentation": "<p>The start and end of the timestamp range for the requested media.</p>\n        <p>This value should not be present if <code>PlaybackType</code> is\n            <code>LIVE</code>.</p>\n        <note>\n            <p>The values in the <code>HLSTimestampRange</code> are inclusive. Fragments that\n                begin before the start time but continue past it, or fragments that begin before the\n                end time but continue past it, are included in the session.</p>\n        </note>"
       }
     },
-    "com.amazon.kinesis.video.v20170930#InvalidArgumentException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {
@@ -718,11 +735,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#InvalidCodecPrivateDataException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {
@@ -731,26 +748,26 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.AWSAcuityReader#ListFragments": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ListFragments": {
       "type": "operation",
       "input": {
-        "target": "com.amazon.AWSAcuityReader#ListFragmentsInput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#ListFragmentsInput"
       },
       "output": {
-        "target": "com.amazon.AWSAcuityReader#ListFragmentsOutput"
+        "target": "com.amazonaws.kinesisvideoarchivedmedia#ListFragmentsOutput"
       },
       "errors": [
         {
-          "target": "com.amazon.kinesis.video.v20170930#ClientLimitExceededException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#InvalidArgumentException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#NotAuthorizedException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException"
         },
         {
-          "target": "com.amazon.kinesis.video.v20170930#ResourceNotFoundException"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException"
         }
       ],
       "traits": {
@@ -762,61 +779,61 @@
         }
       }
     },
-    "com.amazon.AWSAcuityReader#ListFragmentsInput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ListFragmentsInput": {
       "type": "structure",
       "members": {
         "FragmentSelector": {
-          "target": "com.amazon.AWSAcuityReader#FragmentSelector",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#FragmentSelector",
           "traits": {
             "smithy.api#documentation": "<p>Describes the timestamp range and timestamp origin for the range of fragments to\n            return.</p>"
           }
         },
         "MaxResults": {
-          "target": "com.amazon.AWSAcuityReader#PageLimit",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#PageLimit",
           "traits": {
             "smithy.api#documentation": "<p>The total number of fragments to return. If the total number of fragments available is\n            more than the value specified in <code>max-results</code>, then a <a>ListFragmentsOutput$NextToken</a> is provided in the output that you can use\n            to resume pagination.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.AWSAcuityReader#String",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#String",
           "traits": {
             "smithy.api#documentation": "<p>A token to specify where to start paginating. This is the <a>ListFragmentsOutput$NextToken</a> from a previously truncated\n            response.</p>"
           }
         },
         "StreamName": {
-          "target": "com.amazon.kinesis.video.v20170930#StreamName",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream from which to retrieve a fragment list.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#ListFragmentsOutput": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ListFragmentsOutput": {
       "type": "structure",
       "members": {
         "Fragments": {
-          "target": "com.amazon.AWSAcuityReader#FragmentList",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#FragmentList",
           "traits": {
             "smithy.api#documentation": "<p>A list of archived <a>Fragment</a> objects from the stream that meet the\n            selector criteria. Results are in no specific order, even across pages.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazon.AWSAcuityReader#String",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#String",
           "traits": {
             "smithy.api#documentation": "<p>If the returned list is truncated, the operation returns this token to use to retrieve\n            the next page of results. This value is <code>null</code> when there are no more results\n            to return.</p>"
           }
         }
       }
     },
-    "com.amazon.AWSAcuityReader#Long": {
+    "com.amazonaws.kinesisvideoarchivedmedia#Long": {
       "type": "long"
     },
-    "com.amazon.kinesis.video.v20170930#MissingCodecPrivateDataException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {
@@ -825,11 +842,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#NoDataRetentionException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {
@@ -838,11 +855,11 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazon.kinesis.video.v20170930#NotAuthorizedException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {
@@ -851,20 +868,23 @@
         "smithy.api#httpError": 401
       }
     },
-    "com.amazon.AWSAcuityReader#PageLimit": {
+    "com.amazonaws.kinesisvideoarchivedmedia#PageLimit": {
       "type": "long",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 1000
         }
       }
     },
-    "com.amazon.kinesis.video.v20170930#Payload": {
-      "type": "blob"
+    "com.amazonaws.kinesisvideoarchivedmedia#Payload": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#streaming": {}
+      }
     },
-    "com.amazon.kinesis.video.v20170930#ResourceARN": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ResourceARN": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -874,11 +894,11 @@
         "smithy.api#pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+"
       }
     },
-    "com.amazon.kinesis.video.v20170930#ResourceNotFoundException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {
@@ -887,7 +907,7 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazon.kinesis.video.v20170930#StreamName": {
+    "com.amazonaws.kinesisvideoarchivedmedia#StreamName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -897,7 +917,7 @@
         "smithy.api#pattern": "[a-zA-Z0-9_.-]+"
       }
     },
-    "com.amazon.AWSAcuityReader#String": {
+    "com.amazonaws.kinesisvideoarchivedmedia#String": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -905,24 +925,24 @@
         }
       }
     },
-    "com.amazon.kinesis.video.v20170930#Timestamp": {
+    "com.amazonaws.kinesisvideoarchivedmedia#Timestamp": {
       "type": "timestamp"
     },
-    "com.amazon.AWSAcuityReader#TimestampRange": {
+    "com.amazonaws.kinesisvideoarchivedmedia#TimestampRange": {
       "type": "structure",
       "members": {
         "EndTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The ending timestamp in the range of timestamps for which to return fragments.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "StartTimestamp": {
-          "target": "com.amazon.kinesis.video.v20170930#Timestamp",
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The starting timestamp in the range of timestamps for which to return\n            fragments.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -930,11 +950,11 @@
         "smithy.api#documentation": "<p>The range of timestamps for which to return fragments.</p>"
       }
     },
-    "com.amazon.kinesis.video.v20170930#UnsupportedStreamMediaTypeException": {
+    "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazon.kinesis.video.v20170930#ErrorMessage"
+          "target": "com.amazonaws.kinesisvideoarchivedmedia#ErrorMessage"
         }
       },
       "traits": {

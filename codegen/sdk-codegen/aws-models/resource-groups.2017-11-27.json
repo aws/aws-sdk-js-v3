@@ -1,74 +1,73 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.ardi#Ardi": {
+    "com.amazonaws.resourcegroups#Ardi": {
       "type": "service",
       "version": "2017-11-27",
       "operations": [
         {
-          "target": "com.amazonaws.ardi#CreateGroup"
+          "target": "com.amazonaws.resourcegroups#CreateGroup"
         },
         {
-          "target": "com.amazonaws.ardi#DeleteGroup"
+          "target": "com.amazonaws.resourcegroups#DeleteGroup"
         },
         {
-          "target": "com.amazonaws.ardi#GetGroup"
+          "target": "com.amazonaws.resourcegroups#GetGroup"
         },
         {
-          "target": "com.amazonaws.ardi#GetGroupQuery"
+          "target": "com.amazonaws.resourcegroups#GetGroupQuery"
         },
         {
-          "target": "com.amazonaws.ardi#GetTags"
+          "target": "com.amazonaws.resourcegroups#GetTags"
         },
         {
-          "target": "com.amazonaws.ardi#ListGroupResources"
+          "target": "com.amazonaws.resourcegroups#ListGroupResources"
         },
         {
-          "target": "com.amazonaws.ardi#ListGroups"
+          "target": "com.amazonaws.resourcegroups#ListGroups"
         },
         {
-          "target": "com.amazonaws.ardi#SearchResources"
+          "target": "com.amazonaws.resourcegroups#SearchResources"
         },
         {
-          "target": "com.amazonaws.ardi#Tag"
+          "target": "com.amazonaws.resourcegroups#Tag"
         },
         {
-          "target": "com.amazonaws.ardi#Untag"
+          "target": "com.amazonaws.resourcegroups#Untag"
         },
         {
-          "target": "com.amazonaws.ardi#UpdateGroup"
+          "target": "com.amazonaws.resourcegroups#UpdateGroup"
         },
         {
-          "target": "com.amazonaws.ardi#UpdateGroupQuery"
+          "target": "com.amazonaws.resourcegroups#UpdateGroupQuery"
         }
       ],
       "traits": {
@@ -78,23 +77,19 @@
           "cloudFormationName": "ResourceGroups",
           "cloudTrailEventSource": "ardi.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "resource-groups"
+        },
+        "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<fullname>AWS Resource Groups</fullname>\n         <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances,\n      Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria\n      that you define as tags. A resource group is a collection of resources that match the resource\n      types specified in a query, and share one or more tags or portions of tags. You can create a\n      group of resources based on their roles in your cloud infrastructure, lifecycle stages,\n      regions, application layers, or virtually any criteria. Resource groups enable you to automate\n      management tasks, such as those in AWS Systems Manager Automation documents, on tag-related\n      resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a\n      custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring\n      data about member resources.</p>\n         <p>To create a resource group, build a resource query, and specify tags that identify\n      the criteria that members of the group have in common. Tags are key-value pairs.</p>\n         <p>For more information about Resource Groups, see the <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html\">AWS Resource Groups User\n        Guide</a>.</p>\n         <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of operations.</p>\n         <ul>\n            <li>\n               <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and resource query entities</p>\n            </li>\n            <li>\n               <p>Applying, editing, and removing tags from resource groups</p>\n            </li>\n            <li>\n               <p>Resolving resource group member ARNs so they can be returned as search results</p>\n            </li>\n            <li>\n               <p>Getting data about resources that are members of a group</p>\n            </li>\n            <li>\n               <p>Searching AWS resources based on a resource query</p>\n            </li>\n         </ul>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.rest-json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "AWS Resource Groups"
       }
     },
-    "com.amazonaws.ardi#BadRequestException": {
+    "com.amazonaws.resourcegroups#BadRequestException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ardi#ErrorMessage"
+          "target": "com.amazonaws.resourcegroups#ErrorMessage"
         }
       },
       "traits": {
@@ -103,29 +98,29 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.ardi#CreateGroup": {
+    "com.amazonaws.resourcegroups#CreateGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#CreateGroupInput"
+        "target": "com.amazonaws.resourcegroups#CreateGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#CreateGroupOutput"
+        "target": "com.amazonaws.resourcegroups#CreateGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -137,86 +132,86 @@
         }
       }
     },
-    "com.amazonaws.ardi#CreateGroupInput": {
+    "com.amazonaws.resourcegroups#CreateGroupInput": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.ardi#GroupDescription",
+          "target": "com.amazonaws.resourcegroups#GroupDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, \n       punctuation, and spaces.</p>"
           }
         },
         "Name": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. \n       A resource group name can have a maximum of 128 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with \n       <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within your account.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceQuery": {
-          "target": "com.amazonaws.ardi#ResourceQuery",
+          "target": "com.amazonaws.resourcegroups#ResourceQuery",
           "traits": {
             "smithy.api#documentation": "<p>The resource query that determines which AWS resources are members of this group.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.ardi#Tags",
+          "target": "com.amazonaws.resourcegroups#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, \n       and tag values can have a maximum length of 256 characters.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#CreateGroupOutput": {
+    "com.amazonaws.resourcegroups#CreateGroupOutput": {
       "type": "structure",
       "members": {
         "Group": {
-          "target": "com.amazonaws.ardi#Group",
+          "target": "com.amazonaws.resourcegroups#Group",
           "traits": {
             "smithy.api#documentation": "<p>A full description of the resource group after it is created.</p>"
           }
         },
         "ResourceQuery": {
-          "target": "com.amazonaws.ardi#ResourceQuery",
+          "target": "com.amazonaws.resourcegroups#ResourceQuery",
           "traits": {
             "smithy.api#documentation": "<p>The resource query associated with the group.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.ardi#Tags",
+          "target": "com.amazonaws.resourcegroups#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags associated with the group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#DeleteGroup": {
+    "com.amazonaws.resourcegroups#DeleteGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#DeleteGroupInput"
+        "target": "com.amazonaws.resourcegroups#DeleteGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#DeleteGroupOutput"
+        "target": "com.amazonaws.resourcegroups#DeleteGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -228,31 +223,31 @@
         }
       }
     },
-    "com.amazonaws.ardi#DeleteGroupInput": {
+    "com.amazonaws.resourcegroups#DeleteGroupInput": {
       "type": "structure",
       "members": {
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group to delete.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#DeleteGroupOutput": {
+    "com.amazonaws.resourcegroups#DeleteGroupOutput": {
       "type": "structure",
       "members": {
         "Group": {
-          "target": "com.amazonaws.ardi#Group",
+          "target": "com.amazonaws.resourcegroups#Group",
           "traits": {
             "smithy.api#documentation": "<p>A full description of the deleted resource group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#ErrorMessage": {
+    "com.amazonaws.resourcegroups#ErrorMessage": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -261,11 +256,11 @@
         }
       }
     },
-    "com.amazonaws.ardi#ForbiddenException": {
+    "com.amazonaws.resourcegroups#ForbiddenException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ardi#ErrorMessage"
+          "target": "com.amazonaws.resourcegroups#ErrorMessage"
         }
       },
       "traits": {
@@ -274,32 +269,32 @@
         "smithy.api#httpError": 403
       }
     },
-    "com.amazonaws.ardi#GetGroup": {
+    "com.amazonaws.resourcegroups#GetGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#GetGroupInput"
+        "target": "com.amazonaws.resourcegroups#GetGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#GetGroupOutput"
+        "target": "com.amazonaws.resourcegroups#GetGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -311,56 +306,56 @@
         }
       }
     },
-    "com.amazonaws.ardi#GetGroupInput": {
+    "com.amazonaws.resourcegroups#GetGroupInput": {
       "type": "structure",
       "members": {
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#GetGroupOutput": {
+    "com.amazonaws.resourcegroups#GetGroupOutput": {
       "type": "structure",
       "members": {
         "Group": {
-          "target": "com.amazonaws.ardi#Group",
+          "target": "com.amazonaws.resourcegroups#Group",
           "traits": {
             "smithy.api#documentation": "<p>A full description of the resource group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#GetGroupQuery": {
+    "com.amazonaws.resourcegroups#GetGroupQuery": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#GetGroupQueryInput"
+        "target": "com.amazonaws.resourcegroups#GetGroupQueryInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#GetGroupQueryOutput"
+        "target": "com.amazonaws.resourcegroups#GetGroupQueryOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -372,56 +367,56 @@
         }
       }
     },
-    "com.amazonaws.ardi#GetGroupQueryInput": {
+    "com.amazonaws.resourcegroups#GetGroupQueryInput": {
       "type": "structure",
       "members": {
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#GetGroupQueryOutput": {
+    "com.amazonaws.resourcegroups#GetGroupQueryOutput": {
       "type": "structure",
       "members": {
         "GroupQuery": {
-          "target": "com.amazonaws.ardi#GroupQuery",
+          "target": "com.amazonaws.resourcegroups#GroupQuery",
           "traits": {
             "smithy.api#documentation": "<p>The resource query associated with the specified group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#GetTags": {
+    "com.amazonaws.resourcegroups#GetTags": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#GetTagsInput"
+        "target": "com.amazonaws.resourcegroups#GetTagsInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#GetTagsOutput"
+        "target": "com.amazonaws.resourcegroups#GetTagsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -433,57 +428,57 @@
         }
       }
     },
-    "com.amazonaws.ardi#GetTagsInput": {
+    "com.amazonaws.resourcegroups#GetTagsInput": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource group for which you want a list of tags. The resource must exist within the account you are using.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#GetTagsOutput": {
+    "com.amazonaws.resourcegroups#GetTagsOutput": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the tagged resource group.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.ardi#Tags",
+          "target": "com.amazonaws.resourcegroups#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags associated with the specified resource group.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#Group": {
+    "com.amazonaws.resourcegroups#Group": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.ardi#GroupDescription",
+          "target": "com.amazonaws.resourcegroups#GroupDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the resource group.</p>"
           }
         },
         "GroupArn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a resource group.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Name": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a resource group.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -491,7 +486,7 @@
         "smithy.api#documentation": "<p>A resource group.</p>"
       }
     },
-    "com.amazonaws.ardi#GroupArn": {
+    "com.amazonaws.resourcegroups#GroupArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -501,7 +496,7 @@
         "smithy.api#pattern": "arn:aws(-[a-z]+)*:resource-groups:[a-z]{2}-[a-z]+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}"
       }
     },
-    "com.amazonaws.ardi#GroupDescription": {
+    "com.amazonaws.resourcegroups#GroupDescription": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -511,21 +506,21 @@
         "smithy.api#pattern": "[\\sa-zA-Z0-9_\\.-]*"
       }
     },
-    "com.amazonaws.ardi#GroupFilter": {
+    "com.amazonaws.resourcegroups#GroupFilter": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.ardi#GroupFilterName",
+          "target": "com.amazonaws.resourcegroups#GroupFilterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the filter. Filter names are case-sensitive.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Values": {
-          "target": "com.amazonaws.ardi#GroupFilterValues",
+          "target": "com.amazonaws.resourcegroups#GroupFilterValues",
           "traits": {
             "smithy.api#documentation": "<p>One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -533,23 +528,24 @@
         "smithy.api#documentation": "<p>A filter name and value pair that is used to obtain more specific results from a list of groups.</p>"
       }
     },
-    "com.amazonaws.ardi#GroupFilterList": {
+    "com.amazonaws.resourcegroups#GroupFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#GroupFilter"
+        "target": "com.amazonaws.resourcegroups#GroupFilter"
       }
     },
-    "com.amazonaws.ardi#GroupFilterName": {
+    "com.amazonaws.resourcegroups#GroupFilterName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "resource-type": {
+        "smithy.api#enum": [
+          {
+            "value": "resource-type",
             "name": "ResourceType"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.ardi#GroupFilterValue": {
+    "com.amazonaws.resourcegroups#GroupFilterValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -559,10 +555,10 @@
         "smithy.api#pattern": "AWS::(AllSupported|[a-zA-Z0-9]+::[a-zA-Z0-9]+)"
       }
     },
-    "com.amazonaws.ardi#GroupFilterValues": {
+    "com.amazonaws.resourcegroups#GroupFilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#GroupFilterValue"
+        "target": "com.amazonaws.resourcegroups#GroupFilterValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -571,17 +567,17 @@
         }
       }
     },
-    "com.amazonaws.ardi#GroupIdentifier": {
+    "com.amazonaws.resourcegroups#GroupIdentifier": {
       "type": "structure",
       "members": {
         "GroupArn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a resource group.</p>"
           }
         },
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a resource group.</p>"
           }
@@ -591,19 +587,19 @@
         "smithy.api#documentation": "<p>The ARN and group name of a group.</p>"
       }
     },
-    "com.amazonaws.ardi#GroupIdentifierList": {
+    "com.amazonaws.resourcegroups#GroupIdentifierList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#GroupIdentifier"
+        "target": "com.amazonaws.resourcegroups#GroupIdentifier"
       }
     },
-    "com.amazonaws.ardi#GroupList": {
+    "com.amazonaws.resourcegroups#GroupList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#Group"
+        "target": "com.amazonaws.resourcegroups#Group"
       }
     },
-    "com.amazonaws.ardi#GroupName": {
+    "com.amazonaws.resourcegroups#GroupName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -613,21 +609,21 @@
         "smithy.api#pattern": "[a-zA-Z0-9_\\.-]+"
       }
     },
-    "com.amazonaws.ardi#GroupQuery": {
+    "com.amazonaws.resourcegroups#GroupQuery": {
       "type": "structure",
       "members": {
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of a resource group that is associated with a specific resource query.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ResourceQuery": {
-          "target": "com.amazonaws.ardi#ResourceQuery",
+          "target": "com.amazonaws.resourcegroups#ResourceQuery",
           "traits": {
             "smithy.api#documentation": "<p>The resource query which determines which AWS resources are members of the associated resource group.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -635,11 +631,11 @@
         "smithy.api#documentation": "<p>The underlying resource query of a resource group. Resources that match query results are part of the group.</p>"
       }
     },
-    "com.amazonaws.ardi#InternalServerErrorException": {
+    "com.amazonaws.resourcegroups#InternalServerErrorException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ardi#ErrorMessage"
+          "target": "com.amazonaws.resourcegroups#ErrorMessage"
         }
       },
       "traits": {
@@ -648,35 +644,35 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.ardi#ListGroupResources": {
+    "com.amazonaws.resourcegroups#ListGroupResources": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#ListGroupResourcesInput"
+        "target": "com.amazonaws.resourcegroups#ListGroupResourcesInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#ListGroupResourcesOutput"
+        "target": "com.amazonaws.resourcegroups#ListGroupResourcesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         },
         {
-          "target": "com.amazonaws.ardi#UnauthorizedException"
+          "target": "com.amazonaws.resourcegroups#UnauthorizedException"
         }
       ],
       "traits": {
@@ -693,32 +689,32 @@
         }
       }
     },
-    "com.amazonaws.ardi#ListGroupResourcesInput": {
+    "com.amazonaws.resourcegroups#ListGroupResourcesInput": {
       "type": "structure",
       "members": {
         "Filters": {
-          "target": "com.amazonaws.ardi#ResourceFilterList",
+          "target": "com.amazonaws.resourcegroups#ResourceFilterList",
           "traits": {
             "smithy.api#documentation": "<p>Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources operation.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resource-type</code> - Filter resources by their type. Specify up to five resource types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or AWS::S3::Bucket.</p>\n            </li>\n         </ul>"
           }
         },
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.ardi#MaxResults",
+          "target": "com.amazonaws.resourcegroups#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of group member ARNs that are returned in a single call by ListGroupResources, in paginated output. By default, this number is 50.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ardi#NextToken",
+          "target": "com.amazonaws.resourcegroups#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The NextToken value that is returned in a paginated ListGroupResources request. To get the next page of results, \n       run the call again, add the NextToken parameter, and specify the NextToken value.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -726,52 +722,52 @@
         }
       }
     },
-    "com.amazonaws.ardi#ListGroupResourcesOutput": {
+    "com.amazonaws.resourcegroups#ListGroupResourcesOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.ardi#NextToken",
+          "target": "com.amazonaws.resourcegroups#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results.</p>"
           }
         },
         "QueryErrors": {
-          "target": "com.amazonaws.ardi#QueryErrorList",
+          "target": "com.amazonaws.resourcegroups#QueryErrorList",
           "traits": {
             "smithy.api#documentation": "<p>A list of <code>QueryError</code> objects. Each error is an object that contains \n       <code>ErrorCode</code> and <code>Message</code> structures. Possible values \n       for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>"
           }
         },
         "ResourceIdentifiers": {
-          "target": "com.amazonaws.ardi#ResourceIdentifierList",
+          "target": "com.amazonaws.resourcegroups#ResourceIdentifierList",
           "traits": {
             "smithy.api#documentation": "<p>The ARNs and resource types of resources that are members of the group that you specified.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#ListGroups": {
+    "com.amazonaws.resourcegroups#ListGroups": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#ListGroupsInput"
+        "target": "com.amazonaws.resourcegroups#ListGroupsInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#ListGroupsOutput"
+        "target": "com.amazonaws.resourcegroups#ListGroupsOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -788,24 +784,24 @@
         }
       }
     },
-    "com.amazonaws.ardi#ListGroupsInput": {
+    "com.amazonaws.resourcegroups#ListGroupsInput": {
       "type": "structure",
       "members": {
         "Filters": {
-          "target": "com.amazonaws.ardi#GroupFilterList",
+          "target": "com.amazonaws.resourcegroups#GroupFilterList",
           "traits": {
             "smithy.api#documentation": "<p>Filters, formatted as GroupFilter objects, that you want to apply to a ListGroups operation.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resource-type</code> - Filter groups by resource type. Specify up to five resource types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or AWS::S3::Bucket.</p>\n            </li>\n         </ul>"
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.ardi#MaxResults",
+          "target": "com.amazonaws.resourcegroups#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of resource group results that are returned by ListGroups in paginated output. By default, this number is 50.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ardi#NextToken",
+          "target": "com.amazonaws.resourcegroups#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The NextToken value that is returned in a paginated <code>ListGroups</code> request. To get the next page of results, \n       run the call again, add the NextToken parameter, and specify the NextToken value.</p>",
             "smithy.api#httpQuery": "nextToken"
@@ -813,17 +809,17 @@
         }
       }
     },
-    "com.amazonaws.ardi#ListGroupsOutput": {
+    "com.amazonaws.resourcegroups#ListGroupsOutput": {
       "type": "structure",
       "members": {
         "GroupIdentifiers": {
-          "target": "com.amazonaws.ardi#GroupIdentifierList",
+          "target": "com.amazonaws.resourcegroups#GroupIdentifierList",
           "traits": {
             "smithy.api#documentation": "<p>A list of GroupIdentifier objects. Each identifier is an object that contains both the GroupName and the GroupArn.</p>"
           }
         },
         "Groups": {
-          "target": "com.amazonaws.ardi#GroupList",
+          "target": "com.amazonaws.resourcegroups#GroupList",
           "traits": {
             "smithy.api#deprecated": {
               "message": "This field is deprecated, use GroupIdentifiers instead."
@@ -832,28 +828,28 @@
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ardi#NextToken",
+          "target": "com.amazonaws.resourcegroups#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#MaxResults": {
+    "com.amazonaws.resourcegroups#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
         }
       }
     },
-    "com.amazonaws.ardi#MethodNotAllowedException": {
+    "com.amazonaws.resourcegroups#MethodNotAllowedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ardi#ErrorMessage"
+          "target": "com.amazonaws.resourcegroups#ErrorMessage"
         }
       },
       "traits": {
@@ -862,7 +858,7 @@
         "smithy.api#httpError": 405
       }
     },
-    "com.amazonaws.ardi#NextToken": {
+    "com.amazonaws.resourcegroups#NextToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -872,11 +868,11 @@
         "smithy.api#pattern": "^[a-zA-Z0-9+/]*={0,2}$"
       }
     },
-    "com.amazonaws.ardi#NotFoundException": {
+    "com.amazonaws.resourcegroups#NotFoundException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ardi#ErrorMessage"
+          "target": "com.amazonaws.resourcegroups#ErrorMessage"
         }
       },
       "traits": {
@@ -885,7 +881,7 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.ardi#Query": {
+    "com.amazonaws.resourcegroups#Query": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -895,17 +891,17 @@
         "smithy.api#pattern": "[\\s\\S]*"
       }
     },
-    "com.amazonaws.ardi#QueryError": {
+    "com.amazonaws.resourcegroups#QueryError": {
       "type": "structure",
       "members": {
         "ErrorCode": {
-          "target": "com.amazonaws.ardi#QueryErrorCode",
+          "target": "com.amazonaws.resourcegroups#QueryErrorCode",
           "traits": {
             "smithy.api#documentation": "<p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>"
           }
         },
         "Message": {
-          "target": "com.amazonaws.ardi#QueryErrorMessage",
+          "target": "com.amazonaws.resourcegroups#QueryErrorMessage",
           "traits": {
             "smithy.api#documentation": "<p>A message that explains the <code>ErrorCode</code> value. Messages might state \n       that the specified CloudFormation stack does not exist (or no longer exists). \n       For <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the \n       CloudFormation stack has a status that is not (or no longer) active, such as \n       <code>CREATE_FAILED</code>.</p>"
           }
@@ -915,39 +911,43 @@
         "smithy.api#documentation": "<p>A two-part error structure that can occur in <code>ListGroupResources</code> or \n       <code>SearchResources</code> operations on CloudFormation stack-based queries. The error \n       occurs if the CloudFormation stack on which the query is based either does not exist, or \n       has a status that renders the stack inactive. A <code>QueryError</code> occurrence does \n       not necessarily mean that AWS Resource Groups could not complete the operation, but the \n       resulting group might have no member resources.</p>"
       }
     },
-    "com.amazonaws.ardi#QueryErrorCode": {
+    "com.amazonaws.resourcegroups#QueryErrorCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "CLOUDFORMATION_STACK_INACTIVE": {
+        "smithy.api#enum": [
+          {
+            "value": "CLOUDFORMATION_STACK_INACTIVE",
             "name": "CLOUDFORMATION_STACK_INACTIVE"
           },
-          "CLOUDFORMATION_STACK_NOT_EXISTING": {
+          {
+            "value": "CLOUDFORMATION_STACK_NOT_EXISTING",
             "name": "CLOUDFORMATION_STACK_NOT_EXISTING"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.ardi#QueryErrorList": {
+    "com.amazonaws.resourcegroups#QueryErrorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#QueryError"
+        "target": "com.amazonaws.resourcegroups#QueryError"
       }
     },
-    "com.amazonaws.ardi#QueryErrorMessage": {
+    "com.amazonaws.resourcegroups#QueryErrorMessage": {
       "type": "string"
     },
-    "com.amazonaws.ardi#QueryType": {
+    "com.amazonaws.resourcegroups#QueryType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TAG_FILTERS_1_0": {
+        "smithy.api#enum": [
+          {
+            "value": "TAG_FILTERS_1_0",
             "name": "TAG_FILTERS_1_0"
           },
-          "CLOUDFORMATION_STACK_1_0": {
+          {
+            "value": "CLOUDFORMATION_STACK_1_0",
             "name": "CLOUDFORMATION_STACK_1_0"
           }
-        },
+        ],
         "smithy.api#length": {
           "min": 1,
           "max": 128
@@ -955,27 +955,27 @@
         "smithy.api#pattern": "^\\w+$"
       }
     },
-    "com.amazonaws.ardi#ResourceArn": {
+    "com.amazonaws.resourcegroups#ResourceArn": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "arn:aws(-[a-z]+)*:[a-z0-9\\-]*:([a-z]{2}-[a-z]+-\\d{1})?:([0-9]{12})?:.+"
       }
     },
-    "com.amazonaws.ardi#ResourceFilter": {
+    "com.amazonaws.resourcegroups#ResourceFilter": {
       "type": "structure",
       "members": {
         "Name": {
-          "target": "com.amazonaws.ardi#ResourceFilterName",
+          "target": "com.amazonaws.resourcegroups#ResourceFilterName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the filter. Filter names are case-sensitive.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Values": {
-          "target": "com.amazonaws.ardi#ResourceFilterValues",
+          "target": "com.amazonaws.resourcegroups#ResourceFilterValues",
           "traits": {
             "smithy.api#documentation": "<p>One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -983,23 +983,24 @@
         "smithy.api#documentation": "<p>A filter name and value pair that is used to obtain more specific results from a list of resources.</p>"
       }
     },
-    "com.amazonaws.ardi#ResourceFilterList": {
+    "com.amazonaws.resourcegroups#ResourceFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#ResourceFilter"
+        "target": "com.amazonaws.resourcegroups#ResourceFilter"
       }
     },
-    "com.amazonaws.ardi#ResourceFilterName": {
+    "com.amazonaws.resourcegroups#ResourceFilterName": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "resource-type": {
+        "smithy.api#enum": [
+          {
+            "value": "resource-type",
             "name": "ResourceType"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.ardi#ResourceFilterValue": {
+    "com.amazonaws.resourcegroups#ResourceFilterValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1009,10 +1010,10 @@
         "smithy.api#pattern": "AWS::[a-zA-Z0-9]+::[a-zA-Z0-9]+"
       }
     },
-    "com.amazonaws.ardi#ResourceFilterValues": {
+    "com.amazonaws.resourcegroups#ResourceFilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#ResourceFilterValue"
+        "target": "com.amazonaws.resourcegroups#ResourceFilterValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -1021,17 +1022,17 @@
         }
       }
     },
-    "com.amazonaws.ardi#ResourceIdentifier": {
+    "com.amazonaws.resourcegroups#ResourceIdentifier": {
       "type": "structure",
       "members": {
         "ResourceArn": {
-          "target": "com.amazonaws.ardi#ResourceArn",
+          "target": "com.amazonaws.resourcegroups#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of a resource.</p>"
           }
         },
         "ResourceType": {
-          "target": "com.amazonaws.ardi#ResourceType",
+          "target": "com.amazonaws.resourcegroups#ResourceType",
           "traits": {
             "smithy.api#documentation": "<p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>"
           }
@@ -1041,27 +1042,27 @@
         "smithy.api#documentation": "<p>The ARN of a resource, and its resource type.</p>"
       }
     },
-    "com.amazonaws.ardi#ResourceIdentifierList": {
+    "com.amazonaws.resourcegroups#ResourceIdentifierList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#ResourceIdentifier"
+        "target": "com.amazonaws.resourcegroups#ResourceIdentifier"
       }
     },
-    "com.amazonaws.ardi#ResourceQuery": {
+    "com.amazonaws.resourcegroups#ResourceQuery": {
       "type": "structure",
       "members": {
         "Query": {
-          "target": "com.amazonaws.ardi#Query",
+          "target": "com.amazonaws.resourcegroups#Query",
           "traits": {
             "smithy.api#documentation": "<p>The query that defines a group or a search.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "Type": {
-          "target": "com.amazonaws.ardi#QueryType",
+          "target": "com.amazonaws.resourcegroups#QueryType",
           "traits": {
             "smithy.api#documentation": "<p>The type of the query. The valid values in this release are <code>TAG_FILTERS_1_0</code> and <code>CLOUDFORMATION_STACK_1_0</code>.</p>\n         <p>\n            <i>\n               <code>TAG_FILTERS_1_0:</code>\n            </i> A JSON syntax that lets you specify a collection of simple tag filters for resource types and tags, \n       as supported by the AWS Tagging API <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html\">GetResources</a> operation. \n       If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you \n       specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches <i>any</i> of the specified values.</p>\n         <p>For example, consider the following sample query for resources that have two tags, <code>Stage</code> and <code>Version</code>, with two values each. \n       (<code>[{\"Key\":\"Stage\",\"Values\":[\"Test\",\"Deploy\"]},{\"Key\":\"Version\",\"Values\":[\"1\",\"2\"]}]</code>) The results of this query might include the following.</p>\n         <ul>\n            <li>\n               <p>An EC2 instance that has the following two tags: <code>{\"Key\":\"Stage\",\"Value\":\"Deploy\"}</code>, and <code>{\"Key\":\"Version\",\"Value\":\"2\"}</code>\n               </p>\n            </li>\n            <li>\n               <p>An S3 bucket that has the following two tags: {\"Key\":\"Stage\",\"Value\":\"Test\"}, and {\"Key\":\"Version\",\"Value\":\"1\"}</p>\n            </li>\n         </ul>\n         <p>The query would not return the following results, however. The following EC2 instance does not have all tag keys specified in the filter, so it is rejected. \n       The RDS database has all of the tag keys, but no values that match at least one of the specified tag key values in the filter.</p>\n         <ul>\n            <li>\n               <p>An EC2 instance that has only the following tag: <code>{\"Key\":\"Stage\",\"Value\":\"Deploy\"}</code>.</p>\n            </li>\n            <li>\n               <p>An RDS database that has the following two tags: <code>{\"Key\":\"Stage\",\"Value\":\"Archived\"}</code>, and <code>{\"Key\":\"Version\",\"Value\":\"4\"}</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n            <i>\n               <code>CLOUDFORMATION_STACK_1_0:</code>\n            </i> A JSON syntax that lets you specify a CloudFormation stack ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1069,38 +1070,38 @@
         "smithy.api#documentation": "<p>The query that is used to define a resource group or a search for resources.</p>"
       }
     },
-    "com.amazonaws.ardi#ResourceType": {
+    "com.amazonaws.resourcegroups#ResourceType": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "AWS::[a-zA-Z0-9]+::\\w+"
       }
     },
-    "com.amazonaws.ardi#SearchResources": {
+    "com.amazonaws.resourcegroups#SearchResources": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#SearchResourcesInput"
+        "target": "com.amazonaws.resourcegroups#SearchResourcesInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#SearchResourcesOutput"
+        "target": "com.amazonaws.resourcegroups#SearchResourcesOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         },
         {
-          "target": "com.amazonaws.ardi#UnauthorizedException"
+          "target": "com.amazonaws.resourcegroups#UnauthorizedException"
         }
       ],
       "traits": {
@@ -1117,79 +1118,79 @@
         }
       }
     },
-    "com.amazonaws.ardi#SearchResourcesInput": {
+    "com.amazonaws.resourcegroups#SearchResourcesInput": {
       "type": "structure",
       "members": {
         "MaxResults": {
-          "target": "com.amazonaws.ardi#MaxResults",
+          "target": "com.amazonaws.resourcegroups#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of group member ARNs returned by <code>SearchResources</code> in paginated output. By default, this number is 50.</p>"
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.ardi#NextToken",
+          "target": "com.amazonaws.resourcegroups#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The NextToken value that is returned in a paginated <code>SearchResources</code> request. To get the next page of results, \n       run the call again, add the NextToken parameter, and specify the NextToken value.</p>"
           }
         },
         "ResourceQuery": {
-          "target": "com.amazonaws.ardi#ResourceQuery",
+          "target": "com.amazonaws.resourcegroups#ResourceQuery",
           "traits": {
             "smithy.api#documentation": "<p>The search query, using the same formats that are supported for resource group definition.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#SearchResourcesOutput": {
+    "com.amazonaws.resourcegroups#SearchResourcesOutput": {
       "type": "structure",
       "members": {
         "NextToken": {
-          "target": "com.amazonaws.ardi#NextToken",
+          "target": "com.amazonaws.resourcegroups#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results.</p>"
           }
         },
         "QueryErrors": {
-          "target": "com.amazonaws.ardi#QueryErrorList",
+          "target": "com.amazonaws.resourcegroups#QueryErrorList",
           "traits": {
             "smithy.api#documentation": "<p>A list of <code>QueryError</code> objects. Each error is an object that \n       contains <code>ErrorCode</code> and <code>Message</code> structures. Possible values \n       for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and \n       <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>"
           }
         },
         "ResourceIdentifiers": {
-          "target": "com.amazonaws.ardi#ResourceIdentifierList",
+          "target": "com.amazonaws.resourcegroups#ResourceIdentifierList",
           "traits": {
             "smithy.api#documentation": "<p>The ARNs and resource types of resources that are members of the group that you specified.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#Tag": {
+    "com.amazonaws.resourcegroups#Tag": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#TagInput"
+        "target": "com.amazonaws.resourcegroups#TagInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#TagOutput"
+        "target": "com.amazonaws.resourcegroups#TagOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1201,27 +1202,27 @@
         }
       }
     },
-    "com.amazonaws.ardi#TagInput": {
+    "com.amazonaws.resourcegroups#TagInput": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource to which to add tags.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Tags": {
-          "target": "com.amazonaws.ardi#Tags",
+          "target": "com.amazonaws.resourcegroups#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, \n       and tag values can have a maximum length of 256 characters.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#TagKey": {
+    "com.amazonaws.resourcegroups#TagKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1231,30 +1232,30 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.ardi#TagKeyList": {
+    "com.amazonaws.resourcegroups#TagKeyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ardi#TagKey"
+        "target": "com.amazonaws.resourcegroups#TagKey"
       }
     },
-    "com.amazonaws.ardi#TagOutput": {
+    "com.amazonaws.resourcegroups#TagOutput": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the tagged resource.</p>"
           }
         },
         "Tags": {
-          "target": "com.amazonaws.ardi#Tags",
+          "target": "com.amazonaws.resourcegroups#Tags",
           "traits": {
             "smithy.api#documentation": "<p>The tags that have been added to the specified resource.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#TagValue": {
+    "com.amazonaws.resourcegroups#TagValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -1264,20 +1265,20 @@
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
       }
     },
-    "com.amazonaws.ardi#Tags": {
+    "com.amazonaws.resourcegroups#Tags": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.ardi#TagKey"
+        "target": "com.amazonaws.resourcegroups#TagKey"
       },
       "value": {
-        "target": "com.amazonaws.ardi#TagValue"
+        "target": "com.amazonaws.resourcegroups#TagValue"
       }
     },
-    "com.amazonaws.ardi#TooManyRequestsException": {
+    "com.amazonaws.resourcegroups#TooManyRequestsException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ardi#ErrorMessage"
+          "target": "com.amazonaws.resourcegroups#ErrorMessage"
         }
       },
       "traits": {
@@ -1286,11 +1287,11 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.ardi#UnauthorizedException": {
+    "com.amazonaws.resourcegroups#UnauthorizedException": {
       "type": "structure",
       "members": {
         "Message": {
-          "target": "com.amazonaws.ardi#ErrorMessage"
+          "target": "com.amazonaws.resourcegroups#ErrorMessage"
         }
       },
       "traits": {
@@ -1299,32 +1300,32 @@
         "smithy.api#httpError": 401
       }
     },
-    "com.amazonaws.ardi#Untag": {
+    "com.amazonaws.resourcegroups#Untag": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#UntagInput"
+        "target": "com.amazonaws.resourcegroups#UntagInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#UntagOutput"
+        "target": "com.amazonaws.resourcegroups#UntagOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1336,69 +1337,69 @@
         }
       }
     },
-    "com.amazonaws.ardi#UntagInput": {
+    "com.amazonaws.resourcegroups#UntagInput": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource from which to remove tags.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "Keys": {
-          "target": "com.amazonaws.ardi#TagKeyList",
+          "target": "com.amazonaws.resourcegroups#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The keys of the tags to be removed.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#UntagOutput": {
+    "com.amazonaws.resourcegroups#UntagOutput": {
       "type": "structure",
       "members": {
         "Arn": {
-          "target": "com.amazonaws.ardi#GroupArn",
+          "target": "com.amazonaws.resourcegroups#GroupArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the resource from which tags have been removed.</p>"
           }
         },
         "Keys": {
-          "target": "com.amazonaws.ardi#TagKeyList",
+          "target": "com.amazonaws.resourcegroups#TagKeyList",
           "traits": {
             "smithy.api#documentation": "<p>The keys of tags that have been removed.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#UpdateGroup": {
+    "com.amazonaws.resourcegroups#UpdateGroup": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#UpdateGroupInput"
+        "target": "com.amazonaws.resourcegroups#UpdateGroupInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#UpdateGroupOutput"
+        "target": "com.amazonaws.resourcegroups#UpdateGroupOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1410,62 +1411,62 @@
         }
       }
     },
-    "com.amazonaws.ardi#UpdateGroupInput": {
+    "com.amazonaws.resourcegroups#UpdateGroupInput": {
       "type": "structure",
       "members": {
         "Description": {
-          "target": "com.amazonaws.ardi#GroupDescription",
+          "target": "com.amazonaws.resourcegroups#GroupDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, \n       punctuation, and spaces.</p>"
           }
         },
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group for which you want to update its description.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#UpdateGroupOutput": {
+    "com.amazonaws.resourcegroups#UpdateGroupOutput": {
       "type": "structure",
       "members": {
         "Group": {
-          "target": "com.amazonaws.ardi#Group",
+          "target": "com.amazonaws.resourcegroups#Group",
           "traits": {
             "smithy.api#documentation": "<p>The full description of the resource group after it has been updated.</p>"
           }
         }
       }
     },
-    "com.amazonaws.ardi#UpdateGroupQuery": {
+    "com.amazonaws.resourcegroups#UpdateGroupQuery": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.ardi#UpdateGroupQueryInput"
+        "target": "com.amazonaws.resourcegroups#UpdateGroupQueryInput"
       },
       "output": {
-        "target": "com.amazonaws.ardi#UpdateGroupQueryOutput"
+        "target": "com.amazonaws.resourcegroups#UpdateGroupQueryOutput"
       },
       "errors": [
         {
-          "target": "com.amazonaws.ardi#BadRequestException"
+          "target": "com.amazonaws.resourcegroups#BadRequestException"
         },
         {
-          "target": "com.amazonaws.ardi#ForbiddenException"
+          "target": "com.amazonaws.resourcegroups#ForbiddenException"
         },
         {
-          "target": "com.amazonaws.ardi#InternalServerErrorException"
+          "target": "com.amazonaws.resourcegroups#InternalServerErrorException"
         },
         {
-          "target": "com.amazonaws.ardi#MethodNotAllowedException"
+          "target": "com.amazonaws.resourcegroups#MethodNotAllowedException"
         },
         {
-          "target": "com.amazonaws.ardi#NotFoundException"
+          "target": "com.amazonaws.resourcegroups#NotFoundException"
         },
         {
-          "target": "com.amazonaws.ardi#TooManyRequestsException"
+          "target": "com.amazonaws.resourcegroups#TooManyRequestsException"
         }
       ],
       "traits": {
@@ -1477,31 +1478,31 @@
         }
       }
     },
-    "com.amazonaws.ardi#UpdateGroupQueryInput": {
+    "com.amazonaws.resourcegroups#UpdateGroupQueryInput": {
       "type": "structure",
       "members": {
         "GroupName": {
-          "target": "com.amazonaws.ardi#GroupName",
+          "target": "com.amazonaws.resourcegroups#GroupName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the resource group for which you want to edit the query.</p>",
-            "smithy.api#httpLabel": true,
-            "smithy.api#required": true
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "ResourceQuery": {
-          "target": "com.amazonaws.ardi#ResourceQuery",
+          "target": "com.amazonaws.resourcegroups#ResourceQuery",
           "traits": {
             "smithy.api#documentation": "<p>The resource query that determines which AWS resources are members of the resource group.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.ardi#UpdateGroupQueryOutput": {
+    "com.amazonaws.resourcegroups#UpdateGroupQueryOutput": {
       "type": "structure",
       "members": {
         "GroupQuery": {
-          "target": "com.amazonaws.ardi#GroupQuery",
+          "target": "com.amazonaws.resourcegroups#GroupQuery",
           "traits": {
             "smithy.api#documentation": "<p>The resource query associated with the resource group after the update.</p>"
           }

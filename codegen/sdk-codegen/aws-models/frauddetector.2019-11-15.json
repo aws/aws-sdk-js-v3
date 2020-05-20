@@ -1,128 +1,127 @@
 {
-  "smithy": "0.5.0",
+  "smithy": "1.0",
   "metadata": {
     "suppressions": [
       {
-        "ids": [
-          "HttpMethodSemantics"
-        ]
+        "id": "HttpMethodSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpResponseCodeSemantics"
-        ]
+        "id": "HttpResponseCodeSemantics",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "PaginatedTrait"
-        ]
+        "id": "PaginatedTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpHeaderTrait"
-        ]
+        "id": "HttpHeaderTrait",
+        "namespace": "*"
       },
       {
-        "ids": [
-          "HttpUriConflict"
-        ]
+        "id": "HttpUriConflict",
+        "namespace": "*"
+      },
+      {
+        "id": "Service",
+        "namespace": "*"
       }
     ]
   },
   "shapes": {
-    "com.amazonaws.hawksnest.servicefacade#AWSHawksNestServiceFacade": {
+    "com.amazonaws.frauddetector#AWSHawksNestServiceFacade": {
       "type": "service",
       "version": "2019-11-15",
       "operations": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#BatchCreateVariable"
+          "target": "com.amazonaws.frauddetector#BatchCreateVariable"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#BatchGetVariable"
+          "target": "com.amazonaws.frauddetector#BatchGetVariable"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#CreateDetectorVersion"
+          "target": "com.amazonaws.frauddetector#CreateDetectorVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#CreateModelVersion"
+          "target": "com.amazonaws.frauddetector#CreateModelVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#CreateRule"
+          "target": "com.amazonaws.frauddetector#CreateRule"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#CreateVariable"
+          "target": "com.amazonaws.frauddetector#CreateVariable"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#DeleteDetectorVersion"
+          "target": "com.amazonaws.frauddetector#DeleteDetectorVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#DeleteEvent"
+          "target": "com.amazonaws.frauddetector#DeleteEvent"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#DescribeDetector"
+          "target": "com.amazonaws.frauddetector#DescribeDetector"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#DescribeModelVersions"
+          "target": "com.amazonaws.frauddetector#DescribeModelVersions"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetDetectorVersion"
+          "target": "com.amazonaws.frauddetector#GetDetectors"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetDetectors"
+          "target": "com.amazonaws.frauddetector#GetDetectorVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetExternalModels"
+          "target": "com.amazonaws.frauddetector#GetExternalModels"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetModelVersion"
+          "target": "com.amazonaws.frauddetector#GetModels"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetModels"
+          "target": "com.amazonaws.frauddetector#GetModelVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetOutcomes"
+          "target": "com.amazonaws.frauddetector#GetOutcomes"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetPrediction"
+          "target": "com.amazonaws.frauddetector#GetPrediction"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetRules"
+          "target": "com.amazonaws.frauddetector#GetRules"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#GetVariables"
+          "target": "com.amazonaws.frauddetector#GetVariables"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#PutDetector"
+          "target": "com.amazonaws.frauddetector#PutDetector"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#PutExternalModel"
+          "target": "com.amazonaws.frauddetector#PutExternalModel"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#PutModel"
+          "target": "com.amazonaws.frauddetector#PutModel"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#PutOutcome"
+          "target": "com.amazonaws.frauddetector#PutOutcome"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersion"
+          "target": "com.amazonaws.frauddetector#UpdateDetectorVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadata"
+          "target": "com.amazonaws.frauddetector#UpdateDetectorVersionMetadata"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionStatus"
+          "target": "com.amazonaws.frauddetector#UpdateDetectorVersionStatus"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#UpdateModelVersion"
+          "target": "com.amazonaws.frauddetector#UpdateModelVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#UpdateRuleMetadata"
+          "target": "com.amazonaws.frauddetector#UpdateRuleMetadata"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#UpdateRuleVersion"
+          "target": "com.amazonaws.frauddetector#UpdateRuleVersion"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade#UpdateVariable"
+          "target": "com.amazonaws.frauddetector#UpdateVariable"
         }
       ],
       "traits": {
@@ -132,61 +131,57 @@
           "cloudFormationName": "FraudDetector",
           "cloudTrailEventSource": "servicefacade.hawksnest.amazonaws.com"
         },
+        "aws.auth#sigv4": {
+          "name": "frauddetector"
+        },
+        "aws.protocols#awsJson1_1": {},
         "smithy.api#documentation": "<p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need\n            detailed information about Amazon Fraud Detector API actions, data types, and errors. For\n            more information about Amazon Fraud Detector features, see the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/\">Amazon Fraud Detector User Guide</a>.</p>",
-        "smithy.api#protocols": [
-          {
-            "name": "aws.json-1.1",
-            "auth": [
-              "aws.v4"
-            ]
-          }
-        ],
         "smithy.api#title": "Amazon Fraud Detector",
         "smithy.api#xmlNamespace": {
           "uri": "http://hawksnest.amazonaws.com/doc/2019-11-15"
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchCreateVariable": {
+    "com.amazonaws.frauddetector#BatchCreateVariable": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableRequest"
+        "target": "com.amazonaws.frauddetector#BatchCreateVariableRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableResult"
+        "target": "com.amazonaws.frauddetector#BatchCreateVariableResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a batch of variables.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableError": {
+    "com.amazonaws.frauddetector#BatchCreateVariableError": {
       "type": "structure",
       "members": {
         "code": {
-          "target": "com.amazonaws.hawksnest.servicefacade#integer",
+          "target": "com.amazonaws.frauddetector#integer",
           "traits": {
             "smithy.api#documentation": "<p>The error code. </p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The error message.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The name.</p>"
           }
@@ -196,75 +191,75 @@
         "smithy.api#documentation": "<p>Provides the error of the batch create variable API.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableErrorList": {
+    "com.amazonaws.frauddetector#BatchCreateVariableErrorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableError"
+        "target": "com.amazonaws.frauddetector#BatchCreateVariableError"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableRequest": {
+    "com.amazonaws.frauddetector#BatchCreateVariableRequest": {
       "type": "structure",
       "members": {
         "variableEntries": {
-          "target": "com.amazonaws.hawksnest.servicefacade#VariableEntryList",
+          "target": "com.amazonaws.frauddetector#VariableEntryList",
           "traits": {
             "smithy.api#documentation": "<p>The list of variables for the batch create variable request.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableResult": {
+    "com.amazonaws.frauddetector#BatchCreateVariableResult": {
       "type": "structure",
       "members": {
         "errors": {
-          "target": "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableErrorList",
+          "target": "com.amazonaws.frauddetector#BatchCreateVariableErrorList",
           "traits": {
             "smithy.api#documentation": "<p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchGetVariable": {
+    "com.amazonaws.frauddetector#BatchGetVariable": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#BatchGetVariableRequest"
+        "target": "com.amazonaws.frauddetector#BatchGetVariableRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#BatchGetVariableResult"
+        "target": "com.amazonaws.frauddetector#BatchGetVariableResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets a batch of variables.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchGetVariableError": {
+    "com.amazonaws.frauddetector#BatchGetVariableError": {
       "type": "structure",
       "members": {
         "code": {
-          "target": "com.amazonaws.hawksnest.servicefacade#integer",
+          "target": "com.amazonaws.frauddetector#integer",
           "traits": {
             "smithy.api#documentation": "<p>The error code. </p>"
           }
         },
         "message": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The error message.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The error name. </p>"
           }
@@ -274,578 +269,585 @@
         "smithy.api#documentation": "<p>Provides the error of the batch get variable API.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchGetVariableErrorList": {
+    "com.amazonaws.frauddetector#BatchGetVariableErrorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#BatchGetVariableError"
+        "target": "com.amazonaws.frauddetector#BatchGetVariableError"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchGetVariableRequest": {
+    "com.amazonaws.frauddetector#BatchGetVariableRequest": {
       "type": "structure",
       "members": {
         "names": {
-          "target": "com.amazonaws.hawksnest.servicefacade#NameList",
+          "target": "com.amazonaws.frauddetector#NameList",
           "traits": {
             "smithy.api#documentation": "<p>The list of variable names to get.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#BatchGetVariableResult": {
+    "com.amazonaws.frauddetector#BatchGetVariableResult": {
       "type": "structure",
       "members": {
         "errors": {
-          "target": "com.amazonaws.hawksnest.servicefacade#BatchGetVariableErrorList",
+          "target": "com.amazonaws.frauddetector#BatchGetVariableErrorList",
           "traits": {
             "smithy.api#documentation": "<p>The errors from the request.</p>"
           }
         },
         "variables": {
-          "target": "com.amazonaws.hawksnest.servicefacade#VariableList",
+          "target": "com.amazonaws.frauddetector#VariableList",
           "traits": {
             "smithy.api#documentation": "<p>The returned variables.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateDetectorVersion": {
+    "com.amazonaws.frauddetector#CreateDetectorVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateDetectorVersionRequest"
+        "target": "com.amazonaws.frauddetector#CreateDetectorVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateDetectorVersionResult"
+        "target": "com.amazonaws.frauddetector#CreateDetectorVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateDetectorVersionRequest": {
+    "com.amazonaws.frauddetector#CreateDetectorVersionRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the detector version.</p>"
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the detector under which you want to create a new version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "externalModelEndpoints": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
+          "target": "com.amazonaws.frauddetector#ListOfStrings",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Sagemaker model endpoints to include in the detector version.</p>"
           }
         },
         "modelVersions": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelVersions",
+          "target": "com.amazonaws.frauddetector#ListOfModelVersions",
           "traits": {
             "smithy.api#documentation": "<p>The model versions to include in the detector version.</p>"
           }
         },
         "rules": {
-          "target": "com.amazonaws.hawksnest.servicefacade#RuleList",
+          "target": "com.amazonaws.frauddetector#RuleList",
           "traits": {
             "smithy.api#documentation": "<p>The rules to include in the detector version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateDetectorVersionResult": {
+    "com.amazonaws.frauddetector#CreateDetectorVersionResult": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the created version's parent detector.</p>"
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the created detector. </p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
+          "target": "com.amazonaws.frauddetector#DetectorVersionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the detector version.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateModelVersion": {
+    "com.amazonaws.frauddetector#CreateModelVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateModelVersionRequest"
+        "target": "com.amazonaws.frauddetector#CreateModelVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateModelVersionResult"
+        "target": "com.amazonaws.frauddetector#CreateModelVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a version of the model using the specified model type.\n        </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateModelVersionRequest": {
+    "com.amazonaws.frauddetector#CreateModelVersionRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The model version description.</p>"
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateModelVersionResult": {
+    "com.amazonaws.frauddetector#CreateModelVersionResult": {
       "type": "structure",
       "members": {
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID. </p>"
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVersionNumber": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The version of the model. </p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The model version status. </p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateRule": {
+    "com.amazonaws.frauddetector#CreateRule": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateRuleRequest"
+        "target": "com.amazonaws.frauddetector#CreateRuleRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateRuleResult"
+        "target": "com.amazonaws.frauddetector#CreateRuleResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a rule for use with the specified detector. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateRuleRequest": {
+    "com.amazonaws.frauddetector#CreateRuleRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The rule description.</p>"
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID for the rule's parent detector.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "expression": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ruleExpression",
+          "target": "com.amazonaws.frauddetector#ruleExpression",
           "traits": {
             "smithy.api#documentation": "<p>The rule expression.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "language": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Language",
+          "target": "com.amazonaws.frauddetector#Language",
           "traits": {
             "smithy.api#documentation": "<p>The language of the rule.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "outcomes": {
-          "target": "com.amazonaws.hawksnest.servicefacade#NonEmptyListOfStrings",
+          "target": "com.amazonaws.frauddetector#NonEmptyListOfStrings",
           "traits": {
             "smithy.api#documentation": "<p>The outcome or outcomes returned when the rule expression matches.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ruleId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The rule ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateRuleResult": {
+    "com.amazonaws.frauddetector#CreateRuleResult": {
       "type": "structure",
       "members": {
         "rule": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Rule",
+          "target": "com.amazonaws.frauddetector#Rule",
           "traits": {
             "smithy.api#documentation": "<p>The created rule.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateVariable": {
+    "com.amazonaws.frauddetector#CreateVariable": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateVariableRequest"
+        "target": "com.amazonaws.frauddetector#CreateVariableRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#CreateVariableResult"
+        "target": "com.amazonaws.frauddetector#CreateVariableResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates a variable.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateVariableRequest": {
+    "com.amazonaws.frauddetector#CreateVariableRequest": {
       "type": "structure",
       "members": {
         "dataSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DataSource",
+          "target": "com.amazonaws.frauddetector#DataSource",
           "traits": {
             "smithy.api#documentation": "<p>The source of the data.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "dataType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DataType",
+          "target": "com.amazonaws.frauddetector#DataType",
           "traits": {
             "smithy.api#documentation": "<p>The data type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "defaultValue": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The default value for the variable when no value is received.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The description.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "variableType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The variable type.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#CreateVariableResult": {
+    "com.amazonaws.frauddetector#CreateVariableResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#CsvIndexToVariableMap": {
+    "com.amazonaws.frauddetector#CsvIndexToVariableMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "value": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DataSource": {
+    "com.amazonaws.frauddetector#DataSource": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "EVENT": {
+        "smithy.api#enum": [
+          {
+            "value": "EVENT",
             "name": "EVENT"
           },
-          "MODEL_SCORE": {
+          {
+            "value": "MODEL_SCORE",
             "name": "MODEL_SCORE"
           },
-          "EXTERNAL_MODEL_SCORE": {
+          {
+            "value": "EXTERNAL_MODEL_SCORE",
             "name": "EXTERNAL_MODEL_SCORE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DataType": {
+    "com.amazonaws.frauddetector#DataType": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "STRING": {
+        "smithy.api#enum": [
+          {
+            "value": "STRING",
             "name": "STRING"
           },
-          "INTEGER": {
+          {
+            "value": "INTEGER",
             "name": "INTEGER"
           },
-          "FLOAT": {
+          {
+            "value": "FLOAT",
             "name": "FLOAT"
           },
-          "BOOLEAN": {
+          {
+            "value": "BOOLEAN",
             "name": "BOOLEAN"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DeleteDetectorVersion": {
+    "com.amazonaws.frauddetector#DeleteDetectorVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DeleteDetectorVersionRequest"
+        "target": "com.amazonaws.frauddetector#DeleteDetectorVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DeleteDetectorVersionResult"
+        "target": "com.amazonaws.frauddetector#DeleteDetectorVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the detector version.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DeleteDetectorVersionRequest": {
+    "com.amazonaws.frauddetector#DeleteDetectorVersionRequest": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the parent detector for the detector version to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the detector version to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DeleteDetectorVersionResult": {
+    "com.amazonaws.frauddetector#DeleteDetectorVersionResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#DeleteEvent": {
+    "com.amazonaws.frauddetector#DeleteEvent": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DeleteEventRequest"
+        "target": "com.amazonaws.frauddetector#DeleteEventRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DeleteEventResult"
+        "target": "com.amazonaws.frauddetector#DeleteEventResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified event.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DeleteEventRequest": {
+    "com.amazonaws.frauddetector#DeleteEventRequest": {
       "type": "structure",
       "members": {
         "eventId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the event to delete.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DeleteEventResult": {
+    "com.amazonaws.frauddetector#DeleteEventResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#DescribeDetector": {
+    "com.amazonaws.frauddetector#DescribeDetector": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DescribeDetectorRequest"
+        "target": "com.amazonaws.frauddetector#DescribeDetectorRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DescribeDetectorResult"
+        "target": "com.amazonaws.frauddetector#DescribeDetectorResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets all versions for a specified detector.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DescribeDetectorRequest": {
+    "com.amazonaws.frauddetector#DescribeDetectorRequest": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionMaxResults",
+          "target": "com.amazonaws.frauddetector#DetectorVersionMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return for the request.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next token from the previous response.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DescribeDetectorResult": {
+    "com.amazonaws.frauddetector#DescribeDetectorResult": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "detectorVersionSummaries": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionSummaryList",
+          "target": "com.amazonaws.frauddetector#DetectorVersionSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>The status and description for each detector version.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next token to be used for subsequent requests.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DescribeModelVersions": {
+    "com.amazonaws.frauddetector#DescribeModelVersions": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DescribeModelVersionsRequest"
+        "target": "com.amazonaws.frauddetector#DescribeModelVersionsRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DescribeModelVersionsResult"
+        "target": "com.amazonaws.frauddetector#DescribeModelVersionsResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
@@ -857,81 +859,81 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DescribeModelVersionsRequest": {
+    "com.amazonaws.frauddetector#DescribeModelVersionsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#MaxResults",
+          "target": "com.amazonaws.frauddetector#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVersionNumber": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The model version. </p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next token from the previous results.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DescribeModelVersionsResult": {
+    "com.amazonaws.frauddetector#DescribeModelVersionsResult": {
       "type": "structure",
       "members": {
         "modelVersionDetails": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelVersionDetailList",
+          "target": "com.amazonaws.frauddetector#ModelVersionDetailList",
           "traits": {
             "smithy.api#documentation": "<p>The model version details.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next token.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#Detector": {
+    "com.amazonaws.frauddetector#Detector": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of when the detector was created.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The detector description.</p>"
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of when the detector was last updated.</p>"
           }
@@ -941,61 +943,64 @@
         "smithy.api#documentation": "<p>The detector.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DetectorList": {
+    "com.amazonaws.frauddetector#DetectorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#Detector"
+        "target": "com.amazonaws.frauddetector#Detector"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DetectorVersionMaxResults": {
+    "com.amazonaws.frauddetector#DetectorVersionMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1000,
           "max": 2500
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus": {
+    "com.amazonaws.frauddetector#DetectorVersionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DRAFT": {
+        "smithy.api#enum": [
+          {
+            "value": "DRAFT",
             "name": "DRAFT"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "INACTIVE": {
+          {
+            "value": "INACTIVE",
             "name": "INACTIVE"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DetectorVersionSummary": {
+    "com.amazonaws.frauddetector#DetectorVersionSummary": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The detector version description. </p>"
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The detector version ID. </p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of when the detector version was last updated.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
+          "target": "com.amazonaws.frauddetector#DetectorVersionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The detector version status. </p>"
           }
@@ -1005,78 +1010,78 @@
         "smithy.api#documentation": "<p>The summary of the detector version.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DetectorVersionSummaryList": {
+    "com.amazonaws.frauddetector#DetectorVersionSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionSummary"
+        "target": "com.amazonaws.frauddetector#DetectorVersionSummary"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#DetectorsMaxResults": {
+    "com.amazonaws.frauddetector#DetectorsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 5,
           "max": 10
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#EventAttributeMap": {
+    "com.amazonaws.frauddetector#EventAttributeMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.hawksnest.servicefacade#attributeKey"
+        "target": "com.amazonaws.frauddetector#attributeKey"
       },
       "value": {
-        "target": "com.amazonaws.hawksnest.servicefacade#attributeValue"
+        "target": "com.amazonaws.frauddetector#attributeValue"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ExternalModel": {
+    "com.amazonaws.frauddetector#ExternalModel": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of when the model was last created.</p>"
           }
         },
         "inputConfiguration": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelInputConfiguration",
+          "target": "com.amazonaws.frauddetector#ModelInputConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The input configuration.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of when the model was last updated.</p>"
           }
         },
         "modelEndpoint": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SageMaker model endpoints.</p>"
           }
         },
         "modelEndpointStatus": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelEndpointStatus",
+          "target": "com.amazonaws.frauddetector#ModelEndpointStatus",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Fraud Detector status for the external model endpoint</p>"
           }
         },
         "modelSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelSource",
+          "target": "com.amazonaws.frauddetector#ModelSource",
           "traits": {
             "smithy.api#documentation": "<p>The source of the model.</p>"
           }
         },
         "outputConfiguration": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelOutputConfiguration",
+          "target": "com.amazonaws.frauddetector#ModelOutputConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The output configuration.</p>"
           }
         },
         "role": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Role",
+          "target": "com.amazonaws.frauddetector#Role",
           "traits": {
             "smithy.api#documentation": "<p>The role used to invoke the model. </p>"
           }
@@ -1086,158 +1091,158 @@
         "smithy.api#documentation": "<p>The Amazon SageMaker model.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ExternalModelEndpointDataBlobMap": {
+    "com.amazonaws.frauddetector#ExternalModelEndpointDataBlobMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "value": {
-        "target": "com.amazonaws.hawksnest.servicefacade#ModelEndpointDataBlob"
+        "target": "com.amazonaws.frauddetector#ModelEndpointDataBlob"
       },
       "traits": {
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ExternalModelList": {
+    "com.amazonaws.frauddetector#ExternalModelList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#ExternalModel"
+        "target": "com.amazonaws.frauddetector#ExternalModel"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ExternalModelsMaxResults": {
+    "com.amazonaws.frauddetector#ExternalModelsMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 5,
           "max": 10
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetDetectorVersion": {
+    "com.amazonaws.frauddetector#GetDetectorVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetDetectorVersionRequest"
+        "target": "com.amazonaws.frauddetector#GetDetectorVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetDetectorVersionResult"
+        "target": "com.amazonaws.frauddetector#GetDetectorVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets a particular detector version. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetDetectorVersionRequest": {
+    "com.amazonaws.frauddetector#GetDetectorVersionRequest": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The detector version ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetDetectorVersionResult": {
+    "com.amazonaws.frauddetector#GetDetectorVersionResult": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the detector version was created. </p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The detector version description.</p>"
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The detector version ID.</p>"
           }
         },
         "externalModelEndpoints": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
+          "target": "com.amazonaws.frauddetector#ListOfStrings",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SageMaker model endpoints included in the detector version.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the detector version was last updated.\n        </p>"
           }
         },
         "modelVersions": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelVersions",
+          "target": "com.amazonaws.frauddetector#ListOfModelVersions",
           "traits": {
             "smithy.api#documentation": "<p>The model versions included in the detector version. </p>"
           }
         },
         "rules": {
-          "target": "com.amazonaws.hawksnest.servicefacade#RuleList",
+          "target": "com.amazonaws.frauddetector#RuleList",
           "traits": {
             "smithy.api#documentation": "<p>The rules included in the detector version.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
+          "target": "com.amazonaws.frauddetector#DetectorVersionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the detector version.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetDetectors": {
+    "com.amazonaws.frauddetector#GetDetectors": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetDetectorsRequest"
+        "target": "com.amazonaws.frauddetector#GetDetectorsRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetDetectorsResult"
+        "target": "com.amazonaws.frauddetector#GetDetectorsResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
@@ -1249,66 +1254,66 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetDetectorsRequest": {
+    "com.amazonaws.frauddetector#GetDetectorsRequest": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorsMaxResults",
+          "target": "com.amazonaws.frauddetector#DetectorsMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next token for the subsequent request.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetDetectorsResult": {
+    "com.amazonaws.frauddetector#GetDetectorsResult": {
       "type": "structure",
       "members": {
         "detectors": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorList",
+          "target": "com.amazonaws.frauddetector#DetectorList",
           "traits": {
             "smithy.api#documentation": "<p>The detectors.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetExternalModels": {
+    "com.amazonaws.frauddetector#GetExternalModels": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetExternalModelsRequest"
+        "target": "com.amazonaws.frauddetector#GetExternalModelsRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetExternalModelsResult"
+        "target": "com.amazonaws.frauddetector#GetExternalModelsResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
@@ -1320,153 +1325,153 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetExternalModelsRequest": {
+    "com.amazonaws.frauddetector#GetExternalModelsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ExternalModelsMaxResults",
+          "target": "com.amazonaws.frauddetector#ExternalModelsMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         },
         "modelEndpoint": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SageMaker model endpoint.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token for the request.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetExternalModelsResult": {
+    "com.amazonaws.frauddetector#GetExternalModelsResult": {
       "type": "structure",
       "members": {
         "externalModels": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ExternalModelList",
+          "target": "com.amazonaws.frauddetector#ExternalModelList",
           "traits": {
             "smithy.api#documentation": "<p>Gets the Amazon SageMaker models.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token to be used in subsequent requests.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetModelVersion": {
+    "com.amazonaws.frauddetector#GetModelVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetModelVersionRequest"
+        "target": "com.amazonaws.frauddetector#GetModelVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetModelVersionResult"
+        "target": "com.amazonaws.frauddetector#GetModelVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Gets a model version. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetModelVersionRequest": {
+    "com.amazonaws.frauddetector#GetModelVersionRequest": {
       "type": "structure",
       "members": {
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelVersionNumber": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The model version. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetModelVersionResult": {
+    "com.amazonaws.frauddetector#GetModelVersionResult": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The model version description.</p>"
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID. </p>"
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type. </p>"
           }
         },
         "modelVersionNumber": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The model version. </p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The model version status. </p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetModels": {
+    "com.amazonaws.frauddetector#GetModels": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetModelsRequest"
+        "target": "com.amazonaws.frauddetector#GetModelsRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetModelsResult"
+        "target": "com.amazonaws.frauddetector#GetModelsResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
@@ -1478,72 +1483,72 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetModelsRequest": {
+    "com.amazonaws.frauddetector#GetModelsRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#MaxResults",
+          "target": "com.amazonaws.frauddetector#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum results to return for the request.</p>"
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next token for the request.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetModelsResult": {
+    "com.amazonaws.frauddetector#GetModelsResult": {
       "type": "structure",
       "members": {
         "models": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelList",
+          "target": "com.amazonaws.frauddetector#ModelList",
           "traits": {
             "smithy.api#documentation": "<p>The returned models. </p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next token for subsequent requests. </p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetOutcomes": {
+    "com.amazonaws.frauddetector#GetOutcomes": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetOutcomesRequest"
+        "target": "com.amazonaws.frauddetector#GetOutcomesRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetOutcomesResult"
+        "target": "com.amazonaws.frauddetector#GetOutcomesResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
@@ -1555,146 +1560,146 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetOutcomesRequest": {
+    "com.amazonaws.frauddetector#GetOutcomesRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#OutcomesMaxResults",
+          "target": "com.amazonaws.frauddetector#OutcomesMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of objects to return for the request. </p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The name of the outcome or outcomes to get.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token for the request. </p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetOutcomesResult": {
+    "com.amazonaws.frauddetector#GetOutcomesResult": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token for subsequent requests.</p>"
           }
         },
         "outcomes": {
-          "target": "com.amazonaws.hawksnest.servicefacade#OutcomeList",
+          "target": "com.amazonaws.frauddetector#OutcomeList",
           "traits": {
             "smithy.api#documentation": "<p>The outcomes. </p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetPrediction": {
+    "com.amazonaws.frauddetector#GetPrediction": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetPredictionRequest"
+        "target": "com.amazonaws.frauddetector#GetPredictionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetPredictionResult"
+        "target": "com.amazonaws.frauddetector#GetPredictionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.  </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetPredictionRequest": {
+    "com.amazonaws.frauddetector#GetPredictionRequest": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The detector version ID.</p>"
           }
         },
         "eventAttributes": {
-          "target": "com.amazonaws.hawksnest.servicefacade#EventAttributeMap",
+          "target": "com.amazonaws.frauddetector#EventAttributeMap",
           "traits": {
             "smithy.api#documentation": "<p>Names of variables you defined in Amazon Fraud Detector to represent event data elements and their corresponding values for the event you are sending for evaluation.</p>"
           }
         },
         "eventId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The unique ID used to identify the event.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "externalModelEndpointDataBlobs": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ExternalModelEndpointDataBlobMap",
+          "target": "com.amazonaws.frauddetector#ExternalModelEndpointDataBlobMap",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SageMaker model endpoint input data blobs.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetPredictionResult": {
+    "com.amazonaws.frauddetector#GetPredictionResult": {
       "type": "structure",
       "members": {
         "modelScores": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelScores",
+          "target": "com.amazonaws.frauddetector#ListOfModelScores",
           "traits": {
             "smithy.api#documentation": "<p>The model scores for models used in the detector version.</p>"
           }
         },
         "outcomes": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
+          "target": "com.amazonaws.frauddetector#ListOfStrings",
           "traits": {
             "smithy.api#documentation": "<p>The prediction outcomes.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetRules": {
+    "com.amazonaws.frauddetector#GetRules": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetRulesRequest"
+        "target": "com.amazonaws.frauddetector#GetRulesRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetRulesResult"
+        "target": "com.amazonaws.frauddetector#GetRulesResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
@@ -1706,79 +1711,79 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetRulesRequest": {
+    "com.amazonaws.frauddetector#GetRulesRequest": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#RulesMaxResults",
+          "target": "com.amazonaws.frauddetector#RulesMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of rules to return for the request.</p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token.</p>"
           }
         },
         "ruleId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The rule ID.</p>"
           }
         },
         "ruleVersion": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The rule version.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetRulesResult": {
+    "com.amazonaws.frauddetector#GetRulesResult": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token to be used in subsequent requests.</p>"
           }
         },
         "ruleDetails": {
-          "target": "com.amazonaws.hawksnest.servicefacade#RuleDetailList",
+          "target": "com.amazonaws.frauddetector#RuleDetailList",
           "traits": {
             "smithy.api#documentation": "<p>The details of the requested rule.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetVariables": {
+    "com.amazonaws.frauddetector#GetVariables": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetVariablesRequest"
+        "target": "com.amazonaws.frauddetector#GetVariablesRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#GetVariablesResult"
+        "target": "com.amazonaws.frauddetector#GetVariablesResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
@@ -1790,53 +1795,53 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetVariablesRequest": {
+    "com.amazonaws.frauddetector#GetVariablesRequest": {
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.hawksnest.servicefacade#VariablesMaxResults",
+          "target": "com.amazonaws.frauddetector#VariablesMaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The max size per page determined for the get variable request. </p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable. </p>"
           }
         },
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token of the get variable request. </p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#GetVariablesResult": {
+    "com.amazonaws.frauddetector#GetVariablesResult": {
       "type": "structure",
       "members": {
         "nextToken": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The next page token to be used in subsequent requests. </p>"
           }
         },
         "variables": {
-          "target": "com.amazonaws.hawksnest.servicefacade#VariableList",
+          "target": "com.amazonaws.frauddetector#VariableList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the variables returned. </p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException": {
+    "com.amazonaws.frauddetector#InternalServerException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1846,45 +1851,45 @@
         "smithy.api#httpError": 500
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#IsOpaque": {
+    "com.amazonaws.frauddetector#IsOpaque": {
       "type": "boolean",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#JsonKeyToVariableMap": {
+    "com.amazonaws.frauddetector#JsonKeyToVariableMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "value": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#LabelMapper": {
+    "com.amazonaws.frauddetector#LabelMapper": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "value": {
-        "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings"
+        "target": "com.amazonaws.frauddetector#ListOfStrings"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#LabelSchema": {
+    "com.amazonaws.frauddetector#LabelSchema": {
       "type": "structure",
       "members": {
         "labelKey": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The label key.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "labelMapper": {
-          "target": "com.amazonaws.hawksnest.servicefacade#LabelMapper",
+          "target": "com.amazonaws.frauddetector#LabelMapper",
           "traits": {
             "smithy.api#documentation": "<p>The label mapper maps the Amazon Fraud Detector supported label to the appropriate source labels.\n            For example, if <code>\"FRAUD\"</code> and <code>\"LEGIT\"</code> are Amazon Fraud Detector supported labels, this mapper could\n            be: <code>{\"FRAUD\" => [\"0\"]</code>, \"LEGIT\" => [\"1\"]} or <code>{\"FRAUD\" => [\"false\"], \"LEGIT\" => [\"true\"]}</code>\n            or <code>{\"FRAUD\" => [\"fraud\", \"abuse\"], \"LEGIT\" => [\"legit\", \"safe\"]}</code>. The value part of the\n            mapper is a list, because you may have multiple variants for a single Amazon Fraud Detector label.\n        </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -1892,100 +1897,101 @@
         "smithy.api#documentation": "<p>The label schema.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#Language": {
+    "com.amazonaws.frauddetector#Language": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "DETECTORPL": {
+        "smithy.api#enum": [
+          {
+            "value": "DETECTORPL",
             "name": "DETECTORPL"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ListOfModelScores": {
+    "com.amazonaws.frauddetector#ListOfModelScores": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#ModelScores"
+        "target": "com.amazonaws.frauddetector#ModelScores"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ListOfModelVersions": {
+    "com.amazonaws.frauddetector#ListOfModelVersions": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#ModelVersion"
+        "target": "com.amazonaws.frauddetector#ModelVersion"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ListOfStrings": {
+    "com.amazonaws.frauddetector#ListOfStrings": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#MaxResults": {
+    "com.amazonaws.frauddetector#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 10
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#MetricsMap": {
+    "com.amazonaws.frauddetector#MetricsMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "value": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#Model": {
+    "com.amazonaws.frauddetector#Model": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of when the model was created.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The model description.</p>"
           }
         },
         "labelSchema": {
-          "target": "com.amazonaws.hawksnest.servicefacade#LabelSchema",
+          "target": "com.amazonaws.frauddetector#LabelSchema",
           "traits": {
             "smithy.api#documentation": "<p>The model label schema.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of last time the model was updated.</p>"
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVariables": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelVariablesList",
+          "target": "com.amazonaws.frauddetector#ModelVariablesList",
           "traits": {
             "smithy.api#documentation": "<p>The model input variables.</p>"
           }
         },
         "trainingDataSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#TrainingDataSource",
+          "target": "com.amazonaws.frauddetector#TrainingDataSource",
           "traits": {
             "smithy.api#documentation": "<p>The model training data source in Amazon S3.</p>"
           }
@@ -1995,17 +2001,17 @@
         "smithy.api#documentation": "<p>The model.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelEndpointDataBlob": {
+    "com.amazonaws.frauddetector#ModelEndpointDataBlob": {
       "type": "structure",
       "members": {
         "byteBuffer": {
-          "target": "com.amazonaws.hawksnest.servicefacade#blob",
+          "target": "com.amazonaws.frauddetector#blob",
           "traits": {
             "smithy.api#documentation": "<p>The byte buffer of the Amazon SageMaker model endpoint input data blob.</p>"
           }
         },
         "contentType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#contentType",
+          "target": "com.amazonaws.frauddetector#contentType",
           "traits": {
             "smithy.api#documentation": "<p>The content type of the Amazon SageMaker model endpoint input data blob. </p>"
           }
@@ -2015,43 +2021,45 @@
         "smithy.api#documentation": "<p>A pre-formed Amazon SageMaker model input you can include if your detector version includes an imported Amazon SageMaker model endpoint with pass-through input configuration.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelEndpointStatus": {
+    "com.amazonaws.frauddetector#ModelEndpointStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ASSOCIATED": {
+        "smithy.api#enum": [
+          {
+            "value": "ASSOCIATED",
             "name": "ASSOCIATED"
           },
-          "DISSOCIATED": {
+          {
+            "value": "DISSOCIATED",
             "name": "DISSOCIATED"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelInputConfiguration": {
+    "com.amazonaws.frauddetector#ModelInputConfiguration": {
       "type": "structure",
       "members": {
         "csvInputTemplate": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p> Template for constructing the CSV input-data sent to SageMaker. At event-evaluation,\n            the placeholders for variable-names in the template will be replaced with the variable\n            values before being sent to SageMaker. </p>"
           }
         },
         "format": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelInputDataFormat",
+          "target": "com.amazonaws.frauddetector#ModelInputDataFormat",
           "traits": {
             "smithy.api#documentation": "<p> The format of the model input configuration. The format differs depending on if it is\n            passed through to SageMaker or constructed by Amazon Fraud Detector.</p>"
           }
         },
         "isOpaque": {
-          "target": "com.amazonaws.hawksnest.servicefacade#IsOpaque",
+          "target": "com.amazonaws.frauddetector#IsOpaque",
           "traits": {
             "smithy.api#documentation": "<p> For an opaque-model, the input to the model will be a ByteBuffer blob provided in the\n            getPrediction request, and will be passed to SageMaker as-is. For non-opaque models,\n            the input will be constructed by Amazon Fraud Detector based on the model-configuration. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "jsonInputTemplate": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p> Template for constructing the JSON input-data sent to SageMaker. At event-evaluation,\n            the placeholders for variable names in the template will be replaced with the variable\n            values before being sent to SageMaker. </p>"
           }
@@ -2061,43 +2069,45 @@
         "smithy.api#documentation": "<p>The model input configuration.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelInputDataFormat": {
+    "com.amazonaws.frauddetector#ModelInputDataFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TEXT_CSV": {
+        "smithy.api#enum": [
+          {
+            "value": "TEXT_CSV",
             "name": "CSV"
           },
-          "APPLICATION_JSON": {
+          {
+            "value": "APPLICATION_JSON",
             "name": "JSON"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelList": {
+    "com.amazonaws.frauddetector#ModelList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#Model"
+        "target": "com.amazonaws.frauddetector#Model"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelOutputConfiguration": {
+    "com.amazonaws.frauddetector#ModelOutputConfiguration": {
       "type": "structure",
       "members": {
         "csvIndexToVariableMap": {
-          "target": "com.amazonaws.hawksnest.servicefacade#CsvIndexToVariableMap",
+          "target": "com.amazonaws.frauddetector#CsvIndexToVariableMap",
           "traits": {
             "smithy.api#documentation": "<p>A map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables. </p>"
           }
         },
         "format": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelOutputDataFormat",
+          "target": "com.amazonaws.frauddetector#ModelOutputDataFormat",
           "traits": {
             "smithy.api#documentation": "<p>The format of the model output configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "jsonKeyToVariableMap": {
-          "target": "com.amazonaws.hawksnest.servicefacade#JsonKeyToVariableMap",
+          "target": "com.amazonaws.frauddetector#JsonKeyToVariableMap",
           "traits": {
             "smithy.api#documentation": "<p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>"
           }
@@ -2107,39 +2117,41 @@
         "smithy.api#documentation": "<p>Provides the model output configuration.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelOutputDataFormat": {
+    "com.amazonaws.frauddetector#ModelOutputDataFormat": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TEXT_CSV": {
+        "smithy.api#enum": [
+          {
+            "value": "TEXT_CSV",
             "name": "CSV"
           },
-          "APPLICATION_JSONLINES": {
+          {
+            "value": "APPLICATION_JSONLINES",
             "name": "JSONLINES"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelPredictionMap": {
+    "com.amazonaws.frauddetector#ModelPredictionMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "value": {
-        "target": "com.amazonaws.hawksnest.servicefacade#float"
+        "target": "com.amazonaws.frauddetector#float"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelScores": {
+    "com.amazonaws.frauddetector#ModelScores": {
       "type": "structure",
       "members": {
         "modelVersion": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelVersion",
+          "target": "com.amazonaws.frauddetector#ModelVersion",
           "traits": {
             "smithy.api#documentation": "<p>The model version.</p>"
           }
         },
         "scores": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelPredictionMap",
+          "target": "com.amazonaws.frauddetector#ModelPredictionMap",
           "traits": {
             "smithy.api#documentation": "<p>The model's fraud prediction scores.</p>"
           }
@@ -2149,40 +2161,42 @@
         "smithy.api#documentation": "<p>The fraud prediction scores.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelSource": {
+    "com.amazonaws.frauddetector#ModelSource": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "SAGEMAKER": {
+        "smithy.api#enum": [
+          {
+            "value": "SAGEMAKER",
             "name": "SAGEMAKER"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum": {
+    "com.amazonaws.frauddetector#ModelTypeEnum": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "ONLINE_FRAUD_INSIGHTS": {
+        "smithy.api#enum": [
+          {
+            "value": "ONLINE_FRAUD_INSIGHTS",
             "name": "ONLINE_FRAUD_INSIGHTS"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelVariable": {
+    "com.amazonaws.frauddetector#ModelVariable": {
       "type": "structure",
       "members": {
         "index": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelVariableIndex",
+          "target": "com.amazonaws.frauddetector#ModelVariableIndex",
           "traits": {
             "smithy.api#documentation": "<p>The model variable's index.></p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The model variable's name.></p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2190,40 +2204,40 @@
         "smithy.api#documentation": "<p>The model variable.></p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelVariableIndex": {
+    "com.amazonaws.frauddetector#ModelVariableIndex": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelVariablesList": {
+    "com.amazonaws.frauddetector#ModelVariablesList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#ModelVariable"
+        "target": "com.amazonaws.frauddetector#ModelVariable"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelVersion": {
+    "com.amazonaws.frauddetector#ModelVersion": {
       "type": "structure",
       "members": {
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The parent model ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelVersionNumber": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The model version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2231,77 +2245,77 @@
         "smithy.api#documentation": "<p>The model version.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelVersionDetail": {
+    "com.amazonaws.frauddetector#ModelVersionDetail": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the model was created.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The model description.</p>"
           }
         },
         "labelSchema": {
-          "target": "com.amazonaws.hawksnest.servicefacade#LabelSchema",
+          "target": "com.amazonaws.frauddetector#LabelSchema",
           "traits": {
             "smithy.api#documentation": "<p>The model label schema.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the model was last updated.</p>"
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVariables": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelVariablesList",
+          "target": "com.amazonaws.frauddetector#ModelVariablesList",
           "traits": {
             "smithy.api#documentation": "<p>The model variables.</p>"
           }
         },
         "modelVersionNumber": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The model version.</p>"
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The model status.</p>"
           }
         },
         "trainingDataSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#TrainingDataSource",
+          "target": "com.amazonaws.frauddetector#TrainingDataSource",
           "traits": {
             "smithy.api#documentation": "<p>The model training data source.</p>"
           }
         },
         "trainingMetrics": {
-          "target": "com.amazonaws.hawksnest.servicefacade#MetricsMap",
+          "target": "com.amazonaws.frauddetector#MetricsMap",
           "traits": {
             "smithy.api#documentation": "<p>The model training metrics.</p>"
           }
         },
         "validationMetrics": {
-          "target": "com.amazonaws.hawksnest.servicefacade#MetricsMap",
+          "target": "com.amazonaws.frauddetector#MetricsMap",
           "traits": {
             "smithy.api#documentation": "<p>The model validation metrics.</p>"
           }
@@ -2311,47 +2325,55 @@
         "smithy.api#documentation": "<p>Provides the model version details. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelVersionDetailList": {
+    "com.amazonaws.frauddetector#ModelVersionDetailList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#ModelVersionDetail"
+        "target": "com.amazonaws.frauddetector#ModelVersionDetail"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ModelVersionStatus": {
+    "com.amazonaws.frauddetector#ModelVersionStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": {
-          "TRAINING_IN_PROGRESS": {
+        "smithy.api#enum": [
+          {
+            "value": "TRAINING_IN_PROGRESS",
             "name": "TRAINING_IN_PROGRESS"
           },
-          "TRAINING_COMPLETE": {
+          {
+            "value": "TRAINING_COMPLETE",
             "name": "TRAINING_COMPLETE"
           },
-          "ACTIVATE_REQUESTED": {
+          {
+            "value": "ACTIVATE_REQUESTED",
             "name": "ACTIVATE_REQUESTED"
           },
-          "ACTIVATE_IN_PROGRESS": {
+          {
+            "value": "ACTIVATE_IN_PROGRESS",
             "name": "ACTIVATE_IN_PROGRESS"
           },
-          "ACTIVE": {
+          {
+            "value": "ACTIVE",
             "name": "ACTIVE"
           },
-          "INACTIVATE_IN_PROGRESS": {
+          {
+            "value": "INACTIVATE_IN_PROGRESS",
             "name": "INACTIVATE_IN_PROGRESS"
           },
-          "INACTIVE": {
+          {
+            "value": "INACTIVE",
             "name": "INACTIVE"
           },
-          "ERROR": {
+          {
+            "value": "ERROR",
             "name": "ERROR"
           }
-        }
+        ]
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#NameList": {
+    "com.amazonaws.frauddetector#NameList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "traits": {
         "smithy.api#length": {
@@ -2360,10 +2382,10 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#NonEmptyListOfStrings": {
+    "com.amazonaws.frauddetector#NonEmptyListOfStrings": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#string"
+        "target": "com.amazonaws.frauddetector#string"
       },
       "traits": {
         "smithy.api#length": {
@@ -2371,29 +2393,29 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#Outcome": {
+    "com.amazonaws.frauddetector#Outcome": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the outcome was created.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The outcome description.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the outcome was last updated.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The outcome name.</p>"
           }
@@ -2403,266 +2425,266 @@
         "smithy.api#documentation": "<p>The outcome.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#OutcomeList": {
+    "com.amazonaws.frauddetector#OutcomeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#Outcome"
+        "target": "com.amazonaws.frauddetector#Outcome"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#OutcomesMaxResults": {
+    "com.amazonaws.frauddetector#OutcomesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 100
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutDetector": {
+    "com.amazonaws.frauddetector#PutDetector": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutDetectorRequest"
+        "target": "com.amazonaws.frauddetector#PutDetectorRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutDetectorResult"
+        "target": "com.amazonaws.frauddetector#PutDetectorResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates or updates a detector. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutDetectorRequest": {
+    "com.amazonaws.frauddetector#PutDetectorRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the detector.</p>"
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutDetectorResult": {
+    "com.amazonaws.frauddetector#PutDetectorResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#PutExternalModel": {
+    "com.amazonaws.frauddetector#PutExternalModel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutExternalModelRequest"
+        "target": "com.amazonaws.frauddetector#PutExternalModelRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutExternalModelResult"
+        "target": "com.amazonaws.frauddetector#PutExternalModelResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutExternalModelRequest": {
+    "com.amazonaws.frauddetector#PutExternalModelRequest": {
       "type": "structure",
       "members": {
         "inputConfiguration": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelInputConfiguration",
+          "target": "com.amazonaws.frauddetector#ModelInputConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The model endpoint input configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelEndpoint": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The model endpoints name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelEndpointStatus": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelEndpointStatus",
+          "target": "com.amazonaws.frauddetector#ModelEndpointStatus",
           "traits": {
             "smithy.api#documentation": "<p>The model endpoint’s status in Amazon Fraud Detector.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelSource",
+          "target": "com.amazonaws.frauddetector#ModelSource",
           "traits": {
             "smithy.api#documentation": "<p>The source of the model.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "outputConfiguration": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelOutputConfiguration",
+          "target": "com.amazonaws.frauddetector#ModelOutputConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The model endpoint output configuration.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "role": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Role",
+          "target": "com.amazonaws.frauddetector#Role",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role used to invoke the model endpoint.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutExternalModelResult": {
+    "com.amazonaws.frauddetector#PutExternalModelResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#PutModel": {
+    "com.amazonaws.frauddetector#PutModel": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutModelRequest"
+        "target": "com.amazonaws.frauddetector#PutModelRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutModelResult"
+        "target": "com.amazonaws.frauddetector#PutModelResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates or updates a model. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutModelRequest": {
+    "com.amazonaws.frauddetector#PutModelRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The model description. </p>"
           }
         },
         "labelSchema": {
-          "target": "com.amazonaws.hawksnest.servicefacade#LabelSchema",
+          "target": "com.amazonaws.frauddetector#LabelSchema",
           "traits": {
             "smithy.api#documentation": "<p>The label schema.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelVariables": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelVariablesList",
+          "target": "com.amazonaws.frauddetector#ModelVariablesList",
           "traits": {
             "smithy.api#documentation": "<p>The model input variables.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "trainingDataSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#TrainingDataSource",
+          "target": "com.amazonaws.frauddetector#TrainingDataSource",
           "traits": {
             "smithy.api#documentation": "<p>The training data source location in Amazon S3.  </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutModelResult": {
+    "com.amazonaws.frauddetector#PutModelResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#PutOutcome": {
+    "com.amazonaws.frauddetector#PutOutcome": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutOutcomeRequest"
+        "target": "com.amazonaws.frauddetector#PutOutcomeRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#PutOutcomeResult"
+        "target": "com.amazonaws.frauddetector#PutOutcomeResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Creates or updates an outcome. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutOutcomeRequest": {
+    "com.amazonaws.frauddetector#PutOutcomeRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The outcome description.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The name of the outcome.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#PutOutcomeResult": {
+    "com.amazonaws.frauddetector#PutOutcomeResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException": {
+    "com.amazonaws.frauddetector#ResourceNotFoundException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2672,21 +2694,21 @@
         "smithy.api#httpError": 404
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#Role": {
+    "com.amazonaws.frauddetector#Role": {
       "type": "structure",
       "members": {
         "arn": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The role ARN.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The role name.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2694,28 +2716,28 @@
         "smithy.api#documentation": "<p>The role used to invoke external model endpoints.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#Rule": {
+    "com.amazonaws.frauddetector#Rule": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector for which the rule is associated.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ruleId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The rule ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "ruleVersion": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The rule version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2723,59 +2745,59 @@
         "smithy.api#documentation": "<p>A rule.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#RuleDetail": {
+    "com.amazonaws.frauddetector#RuleDetail": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp of when the rule was created.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The rule description.</p>"
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector for which the rule is associated.</p>"
           }
         },
         "expression": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ruleExpression",
+          "target": "com.amazonaws.frauddetector#ruleExpression",
           "traits": {
             "smithy.api#documentation": "<p>The rule expression.</p>"
           }
         },
         "language": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Language",
+          "target": "com.amazonaws.frauddetector#Language",
           "traits": {
             "smithy.api#documentation": "<p>The rule language.</p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp of the last time the rule was updated.</p>"
           }
         },
         "outcomes": {
-          "target": "com.amazonaws.hawksnest.servicefacade#NonEmptyListOfStrings",
+          "target": "com.amazonaws.frauddetector#NonEmptyListOfStrings",
           "traits": {
             "smithy.api#documentation": "<p>The rule outcomes.</p>"
           }
         },
         "ruleId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The rule ID.</p>"
           }
         },
         "ruleVersion": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The rule version.</p>"
           }
@@ -2785,35 +2807,35 @@
         "smithy.api#documentation": "<p>The details of the rule.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#RuleDetailList": {
+    "com.amazonaws.frauddetector#RuleDetailList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#RuleDetail"
+        "target": "com.amazonaws.frauddetector#RuleDetail"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#RuleList": {
+    "com.amazonaws.frauddetector#RuleList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#Rule"
+        "target": "com.amazonaws.frauddetector#Rule"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#RulesMaxResults": {
+    "com.amazonaws.frauddetector#RulesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 100
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException": {
+    "com.amazonaws.frauddetector#ThrottlingException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2823,21 +2845,21 @@
         "smithy.api#httpError": 429
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#TrainingDataSource": {
+    "com.amazonaws.frauddetector#TrainingDataSource": {
       "type": "structure",
       "members": {
         "dataAccessRoleArn": {
-          "target": "com.amazonaws.hawksnest.servicefacade#iamRoleArn",
+          "target": "com.amazonaws.frauddetector#iamRoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The data access role ARN for the training data source.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "dataLocation": {
-          "target": "com.amazonaws.hawksnest.servicefacade#s3BucketLocation",
+          "target": "com.amazonaws.frauddetector#s3BucketLocation",
           "traits": {
             "smithy.api#documentation": "<p>The data location of the training data source.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -2845,452 +2867,452 @@
         "smithy.api#documentation": "<p>The training data source.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersion": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionRequest"
+        "target": "com.amazonaws.frauddetector#UpdateDetectorVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionResult"
+        "target": "com.amazonaws.frauddetector#UpdateDetectorVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, and description. You can only update a <code>DRAFT</code> detector version.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadata": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionMetadata": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadataRequest"
+        "target": "com.amazonaws.frauddetector#UpdateDetectorVersionMetadataRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadataResult"
+        "target": "com.amazonaws.frauddetector#UpdateDetectorVersionMetadataResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or\n                <code>INACTIVE</code>). </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadataRequest": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionMetadataRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The description.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The detector version ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadataResult": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionMetadataResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionRequest": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The detector version description. </p>"
           }
         },
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The parent detector ID for the detector version you want to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The detector version ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "externalModelEndpoints": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
+          "target": "com.amazonaws.frauddetector#ListOfStrings",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon SageMaker model endpoints to include in the detector version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelVersions": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelVersions",
+          "target": "com.amazonaws.frauddetector#ListOfModelVersions",
           "traits": {
             "smithy.api#documentation": "<p>The model versions to include in the detector version.</p>"
           }
         },
         "rules": {
-          "target": "com.amazonaws.hawksnest.servicefacade#RuleList",
+          "target": "com.amazonaws.frauddetector#RuleList",
           "traits": {
             "smithy.api#documentation": "<p>The rules to include in the detector version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionResult": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionStatus": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionStatus": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionStatusRequest"
+        "target": "com.amazonaws.frauddetector#UpdateDetectorVersionStatusRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionStatusResult"
+        "target": "com.amazonaws.frauddetector#UpdateDetectorVersionStatusResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates the detector version’s status. You can perform the following promotions or\n            demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionStatusRequest": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionStatusRequest": {
       "type": "structure",
       "members": {
         "detectorId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The detector ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "detectorVersionId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The detector version ID. </p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
+          "target": "com.amazonaws.frauddetector#DetectorVersionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The new status.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionStatusResult": {
+    "com.amazonaws.frauddetector#UpdateDetectorVersionStatusResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateModelVersion": {
+    "com.amazonaws.frauddetector#UpdateModelVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateModelVersionRequest"
+        "target": "com.amazonaws.frauddetector#UpdateModelVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateModelVersionResult"
+        "target": "com.amazonaws.frauddetector#UpdateModelVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates a model version. You can update the description and status attributes\n            using this action. You can perform the following status updates: </p>\n        <ol>\n            <li>\n                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>\n                    </p>\n            </li>\n            <li>\n                <p>Change <code>ACTIVE</code> back to <code>TRAINING_COMPLETE</code>\n                    </p>\n            </li>\n         </ol>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateModelVersionRequest": {
+    "com.amazonaws.frauddetector#UpdateModelVersionRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The model description.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelId": {
-          "target": "com.amazonaws.hawksnest.servicefacade#identifier",
+          "target": "com.amazonaws.frauddetector#identifier",
           "traits": {
             "smithy.api#documentation": "<p>The model ID.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
+          "target": "com.amazonaws.frauddetector#ModelTypeEnum",
           "traits": {
             "smithy.api#documentation": "<p>The model type.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "modelVersionNumber": {
-          "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
+          "target": "com.amazonaws.frauddetector#nonEmptyString",
           "traits": {
             "smithy.api#documentation": "<p>The model version.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "status": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ModelVersionStatus",
+          "target": "com.amazonaws.frauddetector#ModelVersionStatus",
           "traits": {
             "smithy.api#documentation": "<p>The new model status.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateModelVersionResult": {
+    "com.amazonaws.frauddetector#UpdateModelVersionResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateRuleMetadata": {
+    "com.amazonaws.frauddetector#UpdateRuleMetadata": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateRuleMetadataRequest"
+        "target": "com.amazonaws.frauddetector#UpdateRuleMetadataRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateRuleMetadataResult"
+        "target": "com.amazonaws.frauddetector#UpdateRuleMetadataResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates a rule's metadata. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateRuleMetadataRequest": {
+    "com.amazonaws.frauddetector#UpdateRuleMetadataRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The rule description.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "rule": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Rule",
+          "target": "com.amazonaws.frauddetector#Rule",
           "traits": {
             "smithy.api#documentation": "<p>The rule to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateRuleMetadataResult": {
+    "com.amazonaws.frauddetector#UpdateRuleMetadataResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateRuleVersion": {
+    "com.amazonaws.frauddetector#UpdateRuleVersion": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateRuleVersionRequest"
+        "target": "com.amazonaws.frauddetector#UpdateRuleVersionRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateRuleVersionResult"
+        "target": "com.amazonaws.frauddetector#UpdateRuleVersionResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates a rule version resulting in a new rule version. </p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateRuleVersionRequest": {
+    "com.amazonaws.frauddetector#UpdateRuleVersionRequest": {
       "type": "structure",
       "members": {
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#description",
+          "target": "com.amazonaws.frauddetector#description",
           "traits": {
             "smithy.api#documentation": "<p>The description.</p>"
           }
         },
         "expression": {
-          "target": "com.amazonaws.hawksnest.servicefacade#ruleExpression",
+          "target": "com.amazonaws.frauddetector#ruleExpression",
           "traits": {
             "smithy.api#documentation": "<p>The rule expression.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "language": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Language",
+          "target": "com.amazonaws.frauddetector#Language",
           "traits": {
             "smithy.api#documentation": "<p>The language.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "outcomes": {
-          "target": "com.amazonaws.hawksnest.servicefacade#NonEmptyListOfStrings",
+          "target": "com.amazonaws.frauddetector#NonEmptyListOfStrings",
           "traits": {
             "smithy.api#documentation": "<p>The outcomes.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "rule": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Rule",
+          "target": "com.amazonaws.frauddetector#Rule",
           "traits": {
             "smithy.api#documentation": "<p>The rule to update.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateRuleVersionResult": {
+    "com.amazonaws.frauddetector#UpdateRuleVersionResult": {
       "type": "structure",
       "members": {
         "rule": {
-          "target": "com.amazonaws.hawksnest.servicefacade#Rule",
+          "target": "com.amazonaws.frauddetector#Rule",
           "traits": {
             "smithy.api#documentation": "<p>The new rule version that was created.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateVariable": {
+    "com.amazonaws.frauddetector#UpdateVariable": {
       "type": "operation",
       "input": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateVariableRequest"
+        "target": "com.amazonaws.frauddetector#UpdateVariableRequest"
       },
       "output": {
-        "target": "com.amazonaws.hawksnest.servicefacade#UpdateVariableResult"
+        "target": "com.amazonaws.frauddetector#UpdateVariableResult"
       },
       "errors": [
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException"
+          "target": "com.amazonaws.frauddetector#InternalServerException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException"
+          "target": "com.amazonaws.frauddetector#ResourceNotFoundException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException"
+          "target": "com.amazonaws.frauddetector#ThrottlingException"
         },
         {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException"
+          "target": "com.amazonaws.frauddetector#ValidationException"
         }
       ],
       "traits": {
         "smithy.api#documentation": "<p>Updates a variable.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateVariableRequest": {
+    "com.amazonaws.frauddetector#UpdateVariableRequest": {
       "type": "structure",
       "members": {
         "defaultValue": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The new default value of the variable.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The new description.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable.</p>",
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         },
         "variableType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The variable type.</p>"
           }
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#UpdateVariableResult": {
+    "com.amazonaws.frauddetector#UpdateVariableResult": {
       "type": "structure",
-      "members": { }
+      "members": {}
     },
-    "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException": {
+    "com.amazonaws.frauddetector#ValidationException": {
       "type": "structure",
       "members": {
         "message": {
-          "target": "com.amazonaws.hawksnest.servicefacade.exceptions#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": {}
           }
         }
       },
@@ -3300,53 +3322,53 @@
         "smithy.api#httpError": 400
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#Variable": {
+    "com.amazonaws.frauddetector#Variable": {
       "type": "structure",
       "members": {
         "createdTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The time when the variable was created.</p>"
           }
         },
         "dataSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DataSource",
+          "target": "com.amazonaws.frauddetector#DataSource",
           "traits": {
             "smithy.api#documentation": "<p>The data source of the variable.</p>"
           }
         },
         "dataType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#DataType",
+          "target": "com.amazonaws.frauddetector#DataType",
           "traits": {
             "smithy.api#documentation": "<p>The data type of the variable.</p>"
           }
         },
         "defaultValue": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The default value of the variable.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The description of the variable. </p>"
           }
         },
         "lastUpdatedTime": {
-          "target": "com.amazonaws.hawksnest.servicefacade#time",
+          "target": "com.amazonaws.frauddetector#time",
           "traits": {
             "smithy.api#documentation": "<p>The time when variable was last updated.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable.</p>"
           }
         },
         "variableType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The variable type of the variable.</p>"
           }
@@ -3356,41 +3378,41 @@
         "smithy.api#documentation": "<p>The variable.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#VariableEntry": {
+    "com.amazonaws.frauddetector#VariableEntry": {
       "type": "structure",
       "members": {
         "dataSource": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The data source of the variable entry.</p>"
           }
         },
         "dataType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The data type of the variable entry.</p>"
           }
         },
         "defaultValue": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The default value of the variable entry.</p>"
           }
         },
         "description": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The description of the variable entry.</p>"
           }
         },
         "name": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the variable entry.</p>"
           }
         },
         "variableType": {
-          "target": "com.amazonaws.hawksnest.servicefacade#string",
+          "target": "com.amazonaws.frauddetector#string",
           "traits": {
             "smithy.api#documentation": "<p>The type of the variable entry.</p>"
           }
@@ -3400,10 +3422,10 @@
         "smithy.api#documentation": "<p>The variable entry in a list.</p>"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#VariableEntryList": {
+    "com.amazonaws.frauddetector#VariableEntryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#VariableEntry"
+        "target": "com.amazonaws.frauddetector#VariableEntry"
       },
       "traits": {
         "smithy.api#length": {
@@ -3412,23 +3434,23 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#VariableList": {
+    "com.amazonaws.frauddetector#VariableList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.hawksnest.servicefacade#Variable"
+        "target": "com.amazonaws.frauddetector#Variable"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#VariablesMaxResults": {
+    "com.amazonaws.frauddetector#VariablesMaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": true,
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 50,
           "max": 100
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#attributeKey": {
+    "com.amazonaws.frauddetector#attributeKey": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3437,20 +3459,20 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#attributeValue": {
+    "com.amazonaws.frauddetector#attributeValue": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 256
         },
-        "smithy.api#sensitive": true
+        "smithy.api#sensitive": {}
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#blob": {
+    "com.amazonaws.frauddetector#blob": {
       "type": "blob"
     },
-    "com.amazonaws.hawksnest.servicefacade#contentType": {
+    "com.amazonaws.frauddetector#contentType": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3459,7 +3481,7 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#description": {
+    "com.amazonaws.frauddetector#description": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3468,13 +3490,13 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#float": {
+    "com.amazonaws.frauddetector#float": {
       "type": "float",
       "traits": {
-        "smithy.api#box": true
+        "smithy.api#box": {}
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#iamRoleArn": {
+    "com.amazonaws.frauddetector#iamRoleArn": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3484,7 +3506,7 @@
         "smithy.api#pattern": "^arn\\:aws\\:iam\\:\\:[0-9]{12}\\:role\\/[^\\s]{2,64}$"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#identifier": {
+    "com.amazonaws.frauddetector#identifier": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3494,10 +3516,10 @@
         "smithy.api#pattern": "^[0-9a-z_-]+$"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#integer": {
+    "com.amazonaws.frauddetector#integer": {
       "type": "integer"
     },
-    "com.amazonaws.hawksnest.servicefacade#nonEmptyString": {
+    "com.amazonaws.frauddetector#nonEmptyString": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3505,7 +3527,7 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#ruleExpression": {
+    "com.amazonaws.frauddetector#ruleExpression": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3514,7 +3536,7 @@
         }
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#s3BucketLocation": {
+    "com.amazonaws.frauddetector#s3BucketLocation": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3524,13 +3546,10 @@
         "smithy.api#pattern": "^s3:\\/\\/[^\\s]+$"
       }
     },
-    "com.amazonaws.hawksnest.servicefacade#string": {
+    "com.amazonaws.frauddetector#string": {
       "type": "string"
     },
-    "com.amazonaws.hawksnest.servicefacade.exceptions#string": {
-      "type": "string"
-    },
-    "com.amazonaws.hawksnest.servicefacade#time": {
+    "com.amazonaws.frauddetector#time": {
       "type": "string"
     }
   }
