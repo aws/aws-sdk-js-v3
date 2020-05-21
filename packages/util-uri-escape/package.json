@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-uri-escape",
-  "version": "1.0.0-gamma.0",
+  "version": "1.0.0-gamma.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",

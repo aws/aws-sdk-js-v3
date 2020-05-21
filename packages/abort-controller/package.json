@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/abort-controller",
-  "version": "1.0.0-gamma.0",
+  "version": "1.0.0-gamma.1",
   "description": "A simple abort controller library",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -15,7 +15,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "1.0.0-gamma.0",
+    "@aws-sdk/types": "1.0.0-gamma.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

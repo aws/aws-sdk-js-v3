@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/is-array-buffer",
-  "version": "1.0.0-gamma.0",
+  "version": "1.0.0-gamma.1",
   "description": "Provides a function for detecting if an argument is an ArrayBuffer",
   "scripts": {
     "prepublishOnly": "tsc",
