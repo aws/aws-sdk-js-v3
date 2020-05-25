@@ -29,4 +29,16 @@ describe("streamCollector", () => {
       done();
     });
   });
+
+  it("returns a Uint8Array when blob is empty", done => {
+    const expected = new Uint8Array(0);
+
+    const dataPromise = new Response(expected.buffer)
+      .blob()
+      .then(blob => streamCollector(blob));
+    dataPromise.then((data: any) => {
+      expect(data).toEqual(Uint8Array.from([]));
+      done();
+    });
+  });
 });
