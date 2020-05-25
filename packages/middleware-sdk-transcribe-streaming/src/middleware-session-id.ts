@@ -1,0 +1,51 @@
+import {
+  InitializeMiddleware,
+  InitializeHandler,
+  InitializeHandlerArguments,
+  InitializeHandlerOptions,
+  RequestHandler
+} from "@aws-sdk/types";
+import { v4 } from "uuid";
+
+type WithSession = {
+  SessionId?: string;
+  [key: string]: any;
+};
+
+/**
+ * Middleware that inject default sessionId for operations, and inject
+ * the parameters from request to the response metadata. This is
+ * necessary because the SDK cannot access any parameters other than
+ * the result stream. So it copy the parameters from input to the same
+ * parameters in the output.
+ */
+export const injectSessionIdMiddleware = (config: {
+  requestHandler: RequestHandler<any, any>;
+}): InitializeMiddleware<any, any> => (
+  next: InitializeHandler<WithSession, WithSession>
+) => async (args: InitializeHandlerArguments<WithSession>) => {
+  if (args.input.SessionId === undefined && isWebSocket(config)) {
+    args.input.SessionId = v4();
+  }
+  const requestParams = {
+    ...args.input
+  };
+  const response = await next(args);
+  const output = response.output;
+  for (const key of Object.keys(output)) {
+    if (output[key] === undefined && requestParams[key]) {
+      output[key] = requestParams[key];
+    }
+  }
+  return response;
+};
+
+function isWebSocket(config: { requestHandler: RequestHandler<any, any> }) {
+  return config.requestHandler.metadata?.handlerProtocol === "websocket";
+}
+
+export const injectSessionIdMiddlewareOptions: InitializeHandlerOptions = {
+  step: "initialize",
+  name: "injectSessionIdMiddleware",
+  tags: ["WEBSOCKET", "EVENT_STREAM"]
+};
