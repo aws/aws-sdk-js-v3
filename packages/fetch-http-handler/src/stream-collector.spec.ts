@@ -1,31 +1,35 @@
 import { streamCollector } from "./stream-collector";
 
+/**
+ * Have to mock the FileReader behavior in IE, where
+ * reader.result is null if reads an empty blob.
+ */
 describe("streamCollector", () => {
-  it("returns a Uint8Array from a blob", done => {
-    const dataPromise = new Response(new Uint8Array([102, 111, 111]).buffer)
-      .blob()
-      .then(blob => streamCollector(blob));
-    dataPromise.then((data: any) => {
-      expect(data).toEqual(Uint8Array.from([102, 111, 111]));
-      done();
-    });
+  let originalFileReader = (global as any).FileReader;
+  let originalBlob = (global as any).Blob;
+  beforeAll(() => {
+    originalFileReader = (global as any).FileReader;
+    originalBlob = (global as any).Blob;
+  });
+  afterAll(() => {
+    (global as any).FileReader = originalFileReader;
+    (global as any).Blob = originalBlob;
   });
 
-  it("returns a Uint8Array from a ReadableStream", done => {
-    const dataPromise = streamCollector(
-      new Response(new Uint8Array([102, 111, 111]).buffer).body
-    );
+  it("returns a Uint8Array when blob is empty and when FileReader data is null(in IE)", done => {
+    (global as any).FileReader = function FileReader() {
+      this.result = null; //In IE, FileReader.result is null after reading empty blob
+      this.readAsDataURL = jest.fn().mockImplementation(() => {
+        if (this.onloadend) {
+          this.readyState = 2;
+          this.onloadend();
+        }
+      });
+    };
+    (global as any).Blob = function Blob() {};
+    const dataPromise = streamCollector(new Blob());
     dataPromise.then((data: any) => {
-      expect(data).toEqual(Uint8Array.from([102, 111, 111]));
-      done();
-    });
-  });
-
-  it("returns a Uint8Array when stream is empty", done => {
-    const expected = new Uint8Array(0);
-    const dataPromise = streamCollector(new Response(expected.buffer).body);
-    dataPromise.then((data: any) => {
-      expect(data).toEqual(expected);
+      expect(data).toEqual(Uint8Array.from([]));
       done();
     });
   });
