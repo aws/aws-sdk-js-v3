@@ -25,14 +25,18 @@ export const STILL_PROCESSING_ERROR_CODES = ["PriorRequestNotComplete"];
  * These errors are always retryable.
  */
 export const THROTTLING_ERROR_CODES = [
-  "BandwidthLimitExceeded",
-  "ProvisionedThroughputExceededException",
-  "RequestLimitExceeded",
-  "RequestThrottled",
-  "RequestThrottledException",
-  "SlowDown",
-  "ThrottledException",
   "Throttling",
   "ThrottlingException",
-  "TooManyRequestsException"
+  "ThrottledException",
+  "RequestThrottledException",
+  "TooManyRequestsException",
+  "ProvisionedThroughputExceededException",
+  "TransactionInProgressException",
+  "RequestLimitExceeded",
+  "BandwidthLimitExceeded",
+  "LimitExceededException",
+  "RequestThrottled",
+  "SlowDown",
+  "PriorRequestNotComplete",
+  "EC2ThrottledException"
 ];
