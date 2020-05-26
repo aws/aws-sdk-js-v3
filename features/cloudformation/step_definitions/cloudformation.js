@@ -14,7 +14,8 @@ Given("I create a CloudFormation stack with name prefix {string}", function (
   this.templateBody = '{"Resources":{"member":{"Type":"AWS::SQS::Queue"}}}';
   const params = {
     TemplateBody: this.templateBody,
-    StackName: this.stackName
+    StackName: this.stackName,
+    EnableTerminationProtection: true
   };
   this.request(null, "createStack", params, callback, false);
 });
