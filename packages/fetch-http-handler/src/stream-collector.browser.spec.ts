@@ -2,21 +2,21 @@ import { streamCollector } from "./stream-collector";
 
 describe("streamCollector", () => {
   it("returns a Uint8Array from a blob", done => {
-    const dataPromise = new Response(new Uint8Array([102, 111, 111]).buffer)
+    const expected = Uint8Array.from([102, 111, 111]);
+    const dataPromise = new Response(expected.buffer)
       .blob()
       .then(blob => streamCollector(blob));
     dataPromise.then((data: any) => {
-      expect(data).toEqual(Uint8Array.from([102, 111, 111]));
+      expect(data).toEqual(expected);
       done();
     });
   });
 
   it("returns a Uint8Array from a ReadableStream", done => {
-    const dataPromise = streamCollector(
-      new Response(new Uint8Array([102, 111, 111]).buffer).body
-    );
+    const expected = Uint8Array.from([102, 111, 111]);
+    const dataPromise = streamCollector(new Response(expected.buffer).body);
     dataPromise.then((data: any) => {
-      expect(data).toEqual(Uint8Array.from([102, 111, 111]));
+      expect(data).toEqual(expected);
       done();
     });
   });
