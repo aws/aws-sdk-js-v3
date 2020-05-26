@@ -15,11 +15,6 @@ export const CLOCK_SKEW_ERROR_CODES = [
 ];
 
 /**
- * Errors encountered when the state presumed by an operation is not yet ready.
- */
-export const STILL_PROCESSING_ERROR_CODES = ["PriorRequestNotComplete"];
-
-/**
  * Errors that indicate the SDK is being throttled.
  *
  * These errors are always retryable.
