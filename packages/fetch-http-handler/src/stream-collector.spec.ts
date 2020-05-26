@@ -37,7 +37,7 @@ describe("streamCollector", () => {
       .blob()
       .then(blob => streamCollector(blob));
     dataPromise.then((data: any) => {
-      expect(data).toEqual(Uint8Array.from([]));
+      expect(data).toEqual(expected);
       done();
     });
   });

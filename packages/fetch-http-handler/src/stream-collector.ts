@@ -44,7 +44,7 @@ function readToBase64(blob: Blob): Promise<string> {
       if (reader.readyState !== 2) {
         return reject(new Error("Reader aborted too early"));
       }
-      const result = reader.result as string;
+      const result = (reader.result as string) || "";
       // Response can include only 'data:' for empty blob, return empty string in this case.
       // Otherwise, return the string after ','
       const commaIndex = result.indexOf(",");
