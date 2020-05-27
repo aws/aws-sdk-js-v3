@@ -15,5 +15,6 @@
       "es2015.symbol.wellknown"
     ],
     "outDir": "dist/es"
-  }
+  },
+  "exclude": ["test"]
 }

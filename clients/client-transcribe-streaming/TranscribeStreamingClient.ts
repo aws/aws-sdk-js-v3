@@ -18,6 +18,11 @@ import {
 } from "@aws-sdk/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
+  EventStreamInputConfig,
+  EventStreamResolvedConfig,
+  resolveEventStreamConfig
+} from "@aws-sdk/middleware-eventstream";
+import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
@@ -52,6 +57,7 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider,
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
@@ -149,6 +155,11 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 
   /**
+   * The function that provides necessary utilities for handling request event stream.
+   */
+  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
+  /**
    * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
@@ -164,6 +175,7 @@ export type TranscribeStreamingClientConfig = Partial<
   RetryInputConfig &
   UserAgentInputConfig &
   HostHeaderInputConfig &
+  EventStreamInputConfig &
   EventStreamSerdeInputConfig;
 
 export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfiguration<
@@ -176,6 +188,7 @@ export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfigurat
   RetryResolvedConfig &
   UserAgentResolvedConfig &
   HostHeaderResolvedConfig &
+  EventStreamResolvedConfig &
   EventStreamSerdeResolvedConfig;
 
 /**
@@ -200,9 +213,10 @@ export class TranscribeStreamingClient extends __Client<
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
-    let _config_7 = resolveEventStreamSerdeConfig(_config_6);
-    super(_config_7);
-    this.config = _config_7;
+    let _config_7 = resolveEventStreamConfig(_config_6);
+    let _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));

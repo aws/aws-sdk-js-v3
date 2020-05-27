@@ -1,4 +1,11 @@
 import { HttpRequest } from "./http";
+import { MetadataBearer } from "./response";
+import {
+  HandlerExecutionContext,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput
+} from "./middleware";
 /**
  * An event stream message. The headers and body properties will always be
  * defined, with empty headers represented as an object with no keys and an
@@ -95,6 +102,18 @@ export interface EventStreamMarshaller {
 
 export interface EventStreamRequestSigner {
   sign(request: HttpRequest): Promise<HttpRequest>;
+}
+
+export interface EventStreamPayloadHandler {
+  handle: <Input extends object, Output extends MetadataBearer>(
+    next: FinalizeHandler<Input, Output>,
+    args: FinalizeHandlerArguments<Input>,
+    context?: HandlerExecutionContext
+  ) => Promise<FinalizeHandlerOutput<Output>>;
+}
+
+export interface EventStreamPayloadHandlerProvider {
+  (options: any): EventStreamPayloadHandler;
 }
 
 export interface EventStreamSerdeProvider {

@@ -19,6 +19,9 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   defaultUserAgent: defaultUserAgent(name, version),
+  eventStreamPayloadHandlerProvider: () => ({
+    handle: invalidFunction("event stream request is not supported in browser.")
+  }),
   eventStreamSerdeProvider,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),

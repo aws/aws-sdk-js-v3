@@ -25,6 +25,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
+import software.amazon.smithy.model.traits.EventStreamTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -140,12 +141,14 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         super.serializeInputPayload(context, operation, payloadBinding);
 
         TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().expectShape(payloadBinding.getMember().getTarget());
+        MemberShape payloadMember = payloadBinding.getMember();
+        Shape target = context.getModel().expectShape(payloadMember.getTarget());
 
-        // Default to an empty JSON body instead of an undefined body if
-        // the target is a structure or union, and make sure any structure
-        // or union content ends up as a JSON string.
-        if (target instanceof StructureShape || target instanceof UnionShape) {
+        // When payload target is a structure or union but payload is not an event stream, default
+        // to an empty JSON body instead of an undefined body and make sure any structure or union
+        // content ends up as a JSON string.
+        if ((target instanceof StructureShape || target instanceof UnionShape)
+                && !payloadMember.hasTrait(EventStreamTrait.class)) {
             writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
             writer.write("body = JSON.stringify(body);");
         }

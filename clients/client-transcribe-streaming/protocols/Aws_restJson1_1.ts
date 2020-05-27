@@ -59,10 +59,6 @@ export const serializeAws_restJson1_1StartStreamTranscriptionCommand = async (
       serializeAws_restJson1_1AudioStream_event(event, context)
     );
   }
-  if (body === undefined) {
-    body = {};
-  }
-  body = JSON.stringify(body);
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

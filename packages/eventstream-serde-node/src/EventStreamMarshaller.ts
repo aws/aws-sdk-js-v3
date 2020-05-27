@@ -1,3 +1,4 @@
+import { EventStreamMarshaller as UniversalEventStreamMarshaller } from "@aws-sdk/eventstream-serde-universal";
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
 import {
   Encoder,
@@ -5,11 +6,8 @@ import {
   Message,
   EventStreamMarshaller as IEventStreamMarshaller
 } from "@aws-sdk/types";
-import { Readable, pipeline } from "stream";
+import { Readable } from "stream";
 import { readabletoIterable } from "./utils";
-import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
-import { MessageUnmarshallerStream } from "./MessageUnmarshallerStream";
-import { EventDeserializerStream } from "./EventDeserializerStream";
 
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 
@@ -20,72 +18,67 @@ export interface EventStreamMarshallerOptions {
 
 export class EventStreamMarshaller {
   private readonly eventMarshaller: EventMarshaller;
+  private readonly universalMarshaller: UniversalEventStreamMarshaller;
   constructor({ utf8Encoder, utf8Decoder }: EventStreamMarshallerOptions) {
     this.eventMarshaller = new EventMarshaller(utf8Encoder, utf8Decoder);
+    this.universalMarshaller = new UniversalEventStreamMarshaller({
+      utf8Decoder,
+      utf8Encoder
+    });
   }
 
   deserialize<T>(
     body: Readable,
-    deserializer: (input: { [event: string]: Message }) => T
+    deserializer: (input: { [event: string]: Message }) => Promise<T>
   ): AsyncIterable<T> {
-    const eventDeserializerStream = new EventDeserializerStream({
-      deserializer
-    });
-    pipeline(
-      body,
-      new EventMessageChunkerStream(), //frame the body
-      new MessageUnmarshallerStream({
-        eventMarshaller: this.eventMarshaller
-      }),
-      eventDeserializerStream,
-      err => {
-        if (err) throw err;
-      }
-    );
     //should use stream[Symbol.asyncIterable] when the api is stable
     //reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
-    if (typeof eventDeserializerStream[Symbol.asyncIterator] === "function") {
-      // use the experimental feature if available.
-      return eventDeserializerStream;
-    }
-    return readabletoIterable(eventDeserializerStream);
+    const bodyIterable: AsyncIterable<Uint8Array> =
+      typeof body[Symbol.asyncIterator] === "function"
+        ? body
+        : readabletoIterable(body);
+    return this.universalMarshaller.deserialize(bodyIterable, deserializer);
   }
 
   serialize<T>(
     input: AsyncIterable<T>,
     serializer: (event: T) => Message
   ): Readable {
-    //will use Readable.from(Iterable) in Node12
-    const inputIterator = input[Symbol.asyncIterator]();
-    const self = this;
-    let generatorDone = false;
-    const stream = new Readable({
-      objectMode: true,
-      async read() {
-        try {
-          const result = await inputIterator.next();
-          if (result.done && generatorDone) {
-            this.push(null);
-            return;
-          }
-          const payloadBuf = result.done
-            ? new Uint8Array(0)
-            : self.eventMarshaller.marshall(serializer(result.value));
-          this.push(payloadBuf);
-          if (result.done && !generatorDone) generatorDone = true;
-        } catch (e) {
-          this.destroy(e);
+    const serializedIterable = this.universalMarshaller.serialize(
+      input,
+      serializer
+    );
+    if (typeof Readable.from === "function") {
+      //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
+      return Readable.from(serializedIterable);
+    } else {
+      const iterator = serializedIterable[Symbol.asyncIterator]();
+      const serializedStream = new Readable({
+        autoDestroy: true,
+        objectMode: true,
+        async read() {
+          iterator
+            .next()
+            .then(({ done, value }) => {
+              if (done) {
+                this.push(null);
+              } else {
+                this.push(value);
+              }
+            })
+            .catch(err => {
+              this.destroy(err);
+            });
         }
-      }
-    });
-    //TODO: use 'autoDestroy' when targeting Node 11
-    //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
-    stream.on("error", () => {
-      stream.destroy();
-    });
-    stream.on("end", () => {
-      stream.destroy();
-    });
-    return stream;
+      });
+      //TODO: use 'autoDestroy' when targeting Node 11
+      serializedStream.on("error", () => {
+        serializedStream.destroy();
+      });
+      serializedStream.on("end", () => {
+        serializedStream.destroy();
+      });
+      return serializedStream;
+    }
   }
 }
