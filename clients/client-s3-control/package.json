@@ -60,7 +60,7 @@
     "@aws-sdk/xml-builder": "1.0.0-gamma.1",
     "fast-xml-parser": "^3.16.0",
     "tslib": "^1.8.0",
-    "uuid": "^7.0.0"
+    "uuid": "^8.1.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.5",
