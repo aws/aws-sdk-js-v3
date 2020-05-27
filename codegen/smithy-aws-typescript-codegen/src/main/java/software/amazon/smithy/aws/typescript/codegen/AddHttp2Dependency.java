@@ -41,6 +41,8 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
 
     private static boolean isHttp2Applicable(ServiceShape service) {
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        return serviceId.equals("Transcribe Streaming") || serviceId.equals("Kinesis");
+        // TODO: Add "Kinesis" service to http2 applicable, but blocked by potential breaking change.
+        // Reference: https://github.com/aws/aws-sdk-js-v3/issues/1206
+        return serviceId.equals("Transcribe Streaming");
     }
 }
