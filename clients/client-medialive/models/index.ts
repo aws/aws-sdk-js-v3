@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -87,6 +88,9 @@ export interface AacSettings {
 }
 
 export namespace AacSettings {
+  export const filterSensitiveLog = (obj: AacSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AacSettings => __isa(o, "AacSettings");
 }
 
@@ -177,6 +181,9 @@ export interface Ac3Settings {
 }
 
 export namespace Ac3Settings {
+  export const filterSensitiveLog = (obj: Ac3Settings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Ac3Settings => __isa(o, "Ac3Settings");
 }
 
@@ -198,6 +205,12 @@ export interface ArchiveContainerSettings {
 }
 
 export namespace ArchiveContainerSettings {
+  export const filterSensitiveLog = (obj: ArchiveContainerSettings): any => ({
+    ...obj,
+    ...(obj.M2tsSettings && {
+      M2tsSettings: M2tsSettings.filterSensitiveLog(obj.M2tsSettings)
+    })
+  });
   export const isa = (o: any): o is ArchiveContainerSettings =>
     __isa(o, "ArchiveContainerSettings");
 }
@@ -219,6 +232,12 @@ export interface ArchiveGroupSettings {
 }
 
 export namespace ArchiveGroupSettings {
+  export const filterSensitiveLog = (obj: ArchiveGroupSettings): any => ({
+    ...obj,
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    })
+  });
   export const isa = (o: any): o is ArchiveGroupSettings =>
     __isa(o, "ArchiveGroupSettings");
 }
@@ -245,6 +264,14 @@ export interface ArchiveOutputSettings {
 }
 
 export namespace ArchiveOutputSettings {
+  export const filterSensitiveLog = (obj: ArchiveOutputSettings): any => ({
+    ...obj,
+    ...(obj.ContainerSettings && {
+      ContainerSettings: ArchiveContainerSettings.filterSensitiveLog(
+        obj.ContainerSettings
+      )
+    })
+  });
   export const isa = (o: any): o is ArchiveOutputSettings =>
     __isa(o, "ArchiveOutputSettings");
 }
@@ -257,6 +284,9 @@ export interface AribDestinationSettings {
 }
 
 export namespace AribDestinationSettings {
+  export const filterSensitiveLog = (obj: AribDestinationSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AribDestinationSettings =>
     __isa(o, "AribDestinationSettings");
 }
@@ -269,6 +299,9 @@ export interface AribSourceSettings {
 }
 
 export namespace AribSourceSettings {
+  export const filterSensitiveLog = (obj: AribSourceSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AribSourceSettings =>
     __isa(o, "AribSourceSettings");
 }
@@ -290,6 +323,14 @@ export interface AudioChannelMapping {
 }
 
 export namespace AudioChannelMapping {
+  export const filterSensitiveLog = (obj: AudioChannelMapping): any => ({
+    ...obj,
+    ...(obj.InputChannelLevels && {
+      InputChannelLevels: obj.InputChannelLevels.map(item =>
+        InputChannelLevel.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AudioChannelMapping =>
     __isa(o, "AudioChannelMapping");
 }
@@ -326,6 +367,26 @@ export interface AudioCodecSettings {
 }
 
 export namespace AudioCodecSettings {
+  export const filterSensitiveLog = (obj: AudioCodecSettings): any => ({
+    ...obj,
+    ...(obj.AacSettings && {
+      AacSettings: AacSettings.filterSensitiveLog(obj.AacSettings)
+    }),
+    ...(obj.Ac3Settings && {
+      Ac3Settings: Ac3Settings.filterSensitiveLog(obj.Ac3Settings)
+    }),
+    ...(obj.Eac3Settings && {
+      Eac3Settings: Eac3Settings.filterSensitiveLog(obj.Eac3Settings)
+    }),
+    ...(obj.Mp2Settings && {
+      Mp2Settings: Mp2Settings.filterSensitiveLog(obj.Mp2Settings)
+    }),
+    ...(obj.PassThroughSettings && {
+      PassThroughSettings: PassThroughSettings.filterSensitiveLog(
+        obj.PassThroughSettings
+      )
+    })
+  });
   export const isa = (o: any): o is AudioCodecSettings =>
     __isa(o, "AudioCodecSettings");
 }
@@ -390,6 +451,20 @@ export interface AudioDescription {
 }
 
 export namespace AudioDescription {
+  export const filterSensitiveLog = (obj: AudioDescription): any => ({
+    ...obj,
+    ...(obj.AudioNormalizationSettings && {
+      AudioNormalizationSettings: AudioNormalizationSettings.filterSensitiveLog(
+        obj.AudioNormalizationSettings
+      )
+    }),
+    ...(obj.CodecSettings && {
+      CodecSettings: AudioCodecSettings.filterSensitiveLog(obj.CodecSettings)
+    }),
+    ...(obj.RemixSettings && {
+      RemixSettings: RemixSettings.filterSensitiveLog(obj.RemixSettings)
+    })
+  });
   export const isa = (o: any): o is AudioDescription =>
     __isa(o, "AudioDescription");
 }
@@ -421,6 +496,9 @@ export interface AudioLanguageSelection {
 }
 
 export namespace AudioLanguageSelection {
+  export const filterSensitiveLog = (obj: AudioLanguageSelection): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AudioLanguageSelection =>
     __isa(o, "AudioLanguageSelection");
 }
@@ -461,6 +539,9 @@ export interface AudioNormalizationSettings {
 }
 
 export namespace AudioNormalizationSettings {
+  export const filterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AudioNormalizationSettings =>
     __isa(o, "AudioNormalizationSettings");
 }
@@ -511,6 +592,12 @@ export interface AudioOnlyHlsSettings {
 }
 
 export namespace AudioOnlyHlsSettings {
+  export const filterSensitiveLog = (obj: AudioOnlyHlsSettings): any => ({
+    ...obj,
+    ...(obj.AudioOnlyImage && {
+      AudioOnlyImage: InputLocation.filterSensitiveLog(obj.AudioOnlyImage)
+    })
+  });
   export const isa = (o: any): o is AudioOnlyHlsSettings =>
     __isa(o, "AudioOnlyHlsSettings");
 }
@@ -534,6 +621,9 @@ export interface AudioPidSelection {
 }
 
 export namespace AudioPidSelection {
+  export const filterSensitiveLog = (obj: AudioPidSelection): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AudioPidSelection =>
     __isa(o, "AudioPidSelection");
 }
@@ -555,6 +645,14 @@ export interface AudioSelector {
 }
 
 export namespace AudioSelector {
+  export const filterSensitiveLog = (obj: AudioSelector): any => ({
+    ...obj,
+    ...(obj.SelectorSettings && {
+      SelectorSettings: AudioSelectorSettings.filterSensitiveLog(
+        obj.SelectorSettings
+      )
+    })
+  });
   export const isa = (o: any): o is AudioSelector => __isa(o, "AudioSelector");
 }
 
@@ -575,6 +673,19 @@ export interface AudioSelectorSettings {
 }
 
 export namespace AudioSelectorSettings {
+  export const filterSensitiveLog = (obj: AudioSelectorSettings): any => ({
+    ...obj,
+    ...(obj.AudioLanguageSelection && {
+      AudioLanguageSelection: AudioLanguageSelection.filterSensitiveLog(
+        obj.AudioLanguageSelection
+      )
+    }),
+    ...(obj.AudioPidSelection && {
+      AudioPidSelection: AudioPidSelection.filterSensitiveLog(
+        obj.AudioPidSelection
+      )
+    })
+  });
   export const isa = (o: any): o is AudioSelectorSettings =>
     __isa(o, "AudioSelectorSettings");
 }
@@ -608,6 +719,14 @@ export interface AvailBlanking {
 }
 
 export namespace AvailBlanking {
+  export const filterSensitiveLog = (obj: AvailBlanking): any => ({
+    ...obj,
+    ...(obj.AvailBlankingImage && {
+      AvailBlankingImage: InputLocation.filterSensitiveLog(
+        obj.AvailBlankingImage
+      )
+    })
+  });
   export const isa = (o: any): o is AvailBlanking => __isa(o, "AvailBlanking");
 }
 
@@ -628,6 +747,12 @@ export interface AvailConfiguration {
 }
 
 export namespace AvailConfiguration {
+  export const filterSensitiveLog = (obj: AvailConfiguration): any => ({
+    ...obj,
+    ...(obj.AvailSettings && {
+      AvailSettings: AvailSettings.filterSensitiveLog(obj.AvailSettings)
+    })
+  });
   export const isa = (o: any): o is AvailConfiguration =>
     __isa(o, "AvailConfiguration");
 }
@@ -649,6 +774,19 @@ export interface AvailSettings {
 }
 
 export namespace AvailSettings {
+  export const filterSensitiveLog = (obj: AvailSettings): any => ({
+    ...obj,
+    ...(obj.Scte35SpliceInsert && {
+      Scte35SpliceInsert: Scte35SpliceInsert.filterSensitiveLog(
+        obj.Scte35SpliceInsert
+      )
+    }),
+    ...(obj.Scte35TimeSignalApos && {
+      Scte35TimeSignalApos: Scte35TimeSignalApos.filterSensitiveLog(
+        obj.Scte35TimeSignalApos
+      )
+    })
+  });
   export const isa = (o: any): o is AvailSettings => __isa(o, "AvailSettings");
 }
 
@@ -667,6 +805,9 @@ export interface BadGatewayException
 }
 
 export namespace BadGatewayException {
+  export const filterSensitiveLog = (obj: BadGatewayException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadGatewayException =>
     __isa(o, "BadGatewayException");
 }
@@ -686,6 +827,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -702,6 +846,16 @@ export interface BatchScheduleActionCreateRequest {
 }
 
 export namespace BatchScheduleActionCreateRequest {
+  export const filterSensitiveLog = (
+    obj: BatchScheduleActionCreateRequest
+  ): any => ({
+    ...obj,
+    ...(obj.ScheduleActions && {
+      ScheduleActions: obj.ScheduleActions.map(item =>
+        ScheduleAction.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchScheduleActionCreateRequest =>
     __isa(o, "BatchScheduleActionCreateRequest");
 }
@@ -718,6 +872,16 @@ export interface BatchScheduleActionCreateResult {
 }
 
 export namespace BatchScheduleActionCreateResult {
+  export const filterSensitiveLog = (
+    obj: BatchScheduleActionCreateResult
+  ): any => ({
+    ...obj,
+    ...(obj.ScheduleActions && {
+      ScheduleActions: obj.ScheduleActions.map(item =>
+        ScheduleAction.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchScheduleActionCreateResult =>
     __isa(o, "BatchScheduleActionCreateResult");
 }
@@ -734,6 +898,11 @@ export interface BatchScheduleActionDeleteRequest {
 }
 
 export namespace BatchScheduleActionDeleteRequest {
+  export const filterSensitiveLog = (
+    obj: BatchScheduleActionDeleteRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchScheduleActionDeleteRequest =>
     __isa(o, "BatchScheduleActionDeleteRequest");
 }
@@ -750,6 +919,16 @@ export interface BatchScheduleActionDeleteResult {
 }
 
 export namespace BatchScheduleActionDeleteResult {
+  export const filterSensitiveLog = (
+    obj: BatchScheduleActionDeleteResult
+  ): any => ({
+    ...obj,
+    ...(obj.ScheduleActions && {
+      ScheduleActions: obj.ScheduleActions.map(item =>
+        ScheduleAction.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchScheduleActionDeleteResult =>
     __isa(o, "BatchScheduleActionDeleteResult");
 }
@@ -776,6 +955,15 @@ export interface BatchUpdateScheduleRequest {
 }
 
 export namespace BatchUpdateScheduleRequest {
+  export const filterSensitiveLog = (obj: BatchUpdateScheduleRequest): any => ({
+    ...obj,
+    ...(obj.Creates && {
+      Creates: BatchScheduleActionCreateRequest.filterSensitiveLog(obj.Creates)
+    }),
+    ...(obj.Deletes && {
+      Deletes: BatchScheduleActionDeleteRequest.filterSensitiveLog(obj.Deletes)
+    })
+  });
   export const isa = (o: any): o is BatchUpdateScheduleRequest =>
     __isa(o, "BatchUpdateScheduleRequest");
 }
@@ -797,6 +985,17 @@ export interface BatchUpdateScheduleResponse {
 }
 
 export namespace BatchUpdateScheduleResponse {
+  export const filterSensitiveLog = (
+    obj: BatchUpdateScheduleResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Creates && {
+      Creates: BatchScheduleActionCreateResult.filterSensitiveLog(obj.Creates)
+    }),
+    ...(obj.Deletes && {
+      Deletes: BatchScheduleActionDeleteResult.filterSensitiveLog(obj.Deletes)
+    })
+  });
   export const isa = (o: any): o is BatchUpdateScheduleResponse =>
     __isa(o, "BatchUpdateScheduleResponse");
 }
@@ -833,6 +1032,19 @@ export interface BlackoutSlate {
 }
 
 export namespace BlackoutSlate {
+  export const filterSensitiveLog = (obj: BlackoutSlate): any => ({
+    ...obj,
+    ...(obj.BlackoutSlateImage && {
+      BlackoutSlateImage: InputLocation.filterSensitiveLog(
+        obj.BlackoutSlateImage
+      )
+    }),
+    ...(obj.NetworkEndBlackoutImage && {
+      NetworkEndBlackoutImage: InputLocation.filterSensitiveLog(
+        obj.NetworkEndBlackoutImage
+      )
+    })
+  });
   export const isa = (o: any): o is BlackoutSlate => __isa(o, "BlackoutSlate");
 }
 
@@ -950,6 +1162,10 @@ export interface BurnInDestinationSettings {
 }
 
 export namespace BurnInDestinationSettings {
+  export const filterSensitiveLog = (obj: BurnInDestinationSettings): any => ({
+    ...obj,
+    ...(obj.Font && { Font: InputLocation.filterSensitiveLog(obj.Font) })
+  });
   export const isa = (o: any): o is BurnInDestinationSettings =>
     __isa(o, "BurnInDestinationSettings");
 }
@@ -1015,6 +1231,14 @@ export interface CaptionDescription {
 }
 
 export namespace CaptionDescription {
+  export const filterSensitiveLog = (obj: CaptionDescription): any => ({
+    ...obj,
+    ...(obj.DestinationSettings && {
+      DestinationSettings: CaptionDestinationSettings.filterSensitiveLog(
+        obj.DestinationSettings
+      )
+    })
+  });
   export const isa = (o: any): o is CaptionDescription =>
     __isa(o, "CaptionDescription");
 }
@@ -1086,6 +1310,69 @@ export interface CaptionDestinationSettings {
 }
 
 export namespace CaptionDestinationSettings {
+  export const filterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
+    ...obj,
+    ...(obj.AribDestinationSettings && {
+      AribDestinationSettings: AribDestinationSettings.filterSensitiveLog(
+        obj.AribDestinationSettings
+      )
+    }),
+    ...(obj.BurnInDestinationSettings && {
+      BurnInDestinationSettings: BurnInDestinationSettings.filterSensitiveLog(
+        obj.BurnInDestinationSettings
+      )
+    }),
+    ...(obj.DvbSubDestinationSettings && {
+      DvbSubDestinationSettings: DvbSubDestinationSettings.filterSensitiveLog(
+        obj.DvbSubDestinationSettings
+      )
+    }),
+    ...(obj.EmbeddedDestinationSettings && {
+      EmbeddedDestinationSettings: EmbeddedDestinationSettings.filterSensitiveLog(
+        obj.EmbeddedDestinationSettings
+      )
+    }),
+    ...(obj.EmbeddedPlusScte20DestinationSettings && {
+      EmbeddedPlusScte20DestinationSettings: EmbeddedPlusScte20DestinationSettings.filterSensitiveLog(
+        obj.EmbeddedPlusScte20DestinationSettings
+      )
+    }),
+    ...(obj.RtmpCaptionInfoDestinationSettings && {
+      RtmpCaptionInfoDestinationSettings: RtmpCaptionInfoDestinationSettings.filterSensitiveLog(
+        obj.RtmpCaptionInfoDestinationSettings
+      )
+    }),
+    ...(obj.Scte20PlusEmbeddedDestinationSettings && {
+      Scte20PlusEmbeddedDestinationSettings: Scte20PlusEmbeddedDestinationSettings.filterSensitiveLog(
+        obj.Scte20PlusEmbeddedDestinationSettings
+      )
+    }),
+    ...(obj.Scte27DestinationSettings && {
+      Scte27DestinationSettings: Scte27DestinationSettings.filterSensitiveLog(
+        obj.Scte27DestinationSettings
+      )
+    }),
+    ...(obj.SmpteTtDestinationSettings && {
+      SmpteTtDestinationSettings: SmpteTtDestinationSettings.filterSensitiveLog(
+        obj.SmpteTtDestinationSettings
+      )
+    }),
+    ...(obj.TeletextDestinationSettings && {
+      TeletextDestinationSettings: TeletextDestinationSettings.filterSensitiveLog(
+        obj.TeletextDestinationSettings
+      )
+    }),
+    ...(obj.TtmlDestinationSettings && {
+      TtmlDestinationSettings: TtmlDestinationSettings.filterSensitiveLog(
+        obj.TtmlDestinationSettings
+      )
+    }),
+    ...(obj.WebvttDestinationSettings && {
+      WebvttDestinationSettings: WebvttDestinationSettings.filterSensitiveLog(
+        obj.WebvttDestinationSettings
+      )
+    })
+  });
   export const isa = (o: any): o is CaptionDestinationSettings =>
     __isa(o, "CaptionDestinationSettings");
 }
@@ -1112,6 +1399,9 @@ export interface CaptionLanguageMapping {
 }
 
 export namespace CaptionLanguageMapping {
+  export const filterSensitiveLog = (obj: CaptionLanguageMapping): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CaptionLanguageMapping =>
     __isa(o, "CaptionLanguageMapping");
 }
@@ -1138,6 +1428,14 @@ export interface CaptionSelector {
 }
 
 export namespace CaptionSelector {
+  export const filterSensitiveLog = (obj: CaptionSelector): any => ({
+    ...obj,
+    ...(obj.SelectorSettings && {
+      SelectorSettings: CaptionSelectorSettings.filterSensitiveLog(
+        obj.SelectorSettings
+      )
+    })
+  });
   export const isa = (o: any): o is CaptionSelector =>
     __isa(o, "CaptionSelector");
 }
@@ -1179,6 +1477,39 @@ export interface CaptionSelectorSettings {
 }
 
 export namespace CaptionSelectorSettings {
+  export const filterSensitiveLog = (obj: CaptionSelectorSettings): any => ({
+    ...obj,
+    ...(obj.AribSourceSettings && {
+      AribSourceSettings: AribSourceSettings.filterSensitiveLog(
+        obj.AribSourceSettings
+      )
+    }),
+    ...(obj.DvbSubSourceSettings && {
+      DvbSubSourceSettings: DvbSubSourceSettings.filterSensitiveLog(
+        obj.DvbSubSourceSettings
+      )
+    }),
+    ...(obj.EmbeddedSourceSettings && {
+      EmbeddedSourceSettings: EmbeddedSourceSettings.filterSensitiveLog(
+        obj.EmbeddedSourceSettings
+      )
+    }),
+    ...(obj.Scte20SourceSettings && {
+      Scte20SourceSettings: Scte20SourceSettings.filterSensitiveLog(
+        obj.Scte20SourceSettings
+      )
+    }),
+    ...(obj.Scte27SourceSettings && {
+      Scte27SourceSettings: Scte27SourceSettings.filterSensitiveLog(
+        obj.Scte27SourceSettings
+      )
+    }),
+    ...(obj.TeletextSourceSettings && {
+      TeletextSourceSettings: TeletextSourceSettings.filterSensitiveLog(
+        obj.TeletextSourceSettings
+      )
+    })
+  });
   export const isa = (o: any): o is CaptionSelectorSettings =>
     __isa(o, "CaptionSelectorSettings");
 }
@@ -1267,6 +1598,37 @@ export interface Channel {
 }
 
 export namespace Channel {
+  export const filterSensitiveLog = (obj: Channel): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        ChannelEgressEndpoint.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EncoderSettings && {
+      EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    }),
+    ...(obj.PipelineDetails && {
+      PipelineDetails: obj.PipelineDetails.map(item =>
+        PipelineDetail.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is Channel => __isa(o, "Channel");
 }
 
@@ -1287,6 +1649,9 @@ export interface ChannelEgressEndpoint {
 }
 
 export namespace ChannelEgressEndpoint {
+  export const filterSensitiveLog = (obj: ChannelEgressEndpoint): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChannelEgressEndpoint =>
     __isa(o, "ChannelEgressEndpoint");
 }
@@ -1379,6 +1744,29 @@ export interface ChannelSummary {
 }
 
 export namespace ChannelSummary {
+  export const filterSensitiveLog = (obj: ChannelSummary): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        ChannelEgressEndpoint.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is ChannelSummary =>
     __isa(o, "ChannelSummary");
 }
@@ -1391,6 +1779,11 @@ export interface ColorSpacePassthroughSettings {
 }
 
 export namespace ColorSpacePassthroughSettings {
+  export const filterSensitiveLog = (
+    obj: ColorSpacePassthroughSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ColorSpacePassthroughSettings =>
     __isa(o, "ColorSpacePassthroughSettings");
 }
@@ -1408,6 +1801,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConflictException =>
     __isa(o, "ConflictException");
 }
@@ -1475,6 +1871,27 @@ export interface CreateChannelRequest {
 }
 
 export namespace CreateChannelRequest {
+  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EncoderSettings && {
+      EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is CreateChannelRequest =>
     __isa(o, "CreateChannelRequest");
 }
@@ -1491,6 +1908,10 @@ export interface CreateChannelResponse {
 }
 
 export namespace CreateChannelResponse {
+  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
+    ...obj,
+    ...(obj.Channel && { Channel: Channel.filterSensitiveLog(obj.Channel) })
+  });
   export const isa = (o: any): o is CreateChannelResponse =>
     __isa(o, "CreateChannelResponse");
 }
@@ -1560,6 +1981,25 @@ export interface CreateInputRequest {
 }
 
 export namespace CreateInputRequest {
+  export const filterSensitiveLog = (obj: CreateInputRequest): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        InputDestinationRequest.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MediaConnectFlows && {
+      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
+        MediaConnectFlowRequest.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Sources && {
+      Sources: obj.Sources.map(item =>
+        InputSourceRequest.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Vpc && { Vpc: InputVpcRequest.filterSensitiveLog(obj.Vpc) })
+  });
   export const isa = (o: any): o is CreateInputRequest =>
     __isa(o, "CreateInputRequest");
 }
@@ -1576,6 +2016,10 @@ export interface CreateInputResponse {
 }
 
 export namespace CreateInputResponse {
+  export const filterSensitiveLog = (obj: CreateInputResponse): any => ({
+    ...obj,
+    ...(obj.Input && { Input: Input.filterSensitiveLog(obj.Input) })
+  });
   export const isa = (o: any): o is CreateInputResponse =>
     __isa(o, "CreateInputResponse");
 }
@@ -1597,6 +2041,16 @@ export interface CreateInputSecurityGroupRequest {
 }
 
 export namespace CreateInputSecurityGroupRequest {
+  export const filterSensitiveLog = (
+    obj: CreateInputSecurityGroupRequest
+  ): any => ({
+    ...obj,
+    ...(obj.WhitelistRules && {
+      WhitelistRules: obj.WhitelistRules.map(item =>
+        InputWhitelistRuleCidr.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateInputSecurityGroupRequest =>
     __isa(o, "CreateInputSecurityGroupRequest");
 }
@@ -1613,6 +2067,14 @@ export interface CreateInputSecurityGroupResponse {
 }
 
 export namespace CreateInputSecurityGroupResponse {
+  export const filterSensitiveLog = (
+    obj: CreateInputSecurityGroupResponse
+  ): any => ({
+    ...obj,
+    ...(obj.SecurityGroup && {
+      SecurityGroup: InputSecurityGroup.filterSensitiveLog(obj.SecurityGroup)
+    })
+  });
   export const isa = (o: any): o is CreateInputSecurityGroupResponse =>
     __isa(o, "CreateInputSecurityGroupResponse");
 }
@@ -1645,6 +2107,16 @@ export interface CreateMultiplexProgramRequest {
 }
 
 export namespace CreateMultiplexProgramRequest {
+  export const filterSensitiveLog = (
+    obj: CreateMultiplexProgramRequest
+  ): any => ({
+    ...obj,
+    ...(obj.MultiplexProgramSettings && {
+      MultiplexProgramSettings: MultiplexProgramSettings.filterSensitiveLog(
+        obj.MultiplexProgramSettings
+      )
+    })
+  });
   export const isa = (o: any): o is CreateMultiplexProgramRequest =>
     __isa(o, "CreateMultiplexProgramRequest");
 }
@@ -1661,6 +2133,16 @@ export interface CreateMultiplexProgramResponse {
 }
 
 export namespace CreateMultiplexProgramResponse {
+  export const filterSensitiveLog = (
+    obj: CreateMultiplexProgramResponse
+  ): any => ({
+    ...obj,
+    ...(obj.MultiplexProgram && {
+      MultiplexProgram: MultiplexProgram.filterSensitiveLog(
+        obj.MultiplexProgram
+      )
+    })
+  });
   export const isa = (o: any): o is CreateMultiplexProgramResponse =>
     __isa(o, "CreateMultiplexProgramResponse");
 }
@@ -1698,6 +2180,14 @@ export interface CreateMultiplexRequest {
 }
 
 export namespace CreateMultiplexRequest {
+  export const filterSensitiveLog = (obj: CreateMultiplexRequest): any => ({
+    ...obj,
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is CreateMultiplexRequest =>
     __isa(o, "CreateMultiplexRequest");
 }
@@ -1714,6 +2204,12 @@ export interface CreateMultiplexResponse {
 }
 
 export namespace CreateMultiplexResponse {
+  export const filterSensitiveLog = (obj: CreateMultiplexResponse): any => ({
+    ...obj,
+    ...(obj.Multiplex && {
+      Multiplex: Multiplex.filterSensitiveLog(obj.Multiplex)
+    })
+  });
   export const isa = (o: any): o is CreateMultiplexResponse =>
     __isa(o, "CreateMultiplexResponse");
 }
@@ -1735,6 +2231,9 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
+  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateTagsRequest =>
     __isa(o, "CreateTagsRequest");
 }
@@ -1751,6 +2250,9 @@ export interface DeleteChannelRequest {
 }
 
 export namespace DeleteChannelRequest {
+  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteChannelRequest =>
     __isa(o, "DeleteChannelRequest");
 }
@@ -1839,6 +2341,37 @@ export interface DeleteChannelResponse {
 }
 
 export namespace DeleteChannelResponse {
+  export const filterSensitiveLog = (obj: DeleteChannelResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        ChannelEgressEndpoint.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EncoderSettings && {
+      EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    }),
+    ...(obj.PipelineDetails && {
+      PipelineDetails: obj.PipelineDetails.map(item =>
+        PipelineDetail.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteChannelResponse =>
     __isa(o, "DeleteChannelResponse");
 }
@@ -1855,6 +2388,9 @@ export interface DeleteInputRequest {
 }
 
 export namespace DeleteInputRequest {
+  export const filterSensitiveLog = (obj: DeleteInputRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteInputRequest =>
     __isa(o, "DeleteInputRequest");
 }
@@ -1867,6 +2403,9 @@ export interface DeleteInputResponse {
 }
 
 export namespace DeleteInputResponse {
+  export const filterSensitiveLog = (obj: DeleteInputResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteInputResponse =>
     __isa(o, "DeleteInputResponse");
 }
@@ -1883,6 +2422,11 @@ export interface DeleteInputSecurityGroupRequest {
 }
 
 export namespace DeleteInputSecurityGroupRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteInputSecurityGroupRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteInputSecurityGroupRequest =>
     __isa(o, "DeleteInputSecurityGroupRequest");
 }
@@ -1895,6 +2439,11 @@ export interface DeleteInputSecurityGroupResponse {
 }
 
 export namespace DeleteInputSecurityGroupResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteInputSecurityGroupResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteInputSecurityGroupResponse =>
     __isa(o, "DeleteInputSecurityGroupResponse");
 }
@@ -1916,6 +2465,11 @@ export interface DeleteMultiplexProgramRequest {
 }
 
 export namespace DeleteMultiplexProgramRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteMultiplexProgramRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteMultiplexProgramRequest =>
     __isa(o, "DeleteMultiplexProgramRequest");
 }
@@ -1947,6 +2501,21 @@ export interface DeleteMultiplexProgramResponse {
 }
 
 export namespace DeleteMultiplexProgramResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteMultiplexProgramResponse
+  ): any => ({
+    ...obj,
+    ...(obj.MultiplexProgramSettings && {
+      MultiplexProgramSettings: MultiplexProgramSettings.filterSensitiveLog(
+        obj.MultiplexProgramSettings
+      )
+    }),
+    ...(obj.PacketIdentifiersMap && {
+      PacketIdentifiersMap: MultiplexProgramPacketIdentifiersMap.filterSensitiveLog(
+        obj.PacketIdentifiersMap
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteMultiplexProgramResponse =>
     __isa(o, "DeleteMultiplexProgramResponse");
 }
@@ -1963,6 +2532,9 @@ export interface DeleteMultiplexRequest {
 }
 
 export namespace DeleteMultiplexRequest {
+  export const filterSensitiveLog = (obj: DeleteMultiplexRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteMultiplexRequest =>
     __isa(o, "DeleteMultiplexRequest");
 }
@@ -2024,6 +2596,19 @@ export interface DeleteMultiplexResponse {
 }
 
 export namespace DeleteMultiplexResponse {
+  export const filterSensitiveLog = (obj: DeleteMultiplexResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        MultiplexOutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteMultiplexResponse =>
     __isa(o, "DeleteMultiplexResponse");
 }
@@ -2040,6 +2625,9 @@ export interface DeleteReservationRequest {
 }
 
 export namespace DeleteReservationRequest {
+  export const filterSensitiveLog = (obj: DeleteReservationRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteReservationRequest =>
     __isa(o, "DeleteReservationRequest");
 }
@@ -2141,6 +2729,14 @@ export interface DeleteReservationResponse {
 }
 
 export namespace DeleteReservationResponse {
+  export const filterSensitiveLog = (obj: DeleteReservationResponse): any => ({
+    ...obj,
+    ...(obj.ResourceSpecification && {
+      ResourceSpecification: ReservationResourceSpecification.filterSensitiveLog(
+        obj.ResourceSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteReservationResponse =>
     __isa(o, "DeleteReservationResponse");
 }
@@ -2157,6 +2753,9 @@ export interface DeleteScheduleRequest {
 }
 
 export namespace DeleteScheduleRequest {
+  export const filterSensitiveLog = (obj: DeleteScheduleRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScheduleRequest =>
     __isa(o, "DeleteScheduleRequest");
 }
@@ -2169,6 +2768,9 @@ export interface DeleteScheduleResponse {
 }
 
 export namespace DeleteScheduleResponse {
+  export const filterSensitiveLog = (obj: DeleteScheduleResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScheduleResponse =>
     __isa(o, "DeleteScheduleResponse");
 }
@@ -2190,6 +2792,9 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
+  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTagsRequest =>
     __isa(o, "DeleteTagsRequest");
 }
@@ -2206,6 +2811,9 @@ export interface DescribeChannelRequest {
 }
 
 export namespace DescribeChannelRequest {
+  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeChannelRequest =>
     __isa(o, "DescribeChannelRequest");
 }
@@ -2294,6 +2902,37 @@ export interface DescribeChannelResponse {
 }
 
 export namespace DescribeChannelResponse {
+  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        ChannelEgressEndpoint.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EncoderSettings && {
+      EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    }),
+    ...(obj.PipelineDetails && {
+      PipelineDetails: obj.PipelineDetails.map(item =>
+        PipelineDetail.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeChannelResponse =>
     __isa(o, "DescribeChannelResponse");
 }
@@ -2310,6 +2949,9 @@ export interface DescribeInputRequest {
 }
 
 export namespace DescribeInputRequest {
+  export const filterSensitiveLog = (obj: DescribeInputRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeInputRequest =>
     __isa(o, "DescribeInputRequest");
 }
@@ -2393,6 +3035,22 @@ export interface DescribeInputResponse {
 }
 
 export namespace DescribeInputResponse {
+  export const filterSensitiveLog = (obj: DescribeInputResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        InputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MediaConnectFlows && {
+      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
+        MediaConnectFlow.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Sources && {
+      Sources: obj.Sources.map(item => InputSource.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeInputResponse =>
     __isa(o, "DescribeInputResponse");
 }
@@ -2409,6 +3067,11 @@ export interface DescribeInputSecurityGroupRequest {
 }
 
 export namespace DescribeInputSecurityGroupRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeInputSecurityGroupRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeInputSecurityGroupRequest =>
     __isa(o, "DescribeInputSecurityGroupRequest");
 }
@@ -2450,6 +3113,16 @@ export interface DescribeInputSecurityGroupResponse {
 }
 
 export namespace DescribeInputSecurityGroupResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeInputSecurityGroupResponse
+  ): any => ({
+    ...obj,
+    ...(obj.WhitelistRules && {
+      WhitelistRules: obj.WhitelistRules.map(item =>
+        InputWhitelistRule.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeInputSecurityGroupResponse =>
     __isa(o, "DescribeInputSecurityGroupResponse");
 }
@@ -2471,6 +3144,11 @@ export interface DescribeMultiplexProgramRequest {
 }
 
 export namespace DescribeMultiplexProgramRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeMultiplexProgramRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeMultiplexProgramRequest =>
     __isa(o, "DescribeMultiplexProgramRequest");
 }
@@ -2502,6 +3180,21 @@ export interface DescribeMultiplexProgramResponse {
 }
 
 export namespace DescribeMultiplexProgramResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeMultiplexProgramResponse
+  ): any => ({
+    ...obj,
+    ...(obj.MultiplexProgramSettings && {
+      MultiplexProgramSettings: MultiplexProgramSettings.filterSensitiveLog(
+        obj.MultiplexProgramSettings
+      )
+    }),
+    ...(obj.PacketIdentifiersMap && {
+      PacketIdentifiersMap: MultiplexProgramPacketIdentifiersMap.filterSensitiveLog(
+        obj.PacketIdentifiersMap
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeMultiplexProgramResponse =>
     __isa(o, "DescribeMultiplexProgramResponse");
 }
@@ -2518,6 +3211,9 @@ export interface DescribeMultiplexRequest {
 }
 
 export namespace DescribeMultiplexRequest {
+  export const filterSensitiveLog = (obj: DescribeMultiplexRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeMultiplexRequest =>
     __isa(o, "DescribeMultiplexRequest");
 }
@@ -2579,6 +3275,19 @@ export interface DescribeMultiplexResponse {
 }
 
 export namespace DescribeMultiplexResponse {
+  export const filterSensitiveLog = (obj: DescribeMultiplexResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        MultiplexOutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeMultiplexResponse =>
     __isa(o, "DescribeMultiplexResponse");
 }
@@ -2595,6 +3304,9 @@ export interface DescribeOfferingRequest {
 }
 
 export namespace DescribeOfferingRequest {
+  export const filterSensitiveLog = (obj: DescribeOfferingRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeOfferingRequest =>
     __isa(o, "DescribeOfferingRequest");
 }
@@ -2661,6 +3373,14 @@ export interface DescribeOfferingResponse {
 }
 
 export namespace DescribeOfferingResponse {
+  export const filterSensitiveLog = (obj: DescribeOfferingResponse): any => ({
+    ...obj,
+    ...(obj.ResourceSpecification && {
+      ResourceSpecification: ReservationResourceSpecification.filterSensitiveLog(
+        obj.ResourceSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeOfferingResponse =>
     __isa(o, "DescribeOfferingResponse");
 }
@@ -2677,6 +3397,9 @@ export interface DescribeReservationRequest {
 }
 
 export namespace DescribeReservationRequest {
+  export const filterSensitiveLog = (obj: DescribeReservationRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeReservationRequest =>
     __isa(o, "DescribeReservationRequest");
 }
@@ -2778,6 +3501,16 @@ export interface DescribeReservationResponse {
 }
 
 export namespace DescribeReservationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeReservationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.ResourceSpecification && {
+      ResourceSpecification: ReservationResourceSpecification.filterSensitiveLog(
+        obj.ResourceSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeReservationResponse =>
     __isa(o, "DescribeReservationResponse");
 }
@@ -2804,6 +3537,9 @@ export interface DescribeScheduleRequest {
 }
 
 export namespace DescribeScheduleRequest {
+  export const filterSensitiveLog = (obj: DescribeScheduleRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeScheduleRequest =>
     __isa(o, "DescribeScheduleRequest");
 }
@@ -2825,6 +3561,14 @@ export interface DescribeScheduleResponse {
 }
 
 export namespace DescribeScheduleResponse {
+  export const filterSensitiveLog = (obj: DescribeScheduleResponse): any => ({
+    ...obj,
+    ...(obj.ScheduleActions && {
+      ScheduleActions: obj.ScheduleActions.map(item =>
+        ScheduleAction.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScheduleResponse =>
     __isa(o, "DescribeScheduleResponse");
 }
@@ -2851,6 +3595,9 @@ export interface DvbNitSettings {
 }
 
 export namespace DvbNitSettings {
+  export const filterSensitiveLog = (obj: DvbNitSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DvbNitSettings =>
     __isa(o, "DvbNitSettings");
 }
@@ -2889,6 +3636,9 @@ export interface DvbSdtSettings {
 }
 
 export namespace DvbSdtSettings {
+  export const filterSensitiveLog = (obj: DvbSdtSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DvbSdtSettings =>
     __isa(o, "DvbSdtSettings");
 }
@@ -3015,6 +3765,10 @@ export interface DvbSubDestinationSettings {
 }
 
 export namespace DvbSubDestinationSettings {
+  export const filterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
+    ...obj,
+    ...(obj.Font && { Font: InputLocation.filterSensitiveLog(obj.Font) })
+  });
   export const isa = (o: any): o is DvbSubDestinationSettings =>
     __isa(o, "DvbSubDestinationSettings");
 }
@@ -3042,6 +3796,9 @@ export interface DvbSubSourceSettings {
 }
 
 export namespace DvbSubSourceSettings {
+  export const filterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DvbSubSourceSettings =>
     __isa(o, "DvbSubSourceSettings");
 }
@@ -3058,6 +3815,9 @@ export interface DvbTdtSettings {
 }
 
 export namespace DvbTdtSettings {
+  export const filterSensitiveLog = (obj: DvbTdtSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DvbTdtSettings =>
     __isa(o, "DvbTdtSettings");
 }
@@ -3236,6 +3996,9 @@ export interface Eac3Settings {
 }
 
 export namespace Eac3Settings {
+  export const filterSensitiveLog = (obj: Eac3Settings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Eac3Settings => __isa(o, "Eac3Settings");
 }
 
@@ -3271,6 +4034,11 @@ export interface EmbeddedDestinationSettings {
 }
 
 export namespace EmbeddedDestinationSettings {
+  export const filterSensitiveLog = (
+    obj: EmbeddedDestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmbeddedDestinationSettings =>
     __isa(o, "EmbeddedDestinationSettings");
 }
@@ -3283,6 +4051,11 @@ export interface EmbeddedPlusScte20DestinationSettings {
 }
 
 export namespace EmbeddedPlusScte20DestinationSettings {
+  export const filterSensitiveLog = (
+    obj: EmbeddedPlusScte20DestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmbeddedPlusScte20DestinationSettings =>
     __isa(o, "EmbeddedPlusScte20DestinationSettings");
 }
@@ -3319,6 +4092,9 @@ export interface EmbeddedSourceSettings {
 }
 
 export namespace EmbeddedSourceSettings {
+  export const filterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmbeddedSourceSettings =>
     __isa(o, "EmbeddedSourceSettings");
 }
@@ -3380,6 +4156,53 @@ export interface EncoderSettings {
 }
 
 export namespace EncoderSettings {
+  export const filterSensitiveLog = (obj: EncoderSettings): any => ({
+    ...obj,
+    ...(obj.AudioDescriptions && {
+      AudioDescriptions: obj.AudioDescriptions.map(item =>
+        AudioDescription.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.AvailBlanking && {
+      AvailBlanking: AvailBlanking.filterSensitiveLog(obj.AvailBlanking)
+    }),
+    ...(obj.AvailConfiguration && {
+      AvailConfiguration: AvailConfiguration.filterSensitiveLog(
+        obj.AvailConfiguration
+      )
+    }),
+    ...(obj.BlackoutSlate && {
+      BlackoutSlate: BlackoutSlate.filterSensitiveLog(obj.BlackoutSlate)
+    }),
+    ...(obj.CaptionDescriptions && {
+      CaptionDescriptions: obj.CaptionDescriptions.map(item =>
+        CaptionDescription.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.GlobalConfiguration && {
+      GlobalConfiguration: GlobalConfiguration.filterSensitiveLog(
+        obj.GlobalConfiguration
+      )
+    }),
+    ...(obj.NielsenConfiguration && {
+      NielsenConfiguration: NielsenConfiguration.filterSensitiveLog(
+        obj.NielsenConfiguration
+      )
+    }),
+    ...(obj.OutputGroups && {
+      OutputGroups: obj.OutputGroups.map(item =>
+        OutputGroup.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.TimecodeConfig && {
+      TimecodeConfig: TimecodeConfig.filterSensitiveLog(obj.TimecodeConfig)
+    }),
+    ...(obj.VideoDescriptions && {
+      VideoDescriptions: obj.VideoDescriptions.map(item =>
+        VideoDescription.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is EncoderSettings =>
     __isa(o, "EncoderSettings");
 }
@@ -3411,6 +4234,9 @@ export interface FecOutputSettings {
 }
 
 export namespace FecOutputSettings {
+  export const filterSensitiveLog = (obj: FecOutputSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FecOutputSettings =>
     __isa(o, "FecOutputSettings");
 }
@@ -3441,6 +4267,11 @@ export interface FixedModeScheduleActionStartSettings {
 }
 
 export namespace FixedModeScheduleActionStartSettings {
+  export const filterSensitiveLog = (
+    obj: FixedModeScheduleActionStartSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FixedModeScheduleActionStartSettings =>
     __isa(o, "FixedModeScheduleActionStartSettings");
 }
@@ -3457,6 +4288,9 @@ export interface Fmp4HlsSettings {
 }
 
 export namespace Fmp4HlsSettings {
+  export const filterSensitiveLog = (obj: Fmp4HlsSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Fmp4HlsSettings =>
     __isa(o, "Fmp4HlsSettings");
 }
@@ -3478,6 +4312,11 @@ export interface FollowModeScheduleActionStartSettings {
 }
 
 export namespace FollowModeScheduleActionStartSettings {
+  export const filterSensitiveLog = (
+    obj: FollowModeScheduleActionStartSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FollowModeScheduleActionStartSettings =>
     __isa(o, "FollowModeScheduleActionStartSettings");
 }
@@ -3500,6 +4339,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ForbiddenException =>
     __isa(o, "ForbiddenException");
 }
@@ -3516,6 +4358,12 @@ export interface FrameCaptureGroupSettings {
 }
 
 export namespace FrameCaptureGroupSettings {
+  export const filterSensitiveLog = (obj: FrameCaptureGroupSettings): any => ({
+    ...obj,
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    })
+  });
   export const isa = (o: any): o is FrameCaptureGroupSettings =>
     __isa(o, "FrameCaptureGroupSettings");
 }
@@ -3537,6 +4385,9 @@ export interface FrameCaptureOutputSettings {
 }
 
 export namespace FrameCaptureOutputSettings {
+  export const filterSensitiveLog = (obj: FrameCaptureOutputSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FrameCaptureOutputSettings =>
     __isa(o, "FrameCaptureOutputSettings");
 }
@@ -3558,6 +4409,9 @@ export interface FrameCaptureSettings {
 }
 
 export namespace FrameCaptureSettings {
+  export const filterSensitiveLog = (obj: FrameCaptureSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FrameCaptureSettings =>
     __isa(o, "FrameCaptureSettings");
 }
@@ -3577,6 +4431,9 @@ export interface GatewayTimeoutException
 }
 
 export namespace GatewayTimeoutException {
+  export const filterSensitiveLog = (obj: GatewayTimeoutException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GatewayTimeoutException =>
     __isa(o, "GatewayTimeoutException");
 }
@@ -3621,6 +4478,14 @@ export interface GlobalConfiguration {
 }
 
 export namespace GlobalConfiguration {
+  export const filterSensitiveLog = (obj: GlobalConfiguration): any => ({
+    ...obj,
+    ...(obj.InputLossBehavior && {
+      InputLossBehavior: InputLossBehavior.filterSensitiveLog(
+        obj.InputLossBehavior
+      )
+    })
+  });
   export const isa = (o: any): o is GlobalConfiguration =>
     __isa(o, "GlobalConfiguration");
 }
@@ -3681,6 +4546,20 @@ export interface H264ColorSpaceSettings {
 }
 
 export namespace H264ColorSpaceSettings {
+  export const filterSensitiveLog = (obj: H264ColorSpaceSettings): any => ({
+    ...obj,
+    ...(obj.ColorSpacePassthroughSettings && {
+      ColorSpacePassthroughSettings: ColorSpacePassthroughSettings.filterSensitiveLog(
+        obj.ColorSpacePassthroughSettings
+      )
+    }),
+    ...(obj.Rec601Settings && {
+      Rec601Settings: Rec601Settings.filterSensitiveLog(obj.Rec601Settings)
+    }),
+    ...(obj.Rec709Settings && {
+      Rec709Settings: Rec709Settings.filterSensitiveLog(obj.Rec709Settings)
+    })
+  });
   export const isa = (o: any): o is H264ColorSpaceSettings =>
     __isa(o, "H264ColorSpaceSettings");
 }
@@ -3990,6 +4869,14 @@ export interface H264Settings {
 }
 
 export namespace H264Settings {
+  export const filterSensitiveLog = (obj: H264Settings): any => ({
+    ...obj,
+    ...(obj.ColorSpaceSettings && {
+      ColorSpaceSettings: H264ColorSpaceSettings.filterSensitiveLog(
+        obj.ColorSpaceSettings
+      )
+    })
+  });
   export const isa = (o: any): o is H264Settings => __isa(o, "H264Settings");
 }
 
@@ -4064,6 +4951,23 @@ export interface H265ColorSpaceSettings {
 }
 
 export namespace H265ColorSpaceSettings {
+  export const filterSensitiveLog = (obj: H265ColorSpaceSettings): any => ({
+    ...obj,
+    ...(obj.ColorSpacePassthroughSettings && {
+      ColorSpacePassthroughSettings: ColorSpacePassthroughSettings.filterSensitiveLog(
+        obj.ColorSpacePassthroughSettings
+      )
+    }),
+    ...(obj.Hdr10Settings && {
+      Hdr10Settings: Hdr10Settings.filterSensitiveLog(obj.Hdr10Settings)
+    }),
+    ...(obj.Rec601Settings && {
+      Rec601Settings: Rec601Settings.filterSensitiveLog(obj.Rec601Settings)
+    }),
+    ...(obj.Rec709Settings && {
+      Rec709Settings: Rec709Settings.filterSensitiveLog(obj.Rec709Settings)
+    })
+  });
   export const isa = (o: any): o is H265ColorSpaceSettings =>
     __isa(o, "H265ColorSpaceSettings");
 }
@@ -4282,6 +5186,14 @@ export interface H265Settings {
 }
 
 export namespace H265Settings {
+  export const filterSensitiveLog = (obj: H265Settings): any => ({
+    ...obj,
+    ...(obj.ColorSpaceSettings && {
+      ColorSpaceSettings: H265ColorSpaceSettings.filterSensitiveLog(
+        obj.ColorSpaceSettings
+      )
+    })
+  });
   export const isa = (o: any): o is H265Settings => __isa(o, "H265Settings");
 }
 
@@ -4316,6 +5228,9 @@ export interface Hdr10Settings {
 }
 
 export namespace Hdr10Settings {
+  export const filterSensitiveLog = (obj: Hdr10Settings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Hdr10Settings => __isa(o, "Hdr10Settings");
 }
 
@@ -4372,6 +5287,9 @@ export interface HlsAkamaiSettings {
 }
 
 export namespace HlsAkamaiSettings {
+  export const filterSensitiveLog = (obj: HlsAkamaiSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsAkamaiSettings =>
     __isa(o, "HlsAkamaiSettings");
 }
@@ -4403,6 +5321,9 @@ export interface HlsBasicPutSettings {
 }
 
 export namespace HlsBasicPutSettings {
+  export const filterSensitiveLog = (obj: HlsBasicPutSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsBasicPutSettings =>
     __isa(o, "HlsBasicPutSettings");
 }
@@ -4440,6 +5361,29 @@ export interface HlsCdnSettings {
 }
 
 export namespace HlsCdnSettings {
+  export const filterSensitiveLog = (obj: HlsCdnSettings): any => ({
+    ...obj,
+    ...(obj.HlsAkamaiSettings && {
+      HlsAkamaiSettings: HlsAkamaiSettings.filterSensitiveLog(
+        obj.HlsAkamaiSettings
+      )
+    }),
+    ...(obj.HlsBasicPutSettings && {
+      HlsBasicPutSettings: HlsBasicPutSettings.filterSensitiveLog(
+        obj.HlsBasicPutSettings
+      )
+    }),
+    ...(obj.HlsMediaStoreSettings && {
+      HlsMediaStoreSettings: HlsMediaStoreSettings.filterSensitiveLog(
+        obj.HlsMediaStoreSettings
+      )
+    }),
+    ...(obj.HlsWebdavSettings && {
+      HlsWebdavSettings: HlsWebdavSettings.filterSensitiveLog(
+        obj.HlsWebdavSettings
+      )
+    })
+  });
   export const isa = (o: any): o is HlsCdnSettings =>
     __isa(o, "HlsCdnSettings");
 }
@@ -4690,6 +5634,25 @@ export interface HlsGroupSettings {
 }
 
 export namespace HlsGroupSettings {
+  export const filterSensitiveLog = (obj: HlsGroupSettings): any => ({
+    ...obj,
+    ...(obj.CaptionLanguageMappings && {
+      CaptionLanguageMappings: obj.CaptionLanguageMappings.map(item =>
+        CaptionLanguageMapping.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    }),
+    ...(obj.HlsCdnSettings && {
+      HlsCdnSettings: HlsCdnSettings.filterSensitiveLog(obj.HlsCdnSettings)
+    }),
+    ...(obj.KeyProviderSettings && {
+      KeyProviderSettings: KeyProviderSettings.filterSensitiveLog(
+        obj.KeyProviderSettings
+      )
+    })
+  });
   export const isa = (o: any): o is HlsGroupSettings =>
     __isa(o, "HlsGroupSettings");
 }
@@ -4711,6 +5674,11 @@ export interface HlsId3SegmentTaggingScheduleActionSettings {
 }
 
 export namespace HlsId3SegmentTaggingScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: HlsId3SegmentTaggingScheduleActionSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is HlsId3SegmentTaggingScheduleActionSettings =>
@@ -4749,6 +5717,9 @@ export interface HlsInputSettings {
 }
 
 export namespace HlsInputSettings {
+  export const filterSensitiveLog = (obj: HlsInputSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsInputSettings =>
     __isa(o, "HlsInputSettings");
 }
@@ -4805,6 +5776,9 @@ export interface HlsMediaStoreSettings {
 }
 
 export namespace HlsMediaStoreSettings {
+  export const filterSensitiveLog = (obj: HlsMediaStoreSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsMediaStoreSettings =>
     __isa(o, "HlsMediaStoreSettings");
 }
@@ -4851,6 +5825,12 @@ export interface HlsOutputSettings {
 }
 
 export namespace HlsOutputSettings {
+  export const filterSensitiveLog = (obj: HlsOutputSettings): any => ({
+    ...obj,
+    ...(obj.HlsSettings && {
+      HlsSettings: HlsSettings.filterSensitiveLog(obj.HlsSettings)
+    })
+  });
   export const isa = (o: any): o is HlsOutputSettings =>
     __isa(o, "HlsOutputSettings");
 }
@@ -4892,6 +5872,22 @@ export interface HlsSettings {
 }
 
 export namespace HlsSettings {
+  export const filterSensitiveLog = (obj: HlsSettings): any => ({
+    ...obj,
+    ...(obj.AudioOnlyHlsSettings && {
+      AudioOnlyHlsSettings: AudioOnlyHlsSettings.filterSensitiveLog(
+        obj.AudioOnlyHlsSettings
+      )
+    }),
+    ...(obj.Fmp4HlsSettings && {
+      Fmp4HlsSettings: Fmp4HlsSettings.filterSensitiveLog(obj.Fmp4HlsSettings)
+    }),
+    ...(obj.StandardHlsSettings && {
+      StandardHlsSettings: StandardHlsSettings.filterSensitiveLog(
+        obj.StandardHlsSettings
+      )
+    })
+  });
   export const isa = (o: any): o is HlsSettings => __isa(o, "HlsSettings");
 }
 
@@ -4918,6 +5914,11 @@ export interface HlsTimedMetadataScheduleActionSettings {
 }
 
 export namespace HlsTimedMetadataScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: HlsTimedMetadataScheduleActionSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsTimedMetadataScheduleActionSettings =>
     __isa(o, "HlsTimedMetadataScheduleActionSettings");
 }
@@ -4964,6 +5965,9 @@ export interface HlsWebdavSettings {
 }
 
 export namespace HlsWebdavSettings {
+  export const filterSensitiveLog = (obj: HlsWebdavSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsWebdavSettings =>
     __isa(o, "HlsWebdavSettings");
 }
@@ -4981,6 +5985,11 @@ export interface ImmediateModeScheduleActionStartSettings {
 }
 
 export namespace ImmediateModeScheduleActionStartSettings {
+  export const filterSensitiveLog = (
+    obj: ImmediateModeScheduleActionStartSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImmediateModeScheduleActionStartSettings =>
     __isa(o, "ImmediateModeScheduleActionStartSettings");
 }
@@ -5064,6 +6073,22 @@ export interface Input {
 }
 
 export namespace Input {
+  export const filterSensitiveLog = (obj: Input): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        InputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MediaConnectFlows && {
+      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
+        MediaConnectFlow.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Sources && {
+      Sources: obj.Sources.map(item => InputSource.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is Input => __isa(o, "Input");
 }
 
@@ -5089,6 +6114,12 @@ export interface InputAttachment {
 }
 
 export namespace InputAttachment {
+  export const filterSensitiveLog = (obj: InputAttachment): any => ({
+    ...obj,
+    ...(obj.InputSettings && {
+      InputSettings: InputSettings.filterSensitiveLog(obj.InputSettings)
+    })
+  });
   export const isa = (o: any): o is InputAttachment =>
     __isa(o, "InputAttachment");
 }
@@ -5110,6 +6141,9 @@ export interface InputChannelLevel {
 }
 
 export namespace InputChannelLevel {
+  export const filterSensitiveLog = (obj: InputChannelLevel): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputChannelLevel =>
     __isa(o, "InputChannelLevel");
 }
@@ -5141,6 +6175,15 @@ export interface InputClippingSettings {
 }
 
 export namespace InputClippingSettings {
+  export const filterSensitiveLog = (obj: InputClippingSettings): any => ({
+    ...obj,
+    ...(obj.StartTimecode && {
+      StartTimecode: StartTimecode.filterSensitiveLog(obj.StartTimecode)
+    }),
+    ...(obj.StopTimecode && {
+      StopTimecode: StopTimecode.filterSensitiveLog(obj.StopTimecode)
+    })
+  });
   export const isa = (o: any): o is InputClippingSettings =>
     __isa(o, "InputClippingSettings");
 }
@@ -5190,6 +6233,10 @@ export interface InputDestination {
 }
 
 export namespace InputDestination {
+  export const filterSensitiveLog = (obj: InputDestination): any => ({
+    ...obj,
+    ...(obj.Vpc && { Vpc: InputDestinationVpc.filterSensitiveLog(obj.Vpc) })
+  });
   export const isa = (o: any): o is InputDestination =>
     __isa(o, "InputDestination");
 }
@@ -5207,6 +6254,9 @@ export interface InputDestinationRequest {
 }
 
 export namespace InputDestinationRequest {
+  export const filterSensitiveLog = (obj: InputDestinationRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputDestinationRequest =>
     __isa(o, "InputDestinationRequest");
 }
@@ -5228,6 +6278,9 @@ export interface InputDestinationVpc {
 }
 
 export namespace InputDestinationVpc {
+  export const filterSensitiveLog = (obj: InputDestinationVpc): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputDestinationVpc =>
     __isa(o, "InputDestinationVpc");
 }
@@ -5260,6 +6313,9 @@ export interface InputLocation {
 }
 
 export namespace InputLocation {
+  export const filterSensitiveLog = (obj: InputLocation): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputLocation => __isa(o, "InputLocation");
 }
 
@@ -5316,6 +6372,14 @@ export interface InputLossBehavior {
 }
 
 export namespace InputLossBehavior {
+  export const filterSensitiveLog = (obj: InputLossBehavior): any => ({
+    ...obj,
+    ...(obj.InputLossImageSlate && {
+      InputLossImageSlate: InputLocation.filterSensitiveLog(
+        obj.InputLossImageSlate
+      )
+    })
+  });
   export const isa = (o: any): o is InputLossBehavior =>
     __isa(o, "InputLossBehavior");
 }
@@ -5374,6 +6438,14 @@ export interface InputSecurityGroup {
 }
 
 export namespace InputSecurityGroup {
+  export const filterSensitiveLog = (obj: InputSecurityGroup): any => ({
+    ...obj,
+    ...(obj.WhitelistRules && {
+      WhitelistRules: obj.WhitelistRules.map(item =>
+        InputWhitelistRule.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is InputSecurityGroup =>
     __isa(o, "InputSecurityGroup");
 }
@@ -5440,6 +6512,27 @@ export interface InputSettings {
 }
 
 export namespace InputSettings {
+  export const filterSensitiveLog = (obj: InputSettings): any => ({
+    ...obj,
+    ...(obj.AudioSelectors && {
+      AudioSelectors: obj.AudioSelectors.map(item =>
+        AudioSelector.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.CaptionSelectors && {
+      CaptionSelectors: obj.CaptionSelectors.map(item =>
+        CaptionSelector.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.NetworkInputSettings && {
+      NetworkInputSettings: NetworkInputSettings.filterSensitiveLog(
+        obj.NetworkInputSettings
+      )
+    }),
+    ...(obj.VideoSelector && {
+      VideoSelector: VideoSelector.filterSensitiveLog(obj.VideoSelector)
+    })
+  });
   export const isa = (o: any): o is InputSettings => __isa(o, "InputSettings");
 }
 
@@ -5466,6 +6559,9 @@ export interface InputSource {
 }
 
 export namespace InputSource {
+  export const filterSensitiveLog = (obj: InputSource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputSource => __isa(o, "InputSource");
 }
 
@@ -5497,6 +6593,9 @@ export interface InputSourceRequest {
 }
 
 export namespace InputSourceRequest {
+  export const filterSensitiveLog = (obj: InputSourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputSourceRequest =>
     __isa(o, "InputSourceRequest");
 }
@@ -5528,6 +6627,9 @@ export interface InputSpecification {
 }
 
 export namespace InputSpecification {
+  export const filterSensitiveLog = (obj: InputSpecification): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputSpecification =>
     __isa(o, "InputSpecification");
 }
@@ -5562,6 +6664,16 @@ export interface InputSwitchScheduleActionSettings {
 }
 
 export namespace InputSwitchScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: InputSwitchScheduleActionSettings
+  ): any => ({
+    ...obj,
+    ...(obj.InputClippingSettings && {
+      InputClippingSettings: InputClippingSettings.filterSensitiveLog(
+        obj.InputClippingSettings
+      )
+    })
+  });
   export const isa = (o: any): o is InputSwitchScheduleActionSettings =>
     __isa(o, "InputSwitchScheduleActionSettings");
 }
@@ -5603,6 +6715,9 @@ export interface InputVpcRequest {
 }
 
 export namespace InputVpcRequest {
+  export const filterSensitiveLog = (obj: InputVpcRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputVpcRequest =>
     __isa(o, "InputVpcRequest");
 }
@@ -5619,6 +6734,9 @@ export interface InputWhitelistRule {
 }
 
 export namespace InputWhitelistRule {
+  export const filterSensitiveLog = (obj: InputWhitelistRule): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputWhitelistRule =>
     __isa(o, "InputWhitelistRule");
 }
@@ -5635,6 +6753,9 @@ export interface InputWhitelistRuleCidr {
 }
 
 export namespace InputWhitelistRuleCidr {
+  export const filterSensitiveLog = (obj: InputWhitelistRuleCidr): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputWhitelistRuleCidr =>
     __isa(o, "InputWhitelistRuleCidr");
 }
@@ -5654,6 +6775,11 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerErrorException =>
     __isa(o, "InternalServerErrorException");
 }
@@ -5670,6 +6796,14 @@ export interface KeyProviderSettings {
 }
 
 export namespace KeyProviderSettings {
+  export const filterSensitiveLog = (obj: KeyProviderSettings): any => ({
+    ...obj,
+    ...(obj.StaticKeySettings && {
+      StaticKeySettings: StaticKeySettings.filterSensitiveLog(
+        obj.StaticKeySettings
+      )
+    })
+  });
   export const isa = (o: any): o is KeyProviderSettings =>
     __isa(o, "KeyProviderSettings");
 }
@@ -5696,6 +6830,9 @@ export interface ListChannelsRequest {
 }
 
 export namespace ListChannelsRequest {
+  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListChannelsRequest =>
     __isa(o, "ListChannelsRequest");
 }
@@ -5717,6 +6854,14 @@ export interface ListChannelsResponse {
 }
 
 export namespace ListChannelsResponse {
+  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
+    ...obj,
+    ...(obj.Channels && {
+      Channels: obj.Channels.map(item =>
+        ChannelSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListChannelsResponse =>
     __isa(o, "ListChannelsResponse");
 }
@@ -5738,6 +6883,11 @@ export interface ListInputSecurityGroupsRequest {
 }
 
 export namespace ListInputSecurityGroupsRequest {
+  export const filterSensitiveLog = (
+    obj: ListInputSecurityGroupsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListInputSecurityGroupsRequest =>
     __isa(o, "ListInputSecurityGroupsRequest");
 }
@@ -5759,6 +6909,16 @@ export interface ListInputSecurityGroupsResponse {
 }
 
 export namespace ListInputSecurityGroupsResponse {
+  export const filterSensitiveLog = (
+    obj: ListInputSecurityGroupsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.InputSecurityGroups && {
+      InputSecurityGroups: obj.InputSecurityGroups.map(item =>
+        InputSecurityGroup.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListInputSecurityGroupsResponse =>
     __isa(o, "ListInputSecurityGroupsResponse");
 }
@@ -5780,6 +6940,9 @@ export interface ListInputsRequest {
 }
 
 export namespace ListInputsRequest {
+  export const filterSensitiveLog = (obj: ListInputsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListInputsRequest =>
     __isa(o, "ListInputsRequest");
 }
@@ -5801,6 +6964,12 @@ export interface ListInputsResponse {
 }
 
 export namespace ListInputsResponse {
+  export const filterSensitiveLog = (obj: ListInputsResponse): any => ({
+    ...obj,
+    ...(obj.Inputs && {
+      Inputs: obj.Inputs.map(item => Input.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListInputsResponse =>
     __isa(o, "ListInputsResponse");
 }
@@ -5827,6 +6996,11 @@ export interface ListMultiplexProgramsRequest {
 }
 
 export namespace ListMultiplexProgramsRequest {
+  export const filterSensitiveLog = (
+    obj: ListMultiplexProgramsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListMultiplexProgramsRequest =>
     __isa(o, "ListMultiplexProgramsRequest");
 }
@@ -5848,6 +7022,16 @@ export interface ListMultiplexProgramsResponse {
 }
 
 export namespace ListMultiplexProgramsResponse {
+  export const filterSensitiveLog = (
+    obj: ListMultiplexProgramsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.MultiplexPrograms && {
+      MultiplexPrograms: obj.MultiplexPrograms.map(item =>
+        MultiplexProgramSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListMultiplexProgramsResponse =>
     __isa(o, "ListMultiplexProgramsResponse");
 }
@@ -5869,6 +7053,9 @@ export interface ListMultiplexesRequest {
 }
 
 export namespace ListMultiplexesRequest {
+  export const filterSensitiveLog = (obj: ListMultiplexesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListMultiplexesRequest =>
     __isa(o, "ListMultiplexesRequest");
 }
@@ -5890,6 +7077,14 @@ export interface ListMultiplexesResponse {
 }
 
 export namespace ListMultiplexesResponse {
+  export const filterSensitiveLog = (obj: ListMultiplexesResponse): any => ({
+    ...obj,
+    ...(obj.Multiplexes && {
+      Multiplexes: obj.Multiplexes.map(item =>
+        MultiplexSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListMultiplexesResponse =>
     __isa(o, "ListMultiplexesResponse");
 }
@@ -5961,6 +7156,9 @@ export interface ListOfferingsRequest {
 }
 
 export namespace ListOfferingsRequest {
+  export const filterSensitiveLog = (obj: ListOfferingsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListOfferingsRequest =>
     __isa(o, "ListOfferingsRequest");
 }
@@ -5982,6 +7180,12 @@ export interface ListOfferingsResponse {
 }
 
 export namespace ListOfferingsResponse {
+  export const filterSensitiveLog = (obj: ListOfferingsResponse): any => ({
+    ...obj,
+    ...(obj.Offerings && {
+      Offerings: obj.Offerings.map(item => Offering.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListOfferingsResponse =>
     __isa(o, "ListOfferingsResponse");
 }
@@ -6043,6 +7247,9 @@ export interface ListReservationsRequest {
 }
 
 export namespace ListReservationsRequest {
+  export const filterSensitiveLog = (obj: ListReservationsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListReservationsRequest =>
     __isa(o, "ListReservationsRequest");
 }
@@ -6064,6 +7271,14 @@ export interface ListReservationsResponse {
 }
 
 export namespace ListReservationsResponse {
+  export const filterSensitiveLog = (obj: ListReservationsResponse): any => ({
+    ...obj,
+    ...(obj.Reservations && {
+      Reservations: obj.Reservations.map(item =>
+        Reservation.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListReservationsResponse =>
     __isa(o, "ListReservationsResponse");
 }
@@ -6080,6 +7295,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -6096,6 +7314,11 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -6448,6 +7671,18 @@ export interface M2tsSettings {
 }
 
 export namespace M2tsSettings {
+  export const filterSensitiveLog = (obj: M2tsSettings): any => ({
+    ...obj,
+    ...(obj.DvbNitSettings && {
+      DvbNitSettings: DvbNitSettings.filterSensitiveLog(obj.DvbNitSettings)
+    }),
+    ...(obj.DvbSdtSettings && {
+      DvbSdtSettings: DvbSdtSettings.filterSensitiveLog(obj.DvbSdtSettings)
+    }),
+    ...(obj.DvbTdtSettings && {
+      DvbTdtSettings: DvbTdtSettings.filterSensitiveLog(obj.DvbTdtSettings)
+    })
+  });
   export const isa = (o: any): o is M2tsSettings => __isa(o, "M2tsSettings");
 }
 
@@ -6563,6 +7798,9 @@ export interface M3u8Settings {
 }
 
 export namespace M3u8Settings {
+  export const filterSensitiveLog = (obj: M3u8Settings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is M3u8Settings => __isa(o, "M3u8Settings");
 }
 
@@ -6583,6 +7821,9 @@ export interface MediaConnectFlow {
 }
 
 export namespace MediaConnectFlow {
+  export const filterSensitiveLog = (obj: MediaConnectFlow): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MediaConnectFlow =>
     __isa(o, "MediaConnectFlow");
 }
@@ -6599,6 +7840,9 @@ export interface MediaConnectFlowRequest {
 }
 
 export namespace MediaConnectFlowRequest {
+  export const filterSensitiveLog = (obj: MediaConnectFlowRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MediaConnectFlowRequest =>
     __isa(o, "MediaConnectFlowRequest");
 }
@@ -6615,6 +7859,12 @@ export interface MediaPackageGroupSettings {
 }
 
 export namespace MediaPackageGroupSettings {
+  export const filterSensitiveLog = (obj: MediaPackageGroupSettings): any => ({
+    ...obj,
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    })
+  });
   export const isa = (o: any): o is MediaPackageGroupSettings =>
     __isa(o, "MediaPackageGroupSettings");
 }
@@ -6631,6 +7881,11 @@ export interface MediaPackageOutputDestinationSettings {
 }
 
 export namespace MediaPackageOutputDestinationSettings {
+  export const filterSensitiveLog = (
+    obj: MediaPackageOutputDestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MediaPackageOutputDestinationSettings =>
     __isa(o, "MediaPackageOutputDestinationSettings");
 }
@@ -6643,6 +7898,9 @@ export interface MediaPackageOutputSettings {
 }
 
 export namespace MediaPackageOutputSettings {
+  export const filterSensitiveLog = (obj: MediaPackageOutputSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MediaPackageOutputSettings =>
     __isa(o, "MediaPackageOutputSettings");
 }
@@ -6674,6 +7932,9 @@ export interface Mp2Settings {
 }
 
 export namespace Mp2Settings {
+  export const filterSensitiveLog = (obj: Mp2Settings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Mp2Settings => __isa(o, "Mp2Settings");
 }
 
@@ -6788,6 +8049,12 @@ export interface MsSmoothGroupSettings {
 }
 
 export namespace MsSmoothGroupSettings {
+  export const filterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
+    ...obj,
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    })
+  });
   export const isa = (o: any): o is MsSmoothGroupSettings =>
     __isa(o, "MsSmoothGroupSettings");
 }
@@ -6815,6 +8082,9 @@ export interface MsSmoothOutputSettings {
 }
 
 export namespace MsSmoothOutputSettings {
+  export const filterSensitiveLog = (obj: MsSmoothOutputSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MsSmoothOutputSettings =>
     __isa(o, "MsSmoothOutputSettings");
 }
@@ -6876,6 +8146,19 @@ export interface Multiplex {
 }
 
 export namespace Multiplex {
+  export const filterSensitiveLog = (obj: Multiplex): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        MultiplexOutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is Multiplex => __isa(o, "Multiplex");
 }
 
@@ -6887,6 +8170,9 @@ export interface MultiplexGroupSettings {
 }
 
 export namespace MultiplexGroupSettings {
+  export const filterSensitiveLog = (obj: MultiplexGroupSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MultiplexGroupSettings =>
     __isa(o, "MultiplexGroupSettings");
 }
@@ -6903,6 +8189,11 @@ export interface MultiplexMediaConnectOutputDestinationSettings {
 }
 
 export namespace MultiplexMediaConnectOutputDestinationSettings {
+  export const filterSensitiveLog = (
+    obj: MultiplexMediaConnectOutputDestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is MultiplexMediaConnectOutputDestinationSettings =>
@@ -6921,6 +8212,14 @@ export interface MultiplexOutputDestination {
 }
 
 export namespace MultiplexOutputDestination {
+  export const filterSensitiveLog = (obj: MultiplexOutputDestination): any => ({
+    ...obj,
+    ...(obj.MediaConnectSettings && {
+      MediaConnectSettings: MultiplexMediaConnectOutputDestinationSettings.filterSensitiveLog(
+        obj.MediaConnectSettings
+      )
+    })
+  });
   export const isa = (o: any): o is MultiplexOutputDestination =>
     __isa(o, "MultiplexOutputDestination");
 }
@@ -6937,6 +8236,12 @@ export interface MultiplexOutputSettings {
 }
 
 export namespace MultiplexOutputSettings {
+  export const filterSensitiveLog = (obj: MultiplexOutputSettings): any => ({
+    ...obj,
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    })
+  });
   export const isa = (o: any): o is MultiplexOutputSettings =>
     __isa(o, "MultiplexOutputSettings");
 }
@@ -6968,6 +8273,19 @@ export interface MultiplexProgram {
 }
 
 export namespace MultiplexProgram {
+  export const filterSensitiveLog = (obj: MultiplexProgram): any => ({
+    ...obj,
+    ...(obj.MultiplexProgramSettings && {
+      MultiplexProgramSettings: MultiplexProgramSettings.filterSensitiveLog(
+        obj.MultiplexProgramSettings
+      )
+    }),
+    ...(obj.PacketIdentifiersMap && {
+      PacketIdentifiersMap: MultiplexProgramPacketIdentifiersMap.filterSensitiveLog(
+        obj.PacketIdentifiersMap
+      )
+    })
+  });
   export const isa = (o: any): o is MultiplexProgram =>
     __isa(o, "MultiplexProgram");
 }
@@ -6990,6 +8308,11 @@ export interface MultiplexProgramChannelDestinationSettings {
 }
 
 export namespace MultiplexProgramChannelDestinationSettings {
+  export const filterSensitiveLog = (
+    obj: MultiplexProgramChannelDestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is MultiplexProgramChannelDestinationSettings =>
@@ -7068,6 +8391,11 @@ export interface MultiplexProgramPacketIdentifiersMap {
 }
 
 export namespace MultiplexProgramPacketIdentifiersMap {
+  export const filterSensitiveLog = (
+    obj: MultiplexProgramPacketIdentifiersMap
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MultiplexProgramPacketIdentifiersMap =>
     __isa(o, "MultiplexProgramPacketIdentifiersMap");
 }
@@ -7089,6 +8417,11 @@ export interface MultiplexProgramServiceDescriptor {
 }
 
 export namespace MultiplexProgramServiceDescriptor {
+  export const filterSensitiveLog = (
+    obj: MultiplexProgramServiceDescriptor
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MultiplexProgramServiceDescriptor =>
     __isa(o, "MultiplexProgramServiceDescriptor");
 }
@@ -7115,6 +8448,19 @@ export interface MultiplexProgramSettings {
 }
 
 export namespace MultiplexProgramSettings {
+  export const filterSensitiveLog = (obj: MultiplexProgramSettings): any => ({
+    ...obj,
+    ...(obj.ServiceDescriptor && {
+      ServiceDescriptor: MultiplexProgramServiceDescriptor.filterSensitiveLog(
+        obj.ServiceDescriptor
+      )
+    }),
+    ...(obj.VideoSettings && {
+      VideoSettings: MultiplexVideoSettings.filterSensitiveLog(
+        obj.VideoSettings
+      )
+    })
+  });
   export const isa = (o: any): o is MultiplexProgramSettings =>
     __isa(o, "MultiplexProgramSettings");
 }
@@ -7136,6 +8482,9 @@ export interface MultiplexProgramSummary {
 }
 
 export namespace MultiplexProgramSummary {
+  export const filterSensitiveLog = (obj: MultiplexProgramSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MultiplexProgramSummary =>
     __isa(o, "MultiplexProgramSummary");
 }
@@ -7167,6 +8516,9 @@ export interface MultiplexSettings {
 }
 
 export namespace MultiplexSettings {
+  export const filterSensitiveLog = (obj: MultiplexSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MultiplexSettings =>
     __isa(o, "MultiplexSettings");
 }
@@ -7183,6 +8535,9 @@ export interface MultiplexSettingsSummary {
 }
 
 export namespace MultiplexSettingsSummary {
+  export const filterSensitiveLog = (obj: MultiplexSettingsSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MultiplexSettingsSummary =>
     __isa(o, "MultiplexSettingsSummary");
 }
@@ -7216,6 +8571,11 @@ export interface MultiplexStatmuxVideoSettings {
 }
 
 export namespace MultiplexStatmuxVideoSettings {
+  export const filterSensitiveLog = (
+    obj: MultiplexStatmuxVideoSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MultiplexStatmuxVideoSettings =>
     __isa(o, "MultiplexStatmuxVideoSettings");
 }
@@ -7272,6 +8632,14 @@ export interface MultiplexSummary {
 }
 
 export namespace MultiplexSummary {
+  export const filterSensitiveLog = (obj: MultiplexSummary): any => ({
+    ...obj,
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettingsSummary.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is MultiplexSummary =>
     __isa(o, "MultiplexSummary");
 }
@@ -7295,6 +8663,14 @@ export interface MultiplexVideoSettings {
 }
 
 export namespace MultiplexVideoSettings {
+  export const filterSensitiveLog = (obj: MultiplexVideoSettings): any => ({
+    ...obj,
+    ...(obj.StatmuxSettings && {
+      StatmuxSettings: MultiplexStatmuxVideoSettings.filterSensitiveLog(
+        obj.StatmuxSettings
+      )
+    })
+  });
   export const isa = (o: any): o is MultiplexVideoSettings =>
     __isa(o, "MultiplexVideoSettings");
 }
@@ -7321,6 +8697,14 @@ export interface NetworkInputSettings {
 }
 
 export namespace NetworkInputSettings {
+  export const filterSensitiveLog = (obj: NetworkInputSettings): any => ({
+    ...obj,
+    ...(obj.HlsInputSettings && {
+      HlsInputSettings: HlsInputSettings.filterSensitiveLog(
+        obj.HlsInputSettings
+      )
+    })
+  });
   export const isa = (o: any): o is NetworkInputSettings =>
     __isa(o, "NetworkInputSettings");
 }
@@ -7342,6 +8726,9 @@ export interface NielsenConfiguration {
 }
 
 export namespace NielsenConfiguration {
+  export const filterSensitiveLog = (obj: NielsenConfiguration): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NielsenConfiguration =>
     __isa(o, "NielsenConfiguration");
 }
@@ -7364,6 +8751,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -7430,6 +8820,14 @@ export interface Offering {
 }
 
 export namespace Offering {
+  export const filterSensitiveLog = (obj: Offering): any => ({
+    ...obj,
+    ...(obj.ResourceSpecification && {
+      ResourceSpecification: ReservationResourceSpecification.filterSensitiveLog(
+        obj.ResourceSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is Offering => __isa(o, "Offering");
 }
 
@@ -7473,6 +8871,12 @@ export interface Output {
 }
 
 export namespace Output {
+  export const filterSensitiveLog = (obj: Output): any => ({
+    ...obj,
+    ...(obj.OutputSettings && {
+      OutputSettings: OutputSettings.filterSensitiveLog(obj.OutputSettings)
+    })
+  });
   export const isa = (o: any): o is Output => __isa(o, "Output");
 }
 
@@ -7503,6 +8907,24 @@ export interface OutputDestination {
 }
 
 export namespace OutputDestination {
+  export const filterSensitiveLog = (obj: OutputDestination): any => ({
+    ...obj,
+    ...(obj.MediaPackageSettings && {
+      MediaPackageSettings: obj.MediaPackageSettings.map(item =>
+        MediaPackageOutputDestinationSettings.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexProgramChannelDestinationSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    }),
+    ...(obj.Settings && {
+      Settings: obj.Settings.map(item =>
+        OutputDestinationSettings.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is OutputDestination =>
     __isa(o, "OutputDestination");
 }
@@ -7534,6 +8956,9 @@ export interface OutputDestinationSettings {
 }
 
 export namespace OutputDestinationSettings {
+  export const filterSensitiveLog = (obj: OutputDestinationSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OutputDestinationSettings =>
     __isa(o, "OutputDestinationSettings");
 }
@@ -7560,6 +8985,17 @@ export interface OutputGroup {
 }
 
 export namespace OutputGroup {
+  export const filterSensitiveLog = (obj: OutputGroup): any => ({
+    ...obj,
+    ...(obj.OutputGroupSettings && {
+      OutputGroupSettings: OutputGroupSettings.filterSensitiveLog(
+        obj.OutputGroupSettings
+      )
+    }),
+    ...(obj.Outputs && {
+      Outputs: obj.Outputs.map(item => Output.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is OutputGroup => __isa(o, "OutputGroup");
 }
 
@@ -7610,6 +9046,49 @@ export interface OutputGroupSettings {
 }
 
 export namespace OutputGroupSettings {
+  export const filterSensitiveLog = (obj: OutputGroupSettings): any => ({
+    ...obj,
+    ...(obj.ArchiveGroupSettings && {
+      ArchiveGroupSettings: ArchiveGroupSettings.filterSensitiveLog(
+        obj.ArchiveGroupSettings
+      )
+    }),
+    ...(obj.FrameCaptureGroupSettings && {
+      FrameCaptureGroupSettings: FrameCaptureGroupSettings.filterSensitiveLog(
+        obj.FrameCaptureGroupSettings
+      )
+    }),
+    ...(obj.HlsGroupSettings && {
+      HlsGroupSettings: HlsGroupSettings.filterSensitiveLog(
+        obj.HlsGroupSettings
+      )
+    }),
+    ...(obj.MediaPackageGroupSettings && {
+      MediaPackageGroupSettings: MediaPackageGroupSettings.filterSensitiveLog(
+        obj.MediaPackageGroupSettings
+      )
+    }),
+    ...(obj.MsSmoothGroupSettings && {
+      MsSmoothGroupSettings: MsSmoothGroupSettings.filterSensitiveLog(
+        obj.MsSmoothGroupSettings
+      )
+    }),
+    ...(obj.MultiplexGroupSettings && {
+      MultiplexGroupSettings: MultiplexGroupSettings.filterSensitiveLog(
+        obj.MultiplexGroupSettings
+      )
+    }),
+    ...(obj.RtmpGroupSettings && {
+      RtmpGroupSettings: RtmpGroupSettings.filterSensitiveLog(
+        obj.RtmpGroupSettings
+      )
+    }),
+    ...(obj.UdpGroupSettings && {
+      UdpGroupSettings: UdpGroupSettings.filterSensitiveLog(
+        obj.UdpGroupSettings
+      )
+    })
+  });
   export const isa = (o: any): o is OutputGroupSettings =>
     __isa(o, "OutputGroupSettings");
 }
@@ -7626,6 +9105,9 @@ export interface OutputLocationRef {
 }
 
 export namespace OutputLocationRef {
+  export const filterSensitiveLog = (obj: OutputLocationRef): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OutputLocationRef =>
     __isa(o, "OutputLocationRef");
 }
@@ -7677,6 +9159,49 @@ export interface OutputSettings {
 }
 
 export namespace OutputSettings {
+  export const filterSensitiveLog = (obj: OutputSettings): any => ({
+    ...obj,
+    ...(obj.ArchiveOutputSettings && {
+      ArchiveOutputSettings: ArchiveOutputSettings.filterSensitiveLog(
+        obj.ArchiveOutputSettings
+      )
+    }),
+    ...(obj.FrameCaptureOutputSettings && {
+      FrameCaptureOutputSettings: FrameCaptureOutputSettings.filterSensitiveLog(
+        obj.FrameCaptureOutputSettings
+      )
+    }),
+    ...(obj.HlsOutputSettings && {
+      HlsOutputSettings: HlsOutputSettings.filterSensitiveLog(
+        obj.HlsOutputSettings
+      )
+    }),
+    ...(obj.MediaPackageOutputSettings && {
+      MediaPackageOutputSettings: MediaPackageOutputSettings.filterSensitiveLog(
+        obj.MediaPackageOutputSettings
+      )
+    }),
+    ...(obj.MsSmoothOutputSettings && {
+      MsSmoothOutputSettings: MsSmoothOutputSettings.filterSensitiveLog(
+        obj.MsSmoothOutputSettings
+      )
+    }),
+    ...(obj.MultiplexOutputSettings && {
+      MultiplexOutputSettings: MultiplexOutputSettings.filterSensitiveLog(
+        obj.MultiplexOutputSettings
+      )
+    }),
+    ...(obj.RtmpOutputSettings && {
+      RtmpOutputSettings: RtmpOutputSettings.filterSensitiveLog(
+        obj.RtmpOutputSettings
+      )
+    }),
+    ...(obj.UdpOutputSettings && {
+      UdpOutputSettings: UdpOutputSettings.filterSensitiveLog(
+        obj.UdpOutputSettings
+      )
+    })
+  });
   export const isa = (o: any): o is OutputSettings =>
     __isa(o, "OutputSettings");
 }
@@ -7689,6 +9214,9 @@ export interface PassThroughSettings {
 }
 
 export namespace PassThroughSettings {
+  export const filterSensitiveLog = (obj: PassThroughSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PassThroughSettings =>
     __isa(o, "PassThroughSettings");
 }
@@ -7705,6 +9233,16 @@ export interface PauseStateScheduleActionSettings {
 }
 
 export namespace PauseStateScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: PauseStateScheduleActionSettings
+  ): any => ({
+    ...obj,
+    ...(obj.Pipelines && {
+      Pipelines: obj.Pipelines.map(item =>
+        PipelinePauseStateSettings.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is PauseStateScheduleActionSettings =>
     __isa(o, "PauseStateScheduleActionSettings");
 }
@@ -7731,6 +9269,9 @@ export interface PipelineDetail {
 }
 
 export namespace PipelineDetail {
+  export const filterSensitiveLog = (obj: PipelineDetail): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PipelineDetail =>
     __isa(o, "PipelineDetail");
 }
@@ -7752,6 +9293,9 @@ export interface PipelinePauseStateSettings {
 }
 
 export namespace PipelinePauseStateSettings {
+  export const filterSensitiveLog = (obj: PipelinePauseStateSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PipelinePauseStateSettings =>
     __isa(o, "PipelinePauseStateSettings");
 }
@@ -7793,6 +9337,9 @@ export interface PurchaseOfferingRequest {
 }
 
 export namespace PurchaseOfferingRequest {
+  export const filterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PurchaseOfferingRequest =>
     __isa(o, "PurchaseOfferingRequest");
 }
@@ -7809,6 +9356,12 @@ export interface PurchaseOfferingResponse {
 }
 
 export namespace PurchaseOfferingResponse {
+  export const filterSensitiveLog = (obj: PurchaseOfferingResponse): any => ({
+    ...obj,
+    ...(obj.Reservation && {
+      Reservation: Reservation.filterSensitiveLog(obj.Reservation)
+    })
+  });
   export const isa = (o: any): o is PurchaseOfferingResponse =>
     __isa(o, "PurchaseOfferingResponse");
 }
@@ -7821,6 +9374,9 @@ export interface Rec601Settings {
 }
 
 export namespace Rec601Settings {
+  export const filterSensitiveLog = (obj: Rec601Settings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Rec601Settings =>
     __isa(o, "Rec601Settings");
 }
@@ -7833,6 +9389,9 @@ export interface Rec709Settings {
 }
 
 export namespace Rec709Settings {
+  export const filterSensitiveLog = (obj: Rec709Settings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Rec709Settings =>
     __isa(o, "Rec709Settings");
 }
@@ -7860,6 +9419,14 @@ export interface RemixSettings {
 }
 
 export namespace RemixSettings {
+  export const filterSensitiveLog = (obj: RemixSettings): any => ({
+    ...obj,
+    ...(obj.ChannelMappings && {
+      ChannelMappings: obj.ChannelMappings.map(item =>
+        AudioChannelMapping.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is RemixSettings => __isa(o, "RemixSettings");
 }
 
@@ -7960,6 +9527,14 @@ export interface Reservation {
 }
 
 export namespace Reservation {
+  export const filterSensitiveLog = (obj: Reservation): any => ({
+    ...obj,
+    ...(obj.ResourceSpecification && {
+      ResourceSpecification: ReservationResourceSpecification.filterSensitiveLog(
+        obj.ResourceSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is Reservation => __isa(o, "Reservation");
 }
 
@@ -8035,6 +9610,11 @@ export interface ReservationResourceSpecification {
 }
 
 export namespace ReservationResourceSpecification {
+  export const filterSensitiveLog = (
+    obj: ReservationResourceSpecification
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReservationResourceSpecification =>
     __isa(o, "ReservationResourceSpecification");
 }
@@ -8083,6 +9663,11 @@ export interface RtmpCaptionInfoDestinationSettings {
 }
 
 export namespace RtmpCaptionInfoDestinationSettings {
+  export const filterSensitiveLog = (
+    obj: RtmpCaptionInfoDestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RtmpCaptionInfoDestinationSettings =>
     __isa(o, "RtmpCaptionInfoDestinationSettings");
 }
@@ -8127,6 +9712,9 @@ export interface RtmpGroupSettings {
 }
 
 export namespace RtmpGroupSettings {
+  export const filterSensitiveLog = (obj: RtmpGroupSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RtmpGroupSettings =>
     __isa(o, "RtmpGroupSettings");
 }
@@ -8163,6 +9751,12 @@ export interface RtmpOutputSettings {
 }
 
 export namespace RtmpOutputSettings {
+  export const filterSensitiveLog = (obj: RtmpOutputSettings): any => ({
+    ...obj,
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    })
+  });
   export const isa = (o: any): o is RtmpOutputSettings =>
     __isa(o, "RtmpOutputSettings");
 }
@@ -8189,6 +9783,19 @@ export interface ScheduleAction {
 }
 
 export namespace ScheduleAction {
+  export const filterSensitiveLog = (obj: ScheduleAction): any => ({
+    ...obj,
+    ...(obj.ScheduleActionSettings && {
+      ScheduleActionSettings: ScheduleActionSettings.filterSensitiveLog(
+        obj.ScheduleActionSettings
+      )
+    }),
+    ...(obj.ScheduleActionStartSettings && {
+      ScheduleActionStartSettings: ScheduleActionStartSettings.filterSensitiveLog(
+        obj.ScheduleActionStartSettings
+      )
+    })
+  });
   export const isa = (o: any): o is ScheduleAction =>
     __isa(o, "ScheduleAction");
 }
@@ -8245,6 +9852,54 @@ export interface ScheduleActionSettings {
 }
 
 export namespace ScheduleActionSettings {
+  export const filterSensitiveLog = (obj: ScheduleActionSettings): any => ({
+    ...obj,
+    ...(obj.HlsId3SegmentTaggingSettings && {
+      HlsId3SegmentTaggingSettings: HlsId3SegmentTaggingScheduleActionSettings.filterSensitiveLog(
+        obj.HlsId3SegmentTaggingSettings
+      )
+    }),
+    ...(obj.HlsTimedMetadataSettings && {
+      HlsTimedMetadataSettings: HlsTimedMetadataScheduleActionSettings.filterSensitiveLog(
+        obj.HlsTimedMetadataSettings
+      )
+    }),
+    ...(obj.InputSwitchSettings && {
+      InputSwitchSettings: InputSwitchScheduleActionSettings.filterSensitiveLog(
+        obj.InputSwitchSettings
+      )
+    }),
+    ...(obj.PauseStateSettings && {
+      PauseStateSettings: PauseStateScheduleActionSettings.filterSensitiveLog(
+        obj.PauseStateSettings
+      )
+    }),
+    ...(obj.Scte35ReturnToNetworkSettings && {
+      Scte35ReturnToNetworkSettings: Scte35ReturnToNetworkScheduleActionSettings.filterSensitiveLog(
+        obj.Scte35ReturnToNetworkSettings
+      )
+    }),
+    ...(obj.Scte35SpliceInsertSettings && {
+      Scte35SpliceInsertSettings: Scte35SpliceInsertScheduleActionSettings.filterSensitiveLog(
+        obj.Scte35SpliceInsertSettings
+      )
+    }),
+    ...(obj.Scte35TimeSignalSettings && {
+      Scte35TimeSignalSettings: Scte35TimeSignalScheduleActionSettings.filterSensitiveLog(
+        obj.Scte35TimeSignalSettings
+      )
+    }),
+    ...(obj.StaticImageActivateSettings && {
+      StaticImageActivateSettings: StaticImageActivateScheduleActionSettings.filterSensitiveLog(
+        obj.StaticImageActivateSettings
+      )
+    }),
+    ...(obj.StaticImageDeactivateSettings && {
+      StaticImageDeactivateSettings: StaticImageDeactivateScheduleActionSettings.filterSensitiveLog(
+        obj.StaticImageDeactivateSettings
+      )
+    })
+  });
   export const isa = (o: any): o is ScheduleActionSettings =>
     __isa(o, "ScheduleActionSettings");
 }
@@ -8271,6 +9926,26 @@ export interface ScheduleActionStartSettings {
 }
 
 export namespace ScheduleActionStartSettings {
+  export const filterSensitiveLog = (
+    obj: ScheduleActionStartSettings
+  ): any => ({
+    ...obj,
+    ...(obj.FixedModeScheduleActionStartSettings && {
+      FixedModeScheduleActionStartSettings: FixedModeScheduleActionStartSettings.filterSensitiveLog(
+        obj.FixedModeScheduleActionStartSettings
+      )
+    }),
+    ...(obj.FollowModeScheduleActionStartSettings && {
+      FollowModeScheduleActionStartSettings: FollowModeScheduleActionStartSettings.filterSensitiveLog(
+        obj.FollowModeScheduleActionStartSettings
+      )
+    }),
+    ...(obj.ImmediateModeScheduleActionStartSettings && {
+      ImmediateModeScheduleActionStartSettings: ImmediateModeScheduleActionStartSettings.filterSensitiveLog(
+        obj.ImmediateModeScheduleActionStartSettings
+      )
+    })
+  });
   export const isa = (o: any): o is ScheduleActionStartSettings =>
     __isa(o, "ScheduleActionStartSettings");
 }
@@ -8288,6 +9963,11 @@ export interface Scte20PlusEmbeddedDestinationSettings {
 }
 
 export namespace Scte20PlusEmbeddedDestinationSettings {
+  export const filterSensitiveLog = (
+    obj: Scte20PlusEmbeddedDestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte20PlusEmbeddedDestinationSettings =>
     __isa(o, "Scte20PlusEmbeddedDestinationSettings");
 }
@@ -8309,6 +9989,9 @@ export interface Scte20SourceSettings {
 }
 
 export namespace Scte20SourceSettings {
+  export const filterSensitiveLog = (obj: Scte20SourceSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte20SourceSettings =>
     __isa(o, "Scte20SourceSettings");
 }
@@ -8321,6 +10004,9 @@ export interface Scte27DestinationSettings {
 }
 
 export namespace Scte27DestinationSettings {
+  export const filterSensitiveLog = (obj: Scte27DestinationSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte27DestinationSettings =>
     __isa(o, "Scte27DestinationSettings");
 }
@@ -8341,6 +10027,9 @@ export interface Scte27SourceSettings {
 }
 
 export namespace Scte27SourceSettings {
+  export const filterSensitiveLog = (obj: Scte27SourceSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte27SourceSettings =>
     __isa(o, "Scte27SourceSettings");
 }
@@ -8387,6 +10076,9 @@ export interface Scte35DeliveryRestrictions {
 }
 
 export namespace Scte35DeliveryRestrictions {
+  export const filterSensitiveLog = (obj: Scte35DeliveryRestrictions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte35DeliveryRestrictions =>
     __isa(o, "Scte35DeliveryRestrictions");
 }
@@ -8403,6 +10095,14 @@ export interface Scte35Descriptor {
 }
 
 export namespace Scte35Descriptor {
+  export const filterSensitiveLog = (obj: Scte35Descriptor): any => ({
+    ...obj,
+    ...(obj.Scte35DescriptorSettings && {
+      Scte35DescriptorSettings: Scte35DescriptorSettings.filterSensitiveLog(
+        obj.Scte35DescriptorSettings
+      )
+    })
+  });
   export const isa = (o: any): o is Scte35Descriptor =>
     __isa(o, "Scte35Descriptor");
 }
@@ -8421,6 +10121,14 @@ export interface Scte35DescriptorSettings {
 }
 
 export namespace Scte35DescriptorSettings {
+  export const filterSensitiveLog = (obj: Scte35DescriptorSettings): any => ({
+    ...obj,
+    ...(obj.SegmentationDescriptorScte35DescriptorSettings && {
+      SegmentationDescriptorScte35DescriptorSettings: Scte35SegmentationDescriptor.filterSensitiveLog(
+        obj.SegmentationDescriptorScte35DescriptorSettings
+      )
+    })
+  });
   export const isa = (o: any): o is Scte35DescriptorSettings =>
     __isa(o, "Scte35DescriptorSettings");
 }
@@ -8449,6 +10157,11 @@ export interface Scte35ReturnToNetworkScheduleActionSettings {
 }
 
 export namespace Scte35ReturnToNetworkScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: Scte35ReturnToNetworkScheduleActionSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is Scte35ReturnToNetworkScheduleActionSettings =>
@@ -8525,6 +10238,16 @@ export interface Scte35SegmentationDescriptor {
 }
 
 export namespace Scte35SegmentationDescriptor {
+  export const filterSensitiveLog = (
+    obj: Scte35SegmentationDescriptor
+  ): any => ({
+    ...obj,
+    ...(obj.DeliveryRestrictions && {
+      DeliveryRestrictions: Scte35DeliveryRestrictions.filterSensitiveLog(
+        obj.DeliveryRestrictions
+      )
+    })
+  });
   export const isa = (o: any): o is Scte35SegmentationDescriptor =>
     __isa(o, "Scte35SegmentationDescriptor");
 }
@@ -8555,6 +10278,9 @@ export interface Scte35SpliceInsert {
 }
 
 export namespace Scte35SpliceInsert {
+  export const filterSensitiveLog = (obj: Scte35SpliceInsert): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte35SpliceInsert =>
     __isa(o, "Scte35SpliceInsert");
 }
@@ -8581,6 +10307,11 @@ export interface Scte35SpliceInsertScheduleActionSettings {
 }
 
 export namespace Scte35SpliceInsertScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: Scte35SpliceInsertScheduleActionSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte35SpliceInsertScheduleActionSettings =>
     __isa(o, "Scte35SpliceInsertScheduleActionSettings");
 }
@@ -8612,6 +10343,9 @@ export interface Scte35TimeSignalApos {
 }
 
 export namespace Scte35TimeSignalApos {
+  export const filterSensitiveLog = (obj: Scte35TimeSignalApos): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Scte35TimeSignalApos =>
     __isa(o, "Scte35TimeSignalApos");
 }
@@ -8628,6 +10362,16 @@ export interface Scte35TimeSignalScheduleActionSettings {
 }
 
 export namespace Scte35TimeSignalScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: Scte35TimeSignalScheduleActionSettings
+  ): any => ({
+    ...obj,
+    ...(obj.Scte35Descriptors && {
+      Scte35Descriptors: obj.Scte35Descriptors.map(item =>
+        Scte35Descriptor.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is Scte35TimeSignalScheduleActionSettings =>
     __isa(o, "Scte35TimeSignalScheduleActionSettings");
 }
@@ -8686,6 +10430,9 @@ export interface SmpteTtDestinationSettings {
 }
 
 export namespace SmpteTtDestinationSettings {
+  export const filterSensitiveLog = (obj: SmpteTtDestinationSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SmpteTtDestinationSettings =>
     __isa(o, "SmpteTtDestinationSettings");
 }
@@ -8707,6 +10454,12 @@ export interface StandardHlsSettings {
 }
 
 export namespace StandardHlsSettings {
+  export const filterSensitiveLog = (obj: StandardHlsSettings): any => ({
+    ...obj,
+    ...(obj.M3u8Settings && {
+      M3u8Settings: M3u8Settings.filterSensitiveLog(obj.M3u8Settings)
+    })
+  });
   export const isa = (o: any): o is StandardHlsSettings =>
     __isa(o, "StandardHlsSettings");
 }
@@ -8723,6 +10476,9 @@ export interface StartChannelRequest {
 }
 
 export namespace StartChannelRequest {
+  export const filterSensitiveLog = (obj: StartChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartChannelRequest =>
     __isa(o, "StartChannelRequest");
 }
@@ -8811,6 +10567,37 @@ export interface StartChannelResponse {
 }
 
 export namespace StartChannelResponse {
+  export const filterSensitiveLog = (obj: StartChannelResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        ChannelEgressEndpoint.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EncoderSettings && {
+      EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    }),
+    ...(obj.PipelineDetails && {
+      PipelineDetails: obj.PipelineDetails.map(item =>
+        PipelineDetail.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is StartChannelResponse =>
     __isa(o, "StartChannelResponse");
 }
@@ -8827,6 +10614,9 @@ export interface StartMultiplexRequest {
 }
 
 export namespace StartMultiplexRequest {
+  export const filterSensitiveLog = (obj: StartMultiplexRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartMultiplexRequest =>
     __isa(o, "StartMultiplexRequest");
 }
@@ -8888,6 +10678,19 @@ export interface StartMultiplexResponse {
 }
 
 export namespace StartMultiplexResponse {
+  export const filterSensitiveLog = (obj: StartMultiplexResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        MultiplexOutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is StartMultiplexResponse =>
     __isa(o, "StartMultiplexResponse");
 }
@@ -8904,6 +10707,9 @@ export interface StartTimecode {
 }
 
 export namespace StartTimecode {
+  export const filterSensitiveLog = (obj: StartTimecode): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartTimecode => __isa(o, "StartTimecode");
 }
 
@@ -8964,6 +10770,12 @@ export interface StaticImageActivateScheduleActionSettings {
 }
 
 export namespace StaticImageActivateScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: StaticImageActivateScheduleActionSettings
+  ): any => ({
+    ...obj,
+    ...(obj.Image && { Image: InputLocation.filterSensitiveLog(obj.Image) })
+  });
   export const isa = (o: any): o is StaticImageActivateScheduleActionSettings =>
     __isa(o, "StaticImageActivateScheduleActionSettings");
 }
@@ -8985,6 +10797,11 @@ export interface StaticImageDeactivateScheduleActionSettings {
 }
 
 export namespace StaticImageDeactivateScheduleActionSettings {
+  export const filterSensitiveLog = (
+    obj: StaticImageDeactivateScheduleActionSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is StaticImageDeactivateScheduleActionSettings =>
@@ -9008,6 +10825,12 @@ export interface StaticKeySettings {
 }
 
 export namespace StaticKeySettings {
+  export const filterSensitiveLog = (obj: StaticKeySettings): any => ({
+    ...obj,
+    ...(obj.KeyProviderServer && {
+      KeyProviderServer: InputLocation.filterSensitiveLog(obj.KeyProviderServer)
+    })
+  });
   export const isa = (o: any): o is StaticKeySettings =>
     __isa(o, "StaticKeySettings");
 }
@@ -9024,6 +10847,9 @@ export interface StopChannelRequest {
 }
 
 export namespace StopChannelRequest {
+  export const filterSensitiveLog = (obj: StopChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopChannelRequest =>
     __isa(o, "StopChannelRequest");
 }
@@ -9112,6 +10938,37 @@ export interface StopChannelResponse {
 }
 
 export namespace StopChannelResponse {
+  export const filterSensitiveLog = (obj: StopChannelResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        ChannelEgressEndpoint.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EncoderSettings && {
+      EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    }),
+    ...(obj.PipelineDetails && {
+      PipelineDetails: obj.PipelineDetails.map(item =>
+        PipelineDetail.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is StopChannelResponse =>
     __isa(o, "StopChannelResponse");
 }
@@ -9128,6 +10985,9 @@ export interface StopMultiplexRequest {
 }
 
 export namespace StopMultiplexRequest {
+  export const filterSensitiveLog = (obj: StopMultiplexRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopMultiplexRequest =>
     __isa(o, "StopMultiplexRequest");
 }
@@ -9189,6 +11049,19 @@ export interface StopMultiplexResponse {
 }
 
 export namespace StopMultiplexResponse {
+  export const filterSensitiveLog = (obj: StopMultiplexResponse): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        MultiplexOutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is StopMultiplexResponse =>
     __isa(o, "StopMultiplexResponse");
 }
@@ -9210,6 +11083,9 @@ export interface StopTimecode {
 }
 
 export namespace StopTimecode {
+  export const filterSensitiveLog = (obj: StopTimecode): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopTimecode => __isa(o, "StopTimecode");
 }
 
@@ -9221,6 +11097,11 @@ export interface TeletextDestinationSettings {
 }
 
 export namespace TeletextDestinationSettings {
+  export const filterSensitiveLog = (
+    obj: TeletextDestinationSettings
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TeletextDestinationSettings =>
     __isa(o, "TeletextDestinationSettings");
 }
@@ -9237,6 +11118,9 @@ export interface TeletextSourceSettings {
 }
 
 export namespace TeletextSourceSettings {
+  export const filterSensitiveLog = (obj: TeletextSourceSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TeletextSourceSettings =>
     __isa(o, "TeletextSourceSettings");
 }
@@ -9261,6 +11145,9 @@ export interface TimecodeConfig {
 }
 
 export namespace TimecodeConfig {
+  export const filterSensitiveLog = (obj: TimecodeConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TimecodeConfig =>
     __isa(o, "TimecodeConfig");
 }
@@ -9286,6 +11173,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -9302,6 +11192,9 @@ export interface TtmlDestinationSettings {
 }
 
 export namespace TtmlDestinationSettings {
+  export const filterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TtmlDestinationSettings =>
     __isa(o, "TtmlDestinationSettings");
 }
@@ -9323,6 +11216,12 @@ export interface UdpContainerSettings {
 }
 
 export namespace UdpContainerSettings {
+  export const filterSensitiveLog = (obj: UdpContainerSettings): any => ({
+    ...obj,
+    ...(obj.M2tsSettings && {
+      M2tsSettings: M2tsSettings.filterSensitiveLog(obj.M2tsSettings)
+    })
+  });
   export const isa = (o: any): o is UdpContainerSettings =>
     __isa(o, "UdpContainerSettings");
 }
@@ -9349,6 +11248,9 @@ export interface UdpGroupSettings {
 }
 
 export namespace UdpGroupSettings {
+  export const filterSensitiveLog = (obj: UdpGroupSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UdpGroupSettings =>
     __isa(o, "UdpGroupSettings");
 }
@@ -9380,6 +11282,22 @@ export interface UdpOutputSettings {
 }
 
 export namespace UdpOutputSettings {
+  export const filterSensitiveLog = (obj: UdpOutputSettings): any => ({
+    ...obj,
+    ...(obj.ContainerSettings && {
+      ContainerSettings: UdpContainerSettings.filterSensitiveLog(
+        obj.ContainerSettings
+      )
+    }),
+    ...(obj.Destination && {
+      Destination: OutputLocationRef.filterSensitiveLog(obj.Destination)
+    }),
+    ...(obj.FecOutputSettings && {
+      FecOutputSettings: FecOutputSettings.filterSensitiveLog(
+        obj.FecOutputSettings
+      )
+    })
+  });
   export const isa = (o: any): o is UdpOutputSettings =>
     __isa(o, "UdpOutputSettings");
 }
@@ -9410,6 +11328,16 @@ export interface UnprocessableEntityException
 }
 
 export namespace UnprocessableEntityException {
+  export const filterSensitiveLog = (
+    obj: UnprocessableEntityException
+  ): any => ({
+    ...obj,
+    ...(obj.ValidationErrors && {
+      ValidationErrors: obj.ValidationErrors.map(item =>
+        ValidationError.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UnprocessableEntityException =>
     __isa(o, "UnprocessableEntityException");
 }
@@ -9436,6 +11364,14 @@ export interface UpdateChannelClassRequest {
 }
 
 export namespace UpdateChannelClassRequest {
+  export const filterSensitiveLog = (obj: UpdateChannelClassRequest): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateChannelClassRequest =>
     __isa(o, "UpdateChannelClassRequest");
 }
@@ -9452,6 +11388,10 @@ export interface UpdateChannelClassResponse {
 }
 
 export namespace UpdateChannelClassResponse {
+  export const filterSensitiveLog = (obj: UpdateChannelClassResponse): any => ({
+    ...obj,
+    ...(obj.Channel && { Channel: Channel.filterSensitiveLog(obj.Channel) })
+  });
   export const isa = (o: any): o is UpdateChannelClassResponse =>
     __isa(o, "UpdateChannelClassResponse");
 }
@@ -9503,6 +11443,27 @@ export interface UpdateChannelRequest {
 }
 
 export namespace UpdateChannelRequest {
+  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        OutputDestination.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EncoderSettings && {
+      EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
+    }),
+    ...(obj.InputAttachments && {
+      InputAttachments: obj.InputAttachments.map(item =>
+        InputAttachment.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.InputSpecification && {
+      InputSpecification: InputSpecification.filterSensitiveLog(
+        obj.InputSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateChannelRequest =>
     __isa(o, "UpdateChannelRequest");
 }
@@ -9519,6 +11480,10 @@ export interface UpdateChannelResponse {
 }
 
 export namespace UpdateChannelResponse {
+  export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+    ...obj,
+    ...(obj.Channel && { Channel: Channel.filterSensitiveLog(obj.Channel) })
+  });
   export const isa = (o: any): o is UpdateChannelResponse =>
     __isa(o, "UpdateChannelResponse");
 }
@@ -9569,6 +11534,24 @@ export interface UpdateInputRequest {
 }
 
 export namespace UpdateInputRequest {
+  export const filterSensitiveLog = (obj: UpdateInputRequest): any => ({
+    ...obj,
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        InputDestinationRequest.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MediaConnectFlows && {
+      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
+        MediaConnectFlowRequest.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Sources && {
+      Sources: obj.Sources.map(item =>
+        InputSourceRequest.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateInputRequest =>
     __isa(o, "UpdateInputRequest");
 }
@@ -9585,6 +11568,10 @@ export interface UpdateInputResponse {
 }
 
 export namespace UpdateInputResponse {
+  export const filterSensitiveLog = (obj: UpdateInputResponse): any => ({
+    ...obj,
+    ...(obj.Input && { Input: Input.filterSensitiveLog(obj.Input) })
+  });
   export const isa = (o: any): o is UpdateInputResponse =>
     __isa(o, "UpdateInputResponse");
 }
@@ -9611,6 +11598,16 @@ export interface UpdateInputSecurityGroupRequest {
 }
 
 export namespace UpdateInputSecurityGroupRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateInputSecurityGroupRequest
+  ): any => ({
+    ...obj,
+    ...(obj.WhitelistRules && {
+      WhitelistRules: obj.WhitelistRules.map(item =>
+        InputWhitelistRuleCidr.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateInputSecurityGroupRequest =>
     __isa(o, "UpdateInputSecurityGroupRequest");
 }
@@ -9627,6 +11624,14 @@ export interface UpdateInputSecurityGroupResponse {
 }
 
 export namespace UpdateInputSecurityGroupResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateInputSecurityGroupResponse
+  ): any => ({
+    ...obj,
+    ...(obj.SecurityGroup && {
+      SecurityGroup: InputSecurityGroup.filterSensitiveLog(obj.SecurityGroup)
+    })
+  });
   export const isa = (o: any): o is UpdateInputSecurityGroupResponse =>
     __isa(o, "UpdateInputSecurityGroupResponse");
 }
@@ -9653,6 +11658,16 @@ export interface UpdateMultiplexProgramRequest {
 }
 
 export namespace UpdateMultiplexProgramRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateMultiplexProgramRequest
+  ): any => ({
+    ...obj,
+    ...(obj.MultiplexProgramSettings && {
+      MultiplexProgramSettings: MultiplexProgramSettings.filterSensitiveLog(
+        obj.MultiplexProgramSettings
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateMultiplexProgramRequest =>
     __isa(o, "UpdateMultiplexProgramRequest");
 }
@@ -9669,6 +11684,16 @@ export interface UpdateMultiplexProgramResponse {
 }
 
 export namespace UpdateMultiplexProgramResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateMultiplexProgramResponse
+  ): any => ({
+    ...obj,
+    ...(obj.MultiplexProgram && {
+      MultiplexProgram: MultiplexProgram.filterSensitiveLog(
+        obj.MultiplexProgram
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateMultiplexProgramResponse =>
     __isa(o, "UpdateMultiplexProgramResponse");
 }
@@ -9695,6 +11720,14 @@ export interface UpdateMultiplexRequest {
 }
 
 export namespace UpdateMultiplexRequest {
+  export const filterSensitiveLog = (obj: UpdateMultiplexRequest): any => ({
+    ...obj,
+    ...(obj.MultiplexSettings && {
+      MultiplexSettings: MultiplexSettings.filterSensitiveLog(
+        obj.MultiplexSettings
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateMultiplexRequest =>
     __isa(o, "UpdateMultiplexRequest");
 }
@@ -9711,6 +11744,12 @@ export interface UpdateMultiplexResponse {
 }
 
 export namespace UpdateMultiplexResponse {
+  export const filterSensitiveLog = (obj: UpdateMultiplexResponse): any => ({
+    ...obj,
+    ...(obj.Multiplex && {
+      Multiplex: Multiplex.filterSensitiveLog(obj.Multiplex)
+    })
+  });
   export const isa = (o: any): o is UpdateMultiplexResponse =>
     __isa(o, "UpdateMultiplexResponse");
 }
@@ -9732,6 +11771,9 @@ export interface UpdateReservationRequest {
 }
 
 export namespace UpdateReservationRequest {
+  export const filterSensitiveLog = (obj: UpdateReservationRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateReservationRequest =>
     __isa(o, "UpdateReservationRequest");
 }
@@ -9748,6 +11790,12 @@ export interface UpdateReservationResponse {
 }
 
 export namespace UpdateReservationResponse {
+  export const filterSensitiveLog = (obj: UpdateReservationResponse): any => ({
+    ...obj,
+    ...(obj.Reservation && {
+      Reservation: Reservation.filterSensitiveLog(obj.Reservation)
+    })
+  });
   export const isa = (o: any): o is UpdateReservationResponse =>
     __isa(o, "UpdateReservationResponse");
 }
@@ -9769,6 +11817,9 @@ export interface ValidationError {
 }
 
 export namespace ValidationError {
+  export const filterSensitiveLog = (obj: ValidationError): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationError =>
     __isa(o, "ValidationError");
 }
@@ -9795,6 +11846,20 @@ export interface VideoCodecSettings {
 }
 
 export namespace VideoCodecSettings {
+  export const filterSensitiveLog = (obj: VideoCodecSettings): any => ({
+    ...obj,
+    ...(obj.FrameCaptureSettings && {
+      FrameCaptureSettings: FrameCaptureSettings.filterSensitiveLog(
+        obj.FrameCaptureSettings
+      )
+    }),
+    ...(obj.H264Settings && {
+      H264Settings: H264Settings.filterSensitiveLog(obj.H264Settings)
+    }),
+    ...(obj.H265Settings && {
+      H265Settings: H265Settings.filterSensitiveLog(obj.H265Settings)
+    })
+  });
   export const isa = (o: any): o is VideoCodecSettings =>
     __isa(o, "VideoCodecSettings");
 }
@@ -9841,6 +11906,12 @@ export interface VideoDescription {
 }
 
 export namespace VideoDescription {
+  export const filterSensitiveLog = (obj: VideoDescription): any => ({
+    ...obj,
+    ...(obj.CodecSettings && {
+      CodecSettings: VideoCodecSettings.filterSensitiveLog(obj.CodecSettings)
+    })
+  });
   export const isa = (o: any): o is VideoDescription =>
     __isa(o, "VideoDescription");
 }
@@ -9878,6 +11949,14 @@ export interface VideoSelector {
 }
 
 export namespace VideoSelector {
+  export const filterSensitiveLog = (obj: VideoSelector): any => ({
+    ...obj,
+    ...(obj.SelectorSettings && {
+      SelectorSettings: VideoSelectorSettings.filterSensitiveLog(
+        obj.SelectorSettings
+      )
+    })
+  });
   export const isa = (o: any): o is VideoSelector => __isa(o, "VideoSelector");
 }
 
@@ -9904,6 +11983,9 @@ export interface VideoSelectorPid {
 }
 
 export namespace VideoSelectorPid {
+  export const filterSensitiveLog = (obj: VideoSelectorPid): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VideoSelectorPid =>
     __isa(o, "VideoSelectorPid");
 }
@@ -9920,6 +12002,9 @@ export interface VideoSelectorProgramId {
 }
 
 export namespace VideoSelectorProgramId {
+  export const filterSensitiveLog = (obj: VideoSelectorProgramId): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VideoSelectorProgramId =>
     __isa(o, "VideoSelectorProgramId");
 }
@@ -9941,6 +12026,19 @@ export interface VideoSelectorSettings {
 }
 
 export namespace VideoSelectorSettings {
+  export const filterSensitiveLog = (obj: VideoSelectorSettings): any => ({
+    ...obj,
+    ...(obj.VideoSelectorPid && {
+      VideoSelectorPid: VideoSelectorPid.filterSensitiveLog(
+        obj.VideoSelectorPid
+      )
+    }),
+    ...(obj.VideoSelectorProgramId && {
+      VideoSelectorProgramId: VideoSelectorProgramId.filterSensitiveLog(
+        obj.VideoSelectorProgramId
+      )
+    })
+  });
   export const isa = (o: any): o is VideoSelectorSettings =>
     __isa(o, "VideoSelectorSettings");
 }
@@ -9953,6 +12051,9 @@ export interface WebvttDestinationSettings {
 }
 
 export namespace WebvttDestinationSettings {
+  export const filterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is WebvttDestinationSettings =>
     __isa(o, "WebvttDestinationSettings");
 }

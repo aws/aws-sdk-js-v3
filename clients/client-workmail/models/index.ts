@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -23,6 +24,11 @@ export interface AssociateDelegateToResourceRequest {
 }
 
 export namespace AssociateDelegateToResourceRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateDelegateToResourceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateDelegateToResourceRequest =>
     __isa(o, "AssociateDelegateToResourceRequest");
 }
@@ -32,6 +38,11 @@ export interface AssociateDelegateToResourceResponse {
 }
 
 export namespace AssociateDelegateToResourceResponse {
+  export const filterSensitiveLog = (
+    obj: AssociateDelegateToResourceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateDelegateToResourceResponse =>
     __isa(o, "AssociateDelegateToResourceResponse");
 }
@@ -55,6 +66,11 @@ export interface AssociateMemberToGroupRequest {
 }
 
 export namespace AssociateMemberToGroupRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateMemberToGroupRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateMemberToGroupRequest =>
     __isa(o, "AssociateMemberToGroupRequest");
 }
@@ -64,6 +80,11 @@ export interface AssociateMemberToGroupResponse {
 }
 
 export namespace AssociateMemberToGroupResponse {
+  export const filterSensitiveLog = (
+    obj: AssociateMemberToGroupResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateMemberToGroupResponse =>
     __isa(o, "AssociateMemberToGroupResponse");
 }
@@ -91,6 +112,9 @@ export interface BookingOptions {
 }
 
 export namespace BookingOptions {
+  export const filterSensitiveLog = (obj: BookingOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BookingOptions =>
     __isa(o, "BookingOptions");
 }
@@ -114,6 +138,9 @@ export interface CreateAliasRequest {
 }
 
 export namespace CreateAliasRequest {
+  export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateAliasRequest =>
     __isa(o, "CreateAliasRequest");
 }
@@ -123,6 +150,9 @@ export interface CreateAliasResponse {
 }
 
 export namespace CreateAliasResponse {
+  export const filterSensitiveLog = (obj: CreateAliasResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateAliasResponse =>
     __isa(o, "CreateAliasResponse");
 }
@@ -141,6 +171,9 @@ export interface CreateGroupRequest {
 }
 
 export namespace CreateGroupRequest {
+  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateGroupRequest =>
     __isa(o, "CreateGroupRequest");
 }
@@ -154,6 +187,9 @@ export interface CreateGroupResponse {
 }
 
 export namespace CreateGroupResponse {
+  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateGroupResponse =>
     __isa(o, "CreateGroupResponse");
 }
@@ -179,6 +215,9 @@ export interface CreateResourceRequest {
 }
 
 export namespace CreateResourceRequest {
+  export const filterSensitiveLog = (obj: CreateResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateResourceRequest =>
     __isa(o, "CreateResourceRequest");
 }
@@ -192,6 +231,9 @@ export interface CreateResourceResponse {
 }
 
 export namespace CreateResourceResponse {
+  export const filterSensitiveLog = (obj: CreateResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateResourceResponse =>
     __isa(o, "CreateResourceResponse");
 }
@@ -220,6 +262,10 @@ export interface CreateUserRequest {
 }
 
 export namespace CreateUserRequest {
+  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is CreateUserRequest =>
     __isa(o, "CreateUserRequest");
 }
@@ -233,6 +279,9 @@ export interface CreateUserResponse {
 }
 
 export namespace CreateUserResponse {
+  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateUserResponse =>
     __isa(o, "CreateUserResponse");
 }
@@ -255,6 +304,9 @@ export interface Delegate {
 }
 
 export namespace Delegate {
+  export const filterSensitiveLog = (obj: Delegate): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Delegate => __isa(o, "Delegate");
 }
 
@@ -279,6 +331,9 @@ export interface DeleteAliasRequest {
 }
 
 export namespace DeleteAliasRequest {
+  export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteAliasRequest =>
     __isa(o, "DeleteAliasRequest");
 }
@@ -288,6 +343,9 @@ export interface DeleteAliasResponse {
 }
 
 export namespace DeleteAliasResponse {
+  export const filterSensitiveLog = (obj: DeleteAliasResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteAliasResponse =>
     __isa(o, "DeleteAliasResponse");
 }
@@ -306,6 +364,9 @@ export interface DeleteGroupRequest {
 }
 
 export namespace DeleteGroupRequest {
+  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteGroupRequest =>
     __isa(o, "DeleteGroupRequest");
 }
@@ -315,6 +376,9 @@ export interface DeleteGroupResponse {
 }
 
 export namespace DeleteGroupResponse {
+  export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteGroupResponse =>
     __isa(o, "DeleteGroupResponse");
 }
@@ -340,6 +404,11 @@ export interface DeleteMailboxPermissionsRequest {
 }
 
 export namespace DeleteMailboxPermissionsRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteMailboxPermissionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteMailboxPermissionsRequest =>
     __isa(o, "DeleteMailboxPermissionsRequest");
 }
@@ -349,6 +418,11 @@ export interface DeleteMailboxPermissionsResponse {
 }
 
 export namespace DeleteMailboxPermissionsResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteMailboxPermissionsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteMailboxPermissionsResponse =>
     __isa(o, "DeleteMailboxPermissionsResponse");
 }
@@ -368,6 +442,9 @@ export interface DeleteResourceRequest {
 }
 
 export namespace DeleteResourceRequest {
+  export const filterSensitiveLog = (obj: DeleteResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteResourceRequest =>
     __isa(o, "DeleteResourceRequest");
 }
@@ -377,6 +454,9 @@ export interface DeleteResourceResponse {
 }
 
 export namespace DeleteResourceResponse {
+  export const filterSensitiveLog = (obj: DeleteResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteResourceResponse =>
     __isa(o, "DeleteResourceResponse");
 }
@@ -395,6 +475,9 @@ export interface DeleteUserRequest {
 }
 
 export namespace DeleteUserRequest {
+  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteUserRequest =>
     __isa(o, "DeleteUserRequest");
 }
@@ -404,6 +487,9 @@ export interface DeleteUserResponse {
 }
 
 export namespace DeleteUserResponse {
+  export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteUserResponse =>
     __isa(o, "DeleteUserResponse");
 }
@@ -423,6 +509,11 @@ export interface DeregisterFromWorkMailRequest {
 }
 
 export namespace DeregisterFromWorkMailRequest {
+  export const filterSensitiveLog = (
+    obj: DeregisterFromWorkMailRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterFromWorkMailRequest =>
     __isa(o, "DeregisterFromWorkMailRequest");
 }
@@ -432,6 +523,11 @@ export interface DeregisterFromWorkMailResponse {
 }
 
 export namespace DeregisterFromWorkMailResponse {
+  export const filterSensitiveLog = (
+    obj: DeregisterFromWorkMailResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterFromWorkMailResponse =>
     __isa(o, "DeregisterFromWorkMailResponse");
 }
@@ -450,6 +546,9 @@ export interface DescribeGroupRequest {
 }
 
 export namespace DescribeGroupRequest {
+  export const filterSensitiveLog = (obj: DescribeGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeGroupRequest =>
     __isa(o, "DescribeGroupRequest");
 }
@@ -491,6 +590,9 @@ export interface DescribeGroupResponse {
 }
 
 export namespace DescribeGroupResponse {
+  export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeGroupResponse =>
     __isa(o, "DescribeGroupResponse");
 }
@@ -504,6 +606,11 @@ export interface DescribeOrganizationRequest {
 }
 
 export namespace DescribeOrganizationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeOrganizationRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeOrganizationRequest =>
     __isa(o, "DescribeOrganizationRequest");
 }
@@ -555,6 +662,11 @@ export interface DescribeOrganizationResponse {
 }
 
 export namespace DescribeOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeOrganizationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeOrganizationResponse =>
     __isa(o, "DescribeOrganizationResponse");
 }
@@ -574,6 +686,9 @@ export interface DescribeResourceRequest {
 }
 
 export namespace DescribeResourceRequest {
+  export const filterSensitiveLog = (obj: DescribeResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeResourceRequest =>
     __isa(o, "DescribeResourceRequest");
 }
@@ -625,6 +740,12 @@ export interface DescribeResourceResponse {
 }
 
 export namespace DescribeResourceResponse {
+  export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
+    ...obj,
+    ...(obj.BookingOptions && {
+      BookingOptions: BookingOptions.filterSensitiveLog(obj.BookingOptions)
+    })
+  });
   export const isa = (o: any): o is DescribeResourceResponse =>
     __isa(o, "DescribeResourceResponse");
 }
@@ -643,6 +764,9 @@ export interface DescribeUserRequest {
 }
 
 export namespace DescribeUserRequest {
+  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeUserRequest =>
     __isa(o, "DescribeUserRequest");
 }
@@ -696,6 +820,9 @@ export interface DescribeUserResponse {
 }
 
 export namespace DescribeUserResponse {
+  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeUserResponse =>
     __isa(o, "DescribeUserResponse");
 }
@@ -713,6 +840,11 @@ export interface DirectoryServiceAuthenticationFailedException
 }
 
 export namespace DirectoryServiceAuthenticationFailedException {
+  export const filterSensitiveLog = (
+    obj: DirectoryServiceAuthenticationFailedException
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DirectoryServiceAuthenticationFailedException =>
@@ -732,6 +864,11 @@ export interface DirectoryUnavailableException
 }
 
 export namespace DirectoryUnavailableException {
+  export const filterSensitiveLog = (
+    obj: DirectoryUnavailableException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DirectoryUnavailableException =>
     __isa(o, "DirectoryUnavailableException");
 }
@@ -755,6 +892,11 @@ export interface DisassociateDelegateFromResourceRequest {
 }
 
 export namespace DisassociateDelegateFromResourceRequest {
+  export const filterSensitiveLog = (
+    obj: DisassociateDelegateFromResourceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateDelegateFromResourceRequest =>
     __isa(o, "DisassociateDelegateFromResourceRequest");
 }
@@ -764,6 +906,11 @@ export interface DisassociateDelegateFromResourceResponse {
 }
 
 export namespace DisassociateDelegateFromResourceResponse {
+  export const filterSensitiveLog = (
+    obj: DisassociateDelegateFromResourceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateDelegateFromResourceResponse =>
     __isa(o, "DisassociateDelegateFromResourceResponse");
 }
@@ -787,6 +934,11 @@ export interface DisassociateMemberFromGroupRequest {
 }
 
 export namespace DisassociateMemberFromGroupRequest {
+  export const filterSensitiveLog = (
+    obj: DisassociateMemberFromGroupRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateMemberFromGroupRequest =>
     __isa(o, "DisassociateMemberFromGroupRequest");
 }
@@ -796,6 +948,11 @@ export interface DisassociateMemberFromGroupResponse {
 }
 
 export namespace DisassociateMemberFromGroupResponse {
+  export const filterSensitiveLog = (
+    obj: DisassociateMemberFromGroupResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateMemberFromGroupResponse =>
     __isa(o, "DisassociateMemberFromGroupResponse");
 }
@@ -813,6 +970,9 @@ export interface EmailAddressInUseException
 }
 
 export namespace EmailAddressInUseException {
+  export const filterSensitiveLog = (obj: EmailAddressInUseException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmailAddressInUseException =>
     __isa(o, "EmailAddressInUseException");
 }
@@ -829,6 +989,11 @@ export interface EntityAlreadyRegisteredException
 }
 
 export namespace EntityAlreadyRegisteredException {
+  export const filterSensitiveLog = (
+    obj: EntityAlreadyRegisteredException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntityAlreadyRegisteredException =>
     __isa(o, "EntityAlreadyRegisteredException");
 }
@@ -846,6 +1011,9 @@ export interface EntityNotFoundException
 }
 
 export namespace EntityNotFoundException {
+  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntityNotFoundException =>
     __isa(o, "EntityNotFoundException");
 }
@@ -869,6 +1037,9 @@ export interface EntityStateException
 }
 
 export namespace EntityStateException {
+  export const filterSensitiveLog = (obj: EntityStateException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntityStateException =>
     __isa(o, "EntityStateException");
 }
@@ -888,6 +1059,9 @@ export interface GetMailboxDetailsRequest {
 }
 
 export namespace GetMailboxDetailsRequest {
+  export const filterSensitiveLog = (obj: GetMailboxDetailsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetMailboxDetailsRequest =>
     __isa(o, "GetMailboxDetailsRequest");
 }
@@ -906,6 +1080,9 @@ export interface GetMailboxDetailsResponse {
 }
 
 export namespace GetMailboxDetailsResponse {
+  export const filterSensitiveLog = (obj: GetMailboxDetailsResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetMailboxDetailsResponse =>
     __isa(o, "GetMailboxDetailsResponse");
 }
@@ -947,6 +1124,9 @@ export interface Group {
 }
 
 export namespace Group {
+  export const filterSensitiveLog = (obj: Group): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Group => __isa(o, "Group");
 }
 
@@ -964,6 +1144,11 @@ export interface InvalidConfigurationException
 }
 
 export namespace InvalidConfigurationException {
+  export const filterSensitiveLog = (
+    obj: InvalidConfigurationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidConfigurationException =>
     __isa(o, "InvalidConfigurationException");
 }
@@ -980,6 +1165,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -997,6 +1185,9 @@ export interface InvalidPasswordException
 }
 
 export namespace InvalidPasswordException {
+  export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidPasswordException =>
     __isa(o, "InvalidPasswordException");
 }
@@ -1026,6 +1217,9 @@ export interface ListAliasesRequest {
 }
 
 export namespace ListAliasesRequest {
+  export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListAliasesRequest =>
     __isa(o, "ListAliasesRequest");
 }
@@ -1045,6 +1239,9 @@ export interface ListAliasesResponse {
 }
 
 export namespace ListAliasesResponse {
+  export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListAliasesResponse =>
     __isa(o, "ListAliasesResponse");
 }
@@ -1074,6 +1271,9 @@ export interface ListGroupMembersRequest {
 }
 
 export namespace ListGroupMembersRequest {
+  export const filterSensitiveLog = (obj: ListGroupMembersRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListGroupMembersRequest =>
     __isa(o, "ListGroupMembersRequest");
 }
@@ -1093,6 +1293,12 @@ export interface ListGroupMembersResponse {
 }
 
 export namespace ListGroupMembersResponse {
+  export const filterSensitiveLog = (obj: ListGroupMembersResponse): any => ({
+    ...obj,
+    ...(obj.Members && {
+      Members: obj.Members.map(item => Member.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListGroupMembersResponse =>
     __isa(o, "ListGroupMembersResponse");
 }
@@ -1117,6 +1323,9 @@ export interface ListGroupsRequest {
 }
 
 export namespace ListGroupsRequest {
+  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListGroupsRequest =>
     __isa(o, "ListGroupsRequest");
 }
@@ -1136,6 +1345,12 @@ export interface ListGroupsResponse {
 }
 
 export namespace ListGroupsResponse {
+  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
+    ...obj,
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListGroupsResponse =>
     __isa(o, "ListGroupsResponse");
 }
@@ -1166,6 +1381,11 @@ export interface ListMailboxPermissionsRequest {
 }
 
 export namespace ListMailboxPermissionsRequest {
+  export const filterSensitiveLog = (
+    obj: ListMailboxPermissionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListMailboxPermissionsRequest =>
     __isa(o, "ListMailboxPermissionsRequest");
 }
@@ -1184,6 +1404,16 @@ export interface ListMailboxPermissionsResponse {
 }
 
 export namespace ListMailboxPermissionsResponse {
+  export const filterSensitiveLog = (
+    obj: ListMailboxPermissionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Permissions && {
+      Permissions: obj.Permissions.map(item =>
+        Permission.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListMailboxPermissionsResponse =>
     __isa(o, "ListMailboxPermissionsResponse");
 }
@@ -1203,6 +1433,9 @@ export interface ListOrganizationsRequest {
 }
 
 export namespace ListOrganizationsRequest {
+  export const filterSensitiveLog = (obj: ListOrganizationsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListOrganizationsRequest =>
     __isa(o, "ListOrganizationsRequest");
 }
@@ -1222,6 +1455,14 @@ export interface ListOrganizationsResponse {
 }
 
 export namespace ListOrganizationsResponse {
+  export const filterSensitiveLog = (obj: ListOrganizationsResponse): any => ({
+    ...obj,
+    ...(obj.OrganizationSummaries && {
+      OrganizationSummaries: obj.OrganizationSummaries.map(item =>
+        OrganizationSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListOrganizationsResponse =>
     __isa(o, "ListOrganizationsResponse");
 }
@@ -1251,6 +1492,11 @@ export interface ListResourceDelegatesRequest {
 }
 
 export namespace ListResourceDelegatesRequest {
+  export const filterSensitiveLog = (
+    obj: ListResourceDelegatesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListResourceDelegatesRequest =>
     __isa(o, "ListResourceDelegatesRequest");
 }
@@ -1271,6 +1517,14 @@ export interface ListResourceDelegatesResponse {
 }
 
 export namespace ListResourceDelegatesResponse {
+  export const filterSensitiveLog = (
+    obj: ListResourceDelegatesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Delegates && {
+      Delegates: obj.Delegates.map(item => Delegate.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListResourceDelegatesResponse =>
     __isa(o, "ListResourceDelegatesResponse");
 }
@@ -1295,6 +1549,9 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
+  export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListResourcesRequest =>
     __isa(o, "ListResourcesRequest");
 }
@@ -1315,6 +1572,12 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
+  export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
+    ...obj,
+    ...(obj.Resources && {
+      Resources: obj.Resources.map(item => Resource.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListResourcesResponse =>
     __isa(o, "ListResourcesResponse");
 }
@@ -1338,6 +1601,9 @@ export interface ListUsersRequest {
 }
 
 export namespace ListUsersRequest {
+  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListUsersRequest =>
     __isa(o, "ListUsersRequest");
 }
@@ -1356,6 +1622,12 @@ export interface ListUsersResponse {
 }
 
 export namespace ListUsersResponse {
+  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
+    ...obj,
+    ...(obj.Users && {
+      Users: obj.Users.map(item => User.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");
 }
@@ -1373,6 +1645,11 @@ export interface MailDomainNotFoundException
 }
 
 export namespace MailDomainNotFoundException {
+  export const filterSensitiveLog = (
+    obj: MailDomainNotFoundException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MailDomainNotFoundException =>
     __isa(o, "MailDomainNotFoundException");
 }
@@ -1390,6 +1667,9 @@ export interface MailDomainStateException
 }
 
 export namespace MailDomainStateException {
+  export const filterSensitiveLog = (obj: MailDomainStateException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MailDomainStateException =>
     __isa(o, "MailDomainStateException");
 }
@@ -1433,6 +1713,9 @@ export interface Member {
 }
 
 export namespace Member {
+  export const filterSensitiveLog = (obj: Member): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Member => __isa(o, "Member");
 }
 
@@ -1453,6 +1736,9 @@ export interface NameAvailabilityException
 }
 
 export namespace NameAvailabilityException {
+  export const filterSensitiveLog = (obj: NameAvailabilityException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NameAvailabilityException =>
     __isa(o, "NameAvailabilityException");
 }
@@ -1470,6 +1756,11 @@ export interface OrganizationNotFoundException
 }
 
 export namespace OrganizationNotFoundException {
+  export const filterSensitiveLog = (
+    obj: OrganizationNotFoundException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationNotFoundException =>
     __isa(o, "OrganizationNotFoundException");
 }
@@ -1487,6 +1778,9 @@ export interface OrganizationStateException
 }
 
 export namespace OrganizationStateException {
+  export const filterSensitiveLog = (obj: OrganizationStateException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationStateException =>
     __isa(o, "OrganizationStateException");
 }
@@ -1520,6 +1814,9 @@ export interface OrganizationSummary {
 }
 
 export namespace OrganizationSummary {
+  export const filterSensitiveLog = (obj: OrganizationSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationSummary =>
     __isa(o, "OrganizationSummary");
 }
@@ -1548,6 +1845,9 @@ export interface Permission {
 }
 
 export namespace Permission {
+  export const filterSensitiveLog = (obj: Permission): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Permission => __isa(o, "Permission");
 }
 
@@ -1584,6 +1884,11 @@ export interface PutMailboxPermissionsRequest {
 }
 
 export namespace PutMailboxPermissionsRequest {
+  export const filterSensitiveLog = (
+    obj: PutMailboxPermissionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutMailboxPermissionsRequest =>
     __isa(o, "PutMailboxPermissionsRequest");
 }
@@ -1593,6 +1898,11 @@ export interface PutMailboxPermissionsResponse {
 }
 
 export namespace PutMailboxPermissionsResponse {
+  export const filterSensitiveLog = (
+    obj: PutMailboxPermissionsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutMailboxPermissionsResponse =>
     __isa(o, "PutMailboxPermissionsResponse");
 }
@@ -1617,6 +1927,9 @@ export interface RegisterToWorkMailRequest {
 }
 
 export namespace RegisterToWorkMailRequest {
+  export const filterSensitiveLog = (obj: RegisterToWorkMailRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterToWorkMailRequest =>
     __isa(o, "RegisterToWorkMailRequest");
 }
@@ -1626,6 +1939,9 @@ export interface RegisterToWorkMailResponse {
 }
 
 export namespace RegisterToWorkMailResponse {
+  export const filterSensitiveLog = (obj: RegisterToWorkMailResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterToWorkMailResponse =>
     __isa(o, "RegisterToWorkMailResponse");
 }
@@ -1642,6 +1958,9 @@ export interface ReservedNameException
 }
 
 export namespace ReservedNameException {
+  export const filterSensitiveLog = (obj: ReservedNameException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReservedNameException =>
     __isa(o, "ReservedNameException");
 }
@@ -1666,6 +1985,10 @@ export interface ResetPasswordRequest {
 }
 
 export namespace ResetPasswordRequest {
+  export const filterSensitiveLog = (obj: ResetPasswordRequest): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ResetPasswordRequest =>
     __isa(o, "ResetPasswordRequest");
 }
@@ -1675,6 +1998,9 @@ export interface ResetPasswordResponse {
 }
 
 export namespace ResetPasswordResponse {
+  export const filterSensitiveLog = (obj: ResetPasswordResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResetPasswordResponse =>
     __isa(o, "ResetPasswordResponse");
 }
@@ -1722,6 +2048,9 @@ export interface Resource {
 }
 
 export namespace Resource {
+  export const filterSensitiveLog = (obj: Resource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
@@ -1742,6 +2071,11 @@ export interface UnsupportedOperationException
 }
 
 export namespace UnsupportedOperationException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedOperationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedOperationException =>
     __isa(o, "UnsupportedOperationException");
 }
@@ -1765,6 +2099,9 @@ export interface UpdateMailboxQuotaRequest {
 }
 
 export namespace UpdateMailboxQuotaRequest {
+  export const filterSensitiveLog = (obj: UpdateMailboxQuotaRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateMailboxQuotaRequest =>
     __isa(o, "UpdateMailboxQuotaRequest");
 }
@@ -1774,6 +2111,9 @@ export interface UpdateMailboxQuotaResponse {
 }
 
 export namespace UpdateMailboxQuotaResponse {
+  export const filterSensitiveLog = (obj: UpdateMailboxQuotaResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateMailboxQuotaResponse =>
     __isa(o, "UpdateMailboxQuotaResponse");
 }
@@ -1797,6 +2137,11 @@ export interface UpdatePrimaryEmailAddressRequest {
 }
 
 export namespace UpdatePrimaryEmailAddressRequest {
+  export const filterSensitiveLog = (
+    obj: UpdatePrimaryEmailAddressRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdatePrimaryEmailAddressRequest =>
     __isa(o, "UpdatePrimaryEmailAddressRequest");
 }
@@ -1806,6 +2151,11 @@ export interface UpdatePrimaryEmailAddressResponse {
 }
 
 export namespace UpdatePrimaryEmailAddressResponse {
+  export const filterSensitiveLog = (
+    obj: UpdatePrimaryEmailAddressResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdatePrimaryEmailAddressResponse =>
     __isa(o, "UpdatePrimaryEmailAddressResponse");
 }
@@ -1835,6 +2185,12 @@ export interface UpdateResourceRequest {
 }
 
 export namespace UpdateResourceRequest {
+  export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
+    ...obj,
+    ...(obj.BookingOptions && {
+      BookingOptions: BookingOptions.filterSensitiveLog(obj.BookingOptions)
+    })
+  });
   export const isa = (o: any): o is UpdateResourceRequest =>
     __isa(o, "UpdateResourceRequest");
 }
@@ -1844,6 +2200,9 @@ export interface UpdateResourceResponse {
 }
 
 export namespace UpdateResourceResponse {
+  export const filterSensitiveLog = (obj: UpdateResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateResourceResponse =>
     __isa(o, "UpdateResourceResponse");
 }
@@ -1895,6 +2254,9 @@ export interface User {
 }
 
 export namespace User {
+  export const filterSensitiveLog = (obj: User): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is User => __isa(o, "User");
 }
 

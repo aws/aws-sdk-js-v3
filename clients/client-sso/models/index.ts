@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -26,6 +27,9 @@ export interface AccountInfo {
 }
 
 export namespace AccountInfo {
+  export const filterSensitiveLog = (obj: AccountInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccountInfo => __isa(o, "AccountInfo");
 }
 
@@ -49,6 +53,10 @@ export interface GetRoleCredentialsRequest {
 }
 
 export namespace GetRoleCredentialsRequest {
+  export const filterSensitiveLog = (obj: GetRoleCredentialsRequest): any => ({
+    ...obj,
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetRoleCredentialsRequest =>
     __isa(o, "GetRoleCredentialsRequest");
 }
@@ -62,6 +70,12 @@ export interface GetRoleCredentialsResponse {
 }
 
 export namespace GetRoleCredentialsResponse {
+  export const filterSensitiveLog = (obj: GetRoleCredentialsResponse): any => ({
+    ...obj,
+    ...(obj.roleCredentials && {
+      roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials)
+    })
+  });
   export const isa = (o: any): o is GetRoleCredentialsResponse =>
     __isa(o, "GetRoleCredentialsResponse");
 }
@@ -79,6 +93,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -108,6 +125,10 @@ export interface ListAccountRolesRequest {
 }
 
 export namespace ListAccountRolesRequest {
+  export const filterSensitiveLog = (obj: ListAccountRolesRequest): any => ({
+    ...obj,
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ListAccountRolesRequest =>
     __isa(o, "ListAccountRolesRequest");
 }
@@ -126,6 +147,12 @@ export interface ListAccountRolesResponse {
 }
 
 export namespace ListAccountRolesResponse {
+  export const filterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
+    ...obj,
+    ...(obj.roleList && {
+      roleList: obj.roleList.map(item => RoleInfo.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListAccountRolesResponse =>
     __isa(o, "ListAccountRolesResponse");
 }
@@ -150,6 +177,10 @@ export interface ListAccountsRequest {
 }
 
 export namespace ListAccountsRequest {
+  export const filterSensitiveLog = (obj: ListAccountsRequest): any => ({
+    ...obj,
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ListAccountsRequest =>
     __isa(o, "ListAccountsRequest");
 }
@@ -168,6 +199,14 @@ export interface ListAccountsResponse {
 }
 
 export namespace ListAccountsResponse {
+  export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
+    ...obj,
+    ...(obj.accountList && {
+      accountList: obj.accountList.map(item =>
+        AccountInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListAccountsResponse =>
     __isa(o, "ListAccountsResponse");
 }
@@ -182,6 +221,10 @@ export interface LogoutRequest {
 }
 
 export namespace LogoutRequest {
+  export const filterSensitiveLog = (obj: LogoutRequest): any => ({
+    ...obj,
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is LogoutRequest => __isa(o, "LogoutRequest");
 }
 
@@ -197,6 +240,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -232,6 +278,11 @@ export interface RoleCredentials {
 }
 
 export namespace RoleCredentials {
+  export const filterSensitiveLog = (obj: RoleCredentials): any => ({
+    ...obj,
+    ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
+    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is RoleCredentials =>
     __isa(o, "RoleCredentials");
 }
@@ -253,6 +304,9 @@ export interface RoleInfo {
 }
 
 export namespace RoleInfo {
+  export const filterSensitiveLog = (obj: RoleInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RoleInfo => __isa(o, "RoleInfo");
 }
 
@@ -268,6 +322,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -284,6 +341,9 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnauthorizedException =>
     __isa(o, "UnauthorizedException");
 }

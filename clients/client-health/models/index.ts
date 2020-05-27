@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -41,6 +42,11 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentModificationException =>
     __isa(o, "ConcurrentModificationException");
 }
@@ -57,6 +63,9 @@ export interface InvalidPaginationToken
 }
 
 export namespace InvalidPaginationToken {
+  export const filterSensitiveLog = (obj: InvalidPaginationToken): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidPaginationToken =>
     __isa(o, "InvalidPaginationToken");
 }
@@ -71,6 +80,9 @@ export interface UnsupportedLocale extends __SmithyException, $MetadataBearer {
 }
 
 export namespace UnsupportedLocale {
+  export const filterSensitiveLog = (obj: UnsupportedLocale): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedLocale =>
     __isa(o, "UnsupportedLocale");
 }
@@ -99,6 +111,11 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
 }
 
 export namespace DescribeAffectedAccountsForOrganizationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeAffectedAccountsForOrganizationRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DescribeAffectedAccountsForOrganizationRequest =>
@@ -122,6 +139,11 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
 }
 
 export namespace DescribeAffectedAccountsForOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeAffectedAccountsForOrganizationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DescribeAffectedAccountsForOrganizationResponse =>
@@ -156,6 +178,16 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeAffectedEntitiesForOrganizationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.organizationEntityFilters && {
+      organizationEntityFilters: obj.organizationEntityFilters.map(item =>
+        EventAccountFilter.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeAffectedEntitiesForOrganizationRequest =>
@@ -187,6 +219,21 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeAffectedEntitiesForOrganizationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.entities && {
+      entities: obj.entities.map(item =>
+        AffectedEntity.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.failedSet && {
+      failedSet: obj.failedSet.map(item =>
+        OrganizationAffectedEntitiesErrorItem.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeAffectedEntitiesForOrganizationResponse =>
@@ -220,6 +267,12 @@ export interface DescribeAffectedEntitiesRequest {
 }
 
 export namespace DescribeAffectedEntitiesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeAffectedEntitiesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.filter && { filter: EntityFilter.filterSensitiveLog(obj.filter) })
+  });
   export const isa = (o: any): o is DescribeAffectedEntitiesRequest =>
     __isa(o, "DescribeAffectedEntitiesRequest");
 }
@@ -241,6 +294,16 @@ export interface DescribeAffectedEntitiesResponse {
 }
 
 export namespace DescribeAffectedEntitiesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeAffectedEntitiesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.entities && {
+      entities: obj.entities.map(item =>
+        AffectedEntity.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeAffectedEntitiesResponse =>
     __isa(o, "DescribeAffectedEntitiesResponse");
 }
@@ -255,6 +318,11 @@ export interface DescribeEntityAggregatesRequest {
 }
 
 export namespace DescribeEntityAggregatesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEntityAggregatesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEntityAggregatesRequest =>
     __isa(o, "DescribeEntityAggregatesRequest");
 }
@@ -268,6 +336,16 @@ export interface DescribeEntityAggregatesResponse {
 }
 
 export namespace DescribeEntityAggregatesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeEntityAggregatesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.entityAggregates && {
+      entityAggregates: obj.entityAggregates.map(item =>
+        EntityAggregate.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEntityAggregatesResponse =>
     __isa(o, "DescribeEntityAggregatesResponse");
 }
@@ -299,6 +377,12 @@ export interface DescribeEventAggregatesRequest {
 }
 
 export namespace DescribeEventAggregatesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEventAggregatesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.filter && { filter: EventFilter.filterSensitiveLog(obj.filter) })
+  });
   export const isa = (o: any): o is DescribeEventAggregatesRequest =>
     __isa(o, "DescribeEventAggregatesRequest");
 }
@@ -321,6 +405,16 @@ export interface DescribeEventAggregatesResponse {
 }
 
 export namespace DescribeEventAggregatesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeEventAggregatesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.eventAggregates && {
+      eventAggregates: obj.eventAggregates.map(item =>
+        EventAggregate.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEventAggregatesResponse =>
     __isa(o, "DescribeEventAggregatesResponse");
 }
@@ -340,6 +434,16 @@ export interface DescribeEventDetailsForOrganizationRequest {
 }
 
 export namespace DescribeEventDetailsForOrganizationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEventDetailsForOrganizationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.organizationEventDetailFilters && {
+      organizationEventDetailFilters: obj.organizationEventDetailFilters.map(
+        item => EventAccountFilter.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeEventDetailsForOrganizationRequest =>
@@ -360,6 +464,21 @@ export interface DescribeEventDetailsForOrganizationResponse {
 }
 
 export namespace DescribeEventDetailsForOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeEventDetailsForOrganizationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.failedSet && {
+      failedSet: obj.failedSet.map(item =>
+        OrganizationEventDetailsErrorItem.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.successfulSet && {
+      successfulSet: obj.successfulSet.map(item =>
+        OrganizationEventDetails.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeEventDetailsForOrganizationResponse =>
@@ -381,6 +500,11 @@ export interface DescribeEventDetailsRequest {
 }
 
 export namespace DescribeEventDetailsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEventDetailsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEventDetailsRequest =>
     __isa(o, "DescribeEventDetailsRequest");
 }
@@ -399,6 +523,21 @@ export interface DescribeEventDetailsResponse {
 }
 
 export namespace DescribeEventDetailsResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeEventDetailsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.failedSet && {
+      failedSet: obj.failedSet.map(item =>
+        EventDetailsErrorItem.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.successfulSet && {
+      successfulSet: obj.successfulSet.map(item =>
+        EventDetails.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEventDetailsResponse =>
     __isa(o, "DescribeEventDetailsResponse");
 }
@@ -430,6 +569,12 @@ export interface DescribeEventTypesRequest {
 }
 
 export namespace DescribeEventTypesRequest {
+  export const filterSensitiveLog = (obj: DescribeEventTypesRequest): any => ({
+    ...obj,
+    ...(obj.filter && {
+      filter: EventTypeFilter.filterSensitiveLog(obj.filter)
+    })
+  });
   export const isa = (o: any): o is DescribeEventTypesRequest =>
     __isa(o, "DescribeEventTypesRequest");
 }
@@ -457,6 +602,12 @@ export interface DescribeEventTypesResponse {
 }
 
 export namespace DescribeEventTypesResponse {
+  export const filterSensitiveLog = (obj: DescribeEventTypesResponse): any => ({
+    ...obj,
+    ...(obj.eventTypes && {
+      eventTypes: obj.eventTypes.map(item => EventType.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeEventTypesResponse =>
     __isa(o, "DescribeEventTypesResponse");
 }
@@ -488,6 +639,14 @@ export interface DescribeEventsForOrganizationRequest {
 }
 
 export namespace DescribeEventsForOrganizationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEventsForOrganizationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.filter && {
+      filter: OrganizationEventFilter.filterSensitiveLog(obj.filter)
+    })
+  });
   export const isa = (o: any): o is DescribeEventsForOrganizationRequest =>
     __isa(o, "DescribeEventsForOrganizationRequest");
 }
@@ -509,6 +668,14 @@ export interface DescribeEventsForOrganizationResponse {
 }
 
 export namespace DescribeEventsForOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeEventsForOrganizationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.events && {
+      events: obj.events.map(item => OrganizationEvent.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeEventsForOrganizationResponse =>
     __isa(o, "DescribeEventsForOrganizationResponse");
 }
@@ -540,6 +707,10 @@ export interface DescribeEventsRequest {
 }
 
 export namespace DescribeEventsRequest {
+  export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
+    ...obj,
+    ...(obj.filter && { filter: EventFilter.filterSensitiveLog(obj.filter) })
+  });
   export const isa = (o: any): o is DescribeEventsRequest =>
     __isa(o, "DescribeEventsRequest");
 }
@@ -561,6 +732,12 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
+  export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
+    ...obj,
+    ...(obj.events && {
+      events: obj.events.map(item => Event.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeEventsResponse =>
     __isa(o, "DescribeEventsResponse");
 }
@@ -576,6 +753,11 @@ export interface DescribeHealthServiceStatusForOrganizationResponse {
 }
 
 export namespace DescribeHealthServiceStatusForOrganizationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeHealthServiceStatusForOrganizationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DescribeHealthServiceStatusForOrganizationResponse =>
@@ -634,6 +816,9 @@ export interface AffectedEntity {
 }
 
 export namespace AffectedEntity {
+  export const filterSensitiveLog = (obj: AffectedEntity): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AffectedEntity =>
     __isa(o, "AffectedEntity");
 }
@@ -662,6 +847,9 @@ export interface DateTimeRange {
 }
 
 export namespace DateTimeRange {
+  export const filterSensitiveLog = (obj: DateTimeRange): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DateTimeRange => __isa(o, "DateTimeRange");
 }
 
@@ -684,6 +872,9 @@ export interface EntityAggregate {
 }
 
 export namespace EntityAggregate {
+  export const filterSensitiveLog = (obj: EntityAggregate): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntityAggregate =>
     __isa(o, "EntityAggregate");
 }
@@ -727,6 +918,14 @@ export interface EntityFilter {
 }
 
 export namespace EntityFilter {
+  export const filterSensitiveLog = (obj: EntityFilter): any => ({
+    ...obj,
+    ...(obj.lastUpdatedTimes && {
+      lastUpdatedTimes: obj.lastUpdatedTimes.map(item =>
+        DateTimeRange.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
 }
 
@@ -792,6 +991,9 @@ export interface Event {
 }
 
 export namespace Event {
+  export const filterSensitiveLog = (obj: Event): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
@@ -814,6 +1016,9 @@ export interface EventAccountFilter {
 }
 
 export namespace EventAccountFilter {
+  export const filterSensitiveLog = (obj: EventAccountFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventAccountFilter =>
     __isa(o, "EventAccountFilter");
 }
@@ -835,6 +1040,9 @@ export interface EventAggregate {
 }
 
 export namespace EventAggregate {
+  export const filterSensitiveLog = (obj: EventAggregate): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventAggregate =>
     __isa(o, "EventAggregate");
 }
@@ -852,6 +1060,9 @@ export interface EventDescription {
 }
 
 export namespace EventDescription {
+  export const filterSensitiveLog = (obj: EventDescription): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventDescription =>
     __isa(o, "EventDescription");
 }
@@ -880,6 +1091,15 @@ export interface EventDetails {
 }
 
 export namespace EventDetails {
+  export const filterSensitiveLog = (obj: EventDetails): any => ({
+    ...obj,
+    ...(obj.event && { event: Event.filterSensitiveLog(obj.event) }),
+    ...(obj.eventDescription && {
+      eventDescription: EventDescription.filterSensitiveLog(
+        obj.eventDescription
+      )
+    })
+  });
   export const isa = (o: any): o is EventDetails => __isa(o, "EventDetails");
 }
 
@@ -908,6 +1128,9 @@ export interface EventDetailsErrorItem {
 }
 
 export namespace EventDetailsErrorItem {
+  export const filterSensitiveLog = (obj: EventDetailsErrorItem): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventDetailsErrorItem =>
     __isa(o, "EventDetailsErrorItem");
 }
@@ -989,6 +1212,22 @@ export interface EventFilter {
 }
 
 export namespace EventFilter {
+  export const filterSensitiveLog = (obj: EventFilter): any => ({
+    ...obj,
+    ...(obj.endTimes && {
+      endTimes: obj.endTimes.map(item => DateTimeRange.filterSensitiveLog(item))
+    }),
+    ...(obj.lastUpdatedTimes && {
+      lastUpdatedTimes: obj.lastUpdatedTimes.map(item =>
+        DateTimeRange.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.startTimes && {
+      startTimes: obj.startTimes.map(item =>
+        DateTimeRange.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is EventFilter => __isa(o, "EventFilter");
 }
 
@@ -1019,6 +1258,9 @@ export interface EventType {
 }
 
 export namespace EventType {
+  export const filterSensitiveLog = (obj: EventType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventType => __isa(o, "EventType");
 }
 
@@ -1046,6 +1288,9 @@ export interface EventTypeFilter {
 }
 
 export namespace EventTypeFilter {
+  export const filterSensitiveLog = (obj: EventTypeFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventTypeFilter =>
     __isa(o, "EventTypeFilter");
 }
@@ -1082,6 +1327,11 @@ export interface OrganizationAffectedEntitiesErrorItem {
 }
 
 export namespace OrganizationAffectedEntitiesErrorItem {
+  export const filterSensitiveLog = (
+    obj: OrganizationAffectedEntitiesErrorItem
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationAffectedEntitiesErrorItem =>
     __isa(o, "OrganizationAffectedEntitiesErrorItem");
 }
@@ -1143,6 +1393,9 @@ export interface OrganizationEvent {
 }
 
 export namespace OrganizationEvent {
+  export const filterSensitiveLog = (obj: OrganizationEvent): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationEvent =>
     __isa(o, "OrganizationEvent");
 }
@@ -1177,6 +1430,15 @@ export interface OrganizationEventDetails {
 }
 
 export namespace OrganizationEventDetails {
+  export const filterSensitiveLog = (obj: OrganizationEventDetails): any => ({
+    ...obj,
+    ...(obj.event && { event: Event.filterSensitiveLog(obj.event) }),
+    ...(obj.eventDescription && {
+      eventDescription: EventDescription.filterSensitiveLog(
+        obj.eventDescription
+      )
+    })
+  });
   export const isa = (o: any): o is OrganizationEventDetails =>
     __isa(o, "OrganizationEventDetails");
 }
@@ -1212,6 +1474,11 @@ export interface OrganizationEventDetailsErrorItem {
 }
 
 export namespace OrganizationEventDetailsErrorItem {
+  export const filterSensitiveLog = (
+    obj: OrganizationEventDetailsErrorItem
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationEventDetailsErrorItem =>
     __isa(o, "OrganizationEventDetailsErrorItem");
 }
@@ -1301,6 +1568,18 @@ export interface OrganizationEventFilter {
 }
 
 export namespace OrganizationEventFilter {
+  export const filterSensitiveLog = (obj: OrganizationEventFilter): any => ({
+    ...obj,
+    ...(obj.endTime && {
+      endTime: DateTimeRange.filterSensitiveLog(obj.endTime)
+    }),
+    ...(obj.lastUpdatedTime && {
+      lastUpdatedTime: DateTimeRange.filterSensitiveLog(obj.lastUpdatedTime)
+    }),
+    ...(obj.startTime && {
+      startTime: DateTimeRange.filterSensitiveLog(obj.startTime)
+    })
+  });
   export const isa = (o: any): o is OrganizationEventFilter =>
     __isa(o, "OrganizationEventFilter");
 }

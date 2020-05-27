@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -43,6 +44,9 @@ export interface Connection {
 }
 
 export namespace Connection {
+  export const filterSensitiveLog = (obj: Connection): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
 
@@ -68,6 +72,9 @@ export interface CreateConnectionInput {
 }
 
 export namespace CreateConnectionInput {
+  export const filterSensitiveLog = (obj: CreateConnectionInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateConnectionInput =>
     __isa(o, "CreateConnectionInput");
 }
@@ -85,6 +92,9 @@ export interface CreateConnectionOutput {
 }
 
 export namespace CreateConnectionOutput {
+  export const filterSensitiveLog = (obj: CreateConnectionOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateConnectionOutput =>
     __isa(o, "CreateConnectionOutput");
 }
@@ -101,6 +111,9 @@ export interface DeleteConnectionInput {
 }
 
 export namespace DeleteConnectionInput {
+  export const filterSensitiveLog = (obj: DeleteConnectionInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConnectionInput =>
     __isa(o, "DeleteConnectionInput");
 }
@@ -110,6 +123,9 @@ export interface DeleteConnectionOutput {
 }
 
 export namespace DeleteConnectionOutput {
+  export const filterSensitiveLog = (obj: DeleteConnectionOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConnectionOutput =>
     __isa(o, "DeleteConnectionOutput");
 }
@@ -123,6 +139,9 @@ export interface GetConnectionInput {
 }
 
 export namespace GetConnectionInput {
+  export const filterSensitiveLog = (obj: GetConnectionInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetConnectionInput =>
     __isa(o, "GetConnectionInput");
 }
@@ -136,6 +155,12 @@ export interface GetConnectionOutput {
 }
 
 export namespace GetConnectionOutput {
+  export const filterSensitiveLog = (obj: GetConnectionOutput): any => ({
+    ...obj,
+    ...(obj.Connection && {
+      Connection: Connection.filterSensitiveLog(obj.Connection)
+    })
+  });
   export const isa = (o: any): o is GetConnectionOutput =>
     __isa(o, "GetConnectionOutput");
 }
@@ -152,6 +177,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -178,6 +206,9 @@ export interface ListConnectionsInput {
 }
 
 export namespace ListConnectionsInput {
+  export const filterSensitiveLog = (obj: ListConnectionsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListConnectionsInput =>
     __isa(o, "ListConnectionsInput");
 }
@@ -199,6 +230,14 @@ export interface ListConnectionsOutput {
 }
 
 export namespace ListConnectionsOutput {
+  export const filterSensitiveLog = (obj: ListConnectionsOutput): any => ({
+    ...obj,
+    ...(obj.Connections && {
+      Connections: obj.Connections.map(item =>
+        Connection.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListConnectionsOutput =>
     __isa(o, "ListConnectionsOutput");
 }
@@ -219,6 +258,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }

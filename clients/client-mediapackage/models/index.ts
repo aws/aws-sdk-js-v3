@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -34,6 +35,9 @@ export interface Authorization {
 }
 
 export namespace Authorization {
+  export const filterSensitiveLog = (obj: Authorization): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Authorization => __isa(o, "Authorization");
 }
 
@@ -69,6 +73,12 @@ export interface Channel {
 }
 
 export namespace Channel {
+  export const filterSensitiveLog = (obj: Channel): any => ({
+    ...obj,
+    ...(obj.HlsIngest && {
+      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
+    })
+  });
   export const isa = (o: any): o is Channel => __isa(o, "Channel");
 }
 
@@ -89,6 +99,14 @@ export interface CmafEncryption {
 }
 
 export namespace CmafEncryption {
+  export const filterSensitiveLog = (obj: CmafEncryption): any => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is CmafEncryption =>
     __isa(o, "CmafEncryption");
 }
@@ -126,6 +144,20 @@ export interface CmafPackage {
 }
 
 export namespace CmafPackage {
+  export const filterSensitiveLog = (obj: CmafPackage): any => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.HlsManifests && {
+      HlsManifests: obj.HlsManifests.map(item =>
+        HlsManifest.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is CmafPackage => __isa(o, "CmafPackage");
 }
 
@@ -162,6 +194,22 @@ export interface CmafPackageCreateOrUpdateParameters {
 }
 
 export namespace CmafPackageCreateOrUpdateParameters {
+  export const filterSensitiveLog = (
+    obj: CmafPackageCreateOrUpdateParameters
+  ): any => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.HlsManifests && {
+      HlsManifests: obj.HlsManifests.map(item =>
+        HlsManifestCreateOrUpdateParameters.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is CmafPackageCreateOrUpdateParameters =>
     __isa(o, "CmafPackageCreateOrUpdateParameters");
 }
@@ -189,6 +237,9 @@ export interface CreateChannelRequest {
 }
 
 export namespace CreateChannelRequest {
+  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateChannelRequest =>
     __isa(o, "CreateChannelRequest");
 }
@@ -222,6 +273,12 @@ export interface CreateChannelResponse {
 }
 
 export namespace CreateChannelResponse {
+  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
+    ...obj,
+    ...(obj.HlsIngest && {
+      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
+    })
+  });
   export const isa = (o: any): o is CreateChannelResponse =>
     __isa(o, "CreateChannelResponse");
 }
@@ -260,6 +317,12 @@ export interface CreateHarvestJobRequest {
 }
 
 export namespace CreateHarvestJobRequest {
+  export const filterSensitiveLog = (obj: CreateHarvestJobRequest): any => ({
+    ...obj,
+    ...(obj.S3Destination && {
+      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
+    })
+  });
   export const isa = (o: any): o is CreateHarvestJobRequest =>
     __isa(o, "CreateHarvestJobRequest");
 }
@@ -317,6 +380,12 @@ export interface CreateHarvestJobResponse {
 }
 
 export namespace CreateHarvestJobResponse {
+  export const filterSensitiveLog = (obj: CreateHarvestJobResponse): any => ({
+    ...obj,
+    ...(obj.S3Destination && {
+      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
+    })
+  });
   export const isa = (o: any): o is CreateHarvestJobResponse =>
     __isa(o, "CreateHarvestJobResponse");
 }
@@ -404,6 +473,28 @@ export interface CreateOriginEndpointRequest {
 }
 
 export namespace CreateOriginEndpointRequest {
+  export const filterSensitiveLog = (
+    obj: CreateOriginEndpointRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Authorization && {
+      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
+    }),
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackageCreateOrUpdateParameters.filterSensitiveLog(
+        obj.CmafPackage
+      )
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is CreateOriginEndpointRequest =>
     __isa(o, "CreateOriginEndpointRequest");
 }
@@ -496,6 +587,26 @@ export interface CreateOriginEndpointResponse {
 }
 
 export namespace CreateOriginEndpointResponse {
+  export const filterSensitiveLog = (
+    obj: CreateOriginEndpointResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Authorization && {
+      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
+    }),
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is CreateOriginEndpointResponse =>
     __isa(o, "CreateOriginEndpointResponse");
 }
@@ -517,6 +628,14 @@ export interface DashEncryption {
 }
 
 export namespace DashEncryption {
+  export const filterSensitiveLog = (obj: DashEncryption): any => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is DashEncryption =>
     __isa(o, "DashEncryption");
 }
@@ -606,6 +725,15 @@ export interface DashPackage {
 }
 
 export namespace DashPackage {
+  export const filterSensitiveLog = (obj: DashPackage): any => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: DashEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is DashPackage => __isa(o, "DashPackage");
 }
 
@@ -618,6 +746,9 @@ export interface DeleteChannelRequest {
 }
 
 export namespace DeleteChannelRequest {
+  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteChannelRequest =>
     __isa(o, "DeleteChannelRequest");
 }
@@ -627,6 +758,9 @@ export interface DeleteChannelResponse {
 }
 
 export namespace DeleteChannelResponse {
+  export const filterSensitiveLog = (obj: DeleteChannelResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteChannelResponse =>
     __isa(o, "DeleteChannelResponse");
 }
@@ -640,6 +774,11 @@ export interface DeleteOriginEndpointRequest {
 }
 
 export namespace DeleteOriginEndpointRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteOriginEndpointRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteOriginEndpointRequest =>
     __isa(o, "DeleteOriginEndpointRequest");
 }
@@ -649,6 +788,11 @@ export interface DeleteOriginEndpointResponse {
 }
 
 export namespace DeleteOriginEndpointResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteOriginEndpointResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteOriginEndpointResponse =>
     __isa(o, "DeleteOriginEndpointResponse");
 }
@@ -662,6 +806,9 @@ export interface DescribeChannelRequest {
 }
 
 export namespace DescribeChannelRequest {
+  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeChannelRequest =>
     __isa(o, "DescribeChannelRequest");
 }
@@ -695,6 +842,12 @@ export interface DescribeChannelResponse {
 }
 
 export namespace DescribeChannelResponse {
+  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+    ...obj,
+    ...(obj.HlsIngest && {
+      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
+    })
+  });
   export const isa = (o: any): o is DescribeChannelResponse =>
     __isa(o, "DescribeChannelResponse");
 }
@@ -708,6 +861,9 @@ export interface DescribeHarvestJobRequest {
 }
 
 export namespace DescribeHarvestJobRequest {
+  export const filterSensitiveLog = (obj: DescribeHarvestJobRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeHarvestJobRequest =>
     __isa(o, "DescribeHarvestJobRequest");
 }
@@ -765,6 +921,12 @@ export interface DescribeHarvestJobResponse {
 }
 
 export namespace DescribeHarvestJobResponse {
+  export const filterSensitiveLog = (obj: DescribeHarvestJobResponse): any => ({
+    ...obj,
+    ...(obj.S3Destination && {
+      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
+    })
+  });
   export const isa = (o: any): o is DescribeHarvestJobResponse =>
     __isa(o, "DescribeHarvestJobResponse");
 }
@@ -778,6 +940,11 @@ export interface DescribeOriginEndpointRequest {
 }
 
 export namespace DescribeOriginEndpointRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeOriginEndpointRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeOriginEndpointRequest =>
     __isa(o, "DescribeOriginEndpointRequest");
 }
@@ -870,6 +1037,26 @@ export interface DescribeOriginEndpointResponse {
 }
 
 export namespace DescribeOriginEndpointResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeOriginEndpointResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Authorization && {
+      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
+    }),
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is DescribeOriginEndpointResponse =>
     __isa(o, "DescribeOriginEndpointResponse");
 }
@@ -889,6 +1076,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ForbiddenException =>
     __isa(o, "ForbiddenException");
 }
@@ -949,6 +1139,12 @@ export interface HarvestJob {
 }
 
 export namespace HarvestJob {
+  export const filterSensitiveLog = (obj: HarvestJob): any => ({
+    ...obj,
+    ...(obj.S3Destination && {
+      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
+    })
+  });
   export const isa = (o: any): o is HarvestJob => __isa(o, "HarvestJob");
 }
 
@@ -985,6 +1181,14 @@ export interface HlsEncryption {
 }
 
 export namespace HlsEncryption {
+  export const filterSensitiveLog = (obj: HlsEncryption): any => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is HlsEncryption => __isa(o, "HlsEncryption");
 }
 
@@ -1000,6 +1204,14 @@ export interface HlsIngest {
 }
 
 export namespace HlsIngest {
+  export const filterSensitiveLog = (obj: HlsIngest): any => ({
+    ...obj,
+    ...(obj.IngestEndpoints && {
+      IngestEndpoints: obj.IngestEndpoints.map(item =>
+        IngestEndpoint.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is HlsIngest => __isa(o, "HlsIngest");
 }
 
@@ -1065,6 +1277,9 @@ export interface HlsManifest {
 }
 
 export namespace HlsManifest {
+  export const filterSensitiveLog = (obj: HlsManifest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsManifest => __isa(o, "HlsManifest");
 }
 
@@ -1144,6 +1359,11 @@ export interface HlsManifestCreateOrUpdateParameters {
 }
 
 export namespace HlsManifestCreateOrUpdateParameters {
+  export const filterSensitiveLog = (
+    obj: HlsManifestCreateOrUpdateParameters
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsManifestCreateOrUpdateParameters =>
     __isa(o, "HlsManifestCreateOrUpdateParameters");
 }
@@ -1235,6 +1455,15 @@ export interface HlsPackage {
 }
 
 export namespace HlsPackage {
+  export const filterSensitiveLog = (obj: HlsPackage): any => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: HlsEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is HlsPackage => __isa(o, "HlsPackage");
 }
 
@@ -1265,6 +1494,9 @@ export interface IngestEndpoint {
 }
 
 export namespace IngestEndpoint {
+  export const filterSensitiveLog = (obj: IngestEndpoint): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is IngestEndpoint =>
     __isa(o, "IngestEndpoint");
 }
@@ -1281,6 +1513,11 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerErrorException =>
     __isa(o, "InternalServerErrorException");
 }
@@ -1299,6 +1536,9 @@ export interface ListChannelsRequest {
 }
 
 export namespace ListChannelsRequest {
+  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListChannelsRequest =>
     __isa(o, "ListChannelsRequest");
 }
@@ -1317,6 +1557,12 @@ export interface ListChannelsResponse {
 }
 
 export namespace ListChannelsResponse {
+  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
+    ...obj,
+    ...(obj.Channels && {
+      Channels: obj.Channels.map(item => Channel.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListChannelsResponse =>
     __isa(o, "ListChannelsResponse");
 }
@@ -1345,6 +1591,9 @@ export interface ListHarvestJobsRequest {
 }
 
 export namespace ListHarvestJobsRequest {
+  export const filterSensitiveLog = (obj: ListHarvestJobsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListHarvestJobsRequest =>
     __isa(o, "ListHarvestJobsRequest");
 }
@@ -1363,6 +1612,14 @@ export interface ListHarvestJobsResponse {
 }
 
 export namespace ListHarvestJobsResponse {
+  export const filterSensitiveLog = (obj: ListHarvestJobsResponse): any => ({
+    ...obj,
+    ...(obj.HarvestJobs && {
+      HarvestJobs: obj.HarvestJobs.map(item =>
+        HarvestJob.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListHarvestJobsResponse =>
     __isa(o, "ListHarvestJobsResponse");
 }
@@ -1386,6 +1643,9 @@ export interface ListOriginEndpointsRequest {
 }
 
 export namespace ListOriginEndpointsRequest {
+  export const filterSensitiveLog = (obj: ListOriginEndpointsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListOriginEndpointsRequest =>
     __isa(o, "ListOriginEndpointsRequest");
 }
@@ -1404,6 +1664,16 @@ export interface ListOriginEndpointsResponse {
 }
 
 export namespace ListOriginEndpointsResponse {
+  export const filterSensitiveLog = (
+    obj: ListOriginEndpointsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.OriginEndpoints && {
+      OriginEndpoints: obj.OriginEndpoints.map(item =>
+        OriginEndpoint.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListOriginEndpointsResponse =>
     __isa(o, "ListOriginEndpointsResponse");
 }
@@ -1414,6 +1684,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -1424,6 +1697,11 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -1445,6 +1723,14 @@ export interface MssEncryption {
 }
 
 export namespace MssEncryption {
+  export const filterSensitiveLog = (obj: MssEncryption): any => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is MssEncryption => __isa(o, "MssEncryption");
 }
 
@@ -1475,6 +1761,15 @@ export interface MssPackage {
 }
 
 export namespace MssPackage {
+  export const filterSensitiveLog = (obj: MssPackage): any => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: MssEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is MssPackage => __isa(o, "MssPackage");
 }
 
@@ -1488,6 +1783,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -1583,6 +1881,24 @@ export interface OriginEndpoint {
 }
 
 export namespace OriginEndpoint {
+  export const filterSensitiveLog = (obj: OriginEndpoint): any => ({
+    ...obj,
+    ...(obj.Authorization && {
+      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
+    }),
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is OriginEndpoint =>
     __isa(o, "OriginEndpoint");
 }
@@ -1612,6 +1928,11 @@ export interface RotateChannelCredentialsRequest {
 }
 
 export namespace RotateChannelCredentialsRequest {
+  export const filterSensitiveLog = (
+    obj: RotateChannelCredentialsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RotateChannelCredentialsRequest =>
     __isa(o, "RotateChannelCredentialsRequest");
 }
@@ -1645,6 +1966,14 @@ export interface RotateChannelCredentialsResponse {
 }
 
 export namespace RotateChannelCredentialsResponse {
+  export const filterSensitiveLog = (
+    obj: RotateChannelCredentialsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.HlsIngest && {
+      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
+    })
+  });
   export const isa = (o: any): o is RotateChannelCredentialsResponse =>
     __isa(o, "RotateChannelCredentialsResponse");
 }
@@ -1663,6 +1992,11 @@ export interface RotateIngestEndpointCredentialsRequest {
 }
 
 export namespace RotateIngestEndpointCredentialsRequest {
+  export const filterSensitiveLog = (
+    obj: RotateIngestEndpointCredentialsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RotateIngestEndpointCredentialsRequest =>
     __isa(o, "RotateIngestEndpointCredentialsRequest");
 }
@@ -1696,6 +2030,14 @@ export interface RotateIngestEndpointCredentialsResponse {
 }
 
 export namespace RotateIngestEndpointCredentialsResponse {
+  export const filterSensitiveLog = (
+    obj: RotateIngestEndpointCredentialsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.HlsIngest && {
+      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
+    })
+  });
   export const isa = (o: any): o is RotateIngestEndpointCredentialsResponse =>
     __isa(o, "RotateIngestEndpointCredentialsResponse");
 }
@@ -1722,6 +2064,9 @@ export interface S3Destination {
 }
 
 export namespace S3Destination {
+  export const filterSensitiveLog = (obj: S3Destination): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
 
@@ -1743,6 +2088,11 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceUnavailableException =>
     __isa(o, "ServiceUnavailableException");
 }
@@ -1782,6 +2132,9 @@ export interface SpekeKeyProvider {
 }
 
 export namespace SpekeKeyProvider {
+  export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SpekeKeyProvider =>
     __isa(o, "SpekeKeyProvider");
 }
@@ -1820,6 +2173,9 @@ export interface StreamSelection {
 }
 
 export namespace StreamSelection {
+  export const filterSensitiveLog = (obj: StreamSelection): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StreamSelection =>
     __isa(o, "StreamSelection");
 }
@@ -1831,6 +2187,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -1847,6 +2206,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -1863,6 +2225,11 @@ export interface UnprocessableEntityException
 }
 
 export namespace UnprocessableEntityException {
+  export const filterSensitiveLog = (
+    obj: UnprocessableEntityException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnprocessableEntityException =>
     __isa(o, "UnprocessableEntityException");
 }
@@ -1877,6 +2244,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -1898,6 +2268,9 @@ export interface UpdateChannelRequest {
 }
 
 export namespace UpdateChannelRequest {
+  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateChannelRequest =>
     __isa(o, "UpdateChannelRequest");
 }
@@ -1931,6 +2304,12 @@ export interface UpdateChannelResponse {
 }
 
 export namespace UpdateChannelResponse {
+  export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+    ...obj,
+    ...(obj.HlsIngest && {
+      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
+    })
+  });
   export const isa = (o: any): o is UpdateChannelResponse =>
     __isa(o, "UpdateChannelResponse");
 }
@@ -2006,6 +2385,28 @@ export interface UpdateOriginEndpointRequest {
 }
 
 export namespace UpdateOriginEndpointRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateOriginEndpointRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Authorization && {
+      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
+    }),
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackageCreateOrUpdateParameters.filterSensitiveLog(
+        obj.CmafPackage
+      )
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is UpdateOriginEndpointRequest =>
     __isa(o, "UpdateOriginEndpointRequest");
 }
@@ -2098,6 +2499,26 @@ export interface UpdateOriginEndpointResponse {
 }
 
 export namespace UpdateOriginEndpointResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateOriginEndpointResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Authorization && {
+      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
+    }),
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is UpdateOriginEndpointResponse =>
     __isa(o, "UpdateOriginEndpointResponse");
 }

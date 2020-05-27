@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -17,6 +18,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -34,6 +38,11 @@ export interface AuthorizationPendingException
 }
 
 export namespace AuthorizationPendingException {
+  export const filterSensitiveLog = (
+    obj: AuthorizationPendingException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AuthorizationPendingException =>
     __isa(o, "AuthorizationPendingException");
 }
@@ -86,6 +95,9 @@ export interface CreateTokenRequest {
 }
 
 export namespace CreateTokenRequest {
+  export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateTokenRequest =>
     __isa(o, "CreateTokenRequest");
 }
@@ -121,6 +133,9 @@ export interface CreateTokenResponse {
 }
 
 export namespace CreateTokenResponse {
+  export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateTokenResponse =>
     __isa(o, "CreateTokenResponse");
 }
@@ -138,6 +153,9 @@ export interface ExpiredTokenException
 }
 
 export namespace ExpiredTokenException {
+  export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExpiredTokenException =>
     __isa(o, "ExpiredTokenException");
 }
@@ -155,6 +173,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -174,6 +195,9 @@ export interface InvalidClientException
 }
 
 export namespace InvalidClientException {
+  export const filterSensitiveLog = (obj: InvalidClientException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidClientException =>
     __isa(o, "InvalidClientException");
 }
@@ -191,6 +215,11 @@ export interface InvalidClientMetadataException
 }
 
 export namespace InvalidClientMetadataException {
+  export const filterSensitiveLog = (
+    obj: InvalidClientMetadataException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidClientMetadataException =>
     __isa(o, "InvalidClientMetadataException");
 }
@@ -208,6 +237,9 @@ export interface InvalidGrantException
 }
 
 export namespace InvalidGrantException {
+  export const filterSensitiveLog = (obj: InvalidGrantException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidGrantException =>
     __isa(o, "InvalidGrantException");
 }
@@ -226,6 +258,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -243,6 +278,9 @@ export interface InvalidScopeException
 }
 
 export namespace InvalidScopeException {
+  export const filterSensitiveLog = (obj: InvalidScopeException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidScopeException =>
     __isa(o, "InvalidScopeException");
 }
@@ -267,6 +305,9 @@ export interface RegisterClientRequest {
 }
 
 export namespace RegisterClientRequest {
+  export const filterSensitiveLog = (obj: RegisterClientRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterClientRequest =>
     __isa(o, "RegisterClientRequest");
 }
@@ -307,6 +348,9 @@ export interface RegisterClientResponse {
 }
 
 export namespace RegisterClientResponse {
+  export const filterSensitiveLog = (obj: RegisterClientResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterClientResponse =>
     __isa(o, "RegisterClientResponse");
 }
@@ -322,6 +366,9 @@ export interface SlowDownException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SlowDownException {
+  export const filterSensitiveLog = (obj: SlowDownException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SlowDownException =>
     __isa(o, "SlowDownException");
 }
@@ -349,6 +396,11 @@ export interface StartDeviceAuthorizationRequest {
 }
 
 export namespace StartDeviceAuthorizationRequest {
+  export const filterSensitiveLog = (
+    obj: StartDeviceAuthorizationRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartDeviceAuthorizationRequest =>
     __isa(o, "StartDeviceAuthorizationRequest");
 }
@@ -389,6 +441,11 @@ export interface StartDeviceAuthorizationResponse {
 }
 
 export namespace StartDeviceAuthorizationResponse {
+  export const filterSensitiveLog = (
+    obj: StartDeviceAuthorizationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartDeviceAuthorizationResponse =>
     __isa(o, "StartDeviceAuthorizationResponse");
 }
@@ -407,6 +464,11 @@ export interface UnauthorizedClientException
 }
 
 export namespace UnauthorizedClientException {
+  export const filterSensitiveLog = (
+    obj: UnauthorizedClientException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnauthorizedClientException =>
     __isa(o, "UnauthorizedClientException");
 }
@@ -424,6 +486,11 @@ export interface UnsupportedGrantTypeException
 }
 
 export namespace UnsupportedGrantTypeException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedGrantTypeException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedGrantTypeException =>
     __isa(o, "UnsupportedGrantTypeException");
 }

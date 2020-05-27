@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -10,6 +11,9 @@ export interface DeleteConnectionRequest {
 }
 
 export namespace DeleteConnectionRequest {
+  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConnectionRequest =>
     __isa(o, "DeleteConnectionRequest");
 }
@@ -23,6 +27,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ForbiddenException =>
     __isa(o, "ForbiddenException");
 }
@@ -33,6 +40,9 @@ export interface GetConnectionRequest {
 }
 
 export namespace GetConnectionRequest {
+  export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetConnectionRequest =>
     __isa(o, "GetConnectionRequest");
 }
@@ -52,6 +62,10 @@ export interface GetConnectionResponse {
 }
 
 export namespace GetConnectionResponse {
+  export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
+    ...obj,
+    ...(obj.Identity && { Identity: Identity.filterSensitiveLog(obj.Identity) })
+  });
   export const isa = (o: any): o is GetConnectionResponse =>
     __isa(o, "GetConnectionResponse");
 }
@@ -65,6 +79,9 @@ export interface GoneException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace GoneException {
+  export const filterSensitiveLog = (obj: GoneException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GoneException => __isa(o, "GoneException");
 }
 
@@ -82,6 +99,9 @@ export interface Identity {
 }
 
 export namespace Identity {
+  export const filterSensitiveLog = (obj: Identity): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Identity => __isa(o, "Identity");
 }
 
@@ -96,6 +116,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -112,6 +135,9 @@ export interface PayloadTooLargeException
 }
 
 export namespace PayloadTooLargeException {
+  export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PayloadTooLargeException =>
     __isa(o, "PayloadTooLargeException");
 }
@@ -130,6 +156,9 @@ export interface PostToConnectionRequest {
 }
 
 export namespace PostToConnectionRequest {
+  export const filterSensitiveLog = (obj: PostToConnectionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PostToConnectionRequest =>
     __isa(o, "PostToConnectionRequest");
 }

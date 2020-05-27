@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -27,6 +28,11 @@ export interface AssociateEntityToThingRequest {
 }
 
 export namespace AssociateEntityToThingRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateEntityToThingRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateEntityToThingRequest =>
     __isa(o, "AssociateEntityToThingRequest");
 }
@@ -36,6 +42,11 @@ export interface AssociateEntityToThingResponse {
 }
 
 export namespace AssociateEntityToThingResponse {
+  export const filterSensitiveLog = (
+    obj: AssociateEntityToThingResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateEntityToThingResponse =>
     __isa(o, "AssociateEntityToThingResponse");
 }
@@ -55,6 +66,12 @@ export interface CreateFlowTemplateRequest {
 }
 
 export namespace CreateFlowTemplateRequest {
+  export const filterSensitiveLog = (obj: CreateFlowTemplateRequest): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    })
+  });
   export const isa = (o: any): o is CreateFlowTemplateRequest =>
     __isa(o, "CreateFlowTemplateRequest");
 }
@@ -68,6 +85,12 @@ export interface CreateFlowTemplateResponse {
 }
 
 export namespace CreateFlowTemplateResponse {
+  export const filterSensitiveLog = (obj: CreateFlowTemplateResponse): any => ({
+    ...obj,
+    ...(obj.summary && {
+      summary: FlowTemplateSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is CreateFlowTemplateResponse =>
     __isa(o, "CreateFlowTemplateResponse");
 }
@@ -115,6 +138,22 @@ export interface CreateSystemInstanceRequest {
 }
 
 export namespace CreateSystemInstanceRequest {
+  export const filterSensitiveLog = (
+    obj: CreateSystemInstanceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    }),
+    ...(obj.metricsConfiguration && {
+      metricsConfiguration: MetricsConfiguration.filterSensitiveLog(
+        obj.metricsConfiguration
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateSystemInstanceRequest =>
     __isa(o, "CreateSystemInstanceRequest");
 }
@@ -128,6 +167,14 @@ export interface CreateSystemInstanceResponse {
 }
 
 export namespace CreateSystemInstanceResponse {
+  export const filterSensitiveLog = (
+    obj: CreateSystemInstanceResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summary && {
+      summary: SystemInstanceSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is CreateSystemInstanceResponse =>
     __isa(o, "CreateSystemInstanceResponse");
 }
@@ -147,6 +194,14 @@ export interface CreateSystemTemplateRequest {
 }
 
 export namespace CreateSystemTemplateRequest {
+  export const filterSensitiveLog = (
+    obj: CreateSystemTemplateRequest
+  ): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    })
+  });
   export const isa = (o: any): o is CreateSystemTemplateRequest =>
     __isa(o, "CreateSystemTemplateRequest");
 }
@@ -160,6 +215,14 @@ export interface CreateSystemTemplateResponse {
 }
 
 export namespace CreateSystemTemplateResponse {
+  export const filterSensitiveLog = (
+    obj: CreateSystemTemplateResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summary && {
+      summary: SystemTemplateSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is CreateSystemTemplateResponse =>
     __isa(o, "CreateSystemTemplateResponse");
 }
@@ -177,6 +240,9 @@ export interface DeleteFlowTemplateRequest {
 }
 
 export namespace DeleteFlowTemplateRequest {
+  export const filterSensitiveLog = (obj: DeleteFlowTemplateRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteFlowTemplateRequest =>
     __isa(o, "DeleteFlowTemplateRequest");
 }
@@ -186,6 +252,9 @@ export interface DeleteFlowTemplateResponse {
 }
 
 export namespace DeleteFlowTemplateResponse {
+  export const filterSensitiveLog = (obj: DeleteFlowTemplateResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteFlowTemplateResponse =>
     __isa(o, "DeleteFlowTemplateResponse");
 }
@@ -195,6 +264,9 @@ export interface DeleteNamespaceRequest {
 }
 
 export namespace DeleteNamespaceRequest {
+  export const filterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteNamespaceRequest =>
     __isa(o, "DeleteNamespaceRequest");
 }
@@ -213,6 +285,9 @@ export interface DeleteNamespaceResponse {
 }
 
 export namespace DeleteNamespaceResponse {
+  export const filterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteNamespaceResponse =>
     __isa(o, "DeleteNamespaceResponse");
 }
@@ -226,6 +301,11 @@ export interface DeleteSystemInstanceRequest {
 }
 
 export namespace DeleteSystemInstanceRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteSystemInstanceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSystemInstanceRequest =>
     __isa(o, "DeleteSystemInstanceRequest");
 }
@@ -235,6 +315,11 @@ export interface DeleteSystemInstanceResponse {
 }
 
 export namespace DeleteSystemInstanceResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteSystemInstanceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSystemInstanceResponse =>
     __isa(o, "DeleteSystemInstanceResponse");
 }
@@ -252,6 +337,11 @@ export interface DeleteSystemTemplateRequest {
 }
 
 export namespace DeleteSystemTemplateRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteSystemTemplateRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSystemTemplateRequest =>
     __isa(o, "DeleteSystemTemplateRequest");
 }
@@ -261,6 +351,11 @@ export interface DeleteSystemTemplateResponse {
 }
 
 export namespace DeleteSystemTemplateResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteSystemTemplateResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSystemTemplateResponse =>
     __isa(o, "DeleteSystemTemplateResponse");
 }
@@ -278,6 +373,11 @@ export interface DeploySystemInstanceRequest {
 }
 
 export namespace DeploySystemInstanceRequest {
+  export const filterSensitiveLog = (
+    obj: DeploySystemInstanceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeploySystemInstanceRequest =>
     __isa(o, "DeploySystemInstanceRequest");
 }
@@ -296,6 +396,14 @@ export interface DeploySystemInstanceResponse {
 }
 
 export namespace DeploySystemInstanceResponse {
+  export const filterSensitiveLog = (
+    obj: DeploySystemInstanceResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summary && {
+      summary: SystemInstanceSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is DeploySystemInstanceResponse =>
     __isa(o, "DeploySystemInstanceResponse");
 }
@@ -313,6 +421,11 @@ export interface DeprecateFlowTemplateRequest {
 }
 
 export namespace DeprecateFlowTemplateRequest {
+  export const filterSensitiveLog = (
+    obj: DeprecateFlowTemplateRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeprecateFlowTemplateRequest =>
     __isa(o, "DeprecateFlowTemplateRequest");
 }
@@ -322,6 +435,11 @@ export interface DeprecateFlowTemplateResponse {
 }
 
 export namespace DeprecateFlowTemplateResponse {
+  export const filterSensitiveLog = (
+    obj: DeprecateFlowTemplateResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeprecateFlowTemplateResponse =>
     __isa(o, "DeprecateFlowTemplateResponse");
 }
@@ -339,6 +457,11 @@ export interface DeprecateSystemTemplateRequest {
 }
 
 export namespace DeprecateSystemTemplateRequest {
+  export const filterSensitiveLog = (
+    obj: DeprecateSystemTemplateRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeprecateSystemTemplateRequest =>
     __isa(o, "DeprecateSystemTemplateRequest");
 }
@@ -348,6 +471,11 @@ export interface DeprecateSystemTemplateResponse {
 }
 
 export namespace DeprecateSystemTemplateResponse {
+  export const filterSensitiveLog = (
+    obj: DeprecateSystemTemplateResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeprecateSystemTemplateResponse =>
     __isa(o, "DeprecateSystemTemplateResponse");
 }
@@ -361,6 +489,9 @@ export interface DescribeNamespaceRequest {
 }
 
 export namespace DescribeNamespaceRequest {
+  export const filterSensitiveLog = (obj: DescribeNamespaceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeNamespaceRequest =>
     __isa(o, "DescribeNamespaceRequest");
 }
@@ -394,6 +525,9 @@ export interface DescribeNamespaceResponse {
 }
 
 export namespace DescribeNamespaceResponse {
+  export const filterSensitiveLog = (obj: DescribeNamespaceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeNamespaceResponse =>
     __isa(o, "DescribeNamespaceResponse");
 }
@@ -412,6 +546,11 @@ export interface DissociateEntityFromThingRequest {
 }
 
 export namespace DissociateEntityFromThingRequest {
+  export const filterSensitiveLog = (
+    obj: DissociateEntityFromThingRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DissociateEntityFromThingRequest =>
     __isa(o, "DissociateEntityFromThingRequest");
 }
@@ -421,6 +560,11 @@ export interface DissociateEntityFromThingResponse {
 }
 
 export namespace DissociateEntityFromThingResponse {
+  export const filterSensitiveLog = (
+    obj: DissociateEntityFromThingResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DissociateEntityFromThingResponse =>
     __isa(o, "DissociateEntityFromThingResponse");
 }
@@ -443,6 +587,9 @@ export interface GetEntitiesRequest {
 }
 
 export namespace GetEntitiesRequest {
+  export const filterSensitiveLog = (obj: GetEntitiesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetEntitiesRequest =>
     __isa(o, "GetEntitiesRequest");
 }
@@ -456,6 +603,14 @@ export interface GetEntitiesResponse {
 }
 
 export namespace GetEntitiesResponse {
+  export const filterSensitiveLog = (obj: GetEntitiesResponse): any => ({
+    ...obj,
+    ...(obj.descriptions && {
+      descriptions: obj.descriptions.map(item =>
+        EntityDescription.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetEntitiesResponse =>
     __isa(o, "GetEntitiesResponse");
 }
@@ -478,6 +633,9 @@ export interface GetFlowTemplateRequest {
 }
 
 export namespace GetFlowTemplateRequest {
+  export const filterSensitiveLog = (obj: GetFlowTemplateRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetFlowTemplateRequest =>
     __isa(o, "GetFlowTemplateRequest");
 }
@@ -491,6 +649,12 @@ export interface GetFlowTemplateResponse {
 }
 
 export namespace GetFlowTemplateResponse {
+  export const filterSensitiveLog = (obj: GetFlowTemplateResponse): any => ({
+    ...obj,
+    ...(obj.description && {
+      description: FlowTemplateDescription.filterSensitiveLog(obj.description)
+    })
+  });
   export const isa = (o: any): o is GetFlowTemplateResponse =>
     __isa(o, "GetFlowTemplateResponse");
 }
@@ -518,6 +682,11 @@ export interface GetFlowTemplateRevisionsRequest {
 }
 
 export namespace GetFlowTemplateRevisionsRequest {
+  export const filterSensitiveLog = (
+    obj: GetFlowTemplateRevisionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetFlowTemplateRevisionsRequest =>
     __isa(o, "GetFlowTemplateRevisionsRequest");
 }
@@ -536,6 +705,16 @@ export interface GetFlowTemplateRevisionsResponse {
 }
 
 export namespace GetFlowTemplateRevisionsResponse {
+  export const filterSensitiveLog = (
+    obj: GetFlowTemplateRevisionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summaries && {
+      summaries: obj.summaries.map(item =>
+        FlowTemplateSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetFlowTemplateRevisionsResponse =>
     __isa(o, "GetFlowTemplateRevisionsResponse");
 }
@@ -545,6 +724,11 @@ export interface GetNamespaceDeletionStatusRequest {
 }
 
 export namespace GetNamespaceDeletionStatusRequest {
+  export const filterSensitiveLog = (
+    obj: GetNamespaceDeletionStatusRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetNamespaceDeletionStatusRequest =>
     __isa(o, "GetNamespaceDeletionStatusRequest");
 }
@@ -578,6 +762,11 @@ export interface GetNamespaceDeletionStatusResponse {
 }
 
 export namespace GetNamespaceDeletionStatusResponse {
+  export const filterSensitiveLog = (
+    obj: GetNamespaceDeletionStatusResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetNamespaceDeletionStatusResponse =>
     __isa(o, "GetNamespaceDeletionStatusResponse");
 }
@@ -595,6 +784,9 @@ export interface GetSystemInstanceRequest {
 }
 
 export namespace GetSystemInstanceRequest {
+  export const filterSensitiveLog = (obj: GetSystemInstanceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSystemInstanceRequest =>
     __isa(o, "GetSystemInstanceRequest");
 }
@@ -608,6 +800,12 @@ export interface GetSystemInstanceResponse {
 }
 
 export namespace GetSystemInstanceResponse {
+  export const filterSensitiveLog = (obj: GetSystemInstanceResponse): any => ({
+    ...obj,
+    ...(obj.description && {
+      description: SystemInstanceDescription.filterSensitiveLog(obj.description)
+    })
+  });
   export const isa = (o: any): o is GetSystemInstanceResponse =>
     __isa(o, "GetSystemInstanceResponse");
 }
@@ -630,6 +828,9 @@ export interface GetSystemTemplateRequest {
 }
 
 export namespace GetSystemTemplateRequest {
+  export const filterSensitiveLog = (obj: GetSystemTemplateRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSystemTemplateRequest =>
     __isa(o, "GetSystemTemplateRequest");
 }
@@ -643,6 +844,12 @@ export interface GetSystemTemplateResponse {
 }
 
 export namespace GetSystemTemplateResponse {
+  export const filterSensitiveLog = (obj: GetSystemTemplateResponse): any => ({
+    ...obj,
+    ...(obj.description && {
+      description: SystemTemplateDescription.filterSensitiveLog(obj.description)
+    })
+  });
   export const isa = (o: any): o is GetSystemTemplateResponse =>
     __isa(o, "GetSystemTemplateResponse");
 }
@@ -670,6 +877,11 @@ export interface GetSystemTemplateRevisionsRequest {
 }
 
 export namespace GetSystemTemplateRevisionsRequest {
+  export const filterSensitiveLog = (
+    obj: GetSystemTemplateRevisionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSystemTemplateRevisionsRequest =>
     __isa(o, "GetSystemTemplateRevisionsRequest");
 }
@@ -688,6 +900,16 @@ export interface GetSystemTemplateRevisionsResponse {
 }
 
 export namespace GetSystemTemplateRevisionsResponse {
+  export const filterSensitiveLog = (
+    obj: GetSystemTemplateRevisionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summaries && {
+      summaries: obj.summaries.map(item =>
+        SystemTemplateSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetSystemTemplateRevisionsResponse =>
     __isa(o, "GetSystemTemplateRevisionsResponse");
 }
@@ -701,6 +923,9 @@ export interface GetUploadStatusRequest {
 }
 
 export namespace GetUploadStatusRequest {
+  export const filterSensitiveLog = (obj: GetUploadStatusRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetUploadStatusRequest =>
     __isa(o, "GetUploadStatusRequest");
 }
@@ -744,6 +969,9 @@ export interface GetUploadStatusResponse {
 }
 
 export namespace GetUploadStatusResponse {
+  export const filterSensitiveLog = (obj: GetUploadStatusResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetUploadStatusResponse =>
     __isa(o, "GetUploadStatusResponse");
 }
@@ -767,6 +995,11 @@ export interface ListFlowExecutionMessagesRequest {
 }
 
 export namespace ListFlowExecutionMessagesRequest {
+  export const filterSensitiveLog = (
+    obj: ListFlowExecutionMessagesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListFlowExecutionMessagesRequest =>
     __isa(o, "ListFlowExecutionMessagesRequest");
 }
@@ -785,6 +1018,16 @@ export interface ListFlowExecutionMessagesResponse {
 }
 
 export namespace ListFlowExecutionMessagesResponse {
+  export const filterSensitiveLog = (
+    obj: ListFlowExecutionMessagesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.messages && {
+      messages: obj.messages.map(item =>
+        FlowExecutionMessage.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListFlowExecutionMessagesResponse =>
     __isa(o, "ListFlowExecutionMessagesResponse");
 }
@@ -808,6 +1051,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -826,6 +1072,14 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -863,6 +1117,12 @@ export interface SearchEntitiesRequest {
 }
 
 export namespace SearchEntitiesRequest {
+  export const filterSensitiveLog = (obj: SearchEntitiesRequest): any => ({
+    ...obj,
+    ...(obj.filters && {
+      filters: obj.filters.map(item => EntityFilter.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is SearchEntitiesRequest =>
     __isa(o, "SearchEntitiesRequest");
 }
@@ -881,6 +1141,14 @@ export interface SearchEntitiesResponse {
 }
 
 export namespace SearchEntitiesResponse {
+  export const filterSensitiveLog = (obj: SearchEntitiesResponse): any => ({
+    ...obj,
+    ...(obj.descriptions && {
+      descriptions: obj.descriptions.map(item =>
+        EntityDescription.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchEntitiesResponse =>
     __isa(o, "SearchEntitiesResponse");
 }
@@ -919,6 +1187,11 @@ export interface SearchFlowExecutionsRequest {
 }
 
 export namespace SearchFlowExecutionsRequest {
+  export const filterSensitiveLog = (
+    obj: SearchFlowExecutionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SearchFlowExecutionsRequest =>
     __isa(o, "SearchFlowExecutionsRequest");
 }
@@ -937,6 +1210,16 @@ export interface SearchFlowExecutionsResponse {
 }
 
 export namespace SearchFlowExecutionsResponse {
+  export const filterSensitiveLog = (
+    obj: SearchFlowExecutionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summaries && {
+      summaries: obj.summaries.map(item =>
+        FlowExecutionSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchFlowExecutionsResponse =>
     __isa(o, "SearchFlowExecutionsResponse");
 }
@@ -960,6 +1243,14 @@ export interface SearchFlowTemplatesRequest {
 }
 
 export namespace SearchFlowTemplatesRequest {
+  export const filterSensitiveLog = (obj: SearchFlowTemplatesRequest): any => ({
+    ...obj,
+    ...(obj.filters && {
+      filters: obj.filters.map(item =>
+        FlowTemplateFilter.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchFlowTemplatesRequest =>
     __isa(o, "SearchFlowTemplatesRequest");
 }
@@ -978,6 +1269,16 @@ export interface SearchFlowTemplatesResponse {
 }
 
 export namespace SearchFlowTemplatesResponse {
+  export const filterSensitiveLog = (
+    obj: SearchFlowTemplatesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summaries && {
+      summaries: obj.summaries.map(item =>
+        FlowTemplateSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchFlowTemplatesResponse =>
     __isa(o, "SearchFlowTemplatesResponse");
 }
@@ -1003,6 +1304,16 @@ export interface SearchSystemInstancesRequest {
 }
 
 export namespace SearchSystemInstancesRequest {
+  export const filterSensitiveLog = (
+    obj: SearchSystemInstancesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.filters && {
+      filters: obj.filters.map(item =>
+        SystemInstanceFilter.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchSystemInstancesRequest =>
     __isa(o, "SearchSystemInstancesRequest");
 }
@@ -1021,6 +1332,16 @@ export interface SearchSystemInstancesResponse {
 }
 
 export namespace SearchSystemInstancesResponse {
+  export const filterSensitiveLog = (
+    obj: SearchSystemInstancesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summaries && {
+      summaries: obj.summaries.map(item =>
+        SystemInstanceSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchSystemInstancesResponse =>
     __isa(o, "SearchSystemInstancesResponse");
 }
@@ -1044,6 +1365,16 @@ export interface SearchSystemTemplatesRequest {
 }
 
 export namespace SearchSystemTemplatesRequest {
+  export const filterSensitiveLog = (
+    obj: SearchSystemTemplatesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.filters && {
+      filters: obj.filters.map(item =>
+        SystemTemplateFilter.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchSystemTemplatesRequest =>
     __isa(o, "SearchSystemTemplatesRequest");
 }
@@ -1062,6 +1393,16 @@ export interface SearchSystemTemplatesResponse {
 }
 
 export namespace SearchSystemTemplatesResponse {
+  export const filterSensitiveLog = (
+    obj: SearchSystemTemplatesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summaries && {
+      summaries: obj.summaries.map(item =>
+        SystemTemplateSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchSystemTemplatesResponse =>
     __isa(o, "SearchSystemTemplatesResponse");
 }
@@ -1094,6 +1435,9 @@ export interface SearchThingsRequest {
 }
 
 export namespace SearchThingsRequest {
+  export const filterSensitiveLog = (obj: SearchThingsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SearchThingsRequest =>
     __isa(o, "SearchThingsRequest");
 }
@@ -1112,6 +1456,12 @@ export interface SearchThingsResponse {
 }
 
 export namespace SearchThingsResponse {
+  export const filterSensitiveLog = (obj: SearchThingsResponse): any => ({
+    ...obj,
+    ...(obj.things && {
+      things: obj.things.map(item => Thing.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is SearchThingsResponse =>
     __isa(o, "SearchThingsResponse");
 }
@@ -1130,6 +1480,12 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -1139,6 +1495,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -1152,6 +1511,11 @@ export interface UndeploySystemInstanceRequest {
 }
 
 export namespace UndeploySystemInstanceRequest {
+  export const filterSensitiveLog = (
+    obj: UndeploySystemInstanceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UndeploySystemInstanceRequest =>
     __isa(o, "UndeploySystemInstanceRequest");
 }
@@ -1165,6 +1529,14 @@ export interface UndeploySystemInstanceResponse {
 }
 
 export namespace UndeploySystemInstanceResponse {
+  export const filterSensitiveLog = (
+    obj: UndeploySystemInstanceResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summary && {
+      summary: SystemInstanceSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is UndeploySystemInstanceResponse =>
     __isa(o, "UndeploySystemInstanceResponse");
 }
@@ -1184,6 +1556,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -1193,6 +1568,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -1222,6 +1600,12 @@ export interface UpdateFlowTemplateRequest {
 }
 
 export namespace UpdateFlowTemplateRequest {
+  export const filterSensitiveLog = (obj: UpdateFlowTemplateRequest): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    })
+  });
   export const isa = (o: any): o is UpdateFlowTemplateRequest =>
     __isa(o, "UpdateFlowTemplateRequest");
 }
@@ -1235,6 +1619,12 @@ export interface UpdateFlowTemplateResponse {
 }
 
 export namespace UpdateFlowTemplateResponse {
+  export const filterSensitiveLog = (obj: UpdateFlowTemplateResponse): any => ({
+    ...obj,
+    ...(obj.summary && {
+      summary: FlowTemplateSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is UpdateFlowTemplateResponse =>
     __isa(o, "UpdateFlowTemplateResponse");
 }
@@ -1263,6 +1653,14 @@ export interface UpdateSystemTemplateRequest {
 }
 
 export namespace UpdateSystemTemplateRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateSystemTemplateRequest
+  ): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    })
+  });
   export const isa = (o: any): o is UpdateSystemTemplateRequest =>
     __isa(o, "UpdateSystemTemplateRequest");
 }
@@ -1276,6 +1674,14 @@ export interface UpdateSystemTemplateResponse {
 }
 
 export namespace UpdateSystemTemplateResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateSystemTemplateResponse
+  ): any => ({
+    ...obj,
+    ...(obj.summary && {
+      summary: SystemTemplateSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is UpdateSystemTemplateResponse =>
     __isa(o, "UpdateSystemTemplateResponse");
 }
@@ -1300,6 +1706,14 @@ export interface UploadEntityDefinitionsRequest {
 }
 
 export namespace UploadEntityDefinitionsRequest {
+  export const filterSensitiveLog = (
+    obj: UploadEntityDefinitionsRequest
+  ): any => ({
+    ...obj,
+    ...(obj.document && {
+      document: DefinitionDocument.filterSensitiveLog(obj.document)
+    })
+  });
   export const isa = (o: any): o is UploadEntityDefinitionsRequest =>
     __isa(o, "UploadEntityDefinitionsRequest");
 }
@@ -1313,6 +1727,11 @@ export interface UploadEntityDefinitionsResponse {
 }
 
 export namespace UploadEntityDefinitionsResponse {
+  export const filterSensitiveLog = (
+    obj: UploadEntityDefinitionsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UploadEntityDefinitionsResponse =>
     __isa(o, "UploadEntityDefinitionsResponse");
 }
@@ -1334,6 +1753,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -1354,6 +1776,9 @@ export interface DefinitionDocument {
 }
 
 export namespace DefinitionDocument {
+  export const filterSensitiveLog = (obj: DefinitionDocument): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DefinitionDocument =>
     __isa(o, "DefinitionDocument");
 }
@@ -1374,6 +1799,9 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalFailureException =>
     __isa(o, "InternalFailureException");
 }
@@ -1390,6 +1818,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -1406,6 +1837,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -1422,6 +1856,11 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
     __isa(o, "ResourceAlreadyExistsException");
 }
@@ -1438,6 +1877,9 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInUseException =>
     __isa(o, "ResourceInUseException");
 }
@@ -1454,6 +1896,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -1470,6 +1915,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -1506,6 +1954,12 @@ export interface EntityDescription {
 }
 
 export namespace EntityDescription {
+  export const filterSensitiveLog = (obj: EntityDescription): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    })
+  });
   export const isa = (o: any): o is EntityDescription =>
     __isa(o, "EntityDescription");
 }
@@ -1530,6 +1984,9 @@ export interface EntityFilter {
 }
 
 export namespace EntityFilter {
+  export const filterSensitiveLog = (obj: EntityFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
 }
 
@@ -1580,6 +2037,9 @@ export interface Thing {
 }
 
 export namespace Thing {
+  export const filterSensitiveLog = (obj: Thing): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Thing => __isa(o, "Thing");
 }
 
@@ -1606,6 +2066,9 @@ export interface DependencyRevision {
 }
 
 export namespace DependencyRevision {
+  export const filterSensitiveLog = (obj: DependencyRevision): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DependencyRevision =>
     __isa(o, "DependencyRevision");
 }
@@ -1662,6 +2125,9 @@ export interface FlowExecutionMessage {
 }
 
 export namespace FlowExecutionMessage {
+  export const filterSensitiveLog = (obj: FlowExecutionMessage): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FlowExecutionMessage =>
     __isa(o, "FlowExecutionMessage");
 }
@@ -1710,6 +2176,9 @@ export interface FlowExecutionSummary {
 }
 
 export namespace FlowExecutionSummary {
+  export const filterSensitiveLog = (obj: FlowExecutionSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FlowExecutionSummary =>
     __isa(o, "FlowExecutionSummary");
 }
@@ -1736,6 +2205,15 @@ export interface FlowTemplateDescription {
 }
 
 export namespace FlowTemplateDescription {
+  export const filterSensitiveLog = (obj: FlowTemplateDescription): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    }),
+    ...(obj.summary && {
+      summary: FlowTemplateSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is FlowTemplateDescription =>
     __isa(o, "FlowTemplateDescription");
 }
@@ -1757,6 +2235,9 @@ export interface FlowTemplateFilter {
 }
 
 export namespace FlowTemplateFilter {
+  export const filterSensitiveLog = (obj: FlowTemplateFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FlowTemplateFilter =>
     __isa(o, "FlowTemplateFilter");
 }
@@ -1792,6 +2273,9 @@ export interface FlowTemplateSummary {
 }
 
 export namespace FlowTemplateSummary {
+  export const filterSensitiveLog = (obj: FlowTemplateSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FlowTemplateSummary =>
     __isa(o, "FlowTemplateSummary");
 }
@@ -1813,6 +2297,9 @@ export interface MetricsConfiguration {
 }
 
 export namespace MetricsConfiguration {
+  export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MetricsConfiguration =>
     __isa(o, "MetricsConfiguration");
 }
@@ -1872,6 +2359,25 @@ export interface SystemInstanceDescription {
 }
 
 export namespace SystemInstanceDescription {
+  export const filterSensitiveLog = (obj: SystemInstanceDescription): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    }),
+    ...(obj.metricsConfiguration && {
+      metricsConfiguration: MetricsConfiguration.filterSensitiveLog(
+        obj.metricsConfiguration
+      )
+    }),
+    ...(obj.summary && {
+      summary: SystemInstanceSummary.filterSensitiveLog(obj.summary)
+    }),
+    ...(obj.validatedDependencyRevisions && {
+      validatedDependencyRevisions: obj.validatedDependencyRevisions.map(item =>
+        DependencyRevision.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SystemInstanceDescription =>
     __isa(o, "SystemInstanceDescription");
 }
@@ -1895,6 +2401,9 @@ export interface SystemInstanceFilter {
 }
 
 export namespace SystemInstanceFilter {
+  export const filterSensitiveLog = (obj: SystemInstanceFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SystemInstanceFilter =>
     __isa(o, "SystemInstanceFilter");
 }
@@ -1959,6 +2468,9 @@ export interface SystemInstanceSummary {
 }
 
 export namespace SystemInstanceSummary {
+  export const filterSensitiveLog = (obj: SystemInstanceSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SystemInstanceSummary =>
     __isa(o, "SystemInstanceSummary");
 }
@@ -1985,6 +2497,15 @@ export interface SystemTemplateDescription {
 }
 
 export namespace SystemTemplateDescription {
+  export const filterSensitiveLog = (obj: SystemTemplateDescription): any => ({
+    ...obj,
+    ...(obj.definition && {
+      definition: DefinitionDocument.filterSensitiveLog(obj.definition)
+    }),
+    ...(obj.summary && {
+      summary: SystemTemplateSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is SystemTemplateDescription =>
     __isa(o, "SystemTemplateDescription");
 }
@@ -2006,6 +2527,9 @@ export interface SystemTemplateFilter {
 }
 
 export namespace SystemTemplateFilter {
+  export const filterSensitiveLog = (obj: SystemTemplateFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SystemTemplateFilter =>
     __isa(o, "SystemTemplateFilter");
 }
@@ -2041,6 +2565,9 @@ export interface SystemTemplateSummary {
 }
 
 export namespace SystemTemplateSummary {
+  export const filterSensitiveLog = (obj: SystemTemplateSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SystemTemplateSummary =>
     __isa(o, "SystemTemplateSummary");
 }

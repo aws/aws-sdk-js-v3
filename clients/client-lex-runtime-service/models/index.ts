@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   isa as __isa
@@ -19,6 +20,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -33,6 +37,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConflictException =>
     __isa(o, "ConflictException");
 }
@@ -49,6 +56,9 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalFailureException =>
     __isa(o, "InternalFailureException");
 }
@@ -66,6 +76,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -82,6 +95,9 @@ export interface NotAcceptableException
 }
 
 export namespace NotAcceptableException {
+  export const filterSensitiveLog = (obj: NotAcceptableException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotAcceptableException =>
     __isa(o, "NotAcceptableException");
 }
@@ -97,6 +113,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -113,6 +132,9 @@ export interface RequestTimeoutException
 }
 
 export namespace RequestTimeoutException {
+  export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RequestTimeoutException =>
     __isa(o, "RequestTimeoutException");
 }
@@ -129,6 +151,11 @@ export interface UnsupportedMediaTypeException
 }
 
 export namespace UnsupportedMediaTypeException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedMediaTypeException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedMediaTypeException =>
     __isa(o, "UnsupportedMediaTypeException");
 }
@@ -146,6 +173,9 @@ export interface BadGatewayException
 }
 
 export namespace BadGatewayException {
+  export const filterSensitiveLog = (obj: BadGatewayException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadGatewayException =>
     __isa(o, "BadGatewayException");
 }
@@ -175,6 +205,9 @@ export interface DeleteSessionRequest {
 }
 
 export namespace DeleteSessionRequest {
+  export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSessionRequest =>
     __isa(o, "DeleteSessionRequest");
 }
@@ -203,6 +236,9 @@ export interface DeleteSessionResponse {
 }
 
 export namespace DeleteSessionResponse {
+  export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSessionResponse =>
     __isa(o, "DeleteSessionResponse");
 }
@@ -231,6 +267,9 @@ export interface DependencyFailedException
 }
 
 export namespace DependencyFailedException {
+  export const filterSensitiveLog = (obj: DependencyFailedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DependencyFailedException =>
     __isa(o, "DependencyFailedException");
 }
@@ -346,6 +385,11 @@ export interface DialogAction {
 }
 
 export namespace DialogAction {
+  export const filterSensitiveLog = (obj: DialogAction): any => ({
+    ...obj,
+    ...(obj.message && { message: SENSITIVE_STRING }),
+    ...(obj.slots && { slots: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is DialogAction => __isa(o, "DialogAction");
 }
 
@@ -400,6 +444,9 @@ export interface GetSessionRequest {
 }
 
 export namespace GetSessionRequest {
+  export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSessionRequest =>
     __isa(o, "GetSessionRequest");
 }
@@ -434,6 +481,18 @@ export interface GetSessionResponse {
 }
 
 export namespace GetSessionResponse {
+  export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
+    ...obj,
+    ...(obj.dialogAction && {
+      dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction)
+    }),
+    ...(obj.recentIntentSummaryView && {
+      recentIntentSummaryView: obj.recentIntentSummaryView.map(item =>
+        IntentSummary.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetSessionResponse =>
     __isa(o, "GetSessionResponse");
 }
@@ -547,6 +606,10 @@ export interface IntentSummary {
 }
 
 export namespace IntentSummary {
+  export const filterSensitiveLog = (obj: IntentSummary): any => ({
+    ...obj,
+    ...(obj.slots && { slots: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is IntentSummary => __isa(o, "IntentSummary");
 }
 
@@ -562,6 +625,9 @@ export interface LoopDetectedException
 }
 
 export namespace LoopDetectedException {
+  export const filterSensitiveLog = (obj: LoopDetectedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LoopDetectedException =>
     __isa(o, "LoopDetectedException");
 }
@@ -734,6 +800,11 @@ export interface PostContentRequest {
 }
 
 export namespace PostContentRequest {
+  export const filterSensitiveLog = (obj: PostContentRequest): any => ({
+    ...obj,
+    ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is PostContentRequest =>
     __isa(o, "PostContentRequest");
 }
@@ -902,6 +973,10 @@ export interface PostContentResponse {
 }
 
 export namespace PostContentResponse {
+  export const filterSensitiveLog = (obj: PostContentResponse): any => ({
+    ...obj,
+    ...(obj.message && { message: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is PostContentResponse =>
     __isa(o, "PostContentResponse");
 }
@@ -970,6 +1045,12 @@ export interface PostTextRequest {
 }
 
 export namespace PostTextRequest {
+  export const filterSensitiveLog = (obj: PostTextRequest): any => ({
+    ...obj,
+    ...(obj.inputText && { inputText: SENSITIVE_STRING }),
+    ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is PostTextRequest =>
     __isa(o, "PostTextRequest");
 }
@@ -1120,6 +1201,20 @@ export interface PostTextResponse {
 }
 
 export namespace PostTextResponse {
+  export const filterSensitiveLog = (obj: PostTextResponse): any => ({
+    ...obj,
+    ...(obj.message && { message: SENSITIVE_STRING }),
+    ...(obj.responseCard && {
+      responseCard: ResponseCard.filterSensitiveLog(obj.responseCard)
+    }),
+    ...(obj.sentimentResponse && {
+      sentimentResponse: SentimentResponse.filterSensitiveLog(
+        obj.sentimentResponse
+      )
+    }),
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+    ...(obj.slots && { slots: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is PostTextResponse =>
     __isa(o, "PostTextResponse");
 }
@@ -1235,6 +1330,18 @@ export interface PutSessionRequest {
 }
 
 export namespace PutSessionRequest {
+  export const filterSensitiveLog = (obj: PutSessionRequest): any => ({
+    ...obj,
+    ...(obj.dialogAction && {
+      dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction)
+    }),
+    ...(obj.recentIntentSummaryView && {
+      recentIntentSummaryView: obj.recentIntentSummaryView.map(item =>
+        IntentSummary.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is PutSessionRequest =>
     __isa(o, "PutSessionRequest");
 }
@@ -1355,6 +1462,10 @@ export interface PutSessionResponse {
 }
 
 export namespace PutSessionResponse {
+  export const filterSensitiveLog = (obj: PutSessionResponse): any => ({
+    ...obj,
+    ...(obj.message && { message: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is PutSessionResponse =>
     __isa(o, "PutSessionResponse");
 }
@@ -1378,6 +1489,9 @@ export interface SentimentResponse {
 }
 
 export namespace SentimentResponse {
+  export const filterSensitiveLog = (obj: SentimentResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SentimentResponse =>
     __isa(o, "SentimentResponse");
 }
@@ -1400,6 +1514,9 @@ export interface Button {
 }
 
 export namespace Button {
+  export const filterSensitiveLog = (obj: Button): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Button => __isa(o, "Button");
 }
 
@@ -1440,6 +1557,12 @@ export interface GenericAttachment {
 }
 
 export namespace GenericAttachment {
+  export const filterSensitiveLog = (obj: GenericAttachment): any => ({
+    ...obj,
+    ...(obj.buttons && {
+      buttons: obj.buttons.map(item => Button.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is GenericAttachment =>
     __isa(o, "GenericAttachment");
 }
@@ -1469,5 +1592,13 @@ export interface ResponseCard {
 }
 
 export namespace ResponseCard {
+  export const filterSensitiveLog = (obj: ResponseCard): any => ({
+    ...obj,
+    ...(obj.genericAttachments && {
+      genericAttachments: obj.genericAttachments.map(item =>
+        GenericAttachment.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ResponseCard => __isa(o, "ResponseCard");
 }

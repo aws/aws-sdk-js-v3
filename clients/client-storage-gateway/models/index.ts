@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -25,6 +26,9 @@ export interface ActivateGatewayOutput {
 }
 
 export namespace ActivateGatewayOutput {
+  export const filterSensitiveLog = (obj: ActivateGatewayOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ActivateGatewayOutput =>
     __isa(o, "ActivateGatewayOutput");
 }
@@ -56,6 +60,9 @@ export interface AddWorkingStorageInput {
 }
 
 export namespace AddWorkingStorageInput {
+  export const filterSensitiveLog = (obj: AddWorkingStorageInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddWorkingStorageInput =>
     __isa(o, "AddWorkingStorageInput");
 }
@@ -74,6 +81,9 @@ export interface AddWorkingStorageOutput {
 }
 
 export namespace AddWorkingStorageOutput {
+  export const filterSensitiveLog = (obj: AddWorkingStorageOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddWorkingStorageOutput =>
     __isa(o, "AddWorkingStorageOutput");
 }
@@ -110,6 +120,15 @@ export interface ChapInfo {
 }
 
 export namespace ChapInfo {
+  export const filterSensitiveLog = (obj: ChapInfo): any => ({
+    ...obj,
+    ...(obj.SecretToAuthenticateInitiator && {
+      SecretToAuthenticateInitiator: SENSITIVE_STRING
+    }),
+    ...(obj.SecretToAuthenticateTarget && {
+      SecretToAuthenticateTarget: SENSITIVE_STRING
+    })
+  });
   export const isa = (o: any): o is ChapInfo => __isa(o, "ChapInfo");
 }
 
@@ -157,6 +176,12 @@ export interface CreateSnapshotInput {
 }
 
 export namespace CreateSnapshotInput {
+  export const filterSensitiveLog = (obj: CreateSnapshotInput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateSnapshotInput =>
     __isa(o, "CreateSnapshotInput");
 }
@@ -181,6 +206,9 @@ export interface CreateSnapshotOutput {
 }
 
 export namespace CreateSnapshotOutput {
+  export const filterSensitiveLog = (obj: CreateSnapshotOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateSnapshotOutput =>
     __isa(o, "CreateSnapshotOutput");
 }
@@ -289,6 +317,14 @@ export interface CreateStorediSCSIVolumeInput {
 }
 
 export namespace CreateStorediSCSIVolumeInput {
+  export const filterSensitiveLog = (
+    obj: CreateStorediSCSIVolumeInput
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateStorediSCSIVolumeInput =>
     __isa(o, "CreateStorediSCSIVolumeInput");
 }
@@ -316,6 +352,11 @@ export interface CreateStorediSCSIVolumeOutput {
 }
 
 export namespace CreateStorediSCSIVolumeOutput {
+  export const filterSensitiveLog = (
+    obj: CreateStorediSCSIVolumeOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateStorediSCSIVolumeOutput =>
     __isa(o, "CreateStorediSCSIVolumeOutput");
 }
@@ -334,6 +375,11 @@ export interface DeleteBandwidthRateLimitOutput {
 }
 
 export namespace DeleteBandwidthRateLimitOutput {
+  export const filterSensitiveLog = (
+    obj: DeleteBandwidthRateLimitOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteBandwidthRateLimitOutput =>
     __isa(o, "DeleteBandwidthRateLimitOutput");
 }
@@ -368,6 +414,9 @@ export interface DeleteChapCredentialsInput {
 }
 
 export namespace DeleteChapCredentialsInput {
+  export const filterSensitiveLog = (obj: DeleteChapCredentialsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteChapCredentialsInput =>
     __isa(o, "DeleteChapCredentialsInput");
 }
@@ -389,6 +438,11 @@ export interface DeleteChapCredentialsOutput {
 }
 
 export namespace DeleteChapCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: DeleteChapCredentialsOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteChapCredentialsOutput =>
     __isa(o, "DeleteChapCredentialsOutput");
 }
@@ -406,6 +460,9 @@ export interface DeleteGatewayInput {
 }
 
 export namespace DeleteGatewayInput {
+  export const filterSensitiveLog = (obj: DeleteGatewayInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteGatewayInput =>
     __isa(o, "DeleteGatewayInput");
 }
@@ -423,6 +480,9 @@ export interface DeleteGatewayOutput {
 }
 
 export namespace DeleteGatewayOutput {
+  export const filterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteGatewayOutput =>
     __isa(o, "DeleteGatewayOutput");
 }
@@ -441,6 +501,9 @@ export interface DeleteVolumeInput {
 }
 
 export namespace DeleteVolumeInput {
+  export const filterSensitiveLog = (obj: DeleteVolumeInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteVolumeInput =>
     __isa(o, "DeleteVolumeInput");
 }
@@ -458,6 +521,9 @@ export interface DeleteVolumeOutput {
 }
 
 export namespace DeleteVolumeOutput {
+  export const filterSensitiveLog = (obj: DeleteVolumeOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteVolumeOutput =>
     __isa(o, "DeleteVolumeOutput");
 }
@@ -475,6 +541,11 @@ export interface DescribeBandwidthRateLimitInput {
 }
 
 export namespace DescribeBandwidthRateLimitInput {
+  export const filterSensitiveLog = (
+    obj: DescribeBandwidthRateLimitInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeBandwidthRateLimitInput =>
     __isa(o, "DescribeBandwidthRateLimitInput");
 }
@@ -504,6 +575,11 @@ export interface DescribeBandwidthRateLimitOutput {
 }
 
 export namespace DescribeBandwidthRateLimitOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeBandwidthRateLimitOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeBandwidthRateLimitOutput =>
     __isa(o, "DescribeBandwidthRateLimitOutput");
 }
@@ -522,6 +598,11 @@ export interface DescribeChapCredentialsInput {
 }
 
 export namespace DescribeChapCredentialsInput {
+  export const filterSensitiveLog = (
+    obj: DescribeChapCredentialsInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeChapCredentialsInput =>
     __isa(o, "DescribeChapCredentialsInput");
 }
@@ -569,6 +650,16 @@ export interface DescribeChapCredentialsOutput {
 }
 
 export namespace DescribeChapCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeChapCredentialsOutput
+  ): any => ({
+    ...obj,
+    ...(obj.ChapCredentials && {
+      ChapCredentials: obj.ChapCredentials.map(item =>
+        ChapInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeChapCredentialsOutput =>
     __isa(o, "DescribeChapCredentialsOutput");
 }
@@ -586,6 +677,11 @@ export interface DescribeGatewayInformationInput {
 }
 
 export namespace DescribeGatewayInformationInput {
+  export const filterSensitiveLog = (
+    obj: DescribeGatewayInformationInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeGatewayInformationInput =>
     __isa(o, "DescribeGatewayInformationInput");
 }
@@ -603,6 +699,11 @@ export interface DescribeMaintenanceStartTimeInput {
 }
 
 export namespace DescribeMaintenanceStartTimeInput {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceStartTimeInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeMaintenanceStartTimeInput =>
     __isa(o, "DescribeMaintenanceStartTimeInput");
 }
@@ -620,6 +721,11 @@ export interface DescribeSnapshotScheduleInput {
 }
 
 export namespace DescribeSnapshotScheduleInput {
+  export const filterSensitiveLog = (
+    obj: DescribeSnapshotScheduleInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeSnapshotScheduleInput =>
     __isa(o, "DescribeSnapshotScheduleInput");
 }
@@ -637,6 +743,11 @@ export interface DescribeStorediSCSIVolumesInput {
 }
 
 export namespace DescribeStorediSCSIVolumesInput {
+  export const filterSensitiveLog = (
+    obj: DescribeStorediSCSIVolumesInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeStorediSCSIVolumesInput =>
     __isa(o, "DescribeStorediSCSIVolumesInput");
 }
@@ -654,6 +765,11 @@ export interface DescribeWorkingStorageInput {
 }
 
 export namespace DescribeWorkingStorageInput {
+  export const filterSensitiveLog = (
+    obj: DescribeWorkingStorageInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeWorkingStorageInput =>
     __isa(o, "DescribeWorkingStorageInput");
 }
@@ -691,6 +807,11 @@ export interface DescribeWorkingStorageOutput {
 }
 
 export namespace DescribeWorkingStorageOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeWorkingStorageOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeWorkingStorageOutput =>
     __isa(o, "DescribeWorkingStorageOutput");
 }
@@ -781,6 +902,12 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
+    ...obj,
+    ...(obj.error && {
+      error: StorageGatewayError.filterSensitiveLog(obj.error)
+    })
+  });
   export const isa = (o: any): o is InternalServerError =>
     __isa(o, "InternalServerError");
 }
@@ -807,6 +934,14 @@ export interface InvalidGatewayRequestException
 }
 
 export namespace InvalidGatewayRequestException {
+  export const filterSensitiveLog = (
+    obj: InvalidGatewayRequestException
+  ): any => ({
+    ...obj,
+    ...(obj.error && {
+      error: StorageGatewayError.filterSensitiveLog(obj.error)
+    })
+  });
   export const isa = (o: any): o is InvalidGatewayRequestException =>
     __isa(o, "InvalidGatewayRequestException");
 }
@@ -842,6 +977,9 @@ export interface ListGatewaysInput {
 }
 
 export namespace ListGatewaysInput {
+  export const filterSensitiveLog = (obj: ListGatewaysInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListGatewaysInput =>
     __isa(o, "ListGatewaysInput");
 }
@@ -859,6 +997,9 @@ export interface ListLocalDisksInput {
 }
 
 export namespace ListLocalDisksInput {
+  export const filterSensitiveLog = (obj: ListLocalDisksInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListLocalDisksInput =>
     __isa(o, "ListLocalDisksInput");
 }
@@ -900,6 +1041,9 @@ export interface ListVolumesInput {
 }
 
 export namespace ListVolumesInput {
+  export const filterSensitiveLog = (obj: ListVolumesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListVolumesInput =>
     __isa(o, "ListVolumesInput");
 }
@@ -930,6 +1074,9 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
+  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NetworkInterface =>
     __isa(o, "NetworkInterface");
 }
@@ -956,6 +1103,12 @@ export interface ServiceUnavailableError
 }
 
 export namespace ServiceUnavailableError {
+  export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
+    ...obj,
+    ...(obj.error && {
+      error: StorageGatewayError.filterSensitiveLog(obj.error)
+    })
+  });
   export const isa = (o: any): o is ServiceUnavailableError =>
     __isa(o, "ServiceUnavailableError");
 }
@@ -973,6 +1126,9 @@ export interface ShutdownGatewayInput {
 }
 
 export namespace ShutdownGatewayInput {
+  export const filterSensitiveLog = (obj: ShutdownGatewayInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ShutdownGatewayInput =>
     __isa(o, "ShutdownGatewayInput");
 }
@@ -990,6 +1146,9 @@ export interface ShutdownGatewayOutput {
 }
 
 export namespace ShutdownGatewayOutput {
+  export const filterSensitiveLog = (obj: ShutdownGatewayOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ShutdownGatewayOutput =>
     __isa(o, "ShutdownGatewayOutput");
 }
@@ -1007,6 +1166,9 @@ export interface StartGatewayInput {
 }
 
 export namespace StartGatewayInput {
+  export const filterSensitiveLog = (obj: StartGatewayInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartGatewayInput =>
     __isa(o, "StartGatewayInput");
 }
@@ -1024,6 +1186,9 @@ export interface StartGatewayOutput {
 }
 
 export namespace StartGatewayOutput {
+  export const filterSensitiveLog = (obj: StartGatewayOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartGatewayOutput =>
     __isa(o, "StartGatewayOutput");
 }
@@ -1047,6 +1212,9 @@ export interface StorageGatewayError {
 }
 
 export namespace StorageGatewayError {
+  export const filterSensitiveLog = (obj: StorageGatewayError): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StorageGatewayError =>
     __isa(o, "StorageGatewayError");
 }
@@ -1086,6 +1254,11 @@ export interface UpdateBandwidthRateLimitInput {
 }
 
 export namespace UpdateBandwidthRateLimitInput {
+  export const filterSensitiveLog = (
+    obj: UpdateBandwidthRateLimitInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateBandwidthRateLimitInput =>
     __isa(o, "UpdateBandwidthRateLimitInput");
 }
@@ -1104,6 +1277,11 @@ export interface UpdateBandwidthRateLimitOutput {
 }
 
 export namespace UpdateBandwidthRateLimitOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateBandwidthRateLimitOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateBandwidthRateLimitOutput =>
     __isa(o, "UpdateBandwidthRateLimitOutput");
 }
@@ -1168,6 +1346,15 @@ export interface UpdateChapCredentialsInput {
 }
 
 export namespace UpdateChapCredentialsInput {
+  export const filterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
+    ...obj,
+    ...(obj.SecretToAuthenticateInitiator && {
+      SecretToAuthenticateInitiator: SENSITIVE_STRING
+    }),
+    ...(obj.SecretToAuthenticateTarget && {
+      SecretToAuthenticateTarget: SENSITIVE_STRING
+    })
+  });
   export const isa = (o: any): o is UpdateChapCredentialsInput =>
     __isa(o, "UpdateChapCredentialsInput");
 }
@@ -1191,6 +1378,11 @@ export interface UpdateChapCredentialsOutput {
 }
 
 export namespace UpdateChapCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateChapCredentialsOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateChapCredentialsOutput =>
     __isa(o, "UpdateChapCredentialsOutput");
 }
@@ -1213,6 +1405,11 @@ export interface UpdateGatewayInformationOutput {
 }
 
 export namespace UpdateGatewayInformationOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateGatewayInformationOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateGatewayInformationOutput =>
     __isa(o, "UpdateGatewayInformationOutput");
 }
@@ -1230,6 +1427,11 @@ export interface UpdateGatewaySoftwareNowInput {
 }
 
 export namespace UpdateGatewaySoftwareNowInput {
+  export const filterSensitiveLog = (
+    obj: UpdateGatewaySoftwareNowInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateGatewaySoftwareNowInput =>
     __isa(o, "UpdateGatewaySoftwareNowInput");
 }
@@ -1247,6 +1449,11 @@ export interface UpdateGatewaySoftwareNowOutput {
 }
 
 export namespace UpdateGatewaySoftwareNowOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateGatewaySoftwareNowOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateGatewaySoftwareNowOutput =>
     __isa(o, "UpdateGatewaySoftwareNowOutput");
 }
@@ -1316,6 +1523,11 @@ export interface UpdateMaintenanceStartTimeInput {
 }
 
 export namespace UpdateMaintenanceStartTimeInput {
+  export const filterSensitiveLog = (
+    obj: UpdateMaintenanceStartTimeInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateMaintenanceStartTimeInput =>
     __isa(o, "UpdateMaintenanceStartTimeInput");
 }
@@ -1334,6 +1546,11 @@ export interface UpdateMaintenanceStartTimeOutput {
 }
 
 export namespace UpdateMaintenanceStartTimeOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateMaintenanceStartTimeOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateMaintenanceStartTimeOutput =>
     __isa(o, "UpdateMaintenanceStartTimeOutput");
 }
@@ -1402,6 +1619,14 @@ export interface UpdateSnapshotScheduleInput {
 }
 
 export namespace UpdateSnapshotScheduleInput {
+  export const filterSensitiveLog = (
+    obj: UpdateSnapshotScheduleInput
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is UpdateSnapshotScheduleInput =>
     __isa(o, "UpdateSnapshotScheduleInput");
 }
@@ -1419,6 +1644,11 @@ export interface UpdateSnapshotScheduleOutput {
 }
 
 export namespace UpdateSnapshotScheduleOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateSnapshotScheduleOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateSnapshotScheduleOutput =>
     __isa(o, "UpdateSnapshotScheduleOutput");
 }
@@ -1455,6 +1685,9 @@ export interface VolumeiSCSIAttributes {
 }
 
 export namespace VolumeiSCSIAttributes {
+  export const filterSensitiveLog = (obj: VolumeiSCSIAttributes): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VolumeiSCSIAttributes =>
     __isa(o, "VolumeiSCSIAttributes");
 }
@@ -1476,6 +1709,9 @@ export interface AddCacheInput {
 }
 
 export namespace AddCacheInput {
+  export const filterSensitiveLog = (obj: AddCacheInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddCacheInput => __isa(o, "AddCacheInput");
 }
 
@@ -1489,6 +1725,9 @@ export interface AddCacheOutput {
 }
 
 export namespace AddCacheOutput {
+  export const filterSensitiveLog = (obj: AddCacheOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddCacheOutput =>
     __isa(o, "AddCacheOutput");
 }
@@ -1510,6 +1749,9 @@ export interface AddUploadBufferInput {
 }
 
 export namespace AddUploadBufferInput {
+  export const filterSensitiveLog = (obj: AddUploadBufferInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddUploadBufferInput =>
     __isa(o, "AddUploadBufferInput");
 }
@@ -1524,6 +1766,9 @@ export interface AddUploadBufferOutput {
 }
 
 export namespace AddUploadBufferOutput {
+  export const filterSensitiveLog = (obj: AddUploadBufferOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddUploadBufferOutput =>
     __isa(o, "AddUploadBufferOutput");
 }
@@ -1608,6 +1853,14 @@ export interface CreateCachediSCSIVolumeInput {
 }
 
 export namespace CreateCachediSCSIVolumeInput {
+  export const filterSensitiveLog = (
+    obj: CreateCachediSCSIVolumeInput
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateCachediSCSIVolumeInput =>
     __isa(o, "CreateCachediSCSIVolumeInput");
 }
@@ -1627,6 +1880,11 @@ export interface CreateCachediSCSIVolumeOutput {
 }
 
 export namespace CreateCachediSCSIVolumeOutput {
+  export const filterSensitiveLog = (
+    obj: CreateCachediSCSIVolumeOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateCachediSCSIVolumeOutput =>
     __isa(o, "CreateCachediSCSIVolumeOutput");
 }
@@ -1651,6 +1909,11 @@ export interface CreateSnapshotFromVolumeRecoveryPointOutput {
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
+  export const filterSensitiveLog = (
+    obj: CreateSnapshotFromVolumeRecoveryPointOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is CreateSnapshotFromVolumeRecoveryPointOutput =>
@@ -1666,6 +1929,11 @@ export interface DeleteSnapshotScheduleInput {
 }
 
 export namespace DeleteSnapshotScheduleInput {
+  export const filterSensitiveLog = (
+    obj: DeleteSnapshotScheduleInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSnapshotScheduleInput =>
     __isa(o, "DeleteSnapshotScheduleInput");
 }
@@ -1679,6 +1947,11 @@ export interface DeleteSnapshotScheduleOutput {
 }
 
 export namespace DeleteSnapshotScheduleOutput {
+  export const filterSensitiveLog = (
+    obj: DeleteSnapshotScheduleOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSnapshotScheduleOutput =>
     __isa(o, "DeleteSnapshotScheduleOutput");
 }
@@ -1693,6 +1966,9 @@ export interface DescribeCacheInput {
 }
 
 export namespace DescribeCacheInput {
+  export const filterSensitiveLog = (obj: DescribeCacheInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeCacheInput =>
     __isa(o, "DescribeCacheInput");
 }
@@ -1743,6 +2019,9 @@ export interface DescribeCacheOutput {
 }
 
 export namespace DescribeCacheOutput {
+  export const filterSensitiveLog = (obj: DescribeCacheOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeCacheOutput =>
     __isa(o, "DescribeCacheOutput");
 }
@@ -1757,6 +2036,11 @@ export interface DescribeCachediSCSIVolumesInput {
 }
 
 export namespace DescribeCachediSCSIVolumesInput {
+  export const filterSensitiveLog = (
+    obj: DescribeCachediSCSIVolumesInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeCachediSCSIVolumesInput =>
     __isa(o, "DescribeCachediSCSIVolumesInput");
 }
@@ -1771,6 +2055,9 @@ export interface DescribeUploadBufferInput {
 }
 
 export namespace DescribeUploadBufferInput {
+  export const filterSensitiveLog = (obj: DescribeUploadBufferInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeUploadBufferInput =>
     __isa(o, "DescribeUploadBufferInput");
 }
@@ -1803,6 +2090,9 @@ export interface DescribeUploadBufferOutput {
 }
 
 export namespace DescribeUploadBufferOutput {
+  export const filterSensitiveLog = (obj: DescribeUploadBufferOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeUploadBufferOutput =>
     __isa(o, "DescribeUploadBufferOutput");
 }
@@ -1817,6 +2107,11 @@ export interface ListVolumeRecoveryPointsInput {
 }
 
 export namespace ListVolumeRecoveryPointsInput {
+  export const filterSensitiveLog = (
+    obj: ListVolumeRecoveryPointsInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListVolumeRecoveryPointsInput =>
     __isa(o, "ListVolumeRecoveryPointsInput");
 }
@@ -1836,6 +2131,16 @@ export interface ListVolumeRecoveryPointsOutput {
 }
 
 export namespace ListVolumeRecoveryPointsOutput {
+  export const filterSensitiveLog = (
+    obj: ListVolumeRecoveryPointsOutput
+  ): any => ({
+    ...obj,
+    ...(obj.VolumeRecoveryPointInfos && {
+      VolumeRecoveryPointInfos: obj.VolumeRecoveryPointInfos.map(item =>
+        VolumeRecoveryPointInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListVolumeRecoveryPointsOutput =>
     __isa(o, "ListVolumeRecoveryPointsOutput");
 }
@@ -1871,6 +2176,9 @@ export interface VolumeRecoveryPointInfo {
 }
 
 export namespace VolumeRecoveryPointInfo {
+  export const filterSensitiveLog = (obj: VolumeRecoveryPointInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VolumeRecoveryPointInfo =>
     __isa(o, "VolumeRecoveryPointInfo");
 }
@@ -1995,6 +2303,12 @@ export interface ActivateGatewayInput {
 }
 
 export namespace ActivateGatewayInput {
+  export const filterSensitiveLog = (obj: ActivateGatewayInput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ActivateGatewayInput =>
     __isa(o, "ActivateGatewayInput");
 }
@@ -2032,6 +2346,12 @@ export interface AddTagsToResourceInput {
 }
 
 export namespace AddTagsToResourceInput {
+  export const filterSensitiveLog = (obj: AddTagsToResourceInput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is AddTagsToResourceInput =>
     __isa(o, "AddTagsToResourceInput");
 }
@@ -2048,6 +2368,9 @@ export interface AddTagsToResourceOutput {
 }
 
 export namespace AddTagsToResourceOutput {
+  export const filterSensitiveLog = (obj: AddTagsToResourceOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddTagsToResourceOutput =>
     __isa(o, "AddTagsToResourceOutput");
 }
@@ -2069,6 +2392,9 @@ export interface AssignTapePoolInput {
 }
 
 export namespace AssignTapePoolInput {
+  export const filterSensitiveLog = (obj: AssignTapePoolInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssignTapePoolInput =>
     __isa(o, "AssignTapePoolInput");
 }
@@ -2083,6 +2409,9 @@ export interface AssignTapePoolOutput {
 }
 
 export namespace AssignTapePoolOutput {
+  export const filterSensitiveLog = (obj: AssignTapePoolOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssignTapePoolOutput =>
     __isa(o, "AssignTapePoolOutput");
 }
@@ -2132,6 +2461,9 @@ export interface AttachVolumeInput {
 }
 
 export namespace AttachVolumeInput {
+  export const filterSensitiveLog = (obj: AttachVolumeInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AttachVolumeInput =>
     __isa(o, "AttachVolumeInput");
 }
@@ -2155,6 +2487,9 @@ export interface AttachVolumeOutput {
 }
 
 export namespace AttachVolumeOutput {
+  export const filterSensitiveLog = (obj: AttachVolumeOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AttachVolumeOutput =>
     __isa(o, "AttachVolumeOutput");
 }
@@ -2258,6 +2593,14 @@ export interface CachediSCSIVolume {
 }
 
 export namespace CachediSCSIVolume {
+  export const filterSensitiveLog = (obj: CachediSCSIVolume): any => ({
+    ...obj,
+    ...(obj.VolumeiSCSIAttributes && {
+      VolumeiSCSIAttributes: VolumeiSCSIAttributes.filterSensitiveLog(
+        obj.VolumeiSCSIAttributes
+      )
+    })
+  });
   export const isa = (o: any): o is CachediSCSIVolume =>
     __isa(o, "CachediSCSIVolume");
 }
@@ -2281,6 +2624,9 @@ export interface CancelArchivalInput {
 }
 
 export namespace CancelArchivalInput {
+  export const filterSensitiveLog = (obj: CancelArchivalInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelArchivalInput =>
     __isa(o, "CancelArchivalInput");
 }
@@ -2298,6 +2644,9 @@ export interface CancelArchivalOutput {
 }
 
 export namespace CancelArchivalOutput {
+  export const filterSensitiveLog = (obj: CancelArchivalOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelArchivalOutput =>
     __isa(o, "CancelArchivalOutput");
 }
@@ -2321,6 +2670,9 @@ export interface CancelRetrievalInput {
 }
 
 export namespace CancelRetrievalInput {
+  export const filterSensitiveLog = (obj: CancelRetrievalInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelRetrievalInput =>
     __isa(o, "CancelRetrievalInput");
 }
@@ -2338,6 +2690,9 @@ export interface CancelRetrievalOutput {
 }
 
 export namespace CancelRetrievalOutput {
+  export const filterSensitiveLog = (obj: CancelRetrievalOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelRetrievalOutput =>
     __isa(o, "CancelRetrievalOutput");
 }
@@ -2464,6 +2819,17 @@ export interface CreateNFSFileShareInput {
 }
 
 export namespace CreateNFSFileShareInput {
+  export const filterSensitiveLog = (obj: CreateNFSFileShareInput): any => ({
+    ...obj,
+    ...(obj.NFSFileShareDefaults && {
+      NFSFileShareDefaults: NFSFileShareDefaults.filterSensitiveLog(
+        obj.NFSFileShareDefaults
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateNFSFileShareInput =>
     __isa(o, "CreateNFSFileShareInput");
 }
@@ -2480,6 +2846,9 @@ export interface CreateNFSFileShareOutput {
 }
 
 export namespace CreateNFSFileShareOutput {
+  export const filterSensitiveLog = (obj: CreateNFSFileShareOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateNFSFileShareOutput =>
     __isa(o, "CreateNFSFileShareOutput");
 }
@@ -2619,6 +2988,12 @@ export interface CreateSMBFileShareInput {
 }
 
 export namespace CreateSMBFileShareInput {
+  export const filterSensitiveLog = (obj: CreateSMBFileShareInput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateSMBFileShareInput =>
     __isa(o, "CreateSMBFileShareInput");
 }
@@ -2635,6 +3010,9 @@ export interface CreateSMBFileShareOutput {
 }
 
 export namespace CreateSMBFileShareOutput {
+  export const filterSensitiveLog = (obj: CreateSMBFileShareOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateSMBFileShareOutput =>
     __isa(o, "CreateSMBFileShareOutput");
 }
@@ -2668,6 +3046,14 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointInput {
+  export const filterSensitiveLog = (
+    obj: CreateSnapshotFromVolumeRecoveryPointInput
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (
     o: any
   ): o is CreateSnapshotFromVolumeRecoveryPointInput =>
@@ -2736,6 +3122,12 @@ export interface CreateTapeWithBarcodeInput {
 }
 
 export namespace CreateTapeWithBarcodeInput {
+  export const filterSensitiveLog = (obj: CreateTapeWithBarcodeInput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateTapeWithBarcodeInput =>
     __isa(o, "CreateTapeWithBarcodeInput");
 }
@@ -2753,6 +3145,11 @@ export interface CreateTapeWithBarcodeOutput {
 }
 
 export namespace CreateTapeWithBarcodeOutput {
+  export const filterSensitiveLog = (
+    obj: CreateTapeWithBarcodeOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateTapeWithBarcodeOutput =>
     __isa(o, "CreateTapeWithBarcodeOutput");
 }
@@ -2835,6 +3232,12 @@ export interface CreateTapesInput {
 }
 
 export namespace CreateTapesInput {
+  export const filterSensitiveLog = (obj: CreateTapesInput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateTapesInput =>
     __isa(o, "CreateTapesInput");
 }
@@ -2852,6 +3255,9 @@ export interface CreateTapesOutput {
 }
 
 export namespace CreateTapesOutput {
+  export const filterSensitiveLog = (obj: CreateTapesOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateTapesOutput =>
     __isa(o, "CreateTapesOutput");
 }
@@ -2883,6 +3289,11 @@ export interface DeleteBandwidthRateLimitInput {
 }
 
 export namespace DeleteBandwidthRateLimitInput {
+  export const filterSensitiveLog = (
+    obj: DeleteBandwidthRateLimitInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteBandwidthRateLimitInput =>
     __isa(o, "DeleteBandwidthRateLimitInput");
 }
@@ -2907,6 +3318,9 @@ export interface DeleteFileShareInput {
 }
 
 export namespace DeleteFileShareInput {
+  export const filterSensitiveLog = (obj: DeleteFileShareInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteFileShareInput =>
     __isa(o, "DeleteFileShareInput");
 }
@@ -2923,6 +3337,9 @@ export interface DeleteFileShareOutput {
 }
 
 export namespace DeleteFileShareOutput {
+  export const filterSensitiveLog = (obj: DeleteFileShareOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteFileShareOutput =>
     __isa(o, "DeleteFileShareOutput");
 }
@@ -2940,6 +3357,9 @@ export interface DeleteTapeArchiveInput {
 }
 
 export namespace DeleteTapeArchiveInput {
+  export const filterSensitiveLog = (obj: DeleteTapeArchiveInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTapeArchiveInput =>
     __isa(o, "DeleteTapeArchiveInput");
 }
@@ -2957,6 +3377,9 @@ export interface DeleteTapeArchiveOutput {
 }
 
 export namespace DeleteTapeArchiveOutput {
+  export const filterSensitiveLog = (obj: DeleteTapeArchiveOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTapeArchiveOutput =>
     __isa(o, "DeleteTapeArchiveOutput");
 }
@@ -2980,6 +3403,9 @@ export interface DeleteTapeInput {
 }
 
 export namespace DeleteTapeInput {
+  export const filterSensitiveLog = (obj: DeleteTapeInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTapeInput =>
     __isa(o, "DeleteTapeInput");
 }
@@ -2996,6 +3422,9 @@ export interface DeleteTapeOutput {
 }
 
 export namespace DeleteTapeOutput {
+  export const filterSensitiveLog = (obj: DeleteTapeOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTapeOutput =>
     __isa(o, "DeleteTapeOutput");
 }
@@ -3010,6 +3439,11 @@ export interface DescribeAvailabilityMonitorTestInput {
 }
 
 export namespace DescribeAvailabilityMonitorTestInput {
+  export const filterSensitiveLog = (
+    obj: DescribeAvailabilityMonitorTestInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeAvailabilityMonitorTestInput =>
     __isa(o, "DescribeAvailabilityMonitorTestInput");
 }
@@ -3036,6 +3470,11 @@ export interface DescribeAvailabilityMonitorTestOutput {
 }
 
 export namespace DescribeAvailabilityMonitorTestOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeAvailabilityMonitorTestOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeAvailabilityMonitorTestOutput =>
     __isa(o, "DescribeAvailabilityMonitorTestOutput");
 }
@@ -3053,6 +3492,16 @@ export interface DescribeCachediSCSIVolumesOutput {
 }
 
 export namespace DescribeCachediSCSIVolumesOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeCachediSCSIVolumesOutput
+  ): any => ({
+    ...obj,
+    ...(obj.CachediSCSIVolumes && {
+      CachediSCSIVolumes: obj.CachediSCSIVolumes.map(item =>
+        CachediSCSIVolume.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeCachediSCSIVolumesOutput =>
     __isa(o, "DescribeCachediSCSIVolumesOutput");
 }
@@ -3149,6 +3598,19 @@ export interface DescribeGatewayInformationOutput {
 }
 
 export namespace DescribeGatewayInformationOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeGatewayInformationOutput
+  ): any => ({
+    ...obj,
+    ...(obj.GatewayNetworkInterfaces && {
+      GatewayNetworkInterfaces: obj.GatewayNetworkInterfaces.map(item =>
+        NetworkInterface.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeGatewayInformationOutput =>
     __isa(o, "DescribeGatewayInformationOutput");
 }
@@ -3230,6 +3692,11 @@ export interface DescribeMaintenanceStartTimeOutput {
 }
 
 export namespace DescribeMaintenanceStartTimeOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeMaintenanceStartTimeOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeMaintenanceStartTimeOutput =>
     __isa(o, "DescribeMaintenanceStartTimeOutput");
 }
@@ -3247,6 +3714,9 @@ export interface DescribeNFSFileSharesInput {
 }
 
 export namespace DescribeNFSFileSharesInput {
+  export const filterSensitiveLog = (obj: DescribeNFSFileSharesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeNFSFileSharesInput =>
     __isa(o, "DescribeNFSFileSharesInput");
 }
@@ -3263,6 +3733,16 @@ export interface DescribeNFSFileSharesOutput {
 }
 
 export namespace DescribeNFSFileSharesOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeNFSFileSharesOutput
+  ): any => ({
+    ...obj,
+    ...(obj.NFSFileShareInfoList && {
+      NFSFileShareInfoList: obj.NFSFileShareInfoList.map(item =>
+        NFSFileShareInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeNFSFileSharesOutput =>
     __isa(o, "DescribeNFSFileSharesOutput");
 }
@@ -3280,6 +3760,9 @@ export interface DescribeSMBFileSharesInput {
 }
 
 export namespace DescribeSMBFileSharesInput {
+  export const filterSensitiveLog = (obj: DescribeSMBFileSharesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeSMBFileSharesInput =>
     __isa(o, "DescribeSMBFileSharesInput");
 }
@@ -3296,6 +3779,16 @@ export interface DescribeSMBFileSharesOutput {
 }
 
 export namespace DescribeSMBFileSharesOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeSMBFileSharesOutput
+  ): any => ({
+    ...obj,
+    ...(obj.SMBFileShareInfoList && {
+      SMBFileShareInfoList: obj.SMBFileShareInfoList.map(item =>
+        SMBFileShareInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeSMBFileSharesOutput =>
     __isa(o, "DescribeSMBFileSharesOutput");
 }
@@ -3310,6 +3803,9 @@ export interface DescribeSMBSettingsInput {
 }
 
 export namespace DescribeSMBSettingsInput {
+  export const filterSensitiveLog = (obj: DescribeSMBSettingsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeSMBSettingsInput =>
     __isa(o, "DescribeSMBSettingsInput");
 }
@@ -3383,6 +3879,9 @@ export interface DescribeSMBSettingsOutput {
 }
 
 export namespace DescribeSMBSettingsOutput {
+  export const filterSensitiveLog = (obj: DescribeSMBSettingsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeSMBSettingsOutput =>
     __isa(o, "DescribeSMBSettingsOutput");
 }
@@ -3426,6 +3925,14 @@ export interface DescribeSnapshotScheduleOutput {
 }
 
 export namespace DescribeSnapshotScheduleOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeSnapshotScheduleOutput
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeSnapshotScheduleOutput =>
     __isa(o, "DescribeSnapshotScheduleOutput");
 }
@@ -3540,6 +4047,16 @@ export interface DescribeStorediSCSIVolumesOutput {
 }
 
 export namespace DescribeStorediSCSIVolumesOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeStorediSCSIVolumesOutput
+  ): any => ({
+    ...obj,
+    ...(obj.StorediSCSIVolumes && {
+      StorediSCSIVolumes: obj.StorediSCSIVolumes.map(item =>
+        StorediSCSIVolume.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeStorediSCSIVolumesOutput =>
     __isa(o, "DescribeStorediSCSIVolumesOutput");
 }
@@ -3569,6 +4086,9 @@ export interface DescribeTapeArchivesInput {
 }
 
 export namespace DescribeTapeArchivesInput {
+  export const filterSensitiveLog = (obj: DescribeTapeArchivesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeTapeArchivesInput =>
     __isa(o, "DescribeTapeArchivesInput");
 }
@@ -3596,6 +4116,14 @@ export interface DescribeTapeArchivesOutput {
 }
 
 export namespace DescribeTapeArchivesOutput {
+  export const filterSensitiveLog = (obj: DescribeTapeArchivesOutput): any => ({
+    ...obj,
+    ...(obj.TapeArchives && {
+      TapeArchives: obj.TapeArchives.map(item =>
+        TapeArchive.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeTapeArchivesOutput =>
     __isa(o, "DescribeTapeArchivesOutput");
 }
@@ -3625,6 +4153,11 @@ export interface DescribeTapeRecoveryPointsInput {
 }
 
 export namespace DescribeTapeRecoveryPointsInput {
+  export const filterSensitiveLog = (
+    obj: DescribeTapeRecoveryPointsInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeTapeRecoveryPointsInput =>
     __isa(o, "DescribeTapeRecoveryPointsInput");
 }
@@ -3657,6 +4190,16 @@ export interface DescribeTapeRecoveryPointsOutput {
 }
 
 export namespace DescribeTapeRecoveryPointsOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeTapeRecoveryPointsOutput
+  ): any => ({
+    ...obj,
+    ...(obj.TapeRecoveryPointInfos && {
+      TapeRecoveryPointInfos: obj.TapeRecoveryPointInfos.map(item =>
+        TapeRecoveryPointInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeTapeRecoveryPointsOutput =>
     __isa(o, "DescribeTapeRecoveryPointsOutput");
 }
@@ -3697,6 +4240,9 @@ export interface DescribeTapesInput {
 }
 
 export namespace DescribeTapesInput {
+  export const filterSensitiveLog = (obj: DescribeTapesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeTapesInput =>
     __isa(o, "DescribeTapesInput");
 }
@@ -3721,6 +4267,12 @@ export interface DescribeTapesOutput {
 }
 
 export namespace DescribeTapesOutput {
+  export const filterSensitiveLog = (obj: DescribeTapesOutput): any => ({
+    ...obj,
+    ...(obj.Tapes && {
+      Tapes: obj.Tapes.map(item => Tape.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeTapesOutput =>
     __isa(o, "DescribeTapesOutput");
 }
@@ -3760,6 +4312,9 @@ export interface DescribeVTLDevicesInput {
 }
 
 export namespace DescribeVTLDevicesInput {
+  export const filterSensitiveLog = (obj: DescribeVTLDevicesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeVTLDevicesInput =>
     __isa(o, "DescribeVTLDevicesInput");
 }
@@ -3791,6 +4346,12 @@ export interface DescribeVTLDevicesOutput {
 }
 
 export namespace DescribeVTLDevicesOutput {
+  export const filterSensitiveLog = (obj: DescribeVTLDevicesOutput): any => ({
+    ...obj,
+    ...(obj.VTLDevices && {
+      VTLDevices: obj.VTLDevices.map(item => VTLDevice.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeVTLDevicesOutput =>
     __isa(o, "DescribeVTLDevicesOutput");
 }
@@ -3815,6 +4376,9 @@ export interface DetachVolumeInput {
 }
 
 export namespace DetachVolumeInput {
+  export const filterSensitiveLog = (obj: DetachVolumeInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DetachVolumeInput =>
     __isa(o, "DetachVolumeInput");
 }
@@ -3831,6 +4395,9 @@ export interface DetachVolumeOutput {
 }
 
 export namespace DetachVolumeOutput {
+  export const filterSensitiveLog = (obj: DetachVolumeOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DetachVolumeOutput =>
     __isa(o, "DetachVolumeOutput");
 }
@@ -3863,6 +4430,9 @@ export interface DeviceiSCSIAttributes {
 }
 
 export namespace DeviceiSCSIAttributes {
+  export const filterSensitiveLog = (obj: DeviceiSCSIAttributes): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeviceiSCSIAttributes =>
     __isa(o, "DeviceiSCSIAttributes");
 }
@@ -3880,6 +4450,9 @@ export interface DisableGatewayInput {
 }
 
 export namespace DisableGatewayInput {
+  export const filterSensitiveLog = (obj: DisableGatewayInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableGatewayInput =>
     __isa(o, "DisableGatewayInput");
 }
@@ -3896,6 +4469,9 @@ export interface DisableGatewayOutput {
 }
 
 export namespace DisableGatewayOutput {
+  export const filterSensitiveLog = (obj: DisableGatewayOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableGatewayOutput =>
     __isa(o, "DisableGatewayOutput");
 }
@@ -3954,6 +4530,9 @@ export interface Disk {
 }
 
 export namespace Disk {
+  export const filterSensitiveLog = (obj: Disk): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Disk => __isa(o, "Disk");
 }
 
@@ -3991,6 +4570,9 @@ export interface FileShareInfo {
 }
 
 export namespace FileShareInfo {
+  export const filterSensitiveLog = (obj: FileShareInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FileShareInfo => __isa(o, "FileShareInfo");
 }
 
@@ -4042,6 +4624,9 @@ export interface GatewayInfo {
 }
 
 export namespace GatewayInfo {
+  export const filterSensitiveLog = (obj: GatewayInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GatewayInfo => __isa(o, "GatewayInfo");
 }
 
@@ -4098,6 +4683,10 @@ export interface JoinDomainInput {
 }
 
 export namespace JoinDomainInput {
+  export const filterSensitiveLog = (obj: JoinDomainInput): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is JoinDomainInput =>
     __isa(o, "JoinDomainInput");
 }
@@ -4147,6 +4736,9 @@ export interface JoinDomainOutput {
 }
 
 export namespace JoinDomainOutput {
+  export const filterSensitiveLog = (obj: JoinDomainOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is JoinDomainOutput =>
     __isa(o, "JoinDomainOutput");
 }
@@ -4177,6 +4769,9 @@ export interface ListFileSharesInput {
 }
 
 export namespace ListFileSharesInput {
+  export const filterSensitiveLog = (obj: ListFileSharesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListFileSharesInput =>
     __isa(o, "ListFileSharesInput");
 }
@@ -4206,6 +4801,14 @@ export interface ListFileSharesOutput {
 }
 
 export namespace ListFileSharesOutput {
+  export const filterSensitiveLog = (obj: ListFileSharesOutput): any => ({
+    ...obj,
+    ...(obj.FileShareInfoList && {
+      FileShareInfoList: obj.FileShareInfoList.map(item =>
+        FileShareInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListFileSharesOutput =>
     __isa(o, "ListFileSharesOutput");
 }
@@ -4225,6 +4828,12 @@ export interface ListGatewaysOutput {
 }
 
 export namespace ListGatewaysOutput {
+  export const filterSensitiveLog = (obj: ListGatewaysOutput): any => ({
+    ...obj,
+    ...(obj.Gateways && {
+      Gateways: obj.Gateways.map(item => GatewayInfo.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListGatewaysOutput =>
     __isa(o, "ListGatewaysOutput");
 }
@@ -4251,6 +4860,12 @@ export interface ListLocalDisksOutput {
 }
 
 export namespace ListLocalDisksOutput {
+  export const filterSensitiveLog = (obj: ListLocalDisksOutput): any => ({
+    ...obj,
+    ...(obj.Disks && {
+      Disks: obj.Disks.map(item => Disk.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListLocalDisksOutput =>
     __isa(o, "ListLocalDisksOutput");
 }
@@ -4280,6 +4895,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceInput =>
     __isa(o, "ListTagsForResourceInput");
 }
@@ -4308,6 +4926,12 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
 }
@@ -4353,6 +4977,9 @@ export interface ListTapesInput {
 }
 
 export namespace ListTapesInput {
+  export const filterSensitiveLog = (obj: ListTapesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTapesInput =>
     __isa(o, "ListTapesInput");
 }
@@ -4390,6 +5017,12 @@ export interface ListTapesOutput {
 }
 
 export namespace ListTapesOutput {
+  export const filterSensitiveLog = (obj: ListTapesOutput): any => ({
+    ...obj,
+    ...(obj.TapeInfos && {
+      TapeInfos: obj.TapeInfos.map(item => TapeInfo.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTapesOutput =>
     __isa(o, "ListTapesOutput");
 }
@@ -4407,6 +5040,9 @@ export interface ListVolumeInitiatorsInput {
 }
 
 export namespace ListVolumeInitiatorsInput {
+  export const filterSensitiveLog = (obj: ListVolumeInitiatorsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListVolumeInitiatorsInput =>
     __isa(o, "ListVolumeInitiatorsInput");
 }
@@ -4424,6 +5060,9 @@ export interface ListVolumeInitiatorsOutput {
 }
 
 export namespace ListVolumeInitiatorsOutput {
+  export const filterSensitiveLog = (obj: ListVolumeInitiatorsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListVolumeInitiatorsOutput =>
     __isa(o, "ListVolumeInitiatorsOutput");
 }
@@ -4466,6 +5105,14 @@ export interface ListVolumesOutput {
 }
 
 export namespace ListVolumesOutput {
+  export const filterSensitiveLog = (obj: ListVolumesOutput): any => ({
+    ...obj,
+    ...(obj.VolumeInfos && {
+      VolumeInfos: obj.VolumeInfos.map(item =>
+        VolumeInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListVolumesOutput =>
     __isa(o, "ListVolumesOutput");
 }
@@ -4506,6 +5153,9 @@ export interface NFSFileShareDefaults {
 }
 
 export namespace NFSFileShareDefaults {
+  export const filterSensitiveLog = (obj: NFSFileShareDefaults): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NFSFileShareDefaults =>
     __isa(o, "NFSFileShareDefaults");
 }
@@ -4650,6 +5300,17 @@ export interface NFSFileShareInfo {
 }
 
 export namespace NFSFileShareInfo {
+  export const filterSensitiveLog = (obj: NFSFileShareInfo): any => ({
+    ...obj,
+    ...(obj.NFSFileShareDefaults && {
+      NFSFileShareDefaults: NFSFileShareDefaults.filterSensitiveLog(
+        obj.NFSFileShareDefaults
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is NFSFileShareInfo =>
     __isa(o, "NFSFileShareInfo");
 }
@@ -4663,6 +5324,9 @@ export interface NotifyWhenUploadedInput {
 }
 
 export namespace NotifyWhenUploadedInput {
+  export const filterSensitiveLog = (obj: NotifyWhenUploadedInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotifyWhenUploadedInput =>
     __isa(o, "NotifyWhenUploadedInput");
 }
@@ -4682,6 +5346,9 @@ export interface NotifyWhenUploadedOutput {
 }
 
 export namespace NotifyWhenUploadedOutput {
+  export const filterSensitiveLog = (obj: NotifyWhenUploadedOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotifyWhenUploadedOutput =>
     __isa(o, "NotifyWhenUploadedOutput");
 }
@@ -4726,6 +5393,9 @@ export interface RefreshCacheInput {
 }
 
 export namespace RefreshCacheInput {
+  export const filterSensitiveLog = (obj: RefreshCacheInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RefreshCacheInput =>
     __isa(o, "RefreshCacheInput");
 }
@@ -4748,6 +5418,9 @@ export interface RefreshCacheOutput {
 }
 
 export namespace RefreshCacheOutput {
+  export const filterSensitiveLog = (obj: RefreshCacheOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RefreshCacheOutput =>
     __isa(o, "RefreshCacheOutput");
 }
@@ -4771,6 +5444,11 @@ export interface RemoveTagsFromResourceInput {
 }
 
 export namespace RemoveTagsFromResourceInput {
+  export const filterSensitiveLog = (
+    obj: RemoveTagsFromResourceInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RemoveTagsFromResourceInput =>
     __isa(o, "RemoveTagsFromResourceInput");
 }
@@ -4788,6 +5466,11 @@ export interface RemoveTagsFromResourceOutput {
 }
 
 export namespace RemoveTagsFromResourceOutput {
+  export const filterSensitiveLog = (
+    obj: RemoveTagsFromResourceOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RemoveTagsFromResourceOutput =>
     __isa(o, "RemoveTagsFromResourceOutput");
 }
@@ -4802,6 +5485,9 @@ export interface ResetCacheInput {
 }
 
 export namespace ResetCacheInput {
+  export const filterSensitiveLog = (obj: ResetCacheInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResetCacheInput =>
     __isa(o, "ResetCacheInput");
 }
@@ -4816,6 +5502,9 @@ export interface ResetCacheOutput {
 }
 
 export namespace ResetCacheOutput {
+  export const filterSensitiveLog = (obj: ResetCacheOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResetCacheOutput =>
     __isa(o, "ResetCacheOutput");
 }
@@ -4842,6 +5531,9 @@ export interface RetrieveTapeArchiveInput {
 }
 
 export namespace RetrieveTapeArchiveInput {
+  export const filterSensitiveLog = (obj: RetrieveTapeArchiveInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetrieveTapeArchiveInput =>
     __isa(o, "RetrieveTapeArchiveInput");
 }
@@ -4858,6 +5550,9 @@ export interface RetrieveTapeArchiveOutput {
 }
 
 export namespace RetrieveTapeArchiveOutput {
+  export const filterSensitiveLog = (obj: RetrieveTapeArchiveOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetrieveTapeArchiveOutput =>
     __isa(o, "RetrieveTapeArchiveOutput");
 }
@@ -4881,6 +5576,11 @@ export interface RetrieveTapeRecoveryPointInput {
 }
 
 export namespace RetrieveTapeRecoveryPointInput {
+  export const filterSensitiveLog = (
+    obj: RetrieveTapeRecoveryPointInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetrieveTapeRecoveryPointInput =>
     __isa(o, "RetrieveTapeRecoveryPointInput");
 }
@@ -4898,6 +5598,11 @@ export interface RetrieveTapeRecoveryPointOutput {
 }
 
 export namespace RetrieveTapeRecoveryPointOutput {
+  export const filterSensitiveLog = (
+    obj: RetrieveTapeRecoveryPointOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetrieveTapeRecoveryPointOutput =>
     __isa(o, "RetrieveTapeRecoveryPointOutput");
 }
@@ -5048,6 +5753,12 @@ export interface SMBFileShareInfo {
 }
 
 export namespace SMBFileShareInfo {
+  export const filterSensitiveLog = (obj: SMBFileShareInfo): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is SMBFileShareInfo =>
     __isa(o, "SMBFileShareInfo");
 }
@@ -5075,6 +5786,12 @@ export interface SetLocalConsolePasswordInput {
 }
 
 export namespace SetLocalConsolePasswordInput {
+  export const filterSensitiveLog = (
+    obj: SetLocalConsolePasswordInput
+  ): any => ({
+    ...obj,
+    ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is SetLocalConsolePasswordInput =>
     __isa(o, "SetLocalConsolePasswordInput");
 }
@@ -5089,6 +5806,11 @@ export interface SetLocalConsolePasswordOutput {
 }
 
 export namespace SetLocalConsolePasswordOutput {
+  export const filterSensitiveLog = (
+    obj: SetLocalConsolePasswordOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SetLocalConsolePasswordOutput =>
     __isa(o, "SetLocalConsolePasswordOutput");
 }
@@ -5111,6 +5833,10 @@ export interface SetSMBGuestPasswordInput {
 }
 
 export namespace SetSMBGuestPasswordInput {
+  export const filterSensitiveLog = (obj: SetSMBGuestPasswordInput): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is SetSMBGuestPasswordInput =>
     __isa(o, "SetSMBGuestPasswordInput");
 }
@@ -5125,6 +5851,9 @@ export interface SetSMBGuestPasswordOutput {
 }
 
 export namespace SetSMBGuestPasswordOutput {
+  export const filterSensitiveLog = (obj: SetSMBGuestPasswordOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SetSMBGuestPasswordOutput =>
     __isa(o, "SetSMBGuestPasswordOutput");
 }
@@ -5139,6 +5868,11 @@ export interface StartAvailabilityMonitorTestInput {
 }
 
 export namespace StartAvailabilityMonitorTestInput {
+  export const filterSensitiveLog = (
+    obj: StartAvailabilityMonitorTestInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartAvailabilityMonitorTestInput =>
     __isa(o, "StartAvailabilityMonitorTestInput");
 }
@@ -5153,6 +5887,11 @@ export interface StartAvailabilityMonitorTestOutput {
 }
 
 export namespace StartAvailabilityMonitorTestOutput {
+  export const filterSensitiveLog = (
+    obj: StartAvailabilityMonitorTestOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartAvailabilityMonitorTestOutput =>
     __isa(o, "StartAvailabilityMonitorTestOutput");
 }
@@ -5264,6 +6003,14 @@ export interface StorediSCSIVolume {
 }
 
 export namespace StorediSCSIVolume {
+  export const filterSensitiveLog = (obj: StorediSCSIVolume): any => ({
+    ...obj,
+    ...(obj.VolumeiSCSIAttributes && {
+      VolumeiSCSIAttributes: VolumeiSCSIAttributes.filterSensitiveLog(
+        obj.VolumeiSCSIAttributes
+      )
+    })
+  });
   export const isa = (o: any): o is StorediSCSIVolume =>
     __isa(o, "StorediSCSIVolume");
 }
@@ -5287,6 +6034,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -5356,6 +6106,9 @@ export interface Tape {
 }
 
 export namespace Tape {
+  export const filterSensitiveLog = (obj: Tape): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tape => __isa(o, "Tape");
 }
 
@@ -5425,6 +6178,9 @@ export interface TapeArchive {
 }
 
 export namespace TapeArchive {
+  export const filterSensitiveLog = (obj: TapeArchive): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TapeArchive => __isa(o, "TapeArchive");
 }
 
@@ -5469,6 +6225,9 @@ export interface TapeInfo {
 }
 
 export namespace TapeInfo {
+  export const filterSensitiveLog = (obj: TapeInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TapeInfo => __isa(o, "TapeInfo");
 }
 
@@ -5502,6 +6261,9 @@ export interface TapeRecoveryPointInfo {
 }
 
 export namespace TapeRecoveryPointInfo {
+  export const filterSensitiveLog = (obj: TapeRecoveryPointInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TapeRecoveryPointInfo =>
     __isa(o, "TapeRecoveryPointInfo");
 }
@@ -5532,6 +6294,11 @@ export interface UpdateGatewayInformationInput {
 }
 
 export namespace UpdateGatewayInformationInput {
+  export const filterSensitiveLog = (
+    obj: UpdateGatewayInformationInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateGatewayInformationInput =>
     __isa(o, "UpdateGatewayInformationInput");
 }
@@ -5629,6 +6396,14 @@ export interface UpdateNFSFileShareInput {
 }
 
 export namespace UpdateNFSFileShareInput {
+  export const filterSensitiveLog = (obj: UpdateNFSFileShareInput): any => ({
+    ...obj,
+    ...(obj.NFSFileShareDefaults && {
+      NFSFileShareDefaults: NFSFileShareDefaults.filterSensitiveLog(
+        obj.NFSFileShareDefaults
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateNFSFileShareInput =>
     __isa(o, "UpdateNFSFileShareInput");
 }
@@ -5645,6 +6420,9 @@ export interface UpdateNFSFileShareOutput {
 }
 
 export namespace UpdateNFSFileShareOutput {
+  export const filterSensitiveLog = (obj: UpdateNFSFileShareOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateNFSFileShareOutput =>
     __isa(o, "UpdateNFSFileShareOutput");
 }
@@ -5746,6 +6524,9 @@ export interface UpdateSMBFileShareInput {
 }
 
 export namespace UpdateSMBFileShareInput {
+  export const filterSensitiveLog = (obj: UpdateSMBFileShareInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateSMBFileShareInput =>
     __isa(o, "UpdateSMBFileShareInput");
 }
@@ -5762,6 +6543,9 @@ export interface UpdateSMBFileShareOutput {
 }
 
 export namespace UpdateSMBFileShareOutput {
+  export const filterSensitiveLog = (obj: UpdateSMBFileShareOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateSMBFileShareOutput =>
     __isa(o, "UpdateSMBFileShareOutput");
 }
@@ -5791,6 +6575,11 @@ export interface UpdateSMBSecurityStrategyInput {
 }
 
 export namespace UpdateSMBSecurityStrategyInput {
+  export const filterSensitiveLog = (
+    obj: UpdateSMBSecurityStrategyInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateSMBSecurityStrategyInput =>
     __isa(o, "UpdateSMBSecurityStrategyInput");
 }
@@ -5805,6 +6594,11 @@ export interface UpdateSMBSecurityStrategyOutput {
 }
 
 export namespace UpdateSMBSecurityStrategyOutput {
+  export const filterSensitiveLog = (
+    obj: UpdateSMBSecurityStrategyOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateSMBSecurityStrategyOutput =>
     __isa(o, "UpdateSMBSecurityStrategyOutput");
 }
@@ -5824,6 +6618,9 @@ export interface UpdateVTLDeviceTypeInput {
 }
 
 export namespace UpdateVTLDeviceTypeInput {
+  export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateVTLDeviceTypeInput =>
     __isa(o, "UpdateVTLDeviceTypeInput");
 }
@@ -5840,6 +6637,9 @@ export interface UpdateVTLDeviceTypeOutput {
 }
 
 export namespace UpdateVTLDeviceTypeOutput {
+  export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateVTLDeviceTypeOutput =>
     __isa(o, "UpdateVTLDeviceTypeOutput");
 }
@@ -5877,6 +6677,14 @@ export interface VTLDevice {
 }
 
 export namespace VTLDevice {
+  export const filterSensitiveLog = (obj: VTLDevice): any => ({
+    ...obj,
+    ...(obj.DeviceiSCSIAttributes && {
+      DeviceiSCSIAttributes: DeviceiSCSIAttributes.filterSensitiveLog(
+        obj.DeviceiSCSIAttributes
+      )
+    })
+  });
   export const isa = (o: any): o is VTLDevice => __isa(o, "VTLDevice");
 }
 
@@ -5938,5 +6746,8 @@ export interface VolumeInfo {
 }
 
 export namespace VolumeInfo {
+  export const filterSensitiveLog = (obj: VolumeInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VolumeInfo => __isa(o, "VolumeInfo");
 }

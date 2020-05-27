@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -18,6 +19,16 @@ export interface BatchGrantPermissionsRequest {
 }
 
 export namespace BatchGrantPermissionsRequest {
+  export const filterSensitiveLog = (
+    obj: BatchGrantPermissionsRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Entries && {
+      Entries: obj.Entries.map(item =>
+        BatchPermissionsRequestEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchGrantPermissionsRequest =>
     __isa(o, "BatchGrantPermissionsRequest");
 }
@@ -31,6 +42,16 @@ export interface BatchGrantPermissionsResponse {
 }
 
 export namespace BatchGrantPermissionsResponse {
+  export const filterSensitiveLog = (
+    obj: BatchGrantPermissionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Failures && {
+      Failures: obj.Failures.map(item =>
+        BatchPermissionsFailureEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchGrantPermissionsResponse =>
     __isa(o, "BatchGrantPermissionsResponse");
 }
@@ -52,6 +73,17 @@ export interface BatchPermissionsFailureEntry {
 }
 
 export namespace BatchPermissionsFailureEntry {
+  export const filterSensitiveLog = (
+    obj: BatchPermissionsFailureEntry
+  ): any => ({
+    ...obj,
+    ...(obj.Error && { Error: ErrorDetail.filterSensitiveLog(obj.Error) }),
+    ...(obj.RequestEntry && {
+      RequestEntry: BatchPermissionsRequestEntry.filterSensitiveLog(
+        obj.RequestEntry
+      )
+    })
+  });
   export const isa = (o: any): o is BatchPermissionsFailureEntry =>
     __isa(o, "BatchPermissionsFailureEntry");
 }
@@ -88,6 +120,15 @@ export interface BatchPermissionsRequestEntry {
 }
 
 export namespace BatchPermissionsRequestEntry {
+  export const filterSensitiveLog = (
+    obj: BatchPermissionsRequestEntry
+  ): any => ({
+    ...obj,
+    ...(obj.Principal && {
+      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
+    }),
+    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+  });
   export const isa = (o: any): o is BatchPermissionsRequestEntry =>
     __isa(o, "BatchPermissionsRequestEntry");
 }
@@ -106,6 +147,16 @@ export interface BatchRevokePermissionsRequest {
 }
 
 export namespace BatchRevokePermissionsRequest {
+  export const filterSensitiveLog = (
+    obj: BatchRevokePermissionsRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Entries && {
+      Entries: obj.Entries.map(item =>
+        BatchPermissionsRequestEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchRevokePermissionsRequest =>
     __isa(o, "BatchRevokePermissionsRequest");
 }
@@ -119,6 +170,16 @@ export interface BatchRevokePermissionsResponse {
 }
 
 export namespace BatchRevokePermissionsResponse {
+  export const filterSensitiveLog = (
+    obj: BatchRevokePermissionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Failures && {
+      Failures: obj.Failures.map(item =>
+        BatchPermissionsFailureEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchRevokePermissionsResponse =>
     __isa(o, "BatchRevokePermissionsResponse");
 }
@@ -131,6 +192,9 @@ export interface CatalogResource {
 }
 
 export namespace CatalogResource {
+  export const filterSensitiveLog = (obj: CatalogResource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CatalogResource =>
     __isa(o, "CatalogResource");
 }
@@ -147,6 +211,9 @@ export interface ColumnWildcard {
 }
 
 export namespace ColumnWildcard {
+  export const filterSensitiveLog = (obj: ColumnWildcard): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ColumnWildcard =>
     __isa(o, "ColumnWildcard");
 }
@@ -163,6 +230,9 @@ export interface DataLakePrincipal {
 }
 
 export namespace DataLakePrincipal {
+  export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DataLakePrincipal =>
     __isa(o, "DataLakePrincipal");
 }
@@ -196,6 +266,24 @@ export interface DataLakeSettings {
 }
 
 export namespace DataLakeSettings {
+  export const filterSensitiveLog = (obj: DataLakeSettings): any => ({
+    ...obj,
+    ...(obj.CreateDatabaseDefaultPermissions && {
+      CreateDatabaseDefaultPermissions: obj.CreateDatabaseDefaultPermissions.map(
+        item => PrincipalPermissions.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.CreateTableDefaultPermissions && {
+      CreateTableDefaultPermissions: obj.CreateTableDefaultPermissions.map(
+        item => PrincipalPermissions.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.DataLakeAdmins && {
+      DataLakeAdmins: obj.DataLakeAdmins.map(item =>
+        DataLakePrincipal.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DataLakeSettings =>
     __isa(o, "DataLakeSettings");
 }
@@ -212,6 +300,9 @@ export interface DataLocationResource {
 }
 
 export namespace DataLocationResource {
+  export const filterSensitiveLog = (obj: DataLocationResource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DataLocationResource =>
     __isa(o, "DataLocationResource");
 }
@@ -228,6 +319,9 @@ export interface DatabaseResource {
 }
 
 export namespace DatabaseResource {
+  export const filterSensitiveLog = (obj: DatabaseResource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DatabaseResource =>
     __isa(o, "DatabaseResource");
 }
@@ -241,6 +335,9 @@ export interface DeregisterResourceRequest {
 }
 
 export namespace DeregisterResourceRequest {
+  export const filterSensitiveLog = (obj: DeregisterResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterResourceRequest =>
     __isa(o, "DeregisterResourceRequest");
 }
@@ -250,6 +347,9 @@ export interface DeregisterResourceResponse {
 }
 
 export namespace DeregisterResourceResponse {
+  export const filterSensitiveLog = (obj: DeregisterResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterResourceResponse =>
     __isa(o, "DeregisterResourceResponse");
 }
@@ -263,6 +363,9 @@ export interface DescribeResourceRequest {
 }
 
 export namespace DescribeResourceRequest {
+  export const filterSensitiveLog = (obj: DescribeResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeResourceRequest =>
     __isa(o, "DescribeResourceRequest");
 }
@@ -276,6 +379,12 @@ export interface DescribeResourceResponse {
 }
 
 export namespace DescribeResourceResponse {
+  export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
+    ...obj,
+    ...(obj.ResourceInfo && {
+      ResourceInfo: ResourceInfo.filterSensitiveLog(obj.ResourceInfo)
+    })
+  });
   export const isa = (o: any): o is DescribeResourceResponse =>
     __isa(o, "DescribeResourceResponse");
 }
@@ -289,6 +398,9 @@ export interface GetDataLakeSettingsRequest {
 }
 
 export namespace GetDataLakeSettingsRequest {
+  export const filterSensitiveLog = (obj: GetDataLakeSettingsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDataLakeSettingsRequest =>
     __isa(o, "GetDataLakeSettingsRequest");
 }
@@ -302,6 +414,16 @@ export interface GetDataLakeSettingsResponse {
 }
 
 export namespace GetDataLakeSettingsResponse {
+  export const filterSensitiveLog = (
+    obj: GetDataLakeSettingsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DataLakeSettings && {
+      DataLakeSettings: DataLakeSettings.filterSensitiveLog(
+        obj.DataLakeSettings
+      )
+    })
+  });
   export const isa = (o: any): o is GetDataLakeSettingsResponse =>
     __isa(o, "GetDataLakeSettingsResponse");
 }
@@ -330,6 +452,11 @@ export interface GetEffectivePermissionsForPathRequest {
 }
 
 export namespace GetEffectivePermissionsForPathRequest {
+  export const filterSensitiveLog = (
+    obj: GetEffectivePermissionsForPathRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetEffectivePermissionsForPathRequest =>
     __isa(o, "GetEffectivePermissionsForPathRequest");
 }
@@ -348,6 +475,16 @@ export interface GetEffectivePermissionsForPathResponse {
 }
 
 export namespace GetEffectivePermissionsForPathResponse {
+  export const filterSensitiveLog = (
+    obj: GetEffectivePermissionsForPathResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Permissions && {
+      Permissions: obj.Permissions.map(item =>
+        PrincipalResourcePermissions.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetEffectivePermissionsForPathResponse =>
     __isa(o, "GetEffectivePermissionsForPathResponse");
 }
@@ -382,6 +519,13 @@ export interface GrantPermissionsRequest {
 }
 
 export namespace GrantPermissionsRequest {
+  export const filterSensitiveLog = (obj: GrantPermissionsRequest): any => ({
+    ...obj,
+    ...(obj.Principal && {
+      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
+    }),
+    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+  });
   export const isa = (o: any): o is GrantPermissionsRequest =>
     __isa(o, "GrantPermissionsRequest");
 }
@@ -391,6 +535,9 @@ export interface GrantPermissionsResponse {
 }
 
 export namespace GrantPermissionsResponse {
+  export const filterSensitiveLog = (obj: GrantPermissionsResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GrantPermissionsResponse =>
     __isa(o, "GrantPermissionsResponse");
 }
@@ -430,6 +577,13 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
+  export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
+    ...obj,
+    ...(obj.Principal && {
+      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
+    }),
+    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+  });
   export const isa = (o: any): o is ListPermissionsRequest =>
     __isa(o, "ListPermissionsRequest");
 }
@@ -448,6 +602,14 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
+  export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
+    ...obj,
+    ...(obj.PrincipalResourcePermissions && {
+      PrincipalResourcePermissions: obj.PrincipalResourcePermissions.map(item =>
+        PrincipalResourcePermissions.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPermissionsResponse =>
     __isa(o, "ListPermissionsResponse");
 }
@@ -471,6 +633,14 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
+  export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
+    ...obj,
+    ...(obj.FilterConditionList && {
+      FilterConditionList: obj.FilterConditionList.map(item =>
+        FilterCondition.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListResourcesRequest =>
     __isa(o, "ListResourcesRequest");
 }
@@ -489,6 +659,14 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
+  export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
+    ...obj,
+    ...(obj.ResourceInfoList && {
+      ResourceInfoList: obj.ResourceInfoList.map(item =>
+        ResourceInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListResourcesResponse =>
     __isa(o, "ListResourcesResponse");
 }
@@ -522,6 +700,12 @@ export interface PrincipalPermissions {
 }
 
 export namespace PrincipalPermissions {
+  export const filterSensitiveLog = (obj: PrincipalPermissions): any => ({
+    ...obj,
+    ...(obj.Principal && {
+      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
+    })
+  });
   export const isa = (o: any): o is PrincipalPermissions =>
     __isa(o, "PrincipalPermissions");
 }
@@ -553,6 +737,15 @@ export interface PrincipalResourcePermissions {
 }
 
 export namespace PrincipalResourcePermissions {
+  export const filterSensitiveLog = (
+    obj: PrincipalResourcePermissions
+  ): any => ({
+    ...obj,
+    ...(obj.Principal && {
+      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
+    }),
+    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+  });
   export const isa = (o: any): o is PrincipalResourcePermissions =>
     __isa(o, "PrincipalResourcePermissions");
 }
@@ -571,6 +764,14 @@ export interface PutDataLakeSettingsRequest {
 }
 
 export namespace PutDataLakeSettingsRequest {
+  export const filterSensitiveLog = (obj: PutDataLakeSettingsRequest): any => ({
+    ...obj,
+    ...(obj.DataLakeSettings && {
+      DataLakeSettings: DataLakeSettings.filterSensitiveLog(
+        obj.DataLakeSettings
+      )
+    })
+  });
   export const isa = (o: any): o is PutDataLakeSettingsRequest =>
     __isa(o, "PutDataLakeSettingsRequest");
 }
@@ -580,6 +781,11 @@ export interface PutDataLakeSettingsResponse {
 }
 
 export namespace PutDataLakeSettingsResponse {
+  export const filterSensitiveLog = (
+    obj: PutDataLakeSettingsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutDataLakeSettingsResponse =>
     __isa(o, "PutDataLakeSettingsResponse");
 }
@@ -603,6 +809,9 @@ export interface RegisterResourceRequest {
 }
 
 export namespace RegisterResourceRequest {
+  export const filterSensitiveLog = (obj: RegisterResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterResourceRequest =>
     __isa(o, "RegisterResourceRequest");
 }
@@ -612,6 +821,9 @@ export interface RegisterResourceResponse {
 }
 
 export namespace RegisterResourceResponse {
+  export const filterSensitiveLog = (obj: RegisterResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterResourceResponse =>
     __isa(o, "RegisterResourceResponse");
 }
@@ -648,6 +860,24 @@ export interface Resource {
 }
 
 export namespace Resource {
+  export const filterSensitiveLog = (obj: Resource): any => ({
+    ...obj,
+    ...(obj.Catalog && {
+      Catalog: CatalogResource.filterSensitiveLog(obj.Catalog)
+    }),
+    ...(obj.DataLocation && {
+      DataLocation: DataLocationResource.filterSensitiveLog(obj.DataLocation)
+    }),
+    ...(obj.Database && {
+      Database: DatabaseResource.filterSensitiveLog(obj.Database)
+    }),
+    ...(obj.Table && { Table: TableResource.filterSensitiveLog(obj.Table) }),
+    ...(obj.TableWithColumns && {
+      TableWithColumns: TableWithColumnsResource.filterSensitiveLog(
+        obj.TableWithColumns
+      )
+    })
+  });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
@@ -681,6 +911,13 @@ export interface RevokePermissionsRequest {
 }
 
 export namespace RevokePermissionsRequest {
+  export const filterSensitiveLog = (obj: RevokePermissionsRequest): any => ({
+    ...obj,
+    ...(obj.Principal && {
+      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
+    }),
+    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+  });
   export const isa = (o: any): o is RevokePermissionsRequest =>
     __isa(o, "RevokePermissionsRequest");
 }
@@ -690,6 +927,9 @@ export interface RevokePermissionsResponse {
 }
 
 export namespace RevokePermissionsResponse {
+  export const filterSensitiveLog = (obj: RevokePermissionsResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RevokePermissionsResponse =>
     __isa(o, "RevokePermissionsResponse");
 }
@@ -711,6 +951,9 @@ export interface TableResource {
 }
 
 export namespace TableResource {
+  export const filterSensitiveLog = (obj: TableResource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TableResource => __isa(o, "TableResource");
 }
 
@@ -742,6 +985,12 @@ export interface TableWithColumnsResource {
 }
 
 export namespace TableWithColumnsResource {
+  export const filterSensitiveLog = (obj: TableWithColumnsResource): any => ({
+    ...obj,
+    ...(obj.ColumnWildcard && {
+      ColumnWildcard: ColumnWildcard.filterSensitiveLog(obj.ColumnWildcard)
+    })
+  });
   export const isa = (o: any): o is TableWithColumnsResource =>
     __isa(o, "TableWithColumnsResource");
 }
@@ -760,6 +1009,9 @@ export interface UpdateResourceRequest {
 }
 
 export namespace UpdateResourceRequest {
+  export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateResourceRequest =>
     __isa(o, "UpdateResourceRequest");
 }
@@ -769,6 +1021,9 @@ export interface UpdateResourceResponse {
 }
 
 export namespace UpdateResourceResponse {
+  export const filterSensitiveLog = (obj: UpdateResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateResourceResponse =>
     __isa(o, "UpdateResourceResponse");
 }
@@ -788,6 +1043,9 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
+  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AlreadyExistsException =>
     __isa(o, "AlreadyExistsException");
 }
@@ -807,6 +1065,11 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentModificationException =>
     __isa(o, "ConcurrentModificationException");
 }
@@ -826,6 +1089,9 @@ export interface EntityNotFoundException
 }
 
 export namespace EntityNotFoundException {
+  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntityNotFoundException =>
     __isa(o, "EntityNotFoundException");
 }
@@ -847,6 +1113,9 @@ export interface ErrorDetail {
 }
 
 export namespace ErrorDetail {
+  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
 
@@ -865,6 +1134,9 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceException =>
     __isa(o, "InternalServiceException");
 }
@@ -884,6 +1156,9 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInputException =>
     __isa(o, "InvalidInputException");
 }
@@ -903,6 +1178,9 @@ export interface OperationTimeoutException
 }
 
 export namespace OperationTimeoutException {
+  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OperationTimeoutException =>
     __isa(o, "OperationTimeoutException");
 }
@@ -949,6 +1227,9 @@ export interface FilterCondition {
 }
 
 export namespace FilterCondition {
+  export const filterSensitiveLog = (obj: FilterCondition): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FilterCondition =>
     __isa(o, "FilterCondition");
 }
@@ -975,5 +1256,8 @@ export interface ResourceInfo {
 }
 
 export namespace ResourceInfo {
+  export const filterSensitiveLog = (obj: ResourceInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInfo => __isa(o, "ResourceInfo");
 }

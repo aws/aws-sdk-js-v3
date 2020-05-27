@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -39,6 +40,9 @@ export interface CognitoIdentityProvider {
 }
 
 export namespace CognitoIdentityProvider {
+  export const filterSensitiveLog = (obj: CognitoIdentityProvider): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CognitoIdentityProvider =>
     __isa(o, "CognitoIdentityProvider");
 }
@@ -58,6 +62,11 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentModificationException =>
     __isa(o, "ConcurrentModificationException");
 }
@@ -124,6 +133,14 @@ export interface CreateIdentityPoolInput {
 }
 
 export namespace CreateIdentityPoolInput {
+  export const filterSensitiveLog = (obj: CreateIdentityPoolInput): any => ({
+    ...obj,
+    ...(obj.CognitoIdentityProviders && {
+      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(item =>
+        CognitoIdentityProvider.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateIdentityPoolInput =>
     __isa(o, "CreateIdentityPoolInput");
 }
@@ -155,6 +172,9 @@ export interface Credentials {
 }
 
 export namespace Credentials {
+  export const filterSensitiveLog = (obj: Credentials): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
 }
 
@@ -170,6 +190,9 @@ export interface DeleteIdentitiesInput {
 }
 
 export namespace DeleteIdentitiesInput {
+  export const filterSensitiveLog = (obj: DeleteIdentitiesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteIdentitiesInput =>
     __isa(o, "DeleteIdentitiesInput");
 }
@@ -188,6 +211,14 @@ export interface DeleteIdentitiesResponse {
 }
 
 export namespace DeleteIdentitiesResponse {
+  export const filterSensitiveLog = (obj: DeleteIdentitiesResponse): any => ({
+    ...obj,
+    ...(obj.UnprocessedIdentityIds && {
+      UnprocessedIdentityIds: obj.UnprocessedIdentityIds.map(item =>
+        UnprocessedIdentityId.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteIdentitiesResponse =>
     __isa(o, "DeleteIdentitiesResponse");
 }
@@ -204,6 +235,9 @@ export interface DeleteIdentityPoolInput {
 }
 
 export namespace DeleteIdentityPoolInput {
+  export const filterSensitiveLog = (obj: DeleteIdentityPoolInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteIdentityPoolInput =>
     __isa(o, "DeleteIdentityPoolInput");
 }
@@ -220,6 +254,9 @@ export interface DescribeIdentityInput {
 }
 
 export namespace DescribeIdentityInput {
+  export const filterSensitiveLog = (obj: DescribeIdentityInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeIdentityInput =>
     __isa(o, "DescribeIdentityInput");
 }
@@ -236,6 +273,9 @@ export interface DescribeIdentityPoolInput {
 }
 
 export namespace DescribeIdentityPoolInput {
+  export const filterSensitiveLog = (obj: DescribeIdentityPoolInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeIdentityPoolInput =>
     __isa(o, "DescribeIdentityPoolInput");
 }
@@ -256,6 +296,11 @@ export interface DeveloperUserAlreadyRegisteredException
 }
 
 export namespace DeveloperUserAlreadyRegisteredException {
+  export const filterSensitiveLog = (
+    obj: DeveloperUserAlreadyRegisteredException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeveloperUserAlreadyRegisteredException =>
     __isa(o, "DeveloperUserAlreadyRegisteredException");
 }
@@ -281,6 +326,9 @@ export interface ExternalServiceException
 }
 
 export namespace ExternalServiceException {
+  export const filterSensitiveLog = (obj: ExternalServiceException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExternalServiceException =>
     __isa(o, "ExternalServiceException");
 }
@@ -318,6 +366,11 @@ export interface GetCredentialsForIdentityInput {
 }
 
 export namespace GetCredentialsForIdentityInput {
+  export const filterSensitiveLog = (
+    obj: GetCredentialsForIdentityInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetCredentialsForIdentityInput =>
     __isa(o, "GetCredentialsForIdentityInput");
 }
@@ -340,6 +393,14 @@ export interface GetCredentialsForIdentityResponse {
 }
 
 export namespace GetCredentialsForIdentityResponse {
+  export const filterSensitiveLog = (
+    obj: GetCredentialsForIdentityResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Credentials && {
+      Credentials: Credentials.filterSensitiveLog(obj.Credentials)
+    })
+  });
   export const isa = (o: any): o is GetCredentialsForIdentityResponse =>
     __isa(o, "GetCredentialsForIdentityResponse");
 }
@@ -395,6 +456,9 @@ export interface GetIdInput {
 }
 
 export namespace GetIdInput {
+  export const filterSensitiveLog = (obj: GetIdInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetIdInput => __isa(o, "GetIdInput");
 }
 
@@ -410,6 +474,9 @@ export interface GetIdResponse {
 }
 
 export namespace GetIdResponse {
+  export const filterSensitiveLog = (obj: GetIdResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetIdResponse => __isa(o, "GetIdResponse");
 }
 
@@ -425,6 +492,9 @@ export interface GetIdentityPoolRolesInput {
 }
 
 export namespace GetIdentityPoolRolesInput {
+  export const filterSensitiveLog = (obj: GetIdentityPoolRolesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetIdentityPoolRolesInput =>
     __isa(o, "GetIdentityPoolRolesInput");
 }
@@ -456,6 +526,20 @@ export interface GetIdentityPoolRolesResponse {
 }
 
 export namespace GetIdentityPoolRolesResponse {
+  export const filterSensitiveLog = (
+    obj: GetIdentityPoolRolesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.RoleMappings && {
+      RoleMappings: Object.entries(obj.RoleMappings).reduce(
+        (acc: any, [key, value]: [string, RoleMapping]) => ({
+          ...acc,
+          [key]: RoleMapping.filterSensitiveLog(value)
+        }),
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is GetIdentityPoolRolesResponse =>
     __isa(o, "GetIdentityPoolRolesResponse");
 }
@@ -503,6 +587,11 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
 }
 
 export namespace GetOpenIdTokenForDeveloperIdentityInput {
+  export const filterSensitiveLog = (
+    obj: GetOpenIdTokenForDeveloperIdentityInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetOpenIdTokenForDeveloperIdentityInput =>
     __isa(o, "GetOpenIdTokenForDeveloperIdentityInput");
 }
@@ -525,6 +614,11 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
 }
 
 export namespace GetOpenIdTokenForDeveloperIdentityResponse {
+  export const filterSensitiveLog = (
+    obj: GetOpenIdTokenForDeveloperIdentityResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is GetOpenIdTokenForDeveloperIdentityResponse =>
@@ -551,6 +645,9 @@ export interface GetOpenIdTokenInput {
 }
 
 export namespace GetOpenIdTokenInput {
+  export const filterSensitiveLog = (obj: GetOpenIdTokenInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetOpenIdTokenInput =>
     __isa(o, "GetOpenIdTokenInput");
 }
@@ -573,6 +670,9 @@ export interface GetOpenIdTokenResponse {
 }
 
 export namespace GetOpenIdTokenResponse {
+  export const filterSensitiveLog = (obj: GetOpenIdTokenResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetOpenIdTokenResponse =>
     __isa(o, "GetOpenIdTokenResponse");
 }
@@ -604,6 +704,9 @@ export interface IdentityDescription {
 }
 
 export namespace IdentityDescription {
+  export const filterSensitiveLog = (obj: IdentityDescription): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is IdentityDescription =>
     __isa(o, "IdentityDescription");
 }
@@ -669,6 +772,14 @@ export interface IdentityPool {
 }
 
 export namespace IdentityPool {
+  export const filterSensitiveLog = (obj: IdentityPool): any => ({
+    ...obj,
+    ...(obj.CognitoIdentityProviders && {
+      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(item =>
+        CognitoIdentityProvider.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is IdentityPool => __isa(o, "IdentityPool");
 }
 
@@ -689,6 +800,11 @@ export interface IdentityPoolShortDescription {
 }
 
 export namespace IdentityPoolShortDescription {
+  export const filterSensitiveLog = (
+    obj: IdentityPoolShortDescription
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is IdentityPoolShortDescription =>
     __isa(o, "IdentityPoolShortDescription");
 }
@@ -708,6 +824,9 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
+  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalErrorException =>
     __isa(o, "InternalErrorException");
 }
@@ -729,6 +848,11 @@ export interface InvalidIdentityPoolConfigurationException
 }
 
 export namespace InvalidIdentityPoolConfigurationException {
+  export const filterSensitiveLog = (
+    obj: InvalidIdentityPoolConfigurationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidIdentityPoolConfigurationException =>
     __isa(o, "InvalidIdentityPoolConfigurationException");
 }
@@ -748,6 +872,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -767,6 +894,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -799,6 +929,9 @@ export interface ListIdentitiesInput {
 }
 
 export namespace ListIdentitiesInput {
+  export const filterSensitiveLog = (obj: ListIdentitiesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListIdentitiesInput =>
     __isa(o, "ListIdentitiesInput");
 }
@@ -825,6 +958,14 @@ export interface ListIdentitiesResponse {
 }
 
 export namespace ListIdentitiesResponse {
+  export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
+    ...obj,
+    ...(obj.Identities && {
+      Identities: obj.Identities.map(item =>
+        IdentityDescription.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListIdentitiesResponse =>
     __isa(o, "ListIdentitiesResponse");
 }
@@ -846,6 +987,9 @@ export interface ListIdentityPoolsInput {
 }
 
 export namespace ListIdentityPoolsInput {
+  export const filterSensitiveLog = (obj: ListIdentityPoolsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListIdentityPoolsInput =>
     __isa(o, "ListIdentityPoolsInput");
 }
@@ -867,6 +1011,14 @@ export interface ListIdentityPoolsResponse {
 }
 
 export namespace ListIdentityPoolsResponse {
+  export const filterSensitiveLog = (obj: ListIdentityPoolsResponse): any => ({
+    ...obj,
+    ...(obj.IdentityPools && {
+      IdentityPools: obj.IdentityPools.map(item =>
+        IdentityPoolShortDescription.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListIdentityPoolsResponse =>
     __isa(o, "ListIdentityPoolsResponse");
 }
@@ -881,6 +1033,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceInput =>
     __isa(o, "ListTagsForResourceInput");
 }
@@ -894,6 +1049,11 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -937,6 +1097,11 @@ export interface LookupDeveloperIdentityInput {
 }
 
 export namespace LookupDeveloperIdentityInput {
+  export const filterSensitiveLog = (
+    obj: LookupDeveloperIdentityInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LookupDeveloperIdentityInput =>
     __isa(o, "LookupDeveloperIdentityInput");
 }
@@ -971,6 +1136,11 @@ export interface LookupDeveloperIdentityResponse {
 }
 
 export namespace LookupDeveloperIdentityResponse {
+  export const filterSensitiveLog = (
+    obj: LookupDeveloperIdentityResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LookupDeveloperIdentityResponse =>
     __isa(o, "LookupDeveloperIdentityResponse");
 }
@@ -1005,6 +1175,9 @@ export interface MappingRule {
 }
 
 export namespace MappingRule {
+  export const filterSensitiveLog = (obj: MappingRule): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MappingRule => __isa(o, "MappingRule");
 }
 
@@ -1048,6 +1221,11 @@ export interface MergeDeveloperIdentitiesInput {
 }
 
 export namespace MergeDeveloperIdentitiesInput {
+  export const filterSensitiveLog = (
+    obj: MergeDeveloperIdentitiesInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MergeDeveloperIdentitiesInput =>
     __isa(o, "MergeDeveloperIdentitiesInput");
 }
@@ -1065,6 +1243,11 @@ export interface MergeDeveloperIdentitiesResponse {
 }
 
 export namespace MergeDeveloperIdentitiesResponse {
+  export const filterSensitiveLog = (
+    obj: MergeDeveloperIdentitiesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MergeDeveloperIdentitiesResponse =>
     __isa(o, "MergeDeveloperIdentitiesResponse");
 }
@@ -1084,6 +1267,9 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotAuthorizedException =>
     __isa(o, "NotAuthorizedException");
 }
@@ -1104,6 +1290,9 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
+  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceConflictException =>
     __isa(o, "ResourceConflictException");
 }
@@ -1124,6 +1313,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -1160,6 +1352,14 @@ export interface RoleMapping {
 }
 
 export namespace RoleMapping {
+  export const filterSensitiveLog = (obj: RoleMapping): any => ({
+    ...obj,
+    ...(obj.RulesConfiguration && {
+      RulesConfiguration: RulesConfigurationType.filterSensitiveLog(
+        obj.RulesConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is RoleMapping => __isa(o, "RoleMapping");
 }
 
@@ -1181,6 +1381,12 @@ export interface RulesConfigurationType {
 }
 
 export namespace RulesConfigurationType {
+  export const filterSensitiveLog = (obj: RulesConfigurationType): any => ({
+    ...obj,
+    ...(obj.Rules && {
+      Rules: obj.Rules.map(item => MappingRule.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is RulesConfigurationType =>
     __isa(o, "RulesConfigurationType");
 }
@@ -1212,6 +1418,18 @@ export interface SetIdentityPoolRolesInput {
 }
 
 export namespace SetIdentityPoolRolesInput {
+  export const filterSensitiveLog = (obj: SetIdentityPoolRolesInput): any => ({
+    ...obj,
+    ...(obj.RoleMappings && {
+      RoleMappings: Object.entries(obj.RoleMappings).reduce(
+        (acc: any, [key, value]: [string, RoleMapping]) => ({
+          ...acc,
+          [key]: RoleMapping.filterSensitiveLog(value)
+        }),
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is SetIdentityPoolRolesInput =>
     __isa(o, "SetIdentityPoolRolesInput");
 }
@@ -1230,6 +1448,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
 }
@@ -1239,6 +1460,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -1258,6 +1482,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -1289,6 +1516,11 @@ export interface UnlinkDeveloperIdentityInput {
 }
 
 export namespace UnlinkDeveloperIdentityInput {
+  export const filterSensitiveLog = (
+    obj: UnlinkDeveloperIdentityInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnlinkDeveloperIdentityInput =>
     __isa(o, "UnlinkDeveloperIdentityInput");
 }
@@ -1316,6 +1548,9 @@ export interface UnlinkIdentityInput {
 }
 
 export namespace UnlinkIdentityInput {
+  export const filterSensitiveLog = (obj: UnlinkIdentityInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnlinkIdentityInput =>
     __isa(o, "UnlinkIdentityInput");
 }
@@ -1338,6 +1573,9 @@ export interface UnprocessedIdentityId {
 }
 
 export namespace UnprocessedIdentityId {
+  export const filterSensitiveLog = (obj: UnprocessedIdentityId): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnprocessedIdentityId =>
     __isa(o, "UnprocessedIdentityId");
 }
@@ -1357,6 +1595,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceInput =>
     __isa(o, "UntagResourceInput");
 }
@@ -1366,6 +1607,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }

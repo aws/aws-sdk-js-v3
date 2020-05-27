@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -29,6 +30,16 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalRequest {
+  export const filterSensitiveLog = (
+    obj: AcceptDirectConnectGatewayAssociationProposalRequest
+  ): any => ({
+    ...obj,
+    ...(obj.overrideAllowedPrefixesToDirectConnectGateway && {
+      overrideAllowedPrefixesToDirectConnectGateway: obj.overrideAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is AcceptDirectConnectGatewayAssociationProposalRequest =>
@@ -44,6 +55,16 @@ export interface AcceptDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalResult {
+  export const filterSensitiveLog = (
+    obj: AcceptDirectConnectGatewayAssociationProposalResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociation && {
+      directConnectGatewayAssociation: DirectConnectGatewayAssociation.filterSensitiveLog(
+        obj.directConnectGatewayAssociation
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is AcceptDirectConnectGatewayAssociationProposalResult =>
@@ -87,6 +108,11 @@ export interface AllocateConnectionOnInterconnectRequest {
 }
 
 export namespace AllocateConnectionOnInterconnectRequest {
+  export const filterSensitiveLog = (
+    obj: AllocateConnectionOnInterconnectRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AllocateConnectionOnInterconnectRequest =>
     __isa(o, "AllocateConnectionOnInterconnectRequest");
 }
@@ -125,6 +151,14 @@ export interface AllocateHostedConnectionRequest {
 }
 
 export namespace AllocateHostedConnectionRequest {
+  export const filterSensitiveLog = (
+    obj: AllocateHostedConnectionRequest
+  ): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is AllocateHostedConnectionRequest =>
     __isa(o, "AllocateHostedConnectionRequest");
 }
@@ -150,6 +184,16 @@ export interface AllocatePrivateVirtualInterfaceRequest {
 }
 
 export namespace AllocatePrivateVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: AllocatePrivateVirtualInterfaceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.newPrivateVirtualInterfaceAllocation && {
+      newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation.filterSensitiveLog(
+        obj.newPrivateVirtualInterfaceAllocation
+      )
+    })
+  });
   export const isa = (o: any): o is AllocatePrivateVirtualInterfaceRequest =>
     __isa(o, "AllocatePrivateVirtualInterfaceRequest");
 }
@@ -175,6 +219,16 @@ export interface AllocatePublicVirtualInterfaceRequest {
 }
 
 export namespace AllocatePublicVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: AllocatePublicVirtualInterfaceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.newPublicVirtualInterfaceAllocation && {
+      newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation.filterSensitiveLog(
+        obj.newPublicVirtualInterfaceAllocation
+      )
+    })
+  });
   export const isa = (o: any): o is AllocatePublicVirtualInterfaceRequest =>
     __isa(o, "AllocatePublicVirtualInterfaceRequest");
 }
@@ -200,6 +254,16 @@ export interface AllocateTransitVirtualInterfaceRequest {
 }
 
 export namespace AllocateTransitVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: AllocateTransitVirtualInterfaceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.newTransitVirtualInterfaceAllocation && {
+      newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation.filterSensitiveLog(
+        obj.newTransitVirtualInterfaceAllocation
+      )
+    })
+  });
   export const isa = (o: any): o is AllocateTransitVirtualInterfaceRequest =>
     __isa(o, "AllocateTransitVirtualInterfaceRequest");
 }
@@ -213,6 +277,16 @@ export interface AllocateTransitVirtualInterfaceResult {
 }
 
 export namespace AllocateTransitVirtualInterfaceResult {
+  export const filterSensitiveLog = (
+    obj: AllocateTransitVirtualInterfaceResult
+  ): any => ({
+    ...obj,
+    ...(obj.virtualInterface && {
+      virtualInterface: VirtualInterface.filterSensitiveLog(
+        obj.virtualInterface
+      )
+    })
+  });
   export const isa = (o: any): o is AllocateTransitVirtualInterfaceResult =>
     __isa(o, "AllocateTransitVirtualInterfaceResult");
 }
@@ -231,6 +305,11 @@ export interface AssociateConnectionWithLagRequest {
 }
 
 export namespace AssociateConnectionWithLagRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateConnectionWithLagRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateConnectionWithLagRequest =>
     __isa(o, "AssociateConnectionWithLagRequest");
 }
@@ -249,6 +328,11 @@ export interface AssociateHostedConnectionRequest {
 }
 
 export namespace AssociateHostedConnectionRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateHostedConnectionRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateHostedConnectionRequest =>
     __isa(o, "AssociateHostedConnectionRequest");
 }
@@ -267,6 +351,11 @@ export interface AssociateVirtualInterfaceRequest {
 }
 
 export namespace AssociateVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateVirtualInterfaceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateVirtualInterfaceRequest =>
     __isa(o, "AssociateVirtualInterfaceRequest");
 }
@@ -298,6 +387,9 @@ export interface AssociatedGateway {
 }
 
 export namespace AssociatedGateway {
+  export const filterSensitiveLog = (obj: AssociatedGateway): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociatedGateway =>
     __isa(o, "AssociatedGateway");
 }
@@ -391,6 +483,9 @@ export interface BGPPeer {
 }
 
 export namespace BGPPeer {
+  export const filterSensitiveLog = (obj: BGPPeer): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BGPPeer => __isa(o, "BGPPeer");
 }
 
@@ -417,6 +512,9 @@ export interface ConfirmConnectionRequest {
 }
 
 export namespace ConfirmConnectionRequest {
+  export const filterSensitiveLog = (obj: ConfirmConnectionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmConnectionRequest =>
     __isa(o, "ConfirmConnectionRequest");
 }
@@ -468,6 +566,9 @@ export interface ConfirmConnectionResponse {
 }
 
 export namespace ConfirmConnectionResponse {
+  export const filterSensitiveLog = (obj: ConfirmConnectionResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmConnectionResponse =>
     __isa(o, "ConfirmConnectionResponse");
 }
@@ -491,6 +592,11 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
 }
 
 export namespace ConfirmPrivateVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: ConfirmPrivateVirtualInterfaceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmPrivateVirtualInterfaceRequest =>
     __isa(o, "ConfirmPrivateVirtualInterfaceRequest");
 }
@@ -542,6 +648,11 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
 }
 
 export namespace ConfirmPrivateVirtualInterfaceResponse {
+  export const filterSensitiveLog = (
+    obj: ConfirmPrivateVirtualInterfaceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmPrivateVirtualInterfaceResponse =>
     __isa(o, "ConfirmPrivateVirtualInterfaceResponse");
 }
@@ -555,6 +666,11 @@ export interface ConfirmPublicVirtualInterfaceRequest {
 }
 
 export namespace ConfirmPublicVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: ConfirmPublicVirtualInterfaceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmPublicVirtualInterfaceRequest =>
     __isa(o, "ConfirmPublicVirtualInterfaceRequest");
 }
@@ -606,6 +722,11 @@ export interface ConfirmPublicVirtualInterfaceResponse {
 }
 
 export namespace ConfirmPublicVirtualInterfaceResponse {
+  export const filterSensitiveLog = (
+    obj: ConfirmPublicVirtualInterfaceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmPublicVirtualInterfaceResponse =>
     __isa(o, "ConfirmPublicVirtualInterfaceResponse");
 }
@@ -624,6 +745,11 @@ export interface ConfirmTransitVirtualInterfaceRequest {
 }
 
 export namespace ConfirmTransitVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: ConfirmTransitVirtualInterfaceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmTransitVirtualInterfaceRequest =>
     __isa(o, "ConfirmTransitVirtualInterfaceRequest");
 }
@@ -675,6 +801,11 @@ export interface ConfirmTransitVirtualInterfaceResponse {
 }
 
 export namespace ConfirmTransitVirtualInterfaceResponse {
+  export const filterSensitiveLog = (
+    obj: ConfirmTransitVirtualInterfaceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmTransitVirtualInterfaceResponse =>
     __isa(o, "ConfirmTransitVirtualInterfaceResponse");
 }
@@ -809,6 +940,12 @@ export interface Connection {
 }
 
 export namespace Connection {
+  export const filterSensitiveLog = (obj: Connection): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
 
@@ -832,6 +969,14 @@ export interface Connections {
 }
 
 export namespace Connections {
+  export const filterSensitiveLog = (obj: Connections): any => ({
+    ...obj,
+    ...(obj.connections && {
+      connections: obj.connections.map(item =>
+        Connection.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is Connections => __isa(o, "Connections");
 }
 
@@ -849,6 +994,12 @@ export interface CreateBGPPeerRequest {
 }
 
 export namespace CreateBGPPeerRequest {
+  export const filterSensitiveLog = (obj: CreateBGPPeerRequest): any => ({
+    ...obj,
+    ...(obj.newBGPPeer && {
+      newBGPPeer: NewBGPPeer.filterSensitiveLog(obj.newBGPPeer)
+    })
+  });
   export const isa = (o: any): o is CreateBGPPeerRequest =>
     __isa(o, "CreateBGPPeerRequest");
 }
@@ -862,6 +1013,14 @@ export interface CreateBGPPeerResponse {
 }
 
 export namespace CreateBGPPeerResponse {
+  export const filterSensitiveLog = (obj: CreateBGPPeerResponse): any => ({
+    ...obj,
+    ...(obj.virtualInterface && {
+      virtualInterface: VirtualInterface.filterSensitiveLog(
+        obj.virtualInterface
+      )
+    })
+  });
   export const isa = (o: any): o is CreateBGPPeerResponse =>
     __isa(o, "CreateBGPPeerResponse");
 }
@@ -900,6 +1059,12 @@ export interface CreateConnectionRequest {
 }
 
 export namespace CreateConnectionRequest {
+  export const filterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateConnectionRequest =>
     __isa(o, "CreateConnectionRequest");
 }
@@ -933,6 +1098,21 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalRequest {
+  export const filterSensitiveLog = (
+    obj: CreateDirectConnectGatewayAssociationProposalRequest
+  ): any => ({
+    ...obj,
+    ...(obj.addAllowedPrefixesToDirectConnectGateway && {
+      addAllowedPrefixesToDirectConnectGateway: obj.addAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.removeAllowedPrefixesToDirectConnectGateway && {
+      removeAllowedPrefixesToDirectConnectGateway: obj.removeAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is CreateDirectConnectGatewayAssociationProposalRequest =>
@@ -948,6 +1128,16 @@ export interface CreateDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalResult {
+  export const filterSensitiveLog = (
+    obj: CreateDirectConnectGatewayAssociationProposalResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociationProposal && {
+      directConnectGatewayAssociationProposal: DirectConnectGatewayAssociationProposal.filterSensitiveLog(
+        obj.directConnectGatewayAssociationProposal
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is CreateDirectConnectGatewayAssociationProposalResult =>
@@ -980,6 +1170,16 @@ export interface CreateDirectConnectGatewayAssociationRequest {
 }
 
 export namespace CreateDirectConnectGatewayAssociationRequest {
+  export const filterSensitiveLog = (
+    obj: CreateDirectConnectGatewayAssociationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.addAllowedPrefixesToDirectConnectGateway && {
+      addAllowedPrefixesToDirectConnectGateway: obj.addAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is CreateDirectConnectGatewayAssociationRequest =>
@@ -995,6 +1195,16 @@ export interface CreateDirectConnectGatewayAssociationResult {
 }
 
 export namespace CreateDirectConnectGatewayAssociationResult {
+  export const filterSensitiveLog = (
+    obj: CreateDirectConnectGatewayAssociationResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociation && {
+      directConnectGatewayAssociation: DirectConnectGatewayAssociation.filterSensitiveLog(
+        obj.directConnectGatewayAssociation
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is CreateDirectConnectGatewayAssociationResult =>
@@ -1017,6 +1227,11 @@ export interface CreateDirectConnectGatewayRequest {
 }
 
 export namespace CreateDirectConnectGatewayRequest {
+  export const filterSensitiveLog = (
+    obj: CreateDirectConnectGatewayRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateDirectConnectGatewayRequest =>
     __isa(o, "CreateDirectConnectGatewayRequest");
 }
@@ -1030,6 +1245,16 @@ export interface CreateDirectConnectGatewayResult {
 }
 
 export namespace CreateDirectConnectGatewayResult {
+  export const filterSensitiveLog = (
+    obj: CreateDirectConnectGatewayResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGateway && {
+      directConnectGateway: DirectConnectGateway.filterSensitiveLog(
+        obj.directConnectGateway
+      )
+    })
+  });
   export const isa = (o: any): o is CreateDirectConnectGatewayResult =>
     __isa(o, "CreateDirectConnectGatewayResult");
 }
@@ -1068,6 +1293,12 @@ export interface CreateInterconnectRequest {
 }
 
 export namespace CreateInterconnectRequest {
+  export const filterSensitiveLog = (obj: CreateInterconnectRequest): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateInterconnectRequest =>
     __isa(o, "CreateInterconnectRequest");
 }
@@ -1116,6 +1347,17 @@ export interface CreateLagRequest {
 }
 
 export namespace CreateLagRequest {
+  export const filterSensitiveLog = (obj: CreateLagRequest): any => ({
+    ...obj,
+    ...(obj.childConnectionTags && {
+      childConnectionTags: obj.childConnectionTags.map(item =>
+        Tag.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateLagRequest =>
     __isa(o, "CreateLagRequest");
 }
@@ -1134,6 +1376,16 @@ export interface CreatePrivateVirtualInterfaceRequest {
 }
 
 export namespace CreatePrivateVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: CreatePrivateVirtualInterfaceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.newPrivateVirtualInterface && {
+      newPrivateVirtualInterface: NewPrivateVirtualInterface.filterSensitiveLog(
+        obj.newPrivateVirtualInterface
+      )
+    })
+  });
   export const isa = (o: any): o is CreatePrivateVirtualInterfaceRequest =>
     __isa(o, "CreatePrivateVirtualInterfaceRequest");
 }
@@ -1152,6 +1404,16 @@ export interface CreatePublicVirtualInterfaceRequest {
 }
 
 export namespace CreatePublicVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: CreatePublicVirtualInterfaceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.newPublicVirtualInterface && {
+      newPublicVirtualInterface: NewPublicVirtualInterface.filterSensitiveLog(
+        obj.newPublicVirtualInterface
+      )
+    })
+  });
   export const isa = (o: any): o is CreatePublicVirtualInterfaceRequest =>
     __isa(o, "CreatePublicVirtualInterfaceRequest");
 }
@@ -1170,6 +1432,16 @@ export interface CreateTransitVirtualInterfaceRequest {
 }
 
 export namespace CreateTransitVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: CreateTransitVirtualInterfaceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.newTransitVirtualInterface && {
+      newTransitVirtualInterface: NewTransitVirtualInterface.filterSensitiveLog(
+        obj.newTransitVirtualInterface
+      )
+    })
+  });
   export const isa = (o: any): o is CreateTransitVirtualInterfaceRequest =>
     __isa(o, "CreateTransitVirtualInterfaceRequest");
 }
@@ -1183,6 +1455,16 @@ export interface CreateTransitVirtualInterfaceResult {
 }
 
 export namespace CreateTransitVirtualInterfaceResult {
+  export const filterSensitiveLog = (
+    obj: CreateTransitVirtualInterfaceResult
+  ): any => ({
+    ...obj,
+    ...(obj.virtualInterface && {
+      virtualInterface: VirtualInterface.filterSensitiveLog(
+        obj.virtualInterface
+      )
+    })
+  });
   export const isa = (o: any): o is CreateTransitVirtualInterfaceResult =>
     __isa(o, "CreateTransitVirtualInterfaceResult");
 }
@@ -1211,6 +1493,9 @@ export interface DeleteBGPPeerRequest {
 }
 
 export namespace DeleteBGPPeerRequest {
+  export const filterSensitiveLog = (obj: DeleteBGPPeerRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteBGPPeerRequest =>
     __isa(o, "DeleteBGPPeerRequest");
 }
@@ -1224,6 +1509,14 @@ export interface DeleteBGPPeerResponse {
 }
 
 export namespace DeleteBGPPeerResponse {
+  export const filterSensitiveLog = (obj: DeleteBGPPeerResponse): any => ({
+    ...obj,
+    ...(obj.virtualInterface && {
+      virtualInterface: VirtualInterface.filterSensitiveLog(
+        obj.virtualInterface
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteBGPPeerResponse =>
     __isa(o, "DeleteBGPPeerResponse");
 }
@@ -1237,6 +1530,9 @@ export interface DeleteConnectionRequest {
 }
 
 export namespace DeleteConnectionRequest {
+  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConnectionRequest =>
     __isa(o, "DeleteConnectionRequest");
 }
@@ -1250,6 +1546,11 @@ export interface DeleteDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteDirectConnectGatewayAssociationProposalRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DeleteDirectConnectGatewayAssociationProposalRequest =>
@@ -1265,6 +1566,16 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalResult {
+  export const filterSensitiveLog = (
+    obj: DeleteDirectConnectGatewayAssociationProposalResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociationProposal && {
+      directConnectGatewayAssociationProposal: DirectConnectGatewayAssociationProposal.filterSensitiveLog(
+        obj.directConnectGatewayAssociationProposal
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DeleteDirectConnectGatewayAssociationProposalResult =>
@@ -1290,6 +1601,11 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteDirectConnectGatewayAssociationRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DeleteDirectConnectGatewayAssociationRequest =>
@@ -1305,6 +1621,16 @@ export interface DeleteDirectConnectGatewayAssociationResult {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationResult {
+  export const filterSensitiveLog = (
+    obj: DeleteDirectConnectGatewayAssociationResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociation && {
+      directConnectGatewayAssociation: DirectConnectGatewayAssociation.filterSensitiveLog(
+        obj.directConnectGatewayAssociation
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DeleteDirectConnectGatewayAssociationResult =>
@@ -1320,6 +1646,11 @@ export interface DeleteDirectConnectGatewayRequest {
 }
 
 export namespace DeleteDirectConnectGatewayRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteDirectConnectGatewayRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteDirectConnectGatewayRequest =>
     __isa(o, "DeleteDirectConnectGatewayRequest");
 }
@@ -1333,6 +1664,16 @@ export interface DeleteDirectConnectGatewayResult {
 }
 
 export namespace DeleteDirectConnectGatewayResult {
+  export const filterSensitiveLog = (
+    obj: DeleteDirectConnectGatewayResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGateway && {
+      directConnectGateway: DirectConnectGateway.filterSensitiveLog(
+        obj.directConnectGateway
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteDirectConnectGatewayResult =>
     __isa(o, "DeleteDirectConnectGatewayResult");
 }
@@ -1346,6 +1687,9 @@ export interface DeleteInterconnectRequest {
 }
 
 export namespace DeleteInterconnectRequest {
+  export const filterSensitiveLog = (obj: DeleteInterconnectRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteInterconnectRequest =>
     __isa(o, "DeleteInterconnectRequest");
 }
@@ -1390,6 +1734,9 @@ export interface DeleteInterconnectResponse {
 }
 
 export namespace DeleteInterconnectResponse {
+  export const filterSensitiveLog = (obj: DeleteInterconnectResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteInterconnectResponse =>
     __isa(o, "DeleteInterconnectResponse");
 }
@@ -1403,6 +1750,9 @@ export interface DeleteLagRequest {
 }
 
 export namespace DeleteLagRequest {
+  export const filterSensitiveLog = (obj: DeleteLagRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLagRequest =>
     __isa(o, "DeleteLagRequest");
 }
@@ -1416,6 +1766,11 @@ export interface DeleteVirtualInterfaceRequest {
 }
 
 export namespace DeleteVirtualInterfaceRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteVirtualInterfaceRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteVirtualInterfaceRequest =>
     __isa(o, "DeleteVirtualInterfaceRequest");
 }
@@ -1467,6 +1822,11 @@ export interface DeleteVirtualInterfaceResponse {
 }
 
 export namespace DeleteVirtualInterfaceResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteVirtualInterfaceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteVirtualInterfaceResponse =>
     __isa(o, "DeleteVirtualInterfaceResponse");
 }
@@ -1491,6 +1851,11 @@ export interface DescribeConnectionLoaRequest {
 }
 
 export namespace DescribeConnectionLoaRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeConnectionLoaRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeConnectionLoaRequest =>
     __isa(o, "DescribeConnectionLoaRequest");
 }
@@ -1504,6 +1869,12 @@ export interface DescribeConnectionLoaResponse {
 }
 
 export namespace DescribeConnectionLoaResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeConnectionLoaResponse
+  ): any => ({
+    ...obj,
+    ...(obj.loa && { loa: Loa.filterSensitiveLog(obj.loa) })
+  });
   export const isa = (o: any): o is DescribeConnectionLoaResponse =>
     __isa(o, "DescribeConnectionLoaResponse");
 }
@@ -1517,6 +1888,11 @@ export interface DescribeConnectionsOnInterconnectRequest {
 }
 
 export namespace DescribeConnectionsOnInterconnectRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeConnectionsOnInterconnectRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeConnectionsOnInterconnectRequest =>
     __isa(o, "DescribeConnectionsOnInterconnectRequest");
 }
@@ -1530,6 +1906,9 @@ export interface DescribeConnectionsRequest {
 }
 
 export namespace DescribeConnectionsRequest {
+  export const filterSensitiveLog = (obj: DescribeConnectionsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeConnectionsRequest =>
     __isa(o, "DescribeConnectionsRequest");
 }
@@ -1566,6 +1945,11 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewayAssociationProposalsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DescribeDirectConnectGatewayAssociationProposalsRequest =>
@@ -1586,6 +1970,16 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewayAssociationProposalsResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociationProposals && {
+      directConnectGatewayAssociationProposals: obj.directConnectGatewayAssociationProposals.map(
+        item => DirectConnectGatewayAssociationProposal.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeDirectConnectGatewayAssociationProposalsResult =>
@@ -1629,6 +2023,11 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewayAssociationsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DescribeDirectConnectGatewayAssociationsRequest =>
@@ -1649,6 +2048,16 @@ export interface DescribeDirectConnectGatewayAssociationsResult {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewayAssociationsResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociations && {
+      directConnectGatewayAssociations: obj.directConnectGatewayAssociations.map(
+        item => DirectConnectGatewayAssociation.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeDirectConnectGatewayAssociationsResult =>
@@ -1682,6 +2091,11 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewayAttachmentsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DescribeDirectConnectGatewayAttachmentsRequest =>
@@ -1702,6 +2116,16 @@ export interface DescribeDirectConnectGatewayAttachmentsResult {
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewayAttachmentsResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAttachments && {
+      directConnectGatewayAttachments: obj.directConnectGatewayAttachments.map(
+        item => DirectConnectGatewayAttachment.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeDirectConnectGatewayAttachmentsResult =>
@@ -1730,6 +2154,11 @@ export interface DescribeDirectConnectGatewaysRequest {
 }
 
 export namespace DescribeDirectConnectGatewaysRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewaysRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeDirectConnectGatewaysRequest =>
     __isa(o, "DescribeDirectConnectGatewaysRequest");
 }
@@ -1748,6 +2177,16 @@ export interface DescribeDirectConnectGatewaysResult {
 }
 
 export namespace DescribeDirectConnectGatewaysResult {
+  export const filterSensitiveLog = (
+    obj: DescribeDirectConnectGatewaysResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGateways && {
+      directConnectGateways: obj.directConnectGateways.map(item =>
+        DirectConnectGateway.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeDirectConnectGatewaysResult =>
     __isa(o, "DescribeDirectConnectGatewaysResult");
 }
@@ -1761,6 +2200,11 @@ export interface DescribeHostedConnectionsRequest {
 }
 
 export namespace DescribeHostedConnectionsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeHostedConnectionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeHostedConnectionsRequest =>
     __isa(o, "DescribeHostedConnectionsRequest");
 }
@@ -1784,6 +2228,11 @@ export interface DescribeInterconnectLoaRequest {
 }
 
 export namespace DescribeInterconnectLoaRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeInterconnectLoaRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeInterconnectLoaRequest =>
     __isa(o, "DescribeInterconnectLoaRequest");
 }
@@ -1797,6 +2246,12 @@ export interface DescribeInterconnectLoaResponse {
 }
 
 export namespace DescribeInterconnectLoaResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeInterconnectLoaResponse
+  ): any => ({
+    ...obj,
+    ...(obj.loa && { loa: Loa.filterSensitiveLog(obj.loa) })
+  });
   export const isa = (o: any): o is DescribeInterconnectLoaResponse =>
     __isa(o, "DescribeInterconnectLoaResponse");
 }
@@ -1810,6 +2265,11 @@ export interface DescribeInterconnectsRequest {
 }
 
 export namespace DescribeInterconnectsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeInterconnectsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeInterconnectsRequest =>
     __isa(o, "DescribeInterconnectsRequest");
 }
@@ -1823,6 +2283,9 @@ export interface DescribeLagsRequest {
 }
 
 export namespace DescribeLagsRequest {
+  export const filterSensitiveLog = (obj: DescribeLagsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeLagsRequest =>
     __isa(o, "DescribeLagsRequest");
 }
@@ -1847,6 +2310,9 @@ export interface DescribeLoaRequest {
 }
 
 export namespace DescribeLoaRequest {
+  export const filterSensitiveLog = (obj: DescribeLoaRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeLoaRequest =>
     __isa(o, "DescribeLoaRequest");
 }
@@ -1860,6 +2326,9 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
+  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeTagsRequest =>
     __isa(o, "DescribeTagsRequest");
 }
@@ -1873,6 +2342,14 @@ export interface DescribeTagsResponse {
 }
 
 export namespace DescribeTagsResponse {
+  export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
+    ...obj,
+    ...(obj.resourceTags && {
+      resourceTags: obj.resourceTags.map(item =>
+        ResourceTag.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeTagsResponse =>
     __isa(o, "DescribeTagsResponse");
 }
@@ -1891,6 +2368,11 @@ export interface DescribeVirtualInterfacesRequest {
 }
 
 export namespace DescribeVirtualInterfacesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeVirtualInterfacesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeVirtualInterfacesRequest =>
     __isa(o, "DescribeVirtualInterfacesRequest");
 }
@@ -1907,6 +2389,11 @@ export interface DirectConnectClientException
 }
 
 export namespace DirectConnectClientException {
+  export const filterSensitiveLog = (
+    obj: DirectConnectClientException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DirectConnectClientException =>
     __isa(o, "DirectConnectClientException");
 }
@@ -1966,6 +2453,9 @@ export interface DirectConnectGateway {
 }
 
 export namespace DirectConnectGateway {
+  export const filterSensitiveLog = (obj: DirectConnectGateway): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DirectConnectGateway =>
     __isa(o, "DirectConnectGateway");
 }
@@ -2045,6 +2535,21 @@ export interface DirectConnectGatewayAssociation {
 }
 
 export namespace DirectConnectGatewayAssociation {
+  export const filterSensitiveLog = (
+    obj: DirectConnectGatewayAssociation
+  ): any => ({
+    ...obj,
+    ...(obj.allowedPrefixesToDirectConnectGateway && {
+      allowedPrefixesToDirectConnectGateway: obj.allowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.associatedGateway && {
+      associatedGateway: AssociatedGateway.filterSensitiveLog(
+        obj.associatedGateway
+      )
+    })
+  });
   export const isa = (o: any): o is DirectConnectGatewayAssociation =>
     __isa(o, "DirectConnectGatewayAssociation");
 }
@@ -2105,6 +2610,26 @@ export interface DirectConnectGatewayAssociationProposal {
 }
 
 export namespace DirectConnectGatewayAssociationProposal {
+  export const filterSensitiveLog = (
+    obj: DirectConnectGatewayAssociationProposal
+  ): any => ({
+    ...obj,
+    ...(obj.associatedGateway && {
+      associatedGateway: AssociatedGateway.filterSensitiveLog(
+        obj.associatedGateway
+      )
+    }),
+    ...(obj.existingAllowedPrefixesToDirectConnectGateway && {
+      existingAllowedPrefixesToDirectConnectGateway: obj.existingAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.requestedAllowedPrefixesToDirectConnectGateway && {
+      requestedAllowedPrefixesToDirectConnectGateway: obj.requestedAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DirectConnectGatewayAssociationProposal =>
     __isa(o, "DirectConnectGatewayAssociationProposal");
 }
@@ -2181,6 +2706,11 @@ export interface DirectConnectGatewayAttachment {
 }
 
 export namespace DirectConnectGatewayAttachment {
+  export const filterSensitiveLog = (
+    obj: DirectConnectGatewayAttachment
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DirectConnectGatewayAttachment =>
     __isa(o, "DirectConnectGatewayAttachment");
 }
@@ -2213,6 +2743,11 @@ export interface DirectConnectServerException
 }
 
 export namespace DirectConnectServerException {
+  export const filterSensitiveLog = (
+    obj: DirectConnectServerException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DirectConnectServerException =>
     __isa(o, "DirectConnectServerException");
 }
@@ -2231,6 +2766,11 @@ export interface DisassociateConnectionFromLagRequest {
 }
 
 export namespace DisassociateConnectionFromLagRequest {
+  export const filterSensitiveLog = (
+    obj: DisassociateConnectionFromLagRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateConnectionFromLagRequest =>
     __isa(o, "DisassociateConnectionFromLagRequest");
 }
@@ -2247,6 +2787,9 @@ export interface DuplicateTagKeysException
 }
 
 export namespace DuplicateTagKeysException {
+  export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DuplicateTagKeysException =>
     __isa(o, "DuplicateTagKeysException");
 }
@@ -2370,6 +2913,12 @@ export interface Interconnect {
 }
 
 export namespace Interconnect {
+  export const filterSensitiveLog = (obj: Interconnect): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is Interconnect => __isa(o, "Interconnect");
 }
 
@@ -2391,6 +2940,14 @@ export interface Interconnects {
 }
 
 export namespace Interconnects {
+  export const filterSensitiveLog = (obj: Interconnects): any => ({
+    ...obj,
+    ...(obj.interconnects && {
+      interconnects: obj.interconnects.map(item =>
+        Interconnect.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is Interconnects => __isa(o, "Interconnects");
 }
 
@@ -2518,6 +3075,17 @@ export interface Lag {
 }
 
 export namespace Lag {
+  export const filterSensitiveLog = (obj: Lag): any => ({
+    ...obj,
+    ...(obj.connections && {
+      connections: obj.connections.map(item =>
+        Connection.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is Lag => __isa(o, "Lag");
 }
 
@@ -2539,6 +3107,12 @@ export interface Lags {
 }
 
 export namespace Lags {
+  export const filterSensitiveLog = (obj: Lags): any => ({
+    ...obj,
+    ...(obj.lags && {
+      lags: obj.lags.map(item => Lag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is Lags => __isa(o, "Lags");
 }
 
@@ -2559,6 +3133,9 @@ export interface Loa {
 }
 
 export namespace Loa {
+  export const filterSensitiveLog = (obj: Loa): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Loa => __isa(o, "Loa");
 }
 
@@ -2598,6 +3175,9 @@ export interface Location {
 }
 
 export namespace Location {
+  export const filterSensitiveLog = (obj: Location): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Location => __isa(o, "Location");
 }
 
@@ -2610,6 +3190,12 @@ export interface Locations {
 }
 
 export namespace Locations {
+  export const filterSensitiveLog = (obj: Locations): any => ({
+    ...obj,
+    ...(obj.locations && {
+      locations: obj.locations.map(item => Location.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is Locations => __isa(o, "Locations");
 }
 
@@ -2645,6 +3231,9 @@ export interface NewBGPPeer {
 }
 
 export namespace NewBGPPeer {
+  export const filterSensitiveLog = (obj: NewBGPPeer): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NewBGPPeer => __isa(o, "NewBGPPeer");
 }
 
@@ -2711,6 +3300,12 @@ export interface NewPrivateVirtualInterface {
 }
 
 export namespace NewPrivateVirtualInterface {
+  export const filterSensitiveLog = (obj: NewPrivateVirtualInterface): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is NewPrivateVirtualInterface =>
     __isa(o, "NewPrivateVirtualInterface");
 }
@@ -2768,6 +3363,14 @@ export interface NewPrivateVirtualInterfaceAllocation {
 }
 
 export namespace NewPrivateVirtualInterfaceAllocation {
+  export const filterSensitiveLog = (
+    obj: NewPrivateVirtualInterfaceAllocation
+  ): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is NewPrivateVirtualInterfaceAllocation =>
     __isa(o, "NewPrivateVirtualInterfaceAllocation");
 }
@@ -2825,6 +3428,17 @@ export interface NewPublicVirtualInterface {
 }
 
 export namespace NewPublicVirtualInterface {
+  export const filterSensitiveLog = (obj: NewPublicVirtualInterface): any => ({
+    ...obj,
+    ...(obj.routeFilterPrefixes && {
+      routeFilterPrefixes: obj.routeFilterPrefixes.map(item =>
+        RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is NewPublicVirtualInterface =>
     __isa(o, "NewPublicVirtualInterface");
 }
@@ -2882,6 +3496,19 @@ export interface NewPublicVirtualInterfaceAllocation {
 }
 
 export namespace NewPublicVirtualInterfaceAllocation {
+  export const filterSensitiveLog = (
+    obj: NewPublicVirtualInterfaceAllocation
+  ): any => ({
+    ...obj,
+    ...(obj.routeFilterPrefixes && {
+      routeFilterPrefixes: obj.routeFilterPrefixes.map(item =>
+        RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is NewPublicVirtualInterfaceAllocation =>
     __isa(o, "NewPublicVirtualInterfaceAllocation");
 }
@@ -2944,6 +3571,12 @@ export interface NewTransitVirtualInterface {
 }
 
 export namespace NewTransitVirtualInterface {
+  export const filterSensitiveLog = (obj: NewTransitVirtualInterface): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is NewTransitVirtualInterface =>
     __isa(o, "NewTransitVirtualInterface");
 }
@@ -3001,6 +3634,14 @@ export interface NewTransitVirtualInterfaceAllocation {
 }
 
 export namespace NewTransitVirtualInterfaceAllocation {
+  export const filterSensitiveLog = (
+    obj: NewTransitVirtualInterfaceAllocation
+  ): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is NewTransitVirtualInterfaceAllocation =>
     __isa(o, "NewTransitVirtualInterfaceAllocation");
 }
@@ -3022,6 +3663,12 @@ export interface ResourceTag {
 }
 
 export namespace ResourceTag {
+  export const filterSensitiveLog = (obj: ResourceTag): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
 
@@ -3038,6 +3685,9 @@ export interface RouteFilterPrefix {
 }
 
 export namespace RouteFilterPrefix {
+  export const filterSensitiveLog = (obj: RouteFilterPrefix): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RouteFilterPrefix =>
     __isa(o, "RouteFilterPrefix");
 }
@@ -3059,6 +3709,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -3076,6 +3729,12 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -3085,6 +3744,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -3101,6 +3763,9 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
+  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyTagsException =>
     __isa(o, "TooManyTagsException");
 }
@@ -3119,6 +3784,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -3128,6 +3796,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -3151,6 +3822,21 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
 }
 
 export namespace UpdateDirectConnectGatewayAssociationRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateDirectConnectGatewayAssociationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.addAllowedPrefixesToDirectConnectGateway && {
+      addAllowedPrefixesToDirectConnectGateway: obj.addAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.removeAllowedPrefixesToDirectConnectGateway && {
+      removeAllowedPrefixesToDirectConnectGateway: obj.removeAllowedPrefixesToDirectConnectGateway.map(
+        item => RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is UpdateDirectConnectGatewayAssociationRequest =>
@@ -3166,6 +3852,16 @@ export interface UpdateDirectConnectGatewayAssociationResult {
 }
 
 export namespace UpdateDirectConnectGatewayAssociationResult {
+  export const filterSensitiveLog = (
+    obj: UpdateDirectConnectGatewayAssociationResult
+  ): any => ({
+    ...obj,
+    ...(obj.directConnectGatewayAssociation && {
+      directConnectGatewayAssociation: DirectConnectGatewayAssociation.filterSensitiveLog(
+        obj.directConnectGatewayAssociation
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is UpdateDirectConnectGatewayAssociationResult =>
@@ -3191,6 +3887,9 @@ export interface UpdateLagRequest {
 }
 
 export namespace UpdateLagRequest {
+  export const filterSensitiveLog = (obj: UpdateLagRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateLagRequest =>
     __isa(o, "UpdateLagRequest");
 }
@@ -3209,6 +3908,11 @@ export interface UpdateVirtualInterfaceAttributesRequest {
 }
 
 export namespace UpdateVirtualInterfaceAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateVirtualInterfaceAttributesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateVirtualInterfaceAttributesRequest =>
     __isa(o, "UpdateVirtualInterfaceAttributesRequest");
 }
@@ -3248,6 +3952,9 @@ export interface VirtualGateway {
 }
 
 export namespace VirtualGateway {
+  export const filterSensitiveLog = (obj: VirtualGateway): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VirtualGateway =>
     __isa(o, "VirtualGateway");
 }
@@ -3261,6 +3968,14 @@ export interface VirtualGateways {
 }
 
 export namespace VirtualGateways {
+  export const filterSensitiveLog = (obj: VirtualGateways): any => ({
+    ...obj,
+    ...(obj.virtualGateways && {
+      virtualGateways: obj.virtualGateways.map(item =>
+        VirtualGateway.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is VirtualGateways =>
     __isa(o, "VirtualGateways");
 }
@@ -3432,6 +4147,20 @@ export interface VirtualInterface {
 }
 
 export namespace VirtualInterface {
+  export const filterSensitiveLog = (obj: VirtualInterface): any => ({
+    ...obj,
+    ...(obj.bgpPeers && {
+      bgpPeers: obj.bgpPeers.map(item => BGPPeer.filterSensitiveLog(item))
+    }),
+    ...(obj.routeFilterPrefixes && {
+      routeFilterPrefixes: obj.routeFilterPrefixes.map(item =>
+        RouteFilterPrefix.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is VirtualInterface =>
     __isa(o, "VirtualInterface");
 }
@@ -3456,6 +4185,14 @@ export interface VirtualInterfaces {
 }
 
 export namespace VirtualInterfaces {
+  export const filterSensitiveLog = (obj: VirtualInterfaces): any => ({
+    ...obj,
+    ...(obj.virtualInterfaces && {
+      virtualInterfaces: obj.virtualInterfaces.map(item =>
+        VirtualInterface.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is VirtualInterfaces =>
     __isa(o, "VirtualInterfaces");
 }

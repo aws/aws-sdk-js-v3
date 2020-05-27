@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,14 @@ export interface AccountRecoverySettingType {
 }
 
 export namespace AccountRecoverySettingType {
+  export const filterSensitiveLog = (obj: AccountRecoverySettingType): any => ({
+    ...obj,
+    ...(obj.RecoveryMechanisms && {
+      RecoveryMechanisms: obj.RecoveryMechanisms.map(item =>
+        RecoveryOptionType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AccountRecoverySettingType =>
     __isa(o, "AccountRecoverySettingType");
 }
@@ -57,6 +66,9 @@ export interface AccountTakeoverActionType {
 }
 
 export namespace AccountTakeoverActionType {
+  export const filterSensitiveLog = (obj: AccountTakeoverActionType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccountTakeoverActionType =>
     __isa(o, "AccountTakeoverActionType");
 }
@@ -83,6 +95,20 @@ export interface AccountTakeoverActionsType {
 }
 
 export namespace AccountTakeoverActionsType {
+  export const filterSensitiveLog = (obj: AccountTakeoverActionsType): any => ({
+    ...obj,
+    ...(obj.HighAction && {
+      HighAction: AccountTakeoverActionType.filterSensitiveLog(obj.HighAction)
+    }),
+    ...(obj.LowAction && {
+      LowAction: AccountTakeoverActionType.filterSensitiveLog(obj.LowAction)
+    }),
+    ...(obj.MediumAction && {
+      MediumAction: AccountTakeoverActionType.filterSensitiveLog(
+        obj.MediumAction
+      )
+    })
+  });
   export const isa = (o: any): o is AccountTakeoverActionsType =>
     __isa(o, "AccountTakeoverActionsType");
 }
@@ -112,6 +138,19 @@ export interface AccountTakeoverRiskConfigurationType {
 }
 
 export namespace AccountTakeoverRiskConfigurationType {
+  export const filterSensitiveLog = (
+    obj: AccountTakeoverRiskConfigurationType
+  ): any => ({
+    ...obj,
+    ...(obj.Actions && {
+      Actions: AccountTakeoverActionsType.filterSensitiveLog(obj.Actions)
+    }),
+    ...(obj.NotifyConfiguration && {
+      NotifyConfiguration: NotifyConfigurationType.filterSensitiveLog(
+        obj.NotifyConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is AccountTakeoverRiskConfigurationType =>
     __isa(o, "AccountTakeoverRiskConfigurationType");
 }
@@ -133,6 +172,14 @@ export interface AddCustomAttributesRequest {
 }
 
 export namespace AddCustomAttributesRequest {
+  export const filterSensitiveLog = (obj: AddCustomAttributesRequest): any => ({
+    ...obj,
+    ...(obj.CustomAttributes && {
+      CustomAttributes: obj.CustomAttributes.map(item =>
+        SchemaAttributeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AddCustomAttributesRequest =>
     __isa(o, "AddCustomAttributesRequest");
 }
@@ -146,6 +193,11 @@ export interface AddCustomAttributesResponse {
 }
 
 export namespace AddCustomAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: AddCustomAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddCustomAttributesResponse =>
     __isa(o, "AddCustomAttributesResponse");
 }
@@ -169,6 +221,10 @@ export interface AdminAddUserToGroupRequest {
 }
 
 export namespace AdminAddUserToGroupRequest {
+  export const filterSensitiveLog = (obj: AdminAddUserToGroupRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminAddUserToGroupRequest =>
     __isa(o, "AdminAddUserToGroupRequest");
 }
@@ -225,6 +281,10 @@ export interface AdminConfirmSignUpRequest {
 }
 
 export namespace AdminConfirmSignUpRequest {
+  export const filterSensitiveLog = (obj: AdminConfirmSignUpRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminConfirmSignUpRequest =>
     __isa(o, "AdminConfirmSignUpRequest");
 }
@@ -238,6 +298,9 @@ export interface AdminConfirmSignUpResponse {
 }
 
 export namespace AdminConfirmSignUpResponse {
+  export const filterSensitiveLog = (obj: AdminConfirmSignUpResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminConfirmSignUpResponse =>
     __isa(o, "AdminConfirmSignUpResponse");
 }
@@ -275,6 +338,14 @@ export interface AdminCreateUserConfigType {
 }
 
 export namespace AdminCreateUserConfigType {
+  export const filterSensitiveLog = (obj: AdminCreateUserConfigType): any => ({
+    ...obj,
+    ...(obj.InviteMessageTemplate && {
+      InviteMessageTemplate: MessageTemplateType.filterSensitiveLog(
+        obj.InviteMessageTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is AdminCreateUserConfigType =>
     __isa(o, "AdminCreateUserConfigType");
 }
@@ -427,6 +498,21 @@ export interface AdminCreateUserRequest {
 }
 
 export namespace AdminCreateUserRequest {
+  export const filterSensitiveLog = (obj: AdminCreateUserRequest): any => ({
+    ...obj,
+    ...(obj.TemporaryPassword && { TemporaryPassword: SENSITIVE_STRING }),
+    ...(obj.UserAttributes && {
+      UserAttributes: obj.UserAttributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING }),
+    ...(obj.ValidationData && {
+      ValidationData: obj.ValidationData.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AdminCreateUserRequest =>
     __isa(o, "AdminCreateUserRequest");
 }
@@ -443,6 +529,10 @@ export interface AdminCreateUserResponse {
 }
 
 export namespace AdminCreateUserResponse {
+  export const filterSensitiveLog = (obj: AdminCreateUserResponse): any => ({
+    ...obj,
+    ...(obj.User && { User: UserType.filterSensitiveLog(obj.User) })
+  });
   export const isa = (o: any): o is AdminCreateUserResponse =>
     __isa(o, "AdminCreateUserResponse");
 }
@@ -471,6 +561,12 @@ export interface AdminDeleteUserAttributesRequest {
 }
 
 export namespace AdminDeleteUserAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: AdminDeleteUserAttributesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminDeleteUserAttributesRequest =>
     __isa(o, "AdminDeleteUserAttributesRequest");
 }
@@ -484,6 +580,11 @@ export interface AdminDeleteUserAttributesResponse {
 }
 
 export namespace AdminDeleteUserAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: AdminDeleteUserAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminDeleteUserAttributesResponse =>
     __isa(o, "AdminDeleteUserAttributesResponse");
 }
@@ -505,6 +606,10 @@ export interface AdminDeleteUserRequest {
 }
 
 export namespace AdminDeleteUserRequest {
+  export const filterSensitiveLog = (obj: AdminDeleteUserRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminDeleteUserRequest =>
     __isa(o, "AdminDeleteUserRequest");
 }
@@ -523,6 +628,14 @@ export interface AdminDisableProviderForUserRequest {
 }
 
 export namespace AdminDisableProviderForUserRequest {
+  export const filterSensitiveLog = (
+    obj: AdminDisableProviderForUserRequest
+  ): any => ({
+    ...obj,
+    ...(obj.User && {
+      User: ProviderUserIdentifierType.filterSensitiveLog(obj.User)
+    })
+  });
   export const isa = (o: any): o is AdminDisableProviderForUserRequest =>
     __isa(o, "AdminDisableProviderForUserRequest");
 }
@@ -532,6 +645,11 @@ export interface AdminDisableProviderForUserResponse {
 }
 
 export namespace AdminDisableProviderForUserResponse {
+  export const filterSensitiveLog = (
+    obj: AdminDisableProviderForUserResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminDisableProviderForUserResponse =>
     __isa(o, "AdminDisableProviderForUserResponse");
 }
@@ -553,6 +671,10 @@ export interface AdminDisableUserRequest {
 }
 
 export namespace AdminDisableUserRequest {
+  export const filterSensitiveLog = (obj: AdminDisableUserRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminDisableUserRequest =>
     __isa(o, "AdminDisableUserRequest");
 }
@@ -566,6 +688,9 @@ export interface AdminDisableUserResponse {
 }
 
 export namespace AdminDisableUserResponse {
+  export const filterSensitiveLog = (obj: AdminDisableUserResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminDisableUserResponse =>
     __isa(o, "AdminDisableUserResponse");
 }
@@ -587,6 +712,10 @@ export interface AdminEnableUserRequest {
 }
 
 export namespace AdminEnableUserRequest {
+  export const filterSensitiveLog = (obj: AdminEnableUserRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminEnableUserRequest =>
     __isa(o, "AdminEnableUserRequest");
 }
@@ -600,6 +729,9 @@ export interface AdminEnableUserResponse {
 }
 
 export namespace AdminEnableUserResponse {
+  export const filterSensitiveLog = (obj: AdminEnableUserResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminEnableUserResponse =>
     __isa(o, "AdminEnableUserResponse");
 }
@@ -626,6 +758,10 @@ export interface AdminForgetDeviceRequest {
 }
 
 export namespace AdminForgetDeviceRequest {
+  export const filterSensitiveLog = (obj: AdminForgetDeviceRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminForgetDeviceRequest =>
     __isa(o, "AdminForgetDeviceRequest");
 }
@@ -652,6 +788,10 @@ export interface AdminGetDeviceRequest {
 }
 
 export namespace AdminGetDeviceRequest {
+  export const filterSensitiveLog = (obj: AdminGetDeviceRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminGetDeviceRequest =>
     __isa(o, "AdminGetDeviceRequest");
 }
@@ -668,6 +808,10 @@ export interface AdminGetDeviceResponse {
 }
 
 export namespace AdminGetDeviceResponse {
+  export const filterSensitiveLog = (obj: AdminGetDeviceResponse): any => ({
+    ...obj,
+    ...(obj.Device && { Device: DeviceType.filterSensitiveLog(obj.Device) })
+  });
   export const isa = (o: any): o is AdminGetDeviceResponse =>
     __isa(o, "AdminGetDeviceResponse");
 }
@@ -690,6 +834,10 @@ export interface AdminGetUserRequest {
 }
 
 export namespace AdminGetUserRequest {
+  export const filterSensitiveLog = (obj: AdminGetUserRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminGetUserRequest =>
     __isa(o, "AdminGetUserRequest");
 }
@@ -779,6 +927,20 @@ export interface AdminGetUserResponse {
 }
 
 export namespace AdminGetUserResponse {
+  export const filterSensitiveLog = (obj: AdminGetUserResponse): any => ({
+    ...obj,
+    ...(obj.MFAOptions && {
+      MFAOptions: obj.MFAOptions.map(item =>
+        MFAOptionType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.UserAttributes && {
+      UserAttributes: obj.UserAttributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminGetUserResponse =>
     __isa(o, "AdminGetUserResponse");
 }
@@ -978,6 +1140,18 @@ export interface AdminInitiateAuthRequest {
 }
 
 export namespace AdminInitiateAuthRequest {
+  export const filterSensitiveLog = (obj: AdminInitiateAuthRequest): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.ContextData && {
+      ContextData: ContextDataType.filterSensitiveLog(obj.ContextData)
+    })
+  });
   export const isa = (o: any): o is AdminInitiateAuthRequest =>
     __isa(o, "AdminInitiateAuthRequest");
 }
@@ -1084,6 +1258,14 @@ export interface AdminInitiateAuthResponse {
 }
 
 export namespace AdminInitiateAuthResponse {
+  export const filterSensitiveLog = (obj: AdminInitiateAuthResponse): any => ({
+    ...obj,
+    ...(obj.AuthenticationResult && {
+      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(
+        obj.AuthenticationResult
+      )
+    })
+  });
   export const isa = (o: any): o is AdminInitiateAuthResponse =>
     __isa(o, "AdminInitiateAuthResponse");
 }
@@ -1137,6 +1319,19 @@ export interface AdminLinkProviderForUserRequest {
 }
 
 export namespace AdminLinkProviderForUserRequest {
+  export const filterSensitiveLog = (
+    obj: AdminLinkProviderForUserRequest
+  ): any => ({
+    ...obj,
+    ...(obj.DestinationUser && {
+      DestinationUser: ProviderUserIdentifierType.filterSensitiveLog(
+        obj.DestinationUser
+      )
+    }),
+    ...(obj.SourceUser && {
+      SourceUser: ProviderUserIdentifierType.filterSensitiveLog(obj.SourceUser)
+    })
+  });
   export const isa = (o: any): o is AdminLinkProviderForUserRequest =>
     __isa(o, "AdminLinkProviderForUserRequest");
 }
@@ -1146,6 +1341,11 @@ export interface AdminLinkProviderForUserResponse {
 }
 
 export namespace AdminLinkProviderForUserResponse {
+  export const filterSensitiveLog = (
+    obj: AdminLinkProviderForUserResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminLinkProviderForUserResponse =>
     __isa(o, "AdminLinkProviderForUserResponse");
 }
@@ -1177,6 +1377,10 @@ export interface AdminListDevicesRequest {
 }
 
 export namespace AdminListDevicesRequest {
+  export const filterSensitiveLog = (obj: AdminListDevicesRequest): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminListDevicesRequest =>
     __isa(o, "AdminListDevicesRequest");
 }
@@ -1198,6 +1402,12 @@ export interface AdminListDevicesResponse {
 }
 
 export namespace AdminListDevicesResponse {
+  export const filterSensitiveLog = (obj: AdminListDevicesResponse): any => ({
+    ...obj,
+    ...(obj.Devices && {
+      Devices: obj.Devices.map(item => DeviceType.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is AdminListDevicesResponse =>
     __isa(o, "AdminListDevicesResponse");
 }
@@ -1227,6 +1437,12 @@ export interface AdminListGroupsForUserRequest {
 }
 
 export namespace AdminListGroupsForUserRequest {
+  export const filterSensitiveLog = (
+    obj: AdminListGroupsForUserRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminListGroupsForUserRequest =>
     __isa(o, "AdminListGroupsForUserRequest");
 }
@@ -1246,6 +1462,14 @@ export interface AdminListGroupsForUserResponse {
 }
 
 export namespace AdminListGroupsForUserResponse {
+  export const filterSensitiveLog = (
+    obj: AdminListGroupsForUserResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => GroupType.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is AdminListGroupsForUserResponse =>
     __isa(o, "AdminListGroupsForUserResponse");
 }
@@ -1274,6 +1498,12 @@ export interface AdminListUserAuthEventsRequest {
 }
 
 export namespace AdminListUserAuthEventsRequest {
+  export const filterSensitiveLog = (
+    obj: AdminListUserAuthEventsRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminListUserAuthEventsRequest =>
     __isa(o, "AdminListUserAuthEventsRequest");
 }
@@ -1294,6 +1524,16 @@ export interface AdminListUserAuthEventsResponse {
 }
 
 export namespace AdminListUserAuthEventsResponse {
+  export const filterSensitiveLog = (
+    obj: AdminListUserAuthEventsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.AuthEvents && {
+      AuthEvents: obj.AuthEvents.map(item =>
+        AuthEventType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AdminListUserAuthEventsResponse =>
     __isa(o, "AdminListUserAuthEventsResponse");
 }
@@ -1317,6 +1557,12 @@ export interface AdminRemoveUserFromGroupRequest {
 }
 
 export namespace AdminRemoveUserFromGroupRequest {
+  export const filterSensitiveLog = (
+    obj: AdminRemoveUserFromGroupRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminRemoveUserFromGroupRequest =>
     __isa(o, "AdminRemoveUserFromGroupRequest");
 }
@@ -1374,6 +1620,12 @@ export interface AdminResetUserPasswordRequest {
 }
 
 export namespace AdminResetUserPasswordRequest {
+  export const filterSensitiveLog = (
+    obj: AdminResetUserPasswordRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminResetUserPasswordRequest =>
     __isa(o, "AdminResetUserPasswordRequest");
 }
@@ -1387,6 +1639,11 @@ export interface AdminResetUserPasswordResponse {
 }
 
 export namespace AdminResetUserPasswordResponse {
+  export const filterSensitiveLog = (
+    obj: AdminResetUserPasswordResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminResetUserPasswordResponse =>
     __isa(o, "AdminResetUserPasswordResponse");
 }
@@ -1513,6 +1770,20 @@ export interface AdminRespondToAuthChallengeRequest {
 }
 
 export namespace AdminRespondToAuthChallengeRequest {
+  export const filterSensitiveLog = (
+    obj: AdminRespondToAuthChallengeRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.ContextData && {
+      ContextData: ContextDataType.filterSensitiveLog(obj.ContextData)
+    })
+  });
   export const isa = (o: any): o is AdminRespondToAuthChallengeRequest =>
     __isa(o, "AdminRespondToAuthChallengeRequest");
 }
@@ -1548,6 +1819,16 @@ export interface AdminRespondToAuthChallengeResponse {
 }
 
 export namespace AdminRespondToAuthChallengeResponse {
+  export const filterSensitiveLog = (
+    obj: AdminRespondToAuthChallengeResponse
+  ): any => ({
+    ...obj,
+    ...(obj.AuthenticationResult && {
+      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(
+        obj.AuthenticationResult
+      )
+    })
+  });
   export const isa = (o: any): o is AdminRespondToAuthChallengeResponse =>
     __isa(o, "AdminRespondToAuthChallengeResponse");
 }
@@ -1576,6 +1857,20 @@ export interface AdminSetUserMFAPreferenceRequest {
 }
 
 export namespace AdminSetUserMFAPreferenceRequest {
+  export const filterSensitiveLog = (
+    obj: AdminSetUserMFAPreferenceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.SMSMfaSettings && {
+      SMSMfaSettings: SMSMfaSettingsType.filterSensitiveLog(obj.SMSMfaSettings)
+    }),
+    ...(obj.SoftwareTokenMfaSettings && {
+      SoftwareTokenMfaSettings: SoftwareTokenMfaSettingsType.filterSensitiveLog(
+        obj.SoftwareTokenMfaSettings
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminSetUserMFAPreferenceRequest =>
     __isa(o, "AdminSetUserMFAPreferenceRequest");
 }
@@ -1585,6 +1880,11 @@ export interface AdminSetUserMFAPreferenceResponse {
 }
 
 export namespace AdminSetUserMFAPreferenceResponse {
+  export const filterSensitiveLog = (
+    obj: AdminSetUserMFAPreferenceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminSetUserMFAPreferenceResponse =>
     __isa(o, "AdminSetUserMFAPreferenceResponse");
 }
@@ -1615,6 +1915,13 @@ export interface AdminSetUserPasswordRequest {
 }
 
 export namespace AdminSetUserPasswordRequest {
+  export const filterSensitiveLog = (
+    obj: AdminSetUserPasswordRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminSetUserPasswordRequest =>
     __isa(o, "AdminSetUserPasswordRequest");
 }
@@ -1624,6 +1931,11 @@ export interface AdminSetUserPasswordResponse {
 }
 
 export namespace AdminSetUserPasswordResponse {
+  export const filterSensitiveLog = (
+    obj: AdminSetUserPasswordResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminSetUserPasswordResponse =>
     __isa(o, "AdminSetUserPasswordResponse");
 }
@@ -1653,6 +1965,17 @@ export interface AdminSetUserSettingsRequest {
 }
 
 export namespace AdminSetUserSettingsRequest {
+  export const filterSensitiveLog = (
+    obj: AdminSetUserSettingsRequest
+  ): any => ({
+    ...obj,
+    ...(obj.MFAOptions && {
+      MFAOptions: obj.MFAOptions.map(item =>
+        MFAOptionType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminSetUserSettingsRequest =>
     __isa(o, "AdminSetUserSettingsRequest");
 }
@@ -1666,6 +1989,11 @@ export interface AdminSetUserSettingsResponse {
 }
 
 export namespace AdminSetUserSettingsResponse {
+  export const filterSensitiveLog = (
+    obj: AdminSetUserSettingsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminSetUserSettingsResponse =>
     __isa(o, "AdminSetUserSettingsResponse");
 }
@@ -1694,6 +2022,12 @@ export interface AdminUpdateAuthEventFeedbackRequest {
 }
 
 export namespace AdminUpdateAuthEventFeedbackRequest {
+  export const filterSensitiveLog = (
+    obj: AdminUpdateAuthEventFeedbackRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminUpdateAuthEventFeedbackRequest =>
     __isa(o, "AdminUpdateAuthEventFeedbackRequest");
 }
@@ -1703,6 +2037,11 @@ export interface AdminUpdateAuthEventFeedbackResponse {
 }
 
 export namespace AdminUpdateAuthEventFeedbackResponse {
+  export const filterSensitiveLog = (
+    obj: AdminUpdateAuthEventFeedbackResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminUpdateAuthEventFeedbackResponse =>
     __isa(o, "AdminUpdateAuthEventFeedbackResponse");
 }
@@ -1734,6 +2073,12 @@ export interface AdminUpdateDeviceStatusRequest {
 }
 
 export namespace AdminUpdateDeviceStatusRequest {
+  export const filterSensitiveLog = (
+    obj: AdminUpdateDeviceStatusRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminUpdateDeviceStatusRequest =>
     __isa(o, "AdminUpdateDeviceStatusRequest");
 }
@@ -1746,6 +2091,11 @@ export interface AdminUpdateDeviceStatusResponse {
 }
 
 export namespace AdminUpdateDeviceStatusResponse {
+  export const filterSensitiveLog = (
+    obj: AdminUpdateDeviceStatusResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminUpdateDeviceStatusResponse =>
     __isa(o, "AdminUpdateDeviceStatusResponse");
 }
@@ -1810,6 +2160,17 @@ export interface AdminUpdateUserAttributesRequest {
 }
 
 export namespace AdminUpdateUserAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: AdminUpdateUserAttributesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.UserAttributes && {
+      UserAttributes: obj.UserAttributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminUpdateUserAttributesRequest =>
     __isa(o, "AdminUpdateUserAttributesRequest");
 }
@@ -1823,6 +2184,11 @@ export interface AdminUpdateUserAttributesResponse {
 }
 
 export namespace AdminUpdateUserAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: AdminUpdateUserAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminUpdateUserAttributesResponse =>
     __isa(o, "AdminUpdateUserAttributesResponse");
 }
@@ -1844,6 +2210,12 @@ export interface AdminUserGlobalSignOutRequest {
 }
 
 export namespace AdminUserGlobalSignOutRequest {
+  export const filterSensitiveLog = (
+    obj: AdminUserGlobalSignOutRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AdminUserGlobalSignOutRequest =>
     __isa(o, "AdminUserGlobalSignOutRequest");
 }
@@ -1856,6 +2228,11 @@ export interface AdminUserGlobalSignOutResponse {
 }
 
 export namespace AdminUserGlobalSignOutResponse {
+  export const filterSensitiveLog = (
+    obj: AdminUserGlobalSignOutResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AdminUserGlobalSignOutResponse =>
     __isa(o, "AdminUserGlobalSignOutResponse");
 }
@@ -1889,6 +2266,9 @@ export interface AliasExistsException
 }
 
 export namespace AliasExistsException {
+  export const filterSensitiveLog = (obj: AliasExistsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AliasExistsException =>
     __isa(o, "AliasExistsException");
 }
@@ -1923,6 +2303,9 @@ export interface AnalyticsConfigurationType {
 }
 
 export namespace AnalyticsConfigurationType {
+  export const filterSensitiveLog = (obj: AnalyticsConfigurationType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AnalyticsConfigurationType =>
     __isa(o, "AnalyticsConfigurationType");
 }
@@ -1941,6 +2324,9 @@ export interface AnalyticsMetadataType {
 }
 
 export namespace AnalyticsMetadataType {
+  export const filterSensitiveLog = (obj: AnalyticsMetadataType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AnalyticsMetadataType =>
     __isa(o, "AnalyticsMetadataType");
 }
@@ -1960,6 +2346,12 @@ export interface AssociateSoftwareTokenRequest {
 }
 
 export namespace AssociateSoftwareTokenRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateSoftwareTokenRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AssociateSoftwareTokenRequest =>
     __isa(o, "AssociateSoftwareTokenRequest");
 }
@@ -1980,6 +2372,12 @@ export interface AssociateSoftwareTokenResponse {
 }
 
 export namespace AssociateSoftwareTokenResponse {
+  export const filterSensitiveLog = (
+    obj: AssociateSoftwareTokenResponse
+  ): any => ({
+    ...obj,
+    ...(obj.SecretCode && { SecretCode: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AssociateSoftwareTokenResponse =>
     __isa(o, "AssociateSoftwareTokenResponse");
 }
@@ -2008,6 +2406,10 @@ export interface AttributeType {
 }
 
 export namespace AttributeType {
+  export const filterSensitiveLog = (obj: AttributeType): any => ({
+    ...obj,
+    ...(obj.Value && { Value: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AttributeType => __isa(o, "AttributeType");
 }
 
@@ -2060,6 +2462,25 @@ export interface AuthEventType {
 }
 
 export namespace AuthEventType {
+  export const filterSensitiveLog = (obj: AuthEventType): any => ({
+    ...obj,
+    ...(obj.ChallengeResponses && {
+      ChallengeResponses: obj.ChallengeResponses.map(item =>
+        ChallengeResponseType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.EventContextData && {
+      EventContextData: EventContextDataType.filterSensitiveLog(
+        obj.EventContextData
+      )
+    }),
+    ...(obj.EventFeedback && {
+      EventFeedback: EventFeedbackType.filterSensitiveLog(obj.EventFeedback)
+    }),
+    ...(obj.EventRisk && {
+      EventRisk: EventRiskType.filterSensitiveLog(obj.EventRisk)
+    })
+  });
   export const isa = (o: any): o is AuthEventType => __isa(o, "AuthEventType");
 }
 
@@ -2110,6 +2531,17 @@ export interface AuthenticationResultType {
 }
 
 export namespace AuthenticationResultType {
+  export const filterSensitiveLog = (obj: AuthenticationResultType): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+    ...(obj.IdToken && { IdToken: SENSITIVE_STRING }),
+    ...(obj.NewDeviceMetadata && {
+      NewDeviceMetadata: NewDeviceMetadataType.filterSensitiveLog(
+        obj.NewDeviceMetadata
+      )
+    }),
+    ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is AuthenticationResultType =>
     __isa(o, "AuthenticationResultType");
 }
@@ -2154,6 +2586,9 @@ export interface ChallengeResponseType {
 }
 
 export namespace ChallengeResponseType {
+  export const filterSensitiveLog = (obj: ChallengeResponseType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChallengeResponseType =>
     __isa(o, "ChallengeResponseType");
 }
@@ -2180,6 +2615,12 @@ export interface ChangePasswordRequest {
 }
 
 export namespace ChangePasswordRequest {
+  export const filterSensitiveLog = (obj: ChangePasswordRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+    ...(obj.PreviousPassword && { PreviousPassword: SENSITIVE_STRING }),
+    ...(obj.ProposedPassword && { ProposedPassword: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ChangePasswordRequest =>
     __isa(o, "ChangePasswordRequest");
 }
@@ -2192,6 +2633,9 @@ export interface ChangePasswordResponse {
 }
 
 export namespace ChangePasswordResponse {
+  export const filterSensitiveLog = (obj: ChangePasswordResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChangePasswordResponse =>
     __isa(o, "ChangePasswordResponse");
 }
@@ -2218,6 +2662,9 @@ export interface CodeDeliveryDetailsType {
 }
 
 export namespace CodeDeliveryDetailsType {
+  export const filterSensitiveLog = (obj: CodeDeliveryDetailsType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CodeDeliveryDetailsType =>
     __isa(o, "CodeDeliveryDetailsType");
 }
@@ -2238,6 +2685,11 @@ export interface CodeDeliveryFailureException
 }
 
 export namespace CodeDeliveryFailureException {
+  export const filterSensitiveLog = (
+    obj: CodeDeliveryFailureException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CodeDeliveryFailureException =>
     __isa(o, "CodeDeliveryFailureException");
 }
@@ -2258,6 +2710,9 @@ export interface CodeMismatchException
 }
 
 export namespace CodeMismatchException {
+  export const filterSensitiveLog = (obj: CodeMismatchException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CodeMismatchException =>
     __isa(o, "CodeMismatchException");
 }
@@ -2274,6 +2729,11 @@ export interface CompromisedCredentialsActionsType {
 }
 
 export namespace CompromisedCredentialsActionsType {
+  export const filterSensitiveLog = (
+    obj: CompromisedCredentialsActionsType
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CompromisedCredentialsActionsType =>
     __isa(o, "CompromisedCredentialsActionsType");
 }
@@ -2301,6 +2761,14 @@ export interface CompromisedCredentialsRiskConfigurationType {
 }
 
 export namespace CompromisedCredentialsRiskConfigurationType {
+  export const filterSensitiveLog = (
+    obj: CompromisedCredentialsRiskConfigurationType
+  ): any => ({
+    ...obj,
+    ...(obj.Actions && {
+      Actions: CompromisedCredentialsActionsType.filterSensitiveLog(obj.Actions)
+    })
+  });
   export const isa = (
     o: any
   ): o is CompromisedCredentialsRiskConfigurationType =>
@@ -2323,6 +2791,11 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentModificationException =>
     __isa(o, "ConcurrentModificationException");
 }
@@ -2354,6 +2827,15 @@ export interface ConfirmDeviceRequest {
 }
 
 export namespace ConfirmDeviceRequest {
+  export const filterSensitiveLog = (obj: ConfirmDeviceRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+    ...(obj.DeviceSecretVerifierConfig && {
+      DeviceSecretVerifierConfig: DeviceSecretVerifierConfigType.filterSensitiveLog(
+        obj.DeviceSecretVerifierConfig
+      )
+    })
+  });
   export const isa = (o: any): o is ConfirmDeviceRequest =>
     __isa(o, "ConfirmDeviceRequest");
 }
@@ -2371,6 +2853,9 @@ export interface ConfirmDeviceResponse {
 }
 
 export namespace ConfirmDeviceResponse {
+  export const filterSensitiveLog = (obj: ConfirmDeviceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmDeviceResponse =>
     __isa(o, "ConfirmDeviceResponse");
 }
@@ -2458,6 +2943,25 @@ export interface ConfirmForgotPasswordRequest {
 }
 
 export namespace ConfirmForgotPasswordRequest {
+  export const filterSensitiveLog = (
+    obj: ConfirmForgotPasswordRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+    ...(obj.UserContextData && {
+      UserContextData: UserContextDataType.filterSensitiveLog(
+        obj.UserContextData
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ConfirmForgotPasswordRequest =>
     __isa(o, "ConfirmForgotPasswordRequest");
 }
@@ -2471,6 +2975,11 @@ export interface ConfirmForgotPasswordResponse {
 }
 
 export namespace ConfirmForgotPasswordResponse {
+  export const filterSensitiveLog = (
+    obj: ConfirmForgotPasswordResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmForgotPasswordResponse =>
     __isa(o, "ConfirmForgotPasswordResponse");
 }
@@ -2561,6 +3070,22 @@ export interface ConfirmSignUpRequest {
 }
 
 export namespace ConfirmSignUpRequest {
+  export const filterSensitiveLog = (obj: ConfirmSignUpRequest): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+    ...(obj.UserContextData && {
+      UserContextData: UserContextDataType.filterSensitiveLog(
+        obj.UserContextData
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ConfirmSignUpRequest =>
     __isa(o, "ConfirmSignUpRequest");
 }
@@ -2573,6 +3098,9 @@ export interface ConfirmSignUpResponse {
 }
 
 export namespace ConfirmSignUpResponse {
+  export const filterSensitiveLog = (obj: ConfirmSignUpResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfirmSignUpResponse =>
     __isa(o, "ConfirmSignUpResponse");
 }
@@ -2611,6 +3139,14 @@ export interface ContextDataType {
 }
 
 export namespace ContextDataType {
+  export const filterSensitiveLog = (obj: ContextDataType): any => ({
+    ...obj,
+    ...(obj.HttpHeaders && {
+      HttpHeaders: obj.HttpHeaders.map(item =>
+        HttpHeader.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ContextDataType =>
     __isa(o, "ContextDataType");
 }
@@ -2657,6 +3193,9 @@ export interface CreateGroupRequest {
 }
 
 export namespace CreateGroupRequest {
+  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateGroupRequest =>
     __isa(o, "CreateGroupRequest");
 }
@@ -2670,6 +3209,10 @@ export interface CreateGroupResponse {
 }
 
 export namespace CreateGroupResponse {
+  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
+    ...obj,
+    ...(obj.Group && { Group: GroupType.filterSensitiveLog(obj.Group) })
+  });
   export const isa = (o: any): o is CreateGroupResponse =>
     __isa(o, "CreateGroupResponse");
 }
@@ -2710,6 +3253,11 @@ export interface CreateIdentityProviderRequest {
 }
 
 export namespace CreateIdentityProviderRequest {
+  export const filterSensitiveLog = (
+    obj: CreateIdentityProviderRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateIdentityProviderRequest =>
     __isa(o, "CreateIdentityProviderRequest");
 }
@@ -2723,6 +3271,16 @@ export interface CreateIdentityProviderResponse {
 }
 
 export namespace CreateIdentityProviderResponse {
+  export const filterSensitiveLog = (
+    obj: CreateIdentityProviderResponse
+  ): any => ({
+    ...obj,
+    ...(obj.IdentityProvider && {
+      IdentityProvider: IdentityProviderType.filterSensitiveLog(
+        obj.IdentityProvider
+      )
+    })
+  });
   export const isa = (o: any): o is CreateIdentityProviderResponse =>
     __isa(o, "CreateIdentityProviderResponse");
 }
@@ -2754,6 +3312,16 @@ export interface CreateResourceServerRequest {
 }
 
 export namespace CreateResourceServerRequest {
+  export const filterSensitiveLog = (
+    obj: CreateResourceServerRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Scopes && {
+      Scopes: obj.Scopes.map(item =>
+        ResourceServerScopeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateResourceServerRequest =>
     __isa(o, "CreateResourceServerRequest");
 }
@@ -2767,6 +3335,14 @@ export interface CreateResourceServerResponse {
 }
 
 export namespace CreateResourceServerResponse {
+  export const filterSensitiveLog = (
+    obj: CreateResourceServerResponse
+  ): any => ({
+    ...obj,
+    ...(obj.ResourceServer && {
+      ResourceServer: ResourceServerType.filterSensitiveLog(obj.ResourceServer)
+    })
+  });
   export const isa = (o: any): o is CreateResourceServerResponse =>
     __isa(o, "CreateResourceServerResponse");
 }
@@ -2793,6 +3369,9 @@ export interface CreateUserImportJobRequest {
 }
 
 export namespace CreateUserImportJobRequest {
+  export const filterSensitiveLog = (obj: CreateUserImportJobRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateUserImportJobRequest =>
     __isa(o, "CreateUserImportJobRequest");
 }
@@ -2810,6 +3389,14 @@ export interface CreateUserImportJobResponse {
 }
 
 export namespace CreateUserImportJobResponse {
+  export const filterSensitiveLog = (
+    obj: CreateUserImportJobResponse
+  ): any => ({
+    ...obj,
+    ...(obj.UserImportJob && {
+      UserImportJob: UserImportJobType.filterSensitiveLog(obj.UserImportJob)
+    })
+  });
   export const isa = (o: any): o is CreateUserImportJobResponse =>
     __isa(o, "CreateUserImportJobResponse");
 }
@@ -3035,6 +3622,16 @@ export interface CreateUserPoolClientRequest {
 }
 
 export namespace CreateUserPoolClientRequest {
+  export const filterSensitiveLog = (
+    obj: CreateUserPoolClientRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AnalyticsConfiguration && {
+      AnalyticsConfiguration: AnalyticsConfigurationType.filterSensitiveLog(
+        obj.AnalyticsConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is CreateUserPoolClientRequest =>
     __isa(o, "CreateUserPoolClientRequest");
 }
@@ -3051,6 +3648,14 @@ export interface CreateUserPoolClientResponse {
 }
 
 export namespace CreateUserPoolClientResponse {
+  export const filterSensitiveLog = (
+    obj: CreateUserPoolClientResponse
+  ): any => ({
+    ...obj,
+    ...(obj.UserPoolClient && {
+      UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient)
+    })
+  });
   export const isa = (o: any): o is CreateUserPoolClientResponse =>
     __isa(o, "CreateUserPoolClientResponse");
 }
@@ -3079,6 +3684,16 @@ export interface CreateUserPoolDomainRequest {
 }
 
 export namespace CreateUserPoolDomainRequest {
+  export const filterSensitiveLog = (
+    obj: CreateUserPoolDomainRequest
+  ): any => ({
+    ...obj,
+    ...(obj.CustomDomainConfig && {
+      CustomDomainConfig: CustomDomainConfigType.filterSensitiveLog(
+        obj.CustomDomainConfig
+      )
+    })
+  });
   export const isa = (o: any): o is CreateUserPoolDomainRequest =>
     __isa(o, "CreateUserPoolDomainRequest");
 }
@@ -3093,6 +3708,11 @@ export interface CreateUserPoolDomainResponse {
 }
 
 export namespace CreateUserPoolDomainResponse {
+  export const filterSensitiveLog = (
+    obj: CreateUserPoolDomainResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateUserPoolDomainResponse =>
     __isa(o, "CreateUserPoolDomainResponse");
 }
@@ -3224,6 +3844,53 @@ export interface CreateUserPoolRequest {
 }
 
 export namespace CreateUserPoolRequest {
+  export const filterSensitiveLog = (obj: CreateUserPoolRequest): any => ({
+    ...obj,
+    ...(obj.AccountRecoverySetting && {
+      AccountRecoverySetting: AccountRecoverySettingType.filterSensitiveLog(
+        obj.AccountRecoverySetting
+      )
+    }),
+    ...(obj.AdminCreateUserConfig && {
+      AdminCreateUserConfig: AdminCreateUserConfigType.filterSensitiveLog(
+        obj.AdminCreateUserConfig
+      )
+    }),
+    ...(obj.DeviceConfiguration && {
+      DeviceConfiguration: DeviceConfigurationType.filterSensitiveLog(
+        obj.DeviceConfiguration
+      )
+    }),
+    ...(obj.EmailConfiguration && {
+      EmailConfiguration: EmailConfigurationType.filterSensitiveLog(
+        obj.EmailConfiguration
+      )
+    }),
+    ...(obj.LambdaConfig && {
+      LambdaConfig: LambdaConfigType.filterSensitiveLog(obj.LambdaConfig)
+    }),
+    ...(obj.Policies && {
+      Policies: UserPoolPolicyType.filterSensitiveLog(obj.Policies)
+    }),
+    ...(obj.Schema && {
+      Schema: obj.Schema.map(item =>
+        SchemaAttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.SmsConfiguration && {
+      SmsConfiguration: SmsConfigurationType.filterSensitiveLog(
+        obj.SmsConfiguration
+      )
+    }),
+    ...(obj.UserPoolAddOns && {
+      UserPoolAddOns: UserPoolAddOnsType.filterSensitiveLog(obj.UserPoolAddOns)
+    }),
+    ...(obj.VerificationMessageTemplate && {
+      VerificationMessageTemplate: VerificationMessageTemplateType.filterSensitiveLog(
+        obj.VerificationMessageTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is CreateUserPoolRequest =>
     __isa(o, "CreateUserPoolRequest");
 }
@@ -3240,6 +3907,12 @@ export interface CreateUserPoolResponse {
 }
 
 export namespace CreateUserPoolResponse {
+  export const filterSensitiveLog = (obj: CreateUserPoolResponse): any => ({
+    ...obj,
+    ...(obj.UserPool && {
+      UserPool: UserPoolType.filterSensitiveLog(obj.UserPool)
+    })
+  });
   export const isa = (o: any): o is CreateUserPoolResponse =>
     __isa(o, "CreateUserPoolResponse");
 }
@@ -3258,6 +3931,9 @@ export interface CustomDomainConfigType {
 }
 
 export namespace CustomDomainConfigType {
+  export const filterSensitiveLog = (obj: CustomDomainConfigType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CustomDomainConfigType =>
     __isa(o, "CustomDomainConfigType");
 }
@@ -3281,6 +3957,9 @@ export interface DeleteGroupRequest {
 }
 
 export namespace DeleteGroupRequest {
+  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteGroupRequest =>
     __isa(o, "DeleteGroupRequest");
 }
@@ -3299,6 +3978,11 @@ export interface DeleteIdentityProviderRequest {
 }
 
 export namespace DeleteIdentityProviderRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteIdentityProviderRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteIdentityProviderRequest =>
     __isa(o, "DeleteIdentityProviderRequest");
 }
@@ -3317,6 +4001,11 @@ export interface DeleteResourceServerRequest {
 }
 
 export namespace DeleteResourceServerRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteResourceServerRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteResourceServerRequest =>
     __isa(o, "DeleteResourceServerRequest");
 }
@@ -3340,6 +4029,12 @@ export interface DeleteUserAttributesRequest {
 }
 
 export namespace DeleteUserAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteUserAttributesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is DeleteUserAttributesRequest =>
     __isa(o, "DeleteUserAttributesRequest");
 }
@@ -3352,6 +4047,11 @@ export interface DeleteUserAttributesResponse {
 }
 
 export namespace DeleteUserAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteUserAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteUserAttributesResponse =>
     __isa(o, "DeleteUserAttributesResponse");
 }
@@ -3373,6 +4073,12 @@ export interface DeleteUserPoolClientRequest {
 }
 
 export namespace DeleteUserPoolClientRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteUserPoolClientRequest
+  ): any => ({
+    ...obj,
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is DeleteUserPoolClientRequest =>
     __isa(o, "DeleteUserPoolClientRequest");
 }
@@ -3391,6 +4097,11 @@ export interface DeleteUserPoolDomainRequest {
 }
 
 export namespace DeleteUserPoolDomainRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteUserPoolDomainRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteUserPoolDomainRequest =>
     __isa(o, "DeleteUserPoolDomainRequest");
 }
@@ -3400,6 +4111,11 @@ export interface DeleteUserPoolDomainResponse {
 }
 
 export namespace DeleteUserPoolDomainResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteUserPoolDomainResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteUserPoolDomainResponse =>
     __isa(o, "DeleteUserPoolDomainResponse");
 }
@@ -3416,6 +4132,9 @@ export interface DeleteUserPoolRequest {
 }
 
 export namespace DeleteUserPoolRequest {
+  export const filterSensitiveLog = (obj: DeleteUserPoolRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteUserPoolRequest =>
     __isa(o, "DeleteUserPoolRequest");
 }
@@ -3432,6 +4151,10 @@ export interface DeleteUserRequest {
 }
 
 export namespace DeleteUserRequest {
+  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is DeleteUserRequest =>
     __isa(o, "DeleteUserRequest");
 }
@@ -3455,6 +4178,11 @@ export interface DescribeIdentityProviderRequest {
 }
 
 export namespace DescribeIdentityProviderRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeIdentityProviderRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeIdentityProviderRequest =>
     __isa(o, "DescribeIdentityProviderRequest");
 }
@@ -3468,6 +4196,16 @@ export interface DescribeIdentityProviderResponse {
 }
 
 export namespace DescribeIdentityProviderResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeIdentityProviderResponse
+  ): any => ({
+    ...obj,
+    ...(obj.IdentityProvider && {
+      IdentityProvider: IdentityProviderType.filterSensitiveLog(
+        obj.IdentityProvider
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeIdentityProviderResponse =>
     __isa(o, "DescribeIdentityProviderResponse");
 }
@@ -3486,6 +4224,11 @@ export interface DescribeResourceServerRequest {
 }
 
 export namespace DescribeResourceServerRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeResourceServerRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeResourceServerRequest =>
     __isa(o, "DescribeResourceServerRequest");
 }
@@ -3499,6 +4242,14 @@ export interface DescribeResourceServerResponse {
 }
 
 export namespace DescribeResourceServerResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeResourceServerResponse
+  ): any => ({
+    ...obj,
+    ...(obj.ResourceServer && {
+      ResourceServer: ResourceServerType.filterSensitiveLog(obj.ResourceServer)
+    })
+  });
   export const isa = (o: any): o is DescribeResourceServerResponse =>
     __isa(o, "DescribeResourceServerResponse");
 }
@@ -3517,6 +4268,12 @@ export interface DescribeRiskConfigurationRequest {
 }
 
 export namespace DescribeRiskConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeRiskConfigurationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is DescribeRiskConfigurationRequest =>
     __isa(o, "DescribeRiskConfigurationRequest");
 }
@@ -3530,6 +4287,16 @@ export interface DescribeRiskConfigurationResponse {
 }
 
 export namespace DescribeRiskConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeRiskConfigurationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.RiskConfiguration && {
+      RiskConfiguration: RiskConfigurationType.filterSensitiveLog(
+        obj.RiskConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeRiskConfigurationResponse =>
     __isa(o, "DescribeRiskConfigurationResponse");
 }
@@ -3551,6 +4318,11 @@ export interface DescribeUserImportJobRequest {
 }
 
 export namespace DescribeUserImportJobRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeUserImportJobRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeUserImportJobRequest =>
     __isa(o, "DescribeUserImportJobRequest");
 }
@@ -3568,6 +4340,14 @@ export interface DescribeUserImportJobResponse {
 }
 
 export namespace DescribeUserImportJobResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeUserImportJobResponse
+  ): any => ({
+    ...obj,
+    ...(obj.UserImportJob && {
+      UserImportJob: UserImportJobType.filterSensitiveLog(obj.UserImportJob)
+    })
+  });
   export const isa = (o: any): o is DescribeUserImportJobResponse =>
     __isa(o, "DescribeUserImportJobResponse");
 }
@@ -3589,6 +4369,12 @@ export interface DescribeUserPoolClientRequest {
 }
 
 export namespace DescribeUserPoolClientRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeUserPoolClientRequest
+  ): any => ({
+    ...obj,
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is DescribeUserPoolClientRequest =>
     __isa(o, "DescribeUserPoolClientRequest");
 }
@@ -3606,6 +4392,14 @@ export interface DescribeUserPoolClientResponse {
 }
 
 export namespace DescribeUserPoolClientResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeUserPoolClientResponse
+  ): any => ({
+    ...obj,
+    ...(obj.UserPoolClient && {
+      UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient)
+    })
+  });
   export const isa = (o: any): o is DescribeUserPoolClientResponse =>
     __isa(o, "DescribeUserPoolClientResponse");
 }
@@ -3619,6 +4413,11 @@ export interface DescribeUserPoolDomainRequest {
 }
 
 export namespace DescribeUserPoolDomainRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeUserPoolDomainRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeUserPoolDomainRequest =>
     __isa(o, "DescribeUserPoolDomainRequest");
 }
@@ -3632,6 +4431,16 @@ export interface DescribeUserPoolDomainResponse {
 }
 
 export namespace DescribeUserPoolDomainResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeUserPoolDomainResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DomainDescription && {
+      DomainDescription: DomainDescriptionType.filterSensitiveLog(
+        obj.DomainDescription
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeUserPoolDomainResponse =>
     __isa(o, "DescribeUserPoolDomainResponse");
 }
@@ -3648,6 +4457,9 @@ export interface DescribeUserPoolRequest {
 }
 
 export namespace DescribeUserPoolRequest {
+  export const filterSensitiveLog = (obj: DescribeUserPoolRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeUserPoolRequest =>
     __isa(o, "DescribeUserPoolRequest");
 }
@@ -3664,6 +4476,12 @@ export interface DescribeUserPoolResponse {
 }
 
 export namespace DescribeUserPoolResponse {
+  export const filterSensitiveLog = (obj: DescribeUserPoolResponse): any => ({
+    ...obj,
+    ...(obj.UserPool && {
+      UserPool: UserPoolType.filterSensitiveLog(obj.UserPool)
+    })
+  });
   export const isa = (o: any): o is DescribeUserPoolResponse =>
     __isa(o, "DescribeUserPoolResponse");
 }
@@ -3686,6 +4504,9 @@ export interface DeviceConfigurationType {
 }
 
 export namespace DeviceConfigurationType {
+  export const filterSensitiveLog = (obj: DeviceConfigurationType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeviceConfigurationType =>
     __isa(o, "DeviceConfigurationType");
 }
@@ -3712,6 +4533,11 @@ export interface DeviceSecretVerifierConfigType {
 }
 
 export namespace DeviceSecretVerifierConfigType {
+  export const filterSensitiveLog = (
+    obj: DeviceSecretVerifierConfigType
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeviceSecretVerifierConfigType =>
     __isa(o, "DeviceSecretVerifierConfigType");
 }
@@ -3748,6 +4574,14 @@ export interface DeviceType {
 }
 
 export namespace DeviceType {
+  export const filterSensitiveLog = (obj: DeviceType): any => ({
+    ...obj,
+    ...(obj.DeviceAttributes && {
+      DeviceAttributes: obj.DeviceAttributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DeviceType => __isa(o, "DeviceType");
 }
 
@@ -3799,6 +4633,14 @@ export interface DomainDescriptionType {
 }
 
 export namespace DomainDescriptionType {
+  export const filterSensitiveLog = (obj: DomainDescriptionType): any => ({
+    ...obj,
+    ...(obj.CustomDomainConfig && {
+      CustomDomainConfig: CustomDomainConfigType.filterSensitiveLog(
+        obj.CustomDomainConfig
+      )
+    })
+  });
   export const isa = (o: any): o is DomainDescriptionType =>
     __isa(o, "DomainDescriptionType");
 }
@@ -3824,6 +4666,9 @@ export interface DuplicateProviderException
 }
 
 export namespace DuplicateProviderException {
+  export const filterSensitiveLog = (obj: DuplicateProviderException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DuplicateProviderException =>
     __isa(o, "DuplicateProviderException");
 }
@@ -3918,6 +4763,9 @@ export interface EmailConfigurationType {
 }
 
 export namespace EmailConfigurationType {
+  export const filterSensitiveLog = (obj: EmailConfigurationType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmailConfigurationType =>
     __isa(o, "EmailConfigurationType");
 }
@@ -3940,6 +4788,11 @@ export interface EnableSoftwareTokenMFAException
 }
 
 export namespace EnableSoftwareTokenMFAException {
+  export const filterSensitiveLog = (
+    obj: EnableSoftwareTokenMFAException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnableSoftwareTokenMFAException =>
     __isa(o, "EnableSoftwareTokenMFAException");
 }
@@ -3976,6 +4829,9 @@ export interface EventContextDataType {
 }
 
 export namespace EventContextDataType {
+  export const filterSensitiveLog = (obj: EventContextDataType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventContextDataType =>
     __isa(o, "EventContextDataType");
 }
@@ -4002,6 +4858,9 @@ export interface EventFeedbackType {
 }
 
 export namespace EventFeedbackType {
+  export const filterSensitiveLog = (obj: EventFeedbackType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventFeedbackType =>
     __isa(o, "EventFeedbackType");
 }
@@ -4034,6 +4893,9 @@ export interface EventRiskType {
 }
 
 export namespace EventRiskType {
+  export const filterSensitiveLog = (obj: EventRiskType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventRiskType => __isa(o, "EventRiskType");
 }
 
@@ -4058,6 +4920,9 @@ export interface ExpiredCodeException
 }
 
 export namespace ExpiredCodeException {
+  export const filterSensitiveLog = (obj: ExpiredCodeException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExpiredCodeException =>
     __isa(o, "ExpiredCodeException");
 }
@@ -4095,6 +4960,10 @@ export interface ForgetDeviceRequest {
 }
 
 export namespace ForgetDeviceRequest {
+  export const filterSensitiveLog = (obj: ForgetDeviceRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ForgetDeviceRequest =>
     __isa(o, "ForgetDeviceRequest");
 }
@@ -4173,6 +5042,22 @@ export interface ForgotPasswordRequest {
 }
 
 export namespace ForgotPasswordRequest {
+  export const filterSensitiveLog = (obj: ForgotPasswordRequest): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+    ...(obj.UserContextData && {
+      UserContextData: UserContextDataType.filterSensitiveLog(
+        obj.UserContextData
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ForgotPasswordRequest =>
     __isa(o, "ForgotPasswordRequest");
 }
@@ -4191,6 +5076,14 @@ export interface ForgotPasswordResponse {
 }
 
 export namespace ForgotPasswordResponse {
+  export const filterSensitiveLog = (obj: ForgotPasswordResponse): any => ({
+    ...obj,
+    ...(obj.CodeDeliveryDetails && {
+      CodeDeliveryDetails: CodeDeliveryDetailsType.filterSensitiveLog(
+        obj.CodeDeliveryDetails
+      )
+    })
+  });
   export const isa = (o: any): o is ForgotPasswordResponse =>
     __isa(o, "ForgotPasswordResponse");
 }
@@ -4208,6 +5101,9 @@ export interface GetCSVHeaderRequest {
 }
 
 export namespace GetCSVHeaderRequest {
+  export const filterSensitiveLog = (obj: GetCSVHeaderRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetCSVHeaderRequest =>
     __isa(o, "GetCSVHeaderRequest");
 }
@@ -4230,6 +5126,9 @@ export interface GetCSVHeaderResponse {
 }
 
 export namespace GetCSVHeaderResponse {
+  export const filterSensitiveLog = (obj: GetCSVHeaderResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetCSVHeaderResponse =>
     __isa(o, "GetCSVHeaderResponse");
 }
@@ -4251,6 +5150,10 @@ export interface GetDeviceRequest {
 }
 
 export namespace GetDeviceRequest {
+  export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetDeviceRequest =>
     __isa(o, "GetDeviceRequest");
 }
@@ -4267,6 +5170,10 @@ export interface GetDeviceResponse {
 }
 
 export namespace GetDeviceResponse {
+  export const filterSensitiveLog = (obj: GetDeviceResponse): any => ({
+    ...obj,
+    ...(obj.Device && { Device: DeviceType.filterSensitiveLog(obj.Device) })
+  });
   export const isa = (o: any): o is GetDeviceResponse =>
     __isa(o, "GetDeviceResponse");
 }
@@ -4285,6 +5192,9 @@ export interface GetGroupRequest {
 }
 
 export namespace GetGroupRequest {
+  export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetGroupRequest =>
     __isa(o, "GetGroupRequest");
 }
@@ -4298,6 +5208,10 @@ export interface GetGroupResponse {
 }
 
 export namespace GetGroupResponse {
+  export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
+    ...obj,
+    ...(obj.Group && { Group: GroupType.filterSensitiveLog(obj.Group) })
+  });
   export const isa = (o: any): o is GetGroupResponse =>
     __isa(o, "GetGroupResponse");
 }
@@ -4316,6 +5230,11 @@ export interface GetIdentityProviderByIdentifierRequest {
 }
 
 export namespace GetIdentityProviderByIdentifierRequest {
+  export const filterSensitiveLog = (
+    obj: GetIdentityProviderByIdentifierRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetIdentityProviderByIdentifierRequest =>
     __isa(o, "GetIdentityProviderByIdentifierRequest");
 }
@@ -4329,6 +5248,16 @@ export interface GetIdentityProviderByIdentifierResponse {
 }
 
 export namespace GetIdentityProviderByIdentifierResponse {
+  export const filterSensitiveLog = (
+    obj: GetIdentityProviderByIdentifierResponse
+  ): any => ({
+    ...obj,
+    ...(obj.IdentityProvider && {
+      IdentityProvider: IdentityProviderType.filterSensitiveLog(
+        obj.IdentityProvider
+      )
+    })
+  });
   export const isa = (o: any): o is GetIdentityProviderByIdentifierResponse =>
     __isa(o, "GetIdentityProviderByIdentifierResponse");
 }
@@ -4345,6 +5274,11 @@ export interface GetSigningCertificateRequest {
 }
 
 export namespace GetSigningCertificateRequest {
+  export const filterSensitiveLog = (
+    obj: GetSigningCertificateRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSigningCertificateRequest =>
     __isa(o, "GetSigningCertificateRequest");
 }
@@ -4361,6 +5295,11 @@ export interface GetSigningCertificateResponse {
 }
 
 export namespace GetSigningCertificateResponse {
+  export const filterSensitiveLog = (
+    obj: GetSigningCertificateResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSigningCertificateResponse =>
     __isa(o, "GetSigningCertificateResponse");
 }
@@ -4379,6 +5318,10 @@ export interface GetUICustomizationRequest {
 }
 
 export namespace GetUICustomizationRequest {
+  export const filterSensitiveLog = (obj: GetUICustomizationRequest): any => ({
+    ...obj,
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetUICustomizationRequest =>
     __isa(o, "GetUICustomizationRequest");
 }
@@ -4392,6 +5335,14 @@ export interface GetUICustomizationResponse {
 }
 
 export namespace GetUICustomizationResponse {
+  export const filterSensitiveLog = (obj: GetUICustomizationResponse): any => ({
+    ...obj,
+    ...(obj.UICustomization && {
+      UICustomization: UICustomizationType.filterSensitiveLog(
+        obj.UICustomization
+      )
+    })
+  });
   export const isa = (o: any): o is GetUICustomizationResponse =>
     __isa(o, "GetUICustomizationResponse");
 }
@@ -4451,6 +5402,12 @@ export interface GetUserAttributeVerificationCodeRequest {
 }
 
 export namespace GetUserAttributeVerificationCodeRequest {
+  export const filterSensitiveLog = (
+    obj: GetUserAttributeVerificationCodeRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetUserAttributeVerificationCodeRequest =>
     __isa(o, "GetUserAttributeVerificationCodeRequest");
 }
@@ -4469,6 +5426,16 @@ export interface GetUserAttributeVerificationCodeResponse {
 }
 
 export namespace GetUserAttributeVerificationCodeResponse {
+  export const filterSensitiveLog = (
+    obj: GetUserAttributeVerificationCodeResponse
+  ): any => ({
+    ...obj,
+    ...(obj.CodeDeliveryDetails && {
+      CodeDeliveryDetails: CodeDeliveryDetailsType.filterSensitiveLog(
+        obj.CodeDeliveryDetails
+      )
+    })
+  });
   export const isa = (o: any): o is GetUserAttributeVerificationCodeResponse =>
     __isa(o, "GetUserAttributeVerificationCodeResponse");
 }
@@ -4482,6 +5449,11 @@ export interface GetUserPoolMfaConfigRequest {
 }
 
 export namespace GetUserPoolMfaConfigRequest {
+  export const filterSensitiveLog = (
+    obj: GetUserPoolMfaConfigRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetUserPoolMfaConfigRequest =>
     __isa(o, "GetUserPoolMfaConfigRequest");
 }
@@ -4519,6 +5491,21 @@ export interface GetUserPoolMfaConfigResponse {
 }
 
 export namespace GetUserPoolMfaConfigResponse {
+  export const filterSensitiveLog = (
+    obj: GetUserPoolMfaConfigResponse
+  ): any => ({
+    ...obj,
+    ...(obj.SmsMfaConfiguration && {
+      SmsMfaConfiguration: SmsMfaConfigType.filterSensitiveLog(
+        obj.SmsMfaConfiguration
+      )
+    }),
+    ...(obj.SoftwareTokenMfaConfiguration && {
+      SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigType.filterSensitiveLog(
+        obj.SoftwareTokenMfaConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is GetUserPoolMfaConfigResponse =>
     __isa(o, "GetUserPoolMfaConfigResponse");
 }
@@ -4536,6 +5523,10 @@ export interface GetUserRequest {
 }
 
 export namespace GetUserRequest {
+  export const filterSensitiveLog = (obj: GetUserRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetUserRequest =>
     __isa(o, "GetUserRequest");
 }
@@ -4581,6 +5572,20 @@ export interface GetUserResponse {
 }
 
 export namespace GetUserResponse {
+  export const filterSensitiveLog = (obj: GetUserResponse): any => ({
+    ...obj,
+    ...(obj.MFAOptions && {
+      MFAOptions: obj.MFAOptions.map(item =>
+        MFAOptionType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.UserAttributes && {
+      UserAttributes: obj.UserAttributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetUserResponse =>
     __isa(o, "GetUserResponse");
 }
@@ -4597,6 +5602,10 @@ export interface GlobalSignOutRequest {
 }
 
 export namespace GlobalSignOutRequest {
+  export const filterSensitiveLog = (obj: GlobalSignOutRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GlobalSignOutRequest =>
     __isa(o, "GlobalSignOutRequest");
 }
@@ -4609,6 +5618,9 @@ export interface GlobalSignOutResponse {
 }
 
 export namespace GlobalSignOutResponse {
+  export const filterSensitiveLog = (obj: GlobalSignOutResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GlobalSignOutResponse =>
     __isa(o, "GlobalSignOutResponse");
 }
@@ -4626,6 +5638,9 @@ export interface GroupExistsException
 }
 
 export namespace GroupExistsException {
+  export const filterSensitiveLog = (obj: GroupExistsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GroupExistsException =>
     __isa(o, "GroupExistsException");
 }
@@ -4685,6 +5700,9 @@ export interface GroupType {
 }
 
 export namespace GroupType {
+  export const filterSensitiveLog = (obj: GroupType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GroupType => __isa(o, "GroupType");
 }
 
@@ -4705,6 +5723,9 @@ export interface HttpHeader {
 }
 
 export namespace HttpHeader {
+  export const filterSensitiveLog = (obj: HttpHeader): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HttpHeader => __isa(o, "HttpHeader");
 }
 
@@ -4757,6 +5778,9 @@ export interface IdentityProviderType {
 }
 
 export namespace IdentityProviderType {
+  export const filterSensitiveLog = (obj: IdentityProviderType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is IdentityProviderType =>
     __isa(o, "IdentityProviderType");
 }
@@ -4951,6 +5975,20 @@ export interface InitiateAuthRequest {
 }
 
 export namespace InitiateAuthRequest {
+  export const filterSensitiveLog = (obj: InitiateAuthRequest): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.UserContextData && {
+      UserContextData: UserContextDataType.filterSensitiveLog(
+        obj.UserContextData
+      )
+    })
+  });
   export const isa = (o: any): o is InitiateAuthRequest =>
     __isa(o, "InitiateAuthRequest");
 }
@@ -5035,6 +6073,14 @@ export interface InitiateAuthResponse {
 }
 
 export namespace InitiateAuthResponse {
+  export const filterSensitiveLog = (obj: InitiateAuthResponse): any => ({
+    ...obj,
+    ...(obj.AuthenticationResult && {
+      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(
+        obj.AuthenticationResult
+      )
+    })
+  });
   export const isa = (o: any): o is InitiateAuthResponse =>
     __isa(o, "InitiateAuthResponse");
 }
@@ -5054,6 +6100,9 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
+  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalErrorException =>
     __isa(o, "InternalErrorException");
 }
@@ -5075,6 +6124,11 @@ export interface InvalidEmailRoleAccessPolicyException
 }
 
 export namespace InvalidEmailRoleAccessPolicyException {
+  export const filterSensitiveLog = (
+    obj: InvalidEmailRoleAccessPolicyException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidEmailRoleAccessPolicyException =>
     __isa(o, "InvalidEmailRoleAccessPolicyException");
 }
@@ -5096,6 +6150,11 @@ export interface InvalidLambdaResponseException
 }
 
 export namespace InvalidLambdaResponseException {
+  export const filterSensitiveLog = (
+    obj: InvalidLambdaResponseException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidLambdaResponseException =>
     __isa(o, "InvalidLambdaResponseException");
 }
@@ -5112,6 +6171,9 @@ export interface InvalidOAuthFlowException
 }
 
 export namespace InvalidOAuthFlowException {
+  export const filterSensitiveLog = (obj: InvalidOAuthFlowException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidOAuthFlowException =>
     __isa(o, "InvalidOAuthFlowException");
 }
@@ -5133,6 +6195,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -5154,6 +6219,9 @@ export interface InvalidPasswordException
 }
 
 export namespace InvalidPasswordException {
+  export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidPasswordException =>
     __isa(o, "InvalidPasswordException");
 }
@@ -5175,6 +6243,11 @@ export interface InvalidSmsRoleAccessPolicyException
 }
 
 export namespace InvalidSmsRoleAccessPolicyException {
+  export const filterSensitiveLog = (
+    obj: InvalidSmsRoleAccessPolicyException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidSmsRoleAccessPolicyException =>
     __isa(o, "InvalidSmsRoleAccessPolicyException");
 }
@@ -5197,6 +6270,11 @@ export interface InvalidSmsRoleTrustRelationshipException
 }
 
 export namespace InvalidSmsRoleTrustRelationshipException {
+  export const filterSensitiveLog = (
+    obj: InvalidSmsRoleTrustRelationshipException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidSmsRoleTrustRelationshipException =>
     __isa(o, "InvalidSmsRoleTrustRelationshipException");
 }
@@ -5216,6 +6294,11 @@ export interface InvalidUserPoolConfigurationException
 }
 
 export namespace InvalidUserPoolConfigurationException {
+  export const filterSensitiveLog = (
+    obj: InvalidUserPoolConfigurationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidUserPoolConfigurationException =>
     __isa(o, "InvalidUserPoolConfigurationException");
 }
@@ -5277,6 +6360,9 @@ export interface LambdaConfigType {
 }
 
 export namespace LambdaConfigType {
+  export const filterSensitiveLog = (obj: LambdaConfigType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LambdaConfigType =>
     __isa(o, "LambdaConfigType");
 }
@@ -5297,6 +6383,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -5323,6 +6412,10 @@ export interface ListDevicesRequest {
 }
 
 export namespace ListDevicesRequest {
+  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ListDevicesRequest =>
     __isa(o, "ListDevicesRequest");
 }
@@ -5344,6 +6437,12 @@ export interface ListDevicesResponse {
 }
 
 export namespace ListDevicesResponse {
+  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
+    ...obj,
+    ...(obj.Devices && {
+      Devices: obj.Devices.map(item => DeviceType.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListDevicesResponse =>
     __isa(o, "ListDevicesResponse");
 }
@@ -5368,6 +6467,9 @@ export interface ListGroupsRequest {
 }
 
 export namespace ListGroupsRequest {
+  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListGroupsRequest =>
     __isa(o, "ListGroupsRequest");
 }
@@ -5387,6 +6489,12 @@ export interface ListGroupsResponse {
 }
 
 export namespace ListGroupsResponse {
+  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
+    ...obj,
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => GroupType.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListGroupsResponse =>
     __isa(o, "ListGroupsResponse");
 }
@@ -5410,6 +6518,11 @@ export interface ListIdentityProvidersRequest {
 }
 
 export namespace ListIdentityProvidersRequest {
+  export const filterSensitiveLog = (
+    obj: ListIdentityProvidersRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListIdentityProvidersRequest =>
     __isa(o, "ListIdentityProvidersRequest");
 }
@@ -5428,6 +6541,16 @@ export interface ListIdentityProvidersResponse {
 }
 
 export namespace ListIdentityProvidersResponse {
+  export const filterSensitiveLog = (
+    obj: ListIdentityProvidersResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Providers && {
+      Providers: obj.Providers.map(item =>
+        ProviderDescription.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListIdentityProvidersResponse =>
     __isa(o, "ListIdentityProvidersResponse");
 }
@@ -5451,6 +6574,9 @@ export interface ListResourceServersRequest {
 }
 
 export namespace ListResourceServersRequest {
+  export const filterSensitiveLog = (obj: ListResourceServersRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListResourceServersRequest =>
     __isa(o, "ListResourceServersRequest");
 }
@@ -5469,6 +6595,16 @@ export interface ListResourceServersResponse {
 }
 
 export namespace ListResourceServersResponse {
+  export const filterSensitiveLog = (
+    obj: ListResourceServersResponse
+  ): any => ({
+    ...obj,
+    ...(obj.ResourceServers && {
+      ResourceServers: obj.ResourceServers.map(item =>
+        ResourceServerType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListResourceServersResponse =>
     __isa(o, "ListResourceServersResponse");
 }
@@ -5482,6 +6618,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -5495,6 +6634,11 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -5523,6 +6667,9 @@ export interface ListUserImportJobsRequest {
 }
 
 export namespace ListUserImportJobsRequest {
+  export const filterSensitiveLog = (obj: ListUserImportJobsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListUserImportJobsRequest =>
     __isa(o, "ListUserImportJobsRequest");
 }
@@ -5546,6 +6693,14 @@ export interface ListUserImportJobsResponse {
 }
 
 export namespace ListUserImportJobsResponse {
+  export const filterSensitiveLog = (obj: ListUserImportJobsResponse): any => ({
+    ...obj,
+    ...(obj.UserImportJobs && {
+      UserImportJobs: obj.UserImportJobs.map(item =>
+        UserImportJobType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListUserImportJobsResponse =>
     __isa(o, "ListUserImportJobsResponse");
 }
@@ -5574,6 +6729,9 @@ export interface ListUserPoolClientsRequest {
 }
 
 export namespace ListUserPoolClientsRequest {
+  export const filterSensitiveLog = (obj: ListUserPoolClientsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListUserPoolClientsRequest =>
     __isa(o, "ListUserPoolClientsRequest");
 }
@@ -5596,6 +6754,16 @@ export interface ListUserPoolClientsResponse {
 }
 
 export namespace ListUserPoolClientsResponse {
+  export const filterSensitiveLog = (
+    obj: ListUserPoolClientsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.UserPoolClients && {
+      UserPoolClients: obj.UserPoolClients.map(item =>
+        UserPoolClientDescription.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListUserPoolClientsResponse =>
     __isa(o, "ListUserPoolClientsResponse");
 }
@@ -5619,6 +6787,9 @@ export interface ListUserPoolsRequest {
 }
 
 export namespace ListUserPoolsRequest {
+  export const filterSensitiveLog = (obj: ListUserPoolsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListUserPoolsRequest =>
     __isa(o, "ListUserPoolsRequest");
 }
@@ -5641,6 +6812,14 @@ export interface ListUserPoolsResponse {
 }
 
 export namespace ListUserPoolsResponse {
+  export const filterSensitiveLog = (obj: ListUserPoolsResponse): any => ({
+    ...obj,
+    ...(obj.UserPools && {
+      UserPools: obj.UserPools.map(item =>
+        UserPoolDescriptionType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListUserPoolsResponse =>
     __isa(o, "ListUserPoolsResponse");
 }
@@ -5670,6 +6849,9 @@ export interface ListUsersInGroupRequest {
 }
 
 export namespace ListUsersInGroupRequest {
+  export const filterSensitiveLog = (obj: ListUsersInGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListUsersInGroupRequest =>
     __isa(o, "ListUsersInGroupRequest");
 }
@@ -5689,6 +6871,12 @@ export interface ListUsersInGroupResponse {
 }
 
 export namespace ListUsersInGroupResponse {
+  export const filterSensitiveLog = (obj: ListUsersInGroupResponse): any => ({
+    ...obj,
+    ...(obj.Users && {
+      Users: obj.Users.map(item => UserType.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListUsersInGroupResponse =>
     __isa(o, "ListUsersInGroupResponse");
 }
@@ -5806,6 +6994,9 @@ export interface ListUsersRequest {
 }
 
 export namespace ListUsersRequest {
+  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListUsersRequest =>
     __isa(o, "ListUsersRequest");
 }
@@ -5828,6 +7019,12 @@ export interface ListUsersResponse {
 }
 
 export namespace ListUsersResponse {
+  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
+    ...obj,
+    ...(obj.Users && {
+      Users: obj.Users.map(item => UserType.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");
 }
@@ -5849,6 +7046,9 @@ export interface MFAMethodNotFoundException
 }
 
 export namespace MFAMethodNotFoundException {
+  export const filterSensitiveLog = (obj: MFAMethodNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MFAMethodNotFoundException =>
     __isa(o, "MFAMethodNotFoundException");
 }
@@ -5877,6 +7077,9 @@ export interface MFAOptionType {
 }
 
 export namespace MFAOptionType {
+  export const filterSensitiveLog = (obj: MFAOptionType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MFAOptionType => __isa(o, "MFAOptionType");
 }
 
@@ -5907,6 +7110,9 @@ export interface MessageTemplateType {
 }
 
 export namespace MessageTemplateType {
+  export const filterSensitiveLog = (obj: MessageTemplateType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MessageTemplateType =>
     __isa(o, "MessageTemplateType");
 }
@@ -5928,6 +7134,9 @@ export interface NewDeviceMetadataType {
 }
 
 export namespace NewDeviceMetadataType {
+  export const filterSensitiveLog = (obj: NewDeviceMetadataType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NewDeviceMetadataType =>
     __isa(o, "NewDeviceMetadataType");
 }
@@ -5948,6 +7157,9 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotAuthorizedException =>
     __isa(o, "NotAuthorizedException");
 }
@@ -5992,6 +7204,18 @@ export interface NotifyConfigurationType {
 }
 
 export namespace NotifyConfigurationType {
+  export const filterSensitiveLog = (obj: NotifyConfigurationType): any => ({
+    ...obj,
+    ...(obj.BlockEmail && {
+      BlockEmail: NotifyEmailType.filterSensitiveLog(obj.BlockEmail)
+    }),
+    ...(obj.MfaEmail && {
+      MfaEmail: NotifyEmailType.filterSensitiveLog(obj.MfaEmail)
+    }),
+    ...(obj.NoActionEmail && {
+      NoActionEmail: NotifyEmailType.filterSensitiveLog(obj.NoActionEmail)
+    })
+  });
   export const isa = (o: any): o is NotifyConfigurationType =>
     __isa(o, "NotifyConfigurationType");
 }
@@ -6018,6 +7242,9 @@ export interface NotifyEmailType {
 }
 
 export namespace NotifyEmailType {
+  export const filterSensitiveLog = (obj: NotifyEmailType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotifyEmailType =>
     __isa(o, "NotifyEmailType");
 }
@@ -6039,6 +7266,11 @@ export interface NumberAttributeConstraintsType {
 }
 
 export namespace NumberAttributeConstraintsType {
+  export const filterSensitiveLog = (
+    obj: NumberAttributeConstraintsType
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NumberAttributeConstraintsType =>
     __isa(o, "NumberAttributeConstraintsType");
 }
@@ -6098,6 +7330,9 @@ export interface PasswordPolicyType {
 }
 
 export namespace PasswordPolicyType {
+  export const filterSensitiveLog = (obj: PasswordPolicyType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PasswordPolicyType =>
     __isa(o, "PasswordPolicyType");
 }
@@ -6117,6 +7352,11 @@ export interface PasswordResetRequiredException
 }
 
 export namespace PasswordResetRequiredException {
+  export const filterSensitiveLog = (
+    obj: PasswordResetRequiredException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PasswordResetRequiredException =>
     __isa(o, "PasswordResetRequiredException");
 }
@@ -6136,6 +7376,11 @@ export interface PreconditionNotMetException
 }
 
 export namespace PreconditionNotMetException {
+  export const filterSensitiveLog = (
+    obj: PreconditionNotMetException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PreconditionNotMetException =>
     __isa(o, "PreconditionNotMetException");
 }
@@ -6172,6 +7417,9 @@ export interface ProviderDescription {
 }
 
 export namespace ProviderDescription {
+  export const filterSensitiveLog = (obj: ProviderDescription): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProviderDescription =>
     __isa(o, "ProviderDescription");
 }
@@ -6200,6 +7448,9 @@ export interface ProviderUserIdentifierType {
 }
 
 export namespace ProviderUserIdentifierType {
+  export const filterSensitiveLog = (obj: ProviderUserIdentifierType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProviderUserIdentifierType =>
     __isa(o, "ProviderUserIdentifierType");
 }
@@ -6227,6 +7478,9 @@ export interface RecoveryOptionType {
 }
 
 export namespace RecoveryOptionType {
+  export const filterSensitiveLog = (obj: RecoveryOptionType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RecoveryOptionType =>
     __isa(o, "RecoveryOptionType");
 }
@@ -6303,6 +7557,24 @@ export interface ResendConfirmationCodeRequest {
 }
 
 export namespace ResendConfirmationCodeRequest {
+  export const filterSensitiveLog = (
+    obj: ResendConfirmationCodeRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+    ...(obj.UserContextData && {
+      UserContextData: UserContextDataType.filterSensitiveLog(
+        obj.UserContextData
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ResendConfirmationCodeRequest =>
     __isa(o, "ResendConfirmationCodeRequest");
 }
@@ -6321,6 +7593,16 @@ export interface ResendConfirmationCodeResponse {
 }
 
 export namespace ResendConfirmationCodeResponse {
+  export const filterSensitiveLog = (
+    obj: ResendConfirmationCodeResponse
+  ): any => ({
+    ...obj,
+    ...(obj.CodeDeliveryDetails && {
+      CodeDeliveryDetails: CodeDeliveryDetailsType.filterSensitiveLog(
+        obj.CodeDeliveryDetails
+      )
+    })
+  });
   export const isa = (o: any): o is ResendConfirmationCodeResponse =>
     __isa(o, "ResendConfirmationCodeResponse");
 }
@@ -6342,6 +7624,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -6363,6 +7648,9 @@ export interface ResourceServerScopeType {
 }
 
 export namespace ResourceServerScopeType {
+  export const filterSensitiveLog = (obj: ResourceServerScopeType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceServerScopeType =>
     __isa(o, "ResourceServerScopeType");
 }
@@ -6394,6 +7682,14 @@ export interface ResourceServerType {
 }
 
 export namespace ResourceServerType {
+  export const filterSensitiveLog = (obj: ResourceServerType): any => ({
+    ...obj,
+    ...(obj.Scopes && {
+      Scopes: obj.Scopes.map(item =>
+        ResourceServerScopeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ResourceServerType =>
     __isa(o, "ResourceServerType");
 }
@@ -6521,6 +7817,22 @@ export interface RespondToAuthChallengeRequest {
 }
 
 export namespace RespondToAuthChallengeRequest {
+  export const filterSensitiveLog = (
+    obj: RespondToAuthChallengeRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.UserContextData && {
+      UserContextData: UserContextDataType.filterSensitiveLog(
+        obj.UserContextData
+      )
+    })
+  });
   export const isa = (o: any): o is RespondToAuthChallengeRequest =>
     __isa(o, "RespondToAuthChallengeRequest");
 }
@@ -6557,6 +7869,16 @@ export interface RespondToAuthChallengeResponse {
 }
 
 export namespace RespondToAuthChallengeResponse {
+  export const filterSensitiveLog = (
+    obj: RespondToAuthChallengeResponse
+  ): any => ({
+    ...obj,
+    ...(obj.AuthenticationResult && {
+      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(
+        obj.AuthenticationResult
+      )
+    })
+  });
   export const isa = (o: any): o is RespondToAuthChallengeResponse =>
     __isa(o, "RespondToAuthChallengeResponse");
 }
@@ -6602,6 +7924,25 @@ export interface RiskConfigurationType {
 }
 
 export namespace RiskConfigurationType {
+  export const filterSensitiveLog = (obj: RiskConfigurationType): any => ({
+    ...obj,
+    ...(obj.AccountTakeoverRiskConfiguration && {
+      AccountTakeoverRiskConfiguration: AccountTakeoverRiskConfigurationType.filterSensitiveLog(
+        obj.AccountTakeoverRiskConfiguration
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.CompromisedCredentialsRiskConfiguration && {
+      CompromisedCredentialsRiskConfiguration: CompromisedCredentialsRiskConfigurationType.filterSensitiveLog(
+        obj.CompromisedCredentialsRiskConfiguration
+      )
+    }),
+    ...(obj.RiskExceptionConfiguration && {
+      RiskExceptionConfiguration: RiskExceptionConfigurationType.filterSensitiveLog(
+        obj.RiskExceptionConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is RiskConfigurationType =>
     __isa(o, "RiskConfigurationType");
 }
@@ -6632,6 +7973,11 @@ export interface RiskExceptionConfigurationType {
 }
 
 export namespace RiskExceptionConfigurationType {
+  export const filterSensitiveLog = (
+    obj: RiskExceptionConfigurationType
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RiskExceptionConfigurationType =>
     __isa(o, "RiskExceptionConfigurationType");
 }
@@ -6659,6 +8005,9 @@ export interface SMSMfaSettingsType {
 }
 
 export namespace SMSMfaSettingsType {
+  export const filterSensitiveLog = (obj: SMSMfaSettingsType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SMSMfaSettingsType =>
     __isa(o, "SMSMfaSettingsType");
 }
@@ -6712,6 +8061,19 @@ export interface SchemaAttributeType {
 }
 
 export namespace SchemaAttributeType {
+  export const filterSensitiveLog = (obj: SchemaAttributeType): any => ({
+    ...obj,
+    ...(obj.NumberAttributeConstraints && {
+      NumberAttributeConstraints: NumberAttributeConstraintsType.filterSensitiveLog(
+        obj.NumberAttributeConstraints
+      )
+    }),
+    ...(obj.StringAttributeConstraints && {
+      StringAttributeConstraints: StringAttributeConstraintsType.filterSensitiveLog(
+        obj.StringAttributeConstraints
+      )
+    })
+  });
   export const isa = (o: any): o is SchemaAttributeType =>
     __isa(o, "SchemaAttributeType");
 }
@@ -6728,6 +8090,9 @@ export interface ScopeDoesNotExistException
 }
 
 export namespace ScopeDoesNotExistException {
+  export const filterSensitiveLog = (obj: ScopeDoesNotExistException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ScopeDoesNotExistException =>
     __isa(o, "ScopeDoesNotExistException");
 }
@@ -6766,6 +8131,27 @@ export interface SetRiskConfigurationRequest {
 }
 
 export namespace SetRiskConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: SetRiskConfigurationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AccountTakeoverRiskConfiguration && {
+      AccountTakeoverRiskConfiguration: AccountTakeoverRiskConfigurationType.filterSensitiveLog(
+        obj.AccountTakeoverRiskConfiguration
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.CompromisedCredentialsRiskConfiguration && {
+      CompromisedCredentialsRiskConfiguration: CompromisedCredentialsRiskConfigurationType.filterSensitiveLog(
+        obj.CompromisedCredentialsRiskConfiguration
+      )
+    }),
+    ...(obj.RiskExceptionConfiguration && {
+      RiskExceptionConfiguration: RiskExceptionConfigurationType.filterSensitiveLog(
+        obj.RiskExceptionConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is SetRiskConfigurationRequest =>
     __isa(o, "SetRiskConfigurationRequest");
 }
@@ -6779,6 +8165,16 @@ export interface SetRiskConfigurationResponse {
 }
 
 export namespace SetRiskConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: SetRiskConfigurationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.RiskConfiguration && {
+      RiskConfiguration: RiskConfigurationType.filterSensitiveLog(
+        obj.RiskConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is SetRiskConfigurationResponse =>
     __isa(o, "SetRiskConfigurationResponse");
 }
@@ -6807,6 +8203,10 @@ export interface SetUICustomizationRequest {
 }
 
 export namespace SetUICustomizationRequest {
+  export const filterSensitiveLog = (obj: SetUICustomizationRequest): any => ({
+    ...obj,
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is SetUICustomizationRequest =>
     __isa(o, "SetUICustomizationRequest");
 }
@@ -6820,6 +8220,14 @@ export interface SetUICustomizationResponse {
 }
 
 export namespace SetUICustomizationResponse {
+  export const filterSensitiveLog = (obj: SetUICustomizationResponse): any => ({
+    ...obj,
+    ...(obj.UICustomization && {
+      UICustomization: UICustomizationType.filterSensitiveLog(
+        obj.UICustomization
+      )
+    })
+  });
   export const isa = (o: any): o is SetUICustomizationResponse =>
     __isa(o, "SetUICustomizationResponse");
 }
@@ -6843,6 +8251,20 @@ export interface SetUserMFAPreferenceRequest {
 }
 
 export namespace SetUserMFAPreferenceRequest {
+  export const filterSensitiveLog = (
+    obj: SetUserMFAPreferenceRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+    ...(obj.SMSMfaSettings && {
+      SMSMfaSettings: SMSMfaSettingsType.filterSensitiveLog(obj.SMSMfaSettings)
+    }),
+    ...(obj.SoftwareTokenMfaSettings && {
+      SoftwareTokenMfaSettings: SoftwareTokenMfaSettingsType.filterSensitiveLog(
+        obj.SoftwareTokenMfaSettings
+      )
+    })
+  });
   export const isa = (o: any): o is SetUserMFAPreferenceRequest =>
     __isa(o, "SetUserMFAPreferenceRequest");
 }
@@ -6852,6 +8274,11 @@ export interface SetUserMFAPreferenceResponse {
 }
 
 export namespace SetUserMFAPreferenceResponse {
+  export const filterSensitiveLog = (
+    obj: SetUserMFAPreferenceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SetUserMFAPreferenceResponse =>
     __isa(o, "SetUserMFAPreferenceResponse");
 }
@@ -6894,6 +8321,21 @@ export interface SetUserPoolMfaConfigRequest {
 }
 
 export namespace SetUserPoolMfaConfigRequest {
+  export const filterSensitiveLog = (
+    obj: SetUserPoolMfaConfigRequest
+  ): any => ({
+    ...obj,
+    ...(obj.SmsMfaConfiguration && {
+      SmsMfaConfiguration: SmsMfaConfigType.filterSensitiveLog(
+        obj.SmsMfaConfiguration
+      )
+    }),
+    ...(obj.SoftwareTokenMfaConfiguration && {
+      SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigType.filterSensitiveLog(
+        obj.SoftwareTokenMfaConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is SetUserPoolMfaConfigRequest =>
     __isa(o, "SetUserPoolMfaConfigRequest");
 }
@@ -6931,6 +8373,21 @@ export interface SetUserPoolMfaConfigResponse {
 }
 
 export namespace SetUserPoolMfaConfigResponse {
+  export const filterSensitiveLog = (
+    obj: SetUserPoolMfaConfigResponse
+  ): any => ({
+    ...obj,
+    ...(obj.SmsMfaConfiguration && {
+      SmsMfaConfiguration: SmsMfaConfigType.filterSensitiveLog(
+        obj.SmsMfaConfiguration
+      )
+    }),
+    ...(obj.SoftwareTokenMfaConfiguration && {
+      SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigType.filterSensitiveLog(
+        obj.SoftwareTokenMfaConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is SetUserPoolMfaConfigResponse =>
     __isa(o, "SetUserPoolMfaConfigResponse");
 }
@@ -6953,6 +8410,15 @@ export interface SetUserSettingsRequest {
 }
 
 export namespace SetUserSettingsRequest {
+  export const filterSensitiveLog = (obj: SetUserSettingsRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+    ...(obj.MFAOptions && {
+      MFAOptions: obj.MFAOptions.map(item =>
+        MFAOptionType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SetUserSettingsRequest =>
     __isa(o, "SetUserSettingsRequest");
 }
@@ -6965,6 +8431,9 @@ export interface SetUserSettingsResponse {
 }
 
 export namespace SetUserSettingsResponse {
+  export const filterSensitiveLog = (obj: SetUserSettingsResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SetUserSettingsResponse =>
     __isa(o, "SetUserSettingsResponse");
 }
@@ -7058,6 +8527,33 @@ export interface SignUpRequest {
 }
 
 export namespace SignUpRequest {
+  export const filterSensitiveLog = (obj: SignUpRequest): any => ({
+    ...obj,
+    ...(obj.AnalyticsMetadata && {
+      AnalyticsMetadata: AnalyticsMetadataType.filterSensitiveLog(
+        obj.AnalyticsMetadata
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+    ...(obj.UserAttributes && {
+      UserAttributes: obj.UserAttributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.UserContextData && {
+      UserContextData: UserContextDataType.filterSensitiveLog(
+        obj.UserContextData
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING }),
+    ...(obj.ValidationData && {
+      ValidationData: obj.ValidationData.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SignUpRequest => __isa(o, "SignUpRequest");
 }
 
@@ -7086,6 +8582,14 @@ export interface SignUpResponse {
 }
 
 export namespace SignUpResponse {
+  export const filterSensitiveLog = (obj: SignUpResponse): any => ({
+    ...obj,
+    ...(obj.CodeDeliveryDetails && {
+      CodeDeliveryDetails: CodeDeliveryDetailsType.filterSensitiveLog(
+        obj.CodeDeliveryDetails
+      )
+    })
+  });
   export const isa = (o: any): o is SignUpResponse =>
     __isa(o, "SignUpResponse");
 }
@@ -7108,6 +8612,9 @@ export interface SmsConfigurationType {
 }
 
 export namespace SmsConfigurationType {
+  export const filterSensitiveLog = (obj: SmsConfigurationType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SmsConfigurationType =>
     __isa(o, "SmsConfigurationType");
 }
@@ -7129,6 +8636,14 @@ export interface SmsMfaConfigType {
 }
 
 export namespace SmsMfaConfigType {
+  export const filterSensitiveLog = (obj: SmsMfaConfigType): any => ({
+    ...obj,
+    ...(obj.SmsConfiguration && {
+      SmsConfiguration: SmsConfigurationType.filterSensitiveLog(
+        obj.SmsConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is SmsMfaConfigType =>
     __isa(o, "SmsMfaConfigType");
 }
@@ -7146,6 +8661,11 @@ export interface SoftwareTokenMFANotFoundException
 }
 
 export namespace SoftwareTokenMFANotFoundException {
+  export const filterSensitiveLog = (
+    obj: SoftwareTokenMFANotFoundException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SoftwareTokenMFANotFoundException =>
     __isa(o, "SoftwareTokenMFANotFoundException");
 }
@@ -7162,6 +8682,9 @@ export interface SoftwareTokenMfaConfigType {
 }
 
 export namespace SoftwareTokenMfaConfigType {
+  export const filterSensitiveLog = (obj: SoftwareTokenMfaConfigType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SoftwareTokenMfaConfigType =>
     __isa(o, "SoftwareTokenMfaConfigType");
 }
@@ -7183,6 +8706,11 @@ export interface SoftwareTokenMfaSettingsType {
 }
 
 export namespace SoftwareTokenMfaSettingsType {
+  export const filterSensitiveLog = (
+    obj: SoftwareTokenMfaSettingsType
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SoftwareTokenMfaSettingsType =>
     __isa(o, "SoftwareTokenMfaSettingsType");
 }
@@ -7204,6 +8732,9 @@ export interface StartUserImportJobRequest {
 }
 
 export namespace StartUserImportJobRequest {
+  export const filterSensitiveLog = (obj: StartUserImportJobRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartUserImportJobRequest =>
     __isa(o, "StartUserImportJobRequest");
 }
@@ -7221,6 +8752,12 @@ export interface StartUserImportJobResponse {
 }
 
 export namespace StartUserImportJobResponse {
+  export const filterSensitiveLog = (obj: StartUserImportJobResponse): any => ({
+    ...obj,
+    ...(obj.UserImportJob && {
+      UserImportJob: UserImportJobType.filterSensitiveLog(obj.UserImportJob)
+    })
+  });
   export const isa = (o: any): o is StartUserImportJobResponse =>
     __isa(o, "StartUserImportJobResponse");
 }
@@ -7247,6 +8784,9 @@ export interface StopUserImportJobRequest {
 }
 
 export namespace StopUserImportJobRequest {
+  export const filterSensitiveLog = (obj: StopUserImportJobRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopUserImportJobRequest =>
     __isa(o, "StopUserImportJobRequest");
 }
@@ -7264,6 +8804,12 @@ export interface StopUserImportJobResponse {
 }
 
 export namespace StopUserImportJobResponse {
+  export const filterSensitiveLog = (obj: StopUserImportJobResponse): any => ({
+    ...obj,
+    ...(obj.UserImportJob && {
+      UserImportJob: UserImportJobType.filterSensitiveLog(obj.UserImportJob)
+    })
+  });
   export const isa = (o: any): o is StopUserImportJobResponse =>
     __isa(o, "StopUserImportJobResponse");
 }
@@ -7285,6 +8831,11 @@ export interface StringAttributeConstraintsType {
 }
 
 export namespace StringAttributeConstraintsType {
+  export const filterSensitiveLog = (
+    obj: StringAttributeConstraintsType
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StringAttributeConstraintsType =>
     __isa(o, "StringAttributeConstraintsType");
 }
@@ -7303,6 +8854,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -7312,6 +8866,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -7333,6 +8890,11 @@ export interface TooManyFailedAttemptsException
 }
 
 export namespace TooManyFailedAttemptsException {
+  export const filterSensitiveLog = (
+    obj: TooManyFailedAttemptsException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyFailedAttemptsException =>
     __isa(o, "TooManyFailedAttemptsException");
 }
@@ -7354,6 +8916,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -7401,6 +8966,10 @@ export interface UICustomizationType {
 }
 
 export namespace UICustomizationType {
+  export const filterSensitiveLog = (obj: UICustomizationType): any => ({
+    ...obj,
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UICustomizationType =>
     __isa(o, "UICustomizationType");
 }
@@ -7422,6 +8991,9 @@ export interface UnexpectedLambdaException
 }
 
 export namespace UnexpectedLambdaException {
+  export const filterSensitiveLog = (obj: UnexpectedLambdaException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnexpectedLambdaException =>
     __isa(o, "UnexpectedLambdaException");
 }
@@ -7438,6 +9010,11 @@ export interface UnsupportedIdentityProviderException
 }
 
 export namespace UnsupportedIdentityProviderException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedIdentityProviderException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedIdentityProviderException =>
     __isa(o, "UnsupportedIdentityProviderException");
 }
@@ -7457,6 +9034,11 @@ export interface UnsupportedUserStateException
 }
 
 export namespace UnsupportedUserStateException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedUserStateException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedUserStateException =>
     __isa(o, "UnsupportedUserStateException");
 }
@@ -7475,6 +9057,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -7484,6 +9069,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -7517,6 +9105,13 @@ export interface UpdateAuthEventFeedbackRequest {
 }
 
 export namespace UpdateAuthEventFeedbackRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateAuthEventFeedbackRequest
+  ): any => ({
+    ...obj,
+    ...(obj.FeedbackToken && { FeedbackToken: SENSITIVE_STRING }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UpdateAuthEventFeedbackRequest =>
     __isa(o, "UpdateAuthEventFeedbackRequest");
 }
@@ -7526,6 +9121,11 @@ export interface UpdateAuthEventFeedbackResponse {
 }
 
 export namespace UpdateAuthEventFeedbackResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateAuthEventFeedbackResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateAuthEventFeedbackResponse =>
     __isa(o, "UpdateAuthEventFeedbackResponse");
 }
@@ -7552,6 +9152,10 @@ export interface UpdateDeviceStatusRequest {
 }
 
 export namespace UpdateDeviceStatusRequest {
+  export const filterSensitiveLog = (obj: UpdateDeviceStatusRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UpdateDeviceStatusRequest =>
     __isa(o, "UpdateDeviceStatusRequest");
 }
@@ -7564,6 +9168,9 @@ export interface UpdateDeviceStatusResponse {
 }
 
 export namespace UpdateDeviceStatusResponse {
+  export const filterSensitiveLog = (obj: UpdateDeviceStatusResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDeviceStatusResponse =>
     __isa(o, "UpdateDeviceStatusResponse");
 }
@@ -7600,6 +9207,9 @@ export interface UpdateGroupRequest {
 }
 
 export namespace UpdateGroupRequest {
+  export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateGroupRequest =>
     __isa(o, "UpdateGroupRequest");
 }
@@ -7613,6 +9223,10 @@ export interface UpdateGroupResponse {
 }
 
 export namespace UpdateGroupResponse {
+  export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
+    ...obj,
+    ...(obj.Group && { Group: GroupType.filterSensitiveLog(obj.Group) })
+  });
   export const isa = (o: any): o is UpdateGroupResponse =>
     __isa(o, "UpdateGroupResponse");
 }
@@ -7647,6 +9261,11 @@ export interface UpdateIdentityProviderRequest {
 }
 
 export namespace UpdateIdentityProviderRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateIdentityProviderRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateIdentityProviderRequest =>
     __isa(o, "UpdateIdentityProviderRequest");
 }
@@ -7660,6 +9279,16 @@ export interface UpdateIdentityProviderResponse {
 }
 
 export namespace UpdateIdentityProviderResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateIdentityProviderResponse
+  ): any => ({
+    ...obj,
+    ...(obj.IdentityProvider && {
+      IdentityProvider: IdentityProviderType.filterSensitiveLog(
+        obj.IdentityProvider
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateIdentityProviderResponse =>
     __isa(o, "UpdateIdentityProviderResponse");
 }
@@ -7688,6 +9317,16 @@ export interface UpdateResourceServerRequest {
 }
 
 export namespace UpdateResourceServerRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateResourceServerRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Scopes && {
+      Scopes: obj.Scopes.map(item =>
+        ResourceServerScopeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateResourceServerRequest =>
     __isa(o, "UpdateResourceServerRequest");
 }
@@ -7701,6 +9340,14 @@ export interface UpdateResourceServerResponse {
 }
 
 export namespace UpdateResourceServerResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateResourceServerResponse
+  ): any => ({
+    ...obj,
+    ...(obj.ResourceServer && {
+      ResourceServer: ResourceServerType.filterSensitiveLog(obj.ResourceServer)
+    })
+  });
   export const isa = (o: any): o is UpdateResourceServerResponse =>
     __isa(o, "UpdateResourceServerResponse");
 }
@@ -7759,6 +9406,17 @@ export interface UpdateUserAttributesRequest {
 }
 
 export namespace UpdateUserAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateUserAttributesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+    ...(obj.UserAttributes && {
+      UserAttributes: obj.UserAttributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateUserAttributesRequest =>
     __isa(o, "UpdateUserAttributesRequest");
 }
@@ -7777,6 +9435,16 @@ export interface UpdateUserAttributesResponse {
 }
 
 export namespace UpdateUserAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateUserAttributesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.CodeDeliveryDetailsList && {
+      CodeDeliveryDetailsList: obj.CodeDeliveryDetailsList.map(item =>
+        CodeDeliveryDetailsType.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateUserAttributesResponse =>
     __isa(o, "UpdateUserAttributesResponse");
 }
@@ -7992,6 +9660,17 @@ export interface UpdateUserPoolClientRequest {
 }
 
 export namespace UpdateUserPoolClientRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateUserPoolClientRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AnalyticsConfiguration && {
+      AnalyticsConfiguration: AnalyticsConfigurationType.filterSensitiveLog(
+        obj.AnalyticsConfiguration
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UpdateUserPoolClientRequest =>
     __isa(o, "UpdateUserPoolClientRequest");
 }
@@ -8010,6 +9689,14 @@ export interface UpdateUserPoolClientResponse {
 }
 
 export namespace UpdateUserPoolClientResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateUserPoolClientResponse
+  ): any => ({
+    ...obj,
+    ...(obj.UserPoolClient && {
+      UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient)
+    })
+  });
   export const isa = (o: any): o is UpdateUserPoolClientResponse =>
     __isa(o, "UpdateUserPoolClientResponse");
 }
@@ -8042,6 +9729,16 @@ export interface UpdateUserPoolDomainRequest {
 }
 
 export namespace UpdateUserPoolDomainRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateUserPoolDomainRequest
+  ): any => ({
+    ...obj,
+    ...(obj.CustomDomainConfig && {
+      CustomDomainConfig: CustomDomainConfigType.filterSensitiveLog(
+        obj.CustomDomainConfig
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateUserPoolDomainRequest =>
     __isa(o, "UpdateUserPoolDomainRequest");
 }
@@ -8059,6 +9756,11 @@ export interface UpdateUserPoolDomainResponse {
 }
 
 export namespace UpdateUserPoolDomainResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateUserPoolDomainResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateUserPoolDomainResponse =>
     __isa(o, "UpdateUserPoolDomainResponse");
 }
@@ -8177,6 +9879,48 @@ export interface UpdateUserPoolRequest {
 }
 
 export namespace UpdateUserPoolRequest {
+  export const filterSensitiveLog = (obj: UpdateUserPoolRequest): any => ({
+    ...obj,
+    ...(obj.AccountRecoverySetting && {
+      AccountRecoverySetting: AccountRecoverySettingType.filterSensitiveLog(
+        obj.AccountRecoverySetting
+      )
+    }),
+    ...(obj.AdminCreateUserConfig && {
+      AdminCreateUserConfig: AdminCreateUserConfigType.filterSensitiveLog(
+        obj.AdminCreateUserConfig
+      )
+    }),
+    ...(obj.DeviceConfiguration && {
+      DeviceConfiguration: DeviceConfigurationType.filterSensitiveLog(
+        obj.DeviceConfiguration
+      )
+    }),
+    ...(obj.EmailConfiguration && {
+      EmailConfiguration: EmailConfigurationType.filterSensitiveLog(
+        obj.EmailConfiguration
+      )
+    }),
+    ...(obj.LambdaConfig && {
+      LambdaConfig: LambdaConfigType.filterSensitiveLog(obj.LambdaConfig)
+    }),
+    ...(obj.Policies && {
+      Policies: UserPoolPolicyType.filterSensitiveLog(obj.Policies)
+    }),
+    ...(obj.SmsConfiguration && {
+      SmsConfiguration: SmsConfigurationType.filterSensitiveLog(
+        obj.SmsConfiguration
+      )
+    }),
+    ...(obj.UserPoolAddOns && {
+      UserPoolAddOns: UserPoolAddOnsType.filterSensitiveLog(obj.UserPoolAddOns)
+    }),
+    ...(obj.VerificationMessageTemplate && {
+      VerificationMessageTemplate: VerificationMessageTemplateType.filterSensitiveLog(
+        obj.VerificationMessageTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateUserPoolRequest =>
     __isa(o, "UpdateUserPoolRequest");
 }
@@ -8190,6 +9934,9 @@ export interface UpdateUserPoolResponse {
 }
 
 export namespace UpdateUserPoolResponse {
+  export const filterSensitiveLog = (obj: UpdateUserPoolResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateUserPoolResponse =>
     __isa(o, "UpdateUserPoolResponse");
 }
@@ -8210,6 +9957,9 @@ export interface UserContextDataType {
 }
 
 export namespace UserContextDataType {
+  export const filterSensitiveLog = (obj: UserContextDataType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserContextDataType =>
     __isa(o, "UserContextDataType");
 }
@@ -8230,6 +9980,11 @@ export interface UserImportInProgressException
 }
 
 export namespace UserImportInProgressException {
+  export const filterSensitiveLog = (
+    obj: UserImportInProgressException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserImportInProgressException =>
     __isa(o, "UserImportInProgressException");
 }
@@ -8359,6 +10114,9 @@ export interface UserImportJobType {
 }
 
 export namespace UserImportJobType {
+  export const filterSensitiveLog = (obj: UserImportJobType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserImportJobType =>
     __isa(o, "UserImportJobType");
 }
@@ -8380,6 +10138,11 @@ export interface UserLambdaValidationException
 }
 
 export namespace UserLambdaValidationException {
+  export const filterSensitiveLog = (
+    obj: UserLambdaValidationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserLambdaValidationException =>
     __isa(o, "UserLambdaValidationException");
 }
@@ -8399,6 +10162,9 @@ export interface UserNotConfirmedException
 }
 
 export namespace UserNotConfirmedException {
+  export const filterSensitiveLog = (obj: UserNotConfirmedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserNotConfirmedException =>
     __isa(o, "UserNotConfirmedException");
 }
@@ -8418,6 +10184,9 @@ export interface UserNotFoundException
 }
 
 export namespace UserNotFoundException {
+  export const filterSensitiveLog = (obj: UserNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserNotFoundException =>
     __isa(o, "UserNotFoundException");
 }
@@ -8434,6 +10203,11 @@ export interface UserPoolAddOnNotEnabledException
 }
 
 export namespace UserPoolAddOnNotEnabledException {
+  export const filterSensitiveLog = (
+    obj: UserPoolAddOnNotEnabledException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserPoolAddOnNotEnabledException =>
     __isa(o, "UserPoolAddOnNotEnabledException");
 }
@@ -8450,6 +10224,9 @@ export interface UserPoolAddOnsType {
 }
 
 export namespace UserPoolAddOnsType {
+  export const filterSensitiveLog = (obj: UserPoolAddOnsType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserPoolAddOnsType =>
     __isa(o, "UserPoolAddOnsType");
 }
@@ -8477,6 +10254,10 @@ export interface UserPoolClientDescription {
 }
 
 export namespace UserPoolClientDescription {
+  export const filterSensitiveLog = (obj: UserPoolClientDescription): any => ({
+    ...obj,
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UserPoolClientDescription =>
     __isa(o, "UserPoolClientDescription");
 }
@@ -8707,6 +10488,16 @@ export interface UserPoolClientType {
 }
 
 export namespace UserPoolClientType {
+  export const filterSensitiveLog = (obj: UserPoolClientType): any => ({
+    ...obj,
+    ...(obj.AnalyticsConfiguration && {
+      AnalyticsConfiguration: AnalyticsConfigurationType.filterSensitiveLog(
+        obj.AnalyticsConfiguration
+      )
+    }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UserPoolClientType =>
     __isa(o, "UserPoolClientType");
 }
@@ -8748,6 +10539,12 @@ export interface UserPoolDescriptionType {
 }
 
 export namespace UserPoolDescriptionType {
+  export const filterSensitiveLog = (obj: UserPoolDescriptionType): any => ({
+    ...obj,
+    ...(obj.LambdaConfig && {
+      LambdaConfig: LambdaConfigType.filterSensitiveLog(obj.LambdaConfig)
+    })
+  });
   export const isa = (o: any): o is UserPoolDescriptionType =>
     __isa(o, "UserPoolDescriptionType");
 }
@@ -8770,6 +10567,12 @@ export interface UserPoolPolicyType {
 }
 
 export namespace UserPoolPolicyType {
+  export const filterSensitiveLog = (obj: UserPoolPolicyType): any => ({
+    ...obj,
+    ...(obj.PasswordPolicy && {
+      PasswordPolicy: PasswordPolicyType.filterSensitiveLog(obj.PasswordPolicy)
+    })
+  });
   export const isa = (o: any): o is UserPoolPolicyType =>
     __isa(o, "UserPoolPolicyType");
 }
@@ -8786,6 +10589,9 @@ export interface UserPoolTaggingException
 }
 
 export namespace UserPoolTaggingException {
+  export const filterSensitiveLog = (obj: UserPoolTaggingException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UserPoolTaggingException =>
     __isa(o, "UserPoolTaggingException");
 }
@@ -8970,6 +10776,53 @@ export interface UserPoolType {
 }
 
 export namespace UserPoolType {
+  export const filterSensitiveLog = (obj: UserPoolType): any => ({
+    ...obj,
+    ...(obj.AccountRecoverySetting && {
+      AccountRecoverySetting: AccountRecoverySettingType.filterSensitiveLog(
+        obj.AccountRecoverySetting
+      )
+    }),
+    ...(obj.AdminCreateUserConfig && {
+      AdminCreateUserConfig: AdminCreateUserConfigType.filterSensitiveLog(
+        obj.AdminCreateUserConfig
+      )
+    }),
+    ...(obj.DeviceConfiguration && {
+      DeviceConfiguration: DeviceConfigurationType.filterSensitiveLog(
+        obj.DeviceConfiguration
+      )
+    }),
+    ...(obj.EmailConfiguration && {
+      EmailConfiguration: EmailConfigurationType.filterSensitiveLog(
+        obj.EmailConfiguration
+      )
+    }),
+    ...(obj.LambdaConfig && {
+      LambdaConfig: LambdaConfigType.filterSensitiveLog(obj.LambdaConfig)
+    }),
+    ...(obj.Policies && {
+      Policies: UserPoolPolicyType.filterSensitiveLog(obj.Policies)
+    }),
+    ...(obj.SchemaAttributes && {
+      SchemaAttributes: obj.SchemaAttributes.map(item =>
+        SchemaAttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.SmsConfiguration && {
+      SmsConfiguration: SmsConfigurationType.filterSensitiveLog(
+        obj.SmsConfiguration
+      )
+    }),
+    ...(obj.UserPoolAddOns && {
+      UserPoolAddOns: UserPoolAddOnsType.filterSensitiveLog(obj.UserPoolAddOns)
+    }),
+    ...(obj.VerificationMessageTemplate && {
+      VerificationMessageTemplate: VerificationMessageTemplateType.filterSensitiveLog(
+        obj.VerificationMessageTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is UserPoolType => __isa(o, "UserPoolType");
 }
 
@@ -9051,6 +10904,20 @@ export interface UserType {
 }
 
 export namespace UserType {
+  export const filterSensitiveLog = (obj: UserType): any => ({
+    ...obj,
+    ...(obj.Attributes && {
+      Attributes: obj.Attributes.map(item =>
+        AttributeType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.MFAOptions && {
+      MFAOptions: obj.MFAOptions.map(item =>
+        MFAOptionType.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UserType => __isa(o, "UserType");
 }
 
@@ -9075,6 +10942,9 @@ export interface UsernameExistsException
 }
 
 export namespace UsernameExistsException {
+  export const filterSensitiveLog = (obj: UsernameExistsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UsernameExistsException =>
     __isa(o, "UsernameExistsException");
 }
@@ -9117,6 +10987,11 @@ export interface VerificationMessageTemplateType {
 }
 
 export namespace VerificationMessageTemplateType {
+  export const filterSensitiveLog = (
+    obj: VerificationMessageTemplateType
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VerificationMessageTemplateType =>
     __isa(o, "VerificationMessageTemplateType");
 }
@@ -9151,6 +11026,10 @@ export interface VerifySoftwareTokenRequest {
 }
 
 export namespace VerifySoftwareTokenRequest {
+  export const filterSensitiveLog = (obj: VerifySoftwareTokenRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is VerifySoftwareTokenRequest =>
     __isa(o, "VerifySoftwareTokenRequest");
 }
@@ -9170,6 +11049,11 @@ export interface VerifySoftwareTokenResponse {
 }
 
 export namespace VerifySoftwareTokenResponse {
+  export const filterSensitiveLog = (
+    obj: VerifySoftwareTokenResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VerifySoftwareTokenResponse =>
     __isa(o, "VerifySoftwareTokenResponse");
 }
@@ -9201,6 +11085,10 @@ export interface VerifyUserAttributeRequest {
 }
 
 export namespace VerifyUserAttributeRequest {
+  export const filterSensitiveLog = (obj: VerifyUserAttributeRequest): any => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is VerifyUserAttributeRequest =>
     __isa(o, "VerifyUserAttributeRequest");
 }
@@ -9214,6 +11102,11 @@ export interface VerifyUserAttributeResponse {
 }
 
 export namespace VerifyUserAttributeResponse {
+  export const filterSensitiveLog = (
+    obj: VerifyUserAttributeResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VerifyUserAttributeResponse =>
     __isa(o, "VerifyUserAttributeResponse");
 }

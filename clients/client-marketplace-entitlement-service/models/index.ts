@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -47,6 +48,10 @@ export interface Entitlement {
 }
 
 export namespace Entitlement {
+  export const filterSensitiveLog = (obj: Entitlement): any => ({
+    ...obj,
+    ...(obj.Value && { Value: EntitlementValue.filterSensitiveLog(obj.Value) })
+  });
   export const isa = (o: any): o is Entitlement => __isa(o, "Entitlement");
 }
 
@@ -82,6 +87,9 @@ export interface EntitlementValue {
 }
 
 export namespace EntitlementValue {
+  export const filterSensitiveLog = (obj: EntitlementValue): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntitlementValue =>
     __isa(o, "EntitlementValue");
 }
@@ -125,6 +133,9 @@ export interface GetEntitlementsRequest {
 }
 
 export namespace GetEntitlementsRequest {
+  export const filterSensitiveLog = (obj: GetEntitlementsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetEntitlementsRequest =>
     __isa(o, "GetEntitlementsRequest");
 }
@@ -150,6 +161,14 @@ export interface GetEntitlementsResult {
 }
 
 export namespace GetEntitlementsResult {
+  export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
+    ...obj,
+    ...(obj.Entitlements && {
+      Entitlements: obj.Entitlements.map(item =>
+        Entitlement.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetEntitlementsResult =>
     __isa(o, "GetEntitlementsResult");
 }
@@ -167,6 +186,11 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
+  export const filterSensitiveLog = (
+    obj: InternalServiceErrorException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceErrorException =>
     __isa(o, "InternalServiceErrorException");
 }
@@ -183,6 +207,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -199,6 +226,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }

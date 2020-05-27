@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -37,6 +41,9 @@ export interface CdnConfiguration {
 }
 
 export namespace CdnConfiguration {
+  export const filterSensitiveLog = (obj: CdnConfiguration): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CdnConfiguration =>
     __isa(o, "CdnConfiguration");
 }
@@ -63,6 +70,9 @@ export interface DashConfiguration {
 }
 
 export namespace DashConfiguration {
+  export const filterSensitiveLog = (obj: DashConfiguration): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DashConfiguration =>
     __isa(o, "DashConfiguration");
 }
@@ -84,6 +94,9 @@ export interface DashConfigurationForPut {
 }
 
 export namespace DashConfigurationForPut {
+  export const filterSensitiveLog = (obj: DashConfigurationForPut): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DashConfigurationForPut =>
     __isa(o, "DashConfigurationForPut");
 }
@@ -97,6 +110,11 @@ export interface DeletePlaybackConfigurationRequest {
 }
 
 export namespace DeletePlaybackConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: DeletePlaybackConfigurationRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePlaybackConfigurationRequest =>
     __isa(o, "DeletePlaybackConfigurationRequest");
 }
@@ -106,6 +124,11 @@ export interface DeletePlaybackConfigurationResponse {
 }
 
 export namespace DeletePlaybackConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: DeletePlaybackConfigurationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePlaybackConfigurationResponse =>
     __isa(o, "DeletePlaybackConfigurationResponse");
 }
@@ -119,6 +142,11 @@ export interface GetPlaybackConfigurationRequest {
 }
 
 export namespace GetPlaybackConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: GetPlaybackConfigurationRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetPlaybackConfigurationRequest =>
     __isa(o, "GetPlaybackConfigurationRequest");
 }
@@ -192,6 +220,31 @@ export interface GetPlaybackConfigurationResponse {
 }
 
 export namespace GetPlaybackConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: GetPlaybackConfigurationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.CdnConfiguration && {
+      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
+        obj.CdnConfiguration
+      )
+    }),
+    ...(obj.DashConfiguration && {
+      DashConfiguration: DashConfiguration.filterSensitiveLog(
+        obj.DashConfiguration
+      )
+    }),
+    ...(obj.HlsConfiguration && {
+      HlsConfiguration: HlsConfiguration.filterSensitiveLog(
+        obj.HlsConfiguration
+      )
+    }),
+    ...(obj.LivePreRollConfiguration && {
+      LivePreRollConfiguration: LivePreRollConfiguration.filterSensitiveLog(
+        obj.LivePreRollConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is GetPlaybackConfigurationResponse =>
     __isa(o, "GetPlaybackConfigurationResponse");
 }
@@ -208,6 +261,9 @@ export interface HlsConfiguration {
 }
 
 export namespace HlsConfiguration {
+  export const filterSensitiveLog = (obj: HlsConfiguration): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HlsConfiguration =>
     __isa(o, "HlsConfiguration");
 }
@@ -226,6 +282,11 @@ export interface ListPlaybackConfigurationsRequest {
 }
 
 export namespace ListPlaybackConfigurationsRequest {
+  export const filterSensitiveLog = (
+    obj: ListPlaybackConfigurationsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListPlaybackConfigurationsRequest =>
     __isa(o, "ListPlaybackConfigurationsRequest");
 }
@@ -244,6 +305,16 @@ export interface ListPlaybackConfigurationsResponse {
 }
 
 export namespace ListPlaybackConfigurationsResponse {
+  export const filterSensitiveLog = (
+    obj: ListPlaybackConfigurationsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Items && {
+      Items: obj.Items.map(item =>
+        PlaybackConfiguration.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPlaybackConfigurationsResponse =>
     __isa(o, "ListPlaybackConfigurationsResponse");
 }
@@ -257,6 +328,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -275,6 +349,11 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -296,6 +375,9 @@ export interface LivePreRollConfiguration {
 }
 
 export namespace LivePreRollConfiguration {
+  export const filterSensitiveLog = (obj: LivePreRollConfiguration): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LivePreRollConfiguration =>
     __isa(o, "LivePreRollConfiguration");
 }
@@ -372,6 +454,24 @@ export interface PlaybackConfiguration {
 }
 
 export namespace PlaybackConfiguration {
+  export const filterSensitiveLog = (obj: PlaybackConfiguration): any => ({
+    ...obj,
+    ...(obj.CdnConfiguration && {
+      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
+        obj.CdnConfiguration
+      )
+    }),
+    ...(obj.DashConfiguration && {
+      DashConfiguration: DashConfiguration.filterSensitiveLog(
+        obj.DashConfiguration
+      )
+    }),
+    ...(obj.HlsConfiguration && {
+      HlsConfiguration: HlsConfiguration.filterSensitiveLog(
+        obj.HlsConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is PlaybackConfiguration =>
     __isa(o, "PlaybackConfiguration");
 }
@@ -425,6 +525,26 @@ export interface PutPlaybackConfigurationRequest {
 }
 
 export namespace PutPlaybackConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: PutPlaybackConfigurationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.CdnConfiguration && {
+      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
+        obj.CdnConfiguration
+      )
+    }),
+    ...(obj.DashConfiguration && {
+      DashConfiguration: DashConfigurationForPut.filterSensitiveLog(
+        obj.DashConfiguration
+      )
+    }),
+    ...(obj.LivePreRollConfiguration && {
+      LivePreRollConfiguration: LivePreRollConfiguration.filterSensitiveLog(
+        obj.LivePreRollConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is PutPlaybackConfigurationRequest =>
     __isa(o, "PutPlaybackConfigurationRequest");
 }
@@ -498,6 +618,31 @@ export interface PutPlaybackConfigurationResponse {
 }
 
 export namespace PutPlaybackConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: PutPlaybackConfigurationResponse
+  ): any => ({
+    ...obj,
+    ...(obj.CdnConfiguration && {
+      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
+        obj.CdnConfiguration
+      )
+    }),
+    ...(obj.DashConfiguration && {
+      DashConfiguration: DashConfiguration.filterSensitiveLog(
+        obj.DashConfiguration
+      )
+    }),
+    ...(obj.HlsConfiguration && {
+      HlsConfiguration: HlsConfiguration.filterSensitiveLog(
+        obj.HlsConfiguration
+      )
+    }),
+    ...(obj.LivePreRollConfiguration && {
+      LivePreRollConfiguration: LivePreRollConfiguration.filterSensitiveLog(
+        obj.LivePreRollConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is PutPlaybackConfigurationResponse =>
     __isa(o, "PutPlaybackConfigurationResponse");
 }
@@ -521,6 +666,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -539,6 +687,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }

@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -57,6 +58,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -73,6 +77,9 @@ export interface AccountSuspendedException
 }
 
 export namespace AccountSuspendedException {
+  export const filterSensitiveLog = (obj: AccountSuspendedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccountSuspendedException =>
     __isa(o, "AccountSuspendedException");
 }
@@ -89,6 +96,9 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
+  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AlreadyExistsException =>
     __isa(o, "AlreadyExistsException");
 }
@@ -105,6 +115,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -138,6 +151,9 @@ export interface BlacklistEntry {
 }
 
 export namespace BlacklistEntry {
+  export const filterSensitiveLog = (obj: BlacklistEntry): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BlacklistEntry =>
     __isa(o, "BlacklistEntry");
 }
@@ -163,6 +179,11 @@ export interface Body {
 }
 
 export namespace Body {
+  export const filterSensitiveLog = (obj: Body): any => ({
+    ...obj,
+    ...(obj.Html && { Html: Content.filterSensitiveLog(obj.Html) }),
+    ...(obj.Text && { Text: Content.filterSensitiveLog(obj.Text) })
+  });
   export const isa = (o: any): o is Body => __isa(o, "Body");
 }
 
@@ -180,6 +201,14 @@ export interface CloudWatchDestination {
 }
 
 export namespace CloudWatchDestination {
+  export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
+    ...obj,
+    ...(obj.DimensionConfigurations && {
+      DimensionConfigurations: obj.DimensionConfigurations.map(item =>
+        CloudWatchDimensionConfiguration.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is CloudWatchDestination =>
     __isa(o, "CloudWatchDestination");
 }
@@ -232,6 +261,11 @@ export interface CloudWatchDimensionConfiguration {
 }
 
 export namespace CloudWatchDimensionConfiguration {
+  export const filterSensitiveLog = (
+    obj: CloudWatchDimensionConfiguration
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudWatchDimensionConfiguration =>
     __isa(o, "CloudWatchDimensionConfiguration");
 }
@@ -248,6 +282,11 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentModificationException =>
     __isa(o, "ConcurrentModificationException");
 }
@@ -273,6 +312,9 @@ export interface Content {
 }
 
 export namespace Content {
+  export const filterSensitiveLog = (obj: Content): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Content => __isa(o, "Content");
 }
 
@@ -298,6 +340,16 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationSetEventDestinationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.EventDestination && {
+      EventDestination: EventDestinationDefinition.filterSensitiveLog(
+        obj.EventDestination
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is CreateConfigurationSetEventDestinationRequest =>
@@ -313,6 +365,11 @@ export interface CreateConfigurationSetEventDestinationResponse {
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationSetEventDestinationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is CreateConfigurationSetEventDestinationResponse =>
@@ -361,6 +418,28 @@ export interface CreateConfigurationSetRequest {
 }
 
 export namespace CreateConfigurationSetRequest {
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationSetRequest
+  ): any => ({
+    ...obj,
+    ...(obj.DeliveryOptions && {
+      DeliveryOptions: DeliveryOptions.filterSensitiveLog(obj.DeliveryOptions)
+    }),
+    ...(obj.ReputationOptions && {
+      ReputationOptions: ReputationOptions.filterSensitiveLog(
+        obj.ReputationOptions
+      )
+    }),
+    ...(obj.SendingOptions && {
+      SendingOptions: SendingOptions.filterSensitiveLog(obj.SendingOptions)
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
+    ...(obj.TrackingOptions && {
+      TrackingOptions: TrackingOptions.filterSensitiveLog(obj.TrackingOptions)
+    })
+  });
   export const isa = (o: any): o is CreateConfigurationSetRequest =>
     __isa(o, "CreateConfigurationSetRequest");
 }
@@ -374,6 +453,11 @@ export interface CreateConfigurationSetResponse {
 }
 
 export namespace CreateConfigurationSetResponse {
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationSetResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateConfigurationSetResponse =>
     __isa(o, "CreateConfigurationSetResponse");
 }
@@ -396,6 +480,14 @@ export interface CreateDedicatedIpPoolRequest {
 }
 
 export namespace CreateDedicatedIpPoolRequest {
+  export const filterSensitiveLog = (
+    obj: CreateDedicatedIpPoolRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateDedicatedIpPoolRequest =>
     __isa(o, "CreateDedicatedIpPoolRequest");
 }
@@ -409,6 +501,11 @@ export interface CreateDedicatedIpPoolResponse {
 }
 
 export namespace CreateDedicatedIpPoolResponse {
+  export const filterSensitiveLog = (
+    obj: CreateDedicatedIpPoolResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateDedicatedIpPoolResponse =>
     __isa(o, "CreateDedicatedIpPoolResponse");
 }
@@ -448,6 +545,17 @@ export interface CreateDeliverabilityTestReportRequest {
 }
 
 export namespace CreateDeliverabilityTestReportRequest {
+  export const filterSensitiveLog = (
+    obj: CreateDeliverabilityTestReportRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Content && {
+      Content: EmailContent.filterSensitiveLog(obj.Content)
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateDeliverabilityTestReportRequest =>
     __isa(o, "CreateDeliverabilityTestReportRequest");
 }
@@ -472,6 +580,11 @@ export interface CreateDeliverabilityTestReportResponse {
 }
 
 export namespace CreateDeliverabilityTestReportResponse {
+  export const filterSensitiveLog = (
+    obj: CreateDeliverabilityTestReportResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateDeliverabilityTestReportResponse =>
     __isa(o, "CreateDeliverabilityTestReportResponse");
 }
@@ -495,6 +608,12 @@ export interface CreateEmailIdentityRequest {
 }
 
 export namespace CreateEmailIdentityRequest {
+  export const filterSensitiveLog = (obj: CreateEmailIdentityRequest): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateEmailIdentityRequest =>
     __isa(o, "CreateEmailIdentityRequest");
 }
@@ -528,6 +647,14 @@ export interface CreateEmailIdentityResponse {
 }
 
 export namespace CreateEmailIdentityResponse {
+  export const filterSensitiveLog = (
+    obj: CreateEmailIdentityResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DkimAttributes && {
+      DkimAttributes: DkimAttributes.filterSensitiveLog(obj.DkimAttributes)
+    })
+  });
   export const isa = (o: any): o is CreateEmailIdentityResponse =>
     __isa(o, "CreateEmailIdentityResponse");
 }
@@ -557,6 +684,19 @@ export interface DailyVolume {
 }
 
 export namespace DailyVolume {
+  export const filterSensitiveLog = (obj: DailyVolume): any => ({
+    ...obj,
+    ...(obj.DomainIspPlacements && {
+      DomainIspPlacements: obj.DomainIspPlacements.map(item =>
+        DomainIspPlacement.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.VolumeStatistics && {
+      VolumeStatistics: VolumeStatistics.filterSensitiveLog(
+        obj.VolumeStatistics
+      )
+    })
+  });
   export const isa = (o: any): o is DailyVolume => __isa(o, "DailyVolume");
 }
 
@@ -603,6 +743,9 @@ export interface DedicatedIp {
 }
 
 export namespace DedicatedIp {
+  export const filterSensitiveLog = (obj: DedicatedIp): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DedicatedIp => __isa(o, "DedicatedIp");
 }
 
@@ -624,6 +767,11 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteConfigurationSetEventDestinationRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DeleteConfigurationSetEventDestinationRequest =>
@@ -639,6 +787,11 @@ export interface DeleteConfigurationSetEventDestinationResponse {
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteConfigurationSetEventDestinationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DeleteConfigurationSetEventDestinationResponse =>
@@ -657,6 +810,11 @@ export interface DeleteConfigurationSetRequest {
 }
 
 export namespace DeleteConfigurationSetRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteConfigurationSetRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConfigurationSetRequest =>
     __isa(o, "DeleteConfigurationSetRequest");
 }
@@ -670,6 +828,11 @@ export interface DeleteConfigurationSetResponse {
 }
 
 export namespace DeleteConfigurationSetResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteConfigurationSetResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConfigurationSetResponse =>
     __isa(o, "DeleteConfigurationSetResponse");
 }
@@ -686,6 +849,11 @@ export interface DeleteDedicatedIpPoolRequest {
 }
 
 export namespace DeleteDedicatedIpPoolRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteDedicatedIpPoolRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteDedicatedIpPoolRequest =>
     __isa(o, "DeleteDedicatedIpPoolRequest");
 }
@@ -699,6 +867,11 @@ export interface DeleteDedicatedIpPoolResponse {
 }
 
 export namespace DeleteDedicatedIpPoolResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteDedicatedIpPoolResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteDedicatedIpPoolResponse =>
     __isa(o, "DeleteDedicatedIpPoolResponse");
 }
@@ -718,6 +891,9 @@ export interface DeleteEmailIdentityRequest {
 }
 
 export namespace DeleteEmailIdentityRequest {
+  export const filterSensitiveLog = (obj: DeleteEmailIdentityRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteEmailIdentityRequest =>
     __isa(o, "DeleteEmailIdentityRequest");
 }
@@ -731,6 +907,11 @@ export interface DeleteEmailIdentityResponse {
 }
 
 export namespace DeleteEmailIdentityResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteEmailIdentityResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteEmailIdentityResponse =>
     __isa(o, "DeleteEmailIdentityResponse");
 }
@@ -781,6 +962,9 @@ export interface DeliverabilityTestReport {
 }
 
 export namespace DeliverabilityTestReport {
+  export const filterSensitiveLog = (obj: DeliverabilityTestReport): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeliverabilityTestReport =>
     __isa(o, "DeliverabilityTestReport");
 }
@@ -811,6 +995,9 @@ export interface DeliveryOptions {
 }
 
 export namespace DeliveryOptions {
+  export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeliveryOptions =>
     __isa(o, "DeliveryOptions");
 }
@@ -840,6 +1027,9 @@ export interface Destination {
 }
 
 export namespace Destination {
+  export const filterSensitiveLog = (obj: Destination): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
@@ -908,6 +1098,9 @@ export interface DkimAttributes {
 }
 
 export namespace DkimAttributes {
+  export const filterSensitiveLog = (obj: DkimAttributes): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DkimAttributes =>
     __isa(o, "DkimAttributes");
 }
@@ -1015,6 +1208,11 @@ export interface DomainDeliverabilityCampaign {
 }
 
 export namespace DomainDeliverabilityCampaign {
+  export const filterSensitiveLog = (
+    obj: DomainDeliverabilityCampaign
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DomainDeliverabilityCampaign =>
     __isa(o, "DomainDeliverabilityCampaign");
 }
@@ -1047,6 +1245,16 @@ export interface DomainDeliverabilityTrackingOption {
 }
 
 export namespace DomainDeliverabilityTrackingOption {
+  export const filterSensitiveLog = (
+    obj: DomainDeliverabilityTrackingOption
+  ): any => ({
+    ...obj,
+    ...(obj.InboxPlacementTrackingOption && {
+      InboxPlacementTrackingOption: InboxPlacementTrackingOption.filterSensitiveLog(
+        obj.InboxPlacementTrackingOption
+      )
+    })
+  });
   export const isa = (o: any): o is DomainDeliverabilityTrackingOption =>
     __isa(o, "DomainDeliverabilityTrackingOption");
 }
@@ -1088,6 +1296,9 @@ export interface DomainIspPlacement {
 }
 
 export namespace DomainIspPlacement {
+  export const filterSensitiveLog = (obj: DomainIspPlacement): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DomainIspPlacement =>
     __isa(o, "DomainIspPlacement");
 }
@@ -1146,6 +1357,12 @@ export interface EmailContent {
 }
 
 export namespace EmailContent {
+  export const filterSensitiveLog = (obj: EmailContent): any => ({
+    ...obj,
+    ...(obj.Raw && { Raw: RawMessage.filterSensitiveLog(obj.Raw) }),
+    ...(obj.Simple && { Simple: Message.filterSensitiveLog(obj.Simple) }),
+    ...(obj.Template && { Template: Template.filterSensitiveLog(obj.Template) })
+  });
   export const isa = (o: any): o is EmailContent => __isa(o, "EmailContent");
 }
 
@@ -1204,6 +1421,27 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
+  export const filterSensitiveLog = (obj: EventDestination): any => ({
+    ...obj,
+    ...(obj.CloudWatchDestination && {
+      CloudWatchDestination: CloudWatchDestination.filterSensitiveLog(
+        obj.CloudWatchDestination
+      )
+    }),
+    ...(obj.KinesisFirehoseDestination && {
+      KinesisFirehoseDestination: KinesisFirehoseDestination.filterSensitiveLog(
+        obj.KinesisFirehoseDestination
+      )
+    }),
+    ...(obj.PinpointDestination && {
+      PinpointDestination: PinpointDestination.filterSensitiveLog(
+        obj.PinpointDestination
+      )
+    }),
+    ...(obj.SnsDestination && {
+      SnsDestination: SnsDestination.filterSensitiveLog(obj.SnsDestination)
+    })
+  });
   export const isa = (o: any): o is EventDestination =>
     __isa(o, "EventDestination");
 }
@@ -1258,6 +1496,27 @@ export interface EventDestinationDefinition {
 }
 
 export namespace EventDestinationDefinition {
+  export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
+    ...obj,
+    ...(obj.CloudWatchDestination && {
+      CloudWatchDestination: CloudWatchDestination.filterSensitiveLog(
+        obj.CloudWatchDestination
+      )
+    }),
+    ...(obj.KinesisFirehoseDestination && {
+      KinesisFirehoseDestination: KinesisFirehoseDestination.filterSensitiveLog(
+        obj.KinesisFirehoseDestination
+      )
+    }),
+    ...(obj.PinpointDestination && {
+      PinpointDestination: PinpointDestination.filterSensitiveLog(
+        obj.PinpointDestination
+      )
+    }),
+    ...(obj.SnsDestination && {
+      SnsDestination: SnsDestination.filterSensitiveLog(obj.SnsDestination)
+    })
+  });
   export const isa = (o: any): o is EventDestinationDefinition =>
     __isa(o, "EventDestinationDefinition");
 }
@@ -1282,6 +1541,9 @@ export interface GetAccountRequest {
 }
 
 export namespace GetAccountRequest {
+  export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetAccountRequest =>
     __isa(o, "GetAccountRequest");
 }
@@ -1352,6 +1614,12 @@ export interface GetAccountResponse {
 }
 
 export namespace GetAccountResponse {
+  export const filterSensitiveLog = (obj: GetAccountResponse): any => ({
+    ...obj,
+    ...(obj.SendQuota && {
+      SendQuota: SendQuota.filterSensitiveLog(obj.SendQuota)
+    })
+  });
   export const isa = (o: any): o is GetAccountResponse =>
     __isa(o, "GetAccountResponse");
 }
@@ -1371,6 +1639,9 @@ export interface GetBlacklistReportsRequest {
 }
 
 export namespace GetBlacklistReportsRequest {
+  export const filterSensitiveLog = (obj: GetBlacklistReportsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetBlacklistReportsRequest =>
     __isa(o, "GetBlacklistReportsRequest");
 }
@@ -1388,6 +1659,20 @@ export interface GetBlacklistReportsResponse {
 }
 
 export namespace GetBlacklistReportsResponse {
+  export const filterSensitiveLog = (
+    obj: GetBlacklistReportsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.BlacklistReport && {
+      BlacklistReport: Object.entries(obj.BlacklistReport).reduce(
+        (acc: any, [key, value]: [string, BlacklistEntry[]]) => ({
+          ...acc,
+          [key]: value.map(item => BlacklistEntry.filterSensitiveLog(item))
+        }),
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is GetBlacklistReportsResponse =>
     __isa(o, "GetBlacklistReportsResponse");
 }
@@ -1405,6 +1690,11 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
+  export const filterSensitiveLog = (
+    obj: GetConfigurationSetEventDestinationsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is GetConfigurationSetEventDestinationsRequest =>
@@ -1424,6 +1714,16 @@ export interface GetConfigurationSetEventDestinationsResponse {
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
+  export const filterSensitiveLog = (
+    obj: GetConfigurationSetEventDestinationsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.EventDestinations && {
+      EventDestinations: obj.EventDestinations.map(item =>
+        EventDestination.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is GetConfigurationSetEventDestinationsResponse =>
@@ -1443,6 +1743,9 @@ export interface GetConfigurationSetRequest {
 }
 
 export namespace GetConfigurationSetRequest {
+  export const filterSensitiveLog = (obj: GetConfigurationSetRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetConfigurationSetRequest =>
     __isa(o, "GetConfigurationSetRequest");
 }
@@ -1489,6 +1792,28 @@ export interface GetConfigurationSetResponse {
 }
 
 export namespace GetConfigurationSetResponse {
+  export const filterSensitiveLog = (
+    obj: GetConfigurationSetResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DeliveryOptions && {
+      DeliveryOptions: DeliveryOptions.filterSensitiveLog(obj.DeliveryOptions)
+    }),
+    ...(obj.ReputationOptions && {
+      ReputationOptions: ReputationOptions.filterSensitiveLog(
+        obj.ReputationOptions
+      )
+    }),
+    ...(obj.SendingOptions && {
+      SendingOptions: SendingOptions.filterSensitiveLog(obj.SendingOptions)
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    }),
+    ...(obj.TrackingOptions && {
+      TrackingOptions: TrackingOptions.filterSensitiveLog(obj.TrackingOptions)
+    })
+  });
   export const isa = (o: any): o is GetConfigurationSetResponse =>
     __isa(o, "GetConfigurationSetResponse");
 }
@@ -1506,6 +1831,9 @@ export interface GetDedicatedIpRequest {
 }
 
 export namespace GetDedicatedIpRequest {
+  export const filterSensitiveLog = (obj: GetDedicatedIpRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDedicatedIpRequest =>
     __isa(o, "GetDedicatedIpRequest");
 }
@@ -1522,6 +1850,12 @@ export interface GetDedicatedIpResponse {
 }
 
 export namespace GetDedicatedIpResponse {
+  export const filterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
+    ...obj,
+    ...(obj.DedicatedIp && {
+      DedicatedIp: DedicatedIp.filterSensitiveLog(obj.DedicatedIp)
+    })
+  });
   export const isa = (o: any): o is GetDedicatedIpResponse =>
     __isa(o, "GetDedicatedIpResponse");
 }
@@ -1552,6 +1886,9 @@ export interface GetDedicatedIpsRequest {
 }
 
 export namespace GetDedicatedIpsRequest {
+  export const filterSensitiveLog = (obj: GetDedicatedIpsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDedicatedIpsRequest =>
     __isa(o, "GetDedicatedIpsRequest");
 }
@@ -1577,6 +1914,14 @@ export interface GetDedicatedIpsResponse {
 }
 
 export namespace GetDedicatedIpsResponse {
+  export const filterSensitiveLog = (obj: GetDedicatedIpsResponse): any => ({
+    ...obj,
+    ...(obj.DedicatedIps && {
+      DedicatedIps: obj.DedicatedIps.map(item =>
+        DedicatedIp.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetDedicatedIpsResponse =>
     __isa(o, "GetDedicatedIpsResponse");
 }
@@ -1595,6 +1940,11 @@ export interface GetDeliverabilityDashboardOptionsRequest {
 }
 
 export namespace GetDeliverabilityDashboardOptionsRequest {
+  export const filterSensitiveLog = (
+    obj: GetDeliverabilityDashboardOptionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDeliverabilityDashboardOptionsRequest =>
     __isa(o, "GetDeliverabilityDashboardOptionsRequest");
 }
@@ -1641,6 +1991,21 @@ export interface GetDeliverabilityDashboardOptionsResponse {
 }
 
 export namespace GetDeliverabilityDashboardOptionsResponse {
+  export const filterSensitiveLog = (
+    obj: GetDeliverabilityDashboardOptionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.ActiveSubscribedDomains && {
+      ActiveSubscribedDomains: obj.ActiveSubscribedDomains.map(item =>
+        DomainDeliverabilityTrackingOption.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.PendingExpirationSubscribedDomains && {
+      PendingExpirationSubscribedDomains: obj.PendingExpirationSubscribedDomains.map(
+        item => DomainDeliverabilityTrackingOption.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetDeliverabilityDashboardOptionsResponse =>
     __isa(o, "GetDeliverabilityDashboardOptionsResponse");
 }
@@ -1657,6 +2022,11 @@ export interface GetDeliverabilityTestReportRequest {
 }
 
 export namespace GetDeliverabilityTestReportRequest {
+  export const filterSensitiveLog = (
+    obj: GetDeliverabilityTestReportRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDeliverabilityTestReportRequest =>
     __isa(o, "GetDeliverabilityTestReportRequest");
 }
@@ -1698,6 +2068,29 @@ export interface GetDeliverabilityTestReportResponse {
 }
 
 export namespace GetDeliverabilityTestReportResponse {
+  export const filterSensitiveLog = (
+    obj: GetDeliverabilityTestReportResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DeliverabilityTestReport && {
+      DeliverabilityTestReport: DeliverabilityTestReport.filterSensitiveLog(
+        obj.DeliverabilityTestReport
+      )
+    }),
+    ...(obj.IspPlacements && {
+      IspPlacements: obj.IspPlacements.map(item =>
+        IspPlacement.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.OverallPlacement && {
+      OverallPlacement: PlacementStatistics.filterSensitiveLog(
+        obj.OverallPlacement
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is GetDeliverabilityTestReportResponse =>
     __isa(o, "GetDeliverabilityTestReportResponse");
 }
@@ -1720,6 +2113,11 @@ export interface GetDomainDeliverabilityCampaignRequest {
 }
 
 export namespace GetDomainDeliverabilityCampaignRequest {
+  export const filterSensitiveLog = (
+    obj: GetDomainDeliverabilityCampaignRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDomainDeliverabilityCampaignRequest =>
     __isa(o, "GetDomainDeliverabilityCampaignRequest");
 }
@@ -1739,6 +2137,16 @@ export interface GetDomainDeliverabilityCampaignResponse {
 }
 
 export namespace GetDomainDeliverabilityCampaignResponse {
+  export const filterSensitiveLog = (
+    obj: GetDomainDeliverabilityCampaignResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DomainDeliverabilityCampaign && {
+      DomainDeliverabilityCampaign: DomainDeliverabilityCampaign.filterSensitiveLog(
+        obj.DomainDeliverabilityCampaign
+      )
+    })
+  });
   export const isa = (o: any): o is GetDomainDeliverabilityCampaignResponse =>
     __isa(o, "GetDomainDeliverabilityCampaignResponse");
 }
@@ -1768,6 +2176,11 @@ export interface GetDomainStatisticsReportRequest {
 }
 
 export namespace GetDomainStatisticsReportRequest {
+  export const filterSensitiveLog = (
+    obj: GetDomainStatisticsReportRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDomainStatisticsReportRequest =>
     __isa(o, "GetDomainStatisticsReportRequest");
 }
@@ -1794,6 +2207,19 @@ export interface GetDomainStatisticsReportResponse {
 }
 
 export namespace GetDomainStatisticsReportResponse {
+  export const filterSensitiveLog = (
+    obj: GetDomainStatisticsReportResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DailyVolumes && {
+      DailyVolumes: obj.DailyVolumes.map(item =>
+        DailyVolume.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.OverallVolume && {
+      OverallVolume: OverallVolume.filterSensitiveLog(obj.OverallVolume)
+    })
+  });
   export const isa = (o: any): o is GetDomainStatisticsReportResponse =>
     __isa(o, "GetDomainStatisticsReportResponse");
 }
@@ -1810,6 +2236,9 @@ export interface GetEmailIdentityRequest {
 }
 
 export namespace GetEmailIdentityRequest {
+  export const filterSensitiveLog = (obj: GetEmailIdentityRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetEmailIdentityRequest =>
     __isa(o, "GetEmailIdentityRequest");
 }
@@ -1865,6 +2294,20 @@ export interface GetEmailIdentityResponse {
 }
 
 export namespace GetEmailIdentityResponse {
+  export const filterSensitiveLog = (obj: GetEmailIdentityResponse): any => ({
+    ...obj,
+    ...(obj.DkimAttributes && {
+      DkimAttributes: DkimAttributes.filterSensitiveLog(obj.DkimAttributes)
+    }),
+    ...(obj.MailFromAttributes && {
+      MailFromAttributes: MailFromAttributes.filterSensitiveLog(
+        obj.MailFromAttributes
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is GetEmailIdentityResponse =>
     __isa(o, "GetEmailIdentityResponse");
 }
@@ -1909,6 +2352,9 @@ export interface IdentityInfo {
 }
 
 export namespace IdentityInfo {
+  export const filterSensitiveLog = (obj: IdentityInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is IdentityInfo => __isa(o, "IdentityInfo");
 }
 
@@ -1939,6 +2385,11 @@ export interface InboxPlacementTrackingOption {
 }
 
 export namespace InboxPlacementTrackingOption {
+  export const filterSensitiveLog = (
+    obj: InboxPlacementTrackingOption
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InboxPlacementTrackingOption =>
     __isa(o, "InboxPlacementTrackingOption");
 }
@@ -1961,6 +2412,14 @@ export interface IspPlacement {
 }
 
 export namespace IspPlacement {
+  export const filterSensitiveLog = (obj: IspPlacement): any => ({
+    ...obj,
+    ...(obj.PlacementStatistics && {
+      PlacementStatistics: PlacementStatistics.filterSensitiveLog(
+        obj.PlacementStatistics
+      )
+    })
+  });
   export const isa = (o: any): o is IspPlacement => __isa(o, "IspPlacement");
 }
 
@@ -1984,6 +2443,9 @@ export interface KinesisFirehoseDestination {
 }
 
 export namespace KinesisFirehoseDestination {
+  export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is KinesisFirehoseDestination =>
     __isa(o, "KinesisFirehoseDestination");
 }
@@ -2000,6 +2462,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -2026,6 +2491,11 @@ export interface ListConfigurationSetsRequest {
 }
 
 export namespace ListConfigurationSetsRequest {
+  export const filterSensitiveLog = (
+    obj: ListConfigurationSetsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListConfigurationSetsRequest =>
     __isa(o, "ListConfigurationSetsRequest");
 }
@@ -2051,6 +2521,11 @@ export interface ListConfigurationSetsResponse {
 }
 
 export namespace ListConfigurationSetsResponse {
+  export const filterSensitiveLog = (
+    obj: ListConfigurationSetsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListConfigurationSetsResponse =>
     __isa(o, "ListConfigurationSetsResponse");
 }
@@ -2076,6 +2551,11 @@ export interface ListDedicatedIpPoolsRequest {
 }
 
 export namespace ListDedicatedIpPoolsRequest {
+  export const filterSensitiveLog = (
+    obj: ListDedicatedIpPoolsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDedicatedIpPoolsRequest =>
     __isa(o, "ListDedicatedIpPoolsRequest");
 }
@@ -2100,6 +2580,11 @@ export interface ListDedicatedIpPoolsResponse {
 }
 
 export namespace ListDedicatedIpPoolsResponse {
+  export const filterSensitiveLog = (
+    obj: ListDedicatedIpPoolsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDedicatedIpPoolsResponse =>
     __isa(o, "ListDedicatedIpPoolsResponse");
 }
@@ -2127,6 +2612,11 @@ export interface ListDeliverabilityTestReportsRequest {
 }
 
 export namespace ListDeliverabilityTestReportsRequest {
+  export const filterSensitiveLog = (
+    obj: ListDeliverabilityTestReportsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDeliverabilityTestReportsRequest =>
     __isa(o, "ListDeliverabilityTestReportsRequest");
 }
@@ -2151,6 +2641,16 @@ export interface ListDeliverabilityTestReportsResponse {
 }
 
 export namespace ListDeliverabilityTestReportsResponse {
+  export const filterSensitiveLog = (
+    obj: ListDeliverabilityTestReportsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DeliverabilityTestReports && {
+      DeliverabilityTestReports: obj.DeliverabilityTestReports.map(item =>
+        DeliverabilityTestReport.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListDeliverabilityTestReportsResponse =>
     __isa(o, "ListDeliverabilityTestReportsResponse");
 }
@@ -2199,6 +2699,11 @@ export interface ListDomainDeliverabilityCampaignsRequest {
 }
 
 export namespace ListDomainDeliverabilityCampaignsRequest {
+  export const filterSensitiveLog = (
+    obj: ListDomainDeliverabilityCampaignsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDomainDeliverabilityCampaignsRequest =>
     __isa(o, "ListDomainDeliverabilityCampaignsRequest");
 }
@@ -2226,6 +2731,16 @@ export interface ListDomainDeliverabilityCampaignsResponse {
 }
 
 export namespace ListDomainDeliverabilityCampaignsResponse {
+  export const filterSensitiveLog = (
+    obj: ListDomainDeliverabilityCampaignsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.DomainDeliverabilityCampaigns && {
+      DomainDeliverabilityCampaigns: obj.DomainDeliverabilityCampaigns.map(
+        item => DomainDeliverabilityCampaign.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListDomainDeliverabilityCampaignsResponse =>
     __isa(o, "ListDomainDeliverabilityCampaignsResponse");
 }
@@ -2254,6 +2769,9 @@ export interface ListEmailIdentitiesRequest {
 }
 
 export namespace ListEmailIdentitiesRequest {
+  export const filterSensitiveLog = (obj: ListEmailIdentitiesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListEmailIdentitiesRequest =>
     __isa(o, "ListEmailIdentitiesRequest");
 }
@@ -2280,6 +2798,16 @@ export interface ListEmailIdentitiesResponse {
 }
 
 export namespace ListEmailIdentitiesResponse {
+  export const filterSensitiveLog = (
+    obj: ListEmailIdentitiesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.EmailIdentities && {
+      EmailIdentities: obj.EmailIdentities.map(item =>
+        IdentityInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListEmailIdentitiesResponse =>
     __isa(o, "ListEmailIdentitiesResponse");
 }
@@ -2294,6 +2822,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -2309,6 +2840,14 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -2364,6 +2903,9 @@ export interface MailFromAttributes {
 }
 
 export namespace MailFromAttributes {
+  export const filterSensitiveLog = (obj: MailFromAttributes): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MailFromAttributes =>
     __isa(o, "MailFromAttributes");
 }
@@ -2380,6 +2922,11 @@ export interface MailFromDomainNotVerifiedException
 }
 
 export namespace MailFromDomainNotVerifiedException {
+  export const filterSensitiveLog = (
+    obj: MailFromDomainNotVerifiedException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MailFromDomainNotVerifiedException =>
     __isa(o, "MailFromDomainNotVerifiedException");
 }
@@ -2412,6 +2959,11 @@ export interface Message {
 }
 
 export namespace Message {
+  export const filterSensitiveLog = (obj: Message): any => ({
+    ...obj,
+    ...(obj.Body && { Body: Body.filterSensitiveLog(obj.Body) }),
+    ...(obj.Subject && { Subject: Content.filterSensitiveLog(obj.Subject) })
+  });
   export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
@@ -2425,6 +2977,9 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageRejected {
+  export const filterSensitiveLog = (obj: MessageRejected): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MessageRejected =>
     __isa(o, "MessageRejected");
 }
@@ -2468,6 +3023,9 @@ export interface MessageTag {
 }
 
 export namespace MessageTag {
+  export const filterSensitiveLog = (obj: MessageTag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MessageTag => __isa(o, "MessageTag");
 }
 
@@ -2481,6 +3039,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -2511,6 +3072,19 @@ export interface OverallVolume {
 }
 
 export namespace OverallVolume {
+  export const filterSensitiveLog = (obj: OverallVolume): any => ({
+    ...obj,
+    ...(obj.DomainIspPlacements && {
+      DomainIspPlacements: obj.DomainIspPlacements.map(item =>
+        DomainIspPlacement.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.VolumeStatistics && {
+      VolumeStatistics: VolumeStatistics.filterSensitiveLog(
+        obj.VolumeStatistics
+      )
+    })
+  });
   export const isa = (o: any): o is OverallVolume => __isa(o, "OverallVolume");
 }
 
@@ -2529,6 +3103,9 @@ export interface PinpointDestination {
 }
 
 export namespace PinpointDestination {
+  export const filterSensitiveLog = (obj: PinpointDestination): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PinpointDestination =>
     __isa(o, "PinpointDestination");
 }
@@ -2569,6 +3146,9 @@ export interface PlacementStatistics {
 }
 
 export namespace PlacementStatistics {
+  export const filterSensitiveLog = (obj: PlacementStatistics): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlacementStatistics =>
     __isa(o, "PlacementStatistics");
 }
@@ -2588,6 +3168,11 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: PutAccountDedicatedIpWarmupAttributesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutAccountDedicatedIpWarmupAttributesRequest =>
@@ -2603,6 +3188,11 @@ export interface PutAccountDedicatedIpWarmupAttributesResponse {
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: PutAccountDedicatedIpWarmupAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutAccountDedicatedIpWarmupAttributesResponse =>
@@ -2626,6 +3216,11 @@ export interface PutAccountSendingAttributesRequest {
 }
 
 export namespace PutAccountSendingAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: PutAccountSendingAttributesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutAccountSendingAttributesRequest =>
     __isa(o, "PutAccountSendingAttributesRequest");
 }
@@ -2639,6 +3234,11 @@ export interface PutAccountSendingAttributesResponse {
 }
 
 export namespace PutAccountSendingAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: PutAccountSendingAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutAccountSendingAttributesResponse =>
     __isa(o, "PutAccountSendingAttributesResponse");
 }
@@ -2670,6 +3270,11 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
 }
 
 export namespace PutConfigurationSetDeliveryOptionsRequest {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetDeliveryOptionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsRequest =>
     __isa(o, "PutConfigurationSetDeliveryOptionsRequest");
 }
@@ -2683,6 +3288,11 @@ export interface PutConfigurationSetDeliveryOptionsResponse {
 }
 
 export namespace PutConfigurationSetDeliveryOptionsResponse {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetDeliveryOptionsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutConfigurationSetDeliveryOptionsResponse =>
@@ -2710,6 +3320,11 @@ export interface PutConfigurationSetReputationOptionsRequest {
 }
 
 export namespace PutConfigurationSetReputationOptionsRequest {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetReputationOptionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutConfigurationSetReputationOptionsRequest =>
@@ -2725,6 +3340,11 @@ export interface PutConfigurationSetReputationOptionsResponse {
 }
 
 export namespace PutConfigurationSetReputationOptionsResponse {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetReputationOptionsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutConfigurationSetReputationOptionsResponse =>
@@ -2751,6 +3371,11 @@ export interface PutConfigurationSetSendingOptionsRequest {
 }
 
 export namespace PutConfigurationSetSendingOptionsRequest {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetSendingOptionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutConfigurationSetSendingOptionsRequest =>
     __isa(o, "PutConfigurationSetSendingOptionsRequest");
 }
@@ -2764,6 +3389,11 @@ export interface PutConfigurationSetSendingOptionsResponse {
 }
 
 export namespace PutConfigurationSetSendingOptionsResponse {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetSendingOptionsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutConfigurationSetSendingOptionsResponse =>
     __isa(o, "PutConfigurationSetSendingOptionsResponse");
 }
@@ -2787,6 +3417,11 @@ export interface PutConfigurationSetTrackingOptionsRequest {
 }
 
 export namespace PutConfigurationSetTrackingOptionsRequest {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetTrackingOptionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutConfigurationSetTrackingOptionsRequest =>
     __isa(o, "PutConfigurationSetTrackingOptionsRequest");
 }
@@ -2800,6 +3435,11 @@ export interface PutConfigurationSetTrackingOptionsResponse {
 }
 
 export namespace PutConfigurationSetTrackingOptionsResponse {
+  export const filterSensitiveLog = (
+    obj: PutConfigurationSetTrackingOptionsResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutConfigurationSetTrackingOptionsResponse =>
@@ -2825,6 +3465,11 @@ export interface PutDedicatedIpInPoolRequest {
 }
 
 export namespace PutDedicatedIpInPoolRequest {
+  export const filterSensitiveLog = (
+    obj: PutDedicatedIpInPoolRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutDedicatedIpInPoolRequest =>
     __isa(o, "PutDedicatedIpInPoolRequest");
 }
@@ -2838,6 +3483,11 @@ export interface PutDedicatedIpInPoolResponse {
 }
 
 export namespace PutDedicatedIpInPoolResponse {
+  export const filterSensitiveLog = (
+    obj: PutDedicatedIpInPoolResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutDedicatedIpInPoolResponse =>
     __isa(o, "PutDedicatedIpInPoolResponse");
 }
@@ -2861,6 +3511,11 @@ export interface PutDedicatedIpWarmupAttributesRequest {
 }
 
 export namespace PutDedicatedIpWarmupAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: PutDedicatedIpWarmupAttributesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutDedicatedIpWarmupAttributesRequest =>
     __isa(o, "PutDedicatedIpWarmupAttributesRequest");
 }
@@ -2874,6 +3529,11 @@ export interface PutDedicatedIpWarmupAttributesResponse {
 }
 
 export namespace PutDedicatedIpWarmupAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: PutDedicatedIpWarmupAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutDedicatedIpWarmupAttributesResponse =>
     __isa(o, "PutDedicatedIpWarmupAttributesResponse");
 }
@@ -2903,6 +3563,16 @@ export interface PutDeliverabilityDashboardOptionRequest {
 }
 
 export namespace PutDeliverabilityDashboardOptionRequest {
+  export const filterSensitiveLog = (
+    obj: PutDeliverabilityDashboardOptionRequest
+  ): any => ({
+    ...obj,
+    ...(obj.SubscribedDomains && {
+      SubscribedDomains: obj.SubscribedDomains.map(item =>
+        DomainDeliverabilityTrackingOption.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is PutDeliverabilityDashboardOptionRequest =>
     __isa(o, "PutDeliverabilityDashboardOptionRequest");
 }
@@ -2916,6 +3586,11 @@ export interface PutDeliverabilityDashboardOptionResponse {
 }
 
 export namespace PutDeliverabilityDashboardOptionResponse {
+  export const filterSensitiveLog = (
+    obj: PutDeliverabilityDashboardOptionResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutDeliverabilityDashboardOptionResponse =>
     __isa(o, "PutDeliverabilityDashboardOptionResponse");
 }
@@ -2941,6 +3616,11 @@ export interface PutEmailIdentityDkimAttributesRequest {
 }
 
 export namespace PutEmailIdentityDkimAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: PutEmailIdentityDkimAttributesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutEmailIdentityDkimAttributesRequest =>
     __isa(o, "PutEmailIdentityDkimAttributesRequest");
 }
@@ -2954,6 +3634,11 @@ export interface PutEmailIdentityDkimAttributesResponse {
 }
 
 export namespace PutEmailIdentityDkimAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: PutEmailIdentityDkimAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutEmailIdentityDkimAttributesResponse =>
     __isa(o, "PutEmailIdentityDkimAttributesResponse");
 }
@@ -2985,6 +3670,11 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
 }
 
 export namespace PutEmailIdentityFeedbackAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: PutEmailIdentityFeedbackAttributesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutEmailIdentityFeedbackAttributesRequest =>
     __isa(o, "PutEmailIdentityFeedbackAttributesRequest");
 }
@@ -2998,6 +3688,11 @@ export interface PutEmailIdentityFeedbackAttributesResponse {
 }
 
 export namespace PutEmailIdentityFeedbackAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: PutEmailIdentityFeedbackAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutEmailIdentityFeedbackAttributesResponse =>
@@ -3047,6 +3742,11 @@ export interface PutEmailIdentityMailFromAttributesRequest {
 }
 
 export namespace PutEmailIdentityMailFromAttributesRequest {
+  export const filterSensitiveLog = (
+    obj: PutEmailIdentityMailFromAttributesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutEmailIdentityMailFromAttributesRequest =>
     __isa(o, "PutEmailIdentityMailFromAttributesRequest");
 }
@@ -3060,6 +3760,11 @@ export interface PutEmailIdentityMailFromAttributesResponse {
 }
 
 export namespace PutEmailIdentityMailFromAttributesResponse {
+  export const filterSensitiveLog = (
+    obj: PutEmailIdentityMailFromAttributesResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is PutEmailIdentityMailFromAttributesResponse =>
@@ -3106,6 +3811,9 @@ export interface RawMessage {
 }
 
 export namespace RawMessage {
+  export const filterSensitiveLog = (obj: RawMessage): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RawMessage => __isa(o, "RawMessage");
 }
 
@@ -3131,6 +3839,9 @@ export interface ReputationOptions {
 }
 
 export namespace ReputationOptions {
+  export const filterSensitiveLog = (obj: ReputationOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReputationOptions =>
     __isa(o, "ReputationOptions");
 }
@@ -3183,6 +3894,18 @@ export interface SendEmailRequest {
 }
 
 export namespace SendEmailRequest {
+  export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
+    ...obj,
+    ...(obj.Content && {
+      Content: EmailContent.filterSensitiveLog(obj.Content)
+    }),
+    ...(obj.Destination && {
+      Destination: Destination.filterSensitiveLog(obj.Destination)
+    }),
+    ...(obj.EmailTags && {
+      EmailTags: obj.EmailTags.map(item => MessageTag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is SendEmailRequest =>
     __isa(o, "SendEmailRequest");
 }
@@ -3206,6 +3929,9 @@ export interface SendEmailResponse {
 }
 
 export namespace SendEmailResponse {
+  export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendEmailResponse =>
     __isa(o, "SendEmailResponse");
 }
@@ -3238,6 +3964,9 @@ export interface SendQuota {
 }
 
 export namespace SendQuota {
+  export const filterSensitiveLog = (obj: SendQuota): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendQuota => __isa(o, "SendQuota");
 }
 
@@ -3255,6 +3984,9 @@ export interface SendingOptions {
 }
 
 export namespace SendingOptions {
+  export const filterSensitiveLog = (obj: SendingOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendingOptions =>
     __isa(o, "SendingOptions");
 }
@@ -3272,6 +4004,9 @@ export interface SendingPausedException
 }
 
 export namespace SendingPausedException {
+  export const filterSensitiveLog = (obj: SendingPausedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendingPausedException =>
     __isa(o, "SendingPausedException");
 }
@@ -3291,6 +4026,9 @@ export interface SnsDestination {
 }
 
 export namespace SnsDestination {
+  export const filterSensitiveLog = (obj: SnsDestination): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SnsDestination =>
     __isa(o, "SnsDestination");
 }
@@ -3313,6 +4051,12 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -3322,6 +4066,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -3340,6 +4087,9 @@ export interface Template {
 }
 
 export namespace Template {
+  export const filterSensitiveLog = (obj: Template): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Template => __isa(o, "Template");
 }
 
@@ -3360,6 +4110,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -3382,6 +4135,9 @@ export interface TrackingOptions {
 }
 
 export namespace TrackingOptions {
+  export const filterSensitiveLog = (obj: TrackingOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TrackingOptions =>
     __isa(o, "TrackingOptions");
 }
@@ -3407,6 +4163,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -3416,6 +4175,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -3444,6 +4206,16 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateConfigurationSetEventDestinationRequest
+  ): any => ({
+    ...obj,
+    ...(obj.EventDestination && {
+      EventDestination: EventDestinationDefinition.filterSensitiveLog(
+        obj.EventDestination
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is UpdateConfigurationSetEventDestinationRequest =>
@@ -3459,6 +4231,11 @@ export interface UpdateConfigurationSetEventDestinationResponse {
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateConfigurationSetEventDestinationResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is UpdateConfigurationSetEventDestinationResponse =>
@@ -3496,6 +4273,9 @@ export interface VolumeStatistics {
 }
 
 export namespace VolumeStatistics {
+  export const filterSensitiveLog = (obj: VolumeStatistics): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VolumeStatistics =>
     __isa(o, "VolumeStatistics");
 }

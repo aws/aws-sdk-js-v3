@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -24,6 +25,12 @@ export interface AddTagsRequest {
 }
 
 export namespace AddTagsRequest {
+  export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
+    ...obj,
+    ...(obj.TagsList && {
+      TagsList: obj.TagsList.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is AddTagsRequest =>
     __isa(o, "AddTagsRequest");
 }
@@ -36,6 +43,9 @@ export interface AddTagsResponse {
 }
 
 export namespace AddTagsResponse {
+  export const filterSensitiveLog = (obj: AddTagsResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddTagsResponse =>
     __isa(o, "AddTagsResponse");
 }
@@ -58,6 +68,11 @@ export interface CloudTrailARNInvalidException
 }
 
 export namespace CloudTrailARNInvalidException {
+  export const filterSensitiveLog = (
+    obj: CloudTrailARNInvalidException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudTrailARNInvalidException =>
     __isa(o, "CloudTrailARNInvalidException");
 }
@@ -79,6 +94,11 @@ export interface CloudTrailAccessNotEnabledException
 }
 
 export namespace CloudTrailAccessNotEnabledException {
+  export const filterSensitiveLog = (
+    obj: CloudTrailAccessNotEnabledException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudTrailAccessNotEnabledException =>
     __isa(o, "CloudTrailAccessNotEnabledException");
 }
@@ -98,6 +118,11 @@ export interface CloudWatchLogsDeliveryUnavailableException
 }
 
 export namespace CloudWatchLogsDeliveryUnavailableException {
+  export const filterSensitiveLog = (
+    obj: CloudWatchLogsDeliveryUnavailableException
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is CloudWatchLogsDeliveryUnavailableException =>
@@ -214,6 +239,12 @@ export interface CreateTrailRequest {
 }
 
 export namespace CreateTrailRequest {
+  export const filterSensitiveLog = (obj: CreateTrailRequest): any => ({
+    ...obj,
+    ...(obj.TagsList && {
+      TagsList: obj.TagsList.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateTrailRequest =>
     __isa(o, "CreateTrailRequest");
 }
@@ -301,6 +332,9 @@ export interface CreateTrailResponse {
 }
 
 export namespace CreateTrailResponse {
+  export const filterSensitiveLog = (obj: CreateTrailResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateTrailResponse =>
     __isa(o, "CreateTrailResponse");
 }
@@ -407,6 +441,9 @@ export interface DataResource {
 }
 
 export namespace DataResource {
+  export const filterSensitiveLog = (obj: DataResource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DataResource => __isa(o, "DataResource");
 }
 
@@ -425,6 +462,9 @@ export interface DeleteTrailRequest {
 }
 
 export namespace DeleteTrailRequest {
+  export const filterSensitiveLog = (obj: DeleteTrailRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTrailRequest =>
     __isa(o, "DeleteTrailRequest");
 }
@@ -437,6 +477,9 @@ export interface DeleteTrailResponse {
 }
 
 export namespace DeleteTrailResponse {
+  export const filterSensitiveLog = (obj: DeleteTrailResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTrailResponse =>
     __isa(o, "DeleteTrailResponse");
 }
@@ -477,6 +520,9 @@ export interface DescribeTrailsRequest {
 }
 
 export namespace DescribeTrailsRequest {
+  export const filterSensitiveLog = (obj: DescribeTrailsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeTrailsRequest =>
     __isa(o, "DescribeTrailsRequest");
 }
@@ -495,6 +541,12 @@ export interface DescribeTrailsResponse {
 }
 
 export namespace DescribeTrailsResponse {
+  export const filterSensitiveLog = (obj: DescribeTrailsResponse): any => ({
+    ...obj,
+    ...(obj.trailList && {
+      trailList: obj.trailList.map(item => Trail.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeTrailsResponse =>
     __isa(o, "DescribeTrailsResponse");
 }
@@ -552,6 +604,12 @@ export interface Event {
 }
 
 export namespace Event {
+  export const filterSensitiveLog = (obj: Event): any => ({
+    ...obj,
+    ...(obj.Resources && {
+      Resources: obj.Resources.map(item => Resource.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
@@ -604,6 +662,14 @@ export interface EventSelector {
 }
 
 export namespace EventSelector {
+  export const filterSensitiveLog = (obj: EventSelector): any => ({
+    ...obj,
+    ...(obj.DataResources && {
+      DataResources: obj.DataResources.map(item =>
+        DataResource.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is EventSelector => __isa(o, "EventSelector");
 }
 
@@ -639,6 +705,9 @@ export interface GetEventSelectorsRequest {
 }
 
 export namespace GetEventSelectorsRequest {
+  export const filterSensitiveLog = (obj: GetEventSelectorsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetEventSelectorsRequest =>
     __isa(o, "GetEventSelectorsRequest");
 }
@@ -657,6 +726,14 @@ export interface GetEventSelectorsResponse {
 }
 
 export namespace GetEventSelectorsResponse {
+  export const filterSensitiveLog = (obj: GetEventSelectorsResponse): any => ({
+    ...obj,
+    ...(obj.EventSelectors && {
+      EventSelectors: obj.EventSelectors.map(item =>
+        EventSelector.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetEventSelectorsResponse =>
     __isa(o, "GetEventSelectorsResponse");
 }
@@ -693,6 +770,9 @@ export interface GetInsightSelectorsRequest {
 }
 
 export namespace GetInsightSelectorsRequest {
+  export const filterSensitiveLog = (obj: GetInsightSelectorsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetInsightSelectorsRequest =>
     __isa(o, "GetInsightSelectorsRequest");
 }
@@ -711,6 +791,16 @@ export interface GetInsightSelectorsResponse {
 }
 
 export namespace GetInsightSelectorsResponse {
+  export const filterSensitiveLog = (
+    obj: GetInsightSelectorsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.InsightSelectors && {
+      InsightSelectors: obj.InsightSelectors.map(item =>
+        InsightSelector.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetInsightSelectorsResponse =>
     __isa(o, "GetInsightSelectorsResponse");
 }
@@ -724,6 +814,9 @@ export interface GetTrailRequest {
 }
 
 export namespace GetTrailRequest {
+  export const filterSensitiveLog = (obj: GetTrailRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTrailRequest =>
     __isa(o, "GetTrailRequest");
 }
@@ -737,6 +830,10 @@ export interface GetTrailResponse {
 }
 
 export namespace GetTrailResponse {
+  export const filterSensitiveLog = (obj: GetTrailResponse): any => ({
+    ...obj,
+    ...(obj.Trail && { Trail: Trail.filterSensitiveLog(obj.Trail) })
+  });
   export const isa = (o: any): o is GetTrailResponse =>
     __isa(o, "GetTrailResponse");
 }
@@ -756,6 +853,9 @@ export interface GetTrailStatusRequest {
 }
 
 export namespace GetTrailStatusRequest {
+  export const filterSensitiveLog = (obj: GetTrailStatusRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTrailStatusRequest =>
     __isa(o, "GetTrailStatusRequest");
 }
@@ -870,6 +970,9 @@ export interface GetTrailStatusResponse {
 }
 
 export namespace GetTrailStatusResponse {
+  export const filterSensitiveLog = (obj: GetTrailStatusResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTrailStatusResponse =>
     __isa(o, "GetTrailStatusResponse");
 }
@@ -889,6 +992,9 @@ export interface InsightNotEnabledException
 }
 
 export namespace InsightNotEnabledException {
+  export const filterSensitiveLog = (obj: InsightNotEnabledException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InsightNotEnabledException =>
     __isa(o, "InsightNotEnabledException");
 }
@@ -905,6 +1011,9 @@ export interface InsightSelector {
 }
 
 export namespace InsightSelector {
+  export const filterSensitiveLog = (obj: InsightSelector): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InsightSelector =>
     __isa(o, "InsightSelector");
 }
@@ -930,6 +1039,11 @@ export interface InsufficientDependencyServiceAccessPermissionException
 }
 
 export namespace InsufficientDependencyServiceAccessPermissionException {
+  export const filterSensitiveLog = (
+    obj: InsufficientDependencyServiceAccessPermissionException
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is InsufficientDependencyServiceAccessPermissionException =>
@@ -951,6 +1065,11 @@ export interface InsufficientEncryptionPolicyException
 }
 
 export namespace InsufficientEncryptionPolicyException {
+  export const filterSensitiveLog = (
+    obj: InsufficientEncryptionPolicyException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InsufficientEncryptionPolicyException =>
     __isa(o, "InsufficientEncryptionPolicyException");
 }
@@ -970,6 +1089,11 @@ export interface InsufficientS3BucketPolicyException
 }
 
 export namespace InsufficientS3BucketPolicyException {
+  export const filterSensitiveLog = (
+    obj: InsufficientS3BucketPolicyException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InsufficientS3BucketPolicyException =>
     __isa(o, "InsufficientS3BucketPolicyException");
 }
@@ -989,6 +1113,11 @@ export interface InsufficientSnsTopicPolicyException
 }
 
 export namespace InsufficientSnsTopicPolicyException {
+  export const filterSensitiveLog = (
+    obj: InsufficientSnsTopicPolicyException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InsufficientSnsTopicPolicyException =>
     __isa(o, "InsufficientSnsTopicPolicyException");
 }
@@ -1008,6 +1137,11 @@ export interface InvalidCloudWatchLogsLogGroupArnException
 }
 
 export namespace InvalidCloudWatchLogsLogGroupArnException {
+  export const filterSensitiveLog = (
+    obj: InvalidCloudWatchLogsLogGroupArnException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidCloudWatchLogsLogGroupArnException =>
     __isa(o, "InvalidCloudWatchLogsLogGroupArnException");
 }
@@ -1027,6 +1161,11 @@ export interface InvalidCloudWatchLogsRoleArnException
 }
 
 export namespace InvalidCloudWatchLogsRoleArnException {
+  export const filterSensitiveLog = (
+    obj: InvalidCloudWatchLogsRoleArnException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidCloudWatchLogsRoleArnException =>
     __isa(o, "InvalidCloudWatchLogsRoleArnException");
 }
@@ -1046,6 +1185,11 @@ export interface InvalidEventCategoryException
 }
 
 export namespace InvalidEventCategoryException {
+  export const filterSensitiveLog = (
+    obj: InvalidEventCategoryException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidEventCategoryException =>
     __isa(o, "InvalidEventCategoryException");
 }
@@ -1083,6 +1227,11 @@ export interface InvalidEventSelectorsException
 }
 
 export namespace InvalidEventSelectorsException {
+  export const filterSensitiveLog = (
+    obj: InvalidEventSelectorsException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidEventSelectorsException =>
     __isa(o, "InvalidEventSelectorsException");
 }
@@ -1102,6 +1251,9 @@ export interface InvalidHomeRegionException
 }
 
 export namespace InvalidHomeRegionException {
+  export const filterSensitiveLog = (obj: InvalidHomeRegionException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidHomeRegionException =>
     __isa(o, "InvalidHomeRegionException");
 }
@@ -1122,6 +1274,11 @@ export interface InvalidInsightSelectorsException
 }
 
 export namespace InvalidInsightSelectorsException {
+  export const filterSensitiveLog = (
+    obj: InvalidInsightSelectorsException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInsightSelectorsException =>
     __isa(o, "InvalidInsightSelectorsException");
 }
@@ -1141,6 +1298,9 @@ export interface InvalidKmsKeyIdException
 }
 
 export namespace InvalidKmsKeyIdException {
+  export const filterSensitiveLog = (obj: InvalidKmsKeyIdException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidKmsKeyIdException =>
     __isa(o, "InvalidKmsKeyIdException");
 }
@@ -1160,6 +1320,11 @@ export interface InvalidLookupAttributesException
 }
 
 export namespace InvalidLookupAttributesException {
+  export const filterSensitiveLog = (
+    obj: InvalidLookupAttributesException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidLookupAttributesException =>
     __isa(o, "InvalidLookupAttributesException");
 }
@@ -1179,6 +1344,9 @@ export interface InvalidMaxResultsException
 }
 
 export namespace InvalidMaxResultsException {
+  export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidMaxResultsException =>
     __isa(o, "InvalidMaxResultsException");
 }
@@ -1198,6 +1366,9 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidNextTokenException =>
     __isa(o, "InvalidNextTokenException");
 }
@@ -1217,6 +1388,11 @@ export interface InvalidParameterCombinationException
 }
 
 export namespace InvalidParameterCombinationException {
+  export const filterSensitiveLog = (
+    obj: InvalidParameterCombinationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterCombinationException =>
     __isa(o, "InvalidParameterCombinationException");
 }
@@ -1236,6 +1412,11 @@ export interface InvalidS3BucketNameException
 }
 
 export namespace InvalidS3BucketNameException {
+  export const filterSensitiveLog = (
+    obj: InvalidS3BucketNameException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidS3BucketNameException =>
     __isa(o, "InvalidS3BucketNameException");
 }
@@ -1255,6 +1436,9 @@ export interface InvalidS3PrefixException
 }
 
 export namespace InvalidS3PrefixException {
+  export const filterSensitiveLog = (obj: InvalidS3PrefixException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidS3PrefixException =>
     __isa(o, "InvalidS3PrefixException");
 }
@@ -1274,6 +1458,11 @@ export interface InvalidSnsTopicNameException
 }
 
 export namespace InvalidSnsTopicNameException {
+  export const filterSensitiveLog = (
+    obj: InvalidSnsTopicNameException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidSnsTopicNameException =>
     __isa(o, "InvalidSnsTopicNameException");
 }
@@ -1294,6 +1483,11 @@ export interface InvalidTagParameterException
 }
 
 export namespace InvalidTagParameterException {
+  export const filterSensitiveLog = (
+    obj: InvalidTagParameterException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidTagParameterException =>
     __isa(o, "InvalidTagParameterException");
 }
@@ -1313,6 +1507,9 @@ export interface InvalidTimeRangeException
 }
 
 export namespace InvalidTimeRangeException {
+  export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidTimeRangeException =>
     __isa(o, "InvalidTimeRangeException");
 }
@@ -1332,6 +1529,9 @@ export interface InvalidTokenException
 }
 
 export namespace InvalidTokenException {
+  export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidTokenException =>
     __isa(o, "InvalidTokenException");
 }
@@ -1369,6 +1569,9 @@ export interface InvalidTrailNameException
 }
 
 export namespace InvalidTrailNameException {
+  export const filterSensitiveLog = (obj: InvalidTrailNameException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidTrailNameException =>
     __isa(o, "InvalidTrailNameException");
 }
@@ -1386,6 +1589,9 @@ export interface KmsException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KmsException {
+  export const filterSensitiveLog = (obj: KmsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is KmsException => __isa(o, "KmsException");
 }
 
@@ -1404,6 +1610,9 @@ export interface KmsKeyDisabledException
 }
 
 export namespace KmsKeyDisabledException {
+  export const filterSensitiveLog = (obj: KmsKeyDisabledException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is KmsKeyDisabledException =>
     __isa(o, "KmsKeyDisabledException");
 }
@@ -1423,6 +1632,9 @@ export interface KmsKeyNotFoundException
 }
 
 export namespace KmsKeyNotFoundException {
+  export const filterSensitiveLog = (obj: KmsKeyNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is KmsKeyNotFoundException =>
     __isa(o, "KmsKeyNotFoundException");
 }
@@ -1449,6 +1661,9 @@ export interface ListPublicKeysRequest {
 }
 
 export namespace ListPublicKeysRequest {
+  export const filterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListPublicKeysRequest =>
     __isa(o, "ListPublicKeysRequest");
 }
@@ -1473,6 +1688,14 @@ export interface ListPublicKeysResponse {
 }
 
 export namespace ListPublicKeysResponse {
+  export const filterSensitiveLog = (obj: ListPublicKeysResponse): any => ({
+    ...obj,
+    ...(obj.PublicKeyList && {
+      PublicKeyList: obj.PublicKeyList.map(item =>
+        PublicKey.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPublicKeysResponse =>
     __isa(o, "ListPublicKeysResponse");
 }
@@ -1497,6 +1720,9 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
+  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsRequest =>
     __isa(o, "ListTagsRequest");
 }
@@ -1518,6 +1744,14 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
+  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
+    ...obj,
+    ...(obj.ResourceTagList && {
+      ResourceTagList: obj.ResourceTagList.map(item =>
+        ResourceTag.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListTagsResponse =>
     __isa(o, "ListTagsResponse");
 }
@@ -1534,6 +1768,9 @@ export interface ListTrailsRequest {
 }
 
 export namespace ListTrailsRequest {
+  export const filterSensitiveLog = (obj: ListTrailsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTrailsRequest =>
     __isa(o, "ListTrailsRequest");
 }
@@ -1555,6 +1792,12 @@ export interface ListTrailsResponse {
 }
 
 export namespace ListTrailsResponse {
+  export const filterSensitiveLog = (obj: ListTrailsResponse): any => ({
+    ...obj,
+    ...(obj.Trails && {
+      Trails: obj.Trails.map(item => TrailInfo.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTrailsResponse =>
     __isa(o, "ListTrailsResponse");
 }
@@ -1576,6 +1819,9 @@ export interface LookupAttribute {
 }
 
 export namespace LookupAttribute {
+  export const filterSensitiveLog = (obj: LookupAttribute): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LookupAttribute =>
     __isa(o, "LookupAttribute");
 }
@@ -1630,6 +1876,14 @@ export interface LookupEventsRequest {
 }
 
 export namespace LookupEventsRequest {
+  export const filterSensitiveLog = (obj: LookupEventsRequest): any => ({
+    ...obj,
+    ...(obj.LookupAttributes && {
+      LookupAttributes: obj.LookupAttributes.map(item =>
+        LookupAttribute.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is LookupEventsRequest =>
     __isa(o, "LookupEventsRequest");
 }
@@ -1654,6 +1908,12 @@ export interface LookupEventsResponse {
 }
 
 export namespace LookupEventsResponse {
+  export const filterSensitiveLog = (obj: LookupEventsResponse): any => ({
+    ...obj,
+    ...(obj.Events && {
+      Events: obj.Events.map(item => Event.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is LookupEventsResponse =>
     __isa(o, "LookupEventsResponse");
 }
@@ -1673,6 +1933,11 @@ export interface MaximumNumberOfTrailsExceededException
 }
 
 export namespace MaximumNumberOfTrailsExceededException {
+  export const filterSensitiveLog = (
+    obj: MaximumNumberOfTrailsExceededException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MaximumNumberOfTrailsExceededException =>
     __isa(o, "MaximumNumberOfTrailsExceededException");
 }
@@ -1694,6 +1959,11 @@ export interface NotOrganizationMasterAccountException
 }
 
 export namespace NotOrganizationMasterAccountException {
+  export const filterSensitiveLog = (
+    obj: NotOrganizationMasterAccountException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotOrganizationMasterAccountException =>
     __isa(o, "NotOrganizationMasterAccountException");
 }
@@ -1713,6 +1983,11 @@ export interface OperationNotPermittedException
 }
 
 export namespace OperationNotPermittedException {
+  export const filterSensitiveLog = (
+    obj: OperationNotPermittedException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OperationNotPermittedException =>
     __isa(o, "OperationNotPermittedException");
 }
@@ -1734,6 +2009,11 @@ export interface OrganizationNotInAllFeaturesModeException
 }
 
 export namespace OrganizationNotInAllFeaturesModeException {
+  export const filterSensitiveLog = (
+    obj: OrganizationNotInAllFeaturesModeException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationNotInAllFeaturesModeException =>
     __isa(o, "OrganizationNotInAllFeaturesModeException");
 }
@@ -1754,6 +2034,11 @@ export interface OrganizationsNotInUseException
 }
 
 export namespace OrganizationsNotInUseException {
+  export const filterSensitiveLog = (
+    obj: OrganizationsNotInUseException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationsNotInUseException =>
     __isa(o, "OrganizationsNotInUseException");
 }
@@ -1785,6 +2070,9 @@ export interface PublicKey {
 }
 
 export namespace PublicKey {
+  export const filterSensitiveLog = (obj: PublicKey): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PublicKey => __isa(o, "PublicKey");
 }
 
@@ -1825,6 +2113,14 @@ export interface PutEventSelectorsRequest {
 }
 
 export namespace PutEventSelectorsRequest {
+  export const filterSensitiveLog = (obj: PutEventSelectorsRequest): any => ({
+    ...obj,
+    ...(obj.EventSelectors && {
+      EventSelectors: obj.EventSelectors.map(item =>
+        EventSelector.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is PutEventSelectorsRequest =>
     __isa(o, "PutEventSelectorsRequest");
 }
@@ -1847,6 +2143,14 @@ export interface PutEventSelectorsResponse {
 }
 
 export namespace PutEventSelectorsResponse {
+  export const filterSensitiveLog = (obj: PutEventSelectorsResponse): any => ({
+    ...obj,
+    ...(obj.EventSelectors && {
+      EventSelectors: obj.EventSelectors.map(item =>
+        EventSelector.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is PutEventSelectorsResponse =>
     __isa(o, "PutEventSelectorsResponse");
 }
@@ -1865,6 +2169,14 @@ export interface PutInsightSelectorsRequest {
 }
 
 export namespace PutInsightSelectorsRequest {
+  export const filterSensitiveLog = (obj: PutInsightSelectorsRequest): any => ({
+    ...obj,
+    ...(obj.InsightSelectors && {
+      InsightSelectors: obj.InsightSelectors.map(item =>
+        InsightSelector.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is PutInsightSelectorsRequest =>
     __isa(o, "PutInsightSelectorsRequest");
 }
@@ -1883,6 +2195,16 @@ export interface PutInsightSelectorsResponse {
 }
 
 export namespace PutInsightSelectorsResponse {
+  export const filterSensitiveLog = (
+    obj: PutInsightSelectorsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.InsightSelectors && {
+      InsightSelectors: obj.InsightSelectors.map(item =>
+        InsightSelector.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is PutInsightSelectorsResponse =>
     __isa(o, "PutInsightSelectorsResponse");
 }
@@ -1913,6 +2235,12 @@ export interface RemoveTagsRequest {
 }
 
 export namespace RemoveTagsRequest {
+  export const filterSensitiveLog = (obj: RemoveTagsRequest): any => ({
+    ...obj,
+    ...(obj.TagsList && {
+      TagsList: obj.TagsList.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is RemoveTagsRequest =>
     __isa(o, "RemoveTagsRequest");
 }
@@ -1925,6 +2253,9 @@ export interface RemoveTagsResponse {
 }
 
 export namespace RemoveTagsResponse {
+  export const filterSensitiveLog = (obj: RemoveTagsResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RemoveTagsResponse =>
     __isa(o, "RemoveTagsResponse");
 }
@@ -1949,6 +2280,9 @@ export interface Resource {
 }
 
 export namespace Resource {
+  export const filterSensitiveLog = (obj: Resource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
@@ -1967,6 +2301,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -1988,6 +2325,12 @@ export interface ResourceTag {
 }
 
 export namespace ResourceTag {
+  export const filterSensitiveLog = (obj: ResourceTag): any => ({
+    ...obj,
+    ...(obj.TagsList && {
+      TagsList: obj.TagsList.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
 
@@ -2006,6 +2349,11 @@ export interface ResourceTypeNotSupportedException
 }
 
 export namespace ResourceTypeNotSupportedException {
+  export const filterSensitiveLog = (
+    obj: ResourceTypeNotSupportedException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceTypeNotSupportedException =>
     __isa(o, "ResourceTypeNotSupportedException");
 }
@@ -2025,6 +2373,11 @@ export interface S3BucketDoesNotExistException
 }
 
 export namespace S3BucketDoesNotExistException {
+  export const filterSensitiveLog = (
+    obj: S3BucketDoesNotExistException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3BucketDoesNotExistException =>
     __isa(o, "S3BucketDoesNotExistException");
 }
@@ -2044,6 +2397,9 @@ export interface StartLoggingRequest {
 }
 
 export namespace StartLoggingRequest {
+  export const filterSensitiveLog = (obj: StartLoggingRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartLoggingRequest =>
     __isa(o, "StartLoggingRequest");
 }
@@ -2056,6 +2412,9 @@ export interface StartLoggingResponse {
 }
 
 export namespace StartLoggingResponse {
+  export const filterSensitiveLog = (obj: StartLoggingResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartLoggingResponse =>
     __isa(o, "StartLoggingResponse");
 }
@@ -2075,6 +2434,9 @@ export interface StopLoggingRequest {
 }
 
 export namespace StopLoggingRequest {
+  export const filterSensitiveLog = (obj: StopLoggingRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopLoggingRequest =>
     __isa(o, "StopLoggingRequest");
 }
@@ -2087,6 +2449,9 @@ export interface StopLoggingResponse {
 }
 
 export namespace StopLoggingResponse {
+  export const filterSensitiveLog = (obj: StopLoggingResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopLoggingResponse =>
     __isa(o, "StopLoggingResponse");
 }
@@ -2108,6 +2473,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -2126,6 +2494,9 @@ export interface TagsLimitExceededException
 }
 
 export namespace TagsLimitExceededException {
+  export const filterSensitiveLog = (obj: TagsLimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagsLimitExceededException =>
     __isa(o, "TagsLimitExceededException");
 }
@@ -2230,6 +2601,9 @@ export interface Trail {
 }
 
 export namespace Trail {
+  export const filterSensitiveLog = (obj: Trail): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Trail => __isa(o, "Trail");
 }
 
@@ -2248,6 +2622,11 @@ export interface TrailAlreadyExistsException
 }
 
 export namespace TrailAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: TrailAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TrailAlreadyExistsException =>
     __isa(o, "TrailAlreadyExistsException");
 }
@@ -2274,6 +2653,9 @@ export interface TrailInfo {
 }
 
 export namespace TrailInfo {
+  export const filterSensitiveLog = (obj: TrailInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TrailInfo => __isa(o, "TrailInfo");
 }
 
@@ -2292,6 +2674,9 @@ export interface TrailNotFoundException
 }
 
 export namespace TrailNotFoundException {
+  export const filterSensitiveLog = (obj: TrailNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TrailNotFoundException =>
     __isa(o, "TrailNotFoundException");
 }
@@ -2311,6 +2696,9 @@ export interface TrailNotProvidedException
 }
 
 export namespace TrailNotProvidedException {
+  export const filterSensitiveLog = (obj: TrailNotProvidedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TrailNotProvidedException =>
     __isa(o, "TrailNotProvidedException");
 }
@@ -2330,6 +2718,11 @@ export interface UnsupportedOperationException
 }
 
 export namespace UnsupportedOperationException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedOperationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedOperationException =>
     __isa(o, "UnsupportedOperationException");
 }
@@ -2447,6 +2840,9 @@ export interface UpdateTrailRequest {
 }
 
 export namespace UpdateTrailRequest {
+  export const filterSensitiveLog = (obj: UpdateTrailRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateTrailRequest =>
     __isa(o, "UpdateTrailRequest");
 }
@@ -2536,6 +2932,9 @@ export interface UpdateTrailResponse {
 }
 
 export namespace UpdateTrailResponse {
+  export const filterSensitiveLog = (obj: UpdateTrailResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateTrailResponse =>
     __isa(o, "UpdateTrailResponse");
 }

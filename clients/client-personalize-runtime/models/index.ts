@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -33,6 +34,11 @@ export interface GetPersonalizedRankingRequest {
 }
 
 export namespace GetPersonalizedRankingRequest {
+  export const filterSensitiveLog = (
+    obj: GetPersonalizedRankingRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetPersonalizedRankingRequest =>
     __isa(o, "GetPersonalizedRankingRequest");
 }
@@ -46,6 +52,16 @@ export interface GetPersonalizedRankingResponse {
 }
 
 export namespace GetPersonalizedRankingResponse {
+  export const filterSensitiveLog = (
+    obj: GetPersonalizedRankingResponse
+  ): any => ({
+    ...obj,
+    ...(obj.personalizedRanking && {
+      personalizedRanking: obj.personalizedRanking.map(item =>
+        PredictedItem.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetPersonalizedRankingResponse =>
     __isa(o, "GetPersonalizedRankingResponse");
 }
@@ -84,6 +100,9 @@ export interface GetRecommendationsRequest {
 }
 
 export namespace GetRecommendationsRequest {
+  export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetRecommendationsRequest =>
     __isa(o, "GetRecommendationsRequest");
 }
@@ -98,6 +117,12 @@ export interface GetRecommendationsResponse {
 }
 
 export namespace GetRecommendationsResponse {
+  export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
+    ...obj,
+    ...(obj.itemList && {
+      itemList: obj.itemList.map(item => PredictedItem.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is GetRecommendationsResponse =>
     __isa(o, "GetRecommendationsResponse");
 }
@@ -116,6 +141,9 @@ export interface PredictedItem {
 }
 
 export namespace PredictedItem {
+  export const filterSensitiveLog = (obj: PredictedItem): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PredictedItem => __isa(o, "PredictedItem");
 }
 
@@ -131,6 +159,9 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInputException =>
     __isa(o, "InvalidInputException");
 }
@@ -147,6 +178,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }

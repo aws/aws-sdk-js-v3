@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -22,6 +23,9 @@ export interface DataPoint {
 }
 
 export namespace DataPoint {
+  export const filterSensitiveLog = (obj: DataPoint): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
 }
 
@@ -50,6 +54,18 @@ export interface Forecast {
 }
 
 export namespace Forecast {
+  export const filterSensitiveLog = (obj: Forecast): any => ({
+    ...obj,
+    ...(obj.Predictions && {
+      Predictions: Object.entries(obj.Predictions).reduce(
+        (acc: any, [key, value]: [string, DataPoint[]]) => ({
+          ...acc,
+          [key]: value.map(item => DataPoint.filterSensitiveLog(item))
+        }),
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is Forecast => __isa(o, "Forecast");
 }
 
@@ -65,6 +81,9 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInputException =>
     __isa(o, "InvalidInputException");
 }
@@ -81,6 +100,9 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidNextTokenException =>
     __isa(o, "InvalidNextTokenException");
 }
@@ -97,6 +119,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -142,6 +167,9 @@ export interface QueryForecastRequest {
 }
 
 export namespace QueryForecastRequest {
+  export const filterSensitiveLog = (obj: QueryForecastRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is QueryForecastRequest =>
     __isa(o, "QueryForecastRequest");
 }
@@ -155,6 +183,10 @@ export interface QueryForecastResponse {
 }
 
 export namespace QueryForecastResponse {
+  export const filterSensitiveLog = (obj: QueryForecastResponse): any => ({
+    ...obj,
+    ...(obj.Forecast && { Forecast: Forecast.filterSensitiveLog(obj.Forecast) })
+  });
   export const isa = (o: any): o is QueryForecastResponse =>
     __isa(o, "QueryForecastResponse");
 }
@@ -171,6 +203,9 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInUseException =>
     __isa(o, "ResourceInUseException");
 }
@@ -188,6 +223,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }

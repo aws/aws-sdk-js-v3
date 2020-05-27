@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -19,6 +20,9 @@ export interface CloseTunnelRequest {
 }
 
 export namespace CloseTunnelRequest {
+  export const filterSensitiveLog = (obj: CloseTunnelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloseTunnelRequest =>
     __isa(o, "CloseTunnelRequest");
 }
@@ -28,6 +32,9 @@ export interface CloseTunnelResponse {
 }
 
 export namespace CloseTunnelResponse {
+  export const filterSensitiveLog = (obj: CloseTunnelResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloseTunnelResponse =>
     __isa(o, "CloseTunnelResponse");
 }
@@ -50,6 +57,9 @@ export interface ConnectionState {
 }
 
 export namespace ConnectionState {
+  export const filterSensitiveLog = (obj: ConnectionState): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConnectionState =>
     __isa(o, "ConnectionState");
 }
@@ -68,6 +78,9 @@ export interface DescribeTunnelRequest {
 }
 
 export namespace DescribeTunnelRequest {
+  export const filterSensitiveLog = (obj: DescribeTunnelRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeTunnelRequest =>
     __isa(o, "DescribeTunnelRequest");
 }
@@ -81,6 +94,10 @@ export interface DescribeTunnelResponse {
 }
 
 export namespace DescribeTunnelResponse {
+  export const filterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
+    ...obj,
+    ...(obj.tunnel && { tunnel: Tunnel.filterSensitiveLog(obj.tunnel) })
+  });
   export const isa = (o: any): o is DescribeTunnelResponse =>
     __isa(o, "DescribeTunnelResponse");
 }
@@ -106,6 +123,9 @@ export interface DestinationConfig {
 }
 
 export namespace DestinationConfig {
+  export const filterSensitiveLog = (obj: DestinationConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DestinationConfig =>
     __isa(o, "DestinationConfig");
 }
@@ -122,6 +142,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -135,6 +158,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -148,6 +174,14 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -171,6 +205,9 @@ export interface ListTunnelsRequest {
 }
 
 export namespace ListTunnelsRequest {
+  export const filterSensitiveLog = (obj: ListTunnelsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTunnelsRequest =>
     __isa(o, "ListTunnelsRequest");
 }
@@ -189,6 +226,14 @@ export interface ListTunnelsResponse {
 }
 
 export namespace ListTunnelsResponse {
+  export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
+    ...obj,
+    ...(obj.tunnelSummaries && {
+      tunnelSummaries: obj.tunnelSummaries.map(item =>
+        TunnelSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListTunnelsResponse =>
     __isa(o, "ListTunnelsResponse");
 }
@@ -217,6 +262,20 @@ export interface OpenTunnelRequest {
 }
 
 export namespace OpenTunnelRequest {
+  export const filterSensitiveLog = (obj: OpenTunnelRequest): any => ({
+    ...obj,
+    ...(obj.destinationConfig && {
+      destinationConfig: DestinationConfig.filterSensitiveLog(
+        obj.destinationConfig
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
+    ...(obj.timeoutConfig && {
+      timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
+    })
+  });
   export const isa = (o: any): o is OpenTunnelRequest =>
     __isa(o, "OpenTunnelRequest");
 }
@@ -249,6 +308,13 @@ export interface OpenTunnelResponse {
 }
 
 export namespace OpenTunnelResponse {
+  export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
+    ...obj,
+    ...(obj.destinationAccessToken && {
+      destinationAccessToken: SENSITIVE_STRING
+    }),
+    ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is OpenTunnelResponse =>
     __isa(o, "OpenTunnelResponse");
 }
@@ -265,6 +331,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -287,6 +356,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -304,6 +376,12 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -313,6 +391,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -331,6 +412,9 @@ export interface TimeoutConfig {
 }
 
 export namespace TimeoutConfig {
+  export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TimeoutConfig => __isa(o, "TimeoutConfig");
 }
 
@@ -400,6 +484,30 @@ export interface Tunnel {
 }
 
 export namespace Tunnel {
+  export const filterSensitiveLog = (obj: Tunnel): any => ({
+    ...obj,
+    ...(obj.destinationConfig && {
+      destinationConfig: DestinationConfig.filterSensitiveLog(
+        obj.destinationConfig
+      )
+    }),
+    ...(obj.destinationConnectionState && {
+      destinationConnectionState: ConnectionState.filterSensitiveLog(
+        obj.destinationConnectionState
+      )
+    }),
+    ...(obj.sourceConnectionState && {
+      sourceConnectionState: ConnectionState.filterSensitiveLog(
+        obj.sourceConnectionState
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
+    ...(obj.timeoutConfig && {
+      timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
+    })
+  });
   export const isa = (o: any): o is Tunnel => __isa(o, "Tunnel");
 }
 
@@ -447,6 +555,9 @@ export interface TunnelSummary {
 }
 
 export namespace TunnelSummary {
+  export const filterSensitiveLog = (obj: TunnelSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TunnelSummary => __isa(o, "TunnelSummary");
 }
 
@@ -464,6 +575,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -473,6 +587,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }

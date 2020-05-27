@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -34,6 +35,9 @@ export interface BufferingHints {
 }
 
 export namespace BufferingHints {
+  export const filterSensitiveLog = (obj: BufferingHints): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BufferingHints =>
     __isa(o, "BufferingHints");
 }
@@ -62,6 +66,9 @@ export interface CloudWatchLoggingOptions {
 }
 
 export namespace CloudWatchLoggingOptions {
+  export const filterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudWatchLoggingOptions =>
     __isa(o, "CloudWatchLoggingOptions");
 }
@@ -89,6 +96,11 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentModificationException =>
     __isa(o, "ConcurrentModificationException");
 }
@@ -134,6 +146,9 @@ export interface CopyCommand {
 }
 
 export namespace CopyCommand {
+  export const filterSensitiveLog = (obj: CopyCommand): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CopyCommand => __isa(o, "CopyCommand");
 }
 
@@ -215,6 +230,47 @@ export interface CreateDeliveryStreamInput {
 }
 
 export namespace CreateDeliveryStreamInput {
+  export const filterSensitiveLog = (obj: CreateDeliveryStreamInput): any => ({
+    ...obj,
+    ...(obj.DeliveryStreamEncryptionConfigurationInput && {
+      DeliveryStreamEncryptionConfigurationInput: DeliveryStreamEncryptionConfigurationInput.filterSensitiveLog(
+        obj.DeliveryStreamEncryptionConfigurationInput
+      )
+    }),
+    ...(obj.ElasticsearchDestinationConfiguration && {
+      ElasticsearchDestinationConfiguration: ElasticsearchDestinationConfiguration.filterSensitiveLog(
+        obj.ElasticsearchDestinationConfiguration
+      )
+    }),
+    ...(obj.ExtendedS3DestinationConfiguration && {
+      ExtendedS3DestinationConfiguration: ExtendedS3DestinationConfiguration.filterSensitiveLog(
+        obj.ExtendedS3DestinationConfiguration
+      )
+    }),
+    ...(obj.KinesisStreamSourceConfiguration && {
+      KinesisStreamSourceConfiguration: KinesisStreamSourceConfiguration.filterSensitiveLog(
+        obj.KinesisStreamSourceConfiguration
+      )
+    }),
+    ...(obj.RedshiftDestinationConfiguration && {
+      RedshiftDestinationConfiguration: RedshiftDestinationConfiguration.filterSensitiveLog(
+        obj.RedshiftDestinationConfiguration
+      )
+    }),
+    ...(obj.S3DestinationConfiguration && {
+      S3DestinationConfiguration: S3DestinationConfiguration.filterSensitiveLog(
+        obj.S3DestinationConfiguration
+      )
+    }),
+    ...(obj.SplunkDestinationConfiguration && {
+      SplunkDestinationConfiguration: SplunkDestinationConfiguration.filterSensitiveLog(
+        obj.SplunkDestinationConfiguration
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is CreateDeliveryStreamInput =>
     __isa(o, "CreateDeliveryStreamInput");
 }
@@ -228,6 +284,9 @@ export interface CreateDeliveryStreamOutput {
 }
 
 export namespace CreateDeliveryStreamOutput {
+  export const filterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateDeliveryStreamOutput =>
     __isa(o, "CreateDeliveryStreamOutput");
 }
@@ -265,6 +324,26 @@ export interface DataFormatConversionConfiguration {
 }
 
 export namespace DataFormatConversionConfiguration {
+  export const filterSensitiveLog = (
+    obj: DataFormatConversionConfiguration
+  ): any => ({
+    ...obj,
+    ...(obj.InputFormatConfiguration && {
+      InputFormatConfiguration: InputFormatConfiguration.filterSensitiveLog(
+        obj.InputFormatConfiguration
+      )
+    }),
+    ...(obj.OutputFormatConfiguration && {
+      OutputFormatConfiguration: OutputFormatConfiguration.filterSensitiveLog(
+        obj.OutputFormatConfiguration
+      )
+    }),
+    ...(obj.SchemaConfiguration && {
+      SchemaConfiguration: SchemaConfiguration.filterSensitiveLog(
+        obj.SchemaConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is DataFormatConversionConfiguration =>
     __isa(o, "DataFormatConversionConfiguration");
 }
@@ -289,6 +368,9 @@ export interface DeleteDeliveryStreamInput {
 }
 
 export namespace DeleteDeliveryStreamInput {
+  export const filterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteDeliveryStreamInput =>
     __isa(o, "DeleteDeliveryStreamInput");
 }
@@ -298,6 +380,9 @@ export interface DeleteDeliveryStreamOutput {
 }
 
 export namespace DeleteDeliveryStreamOutput {
+  export const filterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteDeliveryStreamOutput =>
     __isa(o, "DeleteDeliveryStreamOutput");
 }
@@ -389,6 +474,27 @@ export interface DeliveryStreamDescription {
 }
 
 export namespace DeliveryStreamDescription {
+  export const filterSensitiveLog = (obj: DeliveryStreamDescription): any => ({
+    ...obj,
+    ...(obj.DeliveryStreamEncryptionConfiguration && {
+      DeliveryStreamEncryptionConfiguration: DeliveryStreamEncryptionConfiguration.filterSensitiveLog(
+        obj.DeliveryStreamEncryptionConfiguration
+      )
+    }),
+    ...(obj.Destinations && {
+      Destinations: obj.Destinations.map(item =>
+        DestinationDescription.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.FailureDescription && {
+      FailureDescription: FailureDescription.filterSensitiveLog(
+        obj.FailureDescription
+      )
+    }),
+    ...(obj.Source && {
+      Source: SourceDescription.filterSensitiveLog(obj.Source)
+    })
+  });
   export const isa = (o: any): o is DeliveryStreamDescription =>
     __isa(o, "DeliveryStreamDescription");
 }
@@ -428,6 +534,16 @@ export interface DeliveryStreamEncryptionConfiguration {
 }
 
 export namespace DeliveryStreamEncryptionConfiguration {
+  export const filterSensitiveLog = (
+    obj: DeliveryStreamEncryptionConfiguration
+  ): any => ({
+    ...obj,
+    ...(obj.FailureDescription && {
+      FailureDescription: FailureDescription.filterSensitiveLog(
+        obj.FailureDescription
+      )
+    })
+  });
   export const isa = (o: any): o is DeliveryStreamEncryptionConfiguration =>
     __isa(o, "DeliveryStreamEncryptionConfiguration");
 }
@@ -460,6 +576,11 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 }
 
 export namespace DeliveryStreamEncryptionConfigurationInput {
+  export const filterSensitiveLog = (
+    obj: DeliveryStreamEncryptionConfigurationInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DeliveryStreamEncryptionConfigurationInput =>
@@ -517,6 +638,11 @@ export interface DescribeDeliveryStreamInput {
 }
 
 export namespace DescribeDeliveryStreamInput {
+  export const filterSensitiveLog = (
+    obj: DescribeDeliveryStreamInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeDeliveryStreamInput =>
     __isa(o, "DescribeDeliveryStreamInput");
 }
@@ -530,6 +656,16 @@ export interface DescribeDeliveryStreamOutput {
 }
 
 export namespace DescribeDeliveryStreamOutput {
+  export const filterSensitiveLog = (
+    obj: DescribeDeliveryStreamOutput
+  ): any => ({
+    ...obj,
+    ...(obj.DeliveryStreamDescription && {
+      DeliveryStreamDescription: DeliveryStreamDescription.filterSensitiveLog(
+        obj.DeliveryStreamDescription
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeDeliveryStreamOutput =>
     __isa(o, "DescribeDeliveryStreamOutput");
 }
@@ -560,6 +696,15 @@ export interface Deserializer {
 }
 
 export namespace Deserializer {
+  export const filterSensitiveLog = (obj: Deserializer): any => ({
+    ...obj,
+    ...(obj.HiveJsonSerDe && {
+      HiveJsonSerDe: HiveJsonSerDe.filterSensitiveLog(obj.HiveJsonSerDe)
+    }),
+    ...(obj.OpenXJsonSerDe && {
+      OpenXJsonSerDe: OpenXJsonSerDe.filterSensitiveLog(obj.OpenXJsonSerDe)
+    })
+  });
   export const isa = (o: any): o is Deserializer => __isa(o, "Deserializer");
 }
 
@@ -600,6 +745,34 @@ export interface DestinationDescription {
 }
 
 export namespace DestinationDescription {
+  export const filterSensitiveLog = (obj: DestinationDescription): any => ({
+    ...obj,
+    ...(obj.ElasticsearchDestinationDescription && {
+      ElasticsearchDestinationDescription: ElasticsearchDestinationDescription.filterSensitiveLog(
+        obj.ElasticsearchDestinationDescription
+      )
+    }),
+    ...(obj.ExtendedS3DestinationDescription && {
+      ExtendedS3DestinationDescription: ExtendedS3DestinationDescription.filterSensitiveLog(
+        obj.ExtendedS3DestinationDescription
+      )
+    }),
+    ...(obj.RedshiftDestinationDescription && {
+      RedshiftDestinationDescription: RedshiftDestinationDescription.filterSensitiveLog(
+        obj.RedshiftDestinationDescription
+      )
+    }),
+    ...(obj.S3DestinationDescription && {
+      S3DestinationDescription: S3DestinationDescription.filterSensitiveLog(
+        obj.S3DestinationDescription
+      )
+    }),
+    ...(obj.SplunkDestinationDescription && {
+      SplunkDestinationDescription: SplunkDestinationDescription.filterSensitiveLog(
+        obj.SplunkDestinationDescription
+      )
+    })
+  });
   export const isa = (o: any): o is DestinationDescription =>
     __isa(o, "DestinationDescription");
 }
@@ -627,6 +800,11 @@ export interface ElasticsearchBufferingHints {
 }
 
 export namespace ElasticsearchBufferingHints {
+  export const filterSensitiveLog = (
+    obj: ElasticsearchBufferingHints
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ElasticsearchBufferingHints =>
     __isa(o, "ElasticsearchBufferingHints");
 }
@@ -726,6 +904,36 @@ export interface ElasticsearchDestinationConfiguration {
 }
 
 export namespace ElasticsearchDestinationConfiguration {
+  export const filterSensitiveLog = (
+    obj: ElasticsearchDestinationConfiguration
+  ): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: ElasticsearchBufferingHints.filterSensitiveLog(
+        obj.BufferingHints
+      )
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: ElasticsearchRetryOptions.filterSensitiveLog(
+        obj.RetryOptions
+      )
+    }),
+    ...(obj.S3Configuration && {
+      S3Configuration: S3DestinationConfiguration.filterSensitiveLog(
+        obj.S3Configuration
+      )
+    })
+  });
   export const isa = (o: any): o is ElasticsearchDestinationConfiguration =>
     __isa(o, "ElasticsearchDestinationConfiguration");
 }
@@ -801,6 +1009,36 @@ export interface ElasticsearchDestinationDescription {
 }
 
 export namespace ElasticsearchDestinationDescription {
+  export const filterSensitiveLog = (
+    obj: ElasticsearchDestinationDescription
+  ): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: ElasticsearchBufferingHints.filterSensitiveLog(
+        obj.BufferingHints
+      )
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: ElasticsearchRetryOptions.filterSensitiveLog(
+        obj.RetryOptions
+      )
+    }),
+    ...(obj.S3DestinationDescription && {
+      S3DestinationDescription: S3DestinationDescription.filterSensitiveLog(
+        obj.S3DestinationDescription
+      )
+    })
+  });
   export const isa = (o: any): o is ElasticsearchDestinationDescription =>
     __isa(o, "ElasticsearchDestinationDescription");
 }
@@ -888,6 +1126,34 @@ export interface ElasticsearchDestinationUpdate {
 }
 
 export namespace ElasticsearchDestinationUpdate {
+  export const filterSensitiveLog = (
+    obj: ElasticsearchDestinationUpdate
+  ): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: ElasticsearchBufferingHints.filterSensitiveLog(
+        obj.BufferingHints
+      )
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: ElasticsearchRetryOptions.filterSensitiveLog(
+        obj.RetryOptions
+      )
+    }),
+    ...(obj.S3Update && {
+      S3Update: S3DestinationUpdate.filterSensitiveLog(obj.S3Update)
+    })
+  });
   export const isa = (o: any): o is ElasticsearchDestinationUpdate =>
     __isa(o, "ElasticsearchDestinationUpdate");
 }
@@ -916,6 +1182,9 @@ export interface ElasticsearchRetryOptions {
 }
 
 export namespace ElasticsearchRetryOptions {
+  export const filterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ElasticsearchRetryOptions =>
     __isa(o, "ElasticsearchRetryOptions");
 }
@@ -940,6 +1209,14 @@ export interface EncryptionConfiguration {
 }
 
 export namespace EncryptionConfiguration {
+  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+    ...obj,
+    ...(obj.KMSEncryptionConfig && {
+      KMSEncryptionConfig: KMSEncryptionConfig.filterSensitiveLog(
+        obj.KMSEncryptionConfig
+      )
+    })
+  });
   export const isa = (o: any): o is EncryptionConfiguration =>
     __isa(o, "EncryptionConfiguration");
 }
@@ -1018,6 +1295,39 @@ export interface ExtendedS3DestinationConfiguration {
 }
 
 export namespace ExtendedS3DestinationConfiguration {
+  export const filterSensitiveLog = (
+    obj: ExtendedS3DestinationConfiguration
+  ): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.DataFormatConversionConfiguration && {
+      DataFormatConversionConfiguration: DataFormatConversionConfiguration.filterSensitiveLog(
+        obj.DataFormatConversionConfiguration
+      )
+    }),
+    ...(obj.EncryptionConfiguration && {
+      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
+        obj.EncryptionConfiguration
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.S3BackupConfiguration && {
+      S3BackupConfiguration: S3DestinationConfiguration.filterSensitiveLog(
+        obj.S3BackupConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is ExtendedS3DestinationConfiguration =>
     __isa(o, "ExtendedS3DestinationConfiguration");
 }
@@ -1097,6 +1407,39 @@ export interface ExtendedS3DestinationDescription {
 }
 
 export namespace ExtendedS3DestinationDescription {
+  export const filterSensitiveLog = (
+    obj: ExtendedS3DestinationDescription
+  ): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.DataFormatConversionConfiguration && {
+      DataFormatConversionConfiguration: DataFormatConversionConfiguration.filterSensitiveLog(
+        obj.DataFormatConversionConfiguration
+      )
+    }),
+    ...(obj.EncryptionConfiguration && {
+      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
+        obj.EncryptionConfiguration
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.S3BackupDescription && {
+      S3BackupDescription: S3DestinationDescription.filterSensitiveLog(
+        obj.S3BackupDescription
+      )
+    })
+  });
   export const isa = (o: any): o is ExtendedS3DestinationDescription =>
     __isa(o, "ExtendedS3DestinationDescription");
 }
@@ -1176,6 +1519,37 @@ export interface ExtendedS3DestinationUpdate {
 }
 
 export namespace ExtendedS3DestinationUpdate {
+  export const filterSensitiveLog = (
+    obj: ExtendedS3DestinationUpdate
+  ): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.DataFormatConversionConfiguration && {
+      DataFormatConversionConfiguration: DataFormatConversionConfiguration.filterSensitiveLog(
+        obj.DataFormatConversionConfiguration
+      )
+    }),
+    ...(obj.EncryptionConfiguration && {
+      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
+        obj.EncryptionConfiguration
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.S3BackupUpdate && {
+      S3BackupUpdate: S3DestinationUpdate.filterSensitiveLog(obj.S3BackupUpdate)
+    })
+  });
   export const isa = (o: any): o is ExtendedS3DestinationUpdate =>
     __isa(o, "ExtendedS3DestinationUpdate");
 }
@@ -1198,6 +1572,9 @@ export interface FailureDescription {
 }
 
 export namespace FailureDescription {
+  export const filterSensitiveLog = (obj: FailureDescription): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FailureDescription =>
     __isa(o, "FailureDescription");
 }
@@ -1223,6 +1600,9 @@ export interface HiveJsonSerDe {
 }
 
 export namespace HiveJsonSerDe {
+  export const filterSensitiveLog = (obj: HiveJsonSerDe): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HiveJsonSerDe => __isa(o, "HiveJsonSerDe");
 }
 
@@ -1239,6 +1619,12 @@ export interface InputFormatConfiguration {
 }
 
 export namespace InputFormatConfiguration {
+  export const filterSensitiveLog = (obj: InputFormatConfiguration): any => ({
+    ...obj,
+    ...(obj.Deserializer && {
+      Deserializer: Deserializer.filterSensitiveLog(obj.Deserializer)
+    })
+  });
   export const isa = (o: any): o is InputFormatConfiguration =>
     __isa(o, "InputFormatConfiguration");
 }
@@ -1258,6 +1644,9 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidArgumentException =>
     __isa(o, "InvalidArgumentException");
 }
@@ -1276,6 +1665,11 @@ export interface InvalidKMSResourceException
 }
 
 export namespace InvalidKMSResourceException {
+  export const filterSensitiveLog = (
+    obj: InvalidKMSResourceException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidKMSResourceException =>
     __isa(o, "InvalidKMSResourceException");
 }
@@ -1294,6 +1688,9 @@ export interface KMSEncryptionConfig {
 }
 
 export namespace KMSEncryptionConfig {
+  export const filterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is KMSEncryptionConfig =>
     __isa(o, "KMSEncryptionConfig");
 }
@@ -1322,6 +1719,11 @@ export interface KinesisStreamSourceConfiguration {
 }
 
 export namespace KinesisStreamSourceConfiguration {
+  export const filterSensitiveLog = (
+    obj: KinesisStreamSourceConfiguration
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is KinesisStreamSourceConfiguration =>
     __isa(o, "KinesisStreamSourceConfiguration");
 }
@@ -1352,6 +1754,11 @@ export interface KinesisStreamSourceDescription {
 }
 
 export namespace KinesisStreamSourceDescription {
+  export const filterSensitiveLog = (
+    obj: KinesisStreamSourceDescription
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is KinesisStreamSourceDescription =>
     __isa(o, "KinesisStreamSourceDescription");
 }
@@ -1371,6 +1778,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -1411,6 +1821,9 @@ export interface ListDeliveryStreamsInput {
 }
 
 export namespace ListDeliveryStreamsInput {
+  export const filterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDeliveryStreamsInput =>
     __isa(o, "ListDeliveryStreamsInput");
 }
@@ -1429,6 +1842,9 @@ export interface ListDeliveryStreamsOutput {
 }
 
 export namespace ListDeliveryStreamsOutput {
+  export const filterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDeliveryStreamsOutput =>
     __isa(o, "ListDeliveryStreamsOutput");
 }
@@ -1456,6 +1872,11 @@ export interface ListTagsForDeliveryStreamInput {
 }
 
 export namespace ListTagsForDeliveryStreamInput {
+  export const filterSensitiveLog = (
+    obj: ListTagsForDeliveryStreamInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForDeliveryStreamInput =>
     __isa(o, "ListTagsForDeliveryStreamInput");
 }
@@ -1477,6 +1898,14 @@ export interface ListTagsForDeliveryStreamOutput {
 }
 
 export namespace ListTagsForDeliveryStreamOutput {
+  export const filterSensitiveLog = (
+    obj: ListTagsForDeliveryStreamOutput
+  ): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTagsForDeliveryStreamOutput =>
     __isa(o, "ListTagsForDeliveryStreamOutput");
 }
@@ -1518,6 +1947,9 @@ export interface OpenXJsonSerDe {
 }
 
 export namespace OpenXJsonSerDe {
+  export const filterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OpenXJsonSerDe =>
     __isa(o, "OpenXJsonSerDe");
 }
@@ -1608,6 +2040,9 @@ export interface OrcSerDe {
 }
 
 export namespace OrcSerDe {
+  export const filterSensitiveLog = (obj: OrcSerDe): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrcSerDe => __isa(o, "OrcSerDe");
 }
 
@@ -1624,6 +2059,12 @@ export interface OutputFormatConfiguration {
 }
 
 export namespace OutputFormatConfiguration {
+  export const filterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
+    ...obj,
+    ...(obj.Serializer && {
+      Serializer: Serializer.filterSensitiveLog(obj.Serializer)
+    })
+  });
   export const isa = (o: any): o is OutputFormatConfiguration =>
     __isa(o, "OutputFormatConfiguration");
 }
@@ -1678,6 +2119,9 @@ export interface ParquetSerDe {
 }
 
 export namespace ParquetSerDe {
+  export const filterSensitiveLog = (obj: ParquetSerDe): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ParquetSerDe => __isa(o, "ParquetSerDe");
 }
 
@@ -1703,6 +2147,12 @@ export interface ProcessingConfiguration {
 }
 
 export namespace ProcessingConfiguration {
+  export const filterSensitiveLog = (obj: ProcessingConfiguration): any => ({
+    ...obj,
+    ...(obj.Processors && {
+      Processors: obj.Processors.map(item => Processor.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ProcessingConfiguration =>
     __isa(o, "ProcessingConfiguration");
 }
@@ -1724,6 +2174,14 @@ export interface Processor {
 }
 
 export namespace Processor {
+  export const filterSensitiveLog = (obj: Processor): any => ({
+    ...obj,
+    ...(obj.Parameters && {
+      Parameters: obj.Parameters.map(item =>
+        ProcessorParameter.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is Processor => __isa(o, "Processor");
 }
 
@@ -1744,6 +2202,9 @@ export interface ProcessorParameter {
 }
 
 export namespace ProcessorParameter {
+  export const filterSensitiveLog = (obj: ProcessorParameter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProcessorParameter =>
     __isa(o, "ProcessorParameter");
 }
@@ -1772,6 +2233,12 @@ export interface PutRecordBatchInput {
 }
 
 export namespace PutRecordBatchInput {
+  export const filterSensitiveLog = (obj: PutRecordBatchInput): any => ({
+    ...obj,
+    ...(obj.Records && {
+      Records: obj.Records.map(item => _Record.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is PutRecordBatchInput =>
     __isa(o, "PutRecordBatchInput");
 }
@@ -1799,6 +2266,14 @@ export interface PutRecordBatchOutput {
 }
 
 export namespace PutRecordBatchOutput {
+  export const filterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
+    ...obj,
+    ...(obj.RequestResponses && {
+      RequestResponses: obj.RequestResponses.map(item =>
+        PutRecordBatchResponseEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is PutRecordBatchOutput =>
     __isa(o, "PutRecordBatchOutput");
 }
@@ -1828,6 +2303,11 @@ export interface PutRecordBatchResponseEntry {
 }
 
 export namespace PutRecordBatchResponseEntry {
+  export const filterSensitiveLog = (
+    obj: PutRecordBatchResponseEntry
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutRecordBatchResponseEntry =>
     __isa(o, "PutRecordBatchResponseEntry");
 }
@@ -1846,6 +2326,10 @@ export interface PutRecordInput {
 }
 
 export namespace PutRecordInput {
+  export const filterSensitiveLog = (obj: PutRecordInput): any => ({
+    ...obj,
+    ...(obj.Record && { Record: _Record.filterSensitiveLog(obj.Record) })
+  });
   export const isa = (o: any): o is PutRecordInput =>
     __isa(o, "PutRecordInput");
 }
@@ -1864,6 +2348,9 @@ export interface PutRecordOutput {
 }
 
 export namespace PutRecordOutput {
+  export const filterSensitiveLog = (obj: PutRecordOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutRecordOutput =>
     __isa(o, "PutRecordOutput");
 }
@@ -1881,6 +2368,9 @@ export interface _Record {
 }
 
 export namespace _Record {
+  export const filterSensitiveLog = (obj: _Record): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
@@ -1953,6 +2443,39 @@ export interface RedshiftDestinationConfiguration {
 }
 
 export namespace RedshiftDestinationConfiguration {
+  export const filterSensitiveLog = (
+    obj: RedshiftDestinationConfiguration
+  ): any => ({
+    ...obj,
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.CopyCommand && {
+      CopyCommand: CopyCommand.filterSensitiveLog(obj.CopyCommand)
+    }),
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: RedshiftRetryOptions.filterSensitiveLog(obj.RetryOptions)
+    }),
+    ...(obj.S3BackupConfiguration && {
+      S3BackupConfiguration: S3DestinationConfiguration.filterSensitiveLog(
+        obj.S3BackupConfiguration
+      )
+    }),
+    ...(obj.S3Configuration && {
+      S3Configuration: S3DestinationConfiguration.filterSensitiveLog(
+        obj.S3Configuration
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is RedshiftDestinationConfiguration =>
     __isa(o, "RedshiftDestinationConfiguration");
 }
@@ -2016,6 +2539,38 @@ export interface RedshiftDestinationDescription {
 }
 
 export namespace RedshiftDestinationDescription {
+  export const filterSensitiveLog = (
+    obj: RedshiftDestinationDescription
+  ): any => ({
+    ...obj,
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.CopyCommand && {
+      CopyCommand: CopyCommand.filterSensitiveLog(obj.CopyCommand)
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: RedshiftRetryOptions.filterSensitiveLog(obj.RetryOptions)
+    }),
+    ...(obj.S3BackupDescription && {
+      S3BackupDescription: S3DestinationDescription.filterSensitiveLog(
+        obj.S3BackupDescription
+      )
+    }),
+    ...(obj.S3DestinationDescription && {
+      S3DestinationDescription: S3DestinationDescription.filterSensitiveLog(
+        obj.S3DestinationDescription
+      )
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is RedshiftDestinationDescription =>
     __isa(o, "RedshiftDestinationDescription");
 }
@@ -2088,6 +2643,33 @@ export interface RedshiftDestinationUpdate {
 }
 
 export namespace RedshiftDestinationUpdate {
+  export const filterSensitiveLog = (obj: RedshiftDestinationUpdate): any => ({
+    ...obj,
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.CopyCommand && {
+      CopyCommand: CopyCommand.filterSensitiveLog(obj.CopyCommand)
+    }),
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: RedshiftRetryOptions.filterSensitiveLog(obj.RetryOptions)
+    }),
+    ...(obj.S3BackupUpdate && {
+      S3BackupUpdate: S3DestinationUpdate.filterSensitiveLog(obj.S3BackupUpdate)
+    }),
+    ...(obj.S3Update && {
+      S3Update: S3DestinationUpdate.filterSensitiveLog(obj.S3Update)
+    }),
+    ...(obj.Username && { Username: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is RedshiftDestinationUpdate =>
     __isa(o, "RedshiftDestinationUpdate");
 }
@@ -2109,6 +2691,9 @@ export interface RedshiftRetryOptions {
 }
 
 export namespace RedshiftRetryOptions {
+  export const filterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RedshiftRetryOptions =>
     __isa(o, "RedshiftRetryOptions");
 }
@@ -2130,6 +2715,9 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInUseException =>
     __isa(o, "ResourceInUseException");
 }
@@ -2149,6 +2737,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -2215,6 +2806,22 @@ export interface S3DestinationConfiguration {
 }
 
 export namespace S3DestinationConfiguration {
+  export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.EncryptionConfiguration && {
+      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
+        obj.EncryptionConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is S3DestinationConfiguration =>
     __isa(o, "S3DestinationConfiguration");
 }
@@ -2276,6 +2883,22 @@ export interface S3DestinationDescription {
 }
 
 export namespace S3DestinationDescription {
+  export const filterSensitiveLog = (obj: S3DestinationDescription): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.EncryptionConfiguration && {
+      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
+        obj.EncryptionConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is S3DestinationDescription =>
     __isa(o, "S3DestinationDescription");
 }
@@ -2340,6 +2963,22 @@ export interface S3DestinationUpdate {
 }
 
 export namespace S3DestinationUpdate {
+  export const filterSensitiveLog = (obj: S3DestinationUpdate): any => ({
+    ...obj,
+    ...(obj.BufferingHints && {
+      BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
+    }),
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.EncryptionConfiguration && {
+      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
+        obj.EncryptionConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is S3DestinationUpdate =>
     __isa(o, "S3DestinationUpdate");
 }
@@ -2389,6 +3028,9 @@ export interface SchemaConfiguration {
 }
 
 export namespace SchemaConfiguration {
+  export const filterSensitiveLog = (obj: SchemaConfiguration): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SchemaConfiguration =>
     __isa(o, "SchemaConfiguration");
 }
@@ -2415,6 +3057,15 @@ export interface Serializer {
 }
 
 export namespace Serializer {
+  export const filterSensitiveLog = (obj: Serializer): any => ({
+    ...obj,
+    ...(obj.OrcSerDe && {
+      OrcSerDe: OrcSerDe.filterSensitiveLog(obj.OrcSerDe)
+    }),
+    ...(obj.ParquetSerDe && {
+      ParquetSerDe: ParquetSerDe.filterSensitiveLog(obj.ParquetSerDe)
+    })
+  });
   export const isa = (o: any): o is Serializer => __isa(o, "Serializer");
 }
 
@@ -2436,6 +3087,11 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceUnavailableException =>
     __isa(o, "ServiceUnavailableException");
 }
@@ -2454,6 +3110,14 @@ export interface SourceDescription {
 }
 
 export namespace SourceDescription {
+  export const filterSensitiveLog = (obj: SourceDescription): any => ({
+    ...obj,
+    ...(obj.KinesisStreamSourceDescription && {
+      KinesisStreamSourceDescription: KinesisStreamSourceDescription.filterSensitiveLog(
+        obj.KinesisStreamSourceDescription
+      )
+    })
+  });
   export const isa = (o: any): o is SourceDescription =>
     __isa(o, "SourceDescription");
 }
@@ -2520,6 +3184,29 @@ export interface SplunkDestinationConfiguration {
 }
 
 export namespace SplunkDestinationConfiguration {
+  export const filterSensitiveLog = (
+    obj: SplunkDestinationConfiguration
+  ): any => ({
+    ...obj,
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: SplunkRetryOptions.filterSensitiveLog(obj.RetryOptions)
+    }),
+    ...(obj.S3Configuration && {
+      S3Configuration: S3DestinationConfiguration.filterSensitiveLog(
+        obj.S3Configuration
+      )
+    })
+  });
   export const isa = (o: any): o is SplunkDestinationConfiguration =>
     __isa(o, "SplunkDestinationConfiguration");
 }
@@ -2586,6 +3273,29 @@ export interface SplunkDestinationDescription {
 }
 
 export namespace SplunkDestinationDescription {
+  export const filterSensitiveLog = (
+    obj: SplunkDestinationDescription
+  ): any => ({
+    ...obj,
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: SplunkRetryOptions.filterSensitiveLog(obj.RetryOptions)
+    }),
+    ...(obj.S3DestinationDescription && {
+      S3DestinationDescription: S3DestinationDescription.filterSensitiveLog(
+        obj.S3DestinationDescription
+      )
+    })
+  });
   export const isa = (o: any): o is SplunkDestinationDescription =>
     __isa(o, "SplunkDestinationDescription");
 }
@@ -2653,6 +3363,25 @@ export interface SplunkDestinationUpdate {
 }
 
 export namespace SplunkDestinationUpdate {
+  export const filterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
+    ...obj,
+    ...(obj.CloudWatchLoggingOptions && {
+      CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
+        obj.CloudWatchLoggingOptions
+      )
+    }),
+    ...(obj.ProcessingConfiguration && {
+      ProcessingConfiguration: ProcessingConfiguration.filterSensitiveLog(
+        obj.ProcessingConfiguration
+      )
+    }),
+    ...(obj.RetryOptions && {
+      RetryOptions: SplunkRetryOptions.filterSensitiveLog(obj.RetryOptions)
+    }),
+    ...(obj.S3Update && {
+      S3Update: S3DestinationUpdate.filterSensitiveLog(obj.S3Update)
+    })
+  });
   export const isa = (o: any): o is SplunkDestinationUpdate =>
     __isa(o, "SplunkDestinationUpdate");
 }
@@ -2673,6 +3402,9 @@ export interface SplunkRetryOptions {
 }
 
 export namespace SplunkRetryOptions {
+  export const filterSensitiveLog = (obj: SplunkRetryOptions): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SplunkRetryOptions =>
     __isa(o, "SplunkRetryOptions");
 }
@@ -2695,6 +3427,16 @@ export interface StartDeliveryStreamEncryptionInput {
 }
 
 export namespace StartDeliveryStreamEncryptionInput {
+  export const filterSensitiveLog = (
+    obj: StartDeliveryStreamEncryptionInput
+  ): any => ({
+    ...obj,
+    ...(obj.DeliveryStreamEncryptionConfigurationInput && {
+      DeliveryStreamEncryptionConfigurationInput: DeliveryStreamEncryptionConfigurationInput.filterSensitiveLog(
+        obj.DeliveryStreamEncryptionConfigurationInput
+      )
+    })
+  });
   export const isa = (o: any): o is StartDeliveryStreamEncryptionInput =>
     __isa(o, "StartDeliveryStreamEncryptionInput");
 }
@@ -2704,6 +3446,11 @@ export interface StartDeliveryStreamEncryptionOutput {
 }
 
 export namespace StartDeliveryStreamEncryptionOutput {
+  export const filterSensitiveLog = (
+    obj: StartDeliveryStreamEncryptionOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartDeliveryStreamEncryptionOutput =>
     __isa(o, "StartDeliveryStreamEncryptionOutput");
 }
@@ -2718,6 +3465,11 @@ export interface StopDeliveryStreamEncryptionInput {
 }
 
 export namespace StopDeliveryStreamEncryptionInput {
+  export const filterSensitiveLog = (
+    obj: StopDeliveryStreamEncryptionInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopDeliveryStreamEncryptionInput =>
     __isa(o, "StopDeliveryStreamEncryptionInput");
 }
@@ -2727,6 +3479,11 @@ export interface StopDeliveryStreamEncryptionOutput {
 }
 
 export namespace StopDeliveryStreamEncryptionOutput {
+  export const filterSensitiveLog = (
+    obj: StopDeliveryStreamEncryptionOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopDeliveryStreamEncryptionOutput =>
     __isa(o, "StopDeliveryStreamEncryptionOutput");
 }
@@ -2748,6 +3505,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -2765,6 +3525,12 @@ export interface TagDeliveryStreamInput {
 }
 
 export namespace TagDeliveryStreamInput {
+  export const filterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is TagDeliveryStreamInput =>
     __isa(o, "TagDeliveryStreamInput");
 }
@@ -2774,6 +3540,9 @@ export interface TagDeliveryStreamOutput {
 }
 
 export namespace TagDeliveryStreamOutput {
+  export const filterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagDeliveryStreamOutput =>
     __isa(o, "TagDeliveryStreamOutput");
 }
@@ -2792,6 +3561,9 @@ export interface UntagDeliveryStreamInput {
 }
 
 export namespace UntagDeliveryStreamInput {
+  export const filterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagDeliveryStreamInput =>
     __isa(o, "UntagDeliveryStreamInput");
 }
@@ -2801,6 +3573,9 @@ export interface UntagDeliveryStreamOutput {
 }
 
 export namespace UntagDeliveryStreamOutput {
+  export const filterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagDeliveryStreamOutput =>
     __isa(o, "UntagDeliveryStreamOutput");
 }
@@ -2853,6 +3628,34 @@ export interface UpdateDestinationInput {
 }
 
 export namespace UpdateDestinationInput {
+  export const filterSensitiveLog = (obj: UpdateDestinationInput): any => ({
+    ...obj,
+    ...(obj.ElasticsearchDestinationUpdate && {
+      ElasticsearchDestinationUpdate: ElasticsearchDestinationUpdate.filterSensitiveLog(
+        obj.ElasticsearchDestinationUpdate
+      )
+    }),
+    ...(obj.ExtendedS3DestinationUpdate && {
+      ExtendedS3DestinationUpdate: ExtendedS3DestinationUpdate.filterSensitiveLog(
+        obj.ExtendedS3DestinationUpdate
+      )
+    }),
+    ...(obj.RedshiftDestinationUpdate && {
+      RedshiftDestinationUpdate: RedshiftDestinationUpdate.filterSensitiveLog(
+        obj.RedshiftDestinationUpdate
+      )
+    }),
+    ...(obj.S3DestinationUpdate && {
+      S3DestinationUpdate: S3DestinationUpdate.filterSensitiveLog(
+        obj.S3DestinationUpdate
+      )
+    }),
+    ...(obj.SplunkDestinationUpdate && {
+      SplunkDestinationUpdate: SplunkDestinationUpdate.filterSensitiveLog(
+        obj.SplunkDestinationUpdate
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateDestinationInput =>
     __isa(o, "UpdateDestinationInput");
 }
@@ -2862,6 +3665,9 @@ export interface UpdateDestinationOutput {
 }
 
 export namespace UpdateDestinationOutput {
+  export const filterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDestinationOutput =>
     __isa(o, "UpdateDestinationOutput");
 }

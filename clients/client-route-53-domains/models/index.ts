@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -41,6 +42,9 @@ export interface BillingRecord {
 }
 
 export namespace BillingRecord {
+  export const filterSensitiveLog = (obj: BillingRecord): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BillingRecord => __isa(o, "BillingRecord");
 }
 
@@ -63,6 +67,11 @@ export interface CheckDomainAvailabilityRequest {
 }
 
 export namespace CheckDomainAvailabilityRequest {
+  export const filterSensitiveLog = (
+    obj: CheckDomainAvailabilityRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CheckDomainAvailabilityRequest =>
     __isa(o, "CheckDomainAvailabilityRequest");
 }
@@ -124,6 +133,11 @@ export interface CheckDomainAvailabilityResponse {
 }
 
 export namespace CheckDomainAvailabilityResponse {
+  export const filterSensitiveLog = (
+    obj: CheckDomainAvailabilityResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CheckDomainAvailabilityResponse =>
     __isa(o, "CheckDomainAvailabilityResponse");
 }
@@ -148,6 +162,12 @@ export interface CheckDomainTransferabilityRequest {
 }
 
 export namespace CheckDomainTransferabilityRequest {
+  export const filterSensitiveLog = (
+    obj: CheckDomainTransferabilityRequest
+  ): any => ({
+    ...obj,
+    ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is CheckDomainTransferabilityRequest =>
     __isa(o, "CheckDomainTransferabilityRequest");
 }
@@ -164,6 +184,16 @@ export interface CheckDomainTransferabilityResponse {
 }
 
 export namespace CheckDomainTransferabilityResponse {
+  export const filterSensitiveLog = (
+    obj: CheckDomainTransferabilityResponse
+  ): any => ({
+    ...obj,
+    ...(obj.Transferability && {
+      Transferability: DomainTransferability.filterSensitiveLog(
+        obj.Transferability
+      )
+    })
+  });
   export const isa = (o: any): o is CheckDomainTransferabilityResponse =>
     __isa(o, "CheckDomainTransferabilityResponse");
 }
@@ -251,6 +281,14 @@ export interface ContactDetail {
 }
 
 export namespace ContactDetail {
+  export const filterSensitiveLog = (obj: ContactDetail): any => ({
+    ...obj,
+    ...(obj.ExtraParams && {
+      ExtraParams: obj.ExtraParams.map(item =>
+        ExtraParam.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ContactDetail => __isa(o, "ContactDetail");
 }
 
@@ -509,6 +547,9 @@ export interface DeleteTagsForDomainRequest {
 }
 
 export namespace DeleteTagsForDomainRequest {
+  export const filterSensitiveLog = (obj: DeleteTagsForDomainRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTagsForDomainRequest =>
     __isa(o, "DeleteTagsForDomainRequest");
 }
@@ -518,6 +559,11 @@ export interface DeleteTagsForDomainResponse {
 }
 
 export namespace DeleteTagsForDomainResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteTagsForDomainResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteTagsForDomainResponse =>
     __isa(o, "DeleteTagsForDomainResponse");
 }
@@ -531,6 +577,11 @@ export interface DisableDomainAutoRenewRequest {
 }
 
 export namespace DisableDomainAutoRenewRequest {
+  export const filterSensitiveLog = (
+    obj: DisableDomainAutoRenewRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableDomainAutoRenewRequest =>
     __isa(o, "DisableDomainAutoRenewRequest");
 }
@@ -540,6 +591,11 @@ export interface DisableDomainAutoRenewResponse {
 }
 
 export namespace DisableDomainAutoRenewResponse {
+  export const filterSensitiveLog = (
+    obj: DisableDomainAutoRenewResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableDomainAutoRenewResponse =>
     __isa(o, "DisableDomainAutoRenewResponse");
 }
@@ -556,6 +612,11 @@ export interface DisableDomainTransferLockRequest {
 }
 
 export namespace DisableDomainTransferLockRequest {
+  export const filterSensitiveLog = (
+    obj: DisableDomainTransferLockRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableDomainTransferLockRequest =>
     __isa(o, "DisableDomainTransferLockRequest");
 }
@@ -573,6 +634,11 @@ export interface DisableDomainTransferLockResponse {
 }
 
 export namespace DisableDomainTransferLockResponse {
+  export const filterSensitiveLog = (
+    obj: DisableDomainTransferLockResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableDomainTransferLockResponse =>
     __isa(o, "DisableDomainTransferLockResponse");
 }
@@ -602,6 +668,9 @@ export interface DomainLimitExceeded
 }
 
 export namespace DomainLimitExceeded {
+  export const filterSensitiveLog = (obj: DomainLimitExceeded): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DomainLimitExceeded =>
     __isa(o, "DomainLimitExceeded");
 }
@@ -668,6 +737,9 @@ export interface DomainSuggestion {
 }
 
 export namespace DomainSuggestion {
+  export const filterSensitiveLog = (obj: DomainSuggestion): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DomainSuggestion =>
     __isa(o, "DomainSuggestion");
 }
@@ -699,6 +771,9 @@ export interface DomainSummary {
 }
 
 export namespace DomainSummary {
+  export const filterSensitiveLog = (obj: DomainSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DomainSummary => __isa(o, "DomainSummary");
 }
 
@@ -733,6 +808,9 @@ export interface DomainTransferability {
 }
 
 export namespace DomainTransferability {
+  export const filterSensitiveLog = (obj: DomainTransferability): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DomainTransferability =>
     __isa(o, "DomainTransferability");
 }
@@ -750,6 +828,9 @@ export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DuplicateRequest {
+  export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DuplicateRequest =>
     __isa(o, "DuplicateRequest");
 }
@@ -763,6 +844,11 @@ export interface EnableDomainAutoRenewRequest {
 }
 
 export namespace EnableDomainAutoRenewRequest {
+  export const filterSensitiveLog = (
+    obj: EnableDomainAutoRenewRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnableDomainAutoRenewRequest =>
     __isa(o, "EnableDomainAutoRenewRequest");
 }
@@ -772,6 +858,11 @@ export interface EnableDomainAutoRenewResponse {
 }
 
 export namespace EnableDomainAutoRenewResponse {
+  export const filterSensitiveLog = (
+    obj: EnableDomainAutoRenewResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnableDomainAutoRenewResponse =>
     __isa(o, "EnableDomainAutoRenewResponse");
 }
@@ -788,6 +879,11 @@ export interface EnableDomainTransferLockRequest {
 }
 
 export namespace EnableDomainTransferLockRequest {
+  export const filterSensitiveLog = (
+    obj: EnableDomainTransferLockRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnableDomainTransferLockRequest =>
     __isa(o, "EnableDomainTransferLockRequest");
 }
@@ -804,6 +900,11 @@ export interface EnableDomainTransferLockResponse {
 }
 
 export namespace EnableDomainTransferLockResponse {
+  export const filterSensitiveLog = (
+    obj: EnableDomainTransferLockResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnableDomainTransferLockResponse =>
     __isa(o, "EnableDomainTransferLockResponse");
 }
@@ -896,6 +997,9 @@ export interface ExtraParam {
 }
 
 export namespace ExtraParam {
+  export const filterSensitiveLog = (obj: ExtraParam): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExtraParam => __isa(o, "ExtraParam");
 }
 
@@ -937,6 +1041,11 @@ export interface GetContactReachabilityStatusRequest {
 }
 
 export namespace GetContactReachabilityStatusRequest {
+  export const filterSensitiveLog = (
+    obj: GetContactReachabilityStatusRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetContactReachabilityStatusRequest =>
     __isa(o, "GetContactReachabilityStatusRequest");
 }
@@ -969,6 +1078,11 @@ export interface GetContactReachabilityStatusResponse {
 }
 
 export namespace GetContactReachabilityStatusResponse {
+  export const filterSensitiveLog = (
+    obj: GetContactReachabilityStatusResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetContactReachabilityStatusResponse =>
     __isa(o, "GetContactReachabilityStatusResponse");
 }
@@ -985,6 +1099,9 @@ export interface GetDomainDetailRequest {
 }
 
 export namespace GetDomainDetailRequest {
+  export const filterSensitiveLog = (obj: GetDomainDetailRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDomainDetailRequest =>
     __isa(o, "GetDomainDetailRequest");
 }
@@ -1123,6 +1240,17 @@ export interface GetDomainDetailResponse {
 }
 
 export namespace GetDomainDetailResponse {
+  export const filterSensitiveLog = (obj: GetDomainDetailResponse): any => ({
+    ...obj,
+    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+    ...(obj.Nameservers && {
+      Nameservers: obj.Nameservers.map(item =>
+        Nameserver.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+    ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetDomainDetailResponse =>
     __isa(o, "GetDomainDetailResponse");
 }
@@ -1152,6 +1280,11 @@ export interface GetDomainSuggestionsRequest {
 }
 
 export namespace GetDomainSuggestionsRequest {
+  export const filterSensitiveLog = (
+    obj: GetDomainSuggestionsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDomainSuggestionsRequest =>
     __isa(o, "GetDomainSuggestionsRequest");
 }
@@ -1166,6 +1299,16 @@ export interface GetDomainSuggestionsResponse {
 }
 
 export namespace GetDomainSuggestionsResponse {
+  export const filterSensitiveLog = (
+    obj: GetDomainSuggestionsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.SuggestionsList && {
+      SuggestionsList: obj.SuggestionsList.map(item =>
+        DomainSuggestion.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetDomainSuggestionsResponse =>
     __isa(o, "GetDomainSuggestionsResponse");
 }
@@ -1183,6 +1326,9 @@ export interface GetOperationDetailRequest {
 }
 
 export namespace GetOperationDetailRequest {
+  export const filterSensitiveLog = (obj: GetOperationDetailRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetOperationDetailRequest =>
     __isa(o, "GetOperationDetailRequest");
 }
@@ -1224,6 +1370,9 @@ export interface GetOperationDetailResponse {
 }
 
 export namespace GetOperationDetailResponse {
+  export const filterSensitiveLog = (obj: GetOperationDetailResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetOperationDetailResponse =>
     __isa(o, "GetOperationDetailResponse");
 }
@@ -1243,6 +1392,9 @@ export interface InvalidInput extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidInput {
+  export const filterSensitiveLog = (obj: InvalidInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInput => __isa(o, "InvalidInput");
 }
 
@@ -1269,6 +1421,9 @@ export interface ListDomainsRequest {
 }
 
 export namespace ListDomainsRequest {
+  export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDomainsRequest =>
     __isa(o, "ListDomainsRequest");
 }
@@ -1291,6 +1446,12 @@ export interface ListDomainsResponse {
 }
 
 export namespace ListDomainsResponse {
+  export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
+    ...obj,
+    ...(obj.Domains && {
+      Domains: obj.Domains.map(item => DomainSummary.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListDomainsResponse =>
     __isa(o, "ListDomainsResponse");
 }
@@ -1322,6 +1483,9 @@ export interface ListOperationsRequest {
 }
 
 export namespace ListOperationsRequest {
+  export const filterSensitiveLog = (obj: ListOperationsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListOperationsRequest =>
     __isa(o, "ListOperationsRequest");
 }
@@ -1344,6 +1508,14 @@ export interface ListOperationsResponse {
 }
 
 export namespace ListOperationsResponse {
+  export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
+    ...obj,
+    ...(obj.Operations && {
+      Operations: obj.Operations.map(item =>
+        OperationSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListOperationsResponse =>
     __isa(o, "ListOperationsResponse");
 }
@@ -1360,6 +1532,9 @@ export interface ListTagsForDomainRequest {
 }
 
 export namespace ListTagsForDomainRequest {
+  export const filterSensitiveLog = (obj: ListTagsForDomainRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForDomainRequest =>
     __isa(o, "ListTagsForDomainRequest");
 }
@@ -1376,6 +1551,12 @@ export interface ListTagsForDomainResponse {
 }
 
 export namespace ListTagsForDomainResponse {
+  export const filterSensitiveLog = (obj: ListTagsForDomainResponse): any => ({
+    ...obj,
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListTagsForDomainResponse =>
     __isa(o, "ListTagsForDomainResponse");
 }
@@ -1399,6 +1580,9 @@ export interface Nameserver {
 }
 
 export namespace Nameserver {
+  export const filterSensitiveLog = (obj: Nameserver): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Nameserver => __isa(o, "Nameserver");
 }
 
@@ -1417,6 +1601,9 @@ export interface OperationLimitExceeded
 }
 
 export namespace OperationLimitExceeded {
+  export const filterSensitiveLog = (obj: OperationLimitExceeded): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OperationLimitExceeded =>
     __isa(o, "OperationLimitExceeded");
 }
@@ -1455,6 +1642,9 @@ export interface OperationSummary {
 }
 
 export namespace OperationSummary {
+  export const filterSensitiveLog = (obj: OperationSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OperationSummary =>
     __isa(o, "OperationSummary");
 }
@@ -1565,6 +1755,12 @@ export interface RegisterDomainRequest {
 }
 
 export namespace RegisterDomainRequest {
+  export const filterSensitiveLog = (obj: RegisterDomainRequest): any => ({
+    ...obj,
+    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+    ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is RegisterDomainRequest =>
     __isa(o, "RegisterDomainRequest");
 }
@@ -1582,6 +1778,9 @@ export interface RegisterDomainResponse {
 }
 
 export namespace RegisterDomainResponse {
+  export const filterSensitiveLog = (obj: RegisterDomainResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterDomainResponse =>
     __isa(o, "RegisterDomainResponse");
 }
@@ -1612,6 +1811,9 @@ export interface RenewDomainRequest {
 }
 
 export namespace RenewDomainRequest {
+  export const filterSensitiveLog = (obj: RenewDomainRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RenewDomainRequest =>
     __isa(o, "RenewDomainRequest");
 }
@@ -1626,6 +1828,9 @@ export interface RenewDomainResponse {
 }
 
 export namespace RenewDomainResponse {
+  export const filterSensitiveLog = (obj: RenewDomainResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RenewDomainResponse =>
     __isa(o, "RenewDomainResponse");
 }
@@ -1639,6 +1844,11 @@ export interface ResendContactReachabilityEmailRequest {
 }
 
 export namespace ResendContactReachabilityEmailRequest {
+  export const filterSensitiveLog = (
+    obj: ResendContactReachabilityEmailRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResendContactReachabilityEmailRequest =>
     __isa(o, "ResendContactReachabilityEmailRequest");
 }
@@ -1664,6 +1874,11 @@ export interface ResendContactReachabilityEmailResponse {
 }
 
 export namespace ResendContactReachabilityEmailResponse {
+  export const filterSensitiveLog = (
+    obj: ResendContactReachabilityEmailResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResendContactReachabilityEmailResponse =>
     __isa(o, "ResendContactReachabilityEmailResponse");
 }
@@ -1681,6 +1896,11 @@ export interface RetrieveDomainAuthCodeRequest {
 }
 
 export namespace RetrieveDomainAuthCodeRequest {
+  export const filterSensitiveLog = (
+    obj: RetrieveDomainAuthCodeRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetrieveDomainAuthCodeRequest =>
     __isa(o, "RetrieveDomainAuthCodeRequest");
 }
@@ -1697,6 +1917,12 @@ export interface RetrieveDomainAuthCodeResponse {
 }
 
 export namespace RetrieveDomainAuthCodeResponse {
+  export const filterSensitiveLog = (
+    obj: RetrieveDomainAuthCodeResponse
+  ): any => ({
+    ...obj,
+    ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is RetrieveDomainAuthCodeResponse =>
     __isa(o, "RetrieveDomainAuthCodeResponse");
 }
@@ -1714,6 +1940,9 @@ export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TLDRulesViolation {
+  export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TLDRulesViolation =>
     __isa(o, "TLDRulesViolation");
 }
@@ -1739,6 +1968,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -1830,6 +2062,18 @@ export interface TransferDomainRequest {
 }
 
 export namespace TransferDomainRequest {
+  export const filterSensitiveLog = (obj: TransferDomainRequest): any => ({
+    ...obj,
+    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+    ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
+    ...(obj.Nameservers && {
+      Nameservers: obj.Nameservers.map(item =>
+        Nameserver.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+    ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is TransferDomainRequest =>
     __isa(o, "TransferDomainRequest");
 }
@@ -1847,6 +2091,9 @@ export interface TransferDomainResponse {
 }
 
 export namespace TransferDomainResponse {
+  export const filterSensitiveLog = (obj: TransferDomainResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TransferDomainResponse =>
     __isa(o, "TransferDomainResponse");
 }
@@ -1870,6 +2117,9 @@ export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
 }
 
 export namespace UnsupportedTLD {
+  export const filterSensitiveLog = (obj: UnsupportedTLD): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedTLD =>
     __isa(o, "UnsupportedTLD");
 }
@@ -1910,6 +2160,11 @@ export interface UpdateDomainContactPrivacyRequest {
 }
 
 export namespace UpdateDomainContactPrivacyRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateDomainContactPrivacyRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDomainContactPrivacyRequest =>
     __isa(o, "UpdateDomainContactPrivacyRequest");
 }
@@ -1926,6 +2181,11 @@ export interface UpdateDomainContactPrivacyResponse {
 }
 
 export namespace UpdateDomainContactPrivacyResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateDomainContactPrivacyResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDomainContactPrivacyResponse =>
     __isa(o, "UpdateDomainContactPrivacyResponse");
 }
@@ -1957,6 +2217,12 @@ export interface UpdateDomainContactRequest {
 }
 
 export namespace UpdateDomainContactRequest {
+  export const filterSensitiveLog = (obj: UpdateDomainContactRequest): any => ({
+    ...obj,
+    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+    ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UpdateDomainContactRequest =>
     __isa(o, "UpdateDomainContactRequest");
 }
@@ -1974,6 +2240,11 @@ export interface UpdateDomainContactResponse {
 }
 
 export namespace UpdateDomainContactResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateDomainContactResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDomainContactResponse =>
     __isa(o, "UpdateDomainContactResponse");
 }
@@ -2003,6 +2274,16 @@ export interface UpdateDomainNameserversRequest {
 }
 
 export namespace UpdateDomainNameserversRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateDomainNameserversRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Nameservers && {
+      Nameservers: obj.Nameservers.map(item =>
+        Nameserver.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateDomainNameserversRequest =>
     __isa(o, "UpdateDomainNameserversRequest");
 }
@@ -2020,6 +2301,11 @@ export interface UpdateDomainNameserversResponse {
 }
 
 export namespace UpdateDomainNameserversResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateDomainNameserversResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDomainNameserversResponse =>
     __isa(o, "UpdateDomainNameserversResponse");
 }
@@ -2042,6 +2328,12 @@ export interface UpdateTagsForDomainRequest {
 }
 
 export namespace UpdateTagsForDomainRequest {
+  export const filterSensitiveLog = (obj: UpdateTagsForDomainRequest): any => ({
+    ...obj,
+    ...(obj.TagsToUpdate && {
+      TagsToUpdate: obj.TagsToUpdate.map(item => Tag.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is UpdateTagsForDomainRequest =>
     __isa(o, "UpdateTagsForDomainRequest");
 }
@@ -2051,6 +2343,11 @@ export interface UpdateTagsForDomainResponse {
 }
 
 export namespace UpdateTagsForDomainResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateTagsForDomainResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateTagsForDomainResponse =>
     __isa(o, "UpdateTagsForDomainResponse");
 }
@@ -2091,6 +2388,9 @@ export interface ViewBillingRequest {
 }
 
 export namespace ViewBillingRequest {
+  export const filterSensitiveLog = (obj: ViewBillingRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ViewBillingRequest =>
     __isa(o, "ViewBillingRequest");
 }
@@ -2113,6 +2413,14 @@ export interface ViewBillingResponse {
 }
 
 export namespace ViewBillingResponse {
+  export const filterSensitiveLog = (obj: ViewBillingResponse): any => ({
+    ...obj,
+    ...(obj.BillingRecords && {
+      BillingRecords: obj.BillingRecords.map(item =>
+        BillingRecord.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ViewBillingResponse =>
     __isa(o, "ViewBillingResponse");
 }

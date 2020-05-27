@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,11 @@ export interface AccountLimitExceededException
 }
 
 export namespace AccountLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: AccountLimitExceededException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccountLimitExceededException =>
     __isa(o, "AccountLimitExceededException");
 }
@@ -51,6 +57,9 @@ export interface BatchDeleteBuildsInput {
 }
 
 export namespace BatchDeleteBuildsInput {
+  export const filterSensitiveLog = (obj: BatchDeleteBuildsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchDeleteBuildsInput =>
     __isa(o, "BatchDeleteBuildsInput");
 }
@@ -69,6 +78,14 @@ export interface BatchDeleteBuildsOutput {
 }
 
 export namespace BatchDeleteBuildsOutput {
+  export const filterSensitiveLog = (obj: BatchDeleteBuildsOutput): any => ({
+    ...obj,
+    ...(obj.buildsNotDeleted && {
+      buildsNotDeleted: obj.buildsNotDeleted.map(item =>
+        BuildNotDeleted.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchDeleteBuildsOutput =>
     __isa(o, "BatchDeleteBuildsOutput");
 }
@@ -82,6 +99,9 @@ export interface BatchGetBuildsInput {
 }
 
 export namespace BatchGetBuildsInput {
+  export const filterSensitiveLog = (obj: BatchGetBuildsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchGetBuildsInput =>
     __isa(o, "BatchGetBuildsInput");
 }
@@ -100,6 +120,12 @@ export interface BatchGetBuildsOutput {
 }
 
 export namespace BatchGetBuildsOutput {
+  export const filterSensitiveLog = (obj: BatchGetBuildsOutput): any => ({
+    ...obj,
+    ...(obj.builds && {
+      builds: obj.builds.map(item => Build.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is BatchGetBuildsOutput =>
     __isa(o, "BatchGetBuildsOutput");
 }
@@ -114,6 +140,9 @@ export interface BatchGetProjectsInput {
 }
 
 export namespace BatchGetProjectsInput {
+  export const filterSensitiveLog = (obj: BatchGetProjectsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchGetProjectsInput =>
     __isa(o, "BatchGetProjectsInput");
 }
@@ -132,6 +161,12 @@ export interface BatchGetProjectsOutput {
 }
 
 export namespace BatchGetProjectsOutput {
+  export const filterSensitiveLog = (obj: BatchGetProjectsOutput): any => ({
+    ...obj,
+    ...(obj.projects && {
+      projects: obj.projects.map(item => Project.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is BatchGetProjectsOutput =>
     __isa(o, "BatchGetProjectsOutput");
 }
@@ -147,6 +182,9 @@ export interface BatchGetReportGroupsInput {
 }
 
 export namespace BatchGetReportGroupsInput {
+  export const filterSensitiveLog = (obj: BatchGetReportGroupsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchGetReportGroupsInput =>
     __isa(o, "BatchGetReportGroupsInput");
 }
@@ -169,6 +207,14 @@ export interface BatchGetReportGroupsOutput {
 }
 
 export namespace BatchGetReportGroupsOutput {
+  export const filterSensitiveLog = (obj: BatchGetReportGroupsOutput): any => ({
+    ...obj,
+    ...(obj.reportGroups && {
+      reportGroups: obj.reportGroups.map(item =>
+        ReportGroup.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchGetReportGroupsOutput =>
     __isa(o, "BatchGetReportGroupsOutput");
 }
@@ -184,6 +230,9 @@ export interface BatchGetReportsInput {
 }
 
 export namespace BatchGetReportsInput {
+  export const filterSensitiveLog = (obj: BatchGetReportsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchGetReportsInput =>
     __isa(o, "BatchGetReportsInput");
 }
@@ -206,6 +255,12 @@ export interface BatchGetReportsOutput {
 }
 
 export namespace BatchGetReportsOutput {
+  export const filterSensitiveLog = (obj: BatchGetReportsOutput): any => ({
+    ...obj,
+    ...(obj.reports && {
+      reports: obj.reports.map(item => Report.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is BatchGetReportsOutput =>
     __isa(o, "BatchGetReportsOutput");
 }
@@ -464,6 +519,49 @@ export interface Build {
 }
 
 export namespace Build {
+  export const filterSensitiveLog = (obj: Build): any => ({
+    ...obj,
+    ...(obj.artifacts && {
+      artifacts: BuildArtifacts.filterSensitiveLog(obj.artifacts)
+    }),
+    ...(obj.cache && { cache: ProjectCache.filterSensitiveLog(obj.cache) }),
+    ...(obj.environment && {
+      environment: ProjectEnvironment.filterSensitiveLog(obj.environment)
+    }),
+    ...(obj.exportedEnvironmentVariables && {
+      exportedEnvironmentVariables: obj.exportedEnvironmentVariables.map(item =>
+        ExportedEnvironmentVariable.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.logs && { logs: LogsLocation.filterSensitiveLog(obj.logs) }),
+    ...(obj.networkInterface && {
+      networkInterface: NetworkInterface.filterSensitiveLog(
+        obj.networkInterface
+      )
+    }),
+    ...(obj.phases && {
+      phases: obj.phases.map(item => BuildPhase.filterSensitiveLog(item))
+    }),
+    ...(obj.secondaryArtifacts && {
+      secondaryArtifacts: obj.secondaryArtifacts.map(item =>
+        BuildArtifacts.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySourceVersions && {
+      secondarySourceVersions: obj.secondarySourceVersions.map(item =>
+        ProjectSourceVersion.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySources && {
+      secondarySources: obj.secondarySources.map(item =>
+        ProjectSource.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.source && { source: ProjectSource.filterSensitiveLog(obj.source) }),
+    ...(obj.vpcConfig && {
+      vpcConfig: VpcConfig.filterSensitiveLog(obj.vpcConfig)
+    })
+  });
   export const isa = (o: any): o is Build => __isa(o, "Build");
 }
 
@@ -519,6 +617,9 @@ export interface BuildArtifacts {
 }
 
 export namespace BuildArtifacts {
+  export const filterSensitiveLog = (obj: BuildArtifacts): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BuildArtifacts =>
     __isa(o, "BuildArtifacts");
 }
@@ -540,6 +641,9 @@ export interface BuildNotDeleted {
 }
 
 export namespace BuildNotDeleted {
+  export const filterSensitiveLog = (obj: BuildNotDeleted): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BuildNotDeleted =>
     __isa(o, "BuildNotDeleted");
 }
@@ -667,6 +771,12 @@ export interface BuildPhase {
 }
 
 export namespace BuildPhase {
+  export const filterSensitiveLog = (obj: BuildPhase): any => ({
+    ...obj,
+    ...(obj.contexts && {
+      contexts: obj.contexts.map(item => PhaseContext.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is BuildPhase => __isa(o, "BuildPhase");
 }
 
@@ -730,6 +840,9 @@ export interface CloudWatchLogsConfig {
 }
 
 export namespace CloudWatchLogsConfig {
+  export const filterSensitiveLog = (obj: CloudWatchLogsConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudWatchLogsConfig =>
     __isa(o, "CloudWatchLogsConfig");
 }
@@ -888,6 +1001,41 @@ export interface CreateProjectInput {
 }
 
 export namespace CreateProjectInput {
+  export const filterSensitiveLog = (obj: CreateProjectInput): any => ({
+    ...obj,
+    ...(obj.artifacts && {
+      artifacts: ProjectArtifacts.filterSensitiveLog(obj.artifacts)
+    }),
+    ...(obj.cache && { cache: ProjectCache.filterSensitiveLog(obj.cache) }),
+    ...(obj.environment && {
+      environment: ProjectEnvironment.filterSensitiveLog(obj.environment)
+    }),
+    ...(obj.logsConfig && {
+      logsConfig: LogsConfig.filterSensitiveLog(obj.logsConfig)
+    }),
+    ...(obj.secondaryArtifacts && {
+      secondaryArtifacts: obj.secondaryArtifacts.map(item =>
+        ProjectArtifacts.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySourceVersions && {
+      secondarySourceVersions: obj.secondarySourceVersions.map(item =>
+        ProjectSourceVersion.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySources && {
+      secondarySources: obj.secondarySources.map(item =>
+        ProjectSource.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.source && { source: ProjectSource.filterSensitiveLog(obj.source) }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
+    ...(obj.vpcConfig && {
+      vpcConfig: VpcConfig.filterSensitiveLog(obj.vpcConfig)
+    })
+  });
   export const isa = (o: any): o is CreateProjectInput =>
     __isa(o, "CreateProjectInput");
 }
@@ -901,6 +1049,10 @@ export interface CreateProjectOutput {
 }
 
 export namespace CreateProjectOutput {
+  export const filterSensitiveLog = (obj: CreateProjectOutput): any => ({
+    ...obj,
+    ...(obj.project && { project: Project.filterSensitiveLog(obj.project) })
+  });
   export const isa = (o: any): o is CreateProjectOutput =>
     __isa(o, "CreateProjectOutput");
 }
@@ -930,6 +1082,12 @@ export interface CreateReportGroupInput {
 }
 
 export namespace CreateReportGroupInput {
+  export const filterSensitiveLog = (obj: CreateReportGroupInput): any => ({
+    ...obj,
+    ...(obj.exportConfig && {
+      exportConfig: ReportExportConfig.filterSensitiveLog(obj.exportConfig)
+    })
+  });
   export const isa = (o: any): o is CreateReportGroupInput =>
     __isa(o, "CreateReportGroupInput");
 }
@@ -945,6 +1103,12 @@ export interface CreateReportGroupOutput {
 }
 
 export namespace CreateReportGroupOutput {
+  export const filterSensitiveLog = (obj: CreateReportGroupOutput): any => ({
+    ...obj,
+    ...(obj.reportGroup && {
+      reportGroup: ReportGroup.filterSensitiveLog(obj.reportGroup)
+    })
+  });
   export const isa = (o: any): o is CreateReportGroupOutput =>
     __isa(o, "CreateReportGroupOutput");
 }
@@ -983,6 +1147,14 @@ export interface CreateWebhookInput {
 }
 
 export namespace CreateWebhookInput {
+  export const filterSensitiveLog = (obj: CreateWebhookInput): any => ({
+    ...obj,
+    ...(obj.filterGroups && {
+      filterGroups: obj.filterGroups.map(item =>
+        item.map(item => WebhookFilter.filterSensitiveLog(item))
+      )
+    })
+  });
   export const isa = (o: any): o is CreateWebhookInput =>
     __isa(o, "CreateWebhookInput");
 }
@@ -997,6 +1169,10 @@ export interface CreateWebhookOutput {
 }
 
 export namespace CreateWebhookOutput {
+  export const filterSensitiveLog = (obj: CreateWebhookOutput): any => ({
+    ...obj,
+    ...(obj.webhook && { webhook: Webhook.filterSensitiveLog(obj.webhook) })
+  });
   export const isa = (o: any): o is CreateWebhookOutput =>
     __isa(o, "CreateWebhookOutput");
 }
@@ -1014,6 +1190,9 @@ export interface DeleteProjectInput {
 }
 
 export namespace DeleteProjectInput {
+  export const filterSensitiveLog = (obj: DeleteProjectInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteProjectInput =>
     __isa(o, "DeleteProjectInput");
 }
@@ -1023,6 +1202,9 @@ export interface DeleteProjectOutput {
 }
 
 export namespace DeleteProjectOutput {
+  export const filterSensitiveLog = (obj: DeleteProjectOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteProjectOutput =>
     __isa(o, "DeleteProjectOutput");
 }
@@ -1038,6 +1220,9 @@ export interface DeleteReportGroupInput {
 }
 
 export namespace DeleteReportGroupInput {
+  export const filterSensitiveLog = (obj: DeleteReportGroupInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteReportGroupInput =>
     __isa(o, "DeleteReportGroupInput");
 }
@@ -1047,6 +1232,9 @@ export interface DeleteReportGroupOutput {
 }
 
 export namespace DeleteReportGroupOutput {
+  export const filterSensitiveLog = (obj: DeleteReportGroupOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteReportGroupOutput =>
     __isa(o, "DeleteReportGroupOutput");
 }
@@ -1062,6 +1250,9 @@ export interface DeleteReportInput {
 }
 
 export namespace DeleteReportInput {
+  export const filterSensitiveLog = (obj: DeleteReportInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteReportInput =>
     __isa(o, "DeleteReportInput");
 }
@@ -1071,6 +1262,9 @@ export interface DeleteReportOutput {
 }
 
 export namespace DeleteReportOutput {
+  export const filterSensitiveLog = (obj: DeleteReportOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteReportOutput =>
     __isa(o, "DeleteReportOutput");
 }
@@ -1086,6 +1280,9 @@ export interface DeleteResourcePolicyInput {
 }
 
 export namespace DeleteResourcePolicyInput {
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteResourcePolicyInput =>
     __isa(o, "DeleteResourcePolicyInput");
 }
@@ -1095,6 +1292,9 @@ export interface DeleteResourcePolicyOutput {
 }
 
 export namespace DeleteResourcePolicyOutput {
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteResourcePolicyOutput =>
     __isa(o, "DeleteResourcePolicyOutput");
 }
@@ -1108,6 +1308,11 @@ export interface DeleteSourceCredentialsInput {
 }
 
 export namespace DeleteSourceCredentialsInput {
+  export const filterSensitiveLog = (
+    obj: DeleteSourceCredentialsInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSourceCredentialsInput =>
     __isa(o, "DeleteSourceCredentialsInput");
 }
@@ -1123,6 +1328,11 @@ export interface DeleteSourceCredentialsOutput {
 }
 
 export namespace DeleteSourceCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: DeleteSourceCredentialsOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSourceCredentialsOutput =>
     __isa(o, "DeleteSourceCredentialsOutput");
 }
@@ -1136,6 +1346,9 @@ export interface DeleteWebhookInput {
 }
 
 export namespace DeleteWebhookInput {
+  export const filterSensitiveLog = (obj: DeleteWebhookInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteWebhookInput =>
     __isa(o, "DeleteWebhookInput");
 }
@@ -1145,6 +1358,9 @@ export interface DeleteWebhookOutput {
 }
 
 export namespace DeleteWebhookOutput {
+  export const filterSensitiveLog = (obj: DeleteWebhookOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteWebhookOutput =>
     __isa(o, "DeleteWebhookOutput");
 }
@@ -1186,6 +1402,10 @@ export interface DescribeTestCasesInput {
 }
 
 export namespace DescribeTestCasesInput {
+  export const filterSensitiveLog = (obj: DescribeTestCasesInput): any => ({
+    ...obj,
+    ...(obj.filter && { filter: TestCaseFilter.filterSensitiveLog(obj.filter) })
+  });
   export const isa = (o: any): o is DescribeTestCasesInput =>
     __isa(o, "DescribeTestCasesInput");
 }
@@ -1212,6 +1432,12 @@ export interface DescribeTestCasesOutput {
 }
 
 export namespace DescribeTestCasesOutput {
+  export const filterSensitiveLog = (obj: DescribeTestCasesOutput): any => ({
+    ...obj,
+    ...(obj.testCases && {
+      testCases: obj.testCases.map(item => TestCase.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is DescribeTestCasesOutput =>
     __isa(o, "DescribeTestCasesOutput");
 }
@@ -1238,6 +1464,9 @@ export interface EnvironmentImage {
 }
 
 export namespace EnvironmentImage {
+  export const filterSensitiveLog = (obj: EnvironmentImage): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnvironmentImage =>
     __isa(o, "EnvironmentImage");
 }
@@ -1260,6 +1489,12 @@ export interface EnvironmentLanguage {
 }
 
 export namespace EnvironmentLanguage {
+  export const filterSensitiveLog = (obj: EnvironmentLanguage): any => ({
+    ...obj,
+    ...(obj.images && {
+      images: obj.images.map(item => EnvironmentImage.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is EnvironmentLanguage =>
     __isa(o, "EnvironmentLanguage");
 }
@@ -1281,6 +1516,14 @@ export interface EnvironmentPlatform {
 }
 
 export namespace EnvironmentPlatform {
+  export const filterSensitiveLog = (obj: EnvironmentPlatform): any => ({
+    ...obj,
+    ...(obj.languages && {
+      languages: obj.languages.map(item =>
+        EnvironmentLanguage.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is EnvironmentPlatform =>
     __isa(o, "EnvironmentPlatform");
 }
@@ -1334,6 +1577,9 @@ export interface EnvironmentVariable {
 }
 
 export namespace EnvironmentVariable {
+  export const filterSensitiveLog = (obj: EnvironmentVariable): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnvironmentVariable =>
     __isa(o, "EnvironmentVariable");
 }
@@ -1374,6 +1620,11 @@ export interface ExportedEnvironmentVariable {
 }
 
 export namespace ExportedEnvironmentVariable {
+  export const filterSensitiveLog = (
+    obj: ExportedEnvironmentVariable
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExportedEnvironmentVariable =>
     __isa(o, "ExportedEnvironmentVariable");
 }
@@ -1389,6 +1640,9 @@ export interface GetResourcePolicyInput {
 }
 
 export namespace GetResourcePolicyInput {
+  export const filterSensitiveLog = (obj: GetResourcePolicyInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetResourcePolicyInput =>
     __isa(o, "GetResourcePolicyInput");
 }
@@ -1404,6 +1658,9 @@ export interface GetResourcePolicyOutput {
 }
 
 export namespace GetResourcePolicyOutput {
+  export const filterSensitiveLog = (obj: GetResourcePolicyOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetResourcePolicyOutput =>
     __isa(o, "GetResourcePolicyOutput");
 }
@@ -1424,6 +1681,9 @@ export interface GitSubmodulesConfig {
 }
 
 export namespace GitSubmodulesConfig {
+  export const filterSensitiveLog = (obj: GitSubmodulesConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GitSubmodulesConfig =>
     __isa(o, "GitSubmodulesConfig");
 }
@@ -1475,6 +1735,12 @@ export interface ImportSourceCredentialsInput {
 }
 
 export namespace ImportSourceCredentialsInput {
+  export const filterSensitiveLog = (
+    obj: ImportSourceCredentialsInput
+  ): any => ({
+    ...obj,
+    ...(obj.token && { token: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ImportSourceCredentialsInput =>
     __isa(o, "ImportSourceCredentialsInput");
 }
@@ -1490,6 +1756,11 @@ export interface ImportSourceCredentialsOutput {
 }
 
 export namespace ImportSourceCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: ImportSourceCredentialsOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImportSourceCredentialsOutput =>
     __isa(o, "ImportSourceCredentialsOutput");
 }
@@ -1506,6 +1777,9 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInputException =>
     __isa(o, "InvalidInputException");
 }
@@ -1519,6 +1793,11 @@ export interface InvalidateProjectCacheInput {
 }
 
 export namespace InvalidateProjectCacheInput {
+  export const filterSensitiveLog = (
+    obj: InvalidateProjectCacheInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidateProjectCacheInput =>
     __isa(o, "InvalidateProjectCacheInput");
 }
@@ -1528,6 +1807,11 @@ export interface InvalidateProjectCacheOutput {
 }
 
 export namespace InvalidateProjectCacheOutput {
+  export const filterSensitiveLog = (
+    obj: InvalidateProjectCacheOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidateProjectCacheOutput =>
     __isa(o, "InvalidateProjectCacheOutput");
 }
@@ -1579,6 +1863,9 @@ export interface ListBuildsForProjectInput {
 }
 
 export namespace ListBuildsForProjectInput {
+  export const filterSensitiveLog = (obj: ListBuildsForProjectInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListBuildsForProjectInput =>
     __isa(o, "ListBuildsForProjectInput");
 }
@@ -1600,6 +1887,9 @@ export interface ListBuildsForProjectOutput {
 }
 
 export namespace ListBuildsForProjectOutput {
+  export const filterSensitiveLog = (obj: ListBuildsForProjectOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListBuildsForProjectOutput =>
     __isa(o, "ListBuildsForProjectOutput");
 }
@@ -1633,6 +1923,9 @@ export interface ListBuildsInput {
 }
 
 export namespace ListBuildsInput {
+  export const filterSensitiveLog = (obj: ListBuildsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListBuildsInput =>
     __isa(o, "ListBuildsInput");
 }
@@ -1653,6 +1946,9 @@ export interface ListBuildsOutput {
 }
 
 export namespace ListBuildsOutput {
+  export const filterSensitiveLog = (obj: ListBuildsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListBuildsOutput =>
     __isa(o, "ListBuildsOutput");
 }
@@ -1662,6 +1958,11 @@ export interface ListCuratedEnvironmentImagesInput {
 }
 
 export namespace ListCuratedEnvironmentImagesInput {
+  export const filterSensitiveLog = (
+    obj: ListCuratedEnvironmentImagesInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListCuratedEnvironmentImagesInput =>
     __isa(o, "ListCuratedEnvironmentImagesInput");
 }
@@ -1676,6 +1977,16 @@ export interface ListCuratedEnvironmentImagesOutput {
 }
 
 export namespace ListCuratedEnvironmentImagesOutput {
+  export const filterSensitiveLog = (
+    obj: ListCuratedEnvironmentImagesOutput
+  ): any => ({
+    ...obj,
+    ...(obj.platforms && {
+      platforms: obj.platforms.map(item =>
+        EnvironmentPlatform.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListCuratedEnvironmentImagesOutput =>
     __isa(o, "ListCuratedEnvironmentImagesOutput");
 }
@@ -1733,6 +2044,9 @@ export interface ListProjectsInput {
 }
 
 export namespace ListProjectsInput {
+  export const filterSensitiveLog = (obj: ListProjectsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListProjectsInput =>
     __isa(o, "ListProjectsInput");
 }
@@ -1754,6 +2068,9 @@ export interface ListProjectsOutput {
 }
 
 export namespace ListProjectsOutput {
+  export const filterSensitiveLog = (obj: ListProjectsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListProjectsOutput =>
     __isa(o, "ListProjectsOutput");
 }
@@ -1811,6 +2128,9 @@ export interface ListReportGroupsInput {
 }
 
 export namespace ListReportGroupsInput {
+  export const filterSensitiveLog = (obj: ListReportGroupsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListReportGroupsInput =>
     __isa(o, "ListReportGroupsInput");
 }
@@ -1837,6 +2157,9 @@ export interface ListReportGroupsOutput {
 }
 
 export namespace ListReportGroupsOutput {
+  export const filterSensitiveLog = (obj: ListReportGroupsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListReportGroupsOutput =>
     __isa(o, "ListReportGroupsOutput");
 }
@@ -1885,6 +2208,12 @@ export interface ListReportsForReportGroupInput {
 }
 
 export namespace ListReportsForReportGroupInput {
+  export const filterSensitiveLog = (
+    obj: ListReportsForReportGroupInput
+  ): any => ({
+    ...obj,
+    ...(obj.filter && { filter: ReportFilter.filterSensitiveLog(obj.filter) })
+  });
   export const isa = (o: any): o is ListReportsForReportGroupInput =>
     __isa(o, "ListReportsForReportGroupInput");
 }
@@ -1911,6 +2240,11 @@ export interface ListReportsForReportGroupOutput {
 }
 
 export namespace ListReportsForReportGroupOutput {
+  export const filterSensitiveLog = (
+    obj: ListReportsForReportGroupOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListReportsForReportGroupOutput =>
     __isa(o, "ListReportsForReportGroupOutput");
 }
@@ -1964,6 +2298,10 @@ export interface ListReportsInput {
 }
 
 export namespace ListReportsInput {
+  export const filterSensitiveLog = (obj: ListReportsInput): any => ({
+    ...obj,
+    ...(obj.filter && { filter: ReportFilter.filterSensitiveLog(obj.filter) })
+  });
   export const isa = (o: any): o is ListReportsInput =>
     __isa(o, "ListReportsInput");
 }
@@ -1990,6 +2328,9 @@ export interface ListReportsOutput {
 }
 
 export namespace ListReportsOutput {
+  export const filterSensitiveLog = (obj: ListReportsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListReportsOutput =>
     __isa(o, "ListReportsOutput");
 }
@@ -2054,6 +2395,9 @@ export interface ListSharedProjectsInput {
 }
 
 export namespace ListSharedProjectsInput {
+  export const filterSensitiveLog = (obj: ListSharedProjectsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSharedProjectsInput =>
     __isa(o, "ListSharedProjectsInput");
 }
@@ -2080,6 +2424,9 @@ export interface ListSharedProjectsOutput {
 }
 
 export namespace ListSharedProjectsOutput {
+  export const filterSensitiveLog = (obj: ListSharedProjectsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSharedProjectsOutput =>
     __isa(o, "ListSharedProjectsOutput");
 }
@@ -2144,6 +2491,11 @@ export interface ListSharedReportGroupsInput {
 }
 
 export namespace ListSharedReportGroupsInput {
+  export const filterSensitiveLog = (
+    obj: ListSharedReportGroupsInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSharedReportGroupsInput =>
     __isa(o, "ListSharedReportGroupsInput");
 }
@@ -2170,6 +2522,11 @@ export interface ListSharedReportGroupsOutput {
 }
 
 export namespace ListSharedReportGroupsOutput {
+  export const filterSensitiveLog = (
+    obj: ListSharedReportGroupsOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSharedReportGroupsOutput =>
     __isa(o, "ListSharedReportGroupsOutput");
 }
@@ -2179,6 +2536,9 @@ export interface ListSourceCredentialsInput {
 }
 
 export namespace ListSourceCredentialsInput {
+  export const filterSensitiveLog = (obj: ListSourceCredentialsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSourceCredentialsInput =>
     __isa(o, "ListSourceCredentialsInput");
 }
@@ -2195,6 +2555,16 @@ export interface ListSourceCredentialsOutput {
 }
 
 export namespace ListSourceCredentialsOutput {
+  export const filterSensitiveLog = (
+    obj: ListSourceCredentialsOutput
+  ): any => ({
+    ...obj,
+    ...(obj.sourceCredentialsInfos && {
+      sourceCredentialsInfos: obj.sourceCredentialsInfos.map(item =>
+        SourceCredentialsInfo.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListSourceCredentialsOutput =>
     __isa(o, "ListSourceCredentialsOutput");
 }
@@ -2218,6 +2588,15 @@ export interface LogsConfig {
 }
 
 export namespace LogsConfig {
+  export const filterSensitiveLog = (obj: LogsConfig): any => ({
+    ...obj,
+    ...(obj.cloudWatchLogs && {
+      cloudWatchLogs: CloudWatchLogsConfig.filterSensitiveLog(
+        obj.cloudWatchLogs
+      )
+    }),
+    ...(obj.s3Logs && { s3Logs: S3LogsConfig.filterSensitiveLog(obj.s3Logs) })
+  });
   export const isa = (o: any): o is LogsConfig => __isa(o, "LogsConfig");
 }
 
@@ -2281,6 +2660,15 @@ export interface LogsLocation {
 }
 
 export namespace LogsLocation {
+  export const filterSensitiveLog = (obj: LogsLocation): any => ({
+    ...obj,
+    ...(obj.cloudWatchLogs && {
+      cloudWatchLogs: CloudWatchLogsConfig.filterSensitiveLog(
+        obj.cloudWatchLogs
+      )
+    }),
+    ...(obj.s3Logs && { s3Logs: S3LogsConfig.filterSensitiveLog(obj.s3Logs) })
+  });
   export const isa = (o: any): o is LogsLocation => __isa(o, "LogsLocation");
 }
 
@@ -2301,6 +2689,9 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
+  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NetworkInterface =>
     __isa(o, "NetworkInterface");
 }
@@ -2317,6 +2708,9 @@ export interface OAuthProviderException
 }
 
 export namespace OAuthProviderException {
+  export const filterSensitiveLog = (obj: OAuthProviderException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OAuthProviderException =>
     __isa(o, "OAuthProviderException");
 }
@@ -2340,6 +2734,9 @@ export interface PhaseContext {
 }
 
 export namespace PhaseContext {
+  export const filterSensitiveLog = (obj: PhaseContext): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PhaseContext => __isa(o, "PhaseContext");
 }
 
@@ -2518,6 +2915,43 @@ export interface Project {
 }
 
 export namespace Project {
+  export const filterSensitiveLog = (obj: Project): any => ({
+    ...obj,
+    ...(obj.artifacts && {
+      artifacts: ProjectArtifacts.filterSensitiveLog(obj.artifacts)
+    }),
+    ...(obj.badge && { badge: ProjectBadge.filterSensitiveLog(obj.badge) }),
+    ...(obj.cache && { cache: ProjectCache.filterSensitiveLog(obj.cache) }),
+    ...(obj.environment && {
+      environment: ProjectEnvironment.filterSensitiveLog(obj.environment)
+    }),
+    ...(obj.logsConfig && {
+      logsConfig: LogsConfig.filterSensitiveLog(obj.logsConfig)
+    }),
+    ...(obj.secondaryArtifacts && {
+      secondaryArtifacts: obj.secondaryArtifacts.map(item =>
+        ProjectArtifacts.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySourceVersions && {
+      secondarySourceVersions: obj.secondarySourceVersions.map(item =>
+        ProjectSourceVersion.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySources && {
+      secondarySources: obj.secondarySources.map(item =>
+        ProjectSource.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.source && { source: ProjectSource.filterSensitiveLog(obj.source) }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
+    ...(obj.vpcConfig && {
+      vpcConfig: VpcConfig.filterSensitiveLog(obj.vpcConfig)
+    }),
+    ...(obj.webhook && { webhook: Webhook.filterSensitiveLog(obj.webhook) })
+  });
   export const isa = (o: any): o is Project => __isa(o, "Project");
 }
 
@@ -2729,6 +3163,9 @@ export interface ProjectArtifacts {
 }
 
 export namespace ProjectArtifacts {
+  export const filterSensitiveLog = (obj: ProjectArtifacts): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProjectArtifacts =>
     __isa(o, "ProjectArtifacts");
 }
@@ -2754,6 +3191,9 @@ export interface ProjectBadge {
 }
 
 export namespace ProjectBadge {
+  export const filterSensitiveLog = (obj: ProjectBadge): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProjectBadge => __isa(o, "ProjectBadge");
 }
 
@@ -2875,6 +3315,9 @@ export interface ProjectCache {
 }
 
 export namespace ProjectCache {
+  export const filterSensitiveLog = (obj: ProjectCache): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProjectCache => __isa(o, "ProjectCache");
 }
 
@@ -3045,6 +3488,19 @@ export interface ProjectEnvironment {
 }
 
 export namespace ProjectEnvironment {
+  export const filterSensitiveLog = (obj: ProjectEnvironment): any => ({
+    ...obj,
+    ...(obj.environmentVariables && {
+      environmentVariables: obj.environmentVariables.map(item =>
+        EnvironmentVariable.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.registryCredential && {
+      registryCredential: RegistryCredential.filterSensitiveLog(
+        obj.registryCredential
+      )
+    })
+  });
   export const isa = (o: any): o is ProjectEnvironment =>
     __isa(o, "ProjectEnvironment");
 }
@@ -3211,6 +3667,15 @@ export interface ProjectSource {
 }
 
 export namespace ProjectSource {
+  export const filterSensitiveLog = (obj: ProjectSource): any => ({
+    ...obj,
+    ...(obj.auth && { auth: SourceAuth.filterSensitiveLog(obj.auth) }),
+    ...(obj.gitSubmodulesConfig && {
+      gitSubmodulesConfig: GitSubmodulesConfig.filterSensitiveLog(
+        obj.gitSubmodulesConfig
+      )
+    })
+  });
   export const isa = (o: any): o is ProjectSource => __isa(o, "ProjectSource");
 }
 
@@ -3261,6 +3726,9 @@ export interface ProjectSourceVersion {
 }
 
 export namespace ProjectSourceVersion {
+  export const filterSensitiveLog = (obj: ProjectSourceVersion): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProjectSourceVersion =>
     __isa(o, "ProjectSourceVersion");
 }
@@ -3287,6 +3755,9 @@ export interface PutResourcePolicyInput {
 }
 
 export namespace PutResourcePolicyInput {
+  export const filterSensitiveLog = (obj: PutResourcePolicyInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutResourcePolicyInput =>
     __isa(o, "PutResourcePolicyInput");
 }
@@ -3303,6 +3774,9 @@ export interface PutResourcePolicyOutput {
 }
 
 export namespace PutResourcePolicyOutput {
+  export const filterSensitiveLog = (obj: PutResourcePolicyOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutResourcePolicyOutput =>
     __isa(o, "PutResourcePolicyOutput");
 }
@@ -3352,6 +3826,9 @@ export interface RegistryCredential {
 }
 
 export namespace RegistryCredential {
+  export const filterSensitiveLog = (obj: RegistryCredential): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegistryCredential =>
     __isa(o, "RegistryCredential");
 }
@@ -3442,6 +3919,15 @@ export interface Report {
 }
 
 export namespace Report {
+  export const filterSensitiveLog = (obj: Report): any => ({
+    ...obj,
+    ...(obj.exportConfig && {
+      exportConfig: ReportExportConfig.filterSensitiveLog(obj.exportConfig)
+    }),
+    ...(obj.testSummary && {
+      testSummary: TestReportSummary.filterSensitiveLog(obj.testSummary)
+    })
+  });
   export const isa = (o: any): o is Report => __isa(o, "Report");
 }
 
@@ -3480,6 +3966,12 @@ export interface ReportExportConfig {
 }
 
 export namespace ReportExportConfig {
+  export const filterSensitiveLog = (obj: ReportExportConfig): any => ({
+    ...obj,
+    ...(obj.s3Destination && {
+      s3Destination: S3ReportExportConfig.filterSensitiveLog(obj.s3Destination)
+    })
+  });
   export const isa = (o: any): o is ReportExportConfig =>
     __isa(o, "ReportExportConfig");
 }
@@ -3505,6 +3997,9 @@ export interface ReportFilter {
 }
 
 export namespace ReportFilter {
+  export const filterSensitiveLog = (obj: ReportFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReportFilter => __isa(o, "ReportFilter");
 }
 
@@ -3560,6 +4055,12 @@ export interface ReportGroup {
 }
 
 export namespace ReportGroup {
+  export const filterSensitiveLog = (obj: ReportGroup): any => ({
+    ...obj,
+    ...(obj.exportConfig && {
+      exportConfig: ReportExportConfig.filterSensitiveLog(obj.exportConfig)
+    })
+  });
   export const isa = (o: any): o is ReportGroup => __isa(o, "ReportGroup");
 }
 
@@ -3599,6 +4100,11 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
     __isa(o, "ResourceAlreadyExistsException");
 }
@@ -3615,6 +4121,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -3657,6 +4166,9 @@ export interface S3LogsConfig {
 }
 
 export namespace S3LogsConfig {
+  export const filterSensitiveLog = (obj: S3LogsConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3LogsConfig => __isa(o, "S3LogsConfig");
 }
 
@@ -3714,6 +4226,9 @@ export interface S3ReportExportConfig {
 }
 
 export namespace S3ReportExportConfig {
+  export const filterSensitiveLog = (obj: S3ReportExportConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3ReportExportConfig =>
     __isa(o, "S3ReportExportConfig");
 }
@@ -3760,6 +4275,9 @@ export interface SourceAuth {
 }
 
 export namespace SourceAuth {
+  export const filterSensitiveLog = (obj: SourceAuth): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SourceAuth => __isa(o, "SourceAuth");
 }
 
@@ -3798,6 +4316,9 @@ export interface SourceCredentialsInfo {
 }
 
 export namespace SourceCredentialsInfo {
+  export const filterSensitiveLog = (obj: SourceCredentialsInfo): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SourceCredentialsInfo =>
     __isa(o, "SourceCredentialsInfo");
 }
@@ -4051,6 +4572,53 @@ export interface StartBuildInput {
 }
 
 export namespace StartBuildInput {
+  export const filterSensitiveLog = (obj: StartBuildInput): any => ({
+    ...obj,
+    ...(obj.artifactsOverride && {
+      artifactsOverride: ProjectArtifacts.filterSensitiveLog(
+        obj.artifactsOverride
+      )
+    }),
+    ...(obj.cacheOverride && {
+      cacheOverride: ProjectCache.filterSensitiveLog(obj.cacheOverride)
+    }),
+    ...(obj.environmentVariablesOverride && {
+      environmentVariablesOverride: obj.environmentVariablesOverride.map(item =>
+        EnvironmentVariable.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.gitSubmodulesConfigOverride && {
+      gitSubmodulesConfigOverride: GitSubmodulesConfig.filterSensitiveLog(
+        obj.gitSubmodulesConfigOverride
+      )
+    }),
+    ...(obj.logsConfigOverride && {
+      logsConfigOverride: LogsConfig.filterSensitiveLog(obj.logsConfigOverride)
+    }),
+    ...(obj.registryCredentialOverride && {
+      registryCredentialOverride: RegistryCredential.filterSensitiveLog(
+        obj.registryCredentialOverride
+      )
+    }),
+    ...(obj.secondaryArtifactsOverride && {
+      secondaryArtifactsOverride: obj.secondaryArtifactsOverride.map(item =>
+        ProjectArtifacts.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySourcesOverride && {
+      secondarySourcesOverride: obj.secondarySourcesOverride.map(item =>
+        ProjectSource.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySourcesVersionOverride && {
+      secondarySourcesVersionOverride: obj.secondarySourcesVersionOverride.map(
+        item => ProjectSourceVersion.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.sourceAuthOverride && {
+      sourceAuthOverride: SourceAuth.filterSensitiveLog(obj.sourceAuthOverride)
+    })
+  });
   export const isa = (o: any): o is StartBuildInput =>
     __isa(o, "StartBuildInput");
 }
@@ -4064,6 +4632,10 @@ export interface StartBuildOutput {
 }
 
 export namespace StartBuildOutput {
+  export const filterSensitiveLog = (obj: StartBuildOutput): any => ({
+    ...obj,
+    ...(obj.build && { build: Build.filterSensitiveLog(obj.build) })
+  });
   export const isa = (o: any): o is StartBuildOutput =>
     __isa(o, "StartBuildOutput");
 }
@@ -4086,6 +4658,9 @@ export interface StopBuildInput {
 }
 
 export namespace StopBuildInput {
+  export const filterSensitiveLog = (obj: StopBuildInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopBuildInput =>
     __isa(o, "StopBuildInput");
 }
@@ -4099,6 +4674,10 @@ export interface StopBuildOutput {
 }
 
 export namespace StopBuildOutput {
+  export const filterSensitiveLog = (obj: StopBuildOutput): any => ({
+    ...obj,
+    ...(obj.build && { build: Build.filterSensitiveLog(obj.build) })
+  });
   export const isa = (o: any): o is StopBuildOutput =>
     __isa(o, "StopBuildOutput");
 }
@@ -4121,6 +4700,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -4191,6 +4773,9 @@ export interface TestCase {
 }
 
 export namespace TestCase {
+  export const filterSensitiveLog = (obj: TestCase): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TestCase => __isa(o, "TestCase");
 }
 
@@ -4212,6 +4797,9 @@ export interface TestCaseFilter {
 }
 
 export namespace TestCaseFilter {
+  export const filterSensitiveLog = (obj: TestCaseFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TestCaseFilter =>
     __isa(o, "TestCaseFilter");
 }
@@ -4246,6 +4834,9 @@ export interface TestReportSummary {
 }
 
 export namespace TestReportSummary {
+  export const filterSensitiveLog = (obj: TestReportSummary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TestReportSummary =>
     __isa(o, "TestReportSummary");
 }
@@ -4401,6 +4992,41 @@ export interface UpdateProjectInput {
 }
 
 export namespace UpdateProjectInput {
+  export const filterSensitiveLog = (obj: UpdateProjectInput): any => ({
+    ...obj,
+    ...(obj.artifacts && {
+      artifacts: ProjectArtifacts.filterSensitiveLog(obj.artifacts)
+    }),
+    ...(obj.cache && { cache: ProjectCache.filterSensitiveLog(obj.cache) }),
+    ...(obj.environment && {
+      environment: ProjectEnvironment.filterSensitiveLog(obj.environment)
+    }),
+    ...(obj.logsConfig && {
+      logsConfig: LogsConfig.filterSensitiveLog(obj.logsConfig)
+    }),
+    ...(obj.secondaryArtifacts && {
+      secondaryArtifacts: obj.secondaryArtifacts.map(item =>
+        ProjectArtifacts.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySourceVersions && {
+      secondarySourceVersions: obj.secondarySourceVersions.map(item =>
+        ProjectSourceVersion.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.secondarySources && {
+      secondarySources: obj.secondarySources.map(item =>
+        ProjectSource.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.source && { source: ProjectSource.filterSensitiveLog(obj.source) }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
+    }),
+    ...(obj.vpcConfig && {
+      vpcConfig: VpcConfig.filterSensitiveLog(obj.vpcConfig)
+    })
+  });
   export const isa = (o: any): o is UpdateProjectInput =>
     __isa(o, "UpdateProjectInput");
 }
@@ -4414,6 +5040,10 @@ export interface UpdateProjectOutput {
 }
 
 export namespace UpdateProjectOutput {
+  export const filterSensitiveLog = (obj: UpdateProjectOutput): any => ({
+    ...obj,
+    ...(obj.project && { project: Project.filterSensitiveLog(obj.project) })
+  });
   export const isa = (o: any): o is UpdateProjectOutput =>
     __isa(o, "UpdateProjectOutput");
 }
@@ -4448,6 +5078,12 @@ export interface UpdateReportGroupInput {
 }
 
 export namespace UpdateReportGroupInput {
+  export const filterSensitiveLog = (obj: UpdateReportGroupInput): any => ({
+    ...obj,
+    ...(obj.exportConfig && {
+      exportConfig: ReportExportConfig.filterSensitiveLog(obj.exportConfig)
+    })
+  });
   export const isa = (o: any): o is UpdateReportGroupInput =>
     __isa(o, "UpdateReportGroupInput");
 }
@@ -4463,6 +5099,12 @@ export interface UpdateReportGroupOutput {
 }
 
 export namespace UpdateReportGroupOutput {
+  export const filterSensitiveLog = (obj: UpdateReportGroupOutput): any => ({
+    ...obj,
+    ...(obj.reportGroup && {
+      reportGroup: ReportGroup.filterSensitiveLog(obj.reportGroup)
+    })
+  });
   export const isa = (o: any): o is UpdateReportGroupOutput =>
     __isa(o, "UpdateReportGroupOutput");
 }
@@ -4504,6 +5146,14 @@ export interface UpdateWebhookInput {
 }
 
 export namespace UpdateWebhookInput {
+  export const filterSensitiveLog = (obj: UpdateWebhookInput): any => ({
+    ...obj,
+    ...(obj.filterGroups && {
+      filterGroups: obj.filterGroups.map(item =>
+        item.map(item => WebhookFilter.filterSensitiveLog(item))
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateWebhookInput =>
     __isa(o, "UpdateWebhookInput");
 }
@@ -4518,6 +5168,10 @@ export interface UpdateWebhookOutput {
 }
 
 export namespace UpdateWebhookOutput {
+  export const filterSensitiveLog = (obj: UpdateWebhookOutput): any => ({
+    ...obj,
+    ...(obj.webhook && { webhook: Webhook.filterSensitiveLog(obj.webhook) })
+  });
   export const isa = (o: any): o is UpdateWebhookOutput =>
     __isa(o, "UpdateWebhookOutput");
 }
@@ -4544,6 +5198,9 @@ export interface VpcConfig {
 }
 
 export namespace VpcConfig {
+  export const filterSensitiveLog = (obj: VpcConfig): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }
 
@@ -4604,6 +5261,14 @@ export interface Webhook {
 }
 
 export namespace Webhook {
+  export const filterSensitiveLog = (obj: Webhook): any => ({
+    ...obj,
+    ...(obj.filterGroups && {
+      filterGroups: obj.filterGroups.map(item =>
+        item.map(item => WebhookFilter.filterSensitiveLog(item))
+      )
+    })
+  });
   export const isa = (o: any): o is Webhook => __isa(o, "Webhook");
 }
 
@@ -4716,6 +5381,9 @@ export interface WebhookFilter {
 }
 
 export namespace WebhookFilter {
+  export const filterSensitiveLog = (obj: WebhookFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is WebhookFilter => __isa(o, "WebhookFilter");
 }
 

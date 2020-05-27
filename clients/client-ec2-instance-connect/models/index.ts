@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -14,6 +15,9 @@ export interface AuthException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace AuthException {
+  export const filterSensitiveLog = (obj: AuthException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AuthException => __isa(o, "AuthException");
 }
 
@@ -29,6 +33,11 @@ export interface EC2InstanceNotFoundException
 }
 
 export namespace EC2InstanceNotFoundException {
+  export const filterSensitiveLog = (
+    obj: EC2InstanceNotFoundException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EC2InstanceNotFoundException =>
     __isa(o, "EC2InstanceNotFoundException");
 }
@@ -45,6 +54,9 @@ export interface InvalidArgsException
 }
 
 export namespace InvalidArgsException {
+  export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidArgsException =>
     __isa(o, "InvalidArgsException");
 }
@@ -73,6 +85,9 @@ export interface SendSSHPublicKeyRequest {
 }
 
 export namespace SendSSHPublicKeyRequest {
+  export const filterSensitiveLog = (obj: SendSSHPublicKeyRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendSSHPublicKeyRequest =>
     __isa(o, "SendSSHPublicKeyRequest");
 }
@@ -91,6 +106,9 @@ export interface SendSSHPublicKeyResponse {
 }
 
 export namespace SendSSHPublicKeyResponse {
+  export const filterSensitiveLog = (obj: SendSSHPublicKeyResponse): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendSSHPublicKeyResponse =>
     __isa(o, "SendSSHPublicKeyResponse");
 }
@@ -105,6 +123,9 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
+  export const filterSensitiveLog = (obj: ServiceException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceException =>
     __isa(o, "ServiceException");
 }
@@ -121,6 +142,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }

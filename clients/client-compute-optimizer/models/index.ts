@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -47,6 +51,11 @@ export interface AutoScalingGroupConfiguration {
 }
 
 export namespace AutoScalingGroupConfiguration {
+  export const filterSensitiveLog = (
+    obj: AutoScalingGroupConfiguration
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AutoScalingGroupConfiguration =>
     __isa(o, "AutoScalingGroupConfiguration");
 }
@@ -130,6 +139,26 @@ export interface AutoScalingGroupRecommendation {
 }
 
 export namespace AutoScalingGroupRecommendation {
+  export const filterSensitiveLog = (
+    obj: AutoScalingGroupRecommendation
+  ): any => ({
+    ...obj,
+    ...(obj.currentConfiguration && {
+      currentConfiguration: AutoScalingGroupConfiguration.filterSensitiveLog(
+        obj.currentConfiguration
+      )
+    }),
+    ...(obj.recommendationOptions && {
+      recommendationOptions: obj.recommendationOptions.map(item =>
+        AutoScalingGroupRecommendationOption.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.utilizationMetrics && {
+      utilizationMetrics: obj.utilizationMetrics.map(item =>
+        UtilizationMetric.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AutoScalingGroupRecommendation =>
     __isa(o, "AutoScalingGroupRecommendation");
 }
@@ -167,6 +196,21 @@ export interface AutoScalingGroupRecommendationOption {
 }
 
 export namespace AutoScalingGroupRecommendationOption {
+  export const filterSensitiveLog = (
+    obj: AutoScalingGroupRecommendationOption
+  ): any => ({
+    ...obj,
+    ...(obj.configuration && {
+      configuration: AutoScalingGroupConfiguration.filterSensitiveLog(
+        obj.configuration
+      )
+    }),
+    ...(obj.projectedUtilizationMetrics && {
+      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(item =>
+        UtilizationMetric.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AutoScalingGroupRecommendationOption =>
     __isa(o, "AutoScalingGroupRecommendationOption");
 }
@@ -202,6 +246,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
@@ -251,6 +298,14 @@ export interface GetAutoScalingGroupRecommendationsRequest {
 }
 
 export namespace GetAutoScalingGroupRecommendationsRequest {
+  export const filterSensitiveLog = (
+    obj: GetAutoScalingGroupRecommendationsRequest
+  ): any => ({
+    ...obj,
+    ...(obj.filters && {
+      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is GetAutoScalingGroupRecommendationsRequest =>
     __isa(o, "GetAutoScalingGroupRecommendationsRequest");
 }
@@ -278,6 +333,21 @@ export interface GetAutoScalingGroupRecommendationsResponse {
 }
 
 export namespace GetAutoScalingGroupRecommendationsResponse {
+  export const filterSensitiveLog = (
+    obj: GetAutoScalingGroupRecommendationsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.autoScalingGroupRecommendations && {
+      autoScalingGroupRecommendations: obj.autoScalingGroupRecommendations.map(
+        item => AutoScalingGroupRecommendation.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.errors && {
+      errors: obj.errors.map(item =>
+        GetRecommendationError.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is GetAutoScalingGroupRecommendationsResponse =>
@@ -318,6 +388,14 @@ export interface GetEC2InstanceRecommendationsRequest {
 }
 
 export namespace GetEC2InstanceRecommendationsRequest {
+  export const filterSensitiveLog = (
+    obj: GetEC2InstanceRecommendationsRequest
+  ): any => ({
+    ...obj,
+    ...(obj.filters && {
+      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is GetEC2InstanceRecommendationsRequest =>
     __isa(o, "GetEC2InstanceRecommendationsRequest");
 }
@@ -345,6 +423,21 @@ export interface GetEC2InstanceRecommendationsResponse {
 }
 
 export namespace GetEC2InstanceRecommendationsResponse {
+  export const filterSensitiveLog = (
+    obj: GetEC2InstanceRecommendationsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.errors && {
+      errors: obj.errors.map(item =>
+        GetRecommendationError.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.instanceRecommendations && {
+      instanceRecommendations: obj.instanceRecommendations.map(item =>
+        InstanceRecommendation.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetEC2InstanceRecommendationsResponse =>
     __isa(o, "GetEC2InstanceRecommendationsResponse");
 }
@@ -379,6 +472,11 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsRequest {
+  export const filterSensitiveLog = (
+    obj: GetEC2RecommendationProjectedMetricsRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is GetEC2RecommendationProjectedMetricsRequest =>
@@ -394,6 +492,16 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsResponse {
+  export const filterSensitiveLog = (
+    obj: GetEC2RecommendationProjectedMetricsResponse
+  ): any => ({
+    ...obj,
+    ...(obj.recommendedOptionProjectedMetrics && {
+      recommendedOptionProjectedMetrics: obj.recommendedOptionProjectedMetrics.map(
+        item => RecommendedOptionProjectedMetric.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is GetEC2RecommendationProjectedMetricsResponse =>
@@ -405,6 +513,9 @@ export interface GetEnrollmentStatusRequest {
 }
 
 export namespace GetEnrollmentStatusRequest {
+  export const filterSensitiveLog = (obj: GetEnrollmentStatusRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetEnrollmentStatusRequest =>
     __isa(o, "GetEnrollmentStatusRequest");
 }
@@ -431,6 +542,11 @@ export interface GetEnrollmentStatusResponse {
 }
 
 export namespace GetEnrollmentStatusResponse {
+  export const filterSensitiveLog = (
+    obj: GetEnrollmentStatusResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetEnrollmentStatusResponse =>
     __isa(o, "GetEnrollmentStatusResponse");
 }
@@ -460,6 +576,9 @@ export interface GetRecommendationError {
 }
 
 export namespace GetRecommendationError {
+  export const filterSensitiveLog = (obj: GetRecommendationError): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetRecommendationError =>
     __isa(o, "GetRecommendationError");
 }
@@ -486,6 +605,11 @@ export interface GetRecommendationSummariesRequest {
 }
 
 export namespace GetRecommendationSummariesRequest {
+  export const filterSensitiveLog = (
+    obj: GetRecommendationSummariesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetRecommendationSummariesRequest =>
     __isa(o, "GetRecommendationSummariesRequest");
 }
@@ -506,6 +630,16 @@ export interface GetRecommendationSummariesResponse {
 }
 
 export namespace GetRecommendationSummariesResponse {
+  export const filterSensitiveLog = (
+    obj: GetRecommendationSummariesResponse
+  ): any => ({
+    ...obj,
+    ...(obj.recommendationSummaries && {
+      recommendationSummaries: obj.recommendationSummaries.map(item =>
+        RecommendationSummary.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is GetRecommendationSummariesResponse =>
     __isa(o, "GetRecommendationSummariesResponse");
 }
@@ -607,6 +741,24 @@ export interface InstanceRecommendation {
 }
 
 export namespace InstanceRecommendation {
+  export const filterSensitiveLog = (obj: InstanceRecommendation): any => ({
+    ...obj,
+    ...(obj.recommendationOptions && {
+      recommendationOptions: obj.recommendationOptions.map(item =>
+        InstanceRecommendationOption.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.recommendationSources && {
+      recommendationSources: obj.recommendationSources.map(item =>
+        RecommendationSource.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.utilizationMetrics && {
+      utilizationMetrics: obj.utilizationMetrics.map(item =>
+        UtilizationMetric.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is InstanceRecommendation =>
     __isa(o, "InstanceRecommendation");
 }
@@ -644,6 +796,16 @@ export interface InstanceRecommendationOption {
 }
 
 export namespace InstanceRecommendationOption {
+  export const filterSensitiveLog = (
+    obj: InstanceRecommendationOption
+  ): any => ({
+    ...obj,
+    ...(obj.projectedUtilizationMetrics && {
+      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(item =>
+        UtilizationMetric.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is InstanceRecommendationOption =>
     __isa(o, "InstanceRecommendationOption");
 }
@@ -661,6 +823,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -677,6 +842,11 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterValueException =>
     __isa(o, "InvalidParameterValueException");
 }
@@ -704,6 +874,9 @@ export interface MissingAuthenticationToken
 }
 
 export namespace MissingAuthenticationToken {
+  export const filterSensitiveLog = (obj: MissingAuthenticationToken): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MissingAuthenticationToken =>
     __isa(o, "MissingAuthenticationToken");
 }
@@ -720,6 +893,9 @@ export interface OptInRequiredException
 }
 
 export namespace OptInRequiredException {
+  export const filterSensitiveLog = (obj: OptInRequiredException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OptInRequiredException =>
     __isa(o, "OptInRequiredException");
 }
@@ -751,6 +927,9 @@ export interface ProjectedMetric {
 }
 
 export namespace ProjectedMetric {
+  export const filterSensitiveLog = (obj: ProjectedMetric): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProjectedMetric =>
     __isa(o, "ProjectedMetric");
 }
@@ -773,6 +952,9 @@ export interface RecommendationSource {
 }
 
 export namespace RecommendationSource {
+  export const filterSensitiveLog = (obj: RecommendationSource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RecommendationSource =>
     __isa(o, "RecommendationSource");
 }
@@ -804,6 +986,12 @@ export interface RecommendationSummary {
 }
 
 export namespace RecommendationSummary {
+  export const filterSensitiveLog = (obj: RecommendationSummary): any => ({
+    ...obj,
+    ...(obj.summaries && {
+      summaries: obj.summaries.map(item => Summary.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is RecommendationSummary =>
     __isa(o, "RecommendationSummary");
 }
@@ -834,6 +1022,16 @@ export interface RecommendedOptionProjectedMetric {
 }
 
 export namespace RecommendedOptionProjectedMetric {
+  export const filterSensitiveLog = (
+    obj: RecommendedOptionProjectedMetric
+  ): any => ({
+    ...obj,
+    ...(obj.projectedMetrics && {
+      projectedMetrics: obj.projectedMetrics.map(item =>
+        ProjectedMetric.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is RecommendedOptionProjectedMetric =>
     __isa(o, "RecommendedOptionProjectedMetric");
 }
@@ -850,6 +1048,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -866,6 +1067,11 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceUnavailableException =>
     __isa(o, "ServiceUnavailableException");
 }
@@ -894,6 +1100,9 @@ export interface Summary {
 }
 
 export namespace Summary {
+  export const filterSensitiveLog = (obj: Summary): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Summary => __isa(o, "Summary");
 }
 
@@ -909,6 +1118,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -930,6 +1142,11 @@ export interface UpdateEnrollmentStatusRequest {
 }
 
 export namespace UpdateEnrollmentStatusRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateEnrollmentStatusRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateEnrollmentStatusRequest =>
     __isa(o, "UpdateEnrollmentStatusRequest");
 }
@@ -950,6 +1167,11 @@ export interface UpdateEnrollmentStatusResponse {
 }
 
 export namespace UpdateEnrollmentStatusResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateEnrollmentStatusResponse
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateEnrollmentStatusResponse =>
     __isa(o, "UpdateEnrollmentStatusResponse");
 }
@@ -980,6 +1202,9 @@ export interface UtilizationMetric {
 }
 
 export namespace UtilizationMetric {
+  export const filterSensitiveLog = (obj: UtilizationMetric): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UtilizationMetric =>
     __isa(o, "UtilizationMetric");
 }

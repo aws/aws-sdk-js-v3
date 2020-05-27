@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -20,6 +21,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -34,6 +38,11 @@ export interface AssociateMemberAccountRequest {
 }
 
 export namespace AssociateMemberAccountRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateMemberAccountRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateMemberAccountRequest =>
     __isa(o, "AssociateMemberAccountRequest");
 }
@@ -54,6 +63,16 @@ export interface AssociateS3ResourcesRequest {
 }
 
 export namespace AssociateS3ResourcesRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateS3ResourcesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.s3Resources && {
+      s3Resources: obj.s3Resources.map(item =>
+        S3ResourceClassification.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AssociateS3ResourcesRequest =>
     __isa(o, "AssociateS3ResourcesRequest");
 }
@@ -68,6 +87,14 @@ export interface AssociateS3ResourcesResult {
 }
 
 export namespace AssociateS3ResourcesResult {
+  export const filterSensitiveLog = (obj: AssociateS3ResourcesResult): any => ({
+    ...obj,
+    ...(obj.failedS3Resources && {
+      failedS3Resources: obj.failedS3Resources.map(item =>
+        FailedS3Resource.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is AssociateS3ResourcesResult =>
     __isa(o, "AssociateS3ResourcesResult");
 }
@@ -93,6 +120,9 @@ export interface ClassificationType {
 }
 
 export namespace ClassificationType {
+  export const filterSensitiveLog = (obj: ClassificationType): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClassificationType =>
     __isa(o, "ClassificationType");
 }
@@ -118,6 +148,9 @@ export interface ClassificationTypeUpdate {
 }
 
 export namespace ClassificationTypeUpdate {
+  export const filterSensitiveLog = (obj: ClassificationTypeUpdate): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClassificationTypeUpdate =>
     __isa(o, "ClassificationTypeUpdate");
 }
@@ -131,6 +164,11 @@ export interface DisassociateMemberAccountRequest {
 }
 
 export namespace DisassociateMemberAccountRequest {
+  export const filterSensitiveLog = (
+    obj: DisassociateMemberAccountRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateMemberAccountRequest =>
     __isa(o, "DisassociateMemberAccountRequest");
 }
@@ -151,6 +189,16 @@ export interface DisassociateS3ResourcesRequest {
 }
 
 export namespace DisassociateS3ResourcesRequest {
+  export const filterSensitiveLog = (
+    obj: DisassociateS3ResourcesRequest
+  ): any => ({
+    ...obj,
+    ...(obj.associatedS3Resources && {
+      associatedS3Resources: obj.associatedS3Resources.map(item =>
+        S3Resource.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DisassociateS3ResourcesRequest =>
     __isa(o, "DisassociateS3ResourcesRequest");
 }
@@ -165,6 +213,16 @@ export interface DisassociateS3ResourcesResult {
 }
 
 export namespace DisassociateS3ResourcesResult {
+  export const filterSensitiveLog = (
+    obj: DisassociateS3ResourcesResult
+  ): any => ({
+    ...obj,
+    ...(obj.failedS3Resources && {
+      failedS3Resources: obj.failedS3Resources.map(item =>
+        FailedS3Resource.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DisassociateS3ResourcesResult =>
     __isa(o, "DisassociateS3ResourcesResult");
 }
@@ -191,6 +249,12 @@ export interface FailedS3Resource {
 }
 
 export namespace FailedS3Resource {
+  export const filterSensitiveLog = (obj: FailedS3Resource): any => ({
+    ...obj,
+    ...(obj.failedItem && {
+      failedItem: S3Resource.filterSensitiveLog(obj.failedItem)
+    })
+  });
   export const isa = (o: any): o is FailedS3Resource =>
     __isa(o, "FailedS3Resource");
 }
@@ -210,6 +274,9 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalException {
+  export const filterSensitiveLog = (obj: InternalException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalException =>
     __isa(o, "InternalException");
 }
@@ -237,6 +304,9 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInputException =>
     __isa(o, "InvalidInputException");
 }
@@ -263,6 +333,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -285,6 +358,9 @@ export interface ListMemberAccountsRequest {
 }
 
 export namespace ListMemberAccountsRequest {
+  export const filterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListMemberAccountsRequest =>
     __isa(o, "ListMemberAccountsRequest");
 }
@@ -307,6 +383,14 @@ export interface ListMemberAccountsResult {
 }
 
 export namespace ListMemberAccountsResult {
+  export const filterSensitiveLog = (obj: ListMemberAccountsResult): any => ({
+    ...obj,
+    ...(obj.memberAccounts && {
+      memberAccounts: obj.memberAccounts.map(item =>
+        MemberAccount.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListMemberAccountsResult =>
     __isa(o, "ListMemberAccountsResult");
 }
@@ -334,6 +418,9 @@ export interface ListS3ResourcesRequest {
 }
 
 export namespace ListS3ResourcesRequest {
+  export const filterSensitiveLog = (obj: ListS3ResourcesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListS3ResourcesRequest =>
     __isa(o, "ListS3ResourcesRequest");
 }
@@ -355,6 +442,14 @@ export interface ListS3ResourcesResult {
 }
 
 export namespace ListS3ResourcesResult {
+  export const filterSensitiveLog = (obj: ListS3ResourcesResult): any => ({
+    ...obj,
+    ...(obj.s3Resources && {
+      s3Resources: obj.s3Resources.map(item =>
+        S3ResourceClassification.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListS3ResourcesResult =>
     __isa(o, "ListS3ResourcesResult");
 }
@@ -371,6 +466,9 @@ export interface MemberAccount {
 }
 
 export namespace MemberAccount {
+  export const filterSensitiveLog = (obj: MemberAccount): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MemberAccount => __isa(o, "MemberAccount");
 }
 
@@ -402,6 +500,9 @@ export interface S3Resource {
 }
 
 export namespace S3Resource {
+  export const filterSensitiveLog = (obj: S3Resource): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3Resource => __isa(o, "S3Resource");
 }
 
@@ -430,6 +531,14 @@ export interface S3ResourceClassification {
 }
 
 export namespace S3ResourceClassification {
+  export const filterSensitiveLog = (obj: S3ResourceClassification): any => ({
+    ...obj,
+    ...(obj.classificationType && {
+      classificationType: ClassificationType.filterSensitiveLog(
+        obj.classificationType
+      )
+    })
+  });
   export const isa = (o: any): o is S3ResourceClassification =>
     __isa(o, "S3ResourceClassification");
 }
@@ -458,6 +567,16 @@ export interface S3ResourceClassificationUpdate {
 }
 
 export namespace S3ResourceClassificationUpdate {
+  export const filterSensitiveLog = (
+    obj: S3ResourceClassificationUpdate
+  ): any => ({
+    ...obj,
+    ...(obj.classificationTypeUpdate && {
+      classificationTypeUpdate: ClassificationTypeUpdate.filterSensitiveLog(
+        obj.classificationTypeUpdate
+      )
+    })
+  });
   export const isa = (o: any): o is S3ResourceClassificationUpdate =>
     __isa(o, "S3ResourceClassificationUpdate");
 }
@@ -477,6 +596,14 @@ export interface UpdateS3ResourcesRequest {
 }
 
 export namespace UpdateS3ResourcesRequest {
+  export const filterSensitiveLog = (obj: UpdateS3ResourcesRequest): any => ({
+    ...obj,
+    ...(obj.s3ResourcesUpdate && {
+      s3ResourcesUpdate: obj.s3ResourcesUpdate.map(item =>
+        S3ResourceClassificationUpdate.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateS3ResourcesRequest =>
     __isa(o, "UpdateS3ResourcesRequest");
 }
@@ -491,6 +618,14 @@ export interface UpdateS3ResourcesResult {
 }
 
 export namespace UpdateS3ResourcesResult {
+  export const filterSensitiveLog = (obj: UpdateS3ResourcesResult): any => ({
+    ...obj,
+    ...(obj.failedS3Resources && {
+      failedS3Resources: obj.failedS3Resources.map(item =>
+        FailedS3Resource.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateS3ResourcesResult =>
     __isa(o, "UpdateS3ResourcesResult");
 }

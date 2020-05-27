@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -37,6 +38,9 @@ export interface AddPermissionRequest {
 }
 
 export namespace AddPermissionRequest {
+  export const filterSensitiveLog = (obj: AddPermissionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddPermissionRequest =>
     __isa(o, "AddPermissionRequest");
 }
@@ -52,6 +56,9 @@ export interface BatchEntryIdsNotDistinct
 }
 
 export namespace BatchEntryIdsNotDistinct {
+  export const filterSensitiveLog = (obj: BatchEntryIdsNotDistinct): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchEntryIdsNotDistinct =>
     __isa(o, "BatchEntryIdsNotDistinct");
 }
@@ -67,6 +74,9 @@ export interface BatchRequestTooLong
 }
 
 export namespace BatchRequestTooLong {
+  export const filterSensitiveLog = (obj: BatchRequestTooLong): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchRequestTooLong =>
     __isa(o, "BatchRequestTooLong");
 }
@@ -99,6 +109,9 @@ export interface BatchResultErrorEntry {
 }
 
 export namespace BatchResultErrorEntry {
+  export const filterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchResultErrorEntry =>
     __isa(o, "BatchResultErrorEntry");
 }
@@ -121,6 +134,16 @@ export interface ChangeMessageVisibilityBatchRequest {
 }
 
 export namespace ChangeMessageVisibilityBatchRequest {
+  export const filterSensitiveLog = (
+    obj: ChangeMessageVisibilityBatchRequest
+  ): any => ({
+    ...obj,
+    ...(obj.Entries && {
+      Entries: obj.Entries.map(item =>
+        ChangeMessageVisibilityBatchRequestEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ChangeMessageVisibilityBatchRequest =>
     __isa(o, "ChangeMessageVisibilityBatchRequest");
 }
@@ -164,6 +187,11 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
 }
 
 export namespace ChangeMessageVisibilityBatchRequestEntry {
+  export const filterSensitiveLog = (
+    obj: ChangeMessageVisibilityBatchRequestEntry
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChangeMessageVisibilityBatchRequestEntry =>
     __isa(o, "ChangeMessageVisibilityBatchRequestEntry");
 }
@@ -193,6 +221,21 @@ export interface ChangeMessageVisibilityBatchResult {
 }
 
 export namespace ChangeMessageVisibilityBatchResult {
+  export const filterSensitiveLog = (
+    obj: ChangeMessageVisibilityBatchResult
+  ): any => ({
+    ...obj,
+    ...(obj.Failed && {
+      Failed: obj.Failed.map(item =>
+        BatchResultErrorEntry.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Successful && {
+      Successful: obj.Successful.map(item =>
+        ChangeMessageVisibilityBatchResultEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ChangeMessageVisibilityBatchResult =>
     __isa(o, "ChangeMessageVisibilityBatchResult");
 }
@@ -211,6 +254,11 @@ export interface ChangeMessageVisibilityBatchResultEntry {
 }
 
 export namespace ChangeMessageVisibilityBatchResultEntry {
+  export const filterSensitiveLog = (
+    obj: ChangeMessageVisibilityBatchResultEntry
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChangeMessageVisibilityBatchResultEntry =>
     __isa(o, "ChangeMessageVisibilityBatchResultEntry");
 }
@@ -237,6 +285,11 @@ export interface ChangeMessageVisibilityRequest {
 }
 
 export namespace ChangeMessageVisibilityRequest {
+  export const filterSensitiveLog = (
+    obj: ChangeMessageVisibilityRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChangeMessageVisibilityRequest =>
     __isa(o, "ChangeMessageVisibilityRequest");
 }
@@ -424,6 +477,9 @@ export interface CreateQueueRequest {
 }
 
 export namespace CreateQueueRequest {
+  export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateQueueRequest =>
     __isa(o, "CreateQueueRequest");
 }
@@ -440,6 +496,9 @@ export interface CreateQueueResult {
 }
 
 export namespace CreateQueueResult {
+  export const filterSensitiveLog = (obj: CreateQueueResult): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateQueueResult =>
     __isa(o, "CreateQueueResult");
 }
@@ -462,6 +521,14 @@ export interface DeleteMessageBatchRequest {
 }
 
 export namespace DeleteMessageBatchRequest {
+  export const filterSensitiveLog = (obj: DeleteMessageBatchRequest): any => ({
+    ...obj,
+    ...(obj.Entries && {
+      Entries: obj.Entries.map(item =>
+        DeleteMessageBatchRequestEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteMessageBatchRequest =>
     __isa(o, "DeleteMessageBatchRequest");
 }
@@ -486,6 +553,11 @@ export interface DeleteMessageBatchRequestEntry {
 }
 
 export namespace DeleteMessageBatchRequestEntry {
+  export const filterSensitiveLog = (
+    obj: DeleteMessageBatchRequestEntry
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteMessageBatchRequestEntry =>
     __isa(o, "DeleteMessageBatchRequestEntry");
 }
@@ -515,6 +587,19 @@ export interface DeleteMessageBatchResult {
 }
 
 export namespace DeleteMessageBatchResult {
+  export const filterSensitiveLog = (obj: DeleteMessageBatchResult): any => ({
+    ...obj,
+    ...(obj.Failed && {
+      Failed: obj.Failed.map(item =>
+        BatchResultErrorEntry.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Successful && {
+      Successful: obj.Successful.map(item =>
+        DeleteMessageBatchResultEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is DeleteMessageBatchResult =>
     __isa(o, "DeleteMessageBatchResult");
 }
@@ -533,6 +618,11 @@ export interface DeleteMessageBatchResultEntry {
 }
 
 export namespace DeleteMessageBatchResultEntry {
+  export const filterSensitiveLog = (
+    obj: DeleteMessageBatchResultEntry
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteMessageBatchResultEntry =>
     __isa(o, "DeleteMessageBatchResultEntry");
 }
@@ -555,6 +645,9 @@ export interface DeleteMessageRequest {
 }
 
 export namespace DeleteMessageRequest {
+  export const filterSensitiveLog = (obj: DeleteMessageRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteMessageRequest =>
     __isa(o, "DeleteMessageRequest");
 }
@@ -572,6 +665,9 @@ export interface DeleteQueueRequest {
 }
 
 export namespace DeleteQueueRequest {
+  export const filterSensitiveLog = (obj: DeleteQueueRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteQueueRequest =>
     __isa(o, "DeleteQueueRequest");
 }
@@ -585,6 +681,9 @@ export interface EmptyBatchRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace EmptyBatchRequest {
+  export const filterSensitiveLog = (obj: EmptyBatchRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmptyBatchRequest =>
     __isa(o, "EmptyBatchRequest");
 }
@@ -733,6 +832,9 @@ export interface GetQueueAttributesRequest {
 }
 
 export namespace GetQueueAttributesRequest {
+  export const filterSensitiveLog = (obj: GetQueueAttributesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetQueueAttributesRequest =>
     __isa(o, "GetQueueAttributesRequest");
 }
@@ -749,6 +851,9 @@ export interface GetQueueAttributesResult {
 }
 
 export namespace GetQueueAttributesResult {
+  export const filterSensitiveLog = (obj: GetQueueAttributesResult): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetQueueAttributesResult =>
     __isa(o, "GetQueueAttributesResult");
 }
@@ -771,6 +876,9 @@ export interface GetQueueUrlRequest {
 }
 
 export namespace GetQueueUrlRequest {
+  export const filterSensitiveLog = (obj: GetQueueUrlRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetQueueUrlRequest =>
     __isa(o, "GetQueueUrlRequest");
 }
@@ -787,6 +895,9 @@ export interface GetQueueUrlResult {
 }
 
 export namespace GetQueueUrlResult {
+  export const filterSensitiveLog = (obj: GetQueueUrlResult): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetQueueUrlResult =>
     __isa(o, "GetQueueUrlResult");
 }
@@ -802,6 +913,9 @@ export interface InvalidAttributeName
 }
 
 export namespace InvalidAttributeName {
+  export const filterSensitiveLog = (obj: InvalidAttributeName): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidAttributeName =>
     __isa(o, "InvalidAttributeName");
 }
@@ -817,6 +931,9 @@ export interface InvalidBatchEntryId
 }
 
 export namespace InvalidBatchEntryId {
+  export const filterSensitiveLog = (obj: InvalidBatchEntryId): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidBatchEntryId =>
     __isa(o, "InvalidBatchEntryId");
 }
@@ -830,6 +947,9 @@ export interface InvalidIdFormat extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidIdFormat {
+  export const filterSensitiveLog = (obj: InvalidIdFormat): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidIdFormat =>
     __isa(o, "InvalidIdFormat");
 }
@@ -845,6 +965,9 @@ export interface InvalidMessageContents
 }
 
 export namespace InvalidMessageContents {
+  export const filterSensitiveLog = (obj: InvalidMessageContents): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidMessageContents =>
     __isa(o, "InvalidMessageContents");
 }
@@ -862,6 +985,11 @@ export interface ListDeadLetterSourceQueuesRequest {
 }
 
 export namespace ListDeadLetterSourceQueuesRequest {
+  export const filterSensitiveLog = (
+    obj: ListDeadLetterSourceQueuesRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDeadLetterSourceQueuesRequest =>
     __isa(o, "ListDeadLetterSourceQueuesRequest");
 }
@@ -878,6 +1006,11 @@ export interface ListDeadLetterSourceQueuesResult {
 }
 
 export namespace ListDeadLetterSourceQueuesResult {
+  export const filterSensitiveLog = (
+    obj: ListDeadLetterSourceQueuesResult
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDeadLetterSourceQueuesResult =>
     __isa(o, "ListDeadLetterSourceQueuesResult");
 }
@@ -891,6 +1024,9 @@ export interface ListQueueTagsRequest {
 }
 
 export namespace ListQueueTagsRequest {
+  export const filterSensitiveLog = (obj: ListQueueTagsRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListQueueTagsRequest =>
     __isa(o, "ListQueueTagsRequest");
 }
@@ -904,6 +1040,9 @@ export interface ListQueueTagsResult {
 }
 
 export namespace ListQueueTagsResult {
+  export const filterSensitiveLog = (obj: ListQueueTagsResult): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListQueueTagsResult =>
     __isa(o, "ListQueueTagsResult");
 }
@@ -921,6 +1060,9 @@ export interface ListQueuesRequest {
 }
 
 export namespace ListQueuesRequest {
+  export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListQueuesRequest =>
     __isa(o, "ListQueuesRequest");
 }
@@ -937,6 +1079,9 @@ export interface ListQueuesResult {
 }
 
 export namespace ListQueuesResult {
+  export const filterSensitiveLog = (obj: ListQueuesResult): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListQueuesResult =>
     __isa(o, "ListQueuesResult");
 }
@@ -1026,6 +1171,18 @@ export interface Message {
 }
 
 export namespace Message {
+  export const filterSensitiveLog = (obj: Message): any => ({
+    ...obj,
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
@@ -1066,6 +1223,9 @@ export interface MessageAttributeValue {
 }
 
 export namespace MessageAttributeValue {
+  export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MessageAttributeValue =>
     __isa(o, "MessageAttributeValue");
 }
@@ -1079,6 +1239,9 @@ export interface MessageNotInflight extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageNotInflight {
+  export const filterSensitiveLog = (obj: MessageNotInflight): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MessageNotInflight =>
     __isa(o, "MessageNotInflight");
 }
@@ -1132,6 +1295,11 @@ export interface MessageSystemAttributeValue {
 }
 
 export namespace MessageSystemAttributeValue {
+  export const filterSensitiveLog = (
+    obj: MessageSystemAttributeValue
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MessageSystemAttributeValue =>
     __isa(o, "MessageSystemAttributeValue");
 }
@@ -1148,6 +1316,9 @@ export interface OverLimit extends __SmithyException, $MetadataBearer {
 }
 
 export namespace OverLimit {
+  export const filterSensitiveLog = (obj: OverLimit): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OverLimit => __isa(o, "OverLimit");
 }
 
@@ -1162,6 +1333,9 @@ export interface PurgeQueueInProgress
 }
 
 export namespace PurgeQueueInProgress {
+  export const filterSensitiveLog = (obj: PurgeQueueInProgress): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PurgeQueueInProgress =>
     __isa(o, "PurgeQueueInProgress");
 }
@@ -1179,6 +1353,9 @@ export interface PurgeQueueRequest {
 }
 
 export namespace PurgeQueueRequest {
+  export const filterSensitiveLog = (obj: PurgeQueueRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is PurgeQueueRequest =>
     __isa(o, "PurgeQueueRequest");
 }
@@ -1215,6 +1392,9 @@ export interface QueueDeletedRecently
 }
 
 export namespace QueueDeletedRecently {
+  export const filterSensitiveLog = (obj: QueueDeletedRecently): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is QueueDeletedRecently =>
     __isa(o, "QueueDeletedRecently");
 }
@@ -1228,6 +1408,9 @@ export interface QueueDoesNotExist extends __SmithyException, $MetadataBearer {
 }
 
 export namespace QueueDoesNotExist {
+  export const filterSensitiveLog = (obj: QueueDoesNotExist): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is QueueDoesNotExist =>
     __isa(o, "QueueDoesNotExist");
 }
@@ -1242,6 +1425,9 @@ export interface QueueNameExists extends __SmithyException, $MetadataBearer {
 }
 
 export namespace QueueNameExists {
+  export const filterSensitiveLog = (obj: QueueNameExists): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is QueueNameExists =>
     __isa(o, "QueueNameExists");
 }
@@ -1257,6 +1443,9 @@ export interface ReceiptHandleIsInvalid
 }
 
 export namespace ReceiptHandleIsInvalid {
+  export const filterSensitiveLog = (obj: ReceiptHandleIsInvalid): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReceiptHandleIsInvalid =>
     __isa(o, "ReceiptHandleIsInvalid");
 }
@@ -1426,6 +1615,9 @@ export interface ReceiveMessageRequest {
 }
 
 export namespace ReceiveMessageRequest {
+  export const filterSensitiveLog = (obj: ReceiveMessageRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReceiveMessageRequest =>
     __isa(o, "ReceiveMessageRequest");
 }
@@ -1442,6 +1634,12 @@ export interface ReceiveMessageResult {
 }
 
 export namespace ReceiveMessageResult {
+  export const filterSensitiveLog = (obj: ReceiveMessageResult): any => ({
+    ...obj,
+    ...(obj.Messages && {
+      Messages: obj.Messages.map(item => Message.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ReceiveMessageResult =>
     __isa(o, "ReceiveMessageResult");
 }
@@ -1466,6 +1664,9 @@ export interface RemovePermissionRequest {
 }
 
 export namespace RemovePermissionRequest {
+  export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is RemovePermissionRequest =>
     __isa(o, "RemovePermissionRequest");
 }
@@ -1490,6 +1691,14 @@ export interface SendMessageBatchRequest {
 }
 
 export namespace SendMessageBatchRequest {
+  export const filterSensitiveLog = (obj: SendMessageBatchRequest): any => ({
+    ...obj,
+    ...(obj.Entries && {
+      Entries: obj.Entries.map(item =>
+        SendMessageBatchRequestEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SendMessageBatchRequest =>
     __isa(o, "SendMessageBatchRequest");
 }
@@ -1629,6 +1838,31 @@ export interface SendMessageBatchRequestEntry {
 }
 
 export namespace SendMessageBatchRequestEntry {
+  export const filterSensitiveLog = (
+    obj: SendMessageBatchRequestEntry
+  ): any => ({
+    ...obj,
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
+    }),
+    ...(obj.MessageSystemAttributes && {
+      MessageSystemAttributes: Object.entries(
+        obj.MessageSystemAttributes
+      ).reduce(
+        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => ({
+          ...acc,
+          [key]: MessageSystemAttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is SendMessageBatchRequestEntry =>
     __isa(o, "SendMessageBatchRequestEntry");
 }
@@ -1658,6 +1892,19 @@ export interface SendMessageBatchResult {
 }
 
 export namespace SendMessageBatchResult {
+  export const filterSensitiveLog = (obj: SendMessageBatchResult): any => ({
+    ...obj,
+    ...(obj.Failed && {
+      Failed: obj.Failed.map(item =>
+        BatchResultErrorEntry.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Successful && {
+      Successful: obj.Successful.map(item =>
+        SendMessageBatchResultEntry.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SendMessageBatchResult =>
     __isa(o, "SendMessageBatchResult");
 }
@@ -1703,6 +1950,11 @@ export interface SendMessageBatchResultEntry {
 }
 
 export namespace SendMessageBatchResultEntry {
+  export const filterSensitiveLog = (
+    obj: SendMessageBatchResultEntry
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendMessageBatchResultEntry =>
     __isa(o, "SendMessageBatchResultEntry");
 }
@@ -1846,6 +2098,29 @@ export interface SendMessageRequest {
 }
 
 export namespace SendMessageRequest {
+  export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
+    ...obj,
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
+    }),
+    ...(obj.MessageSystemAttributes && {
+      MessageSystemAttributes: Object.entries(
+        obj.MessageSystemAttributes
+      ).reduce(
+        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => ({
+          ...acc,
+          [key]: MessageSystemAttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is SendMessageRequest =>
     __isa(o, "SendMessageRequest");
 }
@@ -1886,6 +2161,9 @@ export interface SendMessageResult {
 }
 
 export namespace SendMessageResult {
+  export const filterSensitiveLog = (obj: SendMessageResult): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendMessageResult =>
     __isa(o, "SendMessageResult");
 }
@@ -2027,6 +2305,9 @@ export interface SetQueueAttributesRequest {
 }
 
 export namespace SetQueueAttributesRequest {
+  export const filterSensitiveLog = (obj: SetQueueAttributesRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SetQueueAttributesRequest =>
     __isa(o, "SetQueueAttributesRequest");
 }
@@ -2045,6 +2326,9 @@ export interface TagQueueRequest {
 }
 
 export namespace TagQueueRequest {
+  export const filterSensitiveLog = (obj: TagQueueRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagQueueRequest =>
     __isa(o, "TagQueueRequest");
 }
@@ -2060,6 +2344,11 @@ export interface TooManyEntriesInBatchRequest
 }
 
 export namespace TooManyEntriesInBatchRequest {
+  export const filterSensitiveLog = (
+    obj: TooManyEntriesInBatchRequest
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyEntriesInBatchRequest =>
     __isa(o, "TooManyEntriesInBatchRequest");
 }
@@ -2075,6 +2364,9 @@ export interface UnsupportedOperation
 }
 
 export namespace UnsupportedOperation {
+  export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedOperation =>
     __isa(o, "UnsupportedOperation");
 }
@@ -2093,6 +2385,9 @@ export interface UntagQueueRequest {
 }
 
 export namespace UntagQueueRequest {
+  export const filterSensitiveLog = (obj: UntagQueueRequest): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagQueueRequest =>
     __isa(o, "UntagQueueRequest");
 }

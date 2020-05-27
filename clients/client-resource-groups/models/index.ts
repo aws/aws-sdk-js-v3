@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -48,6 +52,12 @@ export interface CreateGroupInput {
 }
 
 export namespace CreateGroupInput {
+  export const filterSensitiveLog = (obj: CreateGroupInput): any => ({
+    ...obj,
+    ...(obj.ResourceQuery && {
+      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
+    })
+  });
   export const isa = (o: any): o is CreateGroupInput =>
     __isa(o, "CreateGroupInput");
 }
@@ -71,6 +81,13 @@ export interface CreateGroupOutput {
 }
 
 export namespace CreateGroupOutput {
+  export const filterSensitiveLog = (obj: CreateGroupOutput): any => ({
+    ...obj,
+    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) }),
+    ...(obj.ResourceQuery && {
+      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
+    })
+  });
   export const isa = (o: any): o is CreateGroupOutput =>
     __isa(o, "CreateGroupOutput");
 }
@@ -84,6 +101,9 @@ export interface DeleteGroupInput {
 }
 
 export namespace DeleteGroupInput {
+  export const filterSensitiveLog = (obj: DeleteGroupInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteGroupInput =>
     __isa(o, "DeleteGroupInput");
 }
@@ -97,6 +117,10 @@ export interface DeleteGroupOutput {
 }
 
 export namespace DeleteGroupOutput {
+  export const filterSensitiveLog = (obj: DeleteGroupOutput): any => ({
+    ...obj,
+    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) })
+  });
   export const isa = (o: any): o is DeleteGroupOutput =>
     __isa(o, "DeleteGroupOutput");
 }
@@ -111,6 +135,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ForbiddenException =>
     __isa(o, "ForbiddenException");
 }
@@ -124,6 +151,9 @@ export interface GetGroupInput {
 }
 
 export namespace GetGroupInput {
+  export const filterSensitiveLog = (obj: GetGroupInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetGroupInput => __isa(o, "GetGroupInput");
 }
 
@@ -136,6 +166,10 @@ export interface GetGroupOutput {
 }
 
 export namespace GetGroupOutput {
+  export const filterSensitiveLog = (obj: GetGroupOutput): any => ({
+    ...obj,
+    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) })
+  });
   export const isa = (o: any): o is GetGroupOutput =>
     __isa(o, "GetGroupOutput");
 }
@@ -149,6 +183,9 @@ export interface GetGroupQueryInput {
 }
 
 export namespace GetGroupQueryInput {
+  export const filterSensitiveLog = (obj: GetGroupQueryInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetGroupQueryInput =>
     __isa(o, "GetGroupQueryInput");
 }
@@ -162,6 +199,12 @@ export interface GetGroupQueryOutput {
 }
 
 export namespace GetGroupQueryOutput {
+  export const filterSensitiveLog = (obj: GetGroupQueryOutput): any => ({
+    ...obj,
+    ...(obj.GroupQuery && {
+      GroupQuery: GroupQuery.filterSensitiveLog(obj.GroupQuery)
+    })
+  });
   export const isa = (o: any): o is GetGroupQueryOutput =>
     __isa(o, "GetGroupQueryOutput");
 }
@@ -175,6 +218,9 @@ export interface GetTagsInput {
 }
 
 export namespace GetTagsInput {
+  export const filterSensitiveLog = (obj: GetTagsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTagsInput => __isa(o, "GetTagsInput");
 }
 
@@ -192,6 +238,9 @@ export interface GetTagsOutput {
 }
 
 export namespace GetTagsOutput {
+  export const filterSensitiveLog = (obj: GetTagsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTagsOutput => __isa(o, "GetTagsOutput");
 }
 
@@ -217,6 +266,9 @@ export interface Group {
 }
 
 export namespace Group {
+  export const filterSensitiveLog = (obj: Group): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is Group => __isa(o, "Group");
 }
 
@@ -237,6 +289,9 @@ export interface GroupFilter {
 }
 
 export namespace GroupFilter {
+  export const filterSensitiveLog = (obj: GroupFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GroupFilter => __isa(o, "GroupFilter");
 }
 
@@ -261,6 +316,9 @@ export interface GroupIdentifier {
 }
 
 export namespace GroupIdentifier {
+  export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GroupIdentifier =>
     __isa(o, "GroupIdentifier");
 }
@@ -282,6 +340,12 @@ export interface GroupQuery {
 }
 
 export namespace GroupQuery {
+  export const filterSensitiveLog = (obj: GroupQuery): any => ({
+    ...obj,
+    ...(obj.ResourceQuery && {
+      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
+    })
+  });
   export const isa = (o: any): o is GroupQuery => __isa(o, "GroupQuery");
 }
 
@@ -297,6 +361,11 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerErrorException =>
     __isa(o, "InternalServerErrorException");
 }
@@ -332,6 +401,12 @@ export interface ListGroupResourcesInput {
 }
 
 export namespace ListGroupResourcesInput {
+  export const filterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
+    ...obj,
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => ResourceFilter.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListGroupResourcesInput =>
     __isa(o, "ListGroupResourcesInput");
 }
@@ -357,6 +432,19 @@ export interface ListGroupResourcesOutput {
 }
 
 export namespace ListGroupResourcesOutput {
+  export const filterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
+    ...obj,
+    ...(obj.QueryErrors && {
+      QueryErrors: obj.QueryErrors.map(item =>
+        QueryError.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.ResourceIdentifiers && {
+      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
+        ResourceIdentifier.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is ListGroupResourcesOutput =>
     __isa(o, "ListGroupResourcesOutput");
 }
@@ -387,6 +475,12 @@ export interface ListGroupsInput {
 }
 
 export namespace ListGroupsInput {
+  export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
+    ...obj,
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => GroupFilter.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListGroupsInput =>
     __isa(o, "ListGroupsInput");
 }
@@ -410,6 +504,17 @@ export interface ListGroupsOutput {
 }
 
 export namespace ListGroupsOutput {
+  export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
+    ...obj,
+    ...(obj.GroupIdentifiers && {
+      GroupIdentifiers: obj.GroupIdentifiers.map(item =>
+        GroupIdentifier.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.Groups && {
+      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
+    })
+  });
   export const isa = (o: any): o is ListGroupsOutput =>
     __isa(o, "ListGroupsOutput");
 }
@@ -426,6 +531,9 @@ export interface MethodNotAllowedException
 }
 
 export namespace MethodNotAllowedException {
+  export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is MethodNotAllowedException =>
     __isa(o, "MethodNotAllowedException");
 }
@@ -440,6 +548,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -470,6 +581,9 @@ export interface QueryError {
 }
 
 export namespace QueryError {
+  export const filterSensitiveLog = (obj: QueryError): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is QueryError => __isa(o, "QueryError");
 }
 
@@ -500,6 +614,9 @@ export interface ResourceFilter {
 }
 
 export namespace ResourceFilter {
+  export const filterSensitiveLog = (obj: ResourceFilter): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceFilter =>
     __isa(o, "ResourceFilter");
 }
@@ -525,6 +642,9 @@ export interface ResourceIdentifier {
 }
 
 export namespace ResourceIdentifier {
+  export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceIdentifier =>
     __isa(o, "ResourceIdentifier");
 }
@@ -579,6 +699,9 @@ export interface ResourceQuery {
 }
 
 export namespace ResourceQuery {
+  export const filterSensitiveLog = (obj: ResourceQuery): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceQuery => __isa(o, "ResourceQuery");
 }
 
@@ -602,6 +725,12 @@ export interface SearchResourcesInput {
 }
 
 export namespace SearchResourcesInput {
+  export const filterSensitiveLog = (obj: SearchResourcesInput): any => ({
+    ...obj,
+    ...(obj.ResourceQuery && {
+      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
+    })
+  });
   export const isa = (o: any): o is SearchResourcesInput =>
     __isa(o, "SearchResourcesInput");
 }
@@ -628,6 +757,19 @@ export interface SearchResourcesOutput {
 }
 
 export namespace SearchResourcesOutput {
+  export const filterSensitiveLog = (obj: SearchResourcesOutput): any => ({
+    ...obj,
+    ...(obj.QueryErrors && {
+      QueryErrors: obj.QueryErrors.map(item =>
+        QueryError.filterSensitiveLog(item)
+      )
+    }),
+    ...(obj.ResourceIdentifiers && {
+      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
+        ResourceIdentifier.filterSensitiveLog(item)
+      )
+    })
+  });
   export const isa = (o: any): o is SearchResourcesOutput =>
     __isa(o, "SearchResourcesOutput");
 }
@@ -647,6 +789,9 @@ export interface TagInput {
 }
 
 export namespace TagInput {
+  export const filterSensitiveLog = (obj: TagInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagInput => __isa(o, "TagInput");
 }
 
@@ -664,6 +809,9 @@ export interface TagOutput {
 }
 
 export namespace TagOutput {
+  export const filterSensitiveLog = (obj: TagOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagOutput => __isa(o, "TagOutput");
 }
 
@@ -679,6 +827,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -695,6 +846,9 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnauthorizedException =>
     __isa(o, "UnauthorizedException");
 }
@@ -713,6 +867,9 @@ export interface UntagInput {
 }
 
 export namespace UntagInput {
+  export const filterSensitiveLog = (obj: UntagInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagInput => __isa(o, "UntagInput");
 }
 
@@ -730,6 +887,9 @@ export interface UntagOutput {
 }
 
 export namespace UntagOutput {
+  export const filterSensitiveLog = (obj: UntagOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagOutput => __isa(o, "UntagOutput");
 }
 
@@ -748,6 +908,9 @@ export interface UpdateGroupInput {
 }
 
 export namespace UpdateGroupInput {
+  export const filterSensitiveLog = (obj: UpdateGroupInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateGroupInput =>
     __isa(o, "UpdateGroupInput");
 }
@@ -761,6 +924,10 @@ export interface UpdateGroupOutput {
 }
 
 export namespace UpdateGroupOutput {
+  export const filterSensitiveLog = (obj: UpdateGroupOutput): any => ({
+    ...obj,
+    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) })
+  });
   export const isa = (o: any): o is UpdateGroupOutput =>
     __isa(o, "UpdateGroupOutput");
 }
@@ -779,6 +946,12 @@ export interface UpdateGroupQueryInput {
 }
 
 export namespace UpdateGroupQueryInput {
+  export const filterSensitiveLog = (obj: UpdateGroupQueryInput): any => ({
+    ...obj,
+    ...(obj.ResourceQuery && {
+      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
+    })
+  });
   export const isa = (o: any): o is UpdateGroupQueryInput =>
     __isa(o, "UpdateGroupQueryInput");
 }
@@ -792,6 +965,12 @@ export interface UpdateGroupQueryOutput {
 }
 
 export namespace UpdateGroupQueryOutput {
+  export const filterSensitiveLog = (obj: UpdateGroupQueryOutput): any => ({
+    ...obj,
+    ...(obj.GroupQuery && {
+      GroupQuery: GroupQuery.filterSensitiveLog(obj.GroupQuery)
+    })
+  });
   export const isa = (o: any): o is UpdateGroupQueryOutput =>
     __isa(o, "UpdateGroupQueryOutput");
 }
