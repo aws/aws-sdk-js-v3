@@ -43,12 +43,17 @@ const getOverwritablePredicate = packageName => pathName => {
  * from codegen, but maintain the newer dependency versions
  * in existing package.json
  */
-const mergeManifest = (fromContent, toContent) => {
+const mergeManifest = (fromContent = {}, toContent) => {
   const merged = {};
   const fromNames = Object.keys(fromContent);
   for (const name of fromNames) {
     if (typeof toContent[name] === "object") {
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
+      if (name === "scripts" || "devDependencies") {
+        // Allow target package.json(toContent) has its own special script or
+        // dev dependencies that won't be overwritten in codegen
+        merged[name] = { ...toContent[name], ...merged[name] };
+      }
       if (name === "dependencies" || name === "devDependencies") {
         // Sort dependencies as done by lerna
         merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
@@ -60,6 +65,24 @@ const mergeManifest = (fromContent, toContent) => {
     }
   }
   return merged;
+};
+
+/**
+ * Remove "^" from the the version of dependencies on @aws-sdk packages.
+ * e.g. "@aws-sdk/config-resolver": "^1.0.0-gamma.0"
+ *      => "@aws-sdk/config-resolver": "1.0.0-gamma.0"
+ */
+const pinDependencies = manifest => {
+  const removeRangeVersion = ([name, version]) =>
+    name.indexOf("@aws-sdk/") === 0
+      ? [name, version.replace("^", "")]
+      : [name, version];
+  manifest.dependencies = Object.fromEntries(
+    Object.entries(manifest.dependencies).map(removeRangeVersion)
+  );
+  manifest.devDependencies = Object.fromEntries(
+    Object.entries(manifest.devDependencies).map(removeRangeVersion)
+  );
 };
 
 const copyToClients = async (sourceDir, destinationDir) => {
@@ -90,6 +113,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
           ? JSON.parse(readFileSync(destSubPath).toString())
           : {};
         const mergedManifest = mergeManifest(packageManifest, destManifest);
+        pinDependencies(mergedManifest);
         writeFileSync(
           destSubPath,
           JSON.stringify(mergedManifest, null, 2).concat(`\n`)
