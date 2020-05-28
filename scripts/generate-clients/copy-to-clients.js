@@ -49,7 +49,7 @@ const mergeManifest = (fromContent = {}, toContent) => {
   for (const name of fromNames) {
     if (typeof toContent[name] === "object") {
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
-      if (name === "scripts" || "devDependencies") {
+      if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
         // dev dependencies that won't be overwritten in codegen
         merged[name] = { ...toContent[name], ...merged[name] };
