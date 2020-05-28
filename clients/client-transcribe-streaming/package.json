@@ -45,6 +45,7 @@
     "@aws-sdk/middleware-eventstream": "1.0.0-gamma.0",
     "@aws-sdk/middleware-host-header": "1.0.0-gamma.1",
     "@aws-sdk/middleware-retry": "1.0.0-gamma.1",
+    "@aws-sdk/middleware-sdk-transcribe-streaming": "1.0.0-gamma.0",
     "@aws-sdk/middleware-serde": "1.0.0-gamma.1",
     "@aws-sdk/middleware-signing": "1.0.0-gamma.1",
     "@aws-sdk/middleware-stack": "1.0.0-gamma.1",

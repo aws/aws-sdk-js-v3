@@ -1,8 +1,12 @@
 import { name, version } from "./package.json";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
-import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
+import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
+import {
+  WebSocketHandler,
+  eventStreamPayloadHandler
+} from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
@@ -19,12 +23,10 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   defaultUserAgent: defaultUserAgent(name, version),
-  eventStreamPayloadHandlerProvider: () => ({
-    handle: invalidFunction("event stream request is not supported in browser.")
-  }),
+  eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,
   eventStreamSerdeProvider,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
-  requestHandler: new FetchHttpHandler(),
+  requestHandler: new WebSocketHandler(),
   sha256: Sha256,
   streamCollector,
   urlParser: parseUrl,
