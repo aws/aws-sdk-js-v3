@@ -84,12 +84,7 @@ export interface DescribeDeviceResponse {
 
 export namespace DescribeDeviceResponse {
   export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-    ...obj,
-    ...(obj.DeviceDescription && {
-      DeviceDescription: DeviceDescription.filterSensitiveLog(
-        obj.DeviceDescription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDeviceResponse =>
     __isa(o, "DescribeDeviceResponse");
@@ -115,10 +110,7 @@ export interface Device {
 
 export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-    ...(obj.Attributes && {
-      Attributes: Attributes.filterSensitiveLog(obj.Attributes)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Device => __isa(o, "Device");
 }
@@ -186,8 +178,7 @@ export interface DeviceEvent {
 
 export namespace DeviceEvent {
   export const filterSensitiveLog = (obj: DeviceEvent): any => ({
-    ...obj,
-    ...(obj.Device && { Device: Device.filterSensitiveLog(obj.Device) })
+    ...obj
   });
   export const isa = (o: any): o is DeviceEvent => __isa(o, "DeviceEvent");
 }
@@ -303,12 +294,7 @@ export interface GetDeviceMethodsResponse {
 
 export namespace GetDeviceMethodsResponse {
   export const filterSensitiveLog = (obj: GetDeviceMethodsResponse): any => ({
-    ...obj,
-    ...(obj.DeviceMethods && {
-      DeviceMethods: obj.DeviceMethods.map(item =>
-        DeviceMethod.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDeviceMethodsResponse =>
     __isa(o, "GetDeviceMethodsResponse");
@@ -416,10 +402,7 @@ export interface InvokeDeviceMethodRequest {
 
 export namespace InvokeDeviceMethodRequest {
   export const filterSensitiveLog = (obj: InvokeDeviceMethodRequest): any => ({
-    ...obj,
-    ...(obj.DeviceMethod && {
-      DeviceMethod: DeviceMethod.filterSensitiveLog(obj.DeviceMethod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is InvokeDeviceMethodRequest =>
     __isa(o, "InvokeDeviceMethodRequest");
@@ -498,10 +481,7 @@ export interface ListDeviceEventsResponse {
 
 export namespace ListDeviceEventsResponse {
   export const filterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
-    ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => DeviceEvent.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDeviceEventsResponse =>
     __isa(o, "ListDeviceEventsResponse");
@@ -549,12 +529,7 @@ export interface ListDevicesResponse {
 
 export namespace ListDevicesResponse {
   export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-    ...(obj.Devices && {
-      Devices: obj.Devices.map(item =>
-        DeviceDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDevicesResponse =>
     __isa(o, "ListDevicesResponse");

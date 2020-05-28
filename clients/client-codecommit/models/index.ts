@@ -98,12 +98,7 @@ export interface ApprovalRule {
 
 export namespace ApprovalRule {
   export const filterSensitiveLog = (obj: ApprovalRule): any => ({
-    ...obj,
-    ...(obj.originApprovalRuleTemplate && {
-      originApprovalRuleTemplate: OriginApprovalRuleTemplate.filterSensitiveLog(
-        obj.originApprovalRuleTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ApprovalRule => __isa(o, "ApprovalRule");
 }
@@ -624,14 +619,7 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   export const filterSensitiveLog = (
     obj: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
   ): any => ({
-    ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        BatchAssociateApprovalRuleTemplateWithRepositoriesError.filterSensitiveLog(
-          item
-        )
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -778,15 +766,7 @@ export namespace BatchDescribeMergeConflictsOutput {
   export const filterSensitiveLog = (
     obj: BatchDescribeMergeConflictsOutput
   ): any => ({
-    ...obj,
-    ...(obj.conflicts && {
-      conflicts: obj.conflicts.map(item => Conflict.filterSensitiveLog(item))
-    }),
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        BatchDescribeMergeConflictsError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchDescribeMergeConflictsOutput =>
     __isa(o, "BatchDescribeMergeConflictsOutput");
@@ -875,14 +855,7 @@ export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   export const filterSensitiveLog = (
     obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
   ): any => ({
-    ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        BatchDisassociateApprovalRuleTemplateFromRepositoriesError.filterSensitiveLog(
-          item
-        )
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -961,15 +934,7 @@ export interface BatchGetCommitsOutput {
 
 export namespace BatchGetCommitsOutput {
   export const filterSensitiveLog = (obj: BatchGetCommitsOutput): any => ({
-    ...obj,
-    ...(obj.commits && {
-      commits: obj.commits.map(item => Commit.filterSensitiveLog(item))
-    }),
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        BatchGetCommitsError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetCommitsOutput =>
     __isa(o, "BatchGetCommitsOutput");
@@ -1015,12 +980,7 @@ export interface BatchGetRepositoriesOutput {
 
 export namespace BatchGetRepositoriesOutput {
   export const filterSensitiveLog = (obj: BatchGetRepositoriesOutput): any => ({
-    ...obj,
-    ...(obj.repositories && {
-      repositories: obj.repositories.map(item =>
-        RepositoryMetadata.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetRepositoriesOutput =>
     __isa(o, "BatchGetRepositoriesOutput");
@@ -1594,11 +1554,7 @@ export interface CommentsForComparedCommit {
 
 export namespace CommentsForComparedCommit {
   export const filterSensitiveLog = (obj: CommentsForComparedCommit): any => ({
-    ...obj,
-    ...(obj.comments && {
-      comments: obj.comments.map(item => Comment.filterSensitiveLog(item))
-    }),
-    ...(obj.location && { location: Location.filterSensitiveLog(obj.location) })
+    ...obj
   });
   export const isa = (o: any): o is CommentsForComparedCommit =>
     __isa(o, "CommentsForComparedCommit");
@@ -1657,11 +1613,7 @@ export interface CommentsForPullRequest {
 
 export namespace CommentsForPullRequest {
   export const filterSensitiveLog = (obj: CommentsForPullRequest): any => ({
-    ...obj,
-    ...(obj.comments && {
-      comments: obj.comments.map(item => Comment.filterSensitiveLog(item))
-    }),
-    ...(obj.location && { location: Location.filterSensitiveLog(obj.location) })
+    ...obj
   });
   export const isa = (o: any): o is CommentsForPullRequest =>
     __isa(o, "CommentsForPullRequest");
@@ -1717,11 +1669,7 @@ export interface Commit {
 
 export namespace Commit {
   export const filterSensitiveLog = (obj: Commit): any => ({
-    ...obj,
-    ...(obj.author && { author: UserInfo.filterSensitiveLog(obj.author) }),
-    ...(obj.committer && {
-      committer: UserInfo.filterSensitiveLog(obj.committer)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Commit => __isa(o, "Commit");
 }
@@ -1932,15 +1880,7 @@ export interface Conflict {
 
 export namespace Conflict {
   export const filterSensitiveLog = (obj: Conflict): any => ({
-    ...obj,
-    ...(obj.conflictMetadata && {
-      conflictMetadata: ConflictMetadata.filterSensitiveLog(
-        obj.conflictMetadata
-      )
-    }),
-    ...(obj.mergeHunks && {
-      mergeHunks: obj.mergeHunks.map(item => MergeHunk.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Conflict => __isa(o, "Conflict");
 }
@@ -2008,22 +1948,7 @@ export interface ConflictMetadata {
 
 export namespace ConflictMetadata {
   export const filterSensitiveLog = (obj: ConflictMetadata): any => ({
-    ...obj,
-    ...(obj.fileModes && {
-      fileModes: FileModes.filterSensitiveLog(obj.fileModes)
-    }),
-    ...(obj.fileSizes && {
-      fileSizes: FileSizes.filterSensitiveLog(obj.fileSizes)
-    }),
-    ...(obj.isBinaryFile && {
-      isBinaryFile: IsBinaryFile.filterSensitiveLog(obj.isBinaryFile)
-    }),
-    ...(obj.mergeOperations && {
-      mergeOperations: MergeOperations.filterSensitiveLog(obj.mergeOperations)
-    }),
-    ...(obj.objectTypes && {
-      objectTypes: ObjectTypes.filterSensitiveLog(obj.objectTypes)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ConflictMetadata =>
     __isa(o, "ConflictMetadata");
@@ -2053,22 +1978,7 @@ export interface ConflictResolution {
 
 export namespace ConflictResolution {
   export const filterSensitiveLog = (obj: ConflictResolution): any => ({
-    ...obj,
-    ...(obj.deleteFiles && {
-      deleteFiles: obj.deleteFiles.map(item =>
-        DeleteFileEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.replaceContents && {
-      replaceContents: obj.replaceContents.map(item =>
-        ReplaceContentEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.setFileModes && {
-      setFileModes: obj.setFileModes.map(item =>
-        SetFileModeEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ConflictResolution =>
     __isa(o, "ConflictResolution");
@@ -2168,12 +2078,7 @@ export namespace CreateApprovalRuleTemplateOutput {
   export const filterSensitiveLog = (
     obj: CreateApprovalRuleTemplateOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvalRuleTemplate && {
-      approvalRuleTemplate: ApprovalRuleTemplate.filterSensitiveLog(
-        obj.approvalRuleTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateApprovalRuleTemplateOutput =>
     __isa(o, "CreateApprovalRuleTemplateOutput");
@@ -2268,20 +2173,7 @@ export interface CreateCommitInput {
 
 export namespace CreateCommitInput {
   export const filterSensitiveLog = (obj: CreateCommitInput): any => ({
-    ...obj,
-    ...(obj.deleteFiles && {
-      deleteFiles: obj.deleteFiles.map(item =>
-        DeleteFileEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.putFiles && {
-      putFiles: obj.putFiles.map(item => PutFileEntry.filterSensitiveLog(item))
-    }),
-    ...(obj.setFileModes && {
-      setFileModes: obj.setFileModes.map(item =>
-        SetFileModeEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateCommitInput =>
     __isa(o, "CreateCommitInput");
@@ -2317,22 +2209,7 @@ export interface CreateCommitOutput {
 
 export namespace CreateCommitOutput {
   export const filterSensitiveLog = (obj: CreateCommitOutput): any => ({
-    ...obj,
-    ...(obj.filesAdded && {
-      filesAdded: obj.filesAdded.map(item =>
-        FileMetadata.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.filesDeleted && {
-      filesDeleted: obj.filesDeleted.map(item =>
-        FileMetadata.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.filesUpdated && {
-      filesUpdated: obj.filesUpdated.map(item =>
-        FileMetadata.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateCommitOutput =>
     __isa(o, "CreateCommitOutput");
@@ -2420,10 +2297,7 @@ export namespace CreatePullRequestApprovalRuleOutput {
   export const filterSensitiveLog = (
     obj: CreatePullRequestApprovalRuleOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvalRule && {
-      approvalRule: ApprovalRule.filterSensitiveLog(obj.approvalRule)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePullRequestApprovalRuleOutput =>
     __isa(o, "CreatePullRequestApprovalRuleOutput");
@@ -2464,10 +2338,7 @@ export interface CreatePullRequestInput {
 
 export namespace CreatePullRequestInput {
   export const filterSensitiveLog = (obj: CreatePullRequestInput): any => ({
-    ...obj,
-    ...(obj.targets && {
-      targets: obj.targets.map(item => Target.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePullRequestInput =>
     __isa(o, "CreatePullRequestInput");
@@ -2483,10 +2354,7 @@ export interface CreatePullRequestOutput {
 
 export namespace CreatePullRequestOutput {
   export const filterSensitiveLog = (obj: CreatePullRequestOutput): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePullRequestOutput =>
     __isa(o, "CreatePullRequestOutput");
@@ -2548,12 +2416,7 @@ export interface CreateRepositoryOutput {
 
 export namespace CreateRepositoryOutput {
   export const filterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
-    ...obj,
-    ...(obj.repositoryMetadata && {
-      repositoryMetadata: RepositoryMetadata.filterSensitiveLog(
-        obj.repositoryMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateRepositoryOutput =>
     __isa(o, "CreateRepositoryOutput");
@@ -2632,12 +2495,7 @@ export namespace CreateUnreferencedMergeCommitInput {
   export const filterSensitiveLog = (
     obj: CreateUnreferencedMergeCommitInput
   ): any => ({
-    ...obj,
-    ...(obj.conflictResolution && {
-      conflictResolution: ConflictResolution.filterSensitiveLog(
-        obj.conflictResolution
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateUnreferencedMergeCommitInput =>
     __isa(o, "CreateUnreferencedMergeCommitInput");
@@ -2764,10 +2622,7 @@ export interface DeleteBranchOutput {
 
 export namespace DeleteBranchOutput {
   export const filterSensitiveLog = (obj: DeleteBranchOutput): any => ({
-    ...obj,
-    ...(obj.deletedBranch && {
-      deletedBranch: BranchInfo.filterSensitiveLog(obj.deletedBranch)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteBranchOutput =>
     __isa(o, "DeleteBranchOutput");
@@ -2800,8 +2655,7 @@ export interface DeleteCommentContentOutput {
 
 export namespace DeleteCommentContentOutput {
   export const filterSensitiveLog = (obj: DeleteCommentContentOutput): any => ({
-    ...obj,
-    ...(obj.comment && { comment: Comment.filterSensitiveLog(obj.comment) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteCommentContentOutput =>
     __isa(o, "DeleteCommentContentOutput");
@@ -3106,15 +2960,7 @@ export namespace DescribeMergeConflictsOutput {
   export const filterSensitiveLog = (
     obj: DescribeMergeConflictsOutput
   ): any => ({
-    ...obj,
-    ...(obj.conflictMetadata && {
-      conflictMetadata: ConflictMetadata.filterSensitiveLog(
-        obj.conflictMetadata
-      )
-    }),
-    ...(obj.mergeHunks && {
-      mergeHunks: obj.mergeHunks.map(item => MergeHunk.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeMergeConflictsOutput =>
     __isa(o, "DescribeMergeConflictsOutput");
@@ -3179,12 +3025,7 @@ export namespace DescribePullRequestEventsOutput {
   export const filterSensitiveLog = (
     obj: DescribePullRequestEventsOutput
   ): any => ({
-    ...obj,
-    ...(obj.pullRequestEvents && {
-      pullRequestEvents: obj.pullRequestEvents.map(item =>
-        PullRequestEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribePullRequestEventsOutput =>
     __isa(o, "DescribePullRequestEventsOutput");
@@ -3215,13 +3056,7 @@ export interface Difference {
 
 export namespace Difference {
   export const filterSensitiveLog = (obj: Difference): any => ({
-    ...obj,
-    ...(obj.afterBlob && {
-      afterBlob: BlobMetadata.filterSensitiveLog(obj.afterBlob)
-    }),
-    ...(obj.beforeBlob && {
-      beforeBlob: BlobMetadata.filterSensitiveLog(obj.beforeBlob)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Difference => __isa(o, "Difference");
 }
@@ -3436,10 +3271,7 @@ export namespace EvaluatePullRequestApprovalRulesOutput {
   export const filterSensitiveLog = (
     obj: EvaluatePullRequestApprovalRulesOutput
   ): any => ({
-    ...obj,
-    ...(obj.evaluation && {
-      evaluation: Evaluation.filterSensitiveLog(obj.evaluation)
-    })
+    ...obj
   });
   export const isa = (o: any): o is EvaluatePullRequestApprovalRulesOutput =>
     __isa(o, "EvaluatePullRequestApprovalRulesOutput");
@@ -3934,12 +3766,7 @@ export namespace GetApprovalRuleTemplateOutput {
   export const filterSensitiveLog = (
     obj: GetApprovalRuleTemplateOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvalRuleTemplate && {
-      approvalRuleTemplate: ApprovalRuleTemplate.filterSensitiveLog(
-        obj.approvalRuleTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApprovalRuleTemplateOutput =>
     __isa(o, "GetApprovalRuleTemplateOutput");
@@ -4023,8 +3850,7 @@ export interface GetBranchOutput {
 
 export namespace GetBranchOutput {
   export const filterSensitiveLog = (obj: GetBranchOutput): any => ({
-    ...obj,
-    ...(obj.branch && { branch: BranchInfo.filterSensitiveLog(obj.branch) })
+    ...obj
   });
   export const isa = (o: any): o is GetBranchOutput =>
     __isa(o, "GetBranchOutput");
@@ -4057,8 +3883,7 @@ export interface GetCommentOutput {
 
 export namespace GetCommentOutput {
   export const filterSensitiveLog = (obj: GetCommentOutput): any => ({
-    ...obj,
-    ...(obj.comment && { comment: Comment.filterSensitiveLog(obj.comment) })
+    ...obj
   });
   export const isa = (o: any): o is GetCommentOutput =>
     __isa(o, "GetCommentOutput");
@@ -4122,12 +3947,7 @@ export namespace GetCommentsForComparedCommitOutput {
   export const filterSensitiveLog = (
     obj: GetCommentsForComparedCommitOutput
   ): any => ({
-    ...obj,
-    ...(obj.commentsForComparedCommitData && {
-      commentsForComparedCommitData: obj.commentsForComparedCommitData.map(
-        item => CommentsForComparedCommit.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCommentsForComparedCommitOutput =>
     __isa(o, "GetCommentsForComparedCommitOutput");
@@ -4195,12 +4015,7 @@ export namespace GetCommentsForPullRequestOutput {
   export const filterSensitiveLog = (
     obj: GetCommentsForPullRequestOutput
   ): any => ({
-    ...obj,
-    ...(obj.commentsForPullRequestData && {
-      commentsForPullRequestData: obj.commentsForPullRequestData.map(item =>
-        CommentsForPullRequest.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCommentsForPullRequestOutput =>
     __isa(o, "GetCommentsForPullRequestOutput");
@@ -4243,8 +4058,7 @@ export interface GetCommitOutput {
 
 export namespace GetCommitOutput {
   export const filterSensitiveLog = (obj: GetCommitOutput): any => ({
-    ...obj,
-    ...(obj.commit && { commit: Commit.filterSensitiveLog(obj.commit) })
+    ...obj
   });
   export const isa = (o: any): o is GetCommitOutput =>
     __isa(o, "GetCommitOutput");
@@ -4322,12 +4136,7 @@ export interface GetDifferencesOutput {
 
 export namespace GetDifferencesOutput {
   export const filterSensitiveLog = (obj: GetDifferencesOutput): any => ({
-    ...obj,
-    ...(obj.differences && {
-      differences: obj.differences.map(item =>
-        Difference.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDifferencesOutput =>
     __isa(o, "GetDifferencesOutput");
@@ -4481,21 +4290,7 @@ export interface GetFolderOutput {
 
 export namespace GetFolderOutput {
   export const filterSensitiveLog = (obj: GetFolderOutput): any => ({
-    ...obj,
-    ...(obj.files && {
-      files: obj.files.map(item => File.filterSensitiveLog(item))
-    }),
-    ...(obj.subFolders && {
-      subFolders: obj.subFolders.map(item => Folder.filterSensitiveLog(item))
-    }),
-    ...(obj.subModules && {
-      subModules: obj.subModules.map(item => SubModule.filterSensitiveLog(item))
-    }),
-    ...(obj.symbolicLinks && {
-      symbolicLinks: obj.symbolicLinks.map(item =>
-        SymbolicLink.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetFolderOutput =>
     __isa(o, "GetFolderOutput");
@@ -4672,12 +4467,7 @@ export interface GetMergeConflictsOutput {
 
 export namespace GetMergeConflictsOutput {
   export const filterSensitiveLog = (obj: GetMergeConflictsOutput): any => ({
-    ...obj,
-    ...(obj.conflictMetadataList && {
-      conflictMetadataList: obj.conflictMetadataList.map(item =>
-        ConflictMetadata.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMergeConflictsOutput =>
     __isa(o, "GetMergeConflictsOutput");
@@ -4792,10 +4582,7 @@ export namespace GetPullRequestApprovalStatesOutput {
   export const filterSensitiveLog = (
     obj: GetPullRequestApprovalStatesOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvals && {
-      approvals: obj.approvals.map(item => Approval.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPullRequestApprovalStatesOutput =>
     __isa(o, "GetPullRequestApprovalStatesOutput");
@@ -4827,10 +4614,7 @@ export interface GetPullRequestOutput {
 
 export namespace GetPullRequestOutput {
   export const filterSensitiveLog = (obj: GetPullRequestOutput): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPullRequestOutput =>
     __isa(o, "GetPullRequestOutput");
@@ -4916,12 +4700,7 @@ export interface GetRepositoryOutput {
 
 export namespace GetRepositoryOutput {
   export const filterSensitiveLog = (obj: GetRepositoryOutput): any => ({
-    ...obj,
-    ...(obj.repositoryMetadata && {
-      repositoryMetadata: RepositoryMetadata.filterSensitiveLog(
-        obj.repositoryMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRepositoryOutput =>
     __isa(o, "GetRepositoryOutput");
@@ -4966,12 +4745,7 @@ export namespace GetRepositoryTriggersOutput {
   export const filterSensitiveLog = (
     obj: GetRepositoryTriggersOutput
   ): any => ({
-    ...obj,
-    ...(obj.triggers && {
-      triggers: obj.triggers.map(item =>
-        RepositoryTrigger.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRepositoryTriggersOutput =>
     __isa(o, "GetRepositoryTriggersOutput");
@@ -6813,12 +6587,7 @@ export interface ListRepositoriesOutput {
 
 export namespace ListRepositoriesOutput {
   export const filterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-    ...obj,
-    ...(obj.repositories && {
-      repositories: obj.repositories.map(item =>
-        RepositoryNameIdPair.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListRepositoriesOutput =>
     __isa(o, "ListRepositoriesOutput");
@@ -7300,12 +7069,7 @@ export interface MergeBranchesBySquashInput {
 
 export namespace MergeBranchesBySquashInput {
   export const filterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
-    ...obj,
-    ...(obj.conflictResolution && {
-      conflictResolution: ConflictResolution.filterSensitiveLog(
-        obj.conflictResolution
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergeBranchesBySquashInput =>
     __isa(o, "MergeBranchesBySquashInput");
@@ -7408,12 +7172,7 @@ export namespace MergeBranchesByThreeWayInput {
   export const filterSensitiveLog = (
     obj: MergeBranchesByThreeWayInput
   ): any => ({
-    ...obj,
-    ...(obj.conflictResolution && {
-      conflictResolution: ConflictResolution.filterSensitiveLog(
-        obj.conflictResolution
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergeBranchesByThreeWayInput =>
     __isa(o, "MergeBranchesByThreeWayInput");
@@ -7474,14 +7233,7 @@ export interface MergeHunk {
 
 export namespace MergeHunk {
   export const filterSensitiveLog = (obj: MergeHunk): any => ({
-    ...obj,
-    ...(obj.base && { base: MergeHunkDetail.filterSensitiveLog(obj.base) }),
-    ...(obj.destination && {
-      destination: MergeHunkDetail.filterSensitiveLog(obj.destination)
-    }),
-    ...(obj.source && {
-      source: MergeHunkDetail.filterSensitiveLog(obj.source)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergeHunk => __isa(o, "MergeHunk");
 }
@@ -7645,10 +7397,7 @@ export namespace MergePullRequestByFastForwardOutput {
   export const filterSensitiveLog = (
     obj: MergePullRequestByFastForwardOutput
   ): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergePullRequestByFastForwardOutput =>
     __isa(o, "MergePullRequestByFastForwardOutput");
@@ -7722,12 +7471,7 @@ export namespace MergePullRequestBySquashInput {
   export const filterSensitiveLog = (
     obj: MergePullRequestBySquashInput
   ): any => ({
-    ...obj,
-    ...(obj.conflictResolution && {
-      conflictResolution: ConflictResolution.filterSensitiveLog(
-        obj.conflictResolution
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergePullRequestBySquashInput =>
     __isa(o, "MergePullRequestBySquashInput");
@@ -7745,10 +7489,7 @@ export namespace MergePullRequestBySquashOutput {
   export const filterSensitiveLog = (
     obj: MergePullRequestBySquashOutput
   ): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergePullRequestBySquashOutput =>
     __isa(o, "MergePullRequestBySquashOutput");
@@ -7822,12 +7563,7 @@ export namespace MergePullRequestByThreeWayInput {
   export const filterSensitiveLog = (
     obj: MergePullRequestByThreeWayInput
   ): any => ({
-    ...obj,
-    ...(obj.conflictResolution && {
-      conflictResolution: ConflictResolution.filterSensitiveLog(
-        obj.conflictResolution
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergePullRequestByThreeWayInput =>
     __isa(o, "MergePullRequestByThreeWayInput");
@@ -7845,10 +7581,7 @@ export namespace MergePullRequestByThreeWayOutput {
   export const filterSensitiveLog = (
     obj: MergePullRequestByThreeWayOutput
   ): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MergePullRequestByThreeWayOutput =>
     __isa(o, "MergePullRequestByThreeWayOutput");
@@ -8308,8 +8041,7 @@ export namespace PostCommentForComparedCommitInput {
   export const filterSensitiveLog = (
     obj: PostCommentForComparedCommitInput
   ): any => ({
-    ...obj,
-    ...(obj.location && { location: Location.filterSensitiveLog(obj.location) })
+    ...obj
   });
   export const isa = (o: any): o is PostCommentForComparedCommitInput =>
     __isa(o, "PostCommentForComparedCommitInput");
@@ -8357,9 +8089,7 @@ export namespace PostCommentForComparedCommitOutput {
   export const filterSensitiveLog = (
     obj: PostCommentForComparedCommitOutput
   ): any => ({
-    ...obj,
-    ...(obj.comment && { comment: Comment.filterSensitiveLog(obj.comment) }),
-    ...(obj.location && { location: Location.filterSensitiveLog(obj.location) })
+    ...obj
   });
   export const isa = (o: any): o is PostCommentForComparedCommitOutput =>
     __isa(o, "PostCommentForComparedCommitOutput");
@@ -8412,8 +8142,7 @@ export namespace PostCommentForPullRequestInput {
   export const filterSensitiveLog = (
     obj: PostCommentForPullRequestInput
   ): any => ({
-    ...obj,
-    ...(obj.location && { location: Location.filterSensitiveLog(obj.location) })
+    ...obj
   });
   export const isa = (o: any): o is PostCommentForPullRequestInput =>
     __isa(o, "PostCommentForPullRequestInput");
@@ -8468,9 +8197,7 @@ export namespace PostCommentForPullRequestOutput {
   export const filterSensitiveLog = (
     obj: PostCommentForPullRequestOutput
   ): any => ({
-    ...obj,
-    ...(obj.comment && { comment: Comment.filterSensitiveLog(obj.comment) }),
-    ...(obj.location && { location: Location.filterSensitiveLog(obj.location) })
+    ...obj
   });
   export const isa = (o: any): o is PostCommentForPullRequestOutput =>
     __isa(o, "PostCommentForPullRequestOutput");
@@ -8516,8 +8243,7 @@ export interface PostCommentReplyOutput {
 
 export namespace PostCommentReplyOutput {
   export const filterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
-    ...obj,
-    ...(obj.comment && { comment: Comment.filterSensitiveLog(obj.comment) })
+    ...obj
   });
   export const isa = (o: any): o is PostCommentReplyOutput =>
     __isa(o, "PostCommentReplyOutput");
@@ -8590,17 +8316,7 @@ export interface PullRequest {
 
 export namespace PullRequest {
   export const filterSensitiveLog = (obj: PullRequest): any => ({
-    ...obj,
-    ...(obj.approvalRules && {
-      approvalRules: obj.approvalRules.map(item =>
-        ApprovalRule.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.pullRequestTargets && {
-      pullRequestTargets: obj.pullRequestTargets.map(item =>
-        PullRequestTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PullRequest => __isa(o, "PullRequest");
 }
@@ -8809,42 +8525,7 @@ export interface PullRequestEvent {
 
 export namespace PullRequestEvent {
   export const filterSensitiveLog = (obj: PullRequestEvent): any => ({
-    ...obj,
-    ...(obj.approvalRuleEventMetadata && {
-      approvalRuleEventMetadata: ApprovalRuleEventMetadata.filterSensitiveLog(
-        obj.approvalRuleEventMetadata
-      )
-    }),
-    ...(obj.approvalRuleOverriddenEventMetadata && {
-      approvalRuleOverriddenEventMetadata: ApprovalRuleOverriddenEventMetadata.filterSensitiveLog(
-        obj.approvalRuleOverriddenEventMetadata
-      )
-    }),
-    ...(obj.approvalStateChangedEventMetadata && {
-      approvalStateChangedEventMetadata: ApprovalStateChangedEventMetadata.filterSensitiveLog(
-        obj.approvalStateChangedEventMetadata
-      )
-    }),
-    ...(obj.pullRequestCreatedEventMetadata && {
-      pullRequestCreatedEventMetadata: PullRequestCreatedEventMetadata.filterSensitiveLog(
-        obj.pullRequestCreatedEventMetadata
-      )
-    }),
-    ...(obj.pullRequestMergedStateChangedEventMetadata && {
-      pullRequestMergedStateChangedEventMetadata: PullRequestMergedStateChangedEventMetadata.filterSensitiveLog(
-        obj.pullRequestMergedStateChangedEventMetadata
-      )
-    }),
-    ...(obj.pullRequestSourceReferenceUpdatedEventMetadata && {
-      pullRequestSourceReferenceUpdatedEventMetadata: PullRequestSourceReferenceUpdatedEventMetadata.filterSensitiveLog(
-        obj.pullRequestSourceReferenceUpdatedEventMetadata
-      )
-    }),
-    ...(obj.pullRequestStatusChangedEventMetadata && {
-      pullRequestStatusChangedEventMetadata: PullRequestStatusChangedEventMetadata.filterSensitiveLog(
-        obj.pullRequestStatusChangedEventMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PullRequestEvent =>
     __isa(o, "PullRequestEvent");
@@ -8911,10 +8592,7 @@ export namespace PullRequestMergedStateChangedEventMetadata {
   export const filterSensitiveLog = (
     obj: PullRequestMergedStateChangedEventMetadata
   ): any => ({
-    ...obj,
-    ...(obj.mergeMetadata && {
-      mergeMetadata: MergeMetadata.filterSensitiveLog(obj.mergeMetadata)
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -9056,10 +8734,7 @@ export interface PullRequestTarget {
 
 export namespace PullRequestTarget {
   export const filterSensitiveLog = (obj: PullRequestTarget): any => ({
-    ...obj,
-    ...(obj.mergeMetadata && {
-      mergeMetadata: MergeMetadata.filterSensitiveLog(obj.mergeMetadata)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PullRequestTarget =>
     __isa(o, "PullRequestTarget");
@@ -9094,10 +8769,7 @@ export interface PutFileEntry {
 
 export namespace PutFileEntry {
   export const filterSensitiveLog = (obj: PutFileEntry): any => ({
-    ...obj,
-    ...(obj.sourceFile && {
-      sourceFile: SourceFileSpecifier.filterSensitiveLog(obj.sourceFile)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutFileEntry => __isa(o, "PutFileEntry");
 }
@@ -9235,12 +8907,7 @@ export interface PutRepositoryTriggersInput {
 
 export namespace PutRepositoryTriggersInput {
   export const filterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
-    ...obj,
-    ...(obj.triggers && {
-      triggers: obj.triggers.map(item =>
-        RepositoryTrigger.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutRepositoryTriggersInput =>
     __isa(o, "PutRepositoryTriggersInput");
@@ -10367,12 +10034,7 @@ export namespace TestRepositoryTriggersInput {
   export const filterSensitiveLog = (
     obj: TestRepositoryTriggersInput
   ): any => ({
-    ...obj,
-    ...(obj.triggers && {
-      triggers: obj.triggers.map(item =>
-        RepositoryTrigger.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TestRepositoryTriggersInput =>
     __isa(o, "TestRepositoryTriggersInput");
@@ -10399,12 +10061,7 @@ export namespace TestRepositoryTriggersOutput {
   export const filterSensitiveLog = (
     obj: TestRepositoryTriggersOutput
   ): any => ({
-    ...obj,
-    ...(obj.failedExecutions && {
-      failedExecutions: obj.failedExecutions.map(item =>
-        RepositoryTriggerExecutionFailure.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TestRepositoryTriggersOutput =>
     __isa(o, "TestRepositoryTriggersOutput");
@@ -10568,12 +10225,7 @@ export namespace UpdateApprovalRuleTemplateContentOutput {
   export const filterSensitiveLog = (
     obj: UpdateApprovalRuleTemplateContentOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvalRuleTemplate && {
-      approvalRuleTemplate: ApprovalRuleTemplate.filterSensitiveLog(
-        obj.approvalRuleTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApprovalRuleTemplateContentOutput =>
     __isa(o, "UpdateApprovalRuleTemplateContentOutput");
@@ -10616,12 +10268,7 @@ export namespace UpdateApprovalRuleTemplateDescriptionOutput {
   export const filterSensitiveLog = (
     obj: UpdateApprovalRuleTemplateDescriptionOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvalRuleTemplate && {
-      approvalRuleTemplate: ApprovalRuleTemplate.filterSensitiveLog(
-        obj.approvalRuleTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -10664,12 +10311,7 @@ export namespace UpdateApprovalRuleTemplateNameOutput {
   export const filterSensitiveLog = (
     obj: UpdateApprovalRuleTemplateNameOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvalRuleTemplate && {
-      approvalRuleTemplate: ApprovalRuleTemplate.filterSensitiveLog(
-        obj.approvalRuleTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApprovalRuleTemplateNameOutput =>
     __isa(o, "UpdateApprovalRuleTemplateNameOutput");
@@ -10707,8 +10349,7 @@ export interface UpdateCommentOutput {
 
 export namespace UpdateCommentOutput {
   export const filterSensitiveLog = (obj: UpdateCommentOutput): any => ({
-    ...obj,
-    ...(obj.comment && { comment: Comment.filterSensitiveLog(obj.comment) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateCommentOutput =>
     __isa(o, "UpdateCommentOutput");
@@ -10825,10 +10466,7 @@ export namespace UpdatePullRequestApprovalRuleContentOutput {
   export const filterSensitiveLog = (
     obj: UpdatePullRequestApprovalRuleContentOutput
   ): any => ({
-    ...obj,
-    ...(obj.approvalRule && {
-      approvalRule: ApprovalRule.filterSensitiveLog(obj.approvalRule)
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -10900,10 +10538,7 @@ export namespace UpdatePullRequestDescriptionOutput {
   export const filterSensitiveLog = (
     obj: UpdatePullRequestDescriptionOutput
   ): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdatePullRequestDescriptionOutput =>
     __isa(o, "UpdatePullRequestDescriptionOutput");
@@ -10946,10 +10581,7 @@ export namespace UpdatePullRequestStatusOutput {
   export const filterSensitiveLog = (
     obj: UpdatePullRequestStatusOutput
   ): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdatePullRequestStatusOutput =>
     __isa(o, "UpdatePullRequestStatusOutput");
@@ -10990,10 +10622,7 @@ export namespace UpdatePullRequestTitleOutput {
   export const filterSensitiveLog = (
     obj: UpdatePullRequestTitleOutput
   ): any => ({
-    ...obj,
-    ...(obj.pullRequest && {
-      pullRequest: PullRequest.filterSensitiveLog(obj.pullRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdatePullRequestTitleOutput =>
     __isa(o, "UpdatePullRequestTitleOutput");

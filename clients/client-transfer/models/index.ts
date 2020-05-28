@@ -109,18 +109,7 @@ export interface CreateServerRequest {
 export namespace CreateServerRequest {
   export const filterSensitiveLog = (obj: CreateServerRequest): any => ({
     ...obj,
-    ...(obj.EndpointDetails && {
-      EndpointDetails: EndpointDetails.filterSensitiveLog(obj.EndpointDetails)
-    }),
-    ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
-    ...(obj.IdentityProviderDetails && {
-      IdentityProviderDetails: IdentityProviderDetails.filterSensitiveLog(
-        obj.IdentityProviderDetails
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...(obj.HostKey && { HostKey: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is CreateServerRequest =>
     __isa(o, "CreateServerRequest");
@@ -249,15 +238,7 @@ export interface CreateUserRequest {
 
 export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-    ...(obj.HomeDirectoryMappings && {
-      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(item =>
-        HomeDirectoryMapEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateUserRequest =>
     __isa(o, "CreateUserRequest");
@@ -376,10 +357,7 @@ export interface DescribeServerResponse {
 
 export namespace DescribeServerResponse {
   export const filterSensitiveLog = (obj: DescribeServerResponse): any => ({
-    ...obj,
-    ...(obj.Server && {
-      Server: DescribedServer.filterSensitiveLog(obj.Server)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeServerResponse =>
     __isa(o, "DescribeServerResponse");
@@ -423,8 +401,7 @@ export interface DescribeUserResponse {
 
 export namespace DescribeUserResponse {
   export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: DescribedUser.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeUserResponse =>
     __isa(o, "DescribeUserResponse");
@@ -517,18 +494,7 @@ export interface DescribedServer {
 
 export namespace DescribedServer {
   export const filterSensitiveLog = (obj: DescribedServer): any => ({
-    ...obj,
-    ...(obj.EndpointDetails && {
-      EndpointDetails: EndpointDetails.filterSensitiveLog(obj.EndpointDetails)
-    }),
-    ...(obj.IdentityProviderDetails && {
-      IdentityProviderDetails: IdentityProviderDetails.filterSensitiveLog(
-        obj.IdentityProviderDetails
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribedServer =>
     __isa(o, "DescribedServer");
@@ -616,20 +582,7 @@ export interface DescribedUser {
 
 export namespace DescribedUser {
   export const filterSensitiveLog = (obj: DescribedUser): any => ({
-    ...obj,
-    ...(obj.HomeDirectoryMappings && {
-      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(item =>
-        HomeDirectoryMapEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SshPublicKeys && {
-      SshPublicKeys: obj.SshPublicKeys.map(item =>
-        SshPublicKey.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribedUser => __isa(o, "DescribedUser");
 }
@@ -901,10 +854,7 @@ export interface ListServersResponse {
 
 export namespace ListServersResponse {
   export const filterSensitiveLog = (obj: ListServersResponse): any => ({
-    ...obj,
-    ...(obj.Servers && {
-      Servers: obj.Servers.map(item => ListedServer.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListServersResponse =>
     __isa(o, "ListServersResponse");
@@ -966,10 +916,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1031,10 +978,7 @@ export interface ListUsersResponse {
 
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map(item => ListedUser.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");
@@ -1322,10 +1266,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -1489,15 +1430,7 @@ export interface UpdateServerRequest {
 export namespace UpdateServerRequest {
   export const filterSensitiveLog = (obj: UpdateServerRequest): any => ({
     ...obj,
-    ...(obj.EndpointDetails && {
-      EndpointDetails: EndpointDetails.filterSensitiveLog(obj.EndpointDetails)
-    }),
-    ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
-    ...(obj.IdentityProviderDetails && {
-      IdentityProviderDetails: IdentityProviderDetails.filterSensitiveLog(
-        obj.IdentityProviderDetails
-      )
-    })
+    ...(obj.HostKey && { HostKey: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is UpdateServerRequest =>
     __isa(o, "UpdateServerRequest");
@@ -1612,12 +1545,7 @@ export interface UpdateUserRequest {
 
 export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj,
-    ...(obj.HomeDirectoryMappings && {
-      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(item =>
-        HomeDirectoryMapEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateUserRequest =>
     __isa(o, "UpdateUserRequest");

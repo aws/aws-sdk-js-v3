@@ -49,8 +49,7 @@ export interface Entitlement {
 
 export namespace Entitlement {
   export const filterSensitiveLog = (obj: Entitlement): any => ({
-    ...obj,
-    ...(obj.Value && { Value: EntitlementValue.filterSensitiveLog(obj.Value) })
+    ...obj
   });
   export const isa = (o: any): o is Entitlement => __isa(o, "Entitlement");
 }
@@ -162,12 +161,7 @@ export interface GetEntitlementsResult {
 
 export namespace GetEntitlementsResult {
   export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
-    ...obj,
-    ...(obj.Entitlements && {
-      Entitlements: obj.Entitlements.map(item =>
-        Entitlement.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEntitlementsResult =>
     __isa(o, "GetEntitlementsResult");

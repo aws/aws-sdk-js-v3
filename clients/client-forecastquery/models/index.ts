@@ -55,16 +55,7 @@ export interface Forecast {
 
 export namespace Forecast {
   export const filterSensitiveLog = (obj: Forecast): any => ({
-    ...obj,
-    ...(obj.Predictions && {
-      Predictions: Object.entries(obj.Predictions).reduce(
-        (acc: any, [key, value]: [string, DataPoint[]]) => ({
-          ...acc,
-          [key]: value.map(item => DataPoint.filterSensitiveLog(item))
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Forecast => __isa(o, "Forecast");
 }
@@ -184,8 +175,7 @@ export interface QueryForecastResponse {
 
 export namespace QueryForecastResponse {
   export const filterSensitiveLog = (obj: QueryForecastResponse): any => ({
-    ...obj,
-    ...(obj.Forecast && { Forecast: Forecast.filterSensitiveLog(obj.Forecast) })
+    ...obj
   });
   export const isa = (o: any): o is QueryForecastResponse =>
     __isa(o, "QueryForecastResponse");

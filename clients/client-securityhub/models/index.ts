@@ -179,13 +179,7 @@ export namespace AwsCloudFrontDistributionDetails {
   export const filterSensitiveLog = (
     obj: AwsCloudFrontDistributionDetails
   ): any => ({
-    ...obj,
-    ...(obj.Logging && {
-      Logging: AwsCloudFrontDistributionLogging.filterSensitiveLog(obj.Logging)
-    }),
-    ...(obj.Origins && {
-      Origins: AwsCloudFrontDistributionOrigins.filterSensitiveLog(obj.Origins)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsCloudFrontDistributionDetails =>
     __isa(o, "AwsCloudFrontDistributionDetails");
@@ -273,12 +267,7 @@ export namespace AwsCloudFrontDistributionOrigins {
   export const filterSensitiveLog = (
     obj: AwsCloudFrontDistributionOrigins
   ): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item =>
-        AwsCloudFrontDistributionOriginItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsCloudFrontDistributionOrigins =>
     __isa(o, "AwsCloudFrontDistributionOrigins");
@@ -403,13 +392,7 @@ export namespace AwsElbv2LoadBalancerDetails {
   export const filterSensitiveLog = (
     obj: AwsElbv2LoadBalancerDetails
   ): any => ({
-    ...obj,
-    ...(obj.AvailabilityZones && {
-      AvailabilityZones: obj.AvailabilityZones.map(item =>
-        AvailabilityZone.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.State && { State: LoadBalancerState.filterSensitiveLog(obj.State) })
+    ...obj
   });
   export const isa = (o: any): o is AwsElbv2LoadBalancerDetails =>
     __isa(o, "AwsElbv2LoadBalancerDetails");
@@ -706,33 +689,7 @@ export interface AwsLambdaFunctionDetails {
 
 export namespace AwsLambdaFunctionDetails {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
-    ...obj,
-    ...(obj.Code && {
-      Code: AwsLambdaFunctionCode.filterSensitiveLog(obj.Code)
-    }),
-    ...(obj.DeadLetterConfig && {
-      DeadLetterConfig: AwsLambdaFunctionDeadLetterConfig.filterSensitiveLog(
-        obj.DeadLetterConfig
-      )
-    }),
-    ...(obj.Environment && {
-      Environment: AwsLambdaFunctionEnvironment.filterSensitiveLog(
-        obj.Environment
-      )
-    }),
-    ...(obj.Layers && {
-      Layers: obj.Layers.map(item =>
-        AwsLambdaFunctionLayer.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.TracingConfig && {
-      TracingConfig: AwsLambdaFunctionTracingConfig.filterSensitiveLog(
-        obj.TracingConfig
-      )
-    }),
-    ...(obj.VpcConfig && {
-      VpcConfig: AwsLambdaFunctionVpcConfig.filterSensitiveLog(obj.VpcConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsLambdaFunctionDetails =>
     __isa(o, "AwsLambdaFunctionDetails");
@@ -758,10 +715,7 @@ export namespace AwsLambdaFunctionEnvironment {
   export const filterSensitiveLog = (
     obj: AwsLambdaFunctionEnvironment
   ): any => ({
-    ...obj,
-    ...(obj.Error && {
-      Error: AwsLambdaFunctionEnvironmentError.filterSensitiveLog(obj.Error)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsLambdaFunctionEnvironment =>
     __isa(o, "AwsLambdaFunctionEnvironment");
@@ -1084,37 +1038,7 @@ export interface AwsSecurityFinding {
 
 export namespace AwsSecurityFinding {
   export const filterSensitiveLog = (obj: AwsSecurityFinding): any => ({
-    ...obj,
-    ...(obj.Compliance && {
-      Compliance: Compliance.filterSensitiveLog(obj.Compliance)
-    }),
-    ...(obj.Malware && {
-      Malware: obj.Malware.map(item => Malware.filterSensitiveLog(item))
-    }),
-    ...(obj.Network && { Network: Network.filterSensitiveLog(obj.Network) }),
-    ...(obj.Note && { Note: Note.filterSensitiveLog(obj.Note) }),
-    ...(obj.Process && {
-      Process: ProcessDetails.filterSensitiveLog(obj.Process)
-    }),
-    ...(obj.RelatedFindings && {
-      RelatedFindings: obj.RelatedFindings.map(item =>
-        RelatedFinding.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Remediation && {
-      Remediation: Remediation.filterSensitiveLog(obj.Remediation)
-    }),
-    ...(obj.Resources && {
-      Resources: obj.Resources.map(item => Resource.filterSensitiveLog(item))
-    }),
-    ...(obj.Severity && {
-      Severity: Severity.filterSensitiveLog(obj.Severity)
-    }),
-    ...(obj.ThreatIntelIndicators && {
-      ThreatIntelIndicators: obj.ThreatIntelIndicators.map(item =>
-        ThreatIntelIndicator.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsSecurityFinding =>
     __isa(o, "AwsSecurityFinding");
@@ -1568,408 +1492,7 @@ export interface AwsSecurityFindingFilters {
 
 export namespace AwsSecurityFindingFilters {
   export const filterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
-    ...obj,
-    ...(obj.AwsAccountId && {
-      AwsAccountId: obj.AwsAccountId.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.CompanyName && {
-      CompanyName: obj.CompanyName.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ComplianceStatus && {
-      ComplianceStatus: obj.ComplianceStatus.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Confidence && {
-      Confidence: obj.Confidence.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.CreatedAt && {
-      CreatedAt: obj.CreatedAt.map(item => DateFilter.filterSensitiveLog(item))
-    }),
-    ...(obj.Criticality && {
-      Criticality: obj.Criticality.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Description && {
-      Description: obj.Description.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.FirstObservedAt && {
-      FirstObservedAt: obj.FirstObservedAt.map(item =>
-        DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.GeneratorId && {
-      GeneratorId: obj.GeneratorId.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Id && {
-      Id: obj.Id.map(item => StringFilter.filterSensitiveLog(item))
-    }),
-    ...(obj.Keyword && {
-      Keyword: obj.Keyword.map(item => KeywordFilter.filterSensitiveLog(item))
-    }),
-    ...(obj.LastObservedAt && {
-      LastObservedAt: obj.LastObservedAt.map(item =>
-        DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.MalwareName && {
-      MalwareName: obj.MalwareName.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.MalwarePath && {
-      MalwarePath: obj.MalwarePath.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.MalwareState && {
-      MalwareState: obj.MalwareState.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.MalwareType && {
-      MalwareType: obj.MalwareType.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkDestinationDomain && {
-      NetworkDestinationDomain: obj.NetworkDestinationDomain.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkDestinationIpV4 && {
-      NetworkDestinationIpV4: obj.NetworkDestinationIpV4.map(item =>
-        IpFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkDestinationIpV6 && {
-      NetworkDestinationIpV6: obj.NetworkDestinationIpV6.map(item =>
-        IpFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkDestinationPort && {
-      NetworkDestinationPort: obj.NetworkDestinationPort.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkDirection && {
-      NetworkDirection: obj.NetworkDirection.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkProtocol && {
-      NetworkProtocol: obj.NetworkProtocol.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkSourceDomain && {
-      NetworkSourceDomain: obj.NetworkSourceDomain.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkSourceIpV4 && {
-      NetworkSourceIpV4: obj.NetworkSourceIpV4.map(item =>
-        IpFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkSourceIpV6 && {
-      NetworkSourceIpV6: obj.NetworkSourceIpV6.map(item =>
-        IpFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkSourceMac && {
-      NetworkSourceMac: obj.NetworkSourceMac.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NetworkSourcePort && {
-      NetworkSourcePort: obj.NetworkSourcePort.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NoteText && {
-      NoteText: obj.NoteText.map(item => StringFilter.filterSensitiveLog(item))
-    }),
-    ...(obj.NoteUpdatedAt && {
-      NoteUpdatedAt: obj.NoteUpdatedAt.map(item =>
-        DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.NoteUpdatedBy && {
-      NoteUpdatedBy: obj.NoteUpdatedBy.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProcessLaunchedAt && {
-      ProcessLaunchedAt: obj.ProcessLaunchedAt.map(item =>
-        DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProcessName && {
-      ProcessName: obj.ProcessName.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProcessParentPid && {
-      ProcessParentPid: obj.ProcessParentPid.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProcessPath && {
-      ProcessPath: obj.ProcessPath.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProcessPid && {
-      ProcessPid: obj.ProcessPid.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProcessTerminatedAt && {
-      ProcessTerminatedAt: obj.ProcessTerminatedAt.map(item =>
-        DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProductArn && {
-      ProductArn: obj.ProductArn.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProductFields && {
-      ProductFields: obj.ProductFields.map(item =>
-        MapFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ProductName && {
-      ProductName: obj.ProductName.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RecommendationText && {
-      RecommendationText: obj.RecommendationText.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RecordState && {
-      RecordState: obj.RecordState.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RelatedFindingsId && {
-      RelatedFindingsId: obj.RelatedFindingsId.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RelatedFindingsProductArn && {
-      RelatedFindingsProductArn: obj.RelatedFindingsProductArn.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceIamInstanceProfileArn && {
-      ResourceAwsEc2InstanceIamInstanceProfileArn: obj.ResourceAwsEc2InstanceIamInstanceProfileArn.map(
-        item => StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceImageId && {
-      ResourceAwsEc2InstanceImageId: obj.ResourceAwsEc2InstanceImageId.map(
-        item => StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceIpV4Addresses && {
-      ResourceAwsEc2InstanceIpV4Addresses: obj.ResourceAwsEc2InstanceIpV4Addresses.map(
-        item => IpFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceIpV6Addresses && {
-      ResourceAwsEc2InstanceIpV6Addresses: obj.ResourceAwsEc2InstanceIpV6Addresses.map(
-        item => IpFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceKeyName && {
-      ResourceAwsEc2InstanceKeyName: obj.ResourceAwsEc2InstanceKeyName.map(
-        item => StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceLaunchedAt && {
-      ResourceAwsEc2InstanceLaunchedAt: obj.ResourceAwsEc2InstanceLaunchedAt.map(
-        item => DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceSubnetId && {
-      ResourceAwsEc2InstanceSubnetId: obj.ResourceAwsEc2InstanceSubnetId.map(
-        item => StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceType && {
-      ResourceAwsEc2InstanceType: obj.ResourceAwsEc2InstanceType.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsEc2InstanceVpcId && {
-      ResourceAwsEc2InstanceVpcId: obj.ResourceAwsEc2InstanceVpcId.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsIamAccessKeyCreatedAt && {
-      ResourceAwsIamAccessKeyCreatedAt: obj.ResourceAwsIamAccessKeyCreatedAt.map(
-        item => DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsIamAccessKeyStatus && {
-      ResourceAwsIamAccessKeyStatus: obj.ResourceAwsIamAccessKeyStatus.map(
-        item => StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsIamAccessKeyUserName && {
-      ResourceAwsIamAccessKeyUserName: obj.ResourceAwsIamAccessKeyUserName.map(
-        item => StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsS3BucketOwnerId && {
-      ResourceAwsS3BucketOwnerId: obj.ResourceAwsS3BucketOwnerId.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceAwsS3BucketOwnerName && {
-      ResourceAwsS3BucketOwnerName: obj.ResourceAwsS3BucketOwnerName.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceContainerImageId && {
-      ResourceContainerImageId: obj.ResourceContainerImageId.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceContainerImageName && {
-      ResourceContainerImageName: obj.ResourceContainerImageName.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceContainerLaunchedAt && {
-      ResourceContainerLaunchedAt: obj.ResourceContainerLaunchedAt.map(item =>
-        DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceContainerName && {
-      ResourceContainerName: obj.ResourceContainerName.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceDetailsOther && {
-      ResourceDetailsOther: obj.ResourceDetailsOther.map(item =>
-        MapFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceId && {
-      ResourceId: obj.ResourceId.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourcePartition && {
-      ResourcePartition: obj.ResourcePartition.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceRegion && {
-      ResourceRegion: obj.ResourceRegion.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceTags && {
-      ResourceTags: obj.ResourceTags.map(item =>
-        MapFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceType && {
-      ResourceType: obj.ResourceType.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SeverityLabel && {
-      SeverityLabel: obj.SeverityLabel.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SeverityNormalized && {
-      SeverityNormalized: obj.SeverityNormalized.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SeverityProduct && {
-      SeverityProduct: obj.SeverityProduct.map(item =>
-        NumberFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SourceUrl && {
-      SourceUrl: obj.SourceUrl.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ThreatIntelIndicatorCategory && {
-      ThreatIntelIndicatorCategory: obj.ThreatIntelIndicatorCategory.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ThreatIntelIndicatorLastObservedAt && {
-      ThreatIntelIndicatorLastObservedAt: obj.ThreatIntelIndicatorLastObservedAt.map(
-        item => DateFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ThreatIntelIndicatorSource && {
-      ThreatIntelIndicatorSource: obj.ThreatIntelIndicatorSource.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ThreatIntelIndicatorSourceUrl && {
-      ThreatIntelIndicatorSourceUrl: obj.ThreatIntelIndicatorSourceUrl.map(
-        item => StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ThreatIntelIndicatorType && {
-      ThreatIntelIndicatorType: obj.ThreatIntelIndicatorType.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ThreatIntelIndicatorValue && {
-      ThreatIntelIndicatorValue: obj.ThreatIntelIndicatorValue.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Title && {
-      Title: obj.Title.map(item => StringFilter.filterSensitiveLog(item))
-    }),
-    ...(obj.Type && {
-      Type: obj.Type.map(item => StringFilter.filterSensitiveLog(item))
-    }),
-    ...(obj.UpdatedAt && {
-      UpdatedAt: obj.UpdatedAt.map(item => DateFilter.filterSensitiveLog(item))
-    }),
-    ...(obj.UserDefinedFields && {
-      UserDefinedFields: obj.UserDefinedFields.map(item =>
-        MapFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.VerificationState && {
-      VerificationState: obj.VerificationState.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.WorkflowState && {
-      WorkflowState: obj.WorkflowState.map(item =>
-        StringFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsSecurityFindingFilters =>
     __isa(o, "AwsSecurityFindingFilters");
@@ -2003,12 +1526,7 @@ export interface AwsSnsTopicDetails {
 
 export namespace AwsSnsTopicDetails {
   export const filterSensitiveLog = (obj: AwsSnsTopicDetails): any => ({
-    ...obj,
-    ...(obj.Subscription && {
-      Subscription: obj.Subscription.map(item =>
-        AwsSnsTopicSubscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsSnsTopicDetails =>
     __isa(o, "AwsSnsTopicDetails");
@@ -2102,12 +1620,7 @@ export namespace BatchDisableStandardsResponse {
   export const filterSensitiveLog = (
     obj: BatchDisableStandardsResponse
   ): any => ({
-    ...obj,
-    ...(obj.StandardsSubscriptions && {
-      StandardsSubscriptions: obj.StandardsSubscriptions.map(item =>
-        StandardsSubscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchDisableStandardsResponse =>
     __isa(o, "BatchDisableStandardsResponse");
@@ -2130,12 +1643,7 @@ export namespace BatchEnableStandardsRequest {
   export const filterSensitiveLog = (
     obj: BatchEnableStandardsRequest
   ): any => ({
-    ...obj,
-    ...(obj.StandardsSubscriptionRequests && {
-      StandardsSubscriptionRequests: obj.StandardsSubscriptionRequests.map(
-        item => StandardsSubscriptionRequest.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchEnableStandardsRequest =>
     __isa(o, "BatchEnableStandardsRequest");
@@ -2153,12 +1661,7 @@ export namespace BatchEnableStandardsResponse {
   export const filterSensitiveLog = (
     obj: BatchEnableStandardsResponse
   ): any => ({
-    ...obj,
-    ...(obj.StandardsSubscriptions && {
-      StandardsSubscriptions: obj.StandardsSubscriptions.map(item =>
-        StandardsSubscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchEnableStandardsResponse =>
     __isa(o, "BatchEnableStandardsResponse");
@@ -2175,12 +1678,7 @@ export interface BatchImportFindingsRequest {
 
 export namespace BatchImportFindingsRequest {
   export const filterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
-    ...obj,
-    ...(obj.Findings && {
-      Findings: obj.Findings.map(item =>
-        AwsSecurityFinding.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchImportFindingsRequest =>
     __isa(o, "BatchImportFindingsRequest");
@@ -2208,12 +1706,7 @@ export namespace BatchImportFindingsResponse {
   export const filterSensitiveLog = (
     obj: BatchImportFindingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.FailedFindings && {
-      FailedFindings: obj.FailedFindings.map(item =>
-        ImportFindingsError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchImportFindingsResponse =>
     __isa(o, "BatchImportFindingsResponse");
@@ -2372,10 +1865,7 @@ export interface CreateInsightRequest {
 
 export namespace CreateInsightRequest {
   export const filterSensitiveLog = (obj: CreateInsightRequest): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: AwsSecurityFindingFilters.filterSensitiveLog(obj.Filters)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateInsightRequest =>
     __isa(o, "CreateInsightRequest");
@@ -2408,12 +1898,7 @@ export interface CreateMembersRequest {
 
 export namespace CreateMembersRequest {
   export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
-    ...obj,
-    ...(obj.AccountDetails && {
-      AccountDetails: obj.AccountDetails.map(item =>
-        AccountDetails.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateMembersRequest =>
     __isa(o, "CreateMembersRequest");
@@ -2430,12 +1915,7 @@ export interface CreateMembersResponse {
 
 export namespace CreateMembersResponse {
   export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
-    ...obj,
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        Result.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateMembersResponse =>
     __isa(o, "CreateMembersResponse");
@@ -2464,10 +1944,7 @@ export interface DateFilter {
 
 export namespace DateFilter {
   export const filterSensitiveLog = (obj: DateFilter): any => ({
-    ...obj,
-    ...(obj.DateRange && {
-      DateRange: DateRange.filterSensitiveLog(obj.DateRange)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DateFilter => __isa(o, "DateFilter");
 }
@@ -2527,12 +2004,7 @@ export interface DeclineInvitationsResponse {
 
 export namespace DeclineInvitationsResponse {
   export const filterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
-    ...obj,
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        Result.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeclineInvitationsResponse =>
     __isa(o, "DeclineInvitationsResponse");
@@ -2629,12 +2101,7 @@ export interface DeleteInvitationsResponse {
 
 export namespace DeleteInvitationsResponse {
   export const filterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
-    ...obj,
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        Result.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteInvitationsResponse =>
     __isa(o, "DeleteInvitationsResponse");
@@ -2667,12 +2134,7 @@ export interface DeleteMembersResponse {
 
 export namespace DeleteMembersResponse {
   export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-    ...obj,
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        Result.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteMembersResponse =>
     __isa(o, "DeleteMembersResponse");
@@ -2725,12 +2187,7 @@ export namespace DescribeActionTargetsResponse {
   export const filterSensitiveLog = (
     obj: DescribeActionTargetsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ActionTargets && {
-      ActionTargets: obj.ActionTargets.map(item =>
-        ActionTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeActionTargetsResponse =>
     __isa(o, "DescribeActionTargetsResponse");
@@ -2809,10 +2266,7 @@ export interface DescribeProductsResponse {
 
 export namespace DescribeProductsResponse {
   export const filterSensitiveLog = (obj: DescribeProductsResponse): any => ({
-    ...obj,
-    ...(obj.Products && {
-      Products: obj.Products.map(item => Product.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeProductsResponse =>
     __isa(o, "DescribeProductsResponse");
@@ -2867,12 +2321,7 @@ export namespace DescribeStandardsControlsResponse {
   export const filterSensitiveLog = (
     obj: DescribeStandardsControlsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Controls && {
-      Controls: obj.Controls.map(item =>
-        StandardsControl.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStandardsControlsResponse =>
     __isa(o, "DescribeStandardsControlsResponse");
@@ -3102,12 +2551,7 @@ export namespace GetEnabledStandardsResponse {
   export const filterSensitiveLog = (
     obj: GetEnabledStandardsResponse
   ): any => ({
-    ...obj,
-    ...(obj.StandardsSubscriptions && {
-      StandardsSubscriptions: obj.StandardsSubscriptions.map(item =>
-        StandardsSubscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEnabledStandardsResponse =>
     __isa(o, "GetEnabledStandardsResponse");
@@ -3141,15 +2585,7 @@ export interface GetFindingsRequest {
 
 export namespace GetFindingsRequest {
   export const filterSensitiveLog = (obj: GetFindingsRequest): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: AwsSecurityFindingFilters.filterSensitiveLog(obj.Filters)
-    }),
-    ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(item =>
-        SortCriterion.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetFindingsRequest =>
     __isa(o, "GetFindingsRequest");
@@ -3170,12 +2606,7 @@ export interface GetFindingsResponse {
 
 export namespace GetFindingsResponse {
   export const filterSensitiveLog = (obj: GetFindingsResponse): any => ({
-    ...obj,
-    ...(obj.Findings && {
-      Findings: obj.Findings.map(item =>
-        AwsSecurityFinding.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetFindingsResponse =>
     __isa(o, "GetFindingsResponse");
@@ -3207,10 +2638,7 @@ export interface GetInsightResultsResponse {
 
 export namespace GetInsightResultsResponse {
   export const filterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
-    ...obj,
-    ...(obj.InsightResults && {
-      InsightResults: InsightResults.filterSensitiveLog(obj.InsightResults)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetInsightResultsResponse =>
     __isa(o, "GetInsightResultsResponse");
@@ -3260,10 +2688,7 @@ export interface GetInsightsResponse {
 
 export namespace GetInsightsResponse {
   export const filterSensitiveLog = (obj: GetInsightsResponse): any => ({
-    ...obj,
-    ...(obj.Insights && {
-      Insights: obj.Insights.map(item => Insight.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetInsightsResponse =>
     __isa(o, "GetInsightsResponse");
@@ -3323,8 +2748,7 @@ export interface GetMasterAccountResponse {
 
 export namespace GetMasterAccountResponse {
   export const filterSensitiveLog = (obj: GetMasterAccountResponse): any => ({
-    ...obj,
-    ...(obj.Master && { Master: Invitation.filterSensitiveLog(obj.Master) })
+    ...obj
   });
   export const isa = (o: any): o is GetMasterAccountResponse =>
     __isa(o, "GetMasterAccountResponse");
@@ -3363,15 +2787,7 @@ export interface GetMembersResponse {
 
 export namespace GetMembersResponse {
   export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
-    ...obj,
-    ...(obj.Members && {
-      Members: obj.Members.map(item => Member.filterSensitiveLog(item))
-    }),
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        Result.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMembersResponse =>
     __isa(o, "GetMembersResponse");
@@ -3437,10 +2853,7 @@ export interface Insight {
 
 export namespace Insight {
   export const filterSensitiveLog = (obj: Insight): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: AwsSecurityFindingFilters.filterSensitiveLog(obj.Filters)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Insight => __isa(o, "Insight");
 }
@@ -3497,12 +2910,7 @@ export interface InsightResults {
 
 export namespace InsightResults {
   export const filterSensitiveLog = (obj: InsightResults): any => ({
-    ...obj,
-    ...(obj.ResultValues && {
-      ResultValues: obj.ResultValues.map(item =>
-        InsightResultValue.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InsightResults =>
     __isa(o, "InsightResults");
@@ -3628,12 +3036,7 @@ export interface InviteMembersResponse {
 
 export namespace InviteMembersResponse {
   export const filterSensitiveLog = (obj: InviteMembersResponse): any => ({
-    ...obj,
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        Result.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InviteMembersResponse =>
     __isa(o, "InviteMembersResponse");
@@ -3784,12 +3187,7 @@ export interface ListInvitationsResponse {
 
 export namespace ListInvitationsResponse {
   export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-    ...obj,
-    ...(obj.Invitations && {
-      Invitations: obj.Invitations.map(item =>
-        Invitation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListInvitationsResponse =>
     __isa(o, "ListInvitationsResponse");
@@ -3844,10 +3242,7 @@ export interface ListMembersResponse {
 
 export namespace ListMembersResponse {
   export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
-    ...obj,
-    ...(obj.Members && {
-      Members: obj.Members.map(item => Member.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMembersResponse =>
     __isa(o, "ListMembersResponse");
@@ -4371,10 +3766,7 @@ export interface Remediation {
 
 export namespace Remediation {
   export const filterSensitiveLog = (obj: Remediation): any => ({
-    ...obj,
-    ...(obj.Recommendation && {
-      Recommendation: Recommendation.filterSensitiveLog(obj.Recommendation)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Remediation => __isa(o, "Remediation");
 }
@@ -4418,10 +3810,7 @@ export interface Resource {
 
 export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-    ...(obj.Details && {
-      Details: ResourceDetails.filterSensitiveLog(obj.Details)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
@@ -4515,50 +3904,7 @@ export interface ResourceDetails {
 
 export namespace ResourceDetails {
   export const filterSensitiveLog = (obj: ResourceDetails): any => ({
-    ...obj,
-    ...(obj.AwsCloudFrontDistribution && {
-      AwsCloudFrontDistribution: AwsCloudFrontDistributionDetails.filterSensitiveLog(
-        obj.AwsCloudFrontDistribution
-      )
-    }),
-    ...(obj.AwsEc2Instance && {
-      AwsEc2Instance: AwsEc2InstanceDetails.filterSensitiveLog(
-        obj.AwsEc2Instance
-      )
-    }),
-    ...(obj.AwsElbv2LoadBalancer && {
-      AwsElbv2LoadBalancer: AwsElbv2LoadBalancerDetails.filterSensitiveLog(
-        obj.AwsElbv2LoadBalancer
-      )
-    }),
-    ...(obj.AwsIamAccessKey && {
-      AwsIamAccessKey: AwsIamAccessKeyDetails.filterSensitiveLog(
-        obj.AwsIamAccessKey
-      )
-    }),
-    ...(obj.AwsIamRole && {
-      AwsIamRole: AwsIamRoleDetails.filterSensitiveLog(obj.AwsIamRole)
-    }),
-    ...(obj.AwsKmsKey && {
-      AwsKmsKey: AwsKmsKeyDetails.filterSensitiveLog(obj.AwsKmsKey)
-    }),
-    ...(obj.AwsLambdaFunction && {
-      AwsLambdaFunction: AwsLambdaFunctionDetails.filterSensitiveLog(
-        obj.AwsLambdaFunction
-      )
-    }),
-    ...(obj.AwsS3Bucket && {
-      AwsS3Bucket: AwsS3BucketDetails.filterSensitiveLog(obj.AwsS3Bucket)
-    }),
-    ...(obj.AwsSnsTopic && {
-      AwsSnsTopic: AwsSnsTopicDetails.filterSensitiveLog(obj.AwsSnsTopic)
-    }),
-    ...(obj.AwsSqsQueue && {
-      AwsSqsQueue: AwsSqsQueueDetails.filterSensitiveLog(obj.AwsSqsQueue)
-    }),
-    ...(obj.Container && {
-      Container: ContainerDetails.filterSensitiveLog(obj.Container)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceDetails =>
     __isa(o, "ResourceDetails");
@@ -5027,11 +4373,7 @@ export interface UpdateFindingsRequest {
 
 export namespace UpdateFindingsRequest {
   export const filterSensitiveLog = (obj: UpdateFindingsRequest): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: AwsSecurityFindingFilters.filterSensitiveLog(obj.Filters)
-    }),
-    ...(obj.Note && { Note: NoteUpdate.filterSensitiveLog(obj.Note) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateFindingsRequest =>
     __isa(o, "UpdateFindingsRequest");
@@ -5074,10 +4416,7 @@ export interface UpdateInsightRequest {
 
 export namespace UpdateInsightRequest {
   export const filterSensitiveLog = (obj: UpdateInsightRequest): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: AwsSecurityFindingFilters.filterSensitiveLog(obj.Filters)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateInsightRequest =>
     __isa(o, "UpdateInsightRequest");

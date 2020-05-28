@@ -25,10 +25,7 @@ export interface AddTagsInput {
 
 export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
@@ -339,8 +336,7 @@ export namespace CreateDataSourceFromRDSInput {
   export const filterSensitiveLog = (
     obj: CreateDataSourceFromRDSInput
   ): any => ({
-    ...obj,
-    ...(obj.RDSData && { RDSData: RDSDataSpec.filterSensitiveLog(obj.RDSData) })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataSourceFromRDSInput =>
     __isa(o, "CreateDataSourceFromRDSInput");
@@ -458,10 +454,7 @@ export namespace CreateDataSourceFromRedshiftInput {
   export const filterSensitiveLog = (
     obj: CreateDataSourceFromRedshiftInput
   ): any => ({
-    ...obj,
-    ...(obj.DataSpec && {
-      DataSpec: RedshiftDataSpec.filterSensitiveLog(obj.DataSpec)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataSourceFromRedshiftInput =>
     __isa(o, "CreateDataSourceFromRedshiftInput");
@@ -538,10 +531,7 @@ export namespace CreateDataSourceFromS3Input {
   export const filterSensitiveLog = (
     obj: CreateDataSourceFromS3Input
   ): any => ({
-    ...obj,
-    ...(obj.DataSpec && {
-      DataSpec: S3DataSpec.filterSensitiveLog(obj.DataSpec)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataSourceFromS3Input =>
     __isa(o, "CreateDataSourceFromS3Input");
@@ -800,12 +790,7 @@ export namespace CreateRealtimeEndpointOutput {
   export const filterSensitiveLog = (
     obj: CreateRealtimeEndpointOutput
   ): any => ({
-    ...obj,
-    ...(obj.RealtimeEndpointInfo && {
-      RealtimeEndpointInfo: RealtimeEndpointInfo.filterSensitiveLog(
-        obj.RealtimeEndpointInfo
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateRealtimeEndpointOutput =>
     __isa(o, "CreateRealtimeEndpointOutput");
@@ -931,15 +916,7 @@ export interface DataSource {
 
 export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj,
-    ...(obj.RDSMetadata && {
-      RDSMetadata: RDSMetadata.filterSensitiveLog(obj.RDSMetadata)
-    }),
-    ...(obj.RedshiftMetadata && {
-      RedshiftMetadata: RedshiftMetadata.filterSensitiveLog(
-        obj.RedshiftMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
@@ -1142,12 +1119,7 @@ export namespace DeleteRealtimeEndpointOutput {
   export const filterSensitiveLog = (
     obj: DeleteRealtimeEndpointOutput
   ): any => ({
-    ...obj,
-    ...(obj.RealtimeEndpointInfo && {
-      RealtimeEndpointInfo: RealtimeEndpointInfo.filterSensitiveLog(
-        obj.RealtimeEndpointInfo
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteRealtimeEndpointOutput =>
     __isa(o, "DeleteRealtimeEndpointOutput");
@@ -1356,10 +1328,7 @@ export namespace DescribeBatchPredictionsOutput {
   export const filterSensitiveLog = (
     obj: DescribeBatchPredictionsOutput
   ): any => ({
-    ...obj,
-    ...(obj.Results && {
-      Results: obj.Results.map(item => BatchPrediction.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeBatchPredictionsOutput =>
     __isa(o, "DescribeBatchPredictionsOutput");
@@ -1505,10 +1474,7 @@ export interface DescribeDataSourcesOutput {
 
 export namespace DescribeDataSourcesOutput {
   export const filterSensitiveLog = (obj: DescribeDataSourcesOutput): any => ({
-    ...obj,
-    ...(obj.Results && {
-      Results: obj.Results.map(item => DataSource.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDataSourcesOutput =>
     __isa(o, "DescribeDataSourcesOutput");
@@ -1663,10 +1629,7 @@ export interface DescribeEvaluationsOutput {
 
 export namespace DescribeEvaluationsOutput {
   export const filterSensitiveLog = (obj: DescribeEvaluationsOutput): any => ({
-    ...obj,
-    ...(obj.Results && {
-      Results: obj.Results.map(item => Evaluation.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEvaluationsOutput =>
     __isa(o, "DescribeEvaluationsOutput");
@@ -1828,10 +1791,7 @@ export interface DescribeMLModelsOutput {
 
 export namespace DescribeMLModelsOutput {
   export const filterSensitiveLog = (obj: DescribeMLModelsOutput): any => ({
-    ...obj,
-    ...(obj.Results && {
-      Results: obj.Results.map(item => MLModel.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeMLModelsOutput =>
     __isa(o, "DescribeMLModelsOutput");
@@ -1881,10 +1841,7 @@ export interface DescribeTagsOutput {
 
 export namespace DescribeTagsOutput {
   export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTagsOutput =>
     __isa(o, "DescribeTagsOutput");
@@ -2021,12 +1978,7 @@ export interface Evaluation {
 
 export namespace Evaluation {
   export const filterSensitiveLog = (obj: Evaluation): any => ({
-    ...obj,
-    ...(obj.PerformanceMetrics && {
-      PerformanceMetrics: PerformanceMetrics.filterSensitiveLog(
-        obj.PerformanceMetrics
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Evaluation => __isa(o, "Evaluation");
 }
@@ -2339,15 +2291,7 @@ export interface GetDataSourceOutput {
 
 export namespace GetDataSourceOutput {
   export const filterSensitiveLog = (obj: GetDataSourceOutput): any => ({
-    ...obj,
-    ...(obj.RDSMetadata && {
-      RDSMetadata: RDSMetadata.filterSensitiveLog(obj.RDSMetadata)
-    }),
-    ...(obj.RedshiftMetadata && {
-      RedshiftMetadata: RedshiftMetadata.filterSensitiveLog(
-        obj.RedshiftMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDataSourceOutput =>
     __isa(o, "GetDataSourceOutput");
@@ -2489,12 +2433,7 @@ export interface GetEvaluationOutput {
 
 export namespace GetEvaluationOutput {
   export const filterSensitiveLog = (obj: GetEvaluationOutput): any => ({
-    ...obj,
-    ...(obj.PerformanceMetrics && {
-      PerformanceMetrics: PerformanceMetrics.filterSensitiveLog(
-        obj.PerformanceMetrics
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEvaluationOutput =>
     __isa(o, "GetEvaluationOutput");
@@ -2728,10 +2667,7 @@ export interface GetMLModelOutput {
 
 export namespace GetMLModelOutput {
   export const filterSensitiveLog = (obj: GetMLModelOutput): any => ({
-    ...obj,
-    ...(obj.EndpointInfo && {
-      EndpointInfo: RealtimeEndpointInfo.filterSensitiveLog(obj.EndpointInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMLModelOutput =>
     __isa(o, "GetMLModelOutput");
@@ -3033,10 +2969,7 @@ export interface MLModel {
 
 export namespace MLModel {
   export const filterSensitiveLog = (obj: MLModel): any => ({
-    ...obj,
-    ...(obj.EndpointInfo && {
-      EndpointInfo: RealtimeEndpointInfo.filterSensitiveLog(obj.EndpointInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MLModel => __isa(o, "MLModel");
 }
@@ -3156,10 +3089,7 @@ export interface PredictOutput {
 
 export namespace PredictOutput {
   export const filterSensitiveLog = (obj: PredictOutput): any => ({
-    ...obj,
-    ...(obj.Prediction && {
-      Prediction: Prediction.filterSensitiveLog(obj.Prediction)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PredictOutput => __isa(o, "PredictOutput");
 }
@@ -3413,17 +3343,7 @@ export interface RDSDataSpec {
 
 export namespace RDSDataSpec {
   export const filterSensitiveLog = (obj: RDSDataSpec): any => ({
-    ...obj,
-    ...(obj.DatabaseCredentials && {
-      DatabaseCredentials: RDSDatabaseCredentials.filterSensitiveLog(
-        obj.DatabaseCredentials
-      )
-    }),
-    ...(obj.DatabaseInformation && {
-      DatabaseInformation: RDSDatabase.filterSensitiveLog(
-        obj.DatabaseInformation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RDSDataSpec => __isa(o, "RDSDataSpec");
 }
@@ -3516,10 +3436,7 @@ export interface RDSMetadata {
 
 export namespace RDSMetadata {
   export const filterSensitiveLog = (obj: RDSMetadata): any => ({
-    ...obj,
-    ...(obj.Database && {
-      Database: RDSDatabase.filterSensitiveLog(obj.Database)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RDSMetadata => __isa(o, "RDSMetadata");
 }
@@ -3726,17 +3643,7 @@ export interface RedshiftDataSpec {
 
 export namespace RedshiftDataSpec {
   export const filterSensitiveLog = (obj: RedshiftDataSpec): any => ({
-    ...obj,
-    ...(obj.DatabaseCredentials && {
-      DatabaseCredentials: RedshiftDatabaseCredentials.filterSensitiveLog(
-        obj.DatabaseCredentials
-      )
-    }),
-    ...(obj.DatabaseInformation && {
-      DatabaseInformation: RedshiftDatabase.filterSensitiveLog(
-        obj.DatabaseInformation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RedshiftDataSpec =>
     __isa(o, "RedshiftDataSpec");
@@ -3818,12 +3725,7 @@ export interface RedshiftMetadata {
 
 export namespace RedshiftMetadata {
   export const filterSensitiveLog = (obj: RedshiftMetadata): any => ({
-    ...obj,
-    ...(obj.RedshiftDatabase && {
-      RedshiftDatabase: RedshiftDatabase.filterSensitiveLog(
-        obj.RedshiftDatabase
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RedshiftMetadata =>
     __isa(o, "RedshiftMetadata");

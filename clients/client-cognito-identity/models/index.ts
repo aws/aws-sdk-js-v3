@@ -134,12 +134,7 @@ export interface CreateIdentityPoolInput {
 
 export namespace CreateIdentityPoolInput {
   export const filterSensitiveLog = (obj: CreateIdentityPoolInput): any => ({
-    ...obj,
-    ...(obj.CognitoIdentityProviders && {
-      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(item =>
-        CognitoIdentityProvider.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateIdentityPoolInput =>
     __isa(o, "CreateIdentityPoolInput");
@@ -212,12 +207,7 @@ export interface DeleteIdentitiesResponse {
 
 export namespace DeleteIdentitiesResponse {
   export const filterSensitiveLog = (obj: DeleteIdentitiesResponse): any => ({
-    ...obj,
-    ...(obj.UnprocessedIdentityIds && {
-      UnprocessedIdentityIds: obj.UnprocessedIdentityIds.map(item =>
-        UnprocessedIdentityId.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteIdentitiesResponse =>
     __isa(o, "DeleteIdentitiesResponse");
@@ -396,10 +386,7 @@ export namespace GetCredentialsForIdentityResponse {
   export const filterSensitiveLog = (
     obj: GetCredentialsForIdentityResponse
   ): any => ({
-    ...obj,
-    ...(obj.Credentials && {
-      Credentials: Credentials.filterSensitiveLog(obj.Credentials)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCredentialsForIdentityResponse =>
     __isa(o, "GetCredentialsForIdentityResponse");
@@ -529,16 +516,7 @@ export namespace GetIdentityPoolRolesResponse {
   export const filterSensitiveLog = (
     obj: GetIdentityPoolRolesResponse
   ): any => ({
-    ...obj,
-    ...(obj.RoleMappings && {
-      RoleMappings: Object.entries(obj.RoleMappings).reduce(
-        (acc: any, [key, value]: [string, RoleMapping]) => ({
-          ...acc,
-          [key]: RoleMapping.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetIdentityPoolRolesResponse =>
     __isa(o, "GetIdentityPoolRolesResponse");
@@ -773,12 +751,7 @@ export interface IdentityPool {
 
 export namespace IdentityPool {
   export const filterSensitiveLog = (obj: IdentityPool): any => ({
-    ...obj,
-    ...(obj.CognitoIdentityProviders && {
-      CognitoIdentityProviders: obj.CognitoIdentityProviders.map(item =>
-        CognitoIdentityProvider.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is IdentityPool => __isa(o, "IdentityPool");
 }
@@ -959,12 +932,7 @@ export interface ListIdentitiesResponse {
 
 export namespace ListIdentitiesResponse {
   export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
-    ...obj,
-    ...(obj.Identities && {
-      Identities: obj.Identities.map(item =>
-        IdentityDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListIdentitiesResponse =>
     __isa(o, "ListIdentitiesResponse");
@@ -1012,12 +980,7 @@ export interface ListIdentityPoolsResponse {
 
 export namespace ListIdentityPoolsResponse {
   export const filterSensitiveLog = (obj: ListIdentityPoolsResponse): any => ({
-    ...obj,
-    ...(obj.IdentityPools && {
-      IdentityPools: obj.IdentityPools.map(item =>
-        IdentityPoolShortDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListIdentityPoolsResponse =>
     __isa(o, "ListIdentityPoolsResponse");
@@ -1353,12 +1316,7 @@ export interface RoleMapping {
 
 export namespace RoleMapping {
   export const filterSensitiveLog = (obj: RoleMapping): any => ({
-    ...obj,
-    ...(obj.RulesConfiguration && {
-      RulesConfiguration: RulesConfigurationType.filterSensitiveLog(
-        obj.RulesConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RoleMapping => __isa(o, "RoleMapping");
 }
@@ -1382,10 +1340,7 @@ export interface RulesConfigurationType {
 
 export namespace RulesConfigurationType {
   export const filterSensitiveLog = (obj: RulesConfigurationType): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => MappingRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is RulesConfigurationType =>
     __isa(o, "RulesConfigurationType");
@@ -1419,16 +1374,7 @@ export interface SetIdentityPoolRolesInput {
 
 export namespace SetIdentityPoolRolesInput {
   export const filterSensitiveLog = (obj: SetIdentityPoolRolesInput): any => ({
-    ...obj,
-    ...(obj.RoleMappings && {
-      RoleMappings: Object.entries(obj.RoleMappings).reduce(
-        (acc: any, [key, value]: [string, RoleMapping]) => ({
-          ...acc,
-          [key]: RoleMapping.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SetIdentityPoolRolesInput =>
     __isa(o, "SetIdentityPoolRolesInput");

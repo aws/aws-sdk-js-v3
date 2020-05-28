@@ -159,12 +159,7 @@ export interface ExecuteStatementRequest {
 
 export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        ValueHolder.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExecuteStatementRequest =>
     __isa(o, "ExecuteStatementRequest");
@@ -183,8 +178,7 @@ export interface ExecuteStatementResult {
 
 export namespace ExecuteStatementResult {
   export const filterSensitiveLog = (obj: ExecuteStatementResult): any => ({
-    ...obj,
-    ...(obj.FirstPage && { FirstPage: Page.filterSensitiveLog(obj.FirstPage) })
+    ...obj
   });
   export const isa = (o: any): o is ExecuteStatementResult =>
     __isa(o, "ExecuteStatementResult");
@@ -227,8 +221,7 @@ export interface FetchPageResult {
 
 export namespace FetchPageResult {
   export const filterSensitiveLog = (obj: FetchPageResult): any => ({
-    ...obj,
-    ...(obj.Page && { Page: Page.filterSensitiveLog(obj.Page) })
+    ...obj
   });
   export const isa = (o: any): o is FetchPageResult =>
     __isa(o, "FetchPageResult");
@@ -310,10 +303,7 @@ export interface Page {
 
 export namespace Page {
   export const filterSensitiveLog = (obj: Page): any => ({
-    ...obj,
-    ...(obj.Values && {
-      Values: obj.Values.map(item => ValueHolder.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Page => __isa(o, "Page");
 }
@@ -385,36 +375,7 @@ export interface SendCommandRequest {
 
 export namespace SendCommandRequest {
   export const filterSensitiveLog = (obj: SendCommandRequest): any => ({
-    ...obj,
-    ...(obj.AbortTransaction && {
-      AbortTransaction: AbortTransactionRequest.filterSensitiveLog(
-        obj.AbortTransaction
-      )
-    }),
-    ...(obj.CommitTransaction && {
-      CommitTransaction: CommitTransactionRequest.filterSensitiveLog(
-        obj.CommitTransaction
-      )
-    }),
-    ...(obj.EndSession && {
-      EndSession: EndSessionRequest.filterSensitiveLog(obj.EndSession)
-    }),
-    ...(obj.ExecuteStatement && {
-      ExecuteStatement: ExecuteStatementRequest.filterSensitiveLog(
-        obj.ExecuteStatement
-      )
-    }),
-    ...(obj.FetchPage && {
-      FetchPage: FetchPageRequest.filterSensitiveLog(obj.FetchPage)
-    }),
-    ...(obj.StartSession && {
-      StartSession: StartSessionRequest.filterSensitiveLog(obj.StartSession)
-    }),
-    ...(obj.StartTransaction && {
-      StartTransaction: StartTransactionRequest.filterSensitiveLog(
-        obj.StartTransaction
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendCommandRequest =>
     __isa(o, "SendCommandRequest");
@@ -461,36 +422,7 @@ export interface SendCommandResult {
 
 export namespace SendCommandResult {
   export const filterSensitiveLog = (obj: SendCommandResult): any => ({
-    ...obj,
-    ...(obj.AbortTransaction && {
-      AbortTransaction: AbortTransactionResult.filterSensitiveLog(
-        obj.AbortTransaction
-      )
-    }),
-    ...(obj.CommitTransaction && {
-      CommitTransaction: CommitTransactionResult.filterSensitiveLog(
-        obj.CommitTransaction
-      )
-    }),
-    ...(obj.EndSession && {
-      EndSession: EndSessionResult.filterSensitiveLog(obj.EndSession)
-    }),
-    ...(obj.ExecuteStatement && {
-      ExecuteStatement: ExecuteStatementResult.filterSensitiveLog(
-        obj.ExecuteStatement
-      )
-    }),
-    ...(obj.FetchPage && {
-      FetchPage: FetchPageResult.filterSensitiveLog(obj.FetchPage)
-    }),
-    ...(obj.StartSession && {
-      StartSession: StartSessionResult.filterSensitiveLog(obj.StartSession)
-    }),
-    ...(obj.StartTransaction && {
-      StartTransaction: StartTransactionResult.filterSensitiveLog(
-        obj.StartTransaction
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendCommandResult =>
     __isa(o, "SendCommandResult");

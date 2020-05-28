@@ -230,10 +230,7 @@ export interface ConfigureAgentResponse {
 
 export namespace ConfigureAgentResponse {
   export const filterSensitiveLog = (obj: ConfigureAgentResponse): any => ({
-    ...obj,
-    ...(obj.configuration && {
-      configuration: AgentConfiguration.filterSensitiveLog(obj.configuration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ConfigureAgentResponse =>
     __isa(o, "ConfigureAgentResponse");
@@ -285,12 +282,7 @@ export namespace CreateProfilingGroupRequest {
   export const filterSensitiveLog = (
     obj: CreateProfilingGroupRequest
   ): any => ({
-    ...obj,
-    ...(obj.agentOrchestrationConfig && {
-      agentOrchestrationConfig: AgentOrchestrationConfig.filterSensitiveLog(
-        obj.agentOrchestrationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateProfilingGroupRequest =>
     __isa(o, "CreateProfilingGroupRequest");
@@ -311,12 +303,7 @@ export namespace CreateProfilingGroupResponse {
   export const filterSensitiveLog = (
     obj: CreateProfilingGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.profilingGroup && {
-      profilingGroup: ProfilingGroupDescription.filterSensitiveLog(
-        obj.profilingGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateProfilingGroupResponse =>
     __isa(o, "CreateProfilingGroupResponse");
@@ -396,12 +383,7 @@ export namespace DescribeProfilingGroupResponse {
   export const filterSensitiveLog = (
     obj: DescribeProfilingGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.profilingGroup && {
-      profilingGroup: ProfilingGroupDescription.filterSensitiveLog(
-        obj.profilingGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeProfilingGroupResponse =>
     __isa(o, "DescribeProfilingGroupResponse");
@@ -461,12 +443,7 @@ export namespace ListProfilingGroupsResponse {
   export const filterSensitiveLog = (
     obj: ListProfilingGroupsResponse
   ): any => ({
-    ...obj,
-    ...(obj.profilingGroups && {
-      profilingGroups: obj.profilingGroups.map(item =>
-        ProfilingGroupDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProfilingGroupsResponse =>
     __isa(o, "ListProfilingGroupsResponse");
@@ -511,15 +488,7 @@ export interface ProfilingGroupDescription {
 
 export namespace ProfilingGroupDescription {
   export const filterSensitiveLog = (obj: ProfilingGroupDescription): any => ({
-    ...obj,
-    ...(obj.agentOrchestrationConfig && {
-      agentOrchestrationConfig: AgentOrchestrationConfig.filterSensitiveLog(
-        obj.agentOrchestrationConfig
-      )
-    }),
-    ...(obj.profilingStatus && {
-      profilingStatus: ProfilingStatus.filterSensitiveLog(obj.profilingStatus)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ProfilingGroupDescription =>
     __isa(o, "ProfilingGroupDescription");
@@ -548,12 +517,7 @@ export interface ProfilingStatus {
 
 export namespace ProfilingStatus {
   export const filterSensitiveLog = (obj: ProfilingStatus): any => ({
-    ...obj,
-    ...(obj.latestAggregatedProfile && {
-      latestAggregatedProfile: AggregatedProfileTime.filterSensitiveLog(
-        obj.latestAggregatedProfile
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ProfilingStatus =>
     __isa(o, "ProfilingStatus");
@@ -579,12 +543,7 @@ export namespace UpdateProfilingGroupRequest {
   export const filterSensitiveLog = (
     obj: UpdateProfilingGroupRequest
   ): any => ({
-    ...obj,
-    ...(obj.agentOrchestrationConfig && {
-      agentOrchestrationConfig: AgentOrchestrationConfig.filterSensitiveLog(
-        obj.agentOrchestrationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateProfilingGroupRequest =>
     __isa(o, "UpdateProfilingGroupRequest");
@@ -605,12 +564,7 @@ export namespace UpdateProfilingGroupResponse {
   export const filterSensitiveLog = (
     obj: UpdateProfilingGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.profilingGroup && {
-      profilingGroup: ProfilingGroupDescription.filterSensitiveLog(
-        obj.profilingGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateProfilingGroupResponse =>
     __isa(o, "UpdateProfilingGroupResponse");
@@ -761,12 +715,7 @@ export interface ListProfileTimesResponse {
 
 export namespace ListProfileTimesResponse {
   export const filterSensitiveLog = (obj: ListProfileTimesResponse): any => ({
-    ...obj,
-    ...(obj.profileTimes && {
-      profileTimes: obj.profileTimes.map(item =>
-        ProfileTime.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProfileTimesResponse =>
     __isa(o, "ListProfileTimesResponse");

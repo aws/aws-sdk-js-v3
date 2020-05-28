@@ -23,8 +23,7 @@ export interface AccessPoliciesStatus {
 
 export namespace AccessPoliciesStatus {
   export const filterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
-    ...obj,
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is AccessPoliciesStatus =>
     __isa(o, "AccessPoliciesStatus");
@@ -95,10 +94,7 @@ export interface AnalysisScheme {
 
 export namespace AnalysisScheme {
   export const filterSensitiveLog = (obj: AnalysisScheme): any => ({
-    ...obj,
-    ...(obj.AnalysisOptions && {
-      AnalysisOptions: AnalysisOptions.filterSensitiveLog(obj.AnalysisOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnalysisScheme =>
     __isa(o, "AnalysisScheme");
@@ -159,11 +155,7 @@ export interface AnalysisSchemeStatus {
 
 export namespace AnalysisSchemeStatus {
   export const filterSensitiveLog = (obj: AnalysisSchemeStatus): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: AnalysisScheme.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is AnalysisSchemeStatus =>
     __isa(o, "AnalysisSchemeStatus");
@@ -187,8 +179,7 @@ export interface AvailabilityOptionsStatus {
 
 export namespace AvailabilityOptionsStatus {
   export const filterSensitiveLog = (obj: AvailabilityOptionsStatus): any => ({
-    ...obj,
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is AvailabilityOptionsStatus =>
     __isa(o, "AvailabilityOptionsStatus");
@@ -288,10 +279,7 @@ export interface CreateDomainResponse {
 
 export namespace CreateDomainResponse {
   export const filterSensitiveLog = (obj: CreateDomainResponse): any => ({
-    ...obj,
-    ...(obj.DomainStatus && {
-      DomainStatus: DomainStatus.filterSensitiveLog(obj.DomainStatus)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDomainResponse =>
     __isa(o, "CreateDomainResponse");
@@ -412,10 +400,7 @@ export namespace DefineAnalysisSchemeRequest {
   export const filterSensitiveLog = (
     obj: DefineAnalysisSchemeRequest
   ): any => ({
-    ...obj,
-    ...(obj.AnalysisScheme && {
-      AnalysisScheme: AnalysisScheme.filterSensitiveLog(obj.AnalysisScheme)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineAnalysisSchemeRequest =>
     __isa(o, "DefineAnalysisSchemeRequest");
@@ -436,12 +421,7 @@ export namespace DefineAnalysisSchemeResponse {
   export const filterSensitiveLog = (
     obj: DefineAnalysisSchemeResponse
   ): any => ({
-    ...obj,
-    ...(obj.AnalysisScheme && {
-      AnalysisScheme: AnalysisSchemeStatus.filterSensitiveLog(
-        obj.AnalysisScheme
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineAnalysisSchemeResponse =>
     __isa(o, "DefineAnalysisSchemeResponse");
@@ -465,10 +445,7 @@ export interface DefineExpressionRequest {
 
 export namespace DefineExpressionRequest {
   export const filterSensitiveLog = (obj: DefineExpressionRequest): any => ({
-    ...obj,
-    ...(obj.Expression && {
-      Expression: Expression.filterSensitiveLog(obj.Expression)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineExpressionRequest =>
     __isa(o, "DefineExpressionRequest");
@@ -487,10 +464,7 @@ export interface DefineExpressionResponse {
 
 export namespace DefineExpressionResponse {
   export const filterSensitiveLog = (obj: DefineExpressionResponse): any => ({
-    ...obj,
-    ...(obj.Expression && {
-      Expression: ExpressionStatus.filterSensitiveLog(obj.Expression)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineExpressionResponse =>
     __isa(o, "DefineExpressionResponse");
@@ -514,10 +488,7 @@ export interface DefineIndexFieldRequest {
 
 export namespace DefineIndexFieldRequest {
   export const filterSensitiveLog = (obj: DefineIndexFieldRequest): any => ({
-    ...obj,
-    ...(obj.IndexField && {
-      IndexField: IndexField.filterSensitiveLog(obj.IndexField)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineIndexFieldRequest =>
     __isa(o, "DefineIndexFieldRequest");
@@ -536,10 +507,7 @@ export interface DefineIndexFieldResponse {
 
 export namespace DefineIndexFieldResponse {
   export const filterSensitiveLog = (obj: DefineIndexFieldResponse): any => ({
-    ...obj,
-    ...(obj.IndexField && {
-      IndexField: IndexFieldStatus.filterSensitiveLog(obj.IndexField)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineIndexFieldResponse =>
     __isa(o, "DefineIndexFieldResponse");
@@ -563,10 +531,7 @@ export interface DefineSuggesterRequest {
 
 export namespace DefineSuggesterRequest {
   export const filterSensitiveLog = (obj: DefineSuggesterRequest): any => ({
-    ...obj,
-    ...(obj.Suggester && {
-      Suggester: Suggester.filterSensitiveLog(obj.Suggester)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineSuggesterRequest =>
     __isa(o, "DefineSuggesterRequest");
@@ -585,10 +550,7 @@ export interface DefineSuggesterResponse {
 
 export namespace DefineSuggesterResponse {
   export const filterSensitiveLog = (obj: DefineSuggesterResponse): any => ({
-    ...obj,
-    ...(obj.Suggester && {
-      Suggester: SuggesterStatus.filterSensitiveLog(obj.Suggester)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefineSuggesterResponse =>
     __isa(o, "DefineSuggesterResponse");
@@ -635,12 +597,7 @@ export namespace DeleteAnalysisSchemeResponse {
   export const filterSensitiveLog = (
     obj: DeleteAnalysisSchemeResponse
   ): any => ({
-    ...obj,
-    ...(obj.AnalysisScheme && {
-      AnalysisScheme: AnalysisSchemeStatus.filterSensitiveLog(
-        obj.AnalysisScheme
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteAnalysisSchemeResponse =>
     __isa(o, "DeleteAnalysisSchemeResponse");
@@ -678,10 +635,7 @@ export interface DeleteDomainResponse {
 
 export namespace DeleteDomainResponse {
   export const filterSensitiveLog = (obj: DeleteDomainResponse): any => ({
-    ...obj,
-    ...(obj.DomainStatus && {
-      DomainStatus: DomainStatus.filterSensitiveLog(obj.DomainStatus)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteDomainResponse =>
     __isa(o, "DeleteDomainResponse");
@@ -724,10 +678,7 @@ export interface DeleteExpressionResponse {
 
 export namespace DeleteExpressionResponse {
   export const filterSensitiveLog = (obj: DeleteExpressionResponse): any => ({
-    ...obj,
-    ...(obj.Expression && {
-      Expression: ExpressionStatus.filterSensitiveLog(obj.Expression)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteExpressionResponse =>
     __isa(o, "DeleteExpressionResponse");
@@ -770,10 +721,7 @@ export interface DeleteIndexFieldResponse {
 
 export namespace DeleteIndexFieldResponse {
   export const filterSensitiveLog = (obj: DeleteIndexFieldResponse): any => ({
-    ...obj,
-    ...(obj.IndexField && {
-      IndexField: IndexFieldStatus.filterSensitiveLog(obj.IndexField)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteIndexFieldResponse =>
     __isa(o, "DeleteIndexFieldResponse");
@@ -816,10 +764,7 @@ export interface DeleteSuggesterResponse {
 
 export namespace DeleteSuggesterResponse {
   export const filterSensitiveLog = (obj: DeleteSuggesterResponse): any => ({
-    ...obj,
-    ...(obj.Suggester && {
-      Suggester: SuggesterStatus.filterSensitiveLog(obj.Suggester)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteSuggesterResponse =>
     __isa(o, "DeleteSuggesterResponse");
@@ -871,12 +816,7 @@ export namespace DescribeAnalysisSchemesResponse {
   export const filterSensitiveLog = (
     obj: DescribeAnalysisSchemesResponse
   ): any => ({
-    ...obj,
-    ...(obj.AnalysisSchemes && {
-      AnalysisSchemes: obj.AnalysisSchemes.map(item =>
-        AnalysisSchemeStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAnalysisSchemesResponse =>
     __isa(o, "DescribeAnalysisSchemesResponse");
@@ -923,12 +863,7 @@ export namespace DescribeAvailabilityOptionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeAvailabilityOptionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.AvailabilityOptions && {
-      AvailabilityOptions: AvailabilityOptionsStatus.filterSensitiveLog(
-        obj.AvailabilityOptions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAvailabilityOptionsResponse =>
     __isa(o, "DescribeAvailabilityOptionsResponse");
@@ -975,12 +910,7 @@ export namespace DescribeDomainEndpointOptionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeDomainEndpointOptionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainEndpointOptions && {
-      DomainEndpointOptions: DomainEndpointOptionsStatus.filterSensitiveLog(
-        obj.DomainEndpointOptions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDomainEndpointOptionsResponse =>
     __isa(o, "DescribeDomainEndpointOptionsResponse");
@@ -1018,12 +948,7 @@ export interface DescribeDomainsResponse {
 
 export namespace DescribeDomainsResponse {
   export const filterSensitiveLog = (obj: DescribeDomainsResponse): any => ({
-    ...obj,
-    ...(obj.DomainStatusList && {
-      DomainStatusList: obj.DomainStatusList.map(item =>
-        DomainStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDomainsResponse =>
     __isa(o, "DescribeDomainsResponse");
@@ -1074,12 +999,7 @@ export namespace DescribeExpressionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeExpressionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Expressions && {
-      Expressions: obj.Expressions.map(item =>
-        ExpressionStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeExpressionsResponse =>
     __isa(o, "DescribeExpressionsResponse");
@@ -1129,12 +1049,7 @@ export namespace DescribeIndexFieldsResponse {
   export const filterSensitiveLog = (
     obj: DescribeIndexFieldsResponse
   ): any => ({
-    ...obj,
-    ...(obj.IndexFields && {
-      IndexFields: obj.IndexFields.map(item =>
-        IndexFieldStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeIndexFieldsResponse =>
     __isa(o, "DescribeIndexFieldsResponse");
@@ -1176,12 +1091,7 @@ export namespace DescribeScalingParametersResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalingParametersResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScalingParameters && {
-      ScalingParameters: ScalingParametersStatus.filterSensitiveLog(
-        obj.ScalingParameters
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScalingParametersResponse =>
     __isa(o, "DescribeScalingParametersResponse");
@@ -1228,12 +1138,7 @@ export namespace DescribeServiceAccessPoliciesResponse {
   export const filterSensitiveLog = (
     obj: DescribeServiceAccessPoliciesResponse
   ): any => ({
-    ...obj,
-    ...(obj.AccessPolicies && {
-      AccessPolicies: AccessPoliciesStatus.filterSensitiveLog(
-        obj.AccessPolicies
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeServiceAccessPoliciesResponse =>
     __isa(o, "DescribeServiceAccessPoliciesResponse");
@@ -1281,12 +1186,7 @@ export interface DescribeSuggestersResponse {
 
 export namespace DescribeSuggestersResponse {
   export const filterSensitiveLog = (obj: DescribeSuggestersResponse): any => ({
-    ...obj,
-    ...(obj.Suggesters && {
-      Suggesters: obj.Suggesters.map(item =>
-        SuggesterStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSuggestersResponse =>
     __isa(o, "DescribeSuggestersResponse");
@@ -1398,11 +1298,7 @@ export namespace DomainEndpointOptionsStatus {
   export const filterSensitiveLog = (
     obj: DomainEndpointOptionsStatus
   ): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: DomainEndpointOptions.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is DomainEndpointOptionsStatus =>
     __isa(o, "DomainEndpointOptionsStatus");
@@ -1477,14 +1373,7 @@ export interface DomainStatus {
 
 export namespace DomainStatus {
   export const filterSensitiveLog = (obj: DomainStatus): any => ({
-    ...obj,
-    ...(obj.DocService && {
-      DocService: ServiceEndpoint.filterSensitiveLog(obj.DocService)
-    }),
-    ...(obj.Limits && { Limits: Limits.filterSensitiveLog(obj.Limits) }),
-    ...(obj.SearchService && {
-      SearchService: ServiceEndpoint.filterSensitiveLog(obj.SearchService)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DomainStatus => __isa(o, "DomainStatus");
 }
@@ -1613,9 +1502,7 @@ export interface ExpressionStatus {
 
 export namespace ExpressionStatus {
   export const filterSensitiveLog = (obj: ExpressionStatus): any => ({
-    ...obj,
-    ...(obj.Options && { Options: Expression.filterSensitiveLog(obj.Options) }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is ExpressionStatus =>
     __isa(o, "ExpressionStatus");
@@ -1745,48 +1632,7 @@ export interface IndexField {
 
 export namespace IndexField {
   export const filterSensitiveLog = (obj: IndexField): any => ({
-    ...obj,
-    ...(obj.DateArrayOptions && {
-      DateArrayOptions: DateArrayOptions.filterSensitiveLog(
-        obj.DateArrayOptions
-      )
-    }),
-    ...(obj.DateOptions && {
-      DateOptions: DateOptions.filterSensitiveLog(obj.DateOptions)
-    }),
-    ...(obj.DoubleArrayOptions && {
-      DoubleArrayOptions: DoubleArrayOptions.filterSensitiveLog(
-        obj.DoubleArrayOptions
-      )
-    }),
-    ...(obj.DoubleOptions && {
-      DoubleOptions: DoubleOptions.filterSensitiveLog(obj.DoubleOptions)
-    }),
-    ...(obj.IntArrayOptions && {
-      IntArrayOptions: IntArrayOptions.filterSensitiveLog(obj.IntArrayOptions)
-    }),
-    ...(obj.IntOptions && {
-      IntOptions: IntOptions.filterSensitiveLog(obj.IntOptions)
-    }),
-    ...(obj.LatLonOptions && {
-      LatLonOptions: LatLonOptions.filterSensitiveLog(obj.LatLonOptions)
-    }),
-    ...(obj.LiteralArrayOptions && {
-      LiteralArrayOptions: LiteralArrayOptions.filterSensitiveLog(
-        obj.LiteralArrayOptions
-      )
-    }),
-    ...(obj.LiteralOptions && {
-      LiteralOptions: LiteralOptions.filterSensitiveLog(obj.LiteralOptions)
-    }),
-    ...(obj.TextArrayOptions && {
-      TextArrayOptions: TextArrayOptions.filterSensitiveLog(
-        obj.TextArrayOptions
-      )
-    }),
-    ...(obj.TextOptions && {
-      TextOptions: TextOptions.filterSensitiveLog(obj.TextOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is IndexField => __isa(o, "IndexField");
 }
@@ -1809,9 +1655,7 @@ export interface IndexFieldStatus {
 
 export namespace IndexFieldStatus {
   export const filterSensitiveLog = (obj: IndexFieldStatus): any => ({
-    ...obj,
-    ...(obj.Options && { Options: IndexField.filterSensitiveLog(obj.Options) }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is IndexFieldStatus =>
     __isa(o, "IndexFieldStatus");
@@ -2310,11 +2154,7 @@ export interface ScalingParametersStatus {
 
 export namespace ScalingParametersStatus {
   export const filterSensitiveLog = (obj: ScalingParametersStatus): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: ScalingParameters.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is ScalingParametersStatus =>
     __isa(o, "ScalingParametersStatus");
@@ -2358,12 +2198,7 @@ export interface Suggester {
 
 export namespace Suggester {
   export const filterSensitiveLog = (obj: Suggester): any => ({
-    ...obj,
-    ...(obj.DocumentSuggesterOptions && {
-      DocumentSuggesterOptions: DocumentSuggesterOptions.filterSensitiveLog(
-        obj.DocumentSuggesterOptions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Suggester => __isa(o, "Suggester");
 }
@@ -2388,9 +2223,7 @@ export interface SuggesterStatus {
 
 export namespace SuggesterStatus {
   export const filterSensitiveLog = (obj: SuggesterStatus): any => ({
-    ...obj,
-    ...(obj.Options && { Options: Suggester.filterSensitiveLog(obj.Options) }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is SuggesterStatus =>
     __isa(o, "SuggesterStatus");
@@ -2537,12 +2370,7 @@ export namespace UpdateAvailabilityOptionsResponse {
   export const filterSensitiveLog = (
     obj: UpdateAvailabilityOptionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.AvailabilityOptions && {
-      AvailabilityOptions: AvailabilityOptionsStatus.filterSensitiveLog(
-        obj.AvailabilityOptions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAvailabilityOptionsResponse =>
     __isa(o, "UpdateAvailabilityOptionsResponse");
@@ -2568,12 +2396,7 @@ export namespace UpdateDomainEndpointOptionsRequest {
   export const filterSensitiveLog = (
     obj: UpdateDomainEndpointOptionsRequest
   ): any => ({
-    ...obj,
-    ...(obj.DomainEndpointOptions && {
-      DomainEndpointOptions: DomainEndpointOptions.filterSensitiveLog(
-        obj.DomainEndpointOptions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDomainEndpointOptionsRequest =>
     __isa(o, "UpdateDomainEndpointOptionsRequest");
@@ -2594,12 +2417,7 @@ export namespace UpdateDomainEndpointOptionsResponse {
   export const filterSensitiveLog = (
     obj: UpdateDomainEndpointOptionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainEndpointOptions && {
-      DomainEndpointOptions: DomainEndpointOptionsStatus.filterSensitiveLog(
-        obj.DomainEndpointOptions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDomainEndpointOptionsResponse =>
     __isa(o, "UpdateDomainEndpointOptionsResponse");
@@ -2625,12 +2443,7 @@ export namespace UpdateScalingParametersRequest {
   export const filterSensitiveLog = (
     obj: UpdateScalingParametersRequest
   ): any => ({
-    ...obj,
-    ...(obj.ScalingParameters && {
-      ScalingParameters: ScalingParameters.filterSensitiveLog(
-        obj.ScalingParameters
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateScalingParametersRequest =>
     __isa(o, "UpdateScalingParametersRequest");
@@ -2651,12 +2464,7 @@ export namespace UpdateScalingParametersResponse {
   export const filterSensitiveLog = (
     obj: UpdateScalingParametersResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScalingParameters && {
-      ScalingParameters: ScalingParametersStatus.filterSensitiveLog(
-        obj.ScalingParameters
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateScalingParametersResponse =>
     __isa(o, "UpdateScalingParametersResponse");
@@ -2703,12 +2511,7 @@ export namespace UpdateServiceAccessPoliciesResponse {
   export const filterSensitiveLog = (
     obj: UpdateServiceAccessPoliciesResponse
   ): any => ({
-    ...obj,
-    ...(obj.AccessPolicies && {
-      AccessPolicies: AccessPoliciesStatus.filterSensitiveLog(
-        obj.AccessPolicies
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateServiceAccessPoliciesResponse =>
     __isa(o, "UpdateServiceAccessPoliciesResponse");

@@ -885,10 +885,7 @@ export interface ActivitiesResponse {
 
 export namespace ActivitiesResponse {
   export const filterSensitiveLog = (obj: ActivitiesResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => ActivityResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ActivitiesResponse =>
     __isa(o, "ActivitiesResponse");
@@ -937,27 +934,7 @@ export interface Activity {
 
 export namespace Activity {
   export const filterSensitiveLog = (obj: Activity): any => ({
-    ...obj,
-    ...(obj.ConditionalSplit && {
-      ConditionalSplit: ConditionalSplitActivity.filterSensitiveLog(
-        obj.ConditionalSplit
-      )
-    }),
-    ...(obj.EMAIL && {
-      EMAIL: EmailMessageActivity.filterSensitiveLog(obj.EMAIL)
-    }),
-    ...(obj.Holdout && {
-      Holdout: HoldoutActivity.filterSensitiveLog(obj.Holdout)
-    }),
-    ...(obj.MultiCondition && {
-      MultiCondition: MultiConditionalSplitActivity.filterSensitiveLog(
-        obj.MultiCondition
-      )
-    }),
-    ...(obj.RandomSplit && {
-      RandomSplit: RandomSplitActivity.filterSensitiveLog(obj.RandomSplit)
-    }),
-    ...(obj.Wait && { Wait: WaitActivity.filterSensitiveLog(obj.Wait) })
+    ...obj
   });
   export const isa = (o: any): o is Activity => __isa(o, "Activity");
 }
@@ -1186,10 +1163,7 @@ export namespace ApplicationDateRangeKpiResponse {
   export const filterSensitiveLog = (
     obj: ApplicationDateRangeKpiResponse
   ): any => ({
-    ...obj,
-    ...(obj.KpiResult && {
-      KpiResult: BaseKpiResult.filterSensitiveLog(obj.KpiResult)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ApplicationDateRangeKpiResponse =>
     __isa(o, "ApplicationDateRangeKpiResponse");
@@ -1264,16 +1238,7 @@ export namespace ApplicationSettingsResource {
   export const filterSensitiveLog = (
     obj: ApplicationSettingsResource
   ): any => ({
-    ...obj,
-    ...(obj.CampaignHook && {
-      CampaignHook: CampaignHook.filterSensitiveLog(obj.CampaignHook)
-    }),
-    ...(obj.Limits && {
-      Limits: CampaignLimits.filterSensitiveLog(obj.Limits)
-    }),
-    ...(obj.QuietTime && {
-      QuietTime: QuietTime.filterSensitiveLog(obj.QuietTime)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ApplicationSettingsResource =>
     __isa(o, "ApplicationSettingsResource");
@@ -1297,10 +1262,7 @@ export interface ApplicationsResponse {
 
 export namespace ApplicationsResponse {
   export const filterSensitiveLog = (obj: ApplicationsResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => ApplicationResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ApplicationsResponse =>
     __isa(o, "ApplicationsResponse");
@@ -1585,10 +1547,7 @@ export interface BaseKpiResult {
 
 export namespace BaseKpiResult {
   export const filterSensitiveLog = (obj: BaseKpiResult): any => ({
-    ...obj,
-    ...(obj.Rows && {
-      Rows: obj.Rows.map(item => ResultRow.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BaseKpiResult => __isa(o, "BaseKpiResult");
 }
@@ -1638,10 +1597,7 @@ export namespace CampaignDateRangeKpiResponse {
   export const filterSensitiveLog = (
     obj: CampaignDateRangeKpiResponse
   ): any => ({
-    ...obj,
-    ...(obj.KpiResult && {
-      KpiResult: BaseKpiResult.filterSensitiveLog(obj.KpiResult)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CampaignDateRangeKpiResponse =>
     __isa(o, "CampaignDateRangeKpiResponse");
@@ -1699,10 +1655,7 @@ export interface CampaignEventFilter {
 
 export namespace CampaignEventFilter {
   export const filterSensitiveLog = (obj: CampaignEventFilter): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: EventDimensions.filterSensitiveLog(obj.Dimensions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CampaignEventFilter =>
     __isa(o, "CampaignEventFilter");
@@ -1893,33 +1846,7 @@ export interface CampaignResponse {
 
 export namespace CampaignResponse {
   export const filterSensitiveLog = (obj: CampaignResponse): any => ({
-    ...obj,
-    ...(obj.AdditionalTreatments && {
-      AdditionalTreatments: obj.AdditionalTreatments.map(item =>
-        TreatmentResource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.DefaultState && {
-      DefaultState: CampaignState.filterSensitiveLog(obj.DefaultState)
-    }),
-    ...(obj.Hook && { Hook: CampaignHook.filterSensitiveLog(obj.Hook) }),
-    ...(obj.Limits && {
-      Limits: CampaignLimits.filterSensitiveLog(obj.Limits)
-    }),
-    ...(obj.MessageConfiguration && {
-      MessageConfiguration: MessageConfiguration.filterSensitiveLog(
-        obj.MessageConfiguration
-      )
-    }),
-    ...(obj.Schedule && {
-      Schedule: Schedule.filterSensitiveLog(obj.Schedule)
-    }),
-    ...(obj.State && { State: CampaignState.filterSensitiveLog(obj.State) }),
-    ...(obj.TemplateConfiguration && {
-      TemplateConfiguration: TemplateConfiguration.filterSensitiveLog(
-        obj.TemplateConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CampaignResponse =>
     __isa(o, "CampaignResponse");
@@ -1999,10 +1926,7 @@ export interface CampaignsResponse {
 
 export namespace CampaignsResponse {
   export const filterSensitiveLog = (obj: CampaignsResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => CampaignResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CampaignsResponse =>
     __isa(o, "CampaignsResponse");
@@ -2094,16 +2018,7 @@ export interface ChannelsResponse {
 
 export namespace ChannelsResponse {
   export const filterSensitiveLog = (obj: ChannelsResponse): any => ({
-    ...obj,
-    ...(obj.Channels && {
-      Channels: Object.entries(obj.Channels).reduce(
-        (acc: any, [key, value]: [string, ChannelResponse]) => ({
-          ...acc,
-          [key]: ChannelResponse.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChannelsResponse =>
     __isa(o, "ChannelsResponse");
@@ -2127,12 +2042,7 @@ export interface Condition {
 
 export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
-    ...obj,
-    ...(obj.Conditions && {
-      Conditions: obj.Conditions.map(item =>
-        SimpleCondition.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
@@ -2165,13 +2075,7 @@ export interface ConditionalSplitActivity {
 
 export namespace ConditionalSplitActivity {
   export const filterSensitiveLog = (obj: ConditionalSplitActivity): any => ({
-    ...obj,
-    ...(obj.Condition && {
-      Condition: Condition.filterSensitiveLog(obj.Condition)
-    }),
-    ...(obj.EvaluationWaitTime && {
-      EvaluationWaitTime: WaitTime.filterSensitiveLog(obj.EvaluationWaitTime)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ConditionalSplitActivity =>
     __isa(o, "ConditionalSplitActivity");
@@ -2187,12 +2091,7 @@ export interface CreateAppRequest {
 
 export namespace CreateAppRequest {
   export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
-    ...obj,
-    ...(obj.CreateApplicationRequest && {
-      CreateApplicationRequest: CreateApplicationRequest.filterSensitiveLog(
-        obj.CreateApplicationRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAppRequest =>
     __isa(o, "CreateAppRequest");
@@ -2208,12 +2107,7 @@ export interface CreateAppResponse {
 
 export namespace CreateAppResponse {
   export const filterSensitiveLog = (obj: CreateAppResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationResponse && {
-      ApplicationResponse: ApplicationResponse.filterSensitiveLog(
-        obj.ApplicationResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAppResponse =>
     __isa(o, "CreateAppResponse");
@@ -2258,12 +2152,7 @@ export interface CreateCampaignRequest {
 
 export namespace CreateCampaignRequest {
   export const filterSensitiveLog = (obj: CreateCampaignRequest): any => ({
-    ...obj,
-    ...(obj.WriteCampaignRequest && {
-      WriteCampaignRequest: WriteCampaignRequest.filterSensitiveLog(
-        obj.WriteCampaignRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateCampaignRequest =>
     __isa(o, "CreateCampaignRequest");
@@ -2279,12 +2168,7 @@ export interface CreateCampaignResponse {
 
 export namespace CreateCampaignResponse {
   export const filterSensitiveLog = (obj: CreateCampaignResponse): any => ({
-    ...obj,
-    ...(obj.CampaignResponse && {
-      CampaignResponse: CampaignResponse.filterSensitiveLog(
-        obj.CampaignResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateCampaignResponse =>
     __isa(o, "CreateCampaignResponse");
@@ -2305,12 +2189,7 @@ export interface CreateEmailTemplateRequest {
 
 export namespace CreateEmailTemplateRequest {
   export const filterSensitiveLog = (obj: CreateEmailTemplateRequest): any => ({
-    ...obj,
-    ...(obj.EmailTemplateRequest && {
-      EmailTemplateRequest: EmailTemplateRequest.filterSensitiveLog(
-        obj.EmailTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEmailTemplateRequest =>
     __isa(o, "CreateEmailTemplateRequest");
@@ -2328,12 +2207,7 @@ export namespace CreateEmailTemplateResponse {
   export const filterSensitiveLog = (
     obj: CreateEmailTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.CreateTemplateMessageBody && {
-      CreateTemplateMessageBody: CreateTemplateMessageBody.filterSensitiveLog(
-        obj.CreateTemplateMessageBody
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEmailTemplateResponse =>
     __isa(o, "CreateEmailTemplateResponse");
@@ -2354,12 +2228,7 @@ export interface CreateExportJobRequest {
 
 export namespace CreateExportJobRequest {
   export const filterSensitiveLog = (obj: CreateExportJobRequest): any => ({
-    ...obj,
-    ...(obj.ExportJobRequest && {
-      ExportJobRequest: ExportJobRequest.filterSensitiveLog(
-        obj.ExportJobRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateExportJobRequest =>
     __isa(o, "CreateExportJobRequest");
@@ -2375,12 +2244,7 @@ export interface CreateExportJobResponse {
 
 export namespace CreateExportJobResponse {
   export const filterSensitiveLog = (obj: CreateExportJobResponse): any => ({
-    ...obj,
-    ...(obj.ExportJobResponse && {
-      ExportJobResponse: ExportJobResponse.filterSensitiveLog(
-        obj.ExportJobResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateExportJobResponse =>
     __isa(o, "CreateExportJobResponse");
@@ -2401,12 +2265,7 @@ export interface CreateImportJobRequest {
 
 export namespace CreateImportJobRequest {
   export const filterSensitiveLog = (obj: CreateImportJobRequest): any => ({
-    ...obj,
-    ...(obj.ImportJobRequest && {
-      ImportJobRequest: ImportJobRequest.filterSensitiveLog(
-        obj.ImportJobRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateImportJobRequest =>
     __isa(o, "CreateImportJobRequest");
@@ -2422,12 +2281,7 @@ export interface CreateImportJobResponse {
 
 export namespace CreateImportJobResponse {
   export const filterSensitiveLog = (obj: CreateImportJobResponse): any => ({
-    ...obj,
-    ...(obj.ImportJobResponse && {
-      ImportJobResponse: ImportJobResponse.filterSensitiveLog(
-        obj.ImportJobResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateImportJobResponse =>
     __isa(o, "CreateImportJobResponse");
@@ -2448,12 +2302,7 @@ export interface CreateJourneyRequest {
 
 export namespace CreateJourneyRequest {
   export const filterSensitiveLog = (obj: CreateJourneyRequest): any => ({
-    ...obj,
-    ...(obj.WriteJourneyRequest && {
-      WriteJourneyRequest: WriteJourneyRequest.filterSensitiveLog(
-        obj.WriteJourneyRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateJourneyRequest =>
     __isa(o, "CreateJourneyRequest");
@@ -2469,10 +2318,7 @@ export interface CreateJourneyResponse {
 
 export namespace CreateJourneyResponse {
   export const filterSensitiveLog = (obj: CreateJourneyResponse): any => ({
-    ...obj,
-    ...(obj.JourneyResponse && {
-      JourneyResponse: JourneyResponse.filterSensitiveLog(obj.JourneyResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateJourneyResponse =>
     __isa(o, "CreateJourneyResponse");
@@ -2493,12 +2339,7 @@ export interface CreatePushTemplateRequest {
 
 export namespace CreatePushTemplateRequest {
   export const filterSensitiveLog = (obj: CreatePushTemplateRequest): any => ({
-    ...obj,
-    ...(obj.PushNotificationTemplateRequest && {
-      PushNotificationTemplateRequest: PushNotificationTemplateRequest.filterSensitiveLog(
-        obj.PushNotificationTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePushTemplateRequest =>
     __isa(o, "CreatePushTemplateRequest");
@@ -2514,12 +2355,7 @@ export interface CreatePushTemplateResponse {
 
 export namespace CreatePushTemplateResponse {
   export const filterSensitiveLog = (obj: CreatePushTemplateResponse): any => ({
-    ...obj,
-    ...(obj.CreateTemplateMessageBody && {
-      CreateTemplateMessageBody: CreateTemplateMessageBody.filterSensitiveLog(
-        obj.CreateTemplateMessageBody
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePushTemplateResponse =>
     __isa(o, "CreatePushTemplateResponse");
@@ -2540,12 +2376,7 @@ export interface CreateSegmentRequest {
 
 export namespace CreateSegmentRequest {
   export const filterSensitiveLog = (obj: CreateSegmentRequest): any => ({
-    ...obj,
-    ...(obj.WriteSegmentRequest && {
-      WriteSegmentRequest: WriteSegmentRequest.filterSensitiveLog(
-        obj.WriteSegmentRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSegmentRequest =>
     __isa(o, "CreateSegmentRequest");
@@ -2561,10 +2392,7 @@ export interface CreateSegmentResponse {
 
 export namespace CreateSegmentResponse {
   export const filterSensitiveLog = (obj: CreateSegmentResponse): any => ({
-    ...obj,
-    ...(obj.SegmentResponse && {
-      SegmentResponse: SegmentResponse.filterSensitiveLog(obj.SegmentResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSegmentResponse =>
     __isa(o, "CreateSegmentResponse");
@@ -2585,12 +2413,7 @@ export interface CreateSmsTemplateRequest {
 
 export namespace CreateSmsTemplateRequest {
   export const filterSensitiveLog = (obj: CreateSmsTemplateRequest): any => ({
-    ...obj,
-    ...(obj.SMSTemplateRequest && {
-      SMSTemplateRequest: SMSTemplateRequest.filterSensitiveLog(
-        obj.SMSTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSmsTemplateRequest =>
     __isa(o, "CreateSmsTemplateRequest");
@@ -2606,12 +2429,7 @@ export interface CreateSmsTemplateResponse {
 
 export namespace CreateSmsTemplateResponse {
   export const filterSensitiveLog = (obj: CreateSmsTemplateResponse): any => ({
-    ...obj,
-    ...(obj.CreateTemplateMessageBody && {
-      CreateTemplateMessageBody: CreateTemplateMessageBody.filterSensitiveLog(
-        obj.CreateTemplateMessageBody
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSmsTemplateResponse =>
     __isa(o, "CreateSmsTemplateResponse");
@@ -2661,12 +2479,7 @@ export interface CreateVoiceTemplateRequest {
 
 export namespace CreateVoiceTemplateRequest {
   export const filterSensitiveLog = (obj: CreateVoiceTemplateRequest): any => ({
-    ...obj,
-    ...(obj.VoiceTemplateRequest && {
-      VoiceTemplateRequest: VoiceTemplateRequest.filterSensitiveLog(
-        obj.VoiceTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVoiceTemplateRequest =>
     __isa(o, "CreateVoiceTemplateRequest");
@@ -2684,12 +2497,7 @@ export namespace CreateVoiceTemplateResponse {
   export const filterSensitiveLog = (
     obj: CreateVoiceTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.CreateTemplateMessageBody && {
-      CreateTemplateMessageBody: CreateTemplateMessageBody.filterSensitiveLog(
-        obj.CreateTemplateMessageBody
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVoiceTemplateResponse =>
     __isa(o, "CreateVoiceTemplateResponse");
@@ -2837,12 +2645,7 @@ export interface DeleteAdmChannelResponse {
 
 export namespace DeleteAdmChannelResponse {
   export const filterSensitiveLog = (obj: DeleteAdmChannelResponse): any => ({
-    ...obj,
-    ...(obj.ADMChannelResponse && {
-      ADMChannelResponse: ADMChannelResponse.filterSensitiveLog(
-        obj.ADMChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteAdmChannelResponse =>
     __isa(o, "DeleteAdmChannelResponse");
@@ -2874,12 +2677,7 @@ export interface DeleteApnsChannelResponse {
 
 export namespace DeleteApnsChannelResponse {
   export const filterSensitiveLog = (obj: DeleteApnsChannelResponse): any => ({
-    ...obj,
-    ...(obj.APNSChannelResponse && {
-      APNSChannelResponse: APNSChannelResponse.filterSensitiveLog(
-        obj.APNSChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteApnsChannelResponse =>
     __isa(o, "DeleteApnsChannelResponse");
@@ -2915,12 +2713,7 @@ export namespace DeleteApnsSandboxChannelResponse {
   export const filterSensitiveLog = (
     obj: DeleteApnsSandboxChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSSandboxChannelResponse && {
-      APNSSandboxChannelResponse: APNSSandboxChannelResponse.filterSensitiveLog(
-        obj.APNSSandboxChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteApnsSandboxChannelResponse =>
     __isa(o, "DeleteApnsSandboxChannelResponse");
@@ -2956,12 +2749,7 @@ export namespace DeleteApnsVoipChannelResponse {
   export const filterSensitiveLog = (
     obj: DeleteApnsVoipChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSVoipChannelResponse && {
-      APNSVoipChannelResponse: APNSVoipChannelResponse.filterSensitiveLog(
-        obj.APNSVoipChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteApnsVoipChannelResponse =>
     __isa(o, "DeleteApnsVoipChannelResponse");
@@ -2997,12 +2785,7 @@ export namespace DeleteApnsVoipSandboxChannelResponse {
   export const filterSensitiveLog = (
     obj: DeleteApnsVoipSandboxChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSVoipSandboxChannelResponse && {
-      APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse.filterSensitiveLog(
-        obj.APNSVoipSandboxChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteApnsVoipSandboxChannelResponse =>
     __isa(o, "DeleteApnsVoipSandboxChannelResponse");
@@ -3034,12 +2817,7 @@ export interface DeleteAppResponse {
 
 export namespace DeleteAppResponse {
   export const filterSensitiveLog = (obj: DeleteAppResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationResponse && {
-      ApplicationResponse: ApplicationResponse.filterSensitiveLog(
-        obj.ApplicationResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteAppResponse =>
     __isa(o, "DeleteAppResponse");
@@ -3071,12 +2849,7 @@ export interface DeleteBaiduChannelResponse {
 
 export namespace DeleteBaiduChannelResponse {
   export const filterSensitiveLog = (obj: DeleteBaiduChannelResponse): any => ({
-    ...obj,
-    ...(obj.BaiduChannelResponse && {
-      BaiduChannelResponse: BaiduChannelResponse.filterSensitiveLog(
-        obj.BaiduChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteBaiduChannelResponse =>
     __isa(o, "DeleteBaiduChannelResponse");
@@ -3113,12 +2886,7 @@ export interface DeleteCampaignResponse {
 
 export namespace DeleteCampaignResponse {
   export const filterSensitiveLog = (obj: DeleteCampaignResponse): any => ({
-    ...obj,
-    ...(obj.CampaignResponse && {
-      CampaignResponse: CampaignResponse.filterSensitiveLog(
-        obj.CampaignResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteCampaignResponse =>
     __isa(o, "DeleteCampaignResponse");
@@ -3150,12 +2918,7 @@ export interface DeleteEmailChannelResponse {
 
 export namespace DeleteEmailChannelResponse {
   export const filterSensitiveLog = (obj: DeleteEmailChannelResponse): any => ({
-    ...obj,
-    ...(obj.EmailChannelResponse && {
-      EmailChannelResponse: EmailChannelResponse.filterSensitiveLog(
-        obj.EmailChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteEmailChannelResponse =>
     __isa(o, "DeleteEmailChannelResponse");
@@ -3194,10 +2957,7 @@ export namespace DeleteEmailTemplateResponse {
   export const filterSensitiveLog = (
     obj: DeleteEmailTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteEmailTemplateResponse =>
     __isa(o, "DeleteEmailTemplateResponse");
@@ -3234,12 +2994,7 @@ export interface DeleteEndpointResponse {
 
 export namespace DeleteEndpointResponse {
   export const filterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
-    ...obj,
-    ...(obj.EndpointResponse && {
-      EndpointResponse: EndpointResponse.filterSensitiveLog(
-        obj.EndpointResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteEndpointResponse =>
     __isa(o, "DeleteEndpointResponse");
@@ -3271,10 +3026,7 @@ export interface DeleteEventStreamResponse {
 
 export namespace DeleteEventStreamResponse {
   export const filterSensitiveLog = (obj: DeleteEventStreamResponse): any => ({
-    ...obj,
-    ...(obj.EventStream && {
-      EventStream: EventStream.filterSensitiveLog(obj.EventStream)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteEventStreamResponse =>
     __isa(o, "DeleteEventStreamResponse");
@@ -3306,12 +3058,7 @@ export interface DeleteGcmChannelResponse {
 
 export namespace DeleteGcmChannelResponse {
   export const filterSensitiveLog = (obj: DeleteGcmChannelResponse): any => ({
-    ...obj,
-    ...(obj.GCMChannelResponse && {
-      GCMChannelResponse: GCMChannelResponse.filterSensitiveLog(
-        obj.GCMChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteGcmChannelResponse =>
     __isa(o, "DeleteGcmChannelResponse");
@@ -3348,10 +3095,7 @@ export interface DeleteJourneyResponse {
 
 export namespace DeleteJourneyResponse {
   export const filterSensitiveLog = (obj: DeleteJourneyResponse): any => ({
-    ...obj,
-    ...(obj.JourneyResponse && {
-      JourneyResponse: JourneyResponse.filterSensitiveLog(obj.JourneyResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteJourneyResponse =>
     __isa(o, "DeleteJourneyResponse");
@@ -3388,10 +3132,7 @@ export interface DeletePushTemplateResponse {
 
 export namespace DeletePushTemplateResponse {
   export const filterSensitiveLog = (obj: DeletePushTemplateResponse): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeletePushTemplateResponse =>
     __isa(o, "DeletePushTemplateResponse");
@@ -3428,10 +3169,7 @@ export interface DeleteSegmentResponse {
 
 export namespace DeleteSegmentResponse {
   export const filterSensitiveLog = (obj: DeleteSegmentResponse): any => ({
-    ...obj,
-    ...(obj.SegmentResponse && {
-      SegmentResponse: SegmentResponse.filterSensitiveLog(obj.SegmentResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteSegmentResponse =>
     __isa(o, "DeleteSegmentResponse");
@@ -3463,12 +3201,7 @@ export interface DeleteSmsChannelResponse {
 
 export namespace DeleteSmsChannelResponse {
   export const filterSensitiveLog = (obj: DeleteSmsChannelResponse): any => ({
-    ...obj,
-    ...(obj.SMSChannelResponse && {
-      SMSChannelResponse: SMSChannelResponse.filterSensitiveLog(
-        obj.SMSChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteSmsChannelResponse =>
     __isa(o, "DeleteSmsChannelResponse");
@@ -3505,10 +3238,7 @@ export interface DeleteSmsTemplateResponse {
 
 export namespace DeleteSmsTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteSmsTemplateResponse): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteSmsTemplateResponse =>
     __isa(o, "DeleteSmsTemplateResponse");
@@ -3547,12 +3277,7 @@ export namespace DeleteUserEndpointsResponse {
   export const filterSensitiveLog = (
     obj: DeleteUserEndpointsResponse
   ): any => ({
-    ...obj,
-    ...(obj.EndpointsResponse && {
-      EndpointsResponse: EndpointsResponse.filterSensitiveLog(
-        obj.EndpointsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteUserEndpointsResponse =>
     __isa(o, "DeleteUserEndpointsResponse");
@@ -3584,12 +3309,7 @@ export interface DeleteVoiceChannelResponse {
 
 export namespace DeleteVoiceChannelResponse {
   export const filterSensitiveLog = (obj: DeleteVoiceChannelResponse): any => ({
-    ...obj,
-    ...(obj.VoiceChannelResponse && {
-      VoiceChannelResponse: VoiceChannelResponse.filterSensitiveLog(
-        obj.VoiceChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteVoiceChannelResponse =>
     __isa(o, "DeleteVoiceChannelResponse");
@@ -3628,10 +3348,7 @@ export namespace DeleteVoiceTemplateResponse {
   export const filterSensitiveLog = (
     obj: DeleteVoiceTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteVoiceTemplateResponse =>
     __isa(o, "DeleteVoiceTemplateResponse");
@@ -3705,36 +3422,7 @@ export interface DirectMessageConfiguration {
 
 export namespace DirectMessageConfiguration {
   export const filterSensitiveLog = (obj: DirectMessageConfiguration): any => ({
-    ...obj,
-    ...(obj.ADMMessage && {
-      ADMMessage: ADMMessage.filterSensitiveLog(obj.ADMMessage)
-    }),
-    ...(obj.APNSMessage && {
-      APNSMessage: APNSMessage.filterSensitiveLog(obj.APNSMessage)
-    }),
-    ...(obj.BaiduMessage && {
-      BaiduMessage: BaiduMessage.filterSensitiveLog(obj.BaiduMessage)
-    }),
-    ...(obj.DefaultMessage && {
-      DefaultMessage: DefaultMessage.filterSensitiveLog(obj.DefaultMessage)
-    }),
-    ...(obj.DefaultPushNotificationMessage && {
-      DefaultPushNotificationMessage: DefaultPushNotificationMessage.filterSensitiveLog(
-        obj.DefaultPushNotificationMessage
-      )
-    }),
-    ...(obj.EmailMessage && {
-      EmailMessage: EmailMessage.filterSensitiveLog(obj.EmailMessage)
-    }),
-    ...(obj.GCMMessage && {
-      GCMMessage: GCMMessage.filterSensitiveLog(obj.GCMMessage)
-    }),
-    ...(obj.SMSMessage && {
-      SMSMessage: SMSMessage.filterSensitiveLog(obj.SMSMessage)
-    }),
-    ...(obj.VoiceMessage && {
-      VoiceMessage: VoiceMessage.filterSensitiveLog(obj.VoiceMessage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DirectMessageConfiguration =>
     __isa(o, "DirectMessageConfiguration");
@@ -3918,13 +3606,7 @@ export interface EmailMessage {
 
 export namespace EmailMessage {
   export const filterSensitiveLog = (obj: EmailMessage): any => ({
-    ...obj,
-    ...(obj.RawEmail && {
-      RawEmail: RawEmail.filterSensitiveLog(obj.RawEmail)
-    }),
-    ...(obj.SimpleEmail && {
-      SimpleEmail: SimpleEmail.filterSensitiveLog(obj.SimpleEmail)
-    })
+    ...obj
   });
   export const isa = (o: any): o is EmailMessage => __isa(o, "EmailMessage");
 }
@@ -3957,10 +3639,7 @@ export interface EmailMessageActivity {
 
 export namespace EmailMessageActivity {
   export const filterSensitiveLog = (obj: EmailMessageActivity): any => ({
-    ...obj,
-    ...(obj.MessageConfig && {
-      MessageConfig: JourneyEmailMessage.filterSensitiveLog(obj.MessageConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is EmailMessageActivity =>
     __isa(o, "EmailMessageActivity");
@@ -4152,14 +3831,7 @@ export interface EndpointBatchItem {
 
 export namespace EndpointBatchItem {
   export const filterSensitiveLog = (obj: EndpointBatchItem): any => ({
-    ...obj,
-    ...(obj.Demographic && {
-      Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
-    }),
-    ...(obj.Location && {
-      Location: EndpointLocation.filterSensitiveLog(obj.Location)
-    }),
-    ...(obj.User && { User: EndpointUser.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is EndpointBatchItem =>
     __isa(o, "EndpointBatchItem");
@@ -4178,10 +3850,7 @@ export interface EndpointBatchRequest {
 
 export namespace EndpointBatchRequest {
   export const filterSensitiveLog = (obj: EndpointBatchRequest): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => EndpointBatchItem.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is EndpointBatchRequest =>
     __isa(o, "EndpointBatchRequest");
@@ -4416,14 +4085,7 @@ export interface EndpointRequest {
 
 export namespace EndpointRequest {
   export const filterSensitiveLog = (obj: EndpointRequest): any => ({
-    ...obj,
-    ...(obj.Demographic && {
-      Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
-    }),
-    ...(obj.Location && {
-      Location: EndpointLocation.filterSensitiveLog(obj.Location)
-    }),
-    ...(obj.User && { User: EndpointUser.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is EndpointRequest =>
     __isa(o, "EndpointRequest");
@@ -4512,14 +4174,7 @@ export interface EndpointResponse {
 
 export namespace EndpointResponse {
   export const filterSensitiveLog = (obj: EndpointResponse): any => ({
-    ...obj,
-    ...(obj.Demographic && {
-      Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
-    }),
-    ...(obj.Location && {
-      Location: EndpointLocation.filterSensitiveLog(obj.Location)
-    }),
-    ...(obj.User && { User: EndpointUser.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is EndpointResponse =>
     __isa(o, "EndpointResponse");
@@ -4600,10 +4255,7 @@ export interface EndpointsResponse {
 
 export namespace EndpointsResponse {
   export const filterSensitiveLog = (obj: EndpointsResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => EndpointResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is EndpointsResponse =>
     __isa(o, "EndpointsResponse");
@@ -4667,8 +4319,7 @@ export interface Event {
 
 export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-    ...(obj.Session && { Session: Session.filterSensitiveLog(obj.Session) })
+    ...obj
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
@@ -4691,10 +4342,7 @@ export interface EventCondition {
 
 export namespace EventCondition {
   export const filterSensitiveLog = (obj: EventCondition): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: EventDimensions.filterSensitiveLog(obj.Dimensions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventCondition =>
     __isa(o, "EventCondition");
@@ -4723,28 +4371,7 @@ export interface EventDimensions {
 
 export namespace EventDimensions {
   export const filterSensitiveLog = (obj: EventDimensions): any => ({
-    ...obj,
-    ...(obj.Attributes && {
-      Attributes: Object.entries(obj.Attributes).reduce(
-        (acc: any, [key, value]: [string, AttributeDimension]) => ({
-          ...acc,
-          [key]: AttributeDimension.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.EventType && {
-      EventType: SetDimension.filterSensitiveLog(obj.EventType)
-    }),
-    ...(obj.Metrics && {
-      Metrics: Object.entries(obj.Metrics).reduce(
-        (acc: any, [key, value]: [string, MetricDimension]) => ({
-          ...acc,
-          [key]: MetricDimension.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventDimensions =>
     __isa(o, "EventDimensions");
@@ -4837,19 +4464,7 @@ export interface EventsBatch {
 
 export namespace EventsBatch {
   export const filterSensitiveLog = (obj: EventsBatch): any => ({
-    ...obj,
-    ...(obj.Endpoint && {
-      Endpoint: PublicEndpoint.filterSensitiveLog(obj.Endpoint)
-    }),
-    ...(obj.Events && {
-      Events: Object.entries(obj.Events).reduce(
-        (acc: any, [key, value]: [string, Event]) => ({
-          ...acc,
-          [key]: Event.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventsBatch => __isa(o, "EventsBatch");
 }
@@ -4867,16 +4482,7 @@ export interface EventsRequest {
 
 export namespace EventsRequest {
   export const filterSensitiveLog = (obj: EventsRequest): any => ({
-    ...obj,
-    ...(obj.BatchItem && {
-      BatchItem: Object.entries(obj.BatchItem).reduce(
-        (acc: any, [key, value]: [string, EventsBatch]) => ({
-          ...acc,
-          [key]: EventsBatch.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventsRequest => __isa(o, "EventsRequest");
 }
@@ -4894,16 +4500,7 @@ export interface EventsResponse {
 
 export namespace EventsResponse {
   export const filterSensitiveLog = (obj: EventsResponse): any => ({
-    ...obj,
-    ...(obj.Results && {
-      Results: Object.entries(obj.Results).reduce(
-        (acc: any, [key, value]: [string, ItemResponse]) => ({
-          ...acc,
-          [key]: ItemResponse.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventsResponse =>
     __isa(o, "EventsResponse");
@@ -5050,10 +4647,7 @@ export interface ExportJobResponse {
 
 export namespace ExportJobResponse {
   export const filterSensitiveLog = (obj: ExportJobResponse): any => ({
-    ...obj,
-    ...(obj.Definition && {
-      Definition: ExportJobResource.filterSensitiveLog(obj.Definition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExportJobResponse =>
     __isa(o, "ExportJobResponse");
@@ -5077,10 +4671,7 @@ export interface ExportJobsResponse {
 
 export namespace ExportJobsResponse {
   export const filterSensitiveLog = (obj: ExportJobsResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => ExportJobResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExportJobsResponse =>
     __isa(o, "ExportJobsResponse");
@@ -5363,10 +4954,7 @@ export interface GPSPointDimension {
 
 export namespace GPSPointDimension {
   export const filterSensitiveLog = (obj: GPSPointDimension): any => ({
-    ...obj,
-    ...(obj.Coordinates && {
-      Coordinates: GPSCoordinates.filterSensitiveLog(obj.Coordinates)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GPSPointDimension =>
     __isa(o, "GPSPointDimension");
@@ -5398,12 +4986,7 @@ export interface GetAdmChannelResponse {
 
 export namespace GetAdmChannelResponse {
   export const filterSensitiveLog = (obj: GetAdmChannelResponse): any => ({
-    ...obj,
-    ...(obj.ADMChannelResponse && {
-      ADMChannelResponse: ADMChannelResponse.filterSensitiveLog(
-        obj.ADMChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAdmChannelResponse =>
     __isa(o, "GetAdmChannelResponse");
@@ -5435,12 +5018,7 @@ export interface GetApnsChannelResponse {
 
 export namespace GetApnsChannelResponse {
   export const filterSensitiveLog = (obj: GetApnsChannelResponse): any => ({
-    ...obj,
-    ...(obj.APNSChannelResponse && {
-      APNSChannelResponse: APNSChannelResponse.filterSensitiveLog(
-        obj.APNSChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApnsChannelResponse =>
     __isa(o, "GetApnsChannelResponse");
@@ -5476,12 +5054,7 @@ export namespace GetApnsSandboxChannelResponse {
   export const filterSensitiveLog = (
     obj: GetApnsSandboxChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSSandboxChannelResponse && {
-      APNSSandboxChannelResponse: APNSSandboxChannelResponse.filterSensitiveLog(
-        obj.APNSSandboxChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApnsSandboxChannelResponse =>
     __isa(o, "GetApnsSandboxChannelResponse");
@@ -5513,12 +5086,7 @@ export interface GetApnsVoipChannelResponse {
 
 export namespace GetApnsVoipChannelResponse {
   export const filterSensitiveLog = (obj: GetApnsVoipChannelResponse): any => ({
-    ...obj,
-    ...(obj.APNSVoipChannelResponse && {
-      APNSVoipChannelResponse: APNSVoipChannelResponse.filterSensitiveLog(
-        obj.APNSVoipChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApnsVoipChannelResponse =>
     __isa(o, "GetApnsVoipChannelResponse");
@@ -5554,12 +5122,7 @@ export namespace GetApnsVoipSandboxChannelResponse {
   export const filterSensitiveLog = (
     obj: GetApnsVoipSandboxChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSVoipSandboxChannelResponse && {
-      APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse.filterSensitiveLog(
-        obj.APNSVoipSandboxChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApnsVoipSandboxChannelResponse =>
     __isa(o, "GetApnsVoipSandboxChannelResponse");
@@ -5590,12 +5153,7 @@ export interface GetAppResponse {
 
 export namespace GetAppResponse {
   export const filterSensitiveLog = (obj: GetAppResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationResponse && {
-      ApplicationResponse: ApplicationResponse.filterSensitiveLog(
-        obj.ApplicationResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAppResponse =>
     __isa(o, "GetAppResponse");
@@ -5656,12 +5214,7 @@ export namespace GetApplicationDateRangeKpiResponse {
   export const filterSensitiveLog = (
     obj: GetApplicationDateRangeKpiResponse
   ): any => ({
-    ...obj,
-    ...(obj.ApplicationDateRangeKpiResponse && {
-      ApplicationDateRangeKpiResponse: ApplicationDateRangeKpiResponse.filterSensitiveLog(
-        obj.ApplicationDateRangeKpiResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApplicationDateRangeKpiResponse =>
     __isa(o, "GetApplicationDateRangeKpiResponse");
@@ -5697,12 +5250,7 @@ export namespace GetApplicationSettingsResponse {
   export const filterSensitiveLog = (
     obj: GetApplicationSettingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ApplicationSettingsResource && {
-      ApplicationSettingsResource: ApplicationSettingsResource.filterSensitiveLog(
-        obj.ApplicationSettingsResource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApplicationSettingsResponse =>
     __isa(o, "GetApplicationSettingsResponse");
@@ -5739,12 +5287,7 @@ export interface GetAppsResponse {
 
 export namespace GetAppsResponse {
   export const filterSensitiveLog = (obj: GetAppsResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationsResponse && {
-      ApplicationsResponse: ApplicationsResponse.filterSensitiveLog(
-        obj.ApplicationsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAppsResponse =>
     __isa(o, "GetAppsResponse");
@@ -5776,12 +5319,7 @@ export interface GetBaiduChannelResponse {
 
 export namespace GetBaiduChannelResponse {
   export const filterSensitiveLog = (obj: GetBaiduChannelResponse): any => ({
-    ...obj,
-    ...(obj.BaiduChannelResponse && {
-      BaiduChannelResponse: BaiduChannelResponse.filterSensitiveLog(
-        obj.BaiduChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBaiduChannelResponse =>
     __isa(o, "GetBaiduChannelResponse");
@@ -5832,12 +5370,7 @@ export namespace GetCampaignActivitiesResponse {
   export const filterSensitiveLog = (
     obj: GetCampaignActivitiesResponse
   ): any => ({
-    ...obj,
-    ...(obj.ActivitiesResponse && {
-      ActivitiesResponse: ActivitiesResponse.filterSensitiveLog(
-        obj.ActivitiesResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCampaignActivitiesResponse =>
     __isa(o, "GetCampaignActivitiesResponse");
@@ -5903,12 +5436,7 @@ export namespace GetCampaignDateRangeKpiResponse {
   export const filterSensitiveLog = (
     obj: GetCampaignDateRangeKpiResponse
   ): any => ({
-    ...obj,
-    ...(obj.CampaignDateRangeKpiResponse && {
-      CampaignDateRangeKpiResponse: CampaignDateRangeKpiResponse.filterSensitiveLog(
-        obj.CampaignDateRangeKpiResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCampaignDateRangeKpiResponse =>
     __isa(o, "GetCampaignDateRangeKpiResponse");
@@ -5945,12 +5473,7 @@ export interface GetCampaignResponse {
 
 export namespace GetCampaignResponse {
   export const filterSensitiveLog = (obj: GetCampaignResponse): any => ({
-    ...obj,
-    ...(obj.CampaignResponse && {
-      CampaignResponse: CampaignResponse.filterSensitiveLog(
-        obj.CampaignResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCampaignResponse =>
     __isa(o, "GetCampaignResponse");
@@ -5992,12 +5515,7 @@ export interface GetCampaignVersionResponse {
 
 export namespace GetCampaignVersionResponse {
   export const filterSensitiveLog = (obj: GetCampaignVersionResponse): any => ({
-    ...obj,
-    ...(obj.CampaignResponse && {
-      CampaignResponse: CampaignResponse.filterSensitiveLog(
-        obj.CampaignResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCampaignVersionResponse =>
     __isa(o, "GetCampaignVersionResponse");
@@ -6046,12 +5564,7 @@ export namespace GetCampaignVersionsResponse {
   export const filterSensitiveLog = (
     obj: GetCampaignVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.CampaignsResponse && {
-      CampaignsResponse: CampaignsResponse.filterSensitiveLog(
-        obj.CampaignsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCampaignVersionsResponse =>
     __isa(o, "GetCampaignVersionsResponse");
@@ -6093,12 +5606,7 @@ export interface GetCampaignsResponse {
 
 export namespace GetCampaignsResponse {
   export const filterSensitiveLog = (obj: GetCampaignsResponse): any => ({
-    ...obj,
-    ...(obj.CampaignsResponse && {
-      CampaignsResponse: CampaignsResponse.filterSensitiveLog(
-        obj.CampaignsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCampaignsResponse =>
     __isa(o, "GetCampaignsResponse");
@@ -6130,12 +5638,7 @@ export interface GetChannelsResponse {
 
 export namespace GetChannelsResponse {
   export const filterSensitiveLog = (obj: GetChannelsResponse): any => ({
-    ...obj,
-    ...(obj.ChannelsResponse && {
-      ChannelsResponse: ChannelsResponse.filterSensitiveLog(
-        obj.ChannelsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetChannelsResponse =>
     __isa(o, "GetChannelsResponse");
@@ -6167,12 +5670,7 @@ export interface GetEmailChannelResponse {
 
 export namespace GetEmailChannelResponse {
   export const filterSensitiveLog = (obj: GetEmailChannelResponse): any => ({
-    ...obj,
-    ...(obj.EmailChannelResponse && {
-      EmailChannelResponse: EmailChannelResponse.filterSensitiveLog(
-        obj.EmailChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEmailChannelResponse =>
     __isa(o, "GetEmailChannelResponse");
@@ -6209,12 +5707,7 @@ export interface GetEmailTemplateResponse {
 
 export namespace GetEmailTemplateResponse {
   export const filterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
-    ...obj,
-    ...(obj.EmailTemplateResponse && {
-      EmailTemplateResponse: EmailTemplateResponse.filterSensitiveLog(
-        obj.EmailTemplateResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEmailTemplateResponse =>
     __isa(o, "GetEmailTemplateResponse");
@@ -6251,12 +5744,7 @@ export interface GetEndpointResponse {
 
 export namespace GetEndpointResponse {
   export const filterSensitiveLog = (obj: GetEndpointResponse): any => ({
-    ...obj,
-    ...(obj.EndpointResponse && {
-      EndpointResponse: EndpointResponse.filterSensitiveLog(
-        obj.EndpointResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEndpointResponse =>
     __isa(o, "GetEndpointResponse");
@@ -6288,10 +5776,7 @@ export interface GetEventStreamResponse {
 
 export namespace GetEventStreamResponse {
   export const filterSensitiveLog = (obj: GetEventStreamResponse): any => ({
-    ...obj,
-    ...(obj.EventStream && {
-      EventStream: EventStream.filterSensitiveLog(obj.EventStream)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEventStreamResponse =>
     __isa(o, "GetEventStreamResponse");
@@ -6328,12 +5813,7 @@ export interface GetExportJobResponse {
 
 export namespace GetExportJobResponse {
   export const filterSensitiveLog = (obj: GetExportJobResponse): any => ({
-    ...obj,
-    ...(obj.ExportJobResponse && {
-      ExportJobResponse: ExportJobResponse.filterSensitiveLog(
-        obj.ExportJobResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetExportJobResponse =>
     __isa(o, "GetExportJobResponse");
@@ -6375,12 +5855,7 @@ export interface GetExportJobsResponse {
 
 export namespace GetExportJobsResponse {
   export const filterSensitiveLog = (obj: GetExportJobsResponse): any => ({
-    ...obj,
-    ...(obj.ExportJobsResponse && {
-      ExportJobsResponse: ExportJobsResponse.filterSensitiveLog(
-        obj.ExportJobsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetExportJobsResponse =>
     __isa(o, "GetExportJobsResponse");
@@ -6412,12 +5887,7 @@ export interface GetGcmChannelResponse {
 
 export namespace GetGcmChannelResponse {
   export const filterSensitiveLog = (obj: GetGcmChannelResponse): any => ({
-    ...obj,
-    ...(obj.GCMChannelResponse && {
-      GCMChannelResponse: GCMChannelResponse.filterSensitiveLog(
-        obj.GCMChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetGcmChannelResponse =>
     __isa(o, "GetGcmChannelResponse");
@@ -6454,12 +5924,7 @@ export interface GetImportJobResponse {
 
 export namespace GetImportJobResponse {
   export const filterSensitiveLog = (obj: GetImportJobResponse): any => ({
-    ...obj,
-    ...(obj.ImportJobResponse && {
-      ImportJobResponse: ImportJobResponse.filterSensitiveLog(
-        obj.ImportJobResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetImportJobResponse =>
     __isa(o, "GetImportJobResponse");
@@ -6501,12 +5966,7 @@ export interface GetImportJobsResponse {
 
 export namespace GetImportJobsResponse {
   export const filterSensitiveLog = (obj: GetImportJobsResponse): any => ({
-    ...obj,
-    ...(obj.ImportJobsResponse && {
-      ImportJobsResponse: ImportJobsResponse.filterSensitiveLog(
-        obj.ImportJobsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetImportJobsResponse =>
     __isa(o, "GetImportJobsResponse");
@@ -6572,12 +6032,7 @@ export namespace GetJourneyDateRangeKpiResponse {
   export const filterSensitiveLog = (
     obj: GetJourneyDateRangeKpiResponse
   ): any => ({
-    ...obj,
-    ...(obj.JourneyDateRangeKpiResponse && {
-      JourneyDateRangeKpiResponse: JourneyDateRangeKpiResponse.filterSensitiveLog(
-        obj.JourneyDateRangeKpiResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetJourneyDateRangeKpiResponse =>
     __isa(o, "GetJourneyDateRangeKpiResponse");
@@ -6635,12 +6090,7 @@ export namespace GetJourneyExecutionActivityMetricsResponse {
   export const filterSensitiveLog = (
     obj: GetJourneyExecutionActivityMetricsResponse
   ): any => ({
-    ...obj,
-    ...(obj.JourneyExecutionActivityMetricsResponse && {
-      JourneyExecutionActivityMetricsResponse: JourneyExecutionActivityMetricsResponse.filterSensitiveLog(
-        obj.JourneyExecutionActivityMetricsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -6693,12 +6143,7 @@ export namespace GetJourneyExecutionMetricsResponse {
   export const filterSensitiveLog = (
     obj: GetJourneyExecutionMetricsResponse
   ): any => ({
-    ...obj,
-    ...(obj.JourneyExecutionMetricsResponse && {
-      JourneyExecutionMetricsResponse: JourneyExecutionMetricsResponse.filterSensitiveLog(
-        obj.JourneyExecutionMetricsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetJourneyExecutionMetricsResponse =>
     __isa(o, "GetJourneyExecutionMetricsResponse");
@@ -6735,10 +6180,7 @@ export interface GetJourneyResponse {
 
 export namespace GetJourneyResponse {
   export const filterSensitiveLog = (obj: GetJourneyResponse): any => ({
-    ...obj,
-    ...(obj.JourneyResponse && {
-      JourneyResponse: JourneyResponse.filterSensitiveLog(obj.JourneyResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetJourneyResponse =>
     __isa(o, "GetJourneyResponse");
@@ -6777,12 +6219,7 @@ export interface GetPushTemplateResponse {
 
 export namespace GetPushTemplateResponse {
   export const filterSensitiveLog = (obj: GetPushTemplateResponse): any => ({
-    ...obj,
-    ...(obj.PushNotificationTemplateResponse && {
-      PushNotificationTemplateResponse: PushNotificationTemplateResponse.filterSensitiveLog(
-        obj.PushNotificationTemplateResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPushTemplateResponse =>
     __isa(o, "GetPushTemplateResponse");
@@ -6833,12 +6270,7 @@ export namespace GetSegmentExportJobsResponse {
   export const filterSensitiveLog = (
     obj: GetSegmentExportJobsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ExportJobsResponse && {
-      ExportJobsResponse: ExportJobsResponse.filterSensitiveLog(
-        obj.ExportJobsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSegmentExportJobsResponse =>
     __isa(o, "GetSegmentExportJobsResponse");
@@ -6889,12 +6321,7 @@ export namespace GetSegmentImportJobsResponse {
   export const filterSensitiveLog = (
     obj: GetSegmentImportJobsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ImportJobsResponse && {
-      ImportJobsResponse: ImportJobsResponse.filterSensitiveLog(
-        obj.ImportJobsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSegmentImportJobsResponse =>
     __isa(o, "GetSegmentImportJobsResponse");
@@ -6931,10 +6358,7 @@ export interface GetSegmentResponse {
 
 export namespace GetSegmentResponse {
   export const filterSensitiveLog = (obj: GetSegmentResponse): any => ({
-    ...obj,
-    ...(obj.SegmentResponse && {
-      SegmentResponse: SegmentResponse.filterSensitiveLog(obj.SegmentResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSegmentResponse =>
     __isa(o, "GetSegmentResponse");
@@ -6976,10 +6400,7 @@ export interface GetSegmentVersionResponse {
 
 export namespace GetSegmentVersionResponse {
   export const filterSensitiveLog = (obj: GetSegmentVersionResponse): any => ({
-    ...obj,
-    ...(obj.SegmentResponse && {
-      SegmentResponse: SegmentResponse.filterSensitiveLog(obj.SegmentResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSegmentVersionResponse =>
     __isa(o, "GetSegmentVersionResponse");
@@ -7026,12 +6447,7 @@ export interface GetSegmentVersionsResponse {
 
 export namespace GetSegmentVersionsResponse {
   export const filterSensitiveLog = (obj: GetSegmentVersionsResponse): any => ({
-    ...obj,
-    ...(obj.SegmentsResponse && {
-      SegmentsResponse: SegmentsResponse.filterSensitiveLog(
-        obj.SegmentsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSegmentVersionsResponse =>
     __isa(o, "GetSegmentVersionsResponse");
@@ -7073,12 +6489,7 @@ export interface GetSegmentsResponse {
 
 export namespace GetSegmentsResponse {
   export const filterSensitiveLog = (obj: GetSegmentsResponse): any => ({
-    ...obj,
-    ...(obj.SegmentsResponse && {
-      SegmentsResponse: SegmentsResponse.filterSensitiveLog(
-        obj.SegmentsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSegmentsResponse =>
     __isa(o, "GetSegmentsResponse");
@@ -7110,12 +6521,7 @@ export interface GetSmsChannelResponse {
 
 export namespace GetSmsChannelResponse {
   export const filterSensitiveLog = (obj: GetSmsChannelResponse): any => ({
-    ...obj,
-    ...(obj.SMSChannelResponse && {
-      SMSChannelResponse: SMSChannelResponse.filterSensitiveLog(
-        obj.SMSChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSmsChannelResponse =>
     __isa(o, "GetSmsChannelResponse");
@@ -7152,12 +6558,7 @@ export interface GetSmsTemplateResponse {
 
 export namespace GetSmsTemplateResponse {
   export const filterSensitiveLog = (obj: GetSmsTemplateResponse): any => ({
-    ...obj,
-    ...(obj.SMSTemplateResponse && {
-      SMSTemplateResponse: SMSTemplateResponse.filterSensitiveLog(
-        obj.SMSTemplateResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSmsTemplateResponse =>
     __isa(o, "GetSmsTemplateResponse");
@@ -7194,12 +6595,7 @@ export interface GetUserEndpointsResponse {
 
 export namespace GetUserEndpointsResponse {
   export const filterSensitiveLog = (obj: GetUserEndpointsResponse): any => ({
-    ...obj,
-    ...(obj.EndpointsResponse && {
-      EndpointsResponse: EndpointsResponse.filterSensitiveLog(
-        obj.EndpointsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetUserEndpointsResponse =>
     __isa(o, "GetUserEndpointsResponse");
@@ -7231,12 +6627,7 @@ export interface GetVoiceChannelResponse {
 
 export namespace GetVoiceChannelResponse {
   export const filterSensitiveLog = (obj: GetVoiceChannelResponse): any => ({
-    ...obj,
-    ...(obj.VoiceChannelResponse && {
-      VoiceChannelResponse: VoiceChannelResponse.filterSensitiveLog(
-        obj.VoiceChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetVoiceChannelResponse =>
     __isa(o, "GetVoiceChannelResponse");
@@ -7273,12 +6664,7 @@ export interface GetVoiceTemplateResponse {
 
 export namespace GetVoiceTemplateResponse {
   export const filterSensitiveLog = (obj: GetVoiceTemplateResponse): any => ({
-    ...obj,
-    ...(obj.VoiceTemplateResponse && {
-      VoiceTemplateResponse: VoiceTemplateResponse.filterSensitiveLog(
-        obj.VoiceTemplateResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetVoiceTemplateResponse =>
     __isa(o, "GetVoiceTemplateResponse");
@@ -7489,10 +6875,7 @@ export interface ImportJobResponse {
 
 export namespace ImportJobResponse {
   export const filterSensitiveLog = (obj: ImportJobResponse): any => ({
-    ...obj,
-    ...(obj.Definition && {
-      Definition: ImportJobResource.filterSensitiveLog(obj.Definition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ImportJobResponse =>
     __isa(o, "ImportJobResponse");
@@ -7516,10 +6899,7 @@ export interface ImportJobsResponse {
 
 export namespace ImportJobsResponse {
   export const filterSensitiveLog = (obj: ImportJobsResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => ImportJobResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ImportJobsResponse =>
     __isa(o, "ImportJobsResponse");
@@ -7578,21 +6958,7 @@ export interface ItemResponse {
 
 export namespace ItemResponse {
   export const filterSensitiveLog = (obj: ItemResponse): any => ({
-    ...obj,
-    ...(obj.EndpointItemResponse && {
-      EndpointItemResponse: EndpointItemResponse.filterSensitiveLog(
-        obj.EndpointItemResponse
-      )
-    }),
-    ...(obj.EventsItemResponse && {
-      EventsItemResponse: Object.entries(obj.EventsItemResponse).reduce(
-        (acc: any, [key, value]: [string, EventItemResponse]) => ({
-          ...acc,
-          [key]: EventItemResponse.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ItemResponse => __isa(o, "ItemResponse");
 }
@@ -7654,10 +7020,7 @@ export namespace JourneyDateRangeKpiResponse {
   export const filterSensitiveLog = (
     obj: JourneyDateRangeKpiResponse
   ): any => ({
-    ...obj,
-    ...(obj.KpiResult && {
-      KpiResult: BaseKpiResult.filterSensitiveLog(obj.KpiResult)
-    })
+    ...obj
   });
   export const isa = (o: any): o is JourneyDateRangeKpiResponse =>
     __isa(o, "JourneyDateRangeKpiResponse");
@@ -7875,26 +7238,7 @@ export interface JourneyResponse {
 
 export namespace JourneyResponse {
   export const filterSensitiveLog = (obj: JourneyResponse): any => ({
-    ...obj,
-    ...(obj.Activities && {
-      Activities: Object.entries(obj.Activities).reduce(
-        (acc: any, [key, value]: [string, Activity]) => ({
-          ...acc,
-          [key]: Activity.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.Limits && { Limits: JourneyLimits.filterSensitiveLog(obj.Limits) }),
-    ...(obj.QuietTime && {
-      QuietTime: QuietTime.filterSensitiveLog(obj.QuietTime)
-    }),
-    ...(obj.Schedule && {
-      Schedule: JourneySchedule.filterSensitiveLog(obj.Schedule)
-    }),
-    ...(obj.StartCondition && {
-      StartCondition: StartCondition.filterSensitiveLog(obj.StartCondition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is JourneyResponse =>
     __isa(o, "JourneyResponse");
@@ -7971,10 +7315,7 @@ export interface JourneysResponse {
 
 export namespace JourneysResponse {
   export const filterSensitiveLog = (obj: JourneysResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => JourneyResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is JourneysResponse =>
     __isa(o, "JourneysResponse");
@@ -8016,12 +7357,7 @@ export interface ListJourneysResponse {
 
 export namespace ListJourneysResponse {
   export const filterSensitiveLog = (obj: ListJourneysResponse): any => ({
-    ...obj,
-    ...(obj.JourneysResponse && {
-      JourneysResponse: JourneysResponse.filterSensitiveLog(
-        obj.JourneysResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListJourneysResponse =>
     __isa(o, "ListJourneysResponse");
@@ -8055,10 +7391,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.TagsModel && {
-      TagsModel: TagsModel.filterSensitiveLog(obj.TagsModel)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -8109,12 +7442,7 @@ export namespace ListTemplateVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListTemplateVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.TemplateVersionsResponse && {
-      TemplateVersionsResponse: TemplateVersionsResponse.filterSensitiveLog(
-        obj.TemplateVersionsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTemplateVersionsResponse =>
     __isa(o, "ListTemplateVersionsResponse");
@@ -8161,12 +7489,7 @@ export interface ListTemplatesResponse {
 
 export namespace ListTemplatesResponse {
   export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj,
-    ...(obj.TemplatesResponse && {
-      TemplatesResponse: TemplatesResponse.filterSensitiveLog(
-        obj.TemplatesResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTemplatesResponse =>
     __isa(o, "ListTemplatesResponse");
@@ -8311,28 +7634,7 @@ export interface MessageConfiguration {
 
 export namespace MessageConfiguration {
   export const filterSensitiveLog = (obj: MessageConfiguration): any => ({
-    ...obj,
-    ...(obj.ADMMessage && {
-      ADMMessage: Message.filterSensitiveLog(obj.ADMMessage)
-    }),
-    ...(obj.APNSMessage && {
-      APNSMessage: Message.filterSensitiveLog(obj.APNSMessage)
-    }),
-    ...(obj.BaiduMessage && {
-      BaiduMessage: Message.filterSensitiveLog(obj.BaiduMessage)
-    }),
-    ...(obj.DefaultMessage && {
-      DefaultMessage: Message.filterSensitiveLog(obj.DefaultMessage)
-    }),
-    ...(obj.EmailMessage && {
-      EmailMessage: CampaignEmailMessage.filterSensitiveLog(obj.EmailMessage)
-    }),
-    ...(obj.GCMMessage && {
-      GCMMessage: Message.filterSensitiveLog(obj.GCMMessage)
-    }),
-    ...(obj.SMSMessage && {
-      SMSMessage: CampaignSmsMessage.filterSensitiveLog(obj.SMSMessage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MessageConfiguration =>
     __isa(o, "MessageConfiguration");
@@ -8376,35 +7678,7 @@ export interface MessageRequest {
 
 export namespace MessageRequest {
   export const filterSensitiveLog = (obj: MessageRequest): any => ({
-    ...obj,
-    ...(obj.Addresses && {
-      Addresses: Object.entries(obj.Addresses).reduce(
-        (acc: any, [key, value]: [string, AddressConfiguration]) => ({
-          ...acc,
-          [key]: AddressConfiguration.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.Endpoints && {
-      Endpoints: Object.entries(obj.Endpoints).reduce(
-        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => ({
-          ...acc,
-          [key]: EndpointSendConfiguration.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.MessageConfiguration && {
-      MessageConfiguration: DirectMessageConfiguration.filterSensitiveLog(
-        obj.MessageConfiguration
-      )
-    }),
-    ...(obj.TemplateConfiguration && {
-      TemplateConfiguration: TemplateConfiguration.filterSensitiveLog(
-        obj.TemplateConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MessageRequest =>
     __isa(o, "MessageRequest");
@@ -8438,25 +7712,7 @@ export interface MessageResponse {
 
 export namespace MessageResponse {
   export const filterSensitiveLog = (obj: MessageResponse): any => ({
-    ...obj,
-    ...(obj.EndpointResult && {
-      EndpointResult: Object.entries(obj.EndpointResult).reduce(
-        (acc: any, [key, value]: [string, EndpointMessageResult]) => ({
-          ...acc,
-          [key]: EndpointMessageResult.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.Result && {
-      Result: Object.entries(obj.Result).reduce(
-        (acc: any, [key, value]: [string, MessageResult]) => ({
-          ...acc,
-          [key]: MessageResult.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MessageResponse =>
     __isa(o, "MessageResponse");
@@ -8579,10 +7835,7 @@ export interface MultiConditionalBranch {
 
 export namespace MultiConditionalBranch {
   export const filterSensitiveLog = (obj: MultiConditionalBranch): any => ({
-    ...obj,
-    ...(obj.Condition && {
-      Condition: SimpleCondition.filterSensitiveLog(obj.Condition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MultiConditionalBranch =>
     __isa(o, "MultiConditionalBranch");
@@ -8613,15 +7866,7 @@ export namespace MultiConditionalSplitActivity {
   export const filterSensitiveLog = (
     obj: MultiConditionalSplitActivity
   ): any => ({
-    ...obj,
-    ...(obj.Branches && {
-      Branches: obj.Branches.map(item =>
-        MultiConditionalBranch.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.EvaluationWaitTime && {
-      EvaluationWaitTime: WaitTime.filterSensitiveLog(obj.EvaluationWaitTime)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MultiConditionalSplitActivity =>
     __isa(o, "MultiConditionalSplitActivity");
@@ -8776,12 +8021,7 @@ export interface PhoneNumberValidateRequest {
 
 export namespace PhoneNumberValidateRequest {
   export const filterSensitiveLog = (obj: PhoneNumberValidateRequest): any => ({
-    ...obj,
-    ...(obj.NumberValidateRequest && {
-      NumberValidateRequest: NumberValidateRequest.filterSensitiveLog(
-        obj.NumberValidateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PhoneNumberValidateRequest =>
     __isa(o, "PhoneNumberValidateRequest");
@@ -8799,12 +8039,7 @@ export namespace PhoneNumberValidateResponse {
   export const filterSensitiveLog = (
     obj: PhoneNumberValidateResponse
   ): any => ({
-    ...obj,
-    ...(obj.NumberValidateResponse && {
-      NumberValidateResponse: NumberValidateResponse.filterSensitiveLog(
-        obj.NumberValidateResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PhoneNumberValidateResponse =>
     __isa(o, "PhoneNumberValidateResponse");
@@ -8873,14 +8108,7 @@ export interface PublicEndpoint {
 
 export namespace PublicEndpoint {
   export const filterSensitiveLog = (obj: PublicEndpoint): any => ({
-    ...obj,
-    ...(obj.Demographic && {
-      Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
-    }),
-    ...(obj.Location && {
-      Location: EndpointLocation.filterSensitiveLog(obj.Location)
-    }),
-    ...(obj.User && { User: EndpointUser.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is PublicEndpoint =>
     __isa(o, "PublicEndpoint");
@@ -8936,22 +8164,7 @@ export namespace PushNotificationTemplateRequest {
   export const filterSensitiveLog = (
     obj: PushNotificationTemplateRequest
   ): any => ({
-    ...obj,
-    ...(obj.ADM && {
-      ADM: AndroidPushNotificationTemplate.filterSensitiveLog(obj.ADM)
-    }),
-    ...(obj.APNS && {
-      APNS: APNSPushNotificationTemplate.filterSensitiveLog(obj.APNS)
-    }),
-    ...(obj.Baidu && {
-      Baidu: AndroidPushNotificationTemplate.filterSensitiveLog(obj.Baidu)
-    }),
-    ...(obj.Default && {
-      Default: DefaultPushNotificationTemplate.filterSensitiveLog(obj.Default)
-    }),
-    ...(obj.GCM && {
-      GCM: AndroidPushNotificationTemplate.filterSensitiveLog(obj.GCM)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PushNotificationTemplateRequest =>
     __isa(o, "PushNotificationTemplateRequest");
@@ -9037,22 +8250,7 @@ export namespace PushNotificationTemplateResponse {
   export const filterSensitiveLog = (
     obj: PushNotificationTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.ADM && {
-      ADM: AndroidPushNotificationTemplate.filterSensitiveLog(obj.ADM)
-    }),
-    ...(obj.APNS && {
-      APNS: APNSPushNotificationTemplate.filterSensitiveLog(obj.APNS)
-    }),
-    ...(obj.Baidu && {
-      Baidu: AndroidPushNotificationTemplate.filterSensitiveLog(obj.Baidu)
-    }),
-    ...(obj.Default && {
-      Default: DefaultPushNotificationTemplate.filterSensitiveLog(obj.Default)
-    }),
-    ...(obj.GCM && {
-      GCM: AndroidPushNotificationTemplate.filterSensitiveLog(obj.GCM)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PushNotificationTemplateResponse =>
     __isa(o, "PushNotificationTemplateResponse");
@@ -9073,12 +8271,7 @@ export interface PutEventStreamRequest {
 
 export namespace PutEventStreamRequest {
   export const filterSensitiveLog = (obj: PutEventStreamRequest): any => ({
-    ...obj,
-    ...(obj.WriteEventStream && {
-      WriteEventStream: WriteEventStream.filterSensitiveLog(
-        obj.WriteEventStream
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutEventStreamRequest =>
     __isa(o, "PutEventStreamRequest");
@@ -9094,10 +8287,7 @@ export interface PutEventStreamResponse {
 
 export namespace PutEventStreamResponse {
   export const filterSensitiveLog = (obj: PutEventStreamResponse): any => ({
-    ...obj,
-    ...(obj.EventStream && {
-      EventStream: EventStream.filterSensitiveLog(obj.EventStream)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutEventStreamResponse =>
     __isa(o, "PutEventStreamResponse");
@@ -9118,10 +8308,7 @@ export interface PutEventsRequest {
 
 export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
-    ...obj,
-    ...(obj.EventsRequest && {
-      EventsRequest: EventsRequest.filterSensitiveLog(obj.EventsRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutEventsRequest =>
     __isa(o, "PutEventsRequest");
@@ -9137,10 +8324,7 @@ export interface PutEventsResponse {
 
 export namespace PutEventsResponse {
   export const filterSensitiveLog = (obj: PutEventsResponse): any => ({
-    ...obj,
-    ...(obj.EventsResponse && {
-      EventsResponse: EventsResponse.filterSensitiveLog(obj.EventsResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutEventsResponse =>
     __isa(o, "PutEventsResponse");
@@ -9182,12 +8366,7 @@ export interface RandomSplitActivity {
 
 export namespace RandomSplitActivity {
   export const filterSensitiveLog = (obj: RandomSplitActivity): any => ({
-    ...obj,
-    ...(obj.Branches && {
-      Branches: obj.Branches.map(item =>
-        RandomSplitEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RandomSplitActivity =>
     __isa(o, "RandomSplitActivity");
@@ -9284,12 +8463,7 @@ export interface RemoveAttributesRequest {
 
 export namespace RemoveAttributesRequest {
   export const filterSensitiveLog = (obj: RemoveAttributesRequest): any => ({
-    ...obj,
-    ...(obj.UpdateAttributesRequest && {
-      UpdateAttributesRequest: UpdateAttributesRequest.filterSensitiveLog(
-        obj.UpdateAttributesRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RemoveAttributesRequest =>
     __isa(o, "RemoveAttributesRequest");
@@ -9305,12 +8479,7 @@ export interface RemoveAttributesResponse {
 
 export namespace RemoveAttributesResponse {
   export const filterSensitiveLog = (obj: RemoveAttributesResponse): any => ({
-    ...obj,
-    ...(obj.AttributesResource && {
-      AttributesResource: AttributesResource.filterSensitiveLog(
-        obj.AttributesResource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RemoveAttributesResponse =>
     __isa(o, "RemoveAttributesResponse");
@@ -9334,15 +8503,7 @@ export interface ResultRow {
 
 export namespace ResultRow {
   export const filterSensitiveLog = (obj: ResultRow): any => ({
-    ...obj,
-    ...(obj.GroupedBys && {
-      GroupedBys: obj.GroupedBys.map(item =>
-        ResultRowValue.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Values && {
-      Values: obj.Values.map(item => ResultRowValue.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultRow => __isa(o, "ResultRow");
 }
@@ -9676,13 +8837,7 @@ export interface Schedule {
 
 export namespace Schedule {
   export const filterSensitiveLog = (obj: Schedule): any => ({
-    ...obj,
-    ...(obj.EventFilter && {
-      EventFilter: CampaignEventFilter.filterSensitiveLog(obj.EventFilter)
-    }),
-    ...(obj.QuietTime && {
-      QuietTime: QuietTime.filterSensitiveLog(obj.QuietTime)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
@@ -9700,10 +8855,7 @@ export interface SegmentBehaviors {
 
 export namespace SegmentBehaviors {
   export const filterSensitiveLog = (obj: SegmentBehaviors): any => ({
-    ...obj,
-    ...(obj.Recency && {
-      Recency: RecencyDimension.filterSensitiveLog(obj.Recency)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentBehaviors =>
     __isa(o, "SegmentBehaviors");
@@ -9766,21 +8918,7 @@ export interface SegmentDemographics {
 
 export namespace SegmentDemographics {
   export const filterSensitiveLog = (obj: SegmentDemographics): any => ({
-    ...obj,
-    ...(obj.AppVersion && {
-      AppVersion: SetDimension.filterSensitiveLog(obj.AppVersion)
-    }),
-    ...(obj.Channel && {
-      Channel: SetDimension.filterSensitiveLog(obj.Channel)
-    }),
-    ...(obj.DeviceType && {
-      DeviceType: SetDimension.filterSensitiveLog(obj.DeviceType)
-    }),
-    ...(obj.Make && { Make: SetDimension.filterSensitiveLog(obj.Make) }),
-    ...(obj.Model && { Model: SetDimension.filterSensitiveLog(obj.Model) }),
-    ...(obj.Platform && {
-      Platform: SetDimension.filterSensitiveLog(obj.Platform)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentDemographics =>
     __isa(o, "SegmentDemographics");
@@ -9824,43 +8962,7 @@ export interface SegmentDimensions {
 
 export namespace SegmentDimensions {
   export const filterSensitiveLog = (obj: SegmentDimensions): any => ({
-    ...obj,
-    ...(obj.Attributes && {
-      Attributes: Object.entries(obj.Attributes).reduce(
-        (acc: any, [key, value]: [string, AttributeDimension]) => ({
-          ...acc,
-          [key]: AttributeDimension.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.Behavior && {
-      Behavior: SegmentBehaviors.filterSensitiveLog(obj.Behavior)
-    }),
-    ...(obj.Demographic && {
-      Demographic: SegmentDemographics.filterSensitiveLog(obj.Demographic)
-    }),
-    ...(obj.Location && {
-      Location: SegmentLocation.filterSensitiveLog(obj.Location)
-    }),
-    ...(obj.Metrics && {
-      Metrics: Object.entries(obj.Metrics).reduce(
-        (acc: any, [key, value]: [string, MetricDimension]) => ({
-          ...acc,
-          [key]: MetricDimension.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.UserAttributes && {
-      UserAttributes: Object.entries(obj.UserAttributes).reduce(
-        (acc: any, [key, value]: [string, AttributeDimension]) => ({
-          ...acc,
-          [key]: AttributeDimension.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentDimensions =>
     __isa(o, "SegmentDimensions");
@@ -9894,17 +8996,7 @@ export interface SegmentGroup {
 
 export namespace SegmentGroup {
   export const filterSensitiveLog = (obj: SegmentGroup): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        SegmentDimensions.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SourceSegments && {
-      SourceSegments: obj.SourceSegments.map(item =>
-        SegmentReference.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentGroup => __isa(o, "SegmentGroup");
 }
@@ -9927,10 +9019,7 @@ export interface SegmentGroupList {
 
 export namespace SegmentGroupList {
   export const filterSensitiveLog = (obj: SegmentGroupList): any => ({
-    ...obj,
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item => SegmentGroup.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentGroupList =>
     __isa(o, "SegmentGroupList");
@@ -9998,13 +9087,7 @@ export interface SegmentLocation {
 
 export namespace SegmentLocation {
   export const filterSensitiveLog = (obj: SegmentLocation): any => ({
-    ...obj,
-    ...(obj.Country && {
-      Country: SetDimension.filterSensitiveLog(obj.Country)
-    }),
-    ...(obj.GPSPoint && {
-      GPSPoint: GPSPointDimension.filterSensitiveLog(obj.GPSPoint)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentLocation =>
     __isa(o, "SegmentLocation");
@@ -10102,18 +9185,7 @@ export interface SegmentResponse {
 
 export namespace SegmentResponse {
   export const filterSensitiveLog = (obj: SegmentResponse): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: SegmentDimensions.filterSensitiveLog(obj.Dimensions)
-    }),
-    ...(obj.ImportDefinition && {
-      ImportDefinition: SegmentImportResource.filterSensitiveLog(
-        obj.ImportDefinition
-      )
-    }),
-    ...(obj.SegmentGroups && {
-      SegmentGroups: SegmentGroupList.filterSensitiveLog(obj.SegmentGroups)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentResponse =>
     __isa(o, "SegmentResponse");
@@ -10142,10 +9214,7 @@ export interface SegmentsResponse {
 
 export namespace SegmentsResponse {
   export const filterSensitiveLog = (obj: SegmentsResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => SegmentResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is SegmentsResponse =>
     __isa(o, "SegmentsResponse");
@@ -10166,10 +9235,7 @@ export interface SendMessagesRequest {
 
 export namespace SendMessagesRequest {
   export const filterSensitiveLog = (obj: SendMessagesRequest): any => ({
-    ...obj,
-    ...(obj.MessageRequest && {
-      MessageRequest: MessageRequest.filterSensitiveLog(obj.MessageRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendMessagesRequest =>
     __isa(o, "SendMessagesRequest");
@@ -10185,10 +9251,7 @@ export interface SendMessagesResponse {
 
 export namespace SendMessagesResponse {
   export const filterSensitiveLog = (obj: SendMessagesResponse): any => ({
-    ...obj,
-    ...(obj.MessageResponse && {
-      MessageResponse: MessageResponse.filterSensitiveLog(obj.MessageResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendMessagesResponse =>
     __isa(o, "SendMessagesResponse");
@@ -10227,26 +9290,7 @@ export interface SendUsersMessageRequest {
 
 export namespace SendUsersMessageRequest {
   export const filterSensitiveLog = (obj: SendUsersMessageRequest): any => ({
-    ...obj,
-    ...(obj.MessageConfiguration && {
-      MessageConfiguration: DirectMessageConfiguration.filterSensitiveLog(
-        obj.MessageConfiguration
-      )
-    }),
-    ...(obj.TemplateConfiguration && {
-      TemplateConfiguration: TemplateConfiguration.filterSensitiveLog(
-        obj.TemplateConfiguration
-      )
-    }),
-    ...(obj.Users && {
-      Users: Object.entries(obj.Users).reduce(
-        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => ({
-          ...acc,
-          [key]: EndpointSendConfiguration.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendUsersMessageRequest =>
     __isa(o, "SendUsersMessageRequest");
@@ -10275,25 +9319,7 @@ export interface SendUsersMessageResponse {
 
 export namespace SendUsersMessageResponse {
   export const filterSensitiveLog = (obj: SendUsersMessageResponse): any => ({
-    ...obj,
-    ...(obj.Result && {
-      Result: Object.entries(obj.Result).reduce(
-        (
-          acc: any,
-          [key, value]: [string, { [key: string]: EndpointMessageResult }]
-        ) => ({
-          ...acc,
-          [key]: Object.entries(value).reduce(
-            (acc: any, [key, value]: [string, EndpointMessageResult]) => ({
-              ...acc,
-              [key]: EndpointMessageResult.filterSensitiveLog(value)
-            }),
-            {}
-          )
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendUsersMessageResponse =>
     __isa(o, "SendUsersMessageResponse");
@@ -10314,12 +9340,7 @@ export interface SendUsersMessagesRequest {
 
 export namespace SendUsersMessagesRequest {
   export const filterSensitiveLog = (obj: SendUsersMessagesRequest): any => ({
-    ...obj,
-    ...(obj.SendUsersMessageRequest && {
-      SendUsersMessageRequest: SendUsersMessageRequest.filterSensitiveLog(
-        obj.SendUsersMessageRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendUsersMessagesRequest =>
     __isa(o, "SendUsersMessagesRequest");
@@ -10335,12 +9356,7 @@ export interface SendUsersMessagesResponse {
 
 export namespace SendUsersMessagesResponse {
   export const filterSensitiveLog = (obj: SendUsersMessagesResponse): any => ({
-    ...obj,
-    ...(obj.SendUsersMessageResponse && {
-      SendUsersMessageResponse: SendUsersMessageResponse.filterSensitiveLog(
-        obj.SendUsersMessageResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendUsersMessagesResponse =>
     __isa(o, "SendUsersMessagesResponse");
@@ -10425,20 +9441,7 @@ export interface SimpleCondition {
 
 export namespace SimpleCondition {
   export const filterSensitiveLog = (obj: SimpleCondition): any => ({
-    ...obj,
-    ...(obj.EventCondition && {
-      EventCondition: EventCondition.filterSensitiveLog(obj.EventCondition)
-    }),
-    ...(obj.SegmentCondition && {
-      SegmentCondition: SegmentCondition.filterSensitiveLog(
-        obj.SegmentCondition
-      )
-    }),
-    ...(obj.SegmentDimensions && {
-      SegmentDimensions: SegmentDimensions.filterSensitiveLog(
-        obj.SegmentDimensions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SimpleCondition =>
     __isa(o, "SimpleCondition");
@@ -10467,16 +9470,7 @@ export interface SimpleEmail {
 
 export namespace SimpleEmail {
   export const filterSensitiveLog = (obj: SimpleEmail): any => ({
-    ...obj,
-    ...(obj.HtmlPart && {
-      HtmlPart: SimpleEmailPart.filterSensitiveLog(obj.HtmlPart)
-    }),
-    ...(obj.Subject && {
-      Subject: SimpleEmailPart.filterSensitiveLog(obj.Subject)
-    }),
-    ...(obj.TextPart && {
-      TextPart: SimpleEmailPart.filterSensitiveLog(obj.TextPart)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SimpleEmail => __isa(o, "SimpleEmail");
 }
@@ -10529,12 +9523,7 @@ export interface StartCondition {
 
 export namespace StartCondition {
   export const filterSensitiveLog = (obj: StartCondition): any => ({
-    ...obj,
-    ...(obj.SegmentStartCondition && {
-      SegmentStartCondition: SegmentCondition.filterSensitiveLog(
-        obj.SegmentStartCondition
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartCondition =>
     __isa(o, "StartCondition");
@@ -10563,10 +9552,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.TagsModel && {
-      TagsModel: TagsModel.filterSensitiveLog(obj.TagsModel)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -10662,19 +9648,7 @@ export interface TemplateConfiguration {
 
 export namespace TemplateConfiguration {
   export const filterSensitiveLog = (obj: TemplateConfiguration): any => ({
-    ...obj,
-    ...(obj.EmailTemplate && {
-      EmailTemplate: Template.filterSensitiveLog(obj.EmailTemplate)
-    }),
-    ...(obj.PushTemplate && {
-      PushTemplate: Template.filterSensitiveLog(obj.PushTemplate)
-    }),
-    ...(obj.SMSTemplate && {
-      SMSTemplate: Template.filterSensitiveLog(obj.SMSTemplate)
-    }),
-    ...(obj.VoiceTemplate && {
-      VoiceTemplate: Template.filterSensitiveLog(obj.VoiceTemplate)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TemplateConfiguration =>
     __isa(o, "TemplateConfiguration");
@@ -10823,12 +9797,7 @@ export interface TemplateVersionsResponse {
 
 export namespace TemplateVersionsResponse {
   export const filterSensitiveLog = (obj: TemplateVersionsResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item =>
-        TemplateVersionResponse.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TemplateVersionsResponse =>
     __isa(o, "TemplateVersionsResponse");
@@ -10852,10 +9821,7 @@ export interface TemplatesResponse {
 
 export namespace TemplatesResponse {
   export const filterSensitiveLog = (obj: TemplatesResponse): any => ({
-    ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => TemplateResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TemplatesResponse =>
     __isa(o, "TemplatesResponse");
@@ -10936,21 +9902,7 @@ export interface TreatmentResource {
 
 export namespace TreatmentResource {
   export const filterSensitiveLog = (obj: TreatmentResource): any => ({
-    ...obj,
-    ...(obj.MessageConfiguration && {
-      MessageConfiguration: MessageConfiguration.filterSensitiveLog(
-        obj.MessageConfiguration
-      )
-    }),
-    ...(obj.Schedule && {
-      Schedule: Schedule.filterSensitiveLog(obj.Schedule)
-    }),
-    ...(obj.State && { State: CampaignState.filterSensitiveLog(obj.State) }),
-    ...(obj.TemplateConfiguration && {
-      TemplateConfiguration: TemplateConfiguration.filterSensitiveLog(
-        obj.TemplateConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TreatmentResource =>
     __isa(o, "TreatmentResource");
@@ -10998,12 +9950,7 @@ export interface UpdateAdmChannelRequest {
 
 export namespace UpdateAdmChannelRequest {
   export const filterSensitiveLog = (obj: UpdateAdmChannelRequest): any => ({
-    ...obj,
-    ...(obj.ADMChannelRequest && {
-      ADMChannelRequest: ADMChannelRequest.filterSensitiveLog(
-        obj.ADMChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAdmChannelRequest =>
     __isa(o, "UpdateAdmChannelRequest");
@@ -11019,12 +9966,7 @@ export interface UpdateAdmChannelResponse {
 
 export namespace UpdateAdmChannelResponse {
   export const filterSensitiveLog = (obj: UpdateAdmChannelResponse): any => ({
-    ...obj,
-    ...(obj.ADMChannelResponse && {
-      ADMChannelResponse: ADMChannelResponse.filterSensitiveLog(
-        obj.ADMChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAdmChannelResponse =>
     __isa(o, "UpdateAdmChannelResponse");
@@ -11045,12 +9987,7 @@ export interface UpdateApnsChannelRequest {
 
 export namespace UpdateApnsChannelRequest {
   export const filterSensitiveLog = (obj: UpdateApnsChannelRequest): any => ({
-    ...obj,
-    ...(obj.APNSChannelRequest && {
-      APNSChannelRequest: APNSChannelRequest.filterSensitiveLog(
-        obj.APNSChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsChannelRequest =>
     __isa(o, "UpdateApnsChannelRequest");
@@ -11066,12 +10003,7 @@ export interface UpdateApnsChannelResponse {
 
 export namespace UpdateApnsChannelResponse {
   export const filterSensitiveLog = (obj: UpdateApnsChannelResponse): any => ({
-    ...obj,
-    ...(obj.APNSChannelResponse && {
-      APNSChannelResponse: APNSChannelResponse.filterSensitiveLog(
-        obj.APNSChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsChannelResponse =>
     __isa(o, "UpdateApnsChannelResponse");
@@ -11094,12 +10026,7 @@ export namespace UpdateApnsSandboxChannelRequest {
   export const filterSensitiveLog = (
     obj: UpdateApnsSandboxChannelRequest
   ): any => ({
-    ...obj,
-    ...(obj.APNSSandboxChannelRequest && {
-      APNSSandboxChannelRequest: APNSSandboxChannelRequest.filterSensitiveLog(
-        obj.APNSSandboxChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsSandboxChannelRequest =>
     __isa(o, "UpdateApnsSandboxChannelRequest");
@@ -11117,12 +10044,7 @@ export namespace UpdateApnsSandboxChannelResponse {
   export const filterSensitiveLog = (
     obj: UpdateApnsSandboxChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSSandboxChannelResponse && {
-      APNSSandboxChannelResponse: APNSSandboxChannelResponse.filterSensitiveLog(
-        obj.APNSSandboxChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsSandboxChannelResponse =>
     __isa(o, "UpdateApnsSandboxChannelResponse");
@@ -11145,12 +10067,7 @@ export namespace UpdateApnsVoipChannelRequest {
   export const filterSensitiveLog = (
     obj: UpdateApnsVoipChannelRequest
   ): any => ({
-    ...obj,
-    ...(obj.APNSVoipChannelRequest && {
-      APNSVoipChannelRequest: APNSVoipChannelRequest.filterSensitiveLog(
-        obj.APNSVoipChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsVoipChannelRequest =>
     __isa(o, "UpdateApnsVoipChannelRequest");
@@ -11168,12 +10085,7 @@ export namespace UpdateApnsVoipChannelResponse {
   export const filterSensitiveLog = (
     obj: UpdateApnsVoipChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSVoipChannelResponse && {
-      APNSVoipChannelResponse: APNSVoipChannelResponse.filterSensitiveLog(
-        obj.APNSVoipChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsVoipChannelResponse =>
     __isa(o, "UpdateApnsVoipChannelResponse");
@@ -11196,12 +10108,7 @@ export namespace UpdateApnsVoipSandboxChannelRequest {
   export const filterSensitiveLog = (
     obj: UpdateApnsVoipSandboxChannelRequest
   ): any => ({
-    ...obj,
-    ...(obj.APNSVoipSandboxChannelRequest && {
-      APNSVoipSandboxChannelRequest: APNSVoipSandboxChannelRequest.filterSensitiveLog(
-        obj.APNSVoipSandboxChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsVoipSandboxChannelRequest =>
     __isa(o, "UpdateApnsVoipSandboxChannelRequest");
@@ -11219,12 +10126,7 @@ export namespace UpdateApnsVoipSandboxChannelResponse {
   export const filterSensitiveLog = (
     obj: UpdateApnsVoipSandboxChannelResponse
   ): any => ({
-    ...obj,
-    ...(obj.APNSVoipSandboxChannelResponse && {
-      APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse.filterSensitiveLog(
-        obj.APNSVoipSandboxChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApnsVoipSandboxChannelResponse =>
     __isa(o, "UpdateApnsVoipSandboxChannelResponse");
@@ -11247,12 +10149,7 @@ export namespace UpdateApplicationSettingsRequest {
   export const filterSensitiveLog = (
     obj: UpdateApplicationSettingsRequest
   ): any => ({
-    ...obj,
-    ...(obj.WriteApplicationSettingsRequest && {
-      WriteApplicationSettingsRequest: WriteApplicationSettingsRequest.filterSensitiveLog(
-        obj.WriteApplicationSettingsRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApplicationSettingsRequest =>
     __isa(o, "UpdateApplicationSettingsRequest");
@@ -11270,12 +10167,7 @@ export namespace UpdateApplicationSettingsResponse {
   export const filterSensitiveLog = (
     obj: UpdateApplicationSettingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ApplicationSettingsResource && {
-      ApplicationSettingsResource: ApplicationSettingsResource.filterSensitiveLog(
-        obj.ApplicationSettingsResource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApplicationSettingsResponse =>
     __isa(o, "UpdateApplicationSettingsResponse");
@@ -11315,12 +10207,7 @@ export interface UpdateBaiduChannelRequest {
 
 export namespace UpdateBaiduChannelRequest {
   export const filterSensitiveLog = (obj: UpdateBaiduChannelRequest): any => ({
-    ...obj,
-    ...(obj.BaiduChannelRequest && {
-      BaiduChannelRequest: BaiduChannelRequest.filterSensitiveLog(
-        obj.BaiduChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateBaiduChannelRequest =>
     __isa(o, "UpdateBaiduChannelRequest");
@@ -11336,12 +10223,7 @@ export interface UpdateBaiduChannelResponse {
 
 export namespace UpdateBaiduChannelResponse {
   export const filterSensitiveLog = (obj: UpdateBaiduChannelResponse): any => ({
-    ...obj,
-    ...(obj.BaiduChannelResponse && {
-      BaiduChannelResponse: BaiduChannelResponse.filterSensitiveLog(
-        obj.BaiduChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateBaiduChannelResponse =>
     __isa(o, "UpdateBaiduChannelResponse");
@@ -11367,12 +10249,7 @@ export interface UpdateCampaignRequest {
 
 export namespace UpdateCampaignRequest {
   export const filterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
-    ...obj,
-    ...(obj.WriteCampaignRequest && {
-      WriteCampaignRequest: WriteCampaignRequest.filterSensitiveLog(
-        obj.WriteCampaignRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateCampaignRequest =>
     __isa(o, "UpdateCampaignRequest");
@@ -11388,12 +10265,7 @@ export interface UpdateCampaignResponse {
 
 export namespace UpdateCampaignResponse {
   export const filterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
-    ...obj,
-    ...(obj.CampaignResponse && {
-      CampaignResponse: CampaignResponse.filterSensitiveLog(
-        obj.CampaignResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateCampaignResponse =>
     __isa(o, "UpdateCampaignResponse");
@@ -11414,12 +10286,7 @@ export interface UpdateEmailChannelRequest {
 
 export namespace UpdateEmailChannelRequest {
   export const filterSensitiveLog = (obj: UpdateEmailChannelRequest): any => ({
-    ...obj,
-    ...(obj.EmailChannelRequest && {
-      EmailChannelRequest: EmailChannelRequest.filterSensitiveLog(
-        obj.EmailChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEmailChannelRequest =>
     __isa(o, "UpdateEmailChannelRequest");
@@ -11435,12 +10302,7 @@ export interface UpdateEmailChannelResponse {
 
 export namespace UpdateEmailChannelResponse {
   export const filterSensitiveLog = (obj: UpdateEmailChannelResponse): any => ({
-    ...obj,
-    ...(obj.EmailChannelResponse && {
-      EmailChannelResponse: EmailChannelResponse.filterSensitiveLog(
-        obj.EmailChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEmailChannelResponse =>
     __isa(o, "UpdateEmailChannelResponse");
@@ -11471,12 +10333,7 @@ export interface UpdateEmailTemplateRequest {
 
 export namespace UpdateEmailTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateEmailTemplateRequest): any => ({
-    ...obj,
-    ...(obj.EmailTemplateRequest && {
-      EmailTemplateRequest: EmailTemplateRequest.filterSensitiveLog(
-        obj.EmailTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEmailTemplateRequest =>
     __isa(o, "UpdateEmailTemplateRequest");
@@ -11494,10 +10351,7 @@ export namespace UpdateEmailTemplateResponse {
   export const filterSensitiveLog = (
     obj: UpdateEmailTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEmailTemplateResponse =>
     __isa(o, "UpdateEmailTemplateResponse");
@@ -11523,10 +10377,7 @@ export interface UpdateEndpointRequest {
 
 export namespace UpdateEndpointRequest {
   export const filterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
-    ...obj,
-    ...(obj.EndpointRequest && {
-      EndpointRequest: EndpointRequest.filterSensitiveLog(obj.EndpointRequest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEndpointRequest =>
     __isa(o, "UpdateEndpointRequest");
@@ -11542,10 +10393,7 @@ export interface UpdateEndpointResponse {
 
 export namespace UpdateEndpointResponse {
   export const filterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEndpointResponse =>
     __isa(o, "UpdateEndpointResponse");
@@ -11568,12 +10416,7 @@ export namespace UpdateEndpointsBatchRequest {
   export const filterSensitiveLog = (
     obj: UpdateEndpointsBatchRequest
   ): any => ({
-    ...obj,
-    ...(obj.EndpointBatchRequest && {
-      EndpointBatchRequest: EndpointBatchRequest.filterSensitiveLog(
-        obj.EndpointBatchRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEndpointsBatchRequest =>
     __isa(o, "UpdateEndpointsBatchRequest");
@@ -11591,10 +10434,7 @@ export namespace UpdateEndpointsBatchResponse {
   export const filterSensitiveLog = (
     obj: UpdateEndpointsBatchResponse
   ): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEndpointsBatchResponse =>
     __isa(o, "UpdateEndpointsBatchResponse");
@@ -11615,12 +10455,7 @@ export interface UpdateGcmChannelRequest {
 
 export namespace UpdateGcmChannelRequest {
   export const filterSensitiveLog = (obj: UpdateGcmChannelRequest): any => ({
-    ...obj,
-    ...(obj.GCMChannelRequest && {
-      GCMChannelRequest: GCMChannelRequest.filterSensitiveLog(
-        obj.GCMChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGcmChannelRequest =>
     __isa(o, "UpdateGcmChannelRequest");
@@ -11636,12 +10471,7 @@ export interface UpdateGcmChannelResponse {
 
 export namespace UpdateGcmChannelResponse {
   export const filterSensitiveLog = (obj: UpdateGcmChannelResponse): any => ({
-    ...obj,
-    ...(obj.GCMChannelResponse && {
-      GCMChannelResponse: GCMChannelResponse.filterSensitiveLog(
-        obj.GCMChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGcmChannelResponse =>
     __isa(o, "UpdateGcmChannelResponse");
@@ -11667,12 +10497,7 @@ export interface UpdateJourneyRequest {
 
 export namespace UpdateJourneyRequest {
   export const filterSensitiveLog = (obj: UpdateJourneyRequest): any => ({
-    ...obj,
-    ...(obj.WriteJourneyRequest && {
-      WriteJourneyRequest: WriteJourneyRequest.filterSensitiveLog(
-        obj.WriteJourneyRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateJourneyRequest =>
     __isa(o, "UpdateJourneyRequest");
@@ -11688,10 +10513,7 @@ export interface UpdateJourneyResponse {
 
 export namespace UpdateJourneyResponse {
   export const filterSensitiveLog = (obj: UpdateJourneyResponse): any => ({
-    ...obj,
-    ...(obj.JourneyResponse && {
-      JourneyResponse: JourneyResponse.filterSensitiveLog(obj.JourneyResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateJourneyResponse =>
     __isa(o, "UpdateJourneyResponse");
@@ -11717,12 +10539,7 @@ export interface UpdateJourneyStateRequest {
 
 export namespace UpdateJourneyStateRequest {
   export const filterSensitiveLog = (obj: UpdateJourneyStateRequest): any => ({
-    ...obj,
-    ...(obj.JourneyStateRequest && {
-      JourneyStateRequest: JourneyStateRequest.filterSensitiveLog(
-        obj.JourneyStateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateJourneyStateRequest =>
     __isa(o, "UpdateJourneyStateRequest");
@@ -11738,10 +10555,7 @@ export interface UpdateJourneyStateResponse {
 
 export namespace UpdateJourneyStateResponse {
   export const filterSensitiveLog = (obj: UpdateJourneyStateResponse): any => ({
-    ...obj,
-    ...(obj.JourneyResponse && {
-      JourneyResponse: JourneyResponse.filterSensitiveLog(obj.JourneyResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateJourneyStateResponse =>
     __isa(o, "UpdateJourneyStateResponse");
@@ -11772,12 +10586,7 @@ export interface UpdatePushTemplateRequest {
 
 export namespace UpdatePushTemplateRequest {
   export const filterSensitiveLog = (obj: UpdatePushTemplateRequest): any => ({
-    ...obj,
-    ...(obj.PushNotificationTemplateRequest && {
-      PushNotificationTemplateRequest: PushNotificationTemplateRequest.filterSensitiveLog(
-        obj.PushNotificationTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdatePushTemplateRequest =>
     __isa(o, "UpdatePushTemplateRequest");
@@ -11793,10 +10602,7 @@ export interface UpdatePushTemplateResponse {
 
 export namespace UpdatePushTemplateResponse {
   export const filterSensitiveLog = (obj: UpdatePushTemplateResponse): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdatePushTemplateResponse =>
     __isa(o, "UpdatePushTemplateResponse");
@@ -11822,12 +10628,7 @@ export interface UpdateSegmentRequest {
 
 export namespace UpdateSegmentRequest {
   export const filterSensitiveLog = (obj: UpdateSegmentRequest): any => ({
-    ...obj,
-    ...(obj.WriteSegmentRequest && {
-      WriteSegmentRequest: WriteSegmentRequest.filterSensitiveLog(
-        obj.WriteSegmentRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateSegmentRequest =>
     __isa(o, "UpdateSegmentRequest");
@@ -11843,10 +10644,7 @@ export interface UpdateSegmentResponse {
 
 export namespace UpdateSegmentResponse {
   export const filterSensitiveLog = (obj: UpdateSegmentResponse): any => ({
-    ...obj,
-    ...(obj.SegmentResponse && {
-      SegmentResponse: SegmentResponse.filterSensitiveLog(obj.SegmentResponse)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateSegmentResponse =>
     __isa(o, "UpdateSegmentResponse");
@@ -11867,12 +10665,7 @@ export interface UpdateSmsChannelRequest {
 
 export namespace UpdateSmsChannelRequest {
   export const filterSensitiveLog = (obj: UpdateSmsChannelRequest): any => ({
-    ...obj,
-    ...(obj.SMSChannelRequest && {
-      SMSChannelRequest: SMSChannelRequest.filterSensitiveLog(
-        obj.SMSChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateSmsChannelRequest =>
     __isa(o, "UpdateSmsChannelRequest");
@@ -11888,12 +10681,7 @@ export interface UpdateSmsChannelResponse {
 
 export namespace UpdateSmsChannelResponse {
   export const filterSensitiveLog = (obj: UpdateSmsChannelResponse): any => ({
-    ...obj,
-    ...(obj.SMSChannelResponse && {
-      SMSChannelResponse: SMSChannelResponse.filterSensitiveLog(
-        obj.SMSChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateSmsChannelResponse =>
     __isa(o, "UpdateSmsChannelResponse");
@@ -11924,12 +10712,7 @@ export interface UpdateSmsTemplateRequest {
 
 export namespace UpdateSmsTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateSmsTemplateRequest): any => ({
-    ...obj,
-    ...(obj.SMSTemplateRequest && {
-      SMSTemplateRequest: SMSTemplateRequest.filterSensitiveLog(
-        obj.SMSTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateSmsTemplateRequest =>
     __isa(o, "UpdateSmsTemplateRequest");
@@ -11945,10 +10728,7 @@ export interface UpdateSmsTemplateResponse {
 
 export namespace UpdateSmsTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateSmsTemplateResponse): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateSmsTemplateResponse =>
     __isa(o, "UpdateSmsTemplateResponse");
@@ -11976,12 +10756,7 @@ export namespace UpdateTemplateActiveVersionRequest {
   export const filterSensitiveLog = (
     obj: UpdateTemplateActiveVersionRequest
   ): any => ({
-    ...obj,
-    ...(obj.TemplateActiveVersionRequest && {
-      TemplateActiveVersionRequest: TemplateActiveVersionRequest.filterSensitiveLog(
-        obj.TemplateActiveVersionRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateTemplateActiveVersionRequest =>
     __isa(o, "UpdateTemplateActiveVersionRequest");
@@ -11999,10 +10774,7 @@ export namespace UpdateTemplateActiveVersionResponse {
   export const filterSensitiveLog = (
     obj: UpdateTemplateActiveVersionResponse
   ): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateTemplateActiveVersionResponse =>
     __isa(o, "UpdateTemplateActiveVersionResponse");
@@ -12023,12 +10795,7 @@ export interface UpdateVoiceChannelRequest {
 
 export namespace UpdateVoiceChannelRequest {
   export const filterSensitiveLog = (obj: UpdateVoiceChannelRequest): any => ({
-    ...obj,
-    ...(obj.VoiceChannelRequest && {
-      VoiceChannelRequest: VoiceChannelRequest.filterSensitiveLog(
-        obj.VoiceChannelRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVoiceChannelRequest =>
     __isa(o, "UpdateVoiceChannelRequest");
@@ -12044,12 +10811,7 @@ export interface UpdateVoiceChannelResponse {
 
 export namespace UpdateVoiceChannelResponse {
   export const filterSensitiveLog = (obj: UpdateVoiceChannelResponse): any => ({
-    ...obj,
-    ...(obj.VoiceChannelResponse && {
-      VoiceChannelResponse: VoiceChannelResponse.filterSensitiveLog(
-        obj.VoiceChannelResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVoiceChannelResponse =>
     __isa(o, "UpdateVoiceChannelResponse");
@@ -12080,12 +10842,7 @@ export interface UpdateVoiceTemplateRequest {
 
 export namespace UpdateVoiceTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateVoiceTemplateRequest): any => ({
-    ...obj,
-    ...(obj.VoiceTemplateRequest && {
-      VoiceTemplateRequest: VoiceTemplateRequest.filterSensitiveLog(
-        obj.VoiceTemplateRequest
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVoiceTemplateRequest =>
     __isa(o, "UpdateVoiceTemplateRequest");
@@ -12103,10 +10860,7 @@ export namespace UpdateVoiceTemplateResponse {
   export const filterSensitiveLog = (
     obj: UpdateVoiceTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.MessageBody && {
-      MessageBody: MessageBody.filterSensitiveLog(obj.MessageBody)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVoiceTemplateResponse =>
     __isa(o, "UpdateVoiceTemplateResponse");
@@ -12369,8 +11123,7 @@ export interface WaitActivity {
 
 export namespace WaitActivity {
   export const filterSensitiveLog = (obj: WaitActivity): any => ({
-    ...obj,
-    ...(obj.WaitTime && { WaitTime: WaitTime.filterSensitiveLog(obj.WaitTime) })
+    ...obj
   });
   export const isa = (o: any): o is WaitActivity => __isa(o, "WaitActivity");
 }
@@ -12428,16 +11181,7 @@ export namespace WriteApplicationSettingsRequest {
   export const filterSensitiveLog = (
     obj: WriteApplicationSettingsRequest
   ): any => ({
-    ...obj,
-    ...(obj.CampaignHook && {
-      CampaignHook: CampaignHook.filterSensitiveLog(obj.CampaignHook)
-    }),
-    ...(obj.Limits && {
-      Limits: CampaignLimits.filterSensitiveLog(obj.Limits)
-    }),
-    ...(obj.QuietTime && {
-      QuietTime: QuietTime.filterSensitiveLog(obj.QuietTime)
-    })
+    ...obj
   });
   export const isa = (o: any): o is WriteApplicationSettingsRequest =>
     __isa(o, "WriteApplicationSettingsRequest");
@@ -12526,29 +11270,7 @@ export interface WriteCampaignRequest {
 
 export namespace WriteCampaignRequest {
   export const filterSensitiveLog = (obj: WriteCampaignRequest): any => ({
-    ...obj,
-    ...(obj.AdditionalTreatments && {
-      AdditionalTreatments: obj.AdditionalTreatments.map(item =>
-        WriteTreatmentResource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Hook && { Hook: CampaignHook.filterSensitiveLog(obj.Hook) }),
-    ...(obj.Limits && {
-      Limits: CampaignLimits.filterSensitiveLog(obj.Limits)
-    }),
-    ...(obj.MessageConfiguration && {
-      MessageConfiguration: MessageConfiguration.filterSensitiveLog(
-        obj.MessageConfiguration
-      )
-    }),
-    ...(obj.Schedule && {
-      Schedule: Schedule.filterSensitiveLog(obj.Schedule)
-    }),
-    ...(obj.TemplateConfiguration && {
-      TemplateConfiguration: TemplateConfiguration.filterSensitiveLog(
-        obj.TemplateConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is WriteCampaignRequest =>
     __isa(o, "WriteCampaignRequest");
@@ -12648,26 +11370,7 @@ export interface WriteJourneyRequest {
 
 export namespace WriteJourneyRequest {
   export const filterSensitiveLog = (obj: WriteJourneyRequest): any => ({
-    ...obj,
-    ...(obj.Activities && {
-      Activities: Object.entries(obj.Activities).reduce(
-        (acc: any, [key, value]: [string, Activity]) => ({
-          ...acc,
-          [key]: Activity.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.Limits && { Limits: JourneyLimits.filterSensitiveLog(obj.Limits) }),
-    ...(obj.QuietTime && {
-      QuietTime: QuietTime.filterSensitiveLog(obj.QuietTime)
-    }),
-    ...(obj.Schedule && {
-      Schedule: JourneySchedule.filterSensitiveLog(obj.Schedule)
-    }),
-    ...(obj.StartCondition && {
-      StartCondition: StartCondition.filterSensitiveLog(obj.StartCondition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is WriteJourneyRequest =>
     __isa(o, "WriteJourneyRequest");
@@ -12701,13 +11404,7 @@ export interface WriteSegmentRequest {
 
 export namespace WriteSegmentRequest {
   export const filterSensitiveLog = (obj: WriteSegmentRequest): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: SegmentDimensions.filterSensitiveLog(obj.Dimensions)
-    }),
-    ...(obj.SegmentGroups && {
-      SegmentGroups: SegmentGroupList.filterSensitiveLog(obj.SegmentGroups)
-    })
+    ...obj
   });
   export const isa = (o: any): o is WriteSegmentRequest =>
     __isa(o, "WriteSegmentRequest");
@@ -12751,20 +11448,7 @@ export interface WriteTreatmentResource {
 
 export namespace WriteTreatmentResource {
   export const filterSensitiveLog = (obj: WriteTreatmentResource): any => ({
-    ...obj,
-    ...(obj.MessageConfiguration && {
-      MessageConfiguration: MessageConfiguration.filterSensitiveLog(
-        obj.MessageConfiguration
-      )
-    }),
-    ...(obj.Schedule && {
-      Schedule: Schedule.filterSensitiveLog(obj.Schedule)
-    }),
-    ...(obj.TemplateConfiguration && {
-      TemplateConfiguration: TemplateConfiguration.filterSensitiveLog(
-        obj.TemplateConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is WriteTreatmentResource =>
     __isa(o, "WriteTreatmentResource");

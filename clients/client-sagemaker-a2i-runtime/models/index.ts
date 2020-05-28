@@ -104,17 +104,7 @@ export interface DescribeHumanLoopResponse {
 
 export namespace DescribeHumanLoopResponse {
   export const filterSensitiveLog = (obj: DescribeHumanLoopResponse): any => ({
-    ...obj,
-    ...(obj.HumanLoopInput && {
-      HumanLoopInput: HumanLoopInputContent.filterSensitiveLog(
-        obj.HumanLoopInput
-      )
-    }),
-    ...(obj.HumanLoopOutput && {
-      HumanLoopOutput: HumanLoopOutputContent.filterSensitiveLog(
-        obj.HumanLoopOutput
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeHumanLoopResponse =>
     __isa(o, "DescribeHumanLoopResponse");
@@ -157,12 +147,7 @@ export interface HumanLoopActivationResults {
 
 export namespace HumanLoopActivationResults {
   export const filterSensitiveLog = (obj: HumanLoopActivationResults): any => ({
-    ...obj,
-    ...(obj.HumanLoopActivationReason && {
-      HumanLoopActivationReason: HumanLoopActivationReason.filterSensitiveLog(
-        obj.HumanLoopActivationReason
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HumanLoopActivationResults =>
     __isa(o, "HumanLoopActivationResults");
@@ -344,12 +329,7 @@ export interface ListHumanLoopsResponse {
 
 export namespace ListHumanLoopsResponse {
   export const filterSensitiveLog = (obj: ListHumanLoopsResponse): any => ({
-    ...obj,
-    ...(obj.HumanLoopSummaries && {
-      HumanLoopSummaries: obj.HumanLoopSummaries.map(item =>
-        HumanLoopSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListHumanLoopsResponse =>
     __isa(o, "ListHumanLoopsResponse");
@@ -425,17 +405,7 @@ export interface StartHumanLoopRequest {
 
 export namespace StartHumanLoopRequest {
   export const filterSensitiveLog = (obj: StartHumanLoopRequest): any => ({
-    ...obj,
-    ...(obj.DataAttributes && {
-      DataAttributes: HumanReviewDataAttributes.filterSensitiveLog(
-        obj.DataAttributes
-      )
-    }),
-    ...(obj.HumanLoopInput && {
-      HumanLoopInput: HumanLoopInputContent.filterSensitiveLog(
-        obj.HumanLoopInput
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartHumanLoopRequest =>
     __isa(o, "StartHumanLoopRequest");
@@ -456,12 +426,7 @@ export interface StartHumanLoopResponse {
 
 export namespace StartHumanLoopResponse {
   export const filterSensitiveLog = (obj: StartHumanLoopResponse): any => ({
-    ...obj,
-    ...(obj.HumanLoopActivationResults && {
-      HumanLoopActivationResults: HumanLoopActivationResults.filterSensitiveLog(
-        obj.HumanLoopActivationResults
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartHumanLoopResponse =>
     __isa(o, "StartHumanLoopResponse");

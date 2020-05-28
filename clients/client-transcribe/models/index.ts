@@ -286,12 +286,7 @@ export namespace GetTranscriptionJobResponse {
   export const filterSensitiveLog = (
     obj: GetTranscriptionJobResponse
   ): any => ({
-    ...obj,
-    ...(obj.TranscriptionJob && {
-      TranscriptionJob: TranscriptionJob.filterSensitiveLog(
-        obj.TranscriptionJob
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTranscriptionJobResponse =>
     __isa(o, "GetTranscriptionJobResponse");
@@ -580,12 +575,7 @@ export namespace ListTranscriptionJobsResponse {
   export const filterSensitiveLog = (
     obj: ListTranscriptionJobsResponse
   ): any => ({
-    ...obj,
-    ...(obj.TranscriptionJobSummaries && {
-      TranscriptionJobSummaries: obj.TranscriptionJobSummaries.map(item =>
-        TranscriptionJobSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTranscriptionJobsResponse =>
     __isa(o, "ListTranscriptionJobsResponse");
@@ -653,12 +643,7 @@ export interface ListVocabulariesResponse {
 
 export namespace ListVocabulariesResponse {
   export const filterSensitiveLog = (obj: ListVocabulariesResponse): any => ({
-    ...obj,
-    ...(obj.Vocabularies && {
-      Vocabularies: obj.Vocabularies.map(item =>
-        VocabularyInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVocabulariesResponse =>
     __isa(o, "ListVocabulariesResponse");
@@ -721,12 +706,7 @@ export namespace ListVocabularyFiltersResponse {
   export const filterSensitiveLog = (
     obj: ListVocabularyFiltersResponse
   ): any => ({
-    ...obj,
-    ...(obj.VocabularyFilters && {
-      VocabularyFilters: obj.VocabularyFilters.map(item =>
-        VocabularyFilterInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVocabularyFiltersResponse =>
     __isa(o, "ListVocabularyFiltersResponse");
@@ -974,14 +954,7 @@ export namespace StartTranscriptionJobRequest {
   export const filterSensitiveLog = (
     obj: StartTranscriptionJobRequest
   ): any => ({
-    ...obj,
-    ...(obj.JobExecutionSettings && {
-      JobExecutionSettings: JobExecutionSettings.filterSensitiveLog(
-        obj.JobExecutionSettings
-      )
-    }),
-    ...(obj.Media && { Media: Media.filterSensitiveLog(obj.Media) }),
-    ...(obj.Settings && { Settings: Settings.filterSensitiveLog(obj.Settings) })
+    ...obj
   });
   export const isa = (o: any): o is StartTranscriptionJobRequest =>
     __isa(o, "StartTranscriptionJobRequest");
@@ -999,12 +972,7 @@ export namespace StartTranscriptionJobResponse {
   export const filterSensitiveLog = (
     obj: StartTranscriptionJobResponse
   ): any => ({
-    ...obj,
-    ...(obj.TranscriptionJob && {
-      TranscriptionJob: TranscriptionJob.filterSensitiveLog(
-        obj.TranscriptionJob
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartTranscriptionJobResponse =>
     __isa(o, "StartTranscriptionJobResponse");
@@ -1151,19 +1119,7 @@ export interface TranscriptionJob {
 
 export namespace TranscriptionJob {
   export const filterSensitiveLog = (obj: TranscriptionJob): any => ({
-    ...obj,
-    ...(obj.JobExecutionSettings && {
-      JobExecutionSettings: JobExecutionSettings.filterSensitiveLog(
-        obj.JobExecutionSettings
-      )
-    }),
-    ...(obj.Media && { Media: Media.filterSensitiveLog(obj.Media) }),
-    ...(obj.Settings && {
-      Settings: Settings.filterSensitiveLog(obj.Settings)
-    }),
-    ...(obj.Transcript && {
-      Transcript: Transcript.filterSensitiveLog(obj.Transcript)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TranscriptionJob =>
     __isa(o, "TranscriptionJob");

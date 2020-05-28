@@ -223,27 +223,7 @@ export namespace GetPlaybackConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetPlaybackConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.CdnConfiguration && {
-      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
-        obj.CdnConfiguration
-      )
-    }),
-    ...(obj.DashConfiguration && {
-      DashConfiguration: DashConfiguration.filterSensitiveLog(
-        obj.DashConfiguration
-      )
-    }),
-    ...(obj.HlsConfiguration && {
-      HlsConfiguration: HlsConfiguration.filterSensitiveLog(
-        obj.HlsConfiguration
-      )
-    }),
-    ...(obj.LivePreRollConfiguration && {
-      LivePreRollConfiguration: LivePreRollConfiguration.filterSensitiveLog(
-        obj.LivePreRollConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPlaybackConfigurationResponse =>
     __isa(o, "GetPlaybackConfigurationResponse");
@@ -308,12 +288,7 @@ export namespace ListPlaybackConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: ListPlaybackConfigurationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item =>
-        PlaybackConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPlaybackConfigurationsResponse =>
     __isa(o, "ListPlaybackConfigurationsResponse");
@@ -455,22 +430,7 @@ export interface PlaybackConfiguration {
 
 export namespace PlaybackConfiguration {
   export const filterSensitiveLog = (obj: PlaybackConfiguration): any => ({
-    ...obj,
-    ...(obj.CdnConfiguration && {
-      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
-        obj.CdnConfiguration
-      )
-    }),
-    ...(obj.DashConfiguration && {
-      DashConfiguration: DashConfiguration.filterSensitiveLog(
-        obj.DashConfiguration
-      )
-    }),
-    ...(obj.HlsConfiguration && {
-      HlsConfiguration: HlsConfiguration.filterSensitiveLog(
-        obj.HlsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PlaybackConfiguration =>
     __isa(o, "PlaybackConfiguration");
@@ -528,22 +488,7 @@ export namespace PutPlaybackConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutPlaybackConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.CdnConfiguration && {
-      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
-        obj.CdnConfiguration
-      )
-    }),
-    ...(obj.DashConfiguration && {
-      DashConfiguration: DashConfigurationForPut.filterSensitiveLog(
-        obj.DashConfiguration
-      )
-    }),
-    ...(obj.LivePreRollConfiguration && {
-      LivePreRollConfiguration: LivePreRollConfiguration.filterSensitiveLog(
-        obj.LivePreRollConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPlaybackConfigurationRequest =>
     __isa(o, "PutPlaybackConfigurationRequest");
@@ -621,27 +566,7 @@ export namespace PutPlaybackConfigurationResponse {
   export const filterSensitiveLog = (
     obj: PutPlaybackConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.CdnConfiguration && {
-      CdnConfiguration: CdnConfiguration.filterSensitiveLog(
-        obj.CdnConfiguration
-      )
-    }),
-    ...(obj.DashConfiguration && {
-      DashConfiguration: DashConfiguration.filterSensitiveLog(
-        obj.DashConfiguration
-      )
-    }),
-    ...(obj.HlsConfiguration && {
-      HlsConfiguration: HlsConfiguration.filterSensitiveLog(
-        obj.HlsConfiguration
-      )
-    }),
-    ...(obj.LivePreRollConfiguration && {
-      LivePreRollConfiguration: LivePreRollConfiguration.filterSensitiveLog(
-        obj.LivePreRollConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPlaybackConfigurationResponse =>
     __isa(o, "PutPlaybackConfigurationResponse");

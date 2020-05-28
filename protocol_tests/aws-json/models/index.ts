@@ -34,10 +34,7 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
 
 export namespace ErrorWithMembers {
   export const filterSensitiveLog = (obj: ErrorWithMembers): any => ({
-    ...obj,
-    ...(obj.ComplexData && {
-      ComplexData: KitchenSink.filterSensitiveLog(obj.ComplexData)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ErrorWithMembers =>
     __isa(o, "ErrorWithMembers");
@@ -90,49 +87,7 @@ export interface KitchenSink {
 
 export namespace KitchenSink {
   export const filterSensitiveLog = (obj: KitchenSink): any => ({
-    ...obj,
-    ...(obj.EmptyStruct && {
-      EmptyStruct: EmptyStruct.filterSensitiveLog(obj.EmptyStruct)
-    }),
-    ...(obj.ListOfStructs && {
-      ListOfStructs: obj.ListOfStructs.map(item =>
-        SimpleStruct.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.MapOfStructs && {
-      MapOfStructs: Object.entries(obj.MapOfStructs).reduce(
-        (acc: any, [key, value]: [string, SimpleStruct]) => ({
-          ...acc,
-          [key]: SimpleStruct.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.RecursiveList && {
-      RecursiveList: obj.RecursiveList.map(item =>
-        KitchenSink.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RecursiveMap && {
-      RecursiveMap: Object.entries(obj.RecursiveMap).reduce(
-        (acc: any, [key, value]: [string, KitchenSink]) => ({
-          ...acc,
-          [key]: KitchenSink.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.RecursiveStruct && {
-      RecursiveStruct: KitchenSink.filterSensitiveLog(obj.RecursiveStruct)
-    }),
-    ...(obj.SimpleStruct && {
-      SimpleStruct: SimpleStruct.filterSensitiveLog(obj.SimpleStruct)
-    }),
-    ...(obj.StructWithLocationName && {
-      StructWithLocationName: StructWithLocationName.filterSensitiveLog(
-        obj.StructWithLocationName
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is KitchenSink => __isa(o, "KitchenSink");
 }

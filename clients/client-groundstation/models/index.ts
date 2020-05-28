@@ -19,10 +19,7 @@ export interface AntennaDownlinkConfig {
 
 export namespace AntennaDownlinkConfig {
   export const filterSensitiveLog = (obj: AntennaDownlinkConfig): any => ({
-    ...obj,
-    ...(obj.spectrumConfig && {
-      spectrumConfig: SpectrumConfig.filterSensitiveLog(obj.spectrumConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AntennaDownlinkConfig =>
     __isa(o, "AntennaDownlinkConfig");
@@ -53,18 +50,7 @@ export namespace AntennaDownlinkDemodDecodeConfig {
   export const filterSensitiveLog = (
     obj: AntennaDownlinkDemodDecodeConfig
   ): any => ({
-    ...obj,
-    ...(obj.decodeConfig && {
-      decodeConfig: DecodeConfig.filterSensitiveLog(obj.decodeConfig)
-    }),
-    ...(obj.demodulationConfig && {
-      demodulationConfig: DemodulationConfig.filterSensitiveLog(
-        obj.demodulationConfig
-      )
-    }),
-    ...(obj.spectrumConfig && {
-      spectrumConfig: SpectrumConfig.filterSensitiveLog(obj.spectrumConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AntennaDownlinkDemodDecodeConfig =>
     __isa(o, "AntennaDownlinkDemodDecodeConfig");
@@ -88,15 +74,7 @@ export interface AntennaUplinkConfig {
 
 export namespace AntennaUplinkConfig {
   export const filterSensitiveLog = (obj: AntennaUplinkConfig): any => ({
-    ...obj,
-    ...(obj.spectrumConfig && {
-      spectrumConfig: UplinkSpectrumConfig.filterSensitiveLog(
-        obj.spectrumConfig
-      )
-    }),
-    ...(obj.targetEirp && {
-      targetEirp: Eirp.filterSensitiveLog(obj.targetEirp)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AntennaUplinkConfig =>
     __isa(o, "AntennaUplinkConfig");
@@ -381,10 +359,7 @@ export interface ContactData {
 
 export namespace ContactData {
   export const filterSensitiveLog = (obj: ContactData): any => ({
-    ...obj,
-    ...(obj.maximumElevation && {
-      maximumElevation: Elevation.filterSensitiveLog(obj.maximumElevation)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ContactData => __isa(o, "ContactData");
 }
@@ -457,12 +432,7 @@ export namespace CreateDataflowEndpointGroupRequest {
   export const filterSensitiveLog = (
     obj: CreateDataflowEndpointGroupRequest
   ): any => ({
-    ...obj,
-    ...(obj.endpointDetails && {
-      endpointDetails: obj.endpointDetails.map(item =>
-        EndpointDetails.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataflowEndpointGroupRequest =>
     __isa(o, "CreateDataflowEndpointGroupRequest");
@@ -543,10 +513,7 @@ export interface DataflowEndpoint {
 
 export namespace DataflowEndpoint {
   export const filterSensitiveLog = (obj: DataflowEndpoint): any => ({
-    ...obj,
-    ...(obj.address && {
-      address: SocketAddress.filterSensitiveLog(obj.address)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DataflowEndpoint =>
     __isa(o, "DataflowEndpoint");
@@ -806,10 +773,7 @@ export interface DescribeContactResponse {
 
 export namespace DescribeContactResponse {
   export const filterSensitiveLog = (obj: DescribeContactResponse): any => ({
-    ...obj,
-    ...(obj.maximumElevation && {
-      maximumElevation: Elevation.filterSensitiveLog(obj.maximumElevation)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeContactResponse =>
     __isa(o, "DescribeContactResponse");
@@ -833,13 +797,7 @@ export interface EndpointDetails {
 
 export namespace EndpointDetails {
   export const filterSensitiveLog = (obj: EndpointDetails): any => ({
-    ...obj,
-    ...(obj.endpoint && {
-      endpoint: DataflowEndpoint.filterSensitiveLog(obj.endpoint)
-    }),
-    ...(obj.securityDetails && {
-      securityDetails: SecurityDetails.filterSensitiveLog(obj.securityDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is EndpointDetails =>
     __isa(o, "EndpointDetails");
@@ -973,12 +931,7 @@ export namespace GetDataflowEndpointGroupResponse {
   export const filterSensitiveLog = (
     obj: GetDataflowEndpointGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.endpointsDetails && {
-      endpointsDetails: obj.endpointsDetails.map(item =>
-        EndpointDetails.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDataflowEndpointGroupResponse =>
     __isa(o, "GetDataflowEndpointGroupResponse");
@@ -1110,12 +1063,7 @@ export interface ListConfigsResponse {
 
 export namespace ListConfigsResponse {
   export const filterSensitiveLog = (obj: ListConfigsResponse): any => ({
-    ...obj,
-    ...(obj.configList && {
-      configList: obj.configList.map(item =>
-        ConfigListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListConfigsResponse =>
     __isa(o, "ListConfigsResponse");
@@ -1193,12 +1141,7 @@ export interface ListContactsResponse {
 
 export namespace ListContactsResponse {
   export const filterSensitiveLog = (obj: ListContactsResponse): any => ({
-    ...obj,
-    ...(obj.contactList && {
-      contactList: obj.contactList.map(item =>
-        ContactData.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListContactsResponse =>
     __isa(o, "ListContactsResponse");
@@ -1250,12 +1193,7 @@ export namespace ListDataflowEndpointGroupsResponse {
   export const filterSensitiveLog = (
     obj: ListDataflowEndpointGroupsResponse
   ): any => ({
-    ...obj,
-    ...(obj.dataflowEndpointGroupList && {
-      dataflowEndpointGroupList: obj.dataflowEndpointGroupList.map(item =>
-        DataflowEndpointListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDataflowEndpointGroupsResponse =>
     __isa(o, "ListDataflowEndpointGroupsResponse");
@@ -1305,12 +1243,7 @@ export namespace ListMissionProfilesResponse {
   export const filterSensitiveLog = (
     obj: ListMissionProfilesResponse
   ): any => ({
-    ...obj,
-    ...(obj.missionProfileList && {
-      missionProfileList: obj.missionProfileList.map(item =>
-        MissionProfileListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMissionProfilesResponse =>
     __isa(o, "ListMissionProfilesResponse");
@@ -1932,12 +1865,7 @@ export interface ListGroundStationsResponse {
 
 export namespace ListGroundStationsResponse {
   export const filterSensitiveLog = (obj: ListGroundStationsResponse): any => ({
-    ...obj,
-    ...(obj.groundStationList && {
-      groundStationList: obj.groundStationList.map(item =>
-        GroundStationData.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGroundStationsResponse =>
     __isa(o, "ListGroundStationsResponse");
@@ -1985,12 +1913,7 @@ export interface ListSatellitesResponse {
 
 export namespace ListSatellitesResponse {
   export const filterSensitiveLog = (obj: ListSatellitesResponse): any => ({
-    ...obj,
-    ...(obj.satellites && {
-      satellites: obj.satellites.map(item =>
-        SatelliteListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSatellitesResponse =>
     __isa(o, "ListSatellitesResponse");
@@ -2165,13 +2088,7 @@ export interface SpectrumConfig {
 
 export namespace SpectrumConfig {
   export const filterSensitiveLog = (obj: SpectrumConfig): any => ({
-    ...obj,
-    ...(obj.bandwidth && {
-      bandwidth: FrequencyBandwidth.filterSensitiveLog(obj.bandwidth)
-    }),
-    ...(obj.centerFrequency && {
-      centerFrequency: Frequency.filterSensitiveLog(obj.centerFrequency)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SpectrumConfig =>
     __isa(o, "SpectrumConfig");
@@ -2273,10 +2190,7 @@ export interface UplinkSpectrumConfig {
 
 export namespace UplinkSpectrumConfig {
   export const filterSensitiveLog = (obj: UplinkSpectrumConfig): any => ({
-    ...obj,
-    ...(obj.centerFrequency && {
-      centerFrequency: Frequency.filterSensitiveLog(obj.centerFrequency)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UplinkSpectrumConfig =>
     __isa(o, "UplinkSpectrumConfig");

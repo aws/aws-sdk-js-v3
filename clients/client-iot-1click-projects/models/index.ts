@@ -123,12 +123,7 @@ export interface CreateProjectRequest {
 
 export namespace CreateProjectRequest {
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-    ...(obj.placementTemplate && {
-      placementTemplate: PlacementTemplate.filterSensitiveLog(
-        obj.placementTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateProjectRequest =>
     __isa(o, "CreateProjectRequest");
@@ -238,10 +233,7 @@ export interface DescribePlacementResponse {
 
 export namespace DescribePlacementResponse {
   export const filterSensitiveLog = (obj: DescribePlacementResponse): any => ({
-    ...obj,
-    ...(obj.placement && {
-      placement: PlacementDescription.filterSensitiveLog(obj.placement)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribePlacementResponse =>
     __isa(o, "DescribePlacementResponse");
@@ -273,10 +265,7 @@ export interface DescribeProjectResponse {
 
 export namespace DescribeProjectResponse {
   export const filterSensitiveLog = (obj: DescribeProjectResponse): any => ({
-    ...obj,
-    ...(obj.project && {
-      project: ProjectDescription.filterSensitiveLog(obj.project)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeProjectResponse =>
     __isa(o, "DescribeProjectResponse");
@@ -473,12 +462,7 @@ export interface ListPlacementsResponse {
 
 export namespace ListPlacementsResponse {
   export const filterSensitiveLog = (obj: ListPlacementsResponse): any => ({
-    ...obj,
-    ...(obj.placements && {
-      placements: obj.placements.map(item =>
-        PlacementSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPlacementsResponse =>
     __isa(o, "ListPlacementsResponse");
@@ -522,12 +506,7 @@ export interface ListProjectsResponse {
 
 export namespace ListProjectsResponse {
   export const filterSensitiveLog = (obj: ListProjectsResponse): any => ({
-    ...obj,
-    ...(obj.projects && {
-      projects: obj.projects.map(item =>
-        ProjectSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProjectsResponse =>
     __isa(o, "ListProjectsResponse");
@@ -664,16 +643,7 @@ export interface PlacementTemplate {
 
 export namespace PlacementTemplate {
   export const filterSensitiveLog = (obj: PlacementTemplate): any => ({
-    ...obj,
-    ...(obj.deviceTemplates && {
-      deviceTemplates: Object.entries(obj.deviceTemplates).reduce(
-        (acc: any, [key, value]: [string, DeviceTemplate]) => ({
-          ...acc,
-          [key]: DeviceTemplate.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PlacementTemplate =>
     __isa(o, "PlacementTemplate");
@@ -724,12 +694,7 @@ export interface ProjectDescription {
 
 export namespace ProjectDescription {
   export const filterSensitiveLog = (obj: ProjectDescription): any => ({
-    ...obj,
-    ...(obj.placementTemplate && {
-      placementTemplate: PlacementTemplate.filterSensitiveLog(
-        obj.placementTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ProjectDescription =>
     __isa(o, "ProjectDescription");
@@ -965,12 +930,7 @@ export interface UpdateProjectRequest {
 
 export namespace UpdateProjectRequest {
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-    ...(obj.placementTemplate && {
-      placementTemplate: PlacementTemplate.filterSensitiveLog(
-        obj.placementTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateProjectRequest =>
     __isa(o, "UpdateProjectRequest");

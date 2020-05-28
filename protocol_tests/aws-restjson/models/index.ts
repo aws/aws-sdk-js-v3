@@ -48,10 +48,7 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
 
 export namespace ComplexError {
   export const filterSensitiveLog = (obj: ComplexError): any => ({
-    ...obj,
-    ...(obj.Nested && {
-      Nested: ComplexNestedErrorData.filterSensitiveLog(obj.Nested)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ComplexError => __isa(o, "ComplexError");
 }
@@ -196,8 +193,7 @@ export namespace HttpPayloadWithStructureInputOutput {
   export const filterSensitiveLog = (
     obj: HttpPayloadWithStructureInputOutput
   ): any => ({
-    ...obj,
-    ...(obj.nested && { nested: NestedPayload.filterSensitiveLog(obj.nested) })
+    ...obj
   });
   export const isa = (o: any): o is HttpPayloadWithStructureInputOutput =>
     __isa(o, "HttpPayloadWithStructureInputOutput");
@@ -396,12 +392,7 @@ export interface JsonListsInputOutput {
 
 export namespace JsonListsInputOutput {
   export const filterSensitiveLog = (obj: JsonListsInputOutput): any => ({
-    ...obj,
-    ...(obj.structureList && {
-      structureList: obj.structureList.map(item =>
-        StructureListMember.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is JsonListsInputOutput =>
     __isa(o, "JsonListsInputOutput");
@@ -414,16 +405,7 @@ export interface JsonMapsInputOutput {
 
 export namespace JsonMapsInputOutput {
   export const filterSensitiveLog = (obj: JsonMapsInputOutput): any => ({
-    ...obj,
-    ...(obj.myMap && {
-      myMap: Object.entries(obj.myMap).reduce(
-        (acc: any, [key, value]: [string, GreetingStruct]) => ({
-          ...acc,
-          [key]: GreetingStruct.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is JsonMapsInputOutput =>
     __isa(o, "JsonMapsInputOutput");
@@ -523,10 +505,7 @@ export interface RecursiveShapesInputOutput {
 
 export namespace RecursiveShapesInputOutput {
   export const filterSensitiveLog = (obj: RecursiveShapesInputOutput): any => ({
-    ...obj,
-    ...(obj.nested && {
-      nested: RecursiveShapesInputOutputNested1.filterSensitiveLog(obj.nested)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecursiveShapesInputOutput =>
     __isa(o, "RecursiveShapesInputOutput");
@@ -542,10 +521,7 @@ export namespace RecursiveShapesInputOutputNested1 {
   export const filterSensitiveLog = (
     obj: RecursiveShapesInputOutputNested1
   ): any => ({
-    ...obj,
-    ...(obj.nested && {
-      nested: RecursiveShapesInputOutputNested2.filterSensitiveLog(obj.nested)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecursiveShapesInputOutputNested1 =>
     __isa(o, "RecursiveShapesInputOutputNested1");
@@ -561,12 +537,7 @@ export namespace RecursiveShapesInputOutputNested2 {
   export const filterSensitiveLog = (
     obj: RecursiveShapesInputOutputNested2
   ): any => ({
-    ...obj,
-    ...(obj.recursiveMember && {
-      recursiveMember: RecursiveShapesInputOutputNested1.filterSensitiveLog(
-        obj.recursiveMember
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecursiveShapesInputOutputNested2 =>
     __isa(o, "RecursiveShapesInputOutputNested2");

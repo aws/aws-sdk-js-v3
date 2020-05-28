@@ -48,12 +48,7 @@ export interface DescribeStreamOutput {
 
 export namespace DescribeStreamOutput {
   export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
-    ...obj,
-    ...(obj.StreamDescription && {
-      StreamDescription: StreamDescription.filterSensitiveLog(
-        obj.StreamDescription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStreamOutput =>
     __isa(o, "DescribeStreamOutput");
@@ -127,10 +122,7 @@ export interface GetRecordsOutput {
 
 export namespace GetRecordsOutput {
   export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
-    ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => _Record.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRecordsOutput =>
     __isa(o, "GetRecordsOutput");
@@ -291,10 +283,7 @@ export interface ListStreamsOutput {
 
 export namespace ListStreamsOutput {
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
-    ...obj,
-    ...(obj.Streams && {
-      Streams: obj.Streams.map(item => _Stream.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStreamsOutput =>
     __isa(o, "ListStreamsOutput");
@@ -372,13 +361,7 @@ export interface _Record {
 
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-    ...(obj.dynamodb && {
-      dynamodb: StreamRecord.filterSensitiveLog(obj.dynamodb)
-    }),
-    ...(obj.userIdentity && {
-      userIdentity: Identity.filterSensitiveLog(obj.userIdentity)
-    })
+    ...obj
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
@@ -430,12 +413,7 @@ export interface Shard {
 
 export namespace Shard {
   export const filterSensitiveLog = (obj: Shard): any => ({
-    ...obj,
-    ...(obj.SequenceNumberRange && {
-      SequenceNumberRange: SequenceNumberRange.filterSensitiveLog(
-        obj.SequenceNumberRange
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Shard => __isa(o, "Shard");
 }
@@ -598,15 +576,7 @@ export interface StreamDescription {
 
 export namespace StreamDescription {
   export const filterSensitiveLog = (obj: StreamDescription): any => ({
-    ...obj,
-    ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        KeySchemaElement.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Shards && {
-      Shards: obj.Shards.map(item => Shard.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is StreamDescription =>
     __isa(o, "StreamDescription");
@@ -673,34 +643,7 @@ export interface StreamRecord {
 
 export namespace StreamRecord {
   export const filterSensitiveLog = (obj: StreamRecord): any => ({
-    ...obj,
-    ...(obj.Keys && {
-      Keys: Object.entries(obj.Keys).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.NewImage && {
-      NewImage: Object.entries(obj.NewImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.OldImage && {
-      OldImage: Object.entries(obj.OldImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StreamRecord => __isa(o, "StreamRecord");
 }
@@ -799,19 +742,7 @@ export interface AttributeValue {
 
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj,
-    ...(obj.L && {
-      L: obj.L.map(item => AttributeValue.filterSensitiveLog(item))
-    }),
-    ...(obj.M && {
-      M: Object.entries(obj.M).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AttributeValue =>
     __isa(o, "AttributeValue");

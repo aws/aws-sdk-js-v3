@@ -160,15 +160,7 @@ export interface AnomalyDetector {
 
 export namespace AnomalyDetector {
   export const filterSensitiveLog = (obj: AnomalyDetector): any => ({
-    ...obj,
-    ...(obj.Configuration && {
-      Configuration: AnomalyDetectorConfiguration.filterSensitiveLog(
-        obj.Configuration
-      )
-    }),
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnomalyDetector =>
     __isa(o, "AnomalyDetector");
@@ -202,12 +194,7 @@ export namespace AnomalyDetectorConfiguration {
   export const filterSensitiveLog = (
     obj: AnomalyDetectorConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.ExcludedTimeRanges && {
-      ExcludedTimeRanges: obj.ExcludedTimeRanges.map(item =>
-        Range.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnomalyDetectorConfiguration =>
     __isa(o, "AnomalyDetectorConfiguration");
@@ -297,12 +284,7 @@ export interface DashboardInvalidInputError
 
 export namespace DashboardInvalidInputError {
   export const filterSensitiveLog = (obj: DashboardInvalidInputError): any => ({
-    ...obj,
-    ...(obj.dashboardValidationMessages && {
-      dashboardValidationMessages: obj.dashboardValidationMessages.map(item =>
-        DashboardValidationMessage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DashboardInvalidInputError =>
     __isa(o, "DashboardInvalidInputError");
@@ -446,10 +428,7 @@ export interface DeleteAnomalyDetectorInput {
 
 export namespace DeleteAnomalyDetectorInput {
   export const filterSensitiveLog = (obj: DeleteAnomalyDetectorInput): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteAnomalyDetectorInput =>
     __isa(o, "DeleteAnomalyDetectorInput");
@@ -523,12 +502,7 @@ export interface DeleteInsightRulesOutput {
 
 export namespace DeleteInsightRulesOutput {
   export const filterSensitiveLog = (obj: DeleteInsightRulesOutput): any => ({
-    ...obj,
-    ...(obj.Failures && {
-      Failures: obj.Failures.map(item =>
-        PartialFailure.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteInsightRulesOutput =>
     __isa(o, "DeleteInsightRulesOutput");
@@ -591,12 +565,7 @@ export interface DescribeAlarmHistoryOutput {
 
 export namespace DescribeAlarmHistoryOutput {
   export const filterSensitiveLog = (obj: DescribeAlarmHistoryOutput): any => ({
-    ...obj,
-    ...(obj.AlarmHistoryItems && {
-      AlarmHistoryItems: obj.AlarmHistoryItems.map(item =>
-        AlarmHistoryItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAlarmHistoryOutput =>
     __isa(o, "DescribeAlarmHistoryOutput");
@@ -647,10 +616,7 @@ export namespace DescribeAlarmsForMetricInput {
   export const filterSensitiveLog = (
     obj: DescribeAlarmsForMetricInput
   ): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAlarmsForMetricInput =>
     __isa(o, "DescribeAlarmsForMetricInput");
@@ -668,12 +634,7 @@ export namespace DescribeAlarmsForMetricOutput {
   export const filterSensitiveLog = (
     obj: DescribeAlarmsForMetricOutput
   ): any => ({
-    ...obj,
-    ...(obj.MetricAlarms && {
-      MetricAlarms: obj.MetricAlarms.map(item =>
-        MetricAlarm.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAlarmsForMetricOutput =>
     __isa(o, "DescribeAlarmsForMetricOutput");
@@ -737,12 +698,7 @@ export interface DescribeAlarmsOutput {
 
 export namespace DescribeAlarmsOutput {
   export const filterSensitiveLog = (obj: DescribeAlarmsOutput): any => ({
-    ...obj,
-    ...(obj.MetricAlarms && {
-      MetricAlarms: obj.MetricAlarms.map(item =>
-        MetricAlarm.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAlarmsOutput =>
     __isa(o, "DescribeAlarmsOutput");
@@ -788,10 +744,7 @@ export namespace DescribeAnomalyDetectorsInput {
   export const filterSensitiveLog = (
     obj: DescribeAnomalyDetectorsInput
   ): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAnomalyDetectorsInput =>
     __isa(o, "DescribeAnomalyDetectorsInput");
@@ -815,12 +768,7 @@ export namespace DescribeAnomalyDetectorsOutput {
   export const filterSensitiveLog = (
     obj: DescribeAnomalyDetectorsOutput
   ): any => ({
-    ...obj,
-    ...(obj.AnomalyDetectors && {
-      AnomalyDetectors: obj.AnomalyDetectors.map(item =>
-        AnomalyDetector.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAnomalyDetectorsOutput =>
     __isa(o, "DescribeAnomalyDetectorsOutput");
@@ -862,12 +810,7 @@ export interface DescribeInsightRulesOutput {
 
 export namespace DescribeInsightRulesOutput {
   export const filterSensitiveLog = (obj: DescribeInsightRulesOutput): any => ({
-    ...obj,
-    ...(obj.InsightRules && {
-      InsightRules: obj.InsightRules.map(item =>
-        InsightRule.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeInsightRulesOutput =>
     __isa(o, "DescribeInsightRulesOutput");
@@ -962,12 +905,7 @@ export interface DisableInsightRulesOutput {
 
 export namespace DisableInsightRulesOutput {
   export const filterSensitiveLog = (obj: DisableInsightRulesOutput): any => ({
-    ...obj,
-    ...(obj.Failures && {
-      Failures: obj.Failures.map(item =>
-        PartialFailure.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DisableInsightRulesOutput =>
     __isa(o, "DisableInsightRulesOutput");
@@ -1015,12 +953,7 @@ export interface EnableInsightRulesOutput {
 
 export namespace EnableInsightRulesOutput {
   export const filterSensitiveLog = (obj: EnableInsightRulesOutput): any => ({
-    ...obj,
-    ...(obj.Failures && {
-      Failures: obj.Failures.map(item =>
-        PartialFailure.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EnableInsightRulesOutput =>
     __isa(o, "EnableInsightRulesOutput");
@@ -1192,17 +1125,7 @@ export interface GetInsightRuleReportOutput {
 
 export namespace GetInsightRuleReportOutput {
   export const filterSensitiveLog = (obj: GetInsightRuleReportOutput): any => ({
-    ...obj,
-    ...(obj.Contributors && {
-      Contributors: obj.Contributors.map(item =>
-        InsightRuleContributor.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.MetricDatapoints && {
-      MetricDatapoints: obj.MetricDatapoints.map(item =>
-        InsightRuleMetricDatapoint.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetInsightRuleReportOutput =>
     __isa(o, "GetInsightRuleReportOutput");
@@ -1282,12 +1205,7 @@ export interface GetMetricDataInput {
 
 export namespace GetMetricDataInput {
   export const filterSensitiveLog = (obj: GetMetricDataInput): any => ({
-    ...obj,
-    ...(obj.MetricDataQueries && {
-      MetricDataQueries: obj.MetricDataQueries.map(item =>
-        MetricDataQuery.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMetricDataInput =>
     __isa(o, "GetMetricDataInput");
@@ -1319,15 +1237,7 @@ export interface GetMetricDataOutput {
 
 export namespace GetMetricDataOutput {
   export const filterSensitiveLog = (obj: GetMetricDataOutput): any => ({
-    ...obj,
-    ...(obj.Messages && {
-      Messages: obj.Messages.map(item => MessageData.filterSensitiveLog(item))
-    }),
-    ...(obj.MetricDataResults && {
-      MetricDataResults: obj.MetricDataResults.map(item =>
-        MetricDataResult.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMetricDataOutput =>
     __isa(o, "GetMetricDataOutput");
@@ -1438,10 +1348,7 @@ export interface GetMetricStatisticsInput {
 
 export namespace GetMetricStatisticsInput {
   export const filterSensitiveLog = (obj: GetMetricStatisticsInput): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMetricStatisticsInput =>
     __isa(o, "GetMetricStatisticsInput");
@@ -1462,10 +1369,7 @@ export interface GetMetricStatisticsOutput {
 
 export namespace GetMetricStatisticsOutput {
   export const filterSensitiveLog = (obj: GetMetricStatisticsOutput): any => ({
-    ...obj,
-    ...(obj.Datapoints && {
-      Datapoints: obj.Datapoints.map(item => Datapoint.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMetricStatisticsOutput =>
     __isa(o, "GetMetricStatisticsOutput");
@@ -1621,12 +1525,7 @@ export interface InsightRuleContributor {
 
 export namespace InsightRuleContributor {
   export const filterSensitiveLog = (obj: InsightRuleContributor): any => ({
-    ...obj,
-    ...(obj.Datapoints && {
-      Datapoints: obj.Datapoints.map(item =>
-        InsightRuleContributorDatapoint.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InsightRuleContributor =>
     __isa(o, "InsightRuleContributor");
@@ -1864,12 +1763,7 @@ export interface ListDashboardsOutput {
 
 export namespace ListDashboardsOutput {
   export const filterSensitiveLog = (obj: ListDashboardsOutput): any => ({
-    ...obj,
-    ...(obj.DashboardEntries && {
-      DashboardEntries: obj.DashboardEntries.map(item =>
-        DashboardEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDashboardsOutput =>
     __isa(o, "ListDashboardsOutput");
@@ -1901,12 +1795,7 @@ export interface ListMetricsInput {
 
 export namespace ListMetricsInput {
   export const filterSensitiveLog = (obj: ListMetricsInput): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        DimensionFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMetricsInput =>
     __isa(o, "ListMetricsInput");
@@ -1927,10 +1816,7 @@ export interface ListMetricsOutput {
 
 export namespace ListMetricsOutput {
   export const filterSensitiveLog = (obj: ListMetricsOutput): any => ({
-    ...obj,
-    ...(obj.Metrics && {
-      Metrics: obj.Metrics.map(item => Metric.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMetricsOutput =>
     __isa(o, "ListMetricsOutput");
@@ -1963,10 +1849,7 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -2018,10 +1901,7 @@ export interface Metric {
 
 export namespace Metric {
   export const filterSensitiveLog = (obj: Metric): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Metric => __isa(o, "Metric");
 }
@@ -2187,13 +2067,7 @@ export interface MetricAlarm {
 
 export namespace MetricAlarm {
   export const filterSensitiveLog = (obj: MetricAlarm): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    }),
-    ...(obj.Metrics && {
-      Metrics: obj.Metrics.map(item => MetricDataQuery.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is MetricAlarm => __isa(o, "MetricAlarm");
 }
@@ -2285,10 +2159,7 @@ export interface MetricDataQuery {
 
 export namespace MetricDataQuery {
   export const filterSensitiveLog = (obj: MetricDataQuery): any => ({
-    ...obj,
-    ...(obj.MetricStat && {
-      MetricStat: MetricStat.filterSensitiveLog(obj.MetricStat)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MetricDataQuery =>
     __isa(o, "MetricDataQuery");
@@ -2342,10 +2213,7 @@ export interface MetricDataResult {
 
 export namespace MetricDataResult {
   export const filterSensitiveLog = (obj: MetricDataResult): any => ({
-    ...obj,
-    ...(obj.Messages && {
-      Messages: obj.Messages.map(item => MessageData.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is MetricDataResult =>
     __isa(o, "MetricDataResult");
@@ -2426,13 +2294,7 @@ export interface MetricDatum {
 
 export namespace MetricDatum {
   export const filterSensitiveLog = (obj: MetricDatum): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    }),
-    ...(obj.StatisticValues && {
-      StatisticValues: StatisticSet.filterSensitiveLog(obj.StatisticValues)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MetricDatum => __isa(o, "MetricDatum");
 }
@@ -2484,8 +2346,7 @@ export interface MetricStat {
 
 export namespace MetricStat {
   export const filterSensitiveLog = (obj: MetricStat): any => ({
-    ...obj,
-    ...(obj.Metric && { Metric: Metric.filterSensitiveLog(obj.Metric) })
+    ...obj
   });
   export const isa = (o: any): o is MetricStat => __isa(o, "MetricStat");
 }
@@ -2561,15 +2422,7 @@ export interface PutAnomalyDetectorInput {
 
 export namespace PutAnomalyDetectorInput {
   export const filterSensitiveLog = (obj: PutAnomalyDetectorInput): any => ({
-    ...obj,
-    ...(obj.Configuration && {
-      Configuration: AnomalyDetectorConfiguration.filterSensitiveLog(
-        obj.Configuration
-      )
-    }),
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutAnomalyDetectorInput =>
     __isa(o, "PutAnomalyDetectorInput");
@@ -2626,12 +2479,7 @@ export interface PutDashboardOutput {
 
 export namespace PutDashboardOutput {
   export const filterSensitiveLog = (obj: PutDashboardOutput): any => ({
-    ...obj,
-    ...(obj.DashboardValidationMessages && {
-      DashboardValidationMessages: obj.DashboardValidationMessages.map(item =>
-        DashboardValidationMessage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutDashboardOutput =>
     __isa(o, "PutDashboardOutput");
@@ -2924,16 +2772,7 @@ export interface PutMetricAlarmInput {
 
 export namespace PutMetricAlarmInput {
   export const filterSensitiveLog = (obj: PutMetricAlarmInput): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    }),
-    ...(obj.Metrics && {
-      Metrics: obj.Metrics.map(item => MetricDataQuery.filterSensitiveLog(item))
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutMetricAlarmInput =>
     __isa(o, "PutMetricAlarmInput");
@@ -2957,12 +2796,7 @@ export interface PutMetricDataInput {
 
 export namespace PutMetricDataInput {
   export const filterSensitiveLog = (obj: PutMetricDataInput): any => ({
-    ...obj,
-    ...(obj.MetricData && {
-      MetricData: obj.MetricData.map(item =>
-        MetricDatum.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutMetricDataInput =>
     __isa(o, "PutMetricDataInput");
@@ -3191,10 +3025,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");

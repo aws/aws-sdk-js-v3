@@ -36,17 +36,7 @@ export interface BatchGetNamedQueryOutput {
 
 export namespace BatchGetNamedQueryOutput {
   export const filterSensitiveLog = (obj: BatchGetNamedQueryOutput): any => ({
-    ...obj,
-    ...(obj.NamedQueries && {
-      NamedQueries: obj.NamedQueries.map(item =>
-        NamedQuery.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.UnprocessedNamedQueryIds && {
-      UnprocessedNamedQueryIds: obj.UnprocessedNamedQueryIds.map(item =>
-        UnprocessedNamedQueryId.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetNamedQueryOutput =>
     __isa(o, "BatchGetNamedQueryOutput");
@@ -87,17 +77,7 @@ export namespace BatchGetQueryExecutionOutput {
   export const filterSensitiveLog = (
     obj: BatchGetQueryExecutionOutput
   ): any => ({
-    ...obj,
-    ...(obj.QueryExecutions && {
-      QueryExecutions: obj.QueryExecutions.map(item =>
-        QueryExecution.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.UnprocessedQueryExecutionIds && {
-      UnprocessedQueryExecutionIds: obj.UnprocessedQueryExecutionIds.map(item =>
-        UnprocessedQueryExecutionId.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetQueryExecutionOutput =>
     __isa(o, "BatchGetQueryExecutionOutput");
@@ -262,15 +242,7 @@ export interface CreateWorkGroupInput {
 
 export namespace CreateWorkGroupInput {
   export const filterSensitiveLog = (obj: CreateWorkGroupInput): any => ({
-    ...obj,
-    ...(obj.Configuration && {
-      Configuration: WorkGroupConfiguration.filterSensitiveLog(
-        obj.Configuration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateWorkGroupInput =>
     __isa(o, "CreateWorkGroupInput");
@@ -431,10 +403,7 @@ export interface GetNamedQueryOutput {
 
 export namespace GetNamedQueryOutput {
   export const filterSensitiveLog = (obj: GetNamedQueryOutput): any => ({
-    ...obj,
-    ...(obj.NamedQuery && {
-      NamedQuery: NamedQuery.filterSensitiveLog(obj.NamedQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetNamedQueryOutput =>
     __isa(o, "GetNamedQueryOutput");
@@ -466,10 +435,7 @@ export interface GetQueryExecutionOutput {
 
 export namespace GetQueryExecutionOutput {
   export const filterSensitiveLog = (obj: GetQueryExecutionOutput): any => ({
-    ...obj,
-    ...(obj.QueryExecution && {
-      QueryExecution: QueryExecution.filterSensitiveLog(obj.QueryExecution)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetQueryExecutionOutput =>
     __isa(o, "GetQueryExecutionOutput");
@@ -522,10 +488,7 @@ export interface GetQueryResultsOutput {
 
 export namespace GetQueryResultsOutput {
   export const filterSensitiveLog = (obj: GetQueryResultsOutput): any => ({
-    ...obj,
-    ...(obj.ResultSet && {
-      ResultSet: ResultSet.filterSensitiveLog(obj.ResultSet)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetQueryResultsOutput =>
     __isa(o, "GetQueryResultsOutput");
@@ -557,10 +520,7 @@ export interface GetWorkGroupOutput {
 
 export namespace GetWorkGroupOutput {
   export const filterSensitiveLog = (obj: GetWorkGroupOutput): any => ({
-    ...obj,
-    ...(obj.WorkGroup && {
-      WorkGroup: WorkGroup.filterSensitiveLog(obj.WorkGroup)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetWorkGroupOutput =>
     __isa(o, "GetWorkGroupOutput");
@@ -744,10 +704,7 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -789,12 +746,7 @@ export interface ListWorkGroupsOutput {
 
 export namespace ListWorkGroupsOutput {
   export const filterSensitiveLog = (obj: ListWorkGroupsOutput): any => ({
-    ...obj,
-    ...(obj.WorkGroups && {
-      WorkGroups: obj.WorkGroups.map(item =>
-        WorkGroupSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListWorkGroupsOutput =>
     __isa(o, "ListWorkGroupsOutput");
@@ -900,23 +852,7 @@ export interface QueryExecution {
 
 export namespace QueryExecution {
   export const filterSensitiveLog = (obj: QueryExecution): any => ({
-    ...obj,
-    ...(obj.QueryExecutionContext && {
-      QueryExecutionContext: QueryExecutionContext.filterSensitiveLog(
-        obj.QueryExecutionContext
-      )
-    }),
-    ...(obj.ResultConfiguration && {
-      ResultConfiguration: ResultConfiguration.filterSensitiveLog(
-        obj.ResultConfiguration
-      )
-    }),
-    ...(obj.Statistics && {
-      Statistics: QueryExecutionStatistics.filterSensitiveLog(obj.Statistics)
-    }),
-    ...(obj.Status && {
-      Status: QueryExecutionStatus.filterSensitiveLog(obj.Status)
-    })
+    ...obj
   });
   export const isa = (o: any): o is QueryExecution =>
     __isa(o, "QueryExecution");
@@ -1090,12 +1026,7 @@ export interface ResultConfiguration {
 
 export namespace ResultConfiguration {
   export const filterSensitiveLog = (obj: ResultConfiguration): any => ({
-    ...obj,
-    ...(obj.EncryptionConfiguration && {
-      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
-        obj.EncryptionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultConfiguration =>
     __isa(o, "ResultConfiguration");
@@ -1138,12 +1069,7 @@ export interface ResultConfigurationUpdates {
 
 export namespace ResultConfigurationUpdates {
   export const filterSensitiveLog = (obj: ResultConfigurationUpdates): any => ({
-    ...obj,
-    ...(obj.EncryptionConfiguration && {
-      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
-        obj.EncryptionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultConfigurationUpdates =>
     __isa(o, "ResultConfigurationUpdates");
@@ -1167,15 +1093,7 @@ export interface ResultSet {
 
 export namespace ResultSet {
   export const filterSensitiveLog = (obj: ResultSet): any => ({
-    ...obj,
-    ...(obj.ResultSetMetadata && {
-      ResultSetMetadata: ResultSetMetadata.filterSensitiveLog(
-        obj.ResultSetMetadata
-      )
-    }),
-    ...(obj.Rows && {
-      Rows: obj.Rows.map(item => Row.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultSet => __isa(o, "ResultSet");
 }
@@ -1194,12 +1112,7 @@ export interface ResultSetMetadata {
 
 export namespace ResultSetMetadata {
   export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
-    ...obj,
-    ...(obj.ColumnInfo && {
-      ColumnInfo: obj.ColumnInfo.map(item =>
-        ColumnInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultSetMetadata =>
     __isa(o, "ResultSetMetadata");
@@ -1218,10 +1131,7 @@ export interface Row {
 
 export namespace Row {
   export const filterSensitiveLog = (obj: Row): any => ({
-    ...obj,
-    ...(obj.Data && {
-      Data: obj.Data.map(item => Datum.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Row => __isa(o, "Row");
 }
@@ -1261,17 +1171,7 @@ export interface StartQueryExecutionInput {
 
 export namespace StartQueryExecutionInput {
   export const filterSensitiveLog = (obj: StartQueryExecutionInput): any => ({
-    ...obj,
-    ...(obj.QueryExecutionContext && {
-      QueryExecutionContext: QueryExecutionContext.filterSensitiveLog(
-        obj.QueryExecutionContext
-      )
-    }),
-    ...(obj.ResultConfiguration && {
-      ResultConfiguration: ResultConfiguration.filterSensitiveLog(
-        obj.ResultConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartQueryExecutionInput =>
     __isa(o, "StartQueryExecutionInput");
@@ -1372,10 +1272,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
@@ -1538,12 +1435,7 @@ export interface UpdateWorkGroupInput {
 
 export namespace UpdateWorkGroupInput {
   export const filterSensitiveLog = (obj: UpdateWorkGroupInput): any => ({
-    ...obj,
-    ...(obj.ConfigurationUpdates && {
-      ConfigurationUpdates: WorkGroupConfigurationUpdates.filterSensitiveLog(
-        obj.ConfigurationUpdates
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateWorkGroupInput =>
     __isa(o, "UpdateWorkGroupInput");
@@ -1605,12 +1497,7 @@ export interface WorkGroup {
 
 export namespace WorkGroup {
   export const filterSensitiveLog = (obj: WorkGroup): any => ({
-    ...obj,
-    ...(obj.Configuration && {
-      Configuration: WorkGroupConfiguration.filterSensitiveLog(
-        obj.Configuration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is WorkGroup => __isa(o, "WorkGroup");
 }
@@ -1659,12 +1546,7 @@ export interface WorkGroupConfiguration {
 
 export namespace WorkGroupConfiguration {
   export const filterSensitiveLog = (obj: WorkGroupConfiguration): any => ({
-    ...obj,
-    ...(obj.ResultConfiguration && {
-      ResultConfiguration: ResultConfiguration.filterSensitiveLog(
-        obj.ResultConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is WorkGroupConfiguration =>
     __isa(o, "WorkGroupConfiguration");
@@ -1717,12 +1599,7 @@ export namespace WorkGroupConfigurationUpdates {
   export const filterSensitiveLog = (
     obj: WorkGroupConfigurationUpdates
   ): any => ({
-    ...obj,
-    ...(obj.ResultConfigurationUpdates && {
-      ResultConfigurationUpdates: ResultConfigurationUpdates.filterSensitiveLog(
-        obj.ResultConfigurationUpdates
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is WorkGroupConfigurationUpdates =>
     __isa(o, "WorkGroupConfigurationUpdates");

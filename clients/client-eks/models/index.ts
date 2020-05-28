@@ -184,21 +184,7 @@ export interface Cluster {
 
 export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj,
-    ...(obj.certificateAuthority && {
-      certificateAuthority: Certificate.filterSensitiveLog(
-        obj.certificateAuthority
-      )
-    }),
-    ...(obj.identity && {
-      identity: Identity.filterSensitiveLog(obj.identity)
-    }),
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
-    ...(obj.resourcesVpcConfig && {
-      resourcesVpcConfig: VpcConfigResponse.filterSensitiveLog(
-        obj.resourcesVpcConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
@@ -271,13 +257,7 @@ export interface CreateClusterRequest {
 
 export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
-    ...(obj.resourcesVpcConfig && {
-      resourcesVpcConfig: VpcConfigRequest.filterSensitiveLog(
-        obj.resourcesVpcConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterRequest =>
     __isa(o, "CreateClusterRequest");
@@ -293,8 +273,7 @@ export interface CreateClusterResponse {
 
 export namespace CreateClusterResponse {
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj,
-    ...(obj.cluster && { cluster: Cluster.filterSensitiveLog(obj.cluster) })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterResponse =>
     __isa(o, "CreateClusterResponse");
@@ -354,12 +333,7 @@ export namespace CreateFargateProfileRequest {
   export const filterSensitiveLog = (
     obj: CreateFargateProfileRequest
   ): any => ({
-    ...obj,
-    ...(obj.selectors && {
-      selectors: obj.selectors.map(item =>
-        FargateProfileSelector.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateFargateProfileRequest =>
     __isa(o, "CreateFargateProfileRequest");
@@ -377,10 +351,7 @@ export namespace CreateFargateProfileResponse {
   export const filterSensitiveLog = (
     obj: CreateFargateProfileResponse
   ): any => ({
-    ...obj,
-    ...(obj.fargateProfile && {
-      fargateProfile: FargateProfile.filterSensitiveLog(obj.fargateProfile)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateFargateProfileResponse =>
     __isa(o, "CreateFargateProfileResponse");
@@ -488,15 +459,7 @@ export interface CreateNodegroupRequest {
 
 export namespace CreateNodegroupRequest {
   export const filterSensitiveLog = (obj: CreateNodegroupRequest): any => ({
-    ...obj,
-    ...(obj.remoteAccess && {
-      remoteAccess: RemoteAccessConfig.filterSensitiveLog(obj.remoteAccess)
-    }),
-    ...(obj.scalingConfig && {
-      scalingConfig: NodegroupScalingConfig.filterSensitiveLog(
-        obj.scalingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateNodegroupRequest =>
     __isa(o, "CreateNodegroupRequest");
@@ -512,10 +475,7 @@ export interface CreateNodegroupResponse {
 
 export namespace CreateNodegroupResponse {
   export const filterSensitiveLog = (obj: CreateNodegroupResponse): any => ({
-    ...obj,
-    ...(obj.nodegroup && {
-      nodegroup: Nodegroup.filterSensitiveLog(obj.nodegroup)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateNodegroupResponse =>
     __isa(o, "CreateNodegroupResponse");
@@ -547,8 +507,7 @@ export interface DeleteClusterResponse {
 
 export namespace DeleteClusterResponse {
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj,
-    ...(obj.cluster && { cluster: Cluster.filterSensitiveLog(obj.cluster) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteClusterResponse =>
     __isa(o, "DeleteClusterResponse");
@@ -589,10 +548,7 @@ export namespace DeleteFargateProfileResponse {
   export const filterSensitiveLog = (
     obj: DeleteFargateProfileResponse
   ): any => ({
-    ...obj,
-    ...(obj.fargateProfile && {
-      fargateProfile: FargateProfile.filterSensitiveLog(obj.fargateProfile)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteFargateProfileResponse =>
     __isa(o, "DeleteFargateProfileResponse");
@@ -629,10 +585,7 @@ export interface DeleteNodegroupResponse {
 
 export namespace DeleteNodegroupResponse {
   export const filterSensitiveLog = (obj: DeleteNodegroupResponse): any => ({
-    ...obj,
-    ...(obj.nodegroup && {
-      nodegroup: Nodegroup.filterSensitiveLog(obj.nodegroup)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteNodegroupResponse =>
     __isa(o, "DeleteNodegroupResponse");
@@ -664,8 +617,7 @@ export interface DescribeClusterResponse {
 
 export namespace DescribeClusterResponse {
   export const filterSensitiveLog = (obj: DescribeClusterResponse): any => ({
-    ...obj,
-    ...(obj.cluster && { cluster: Cluster.filterSensitiveLog(obj.cluster) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeClusterResponse =>
     __isa(o, "DescribeClusterResponse");
@@ -706,10 +658,7 @@ export namespace DescribeFargateProfileResponse {
   export const filterSensitiveLog = (
     obj: DescribeFargateProfileResponse
   ): any => ({
-    ...obj,
-    ...(obj.fargateProfile && {
-      fargateProfile: FargateProfile.filterSensitiveLog(obj.fargateProfile)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeFargateProfileResponse =>
     __isa(o, "DescribeFargateProfileResponse");
@@ -746,10 +695,7 @@ export interface DescribeNodegroupResponse {
 
 export namespace DescribeNodegroupResponse {
   export const filterSensitiveLog = (obj: DescribeNodegroupResponse): any => ({
-    ...obj,
-    ...(obj.nodegroup && {
-      nodegroup: Nodegroup.filterSensitiveLog(obj.nodegroup)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeNodegroupResponse =>
     __isa(o, "DescribeNodegroupResponse");
@@ -791,8 +737,7 @@ export interface DescribeUpdateResponse {
 
 export namespace DescribeUpdateResponse {
   export const filterSensitiveLog = (obj: DescribeUpdateResponse): any => ({
-    ...obj,
-    ...(obj.update && { update: Update.filterSensitiveLog(obj.update) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeUpdateResponse =>
     __isa(o, "DescribeUpdateResponse");
@@ -936,12 +881,7 @@ export interface FargateProfile {
 
 export namespace FargateProfile {
   export const filterSensitiveLog = (obj: FargateProfile): any => ({
-    ...obj,
-    ...(obj.selectors && {
-      selectors: obj.selectors.map(item =>
-        FargateProfileSelector.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is FargateProfile =>
     __isa(o, "FargateProfile");
@@ -993,8 +933,7 @@ export interface Identity {
 
 export namespace Identity {
   export const filterSensitiveLog = (obj: Identity): any => ({
-    ...obj,
-    ...(obj.oidc && { oidc: OIDC.filterSensitiveLog(obj.oidc) })
+    ...obj
   });
   export const isa = (o: any): o is Identity => __isa(o, "Identity");
 }
@@ -1503,12 +1442,7 @@ export interface Logging {
 
 export namespace Logging {
   export const filterSensitiveLog = (obj: Logging): any => ({
-    ...obj,
-    ...(obj.clusterLogging && {
-      clusterLogging: obj.clusterLogging.map(item =>
-        LogSetup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
@@ -1643,21 +1577,7 @@ export interface Nodegroup {
 
 export namespace Nodegroup {
   export const filterSensitiveLog = (obj: Nodegroup): any => ({
-    ...obj,
-    ...(obj.health && {
-      health: NodegroupHealth.filterSensitiveLog(obj.health)
-    }),
-    ...(obj.remoteAccess && {
-      remoteAccess: RemoteAccessConfig.filterSensitiveLog(obj.remoteAccess)
-    }),
-    ...(obj.resources && {
-      resources: NodegroupResources.filterSensitiveLog(obj.resources)
-    }),
-    ...(obj.scalingConfig && {
-      scalingConfig: NodegroupScalingConfig.filterSensitiveLog(
-        obj.scalingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Nodegroup => __isa(o, "Nodegroup");
 }
@@ -1675,10 +1595,7 @@ export interface NodegroupHealth {
 
 export namespace NodegroupHealth {
   export const filterSensitiveLog = (obj: NodegroupHealth): any => ({
-    ...obj,
-    ...(obj.issues && {
-      issues: obj.issues.map(item => Issue.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is NodegroupHealth =>
     __isa(o, "NodegroupHealth");
@@ -1719,12 +1636,7 @@ export interface NodegroupResources {
 
 export namespace NodegroupResources {
   export const filterSensitiveLog = (obj: NodegroupResources): any => ({
-    ...obj,
-    ...(obj.autoScalingGroups && {
-      autoScalingGroups: obj.autoScalingGroups.map(item =>
-        AutoScalingGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is NodegroupResources =>
     __isa(o, "NodegroupResources");
@@ -2124,13 +2036,7 @@ export interface Update {
 
 export namespace Update {
   export const filterSensitiveLog = (obj: Update): any => ({
-    ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map(item => ErrorDetail.filterSensitiveLog(item))
-    }),
-    ...(obj.params && {
-      params: obj.params.map(item => UpdateParam.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Update => __isa(o, "Update");
 }
@@ -2170,13 +2076,7 @@ export interface UpdateClusterConfigRequest {
 
 export namespace UpdateClusterConfigRequest {
   export const filterSensitiveLog = (obj: UpdateClusterConfigRequest): any => ({
-    ...obj,
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
-    ...(obj.resourcesVpcConfig && {
-      resourcesVpcConfig: VpcConfigRequest.filterSensitiveLog(
-        obj.resourcesVpcConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateClusterConfigRequest =>
     __isa(o, "UpdateClusterConfigRequest");
@@ -2194,8 +2094,7 @@ export namespace UpdateClusterConfigResponse {
   export const filterSensitiveLog = (
     obj: UpdateClusterConfigResponse
   ): any => ({
-    ...obj,
-    ...(obj.update && { update: Update.filterSensitiveLog(obj.update) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateClusterConfigResponse =>
     __isa(o, "UpdateClusterConfigResponse");
@@ -2242,8 +2141,7 @@ export namespace UpdateClusterVersionResponse {
   export const filterSensitiveLog = (
     obj: UpdateClusterVersionResponse
   ): any => ({
-    ...obj,
-    ...(obj.update && { update: Update.filterSensitiveLog(obj.update) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateClusterVersionResponse =>
     __isa(o, "UpdateClusterVersionResponse");
@@ -2307,15 +2205,7 @@ export namespace UpdateNodegroupConfigRequest {
   export const filterSensitiveLog = (
     obj: UpdateNodegroupConfigRequest
   ): any => ({
-    ...obj,
-    ...(obj.labels && {
-      labels: UpdateLabelsPayload.filterSensitiveLog(obj.labels)
-    }),
-    ...(obj.scalingConfig && {
-      scalingConfig: NodegroupScalingConfig.filterSensitiveLog(
-        obj.scalingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateNodegroupConfigRequest =>
     __isa(o, "UpdateNodegroupConfigRequest");
@@ -2333,8 +2223,7 @@ export namespace UpdateNodegroupConfigResponse {
   export const filterSensitiveLog = (
     obj: UpdateNodegroupConfigResponse
   ): any => ({
-    ...obj,
-    ...(obj.update && { update: Update.filterSensitiveLog(obj.update) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateNodegroupConfigResponse =>
     __isa(o, "UpdateNodegroupConfigResponse");
@@ -2406,8 +2295,7 @@ export namespace UpdateNodegroupVersionResponse {
   export const filterSensitiveLog = (
     obj: UpdateNodegroupVersionResponse
   ): any => ({
-    ...obj,
-    ...(obj.update && { update: Update.filterSensitiveLog(obj.update) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateNodegroupVersionResponse =>
     __isa(o, "UpdateNodegroupVersionResponse");

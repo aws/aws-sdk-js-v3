@@ -116,15 +116,7 @@ export interface BatchParameters {
 
 export namespace BatchParameters {
   export const filterSensitiveLog = (obj: BatchParameters): any => ({
-    ...obj,
-    ...(obj.ArrayProperties && {
-      ArrayProperties: BatchArrayProperties.filterSensitiveLog(
-        obj.ArrayProperties
-      )
-    }),
-    ...(obj.RetryStrategy && {
-      RetryStrategy: BatchRetryStrategy.filterSensitiveLog(obj.RetryStrategy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchParameters =>
     __isa(o, "BatchParameters");
@@ -667,12 +659,7 @@ export interface EcsParameters {
 
 export namespace EcsParameters {
   export const filterSensitiveLog = (obj: EcsParameters): any => ({
-    ...obj,
-    ...(obj.NetworkConfiguration && {
-      NetworkConfiguration: NetworkConfiguration.filterSensitiveLog(
-        obj.NetworkConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EcsParameters => __isa(o, "EcsParameters");
 }
@@ -931,10 +918,7 @@ export interface ListEventBusesResponse {
 
 export namespace ListEventBusesResponse {
   export const filterSensitiveLog = (obj: ListEventBusesResponse): any => ({
-    ...obj,
-    ...(obj.EventBuses && {
-      EventBuses: obj.EventBuses.map(item => EventBus.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListEventBusesResponse =>
     __isa(o, "ListEventBusesResponse");
@@ -984,12 +968,7 @@ export interface ListEventSourcesResponse {
 
 export namespace ListEventSourcesResponse {
   export const filterSensitiveLog = (obj: ListEventSourcesResponse): any => ({
-    ...obj,
-    ...(obj.EventSources && {
-      EventSources: obj.EventSources.map(item =>
-        EventSource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListEventSourcesResponse =>
     __isa(o, "ListEventSourcesResponse");
@@ -1042,12 +1021,7 @@ export namespace ListPartnerEventSourceAccountsResponse {
   export const filterSensitiveLog = (
     obj: ListPartnerEventSourceAccountsResponse
   ): any => ({
-    ...obj,
-    ...(obj.PartnerEventSourceAccounts && {
-      PartnerEventSourceAccounts: obj.PartnerEventSourceAccounts.map(item =>
-        PartnerEventSourceAccount.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPartnerEventSourceAccountsResponse =>
     __isa(o, "ListPartnerEventSourceAccountsResponse");
@@ -1101,12 +1075,7 @@ export namespace ListPartnerEventSourcesResponse {
   export const filterSensitiveLog = (
     obj: ListPartnerEventSourcesResponse
   ): any => ({
-    ...obj,
-    ...(obj.PartnerEventSources && {
-      PartnerEventSources: obj.PartnerEventSources.map(item =>
-        PartnerEventSource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPartnerEventSourcesResponse =>
     __isa(o, "ListPartnerEventSourcesResponse");
@@ -1214,10 +1183,7 @@ export interface ListRulesResponse {
 
 export namespace ListRulesResponse {
   export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => Rule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListRulesResponse =>
     __isa(o, "ListRulesResponse");
@@ -1251,10 +1217,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1306,10 +1269,7 @@ export interface ListTargetsByRuleResponse {
 
 export namespace ListTargetsByRuleResponse {
   export const filterSensitiveLog = (obj: ListTargetsByRuleResponse): any => ({
-    ...obj,
-    ...(obj.Targets && {
-      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTargetsByRuleResponse =>
     __isa(o, "ListTargetsByRuleResponse");
@@ -1330,12 +1290,7 @@ export interface NetworkConfiguration {
 
 export namespace NetworkConfiguration {
   export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
-    ...obj,
-    ...(obj.awsvpcConfiguration && {
-      awsvpcConfiguration: AwsVpcConfiguration.filterSensitiveLog(
-        obj.awsvpcConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is NetworkConfiguration =>
     __isa(o, "NetworkConfiguration");
@@ -1415,12 +1370,7 @@ export interface PutEventsRequest {
 
 export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        PutEventsRequestEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutEventsRequest =>
     __isa(o, "PutEventsRequest");
@@ -1493,12 +1443,7 @@ export interface PutEventsResponse {
 
 export namespace PutEventsResponse {
   export const filterSensitiveLog = (obj: PutEventsResponse): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        PutEventsResultEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutEventsResponse =>
     __isa(o, "PutEventsResponse");
@@ -1543,12 +1488,7 @@ export interface PutPartnerEventsRequest {
 
 export namespace PutPartnerEventsRequest {
   export const filterSensitiveLog = (obj: PutPartnerEventsRequest): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        PutPartnerEventsRequestEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPartnerEventsRequest =>
     __isa(o, "PutPartnerEventsRequest");
@@ -1614,12 +1554,7 @@ export interface PutPartnerEventsResponse {
 
 export namespace PutPartnerEventsResponse {
   export const filterSensitiveLog = (obj: PutPartnerEventsResponse): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        PutPartnerEventsResultEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPartnerEventsResponse =>
     __isa(o, "PutPartnerEventsResponse");
@@ -1706,10 +1641,7 @@ export interface PutPermissionRequest {
 
 export namespace PutPermissionRequest {
   export const filterSensitiveLog = (obj: PutPermissionRequest): any => ({
-    ...obj,
-    ...(obj.Condition && {
-      Condition: Condition.filterSensitiveLog(obj.Condition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPermissionRequest =>
     __isa(o, "PutPermissionRequest");
@@ -1763,10 +1695,7 @@ export interface PutRuleRequest {
 
 export namespace PutRuleRequest {
   export const filterSensitiveLog = (obj: PutRuleRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutRuleRequest =>
     __isa(o, "PutRuleRequest");
@@ -1808,10 +1737,7 @@ export interface PutTargetsRequest {
 
 export namespace PutTargetsRequest {
   export const filterSensitiveLog = (obj: PutTargetsRequest): any => ({
-    ...obj,
-    ...(obj.Targets && {
-      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutTargetsRequest =>
     __isa(o, "PutTargetsRequest");
@@ -1832,12 +1758,7 @@ export interface PutTargetsResponse {
 
 export namespace PutTargetsResponse {
   export const filterSensitiveLog = (obj: PutTargetsResponse): any => ({
-    ...obj,
-    ...(obj.FailedEntries && {
-      FailedEntries: obj.FailedEntries.map(item =>
-        PutTargetsResultEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutTargetsResponse =>
     __isa(o, "PutTargetsResponse");
@@ -1944,12 +1865,7 @@ export interface RemoveTargetsResponse {
 
 export namespace RemoveTargetsResponse {
   export const filterSensitiveLog = (obj: RemoveTargetsResponse): any => ({
-    ...obj,
-    ...(obj.FailedEntries && {
-      FailedEntries: obj.FailedEntries.map(item =>
-        RemoveTargetsResultEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RemoveTargetsResponse =>
     __isa(o, "RemoveTargetsResponse");
@@ -2065,12 +1981,7 @@ export interface RunCommandParameters {
 
 export namespace RunCommandParameters {
   export const filterSensitiveLog = (obj: RunCommandParameters): any => ({
-    ...obj,
-    ...(obj.RunCommandTargets && {
-      RunCommandTargets: obj.RunCommandTargets.map(item =>
-        RunCommandTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RunCommandParameters =>
     __isa(o, "RunCommandParameters");
@@ -2162,10 +2073,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -2267,31 +2175,7 @@ export interface Target {
 
 export namespace Target {
   export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj,
-    ...(obj.BatchParameters && {
-      BatchParameters: BatchParameters.filterSensitiveLog(obj.BatchParameters)
-    }),
-    ...(obj.EcsParameters && {
-      EcsParameters: EcsParameters.filterSensitiveLog(obj.EcsParameters)
-    }),
-    ...(obj.InputTransformer && {
-      InputTransformer: InputTransformer.filterSensitiveLog(
-        obj.InputTransformer
-      )
-    }),
-    ...(obj.KinesisParameters && {
-      KinesisParameters: KinesisParameters.filterSensitiveLog(
-        obj.KinesisParameters
-      )
-    }),
-    ...(obj.RunCommandParameters && {
-      RunCommandParameters: RunCommandParameters.filterSensitiveLog(
-        obj.RunCommandParameters
-      )
-    }),
-    ...(obj.SqsParameters && {
-      SqsParameters: SqsParameters.filterSensitiveLog(obj.SqsParameters)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Target => __isa(o, "Target");
 }

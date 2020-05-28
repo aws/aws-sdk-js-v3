@@ -22,12 +22,7 @@ export namespace BatchGrantPermissionsRequest {
   export const filterSensitiveLog = (
     obj: BatchGrantPermissionsRequest
   ): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        BatchPermissionsRequestEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGrantPermissionsRequest =>
     __isa(o, "BatchGrantPermissionsRequest");
@@ -45,12 +40,7 @@ export namespace BatchGrantPermissionsResponse {
   export const filterSensitiveLog = (
     obj: BatchGrantPermissionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Failures && {
-      Failures: obj.Failures.map(item =>
-        BatchPermissionsFailureEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGrantPermissionsResponse =>
     __isa(o, "BatchGrantPermissionsResponse");
@@ -76,13 +66,7 @@ export namespace BatchPermissionsFailureEntry {
   export const filterSensitiveLog = (
     obj: BatchPermissionsFailureEntry
   ): any => ({
-    ...obj,
-    ...(obj.Error && { Error: ErrorDetail.filterSensitiveLog(obj.Error) }),
-    ...(obj.RequestEntry && {
-      RequestEntry: BatchPermissionsRequestEntry.filterSensitiveLog(
-        obj.RequestEntry
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchPermissionsFailureEntry =>
     __isa(o, "BatchPermissionsFailureEntry");
@@ -123,11 +107,7 @@ export namespace BatchPermissionsRequestEntry {
   export const filterSensitiveLog = (
     obj: BatchPermissionsRequestEntry
   ): any => ({
-    ...obj,
-    ...(obj.Principal && {
-      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
-    }),
-    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+    ...obj
   });
   export const isa = (o: any): o is BatchPermissionsRequestEntry =>
     __isa(o, "BatchPermissionsRequestEntry");
@@ -150,12 +130,7 @@ export namespace BatchRevokePermissionsRequest {
   export const filterSensitiveLog = (
     obj: BatchRevokePermissionsRequest
   ): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        BatchPermissionsRequestEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchRevokePermissionsRequest =>
     __isa(o, "BatchRevokePermissionsRequest");
@@ -173,12 +148,7 @@ export namespace BatchRevokePermissionsResponse {
   export const filterSensitiveLog = (
     obj: BatchRevokePermissionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Failures && {
-      Failures: obj.Failures.map(item =>
-        BatchPermissionsFailureEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchRevokePermissionsResponse =>
     __isa(o, "BatchRevokePermissionsResponse");
@@ -267,22 +237,7 @@ export interface DataLakeSettings {
 
 export namespace DataLakeSettings {
   export const filterSensitiveLog = (obj: DataLakeSettings): any => ({
-    ...obj,
-    ...(obj.CreateDatabaseDefaultPermissions && {
-      CreateDatabaseDefaultPermissions: obj.CreateDatabaseDefaultPermissions.map(
-        item => PrincipalPermissions.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.CreateTableDefaultPermissions && {
-      CreateTableDefaultPermissions: obj.CreateTableDefaultPermissions.map(
-        item => PrincipalPermissions.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.DataLakeAdmins && {
-      DataLakeAdmins: obj.DataLakeAdmins.map(item =>
-        DataLakePrincipal.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DataLakeSettings =>
     __isa(o, "DataLakeSettings");
@@ -380,10 +335,7 @@ export interface DescribeResourceResponse {
 
 export namespace DescribeResourceResponse {
   export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
-    ...obj,
-    ...(obj.ResourceInfo && {
-      ResourceInfo: ResourceInfo.filterSensitiveLog(obj.ResourceInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeResourceResponse =>
     __isa(o, "DescribeResourceResponse");
@@ -417,12 +369,7 @@ export namespace GetDataLakeSettingsResponse {
   export const filterSensitiveLog = (
     obj: GetDataLakeSettingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.DataLakeSettings && {
-      DataLakeSettings: DataLakeSettings.filterSensitiveLog(
-        obj.DataLakeSettings
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDataLakeSettingsResponse =>
     __isa(o, "GetDataLakeSettingsResponse");
@@ -478,12 +425,7 @@ export namespace GetEffectivePermissionsForPathResponse {
   export const filterSensitiveLog = (
     obj: GetEffectivePermissionsForPathResponse
   ): any => ({
-    ...obj,
-    ...(obj.Permissions && {
-      Permissions: obj.Permissions.map(item =>
-        PrincipalResourcePermissions.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEffectivePermissionsForPathResponse =>
     __isa(o, "GetEffectivePermissionsForPathResponse");
@@ -520,11 +462,7 @@ export interface GrantPermissionsRequest {
 
 export namespace GrantPermissionsRequest {
   export const filterSensitiveLog = (obj: GrantPermissionsRequest): any => ({
-    ...obj,
-    ...(obj.Principal && {
-      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
-    }),
-    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+    ...obj
   });
   export const isa = (o: any): o is GrantPermissionsRequest =>
     __isa(o, "GrantPermissionsRequest");
@@ -578,11 +516,7 @@ export interface ListPermissionsRequest {
 
 export namespace ListPermissionsRequest {
   export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-    ...obj,
-    ...(obj.Principal && {
-      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
-    }),
-    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+    ...obj
   });
   export const isa = (o: any): o is ListPermissionsRequest =>
     __isa(o, "ListPermissionsRequest");
@@ -603,12 +537,7 @@ export interface ListPermissionsResponse {
 
 export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj,
-    ...(obj.PrincipalResourcePermissions && {
-      PrincipalResourcePermissions: obj.PrincipalResourcePermissions.map(item =>
-        PrincipalResourcePermissions.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPermissionsResponse =>
     __isa(o, "ListPermissionsResponse");
@@ -634,12 +563,7 @@ export interface ListResourcesRequest {
 
 export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj,
-    ...(obj.FilterConditionList && {
-      FilterConditionList: obj.FilterConditionList.map(item =>
-        FilterCondition.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResourcesRequest =>
     __isa(o, "ListResourcesRequest");
@@ -660,12 +584,7 @@ export interface ListResourcesResponse {
 
 export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
-    ...obj,
-    ...(obj.ResourceInfoList && {
-      ResourceInfoList: obj.ResourceInfoList.map(item =>
-        ResourceInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResourcesResponse =>
     __isa(o, "ListResourcesResponse");
@@ -701,10 +620,7 @@ export interface PrincipalPermissions {
 
 export namespace PrincipalPermissions {
   export const filterSensitiveLog = (obj: PrincipalPermissions): any => ({
-    ...obj,
-    ...(obj.Principal && {
-      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PrincipalPermissions =>
     __isa(o, "PrincipalPermissions");
@@ -740,11 +656,7 @@ export namespace PrincipalResourcePermissions {
   export const filterSensitiveLog = (
     obj: PrincipalResourcePermissions
   ): any => ({
-    ...obj,
-    ...(obj.Principal && {
-      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
-    }),
-    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+    ...obj
   });
   export const isa = (o: any): o is PrincipalResourcePermissions =>
     __isa(o, "PrincipalResourcePermissions");
@@ -765,12 +677,7 @@ export interface PutDataLakeSettingsRequest {
 
 export namespace PutDataLakeSettingsRequest {
   export const filterSensitiveLog = (obj: PutDataLakeSettingsRequest): any => ({
-    ...obj,
-    ...(obj.DataLakeSettings && {
-      DataLakeSettings: DataLakeSettings.filterSensitiveLog(
-        obj.DataLakeSettings
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutDataLakeSettingsRequest =>
     __isa(o, "PutDataLakeSettingsRequest");
@@ -861,22 +768,7 @@ export interface Resource {
 
 export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-    ...(obj.Catalog && {
-      Catalog: CatalogResource.filterSensitiveLog(obj.Catalog)
-    }),
-    ...(obj.DataLocation && {
-      DataLocation: DataLocationResource.filterSensitiveLog(obj.DataLocation)
-    }),
-    ...(obj.Database && {
-      Database: DatabaseResource.filterSensitiveLog(obj.Database)
-    }),
-    ...(obj.Table && { Table: TableResource.filterSensitiveLog(obj.Table) }),
-    ...(obj.TableWithColumns && {
-      TableWithColumns: TableWithColumnsResource.filterSensitiveLog(
-        obj.TableWithColumns
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
@@ -912,11 +804,7 @@ export interface RevokePermissionsRequest {
 
 export namespace RevokePermissionsRequest {
   export const filterSensitiveLog = (obj: RevokePermissionsRequest): any => ({
-    ...obj,
-    ...(obj.Principal && {
-      Principal: DataLakePrincipal.filterSensitiveLog(obj.Principal)
-    }),
-    ...(obj.Resource && { Resource: Resource.filterSensitiveLog(obj.Resource) })
+    ...obj
   });
   export const isa = (o: any): o is RevokePermissionsRequest =>
     __isa(o, "RevokePermissionsRequest");
@@ -986,10 +874,7 @@ export interface TableWithColumnsResource {
 
 export namespace TableWithColumnsResource {
   export const filterSensitiveLog = (obj: TableWithColumnsResource): any => ({
-    ...obj,
-    ...(obj.ColumnWildcard && {
-      ColumnWildcard: ColumnWildcard.filterSensitiveLog(obj.ColumnWildcard)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TableWithColumnsResource =>
     __isa(o, "TableWithColumnsResource");

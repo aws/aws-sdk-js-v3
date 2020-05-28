@@ -108,12 +108,7 @@ export namespace CustomizedMetricSpecification {
   export const filterSensitiveLog = (
     obj: CustomizedMetricSpecification
   ): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        MetricDimension.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CustomizedMetricSpecification =>
     __isa(o, "CustomizedMetricSpecification");
@@ -729,12 +724,7 @@ export namespace DescribeScalableTargetsResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalableTargetsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScalableTargets && {
-      ScalableTargets: obj.ScalableTargets.map(item =>
-        ScalableTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScalableTargetsResponse =>
     __isa(o, "DescribeScalableTargetsResponse");
@@ -906,12 +896,7 @@ export namespace DescribeScalingActivitiesResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalingActivitiesResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScalingActivities && {
-      ScalingActivities: obj.ScalingActivities.map(item =>
-        ScalingActivity.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScalingActivitiesResponse =>
     __isa(o, "DescribeScalingActivitiesResponse");
@@ -1088,12 +1073,7 @@ export namespace DescribeScalingPoliciesResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalingPoliciesResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScalingPolicies && {
-      ScalingPolicies: obj.ScalingPolicies.map(item =>
-        ScalingPolicy.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScalingPoliciesResponse =>
     __isa(o, "DescribeScalingPoliciesResponse");
@@ -1270,12 +1250,7 @@ export namespace DescribeScheduledActionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeScheduledActionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScheduledActions && {
-      ScheduledActions: obj.ScheduledActions.map(item =>
-        ScheduledAction.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScheduledActionsResponse =>
     __isa(o, "DescribeScheduledActionsResponse");
@@ -1643,17 +1618,7 @@ export interface PutScalingPolicyRequest {
 
 export namespace PutScalingPolicyRequest {
   export const filterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
-    ...obj,
-    ...(obj.StepScalingPolicyConfiguration && {
-      StepScalingPolicyConfiguration: StepScalingPolicyConfiguration.filterSensitiveLog(
-        obj.StepScalingPolicyConfiguration
-      )
-    }),
-    ...(obj.TargetTrackingScalingPolicyConfiguration && {
-      TargetTrackingScalingPolicyConfiguration: TargetTrackingScalingPolicyConfiguration.filterSensitiveLog(
-        obj.TargetTrackingScalingPolicyConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutScalingPolicyRequest =>
     __isa(o, "PutScalingPolicyRequest");
@@ -1674,10 +1639,7 @@ export interface PutScalingPolicyResponse {
 
 export namespace PutScalingPolicyResponse {
   export const filterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
-    ...obj,
-    ...(obj.Alarms && {
-      Alarms: obj.Alarms.map(item => Alarm.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutScalingPolicyResponse =>
     __isa(o, "PutScalingPolicyResponse");
@@ -1850,12 +1812,7 @@ export interface PutScheduledActionRequest {
 
 export namespace PutScheduledActionRequest {
   export const filterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
-    ...obj,
-    ...(obj.ScalableTargetAction && {
-      ScalableTargetAction: ScalableTargetAction.filterSensitiveLog(
-        obj.ScalableTargetAction
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutScheduledActionRequest =>
     __isa(o, "PutScheduledActionRequest");
@@ -2048,10 +2005,7 @@ export namespace RegisterScalableTargetRequest {
   export const filterSensitiveLog = (
     obj: RegisterScalableTargetRequest
   ): any => ({
-    ...obj,
-    ...(obj.SuspendedState && {
-      SuspendedState: SuspendedState.filterSensitiveLog(obj.SuspendedState)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RegisterScalableTargetRequest =>
     __isa(o, "RegisterScalableTargetRequest");
@@ -2241,10 +2195,7 @@ export interface ScalableTarget {
 
 export namespace ScalableTarget {
   export const filterSensitiveLog = (obj: ScalableTarget): any => ({
-    ...obj,
-    ...(obj.SuspendedState && {
-      SuspendedState: SuspendedState.filterSensitiveLog(obj.SuspendedState)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScalableTarget =>
     __isa(o, "ScalableTarget");
@@ -2616,20 +2567,7 @@ export interface ScalingPolicy {
 
 export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
-    ...obj,
-    ...(obj.Alarms && {
-      Alarms: obj.Alarms.map(item => Alarm.filterSensitiveLog(item))
-    }),
-    ...(obj.StepScalingPolicyConfiguration && {
-      StepScalingPolicyConfiguration: StepScalingPolicyConfiguration.filterSensitiveLog(
-        obj.StepScalingPolicyConfiguration
-      )
-    }),
-    ...(obj.TargetTrackingScalingPolicyConfiguration && {
-      TargetTrackingScalingPolicyConfiguration: TargetTrackingScalingPolicyConfiguration.filterSensitiveLog(
-        obj.TargetTrackingScalingPolicyConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
@@ -2814,12 +2752,7 @@ export interface ScheduledAction {
 
 export namespace ScheduledAction {
   export const filterSensitiveLog = (obj: ScheduledAction): any => ({
-    ...obj,
-    ...(obj.ScalableTargetAction && {
-      ScalableTargetAction: ScalableTargetAction.filterSensitiveLog(
-        obj.ScalableTargetAction
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScheduledAction =>
     __isa(o, "ScheduledAction");
@@ -2972,12 +2905,7 @@ export namespace StepScalingPolicyConfiguration {
   export const filterSensitiveLog = (
     obj: StepScalingPolicyConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.StepAdjustments && {
-      StepAdjustments: obj.StepAdjustments.map(item =>
-        StepAdjustment.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StepScalingPolicyConfiguration =>
     __isa(o, "StepScalingPolicyConfiguration");
@@ -3076,17 +3004,7 @@ export namespace TargetTrackingScalingPolicyConfiguration {
   export const filterSensitiveLog = (
     obj: TargetTrackingScalingPolicyConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.CustomizedMetricSpecification && {
-      CustomizedMetricSpecification: CustomizedMetricSpecification.filterSensitiveLog(
-        obj.CustomizedMetricSpecification
-      )
-    }),
-    ...(obj.PredefinedMetricSpecification && {
-      PredefinedMetricSpecification: PredefinedMetricSpecification.filterSensitiveLog(
-        obj.PredefinedMetricSpecification
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TargetTrackingScalingPolicyConfiguration =>
     __isa(o, "TargetTrackingScalingPolicyConfiguration");

@@ -1204,14 +1204,6 @@ export namespace PostTextResponse {
   export const filterSensitiveLog = (obj: PostTextResponse): any => ({
     ...obj,
     ...(obj.message && { message: SENSITIVE_STRING }),
-    ...(obj.responseCard && {
-      responseCard: ResponseCard.filterSensitiveLog(obj.responseCard)
-    }),
-    ...(obj.sentimentResponse && {
-      sentimentResponse: SentimentResponse.filterSensitiveLog(
-        obj.sentimentResponse
-      )
-    }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
     ...(obj.slots && { slots: SENSITIVE_STRING })
   });
@@ -1558,10 +1550,7 @@ export interface GenericAttachment {
 
 export namespace GenericAttachment {
   export const filterSensitiveLog = (obj: GenericAttachment): any => ({
-    ...obj,
-    ...(obj.buttons && {
-      buttons: obj.buttons.map(item => Button.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GenericAttachment =>
     __isa(o, "GenericAttachment");
@@ -1593,12 +1582,7 @@ export interface ResponseCard {
 
 export namespace ResponseCard {
   export const filterSensitiveLog = (obj: ResponseCard): any => ({
-    ...obj,
-    ...(obj.genericAttachments && {
-      genericAttachments: obj.genericAttachments.map(item =>
-        GenericAttachment.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResponseCard => __isa(o, "ResponseCard");
 }

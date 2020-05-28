@@ -92,12 +92,7 @@ export namespace AwsCloudMapServiceDiscovery {
   export const filterSensitiveLog = (
     obj: AwsCloudMapServiceDiscovery
   ): any => ({
-    ...obj,
-    ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        AwsCloudMapInstanceAttribute.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AwsCloudMapServiceDiscovery =>
     __isa(o, "AwsCloudMapServiceDiscovery");
@@ -204,11 +199,7 @@ export interface CreateMeshInput {
 
 export namespace CreateMeshInput {
   export const filterSensitiveLog = (obj: CreateMeshInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: MeshSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => TagRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateMeshInput =>
     __isa(o, "CreateMeshInput");
@@ -227,8 +218,7 @@ export interface CreateMeshOutput {
 
 export namespace CreateMeshOutput {
   export const filterSensitiveLog = (obj: CreateMeshOutput): any => ({
-    ...obj,
-    ...(obj.mesh && { mesh: MeshData.filterSensitiveLog(obj.mesh) })
+    ...obj
   });
   export const isa = (o: any): o is CreateMeshOutput =>
     __isa(o, "CreateMeshOutput");
@@ -276,11 +266,7 @@ export interface CreateRouteInput {
 
 export namespace CreateRouteInput {
   export const filterSensitiveLog = (obj: CreateRouteInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: RouteSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => TagRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateRouteInput =>
     __isa(o, "CreateRouteInput");
@@ -299,8 +285,7 @@ export interface CreateRouteOutput {
 
 export namespace CreateRouteOutput {
   export const filterSensitiveLog = (obj: CreateRouteOutput): any => ({
-    ...obj,
-    ...(obj.route && { route: RouteData.filterSensitiveLog(obj.route) })
+    ...obj
   });
   export const isa = (o: any): o is CreateRouteOutput =>
     __isa(o, "CreateRouteOutput");
@@ -343,11 +328,7 @@ export interface CreateVirtualNodeInput {
 
 export namespace CreateVirtualNodeInput {
   export const filterSensitiveLog = (obj: CreateVirtualNodeInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => TagRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVirtualNodeInput =>
     __isa(o, "CreateVirtualNodeInput");
@@ -366,10 +347,7 @@ export interface CreateVirtualNodeOutput {
 
 export namespace CreateVirtualNodeOutput {
   export const filterSensitiveLog = (obj: CreateVirtualNodeOutput): any => ({
-    ...obj,
-    ...(obj.virtualNode && {
-      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVirtualNodeOutput =>
     __isa(o, "CreateVirtualNodeOutput");
@@ -412,11 +390,7 @@ export interface CreateVirtualRouterInput {
 
 export namespace CreateVirtualRouterInput {
   export const filterSensitiveLog = (obj: CreateVirtualRouterInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: VirtualRouterSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => TagRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVirtualRouterInput =>
     __isa(o, "CreateVirtualRouterInput");
@@ -435,10 +409,7 @@ export interface CreateVirtualRouterOutput {
 
 export namespace CreateVirtualRouterOutput {
   export const filterSensitiveLog = (obj: CreateVirtualRouterOutput): any => ({
-    ...obj,
-    ...(obj.virtualRouter && {
-      virtualRouter: VirtualRouterData.filterSensitiveLog(obj.virtualRouter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVirtualRouterOutput =>
     __isa(o, "CreateVirtualRouterOutput");
@@ -481,11 +452,7 @@ export interface CreateVirtualServiceInput {
 
 export namespace CreateVirtualServiceInput {
   export const filterSensitiveLog = (obj: CreateVirtualServiceInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => TagRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVirtualServiceInput =>
     __isa(o, "CreateVirtualServiceInput");
@@ -504,10 +471,7 @@ export interface CreateVirtualServiceOutput {
 
 export namespace CreateVirtualServiceOutput {
   export const filterSensitiveLog = (obj: CreateVirtualServiceOutput): any => ({
-    ...obj,
-    ...(obj.virtualService && {
-      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVirtualServiceOutput =>
     __isa(o, "CreateVirtualServiceOutput");
@@ -545,8 +509,7 @@ export interface DeleteMeshOutput {
 
 export namespace DeleteMeshOutput {
   export const filterSensitiveLog = (obj: DeleteMeshOutput): any => ({
-    ...obj,
-    ...(obj.mesh && { mesh: MeshData.filterSensitiveLog(obj.mesh) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteMeshOutput =>
     __isa(o, "DeleteMeshOutput");
@@ -594,8 +557,7 @@ export interface DeleteRouteOutput {
 
 export namespace DeleteRouteOutput {
   export const filterSensitiveLog = (obj: DeleteRouteOutput): any => ({
-    ...obj,
-    ...(obj.route && { route: RouteData.filterSensitiveLog(obj.route) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteRouteOutput =>
     __isa(o, "DeleteRouteOutput");
@@ -638,10 +600,7 @@ export interface DeleteVirtualNodeOutput {
 
 export namespace DeleteVirtualNodeOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualNodeOutput): any => ({
-    ...obj,
-    ...(obj.virtualNode && {
-      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteVirtualNodeOutput =>
     __isa(o, "DeleteVirtualNodeOutput");
@@ -684,10 +643,7 @@ export interface DeleteVirtualRouterOutput {
 
 export namespace DeleteVirtualRouterOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualRouterOutput): any => ({
-    ...obj,
-    ...(obj.virtualRouter && {
-      virtualRouter: VirtualRouterData.filterSensitiveLog(obj.virtualRouter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteVirtualRouterOutput =>
     __isa(o, "DeleteVirtualRouterOutput");
@@ -730,10 +686,7 @@ export interface DeleteVirtualServiceOutput {
 
 export namespace DeleteVirtualServiceOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualServiceOutput): any => ({
-    ...obj,
-    ...(obj.virtualService && {
-      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteVirtualServiceOutput =>
     __isa(o, "DeleteVirtualServiceOutput");
@@ -771,8 +724,7 @@ export interface DescribeMeshOutput {
 
 export namespace DescribeMeshOutput {
   export const filterSensitiveLog = (obj: DescribeMeshOutput): any => ({
-    ...obj,
-    ...(obj.mesh && { mesh: MeshData.filterSensitiveLog(obj.mesh) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeMeshOutput =>
     __isa(o, "DescribeMeshOutput");
@@ -820,8 +772,7 @@ export interface DescribeRouteOutput {
 
 export namespace DescribeRouteOutput {
   export const filterSensitiveLog = (obj: DescribeRouteOutput): any => ({
-    ...obj,
-    ...(obj.route && { route: RouteData.filterSensitiveLog(obj.route) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeRouteOutput =>
     __isa(o, "DescribeRouteOutput");
@@ -864,10 +815,7 @@ export interface DescribeVirtualNodeOutput {
 
 export namespace DescribeVirtualNodeOutput {
   export const filterSensitiveLog = (obj: DescribeVirtualNodeOutput): any => ({
-    ...obj,
-    ...(obj.virtualNode && {
-      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeVirtualNodeOutput =>
     __isa(o, "DescribeVirtualNodeOutput");
@@ -912,10 +860,7 @@ export namespace DescribeVirtualRouterOutput {
   export const filterSensitiveLog = (
     obj: DescribeVirtualRouterOutput
   ): any => ({
-    ...obj,
-    ...(obj.virtualRouter && {
-      virtualRouter: VirtualRouterData.filterSensitiveLog(obj.virtualRouter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeVirtualRouterOutput =>
     __isa(o, "DescribeVirtualRouterOutput");
@@ -962,10 +907,7 @@ export namespace DescribeVirtualServiceOutput {
   export const filterSensitiveLog = (
     obj: DescribeVirtualServiceOutput
   ): any => ({
-    ...obj,
-    ...(obj.virtualService && {
-      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeVirtualServiceOutput =>
     __isa(o, "DescribeVirtualServiceOutput");
@@ -1143,10 +1085,7 @@ export interface GrpcRetryPolicy {
 
 export namespace GrpcRetryPolicy {
   export const filterSensitiveLog = (obj: GrpcRetryPolicy): any => ({
-    ...obj,
-    ...(obj.perRetryTimeout && {
-      perRetryTimeout: Duration.filterSensitiveLog(obj.perRetryTimeout)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GrpcRetryPolicy =>
     __isa(o, "GrpcRetryPolicy");
@@ -1183,14 +1122,7 @@ export interface GrpcRoute {
 
 export namespace GrpcRoute {
   export const filterSensitiveLog = (obj: GrpcRoute): any => ({
-    ...obj,
-    ...(obj.action && {
-      action: GrpcRouteAction.filterSensitiveLog(obj.action)
-    }),
-    ...(obj.match && { match: GrpcRouteMatch.filterSensitiveLog(obj.match) }),
-    ...(obj.retryPolicy && {
-      retryPolicy: GrpcRetryPolicy.filterSensitiveLog(obj.retryPolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GrpcRoute => __isa(o, "GrpcRoute");
 }
@@ -1208,12 +1140,7 @@ export interface GrpcRouteAction {
 
 export namespace GrpcRouteAction {
   export const filterSensitiveLog = (obj: GrpcRouteAction): any => ({
-    ...obj,
-    ...(obj.weightedTargets && {
-      weightedTargets: obj.weightedTargets.map(item =>
-        WeightedTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GrpcRouteAction =>
     __isa(o, "GrpcRouteAction");
@@ -1242,12 +1169,7 @@ export interface GrpcRouteMatch {
 
 export namespace GrpcRouteMatch {
   export const filterSensitiveLog = (obj: GrpcRouteMatch): any => ({
-    ...obj,
-    ...(obj.metadata && {
-      metadata: obj.metadata.map(item =>
-        GrpcRouteMetadata.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GrpcRouteMatch =>
     __isa(o, "GrpcRouteMatch");
@@ -1596,10 +1518,7 @@ export interface HttpRetryPolicy {
 
 export namespace HttpRetryPolicy {
   export const filterSensitiveLog = (obj: HttpRetryPolicy): any => ({
-    ...obj,
-    ...(obj.perRetryTimeout && {
-      perRetryTimeout: Duration.filterSensitiveLog(obj.perRetryTimeout)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HttpRetryPolicy =>
     __isa(o, "HttpRetryPolicy");
@@ -1628,14 +1547,7 @@ export interface HttpRoute {
 
 export namespace HttpRoute {
   export const filterSensitiveLog = (obj: HttpRoute): any => ({
-    ...obj,
-    ...(obj.action && {
-      action: HttpRouteAction.filterSensitiveLog(obj.action)
-    }),
-    ...(obj.match && { match: HttpRouteMatch.filterSensitiveLog(obj.match) }),
-    ...(obj.retryPolicy && {
-      retryPolicy: HttpRetryPolicy.filterSensitiveLog(obj.retryPolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HttpRoute => __isa(o, "HttpRoute");
 }
@@ -1653,12 +1565,7 @@ export interface HttpRouteAction {
 
 export namespace HttpRouteAction {
   export const filterSensitiveLog = (obj: HttpRouteAction): any => ({
-    ...obj,
-    ...(obj.weightedTargets && {
-      weightedTargets: obj.weightedTargets.map(item =>
-        WeightedTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HttpRouteAction =>
     __isa(o, "HttpRouteAction");
@@ -1727,10 +1634,7 @@ export interface HttpRouteMatch {
 
 export namespace HttpRouteMatch {
   export const filterSensitiveLog = (obj: HttpRouteMatch): any => ({
-    ...obj,
-    ...(obj.headers && {
-      headers: obj.headers.map(item => HttpRouteHeader.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is HttpRouteMatch =>
     __isa(o, "HttpRouteMatch");
@@ -1842,10 +1746,7 @@ export interface ListMeshesOutput {
 
 export namespace ListMeshesOutput {
   export const filterSensitiveLog = (obj: ListMeshesOutput): any => ({
-    ...obj,
-    ...(obj.meshes && {
-      meshes: obj.meshes.map(item => MeshRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMeshesOutput =>
     __isa(o, "ListMeshesOutput");
@@ -1916,10 +1817,7 @@ export interface ListRoutesOutput {
 
 export namespace ListRoutesOutput {
   export const filterSensitiveLog = (obj: ListRoutesOutput): any => ({
-    ...obj,
-    ...(obj.routes && {
-      routes: obj.routes.map(item => RouteRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListRoutesOutput =>
     __isa(o, "ListRoutesOutput");
@@ -1985,10 +1883,7 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => TagRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -2054,12 +1949,7 @@ export interface ListVirtualNodesOutput {
 
 export namespace ListVirtualNodesOutput {
   export const filterSensitiveLog = (obj: ListVirtualNodesOutput): any => ({
-    ...obj,
-    ...(obj.virtualNodes && {
-      virtualNodes: obj.virtualNodes.map(item =>
-        VirtualNodeRef.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVirtualNodesOutput =>
     __isa(o, "ListVirtualNodesOutput");
@@ -2125,12 +2015,7 @@ export interface ListVirtualRoutersOutput {
 
 export namespace ListVirtualRoutersOutput {
   export const filterSensitiveLog = (obj: ListVirtualRoutersOutput): any => ({
-    ...obj,
-    ...(obj.virtualRouters && {
-      virtualRouters: obj.virtualRouters.map(item =>
-        VirtualRouterRef.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVirtualRoutersOutput =>
     __isa(o, "ListVirtualRoutersOutput");
@@ -2196,12 +2081,7 @@ export interface ListVirtualServicesOutput {
 
 export namespace ListVirtualServicesOutput {
   export const filterSensitiveLog = (obj: ListVirtualServicesOutput): any => ({
-    ...obj,
-    ...(obj.virtualServices && {
-      virtualServices: obj.virtualServices.map(item =>
-        VirtualServiceRef.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVirtualServicesOutput =>
     __isa(o, "ListVirtualServicesOutput");
@@ -2225,13 +2105,7 @@ export interface Listener {
 
 export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj,
-    ...(obj.healthCheck && {
-      healthCheck: HealthCheckPolicy.filterSensitiveLog(obj.healthCheck)
-    }),
-    ...(obj.portMapping && {
-      portMapping: PortMapping.filterSensitiveLog(obj.portMapping)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
@@ -2305,12 +2179,7 @@ export interface MeshData {
 
 export namespace MeshData {
   export const filterSensitiveLog = (obj: MeshData): any => ({
-    ...obj,
-    ...(obj.metadata && {
-      metadata: ResourceMetadata.filterSensitiveLog(obj.metadata)
-    }),
-    ...(obj.spec && { spec: MeshSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.status && { status: MeshStatus.filterSensitiveLog(obj.status) })
+    ...obj
   });
   export const isa = (o: any): o is MeshData => __isa(o, "MeshData");
 }
@@ -2351,10 +2220,7 @@ export interface MeshSpec {
 
 export namespace MeshSpec {
   export const filterSensitiveLog = (obj: MeshSpec): any => ({
-    ...obj,
-    ...(obj.egressFilter && {
-      egressFilter: EgressFilter.filterSensitiveLog(obj.egressFilter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MeshSpec => __isa(o, "MeshSpec");
 }
@@ -2528,12 +2394,7 @@ export interface RouteData {
 
 export namespace RouteData {
   export const filterSensitiveLog = (obj: RouteData): any => ({
-    ...obj,
-    ...(obj.metadata && {
-      metadata: ResourceMetadata.filterSensitiveLog(obj.metadata)
-    }),
-    ...(obj.spec && { spec: RouteSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.status && { status: RouteStatus.filterSensitiveLog(obj.status) })
+    ...obj
   });
   export const isa = (o: any): o is RouteData => __isa(o, "RouteData");
 }
@@ -2605,17 +2466,7 @@ export interface RouteSpec {
 
 export namespace RouteSpec {
   export const filterSensitiveLog = (obj: RouteSpec): any => ({
-    ...obj,
-    ...(obj.grpcRoute && {
-      grpcRoute: GrpcRoute.filterSensitiveLog(obj.grpcRoute)
-    }),
-    ...(obj.http2Route && {
-      http2Route: HttpRoute.filterSensitiveLog(obj.http2Route)
-    }),
-    ...(obj.httpRoute && {
-      httpRoute: HttpRoute.filterSensitiveLog(obj.httpRoute)
-    }),
-    ...(obj.tcpRoute && { tcpRoute: TcpRoute.filterSensitiveLog(obj.tcpRoute) })
+    ...obj
   });
   export const isa = (o: any): o is RouteSpec => __isa(o, "RouteSpec");
 }
@@ -2759,10 +2610,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => TagRef.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
@@ -2800,8 +2648,7 @@ export interface TcpRoute {
 
 export namespace TcpRoute {
   export const filterSensitiveLog = (obj: TcpRoute): any => ({
-    ...obj,
-    ...(obj.action && { action: TcpRouteAction.filterSensitiveLog(obj.action) })
+    ...obj
   });
   export const isa = (o: any): o is TcpRoute => __isa(o, "TcpRoute");
 }
@@ -2819,12 +2666,7 @@ export interface TcpRouteAction {
 
 export namespace TcpRouteAction {
   export const filterSensitiveLog = (obj: TcpRouteAction): any => ({
-    ...obj,
-    ...(obj.weightedTargets && {
-      weightedTargets: obj.weightedTargets.map(item =>
-        WeightedTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TcpRouteAction =>
     __isa(o, "TcpRouteAction");
@@ -2935,8 +2777,7 @@ export interface UpdateMeshInput {
 
 export namespace UpdateMeshInput {
   export const filterSensitiveLog = (obj: UpdateMeshInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: MeshSpec.filterSensitiveLog(obj.spec) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateMeshInput =>
     __isa(o, "UpdateMeshInput");
@@ -2955,8 +2796,7 @@ export interface UpdateMeshOutput {
 
 export namespace UpdateMeshOutput {
   export const filterSensitiveLog = (obj: UpdateMeshOutput): any => ({
-    ...obj,
-    ...(obj.mesh && { mesh: MeshData.filterSensitiveLog(obj.mesh) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateMeshOutput =>
     __isa(o, "UpdateMeshOutput");
@@ -2996,8 +2836,7 @@ export interface UpdateRouteInput {
 
 export namespace UpdateRouteInput {
   export const filterSensitiveLog = (obj: UpdateRouteInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: RouteSpec.filterSensitiveLog(obj.spec) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRouteInput =>
     __isa(o, "UpdateRouteInput");
@@ -3016,8 +2855,7 @@ export interface UpdateRouteOutput {
 
 export namespace UpdateRouteOutput {
   export const filterSensitiveLog = (obj: UpdateRouteOutput): any => ({
-    ...obj,
-    ...(obj.route && { route: RouteData.filterSensitiveLog(obj.route) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRouteOutput =>
     __isa(o, "UpdateRouteOutput");
@@ -3052,8 +2890,7 @@ export interface UpdateVirtualNodeInput {
 
 export namespace UpdateVirtualNodeInput {
   export const filterSensitiveLog = (obj: UpdateVirtualNodeInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVirtualNodeInput =>
     __isa(o, "UpdateVirtualNodeInput");
@@ -3072,10 +2909,7 @@ export interface UpdateVirtualNodeOutput {
 
 export namespace UpdateVirtualNodeOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualNodeOutput): any => ({
-    ...obj,
-    ...(obj.virtualNode && {
-      virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVirtualNodeOutput =>
     __isa(o, "UpdateVirtualNodeOutput");
@@ -3110,8 +2944,7 @@ export interface UpdateVirtualRouterInput {
 
 export namespace UpdateVirtualRouterInput {
   export const filterSensitiveLog = (obj: UpdateVirtualRouterInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: VirtualRouterSpec.filterSensitiveLog(obj.spec) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVirtualRouterInput =>
     __isa(o, "UpdateVirtualRouterInput");
@@ -3130,10 +2963,7 @@ export interface UpdateVirtualRouterOutput {
 
 export namespace UpdateVirtualRouterOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualRouterOutput): any => ({
-    ...obj,
-    ...(obj.virtualRouter && {
-      virtualRouter: VirtualRouterData.filterSensitiveLog(obj.virtualRouter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVirtualRouterOutput =>
     __isa(o, "UpdateVirtualRouterOutput");
@@ -3169,8 +2999,7 @@ export interface UpdateVirtualServiceInput {
 
 export namespace UpdateVirtualServiceInput {
   export const filterSensitiveLog = (obj: UpdateVirtualServiceInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVirtualServiceInput =>
     __isa(o, "UpdateVirtualServiceInput");
@@ -3189,10 +3018,7 @@ export interface UpdateVirtualServiceOutput {
 
 export namespace UpdateVirtualServiceOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualServiceOutput): any => ({
-    ...obj,
-    ...(obj.virtualService && {
-      virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVirtualServiceOutput =>
     __isa(o, "UpdateVirtualServiceOutput");
@@ -3231,14 +3057,7 @@ export interface VirtualNodeData {
 
 export namespace VirtualNodeData {
   export const filterSensitiveLog = (obj: VirtualNodeData): any => ({
-    ...obj,
-    ...(obj.metadata && {
-      metadata: ResourceMetadata.filterSensitiveLog(obj.metadata)
-    }),
-    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.status && {
-      status: VirtualNodeStatus.filterSensitiveLog(obj.status)
-    })
+    ...obj
   });
   export const isa = (o: any): o is VirtualNodeData =>
     __isa(o, "VirtualNodeData");
@@ -3322,11 +3141,7 @@ export interface VirtualNodeSpec {
 
 export namespace VirtualNodeSpec {
   export const filterSensitiveLog = (obj: VirtualNodeSpec): any => ({
-    ...obj,
-    ...(obj.listeners && {
-      listeners: obj.listeners.map(item => Listener.filterSensitiveLog(item))
-    }),
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) })
+    ...obj
   });
   export const isa = (o: any): o is VirtualNodeSpec =>
     __isa(o, "VirtualNodeSpec");
@@ -3390,14 +3205,7 @@ export interface VirtualRouterData {
 
 export namespace VirtualRouterData {
   export const filterSensitiveLog = (obj: VirtualRouterData): any => ({
-    ...obj,
-    ...(obj.metadata && {
-      metadata: ResourceMetadata.filterSensitiveLog(obj.metadata)
-    }),
-    ...(obj.spec && { spec: VirtualRouterSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.status && {
-      status: VirtualRouterStatus.filterSensitiveLog(obj.status)
-    })
+    ...obj
   });
   export const isa = (o: any): o is VirtualRouterData =>
     __isa(o, "VirtualRouterData");
@@ -3416,10 +3224,7 @@ export interface VirtualRouterListener {
 
 export namespace VirtualRouterListener {
   export const filterSensitiveLog = (obj: VirtualRouterListener): any => ({
-    ...obj,
-    ...(obj.portMapping && {
-      portMapping: PortMapping.filterSensitiveLog(obj.portMapping)
-    })
+    ...obj
   });
   export const isa = (o: any): o is VirtualRouterListener =>
     __isa(o, "VirtualRouterListener");
@@ -3489,12 +3294,7 @@ export interface VirtualRouterSpec {
 
 export namespace VirtualRouterSpec {
   export const filterSensitiveLog = (obj: VirtualRouterSpec): any => ({
-    ...obj,
-    ...(obj.listeners && {
-      listeners: obj.listeners.map(item =>
-        VirtualRouterListener.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is VirtualRouterSpec =>
     __isa(o, "VirtualRouterSpec");
@@ -3577,14 +3377,7 @@ export interface VirtualServiceData {
 
 export namespace VirtualServiceData {
   export const filterSensitiveLog = (obj: VirtualServiceData): any => ({
-    ...obj,
-    ...(obj.metadata && {
-      metadata: ResourceMetadata.filterSensitiveLog(obj.metadata)
-    }),
-    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.status && {
-      status: VirtualServiceStatus.filterSensitiveLog(obj.status)
-    })
+    ...obj
   });
   export const isa = (o: any): o is VirtualServiceData =>
     __isa(o, "VirtualServiceData");

@@ -113,12 +113,7 @@ export namespace CreateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (
     obj: CreateConfigurationSetEventDestinationRequest
   ): any => ({
-    ...obj,
-    ...(obj.EventDestination && {
-      EventDestination: EventDestinationDefinition.filterSensitiveLog(
-        obj.EventDestination
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -300,20 +295,7 @@ export interface EventDestination {
 
 export namespace EventDestination {
   export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj,
-    ...(obj.CloudWatchLogsDestination && {
-      CloudWatchLogsDestination: CloudWatchLogsDestination.filterSensitiveLog(
-        obj.CloudWatchLogsDestination
-      )
-    }),
-    ...(obj.KinesisFirehoseDestination && {
-      KinesisFirehoseDestination: KinesisFirehoseDestination.filterSensitiveLog(
-        obj.KinesisFirehoseDestination
-      )
-    }),
-    ...(obj.SnsDestination && {
-      SnsDestination: SnsDestination.filterSensitiveLog(obj.SnsDestination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventDestination =>
     __isa(o, "EventDestination");
@@ -352,20 +334,7 @@ export interface EventDestinationDefinition {
 
 export namespace EventDestinationDefinition {
   export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
-    ...obj,
-    ...(obj.CloudWatchLogsDestination && {
-      CloudWatchLogsDestination: CloudWatchLogsDestination.filterSensitiveLog(
-        obj.CloudWatchLogsDestination
-      )
-    }),
-    ...(obj.KinesisFirehoseDestination && {
-      KinesisFirehoseDestination: KinesisFirehoseDestination.filterSensitiveLog(
-        obj.KinesisFirehoseDestination
-      )
-    }),
-    ...(obj.SnsDestination && {
-      SnsDestination: SnsDestination.filterSensitiveLog(obj.SnsDestination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventDestinationDefinition =>
     __isa(o, "EventDestinationDefinition");
@@ -416,12 +385,7 @@ export namespace GetConfigurationSetEventDestinationsResponse {
   export const filterSensitiveLog = (
     obj: GetConfigurationSetEventDestinationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventDestinations && {
-      EventDestinations: obj.EventDestinations.map(item =>
-        EventDestination.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -650,10 +614,7 @@ export interface SendVoiceMessageRequest {
 
 export namespace SendVoiceMessageRequest {
   export const filterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
-    ...obj,
-    ...(obj.Content && {
-      Content: VoiceMessageContent.filterSensitiveLog(obj.Content)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendVoiceMessageRequest =>
     __isa(o, "SendVoiceMessageRequest");
@@ -741,12 +702,7 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (
     obj: UpdateConfigurationSetEventDestinationRequest
   ): any => ({
-    ...obj,
-    ...(obj.EventDestination && {
-      EventDestination: EventDestinationDefinition.filterSensitiveLog(
-        obj.EventDestination
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -796,20 +752,7 @@ export interface VoiceMessageContent {
 
 export namespace VoiceMessageContent {
   export const filterSensitiveLog = (obj: VoiceMessageContent): any => ({
-    ...obj,
-    ...(obj.CallInstructionsMessage && {
-      CallInstructionsMessage: CallInstructionsMessageType.filterSensitiveLog(
-        obj.CallInstructionsMessage
-      )
-    }),
-    ...(obj.PlainTextMessage && {
-      PlainTextMessage: PlainTextMessageType.filterSensitiveLog(
-        obj.PlainTextMessage
-      )
-    }),
-    ...(obj.SSMLMessage && {
-      SSMLMessage: SSMLMessageType.filterSensitiveLog(obj.SSMLMessage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is VoiceMessageContent =>
     __isa(o, "VoiceMessageContent");

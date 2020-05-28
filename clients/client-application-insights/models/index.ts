@@ -211,10 +211,7 @@ export interface CreateApplicationRequest {
 
 export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateApplicationRequest =>
     __isa(o, "CreateApplicationRequest");
@@ -230,10 +227,7 @@ export interface CreateApplicationResponse {
 
 export namespace CreateApplicationResponse {
   export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationInfo && {
-      ApplicationInfo: ApplicationInfo.filterSensitiveLog(obj.ApplicationInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateApplicationResponse =>
     __isa(o, "CreateApplicationResponse");
@@ -328,10 +322,7 @@ export interface CreateLogPatternResponse {
 
 export namespace CreateLogPatternResponse {
   export const filterSensitiveLog = (obj: CreateLogPatternResponse): any => ({
-    ...obj,
-    ...(obj.LogPattern && {
-      LogPattern: LogPattern.filterSensitiveLog(obj.LogPattern)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateLogPatternResponse =>
     __isa(o, "CreateLogPatternResponse");
@@ -464,10 +455,7 @@ export namespace DescribeApplicationResponse {
   export const filterSensitiveLog = (
     obj: DescribeApplicationResponse
   ): any => ({
-    ...obj,
-    ...(obj.ApplicationInfo && {
-      ApplicationInfo: ApplicationInfo.filterSensitiveLog(obj.ApplicationInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeApplicationResponse =>
     __isa(o, "DescribeApplicationResponse");
@@ -616,12 +604,7 @@ export interface DescribeComponentResponse {
 
 export namespace DescribeComponentResponse {
   export const filterSensitiveLog = (obj: DescribeComponentResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationComponent && {
-      ApplicationComponent: ApplicationComponent.filterSensitiveLog(
-        obj.ApplicationComponent
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeComponentResponse =>
     __isa(o, "DescribeComponentResponse");
@@ -668,10 +651,7 @@ export interface DescribeLogPatternResponse {
 
 export namespace DescribeLogPatternResponse {
   export const filterSensitiveLog = (obj: DescribeLogPatternResponse): any => ({
-    ...obj,
-    ...(obj.LogPattern && {
-      LogPattern: LogPattern.filterSensitiveLog(obj.LogPattern)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeLogPatternResponse =>
     __isa(o, "DescribeLogPatternResponse");
@@ -705,10 +685,7 @@ export namespace DescribeObservationResponse {
   export const filterSensitiveLog = (
     obj: DescribeObservationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Observation && {
-      Observation: Observation.filterSensitiveLog(obj.Observation)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeObservationResponse =>
     __isa(o, "DescribeObservationResponse");
@@ -744,12 +721,7 @@ export namespace DescribeProblemObservationsResponse {
   export const filterSensitiveLog = (
     obj: DescribeProblemObservationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.RelatedObservations && {
-      RelatedObservations: RelatedObservations.filterSensitiveLog(
-        obj.RelatedObservations
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeProblemObservationsResponse =>
     __isa(o, "DescribeProblemObservationsResponse");
@@ -781,8 +753,7 @@ export interface DescribeProblemResponse {
 
 export namespace DescribeProblemResponse {
   export const filterSensitiveLog = (obj: DescribeProblemResponse): any => ({
-    ...obj,
-    ...(obj.Problem && { Problem: Problem.filterSensitiveLog(obj.Problem) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeProblemResponse =>
     __isa(o, "DescribeProblemResponse");
@@ -849,12 +820,7 @@ export interface ListApplicationsResponse {
 
 export namespace ListApplicationsResponse {
   export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationInfoList && {
-      ApplicationInfoList: obj.ApplicationInfoList.map(item =>
-        ApplicationInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListApplicationsResponse =>
     __isa(o, "ListApplicationsResponse");
@@ -902,12 +868,7 @@ export interface ListComponentsResponse {
 
 export namespace ListComponentsResponse {
   export const filterSensitiveLog = (obj: ListComponentsResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationComponentList && {
-      ApplicationComponentList: obj.ApplicationComponentList.map(item =>
-        ApplicationComponent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListComponentsResponse =>
     __isa(o, "ListComponentsResponse");
@@ -986,12 +947,7 @@ export namespace ListConfigurationHistoryResponse {
   export const filterSensitiveLog = (
     obj: ListConfigurationHistoryResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventList && {
-      EventList: obj.EventList.map(item =>
-        ConfigurationEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListConfigurationHistoryResponse =>
     __isa(o, "ListConfigurationHistoryResponse");
@@ -1104,12 +1060,7 @@ export interface ListLogPatternsResponse {
 
 export namespace ListLogPatternsResponse {
   export const filterSensitiveLog = (obj: ListLogPatternsResponse): any => ({
-    ...obj,
-    ...(obj.LogPatterns && {
-      LogPatterns: obj.LogPatterns.map(item =>
-        LogPattern.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListLogPatternsResponse =>
     __isa(o, "ListLogPatternsResponse");
@@ -1170,10 +1121,7 @@ export interface ListProblemsResponse {
 
 export namespace ListProblemsResponse {
   export const filterSensitiveLog = (obj: ListProblemsResponse): any => ({
-    ...obj,
-    ...(obj.ProblemList && {
-      ProblemList: obj.ProblemList.map(item => Problem.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProblemsResponse =>
     __isa(o, "ListProblemsResponse");
@@ -1210,10 +1158,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1411,12 +1356,7 @@ export interface RelatedObservations {
 
 export namespace RelatedObservations {
   export const filterSensitiveLog = (obj: RelatedObservations): any => ({
-    ...obj,
-    ...(obj.ObservationList && {
-      ObservationList: obj.ObservationList.map(item =>
-        Observation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RelatedObservations =>
     __isa(o, "RelatedObservations");
@@ -1532,10 +1472,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -1686,10 +1623,7 @@ export interface UpdateApplicationResponse {
 
 export namespace UpdateApplicationResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationInfo && {
-      ApplicationInfo: ApplicationInfo.filterSensitiveLog(obj.ApplicationInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApplicationResponse =>
     __isa(o, "UpdateApplicationResponse");
@@ -1845,10 +1779,7 @@ export interface UpdateLogPatternResponse {
 
 export namespace UpdateLogPatternResponse {
   export const filterSensitiveLog = (obj: UpdateLogPatternResponse): any => ({
-    ...obj,
-    ...(obj.LogPattern && {
-      LogPattern: LogPattern.filterSensitiveLog(obj.LogPattern)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateLogPatternResponse =>
     __isa(o, "UpdateLogPatternResponse");

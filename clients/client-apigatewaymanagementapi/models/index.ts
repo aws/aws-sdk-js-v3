@@ -63,8 +63,7 @@ export interface GetConnectionResponse {
 
 export namespace GetConnectionResponse {
   export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
-    ...obj,
-    ...(obj.Identity && { Identity: Identity.filterSensitiveLog(obj.Identity) })
+    ...obj
   });
   export const isa = (o: any): o is GetConnectionResponse =>
     __isa(o, "GetConnectionResponse");

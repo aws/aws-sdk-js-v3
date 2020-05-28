@@ -65,15 +65,7 @@ export namespace CreateParticipantConnectionResponse {
   export const filterSensitiveLog = (
     obj: CreateParticipantConnectionResponse
   ): any => ({
-    ...obj,
-    ...(obj.ConnectionCredentials && {
-      ConnectionCredentials: ConnectionCredentials.filterSensitiveLog(
-        obj.ConnectionCredentials
-      )
-    }),
-    ...(obj.Websocket && {
-      Websocket: Websocket.filterSensitiveLog(obj.Websocket)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateParticipantConnectionResponse =>
     __isa(o, "CreateParticipantConnectionResponse");
@@ -159,10 +151,7 @@ export interface GetTranscriptRequest {
 
 export namespace GetTranscriptRequest {
   export const filterSensitiveLog = (obj: GetTranscriptRequest): any => ({
-    ...obj,
-    ...(obj.StartPosition && {
-      StartPosition: StartPosition.filterSensitiveLog(obj.StartPosition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTranscriptRequest =>
     __isa(o, "GetTranscriptRequest");
@@ -189,10 +178,7 @@ export interface GetTranscriptResponse {
 
 export namespace GetTranscriptResponse {
   export const filterSensitiveLog = (obj: GetTranscriptResponse): any => ({
-    ...obj,
-    ...(obj.Transcript && {
-      Transcript: obj.Transcript.map(item => Item.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTranscriptResponse =>
     __isa(o, "GetTranscriptResponse");

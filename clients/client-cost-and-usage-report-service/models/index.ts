@@ -120,12 +120,7 @@ export namespace DescribeReportDefinitionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeReportDefinitionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReportDefinitions && {
-      ReportDefinitions: obj.ReportDefinitions.map(item =>
-        ReportDefinition.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeReportDefinitionsResponse =>
     __isa(o, "DescribeReportDefinitionsResponse");
@@ -198,12 +193,7 @@ export namespace ModifyReportDefinitionRequest {
   export const filterSensitiveLog = (
     obj: ModifyReportDefinitionRequest
   ): any => ({
-    ...obj,
-    ...(obj.ReportDefinition && {
-      ReportDefinition: ReportDefinition.filterSensitiveLog(
-        obj.ReportDefinition
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyReportDefinitionRequest =>
     __isa(o, "ModifyReportDefinitionRequest");
@@ -237,12 +227,7 @@ export interface PutReportDefinitionRequest {
 
 export namespace PutReportDefinitionRequest {
   export const filterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
-    ...obj,
-    ...(obj.ReportDefinition && {
-      ReportDefinition: ReportDefinition.filterSensitiveLog(
-        obj.ReportDefinition
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutReportDefinitionRequest =>
     __isa(o, "PutReportDefinitionRequest");

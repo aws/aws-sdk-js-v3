@@ -279,12 +279,7 @@ export interface AliasConfiguration {
 
 export namespace AliasConfiguration {
   export const filterSensitiveLog = (obj: AliasConfiguration): any => ({
-    ...obj,
-    ...(obj.RoutingConfig && {
-      RoutingConfig: AliasRoutingConfiguration.filterSensitiveLog(
-        obj.RoutingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AliasConfiguration =>
     __isa(o, "AliasConfiguration");
@@ -401,12 +396,7 @@ export interface CreateAliasRequest {
 
 export namespace CreateAliasRequest {
   export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
-    ...obj,
-    ...(obj.RoutingConfig && {
-      RoutingConfig: AliasRoutingConfiguration.filterSensitiveLog(
-        obj.RoutingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAliasRequest =>
     __isa(o, "CreateAliasRequest");
@@ -532,12 +522,7 @@ export namespace CreateEventSourceMappingRequest {
   export const filterSensitiveLog = (
     obj: CreateEventSourceMappingRequest
   ): any => ({
-    ...obj,
-    ...(obj.DestinationConfig && {
-      DestinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.DestinationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEventSourceMappingRequest =>
     __isa(o, "CreateEventSourceMappingRequest");
@@ -660,19 +645,8 @@ export namespace CreateFunctionRequest {
   export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
     ...obj,
     ...(obj.Code && { Code: FunctionCode.filterSensitiveLog(obj.Code) }),
-    ...(obj.DeadLetterConfig && {
-      DeadLetterConfig: DeadLetterConfig.filterSensitiveLog(
-        obj.DeadLetterConfig
-      )
-    }),
     ...(obj.Environment && {
       Environment: Environment.filterSensitiveLog(obj.Environment)
-    }),
-    ...(obj.TracingConfig && {
-      TracingConfig: TracingConfig.filterSensitiveLog(obj.TracingConfig)
-    }),
-    ...(obj.VpcConfig && {
-      VpcConfig: VpcConfig.filterSensitiveLog(obj.VpcConfig)
     })
   });
   export const isa = (o: any): o is CreateFunctionRequest =>
@@ -957,13 +931,7 @@ export interface DestinationConfig {
 
 export namespace DestinationConfig {
   export const filterSensitiveLog = (obj: DestinationConfig): any => ({
-    ...obj,
-    ...(obj.OnFailure && {
-      OnFailure: OnFailure.filterSensitiveLog(obj.OnFailure)
-    }),
-    ...(obj.OnSuccess && {
-      OnSuccess: OnSuccess.filterSensitiveLog(obj.OnSuccess)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DestinationConfig =>
     __isa(o, "DestinationConfig");
@@ -1207,12 +1175,7 @@ export namespace EventSourceMappingConfiguration {
   export const filterSensitiveLog = (
     obj: EventSourceMappingConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.DestinationConfig && {
-      DestinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.DestinationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventSourceMappingConfiguration =>
     __isa(o, "EventSourceMappingConfiguration");
@@ -1428,22 +1391,8 @@ export interface FunctionConfiguration {
 export namespace FunctionConfiguration {
   export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
-    ...(obj.DeadLetterConfig && {
-      DeadLetterConfig: DeadLetterConfig.filterSensitiveLog(
-        obj.DeadLetterConfig
-      )
-    }),
     ...(obj.Environment && {
       Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment)
-    }),
-    ...(obj.Layers && {
-      Layers: obj.Layers.map(item => Layer.filterSensitiveLog(item))
-    }),
-    ...(obj.TracingConfig && {
-      TracingConfig: TracingConfigResponse.filterSensitiveLog(obj.TracingConfig)
-    }),
-    ...(obj.VpcConfig && {
-      VpcConfig: VpcConfigResponse.filterSensitiveLog(obj.VpcConfig)
     })
   });
   export const isa = (o: any): o is FunctionConfiguration =>
@@ -1501,12 +1450,7 @@ export interface FunctionEventInvokeConfig {
 
 export namespace FunctionEventInvokeConfig {
   export const filterSensitiveLog = (obj: FunctionEventInvokeConfig): any => ({
-    ...obj,
-    ...(obj.DestinationConfig && {
-      DestinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.DestinationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is FunctionEventInvokeConfig =>
     __isa(o, "FunctionEventInvokeConfig");
@@ -1543,13 +1487,7 @@ export interface GetAccountSettingsResponse {
 
 export namespace GetAccountSettingsResponse {
   export const filterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
-    ...obj,
-    ...(obj.AccountLimit && {
-      AccountLimit: AccountLimit.filterSensitiveLog(obj.AccountLimit)
-    }),
-    ...(obj.AccountUsage && {
-      AccountUsage: AccountUsage.filterSensitiveLog(obj.AccountUsage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAccountSettingsResponse =>
     __isa(o, "GetAccountSettingsResponse");
@@ -1819,12 +1757,6 @@ export interface GetFunctionResponse {
 export namespace GetFunctionResponse {
   export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
     ...obj,
-    ...(obj.Code && {
-      Code: FunctionCodeLocation.filterSensitiveLog(obj.Code)
-    }),
-    ...(obj.Concurrency && {
-      Concurrency: Concurrency.filterSensitiveLog(obj.Concurrency)
-    }),
     ...(obj.Configuration && {
       Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration)
     })
@@ -1963,10 +1895,7 @@ export interface GetLayerVersionResponse {
 
 export namespace GetLayerVersionResponse {
   export const filterSensitiveLog = (obj: GetLayerVersionResponse): any => ({
-    ...obj,
-    ...(obj.Content && {
-      Content: LayerVersionContentOutput.filterSensitiveLog(obj.Content)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetLayerVersionResponse =>
     __isa(o, "GetLayerVersionResponse");
@@ -2694,12 +2623,7 @@ export interface LayersListItem {
 
 export namespace LayersListItem {
   export const filterSensitiveLog = (obj: LayersListItem): any => ({
-    ...obj,
-    ...(obj.LatestMatchingVersion && {
-      LatestMatchingVersion: LayerVersionsListItem.filterSensitiveLog(
-        obj.LatestMatchingVersion
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LayersListItem =>
     __isa(o, "LayersListItem");
@@ -2770,12 +2694,7 @@ export interface ListAliasesResponse {
 
 export namespace ListAliasesResponse {
   export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
-    ...obj,
-    ...(obj.Aliases && {
-      Aliases: obj.Aliases.map(item =>
-        AliasConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAliasesResponse =>
     __isa(o, "ListAliasesResponse");
@@ -2868,12 +2787,7 @@ export namespace ListEventSourceMappingsResponse {
   export const filterSensitiveLog = (
     obj: ListEventSourceMappingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventSourceMappings && {
-      EventSourceMappings: obj.EventSourceMappings.map(item =>
-        EventSourceMappingConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListEventSourceMappingsResponse =>
     __isa(o, "ListEventSourceMappingsResponse");
@@ -2943,12 +2857,7 @@ export namespace ListFunctionEventInvokeConfigsResponse {
   export const filterSensitiveLog = (
     obj: ListFunctionEventInvokeConfigsResponse
   ): any => ({
-    ...obj,
-    ...(obj.FunctionEventInvokeConfigs && {
-      FunctionEventInvokeConfigs: obj.FunctionEventInvokeConfigs.map(item =>
-        FunctionEventInvokeConfig.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListFunctionEventInvokeConfigsResponse =>
     __isa(o, "ListFunctionEventInvokeConfigsResponse");
@@ -3062,12 +2971,7 @@ export interface ListLayerVersionsResponse {
 
 export namespace ListLayerVersionsResponse {
   export const filterSensitiveLog = (obj: ListLayerVersionsResponse): any => ({
-    ...obj,
-    ...(obj.LayerVersions && {
-      LayerVersions: obj.LayerVersions.map(item =>
-        LayerVersionsListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListLayerVersionsResponse =>
     __isa(o, "ListLayerVersionsResponse");
@@ -3114,10 +3018,7 @@ export interface ListLayersResponse {
 
 export namespace ListLayersResponse {
   export const filterSensitiveLog = (obj: ListLayersResponse): any => ({
-    ...obj,
-    ...(obj.Layers && {
-      Layers: obj.Layers.map(item => LayersListItem.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListLayersResponse =>
     __isa(o, "ListLayersResponse");
@@ -3187,12 +3088,7 @@ export namespace ListProvisionedConcurrencyConfigsResponse {
   export const filterSensitiveLog = (
     obj: ListProvisionedConcurrencyConfigsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ProvisionedConcurrencyConfigs && {
-      ProvisionedConcurrencyConfigs: obj.ProvisionedConcurrencyConfigs.map(
-        item => ProvisionedConcurrencyConfigListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProvisionedConcurrencyConfigsResponse =>
     __isa(o, "ListProvisionedConcurrencyConfigsResponse");
@@ -3581,10 +3477,7 @@ export namespace PublishLayerVersionResponse {
   export const filterSensitiveLog = (
     obj: PublishLayerVersionResponse
   ): any => ({
-    ...obj,
-    ...(obj.Content && {
-      Content: LayerVersionContentOutput.filterSensitiveLog(obj.Content)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PublishLayerVersionResponse =>
     __isa(o, "PublishLayerVersionResponse");
@@ -3757,12 +3650,7 @@ export namespace PutFunctionEventInvokeConfigRequest {
   export const filterSensitiveLog = (
     obj: PutFunctionEventInvokeConfigRequest
   ): any => ({
-    ...obj,
-    ...(obj.DestinationConfig && {
-      DestinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.DestinationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutFunctionEventInvokeConfigRequest =>
     __isa(o, "PutFunctionEventInvokeConfigRequest");
@@ -4339,12 +4227,7 @@ export interface UpdateAliasRequest {
 
 export namespace UpdateAliasRequest {
   export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
-    ...obj,
-    ...(obj.RoutingConfig && {
-      RoutingConfig: AliasRoutingConfiguration.filterSensitiveLog(
-        obj.RoutingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAliasRequest =>
     __isa(o, "UpdateAliasRequest");
@@ -4444,12 +4327,7 @@ export namespace UpdateEventSourceMappingRequest {
   export const filterSensitiveLog = (
     obj: UpdateEventSourceMappingRequest
   ): any => ({
-    ...obj,
-    ...(obj.DestinationConfig && {
-      DestinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.DestinationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEventSourceMappingRequest =>
     __isa(o, "UpdateEventSourceMappingRequest");
@@ -4638,19 +4516,8 @@ export namespace UpdateFunctionConfigurationRequest {
     obj: UpdateFunctionConfigurationRequest
   ): any => ({
     ...obj,
-    ...(obj.DeadLetterConfig && {
-      DeadLetterConfig: DeadLetterConfig.filterSensitiveLog(
-        obj.DeadLetterConfig
-      )
-    }),
     ...(obj.Environment && {
       Environment: Environment.filterSensitiveLog(obj.Environment)
-    }),
-    ...(obj.TracingConfig && {
-      TracingConfig: TracingConfig.filterSensitiveLog(obj.TracingConfig)
-    }),
-    ...(obj.VpcConfig && {
-      VpcConfig: VpcConfig.filterSensitiveLog(obj.VpcConfig)
     })
   });
   export const isa = (o: any): o is UpdateFunctionConfigurationRequest =>
@@ -4729,12 +4596,7 @@ export namespace UpdateFunctionEventInvokeConfigRequest {
   export const filterSensitiveLog = (
     obj: UpdateFunctionEventInvokeConfigRequest
   ): any => ({
-    ...obj,
-    ...(obj.DestinationConfig && {
-      DestinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.DestinationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateFunctionEventInvokeConfigRequest =>
     __isa(o, "UpdateFunctionEventInvokeConfigRequest");

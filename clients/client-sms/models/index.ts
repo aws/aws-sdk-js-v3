@@ -137,10 +137,7 @@ export interface AppSummary {
 
 export namespace AppSummary {
   export const filterSensitiveLog = (obj: AppSummary): any => ({
-    ...obj,
-    ...(obj.launchDetails && {
-      launchDetails: LaunchDetails.filterSensitiveLog(obj.launchDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AppSummary => __isa(o, "AppSummary");
 }
@@ -256,15 +253,7 @@ export interface CreateAppRequest {
 
 export namespace CreateAppRequest {
   export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
-    ...obj,
-    ...(obj.serverGroups && {
-      serverGroups: obj.serverGroups.map(item =>
-        ServerGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAppRequest =>
     __isa(o, "CreateAppRequest");
@@ -290,18 +279,7 @@ export interface CreateAppResponse {
 
 export namespace CreateAppResponse {
   export const filterSensitiveLog = (obj: CreateAppResponse): any => ({
-    ...obj,
-    ...(obj.appSummary && {
-      appSummary: AppSummary.filterSensitiveLog(obj.appSummary)
-    }),
-    ...(obj.serverGroups && {
-      serverGroups: obj.serverGroups.map(item =>
-        ServerGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAppResponse =>
     __isa(o, "CreateAppResponse");
@@ -633,10 +611,7 @@ export interface GenerateChangeSetResponse {
 
 export namespace GenerateChangeSetResponse {
   export const filterSensitiveLog = (obj: GenerateChangeSetResponse): any => ({
-    ...obj,
-    ...(obj.s3Location && {
-      s3Location: S3Location.filterSensitiveLog(obj.s3Location)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GenerateChangeSetResponse =>
     __isa(o, "GenerateChangeSetResponse");
@@ -673,10 +648,7 @@ export interface GenerateTemplateResponse {
 
 export namespace GenerateTemplateResponse {
   export const filterSensitiveLog = (obj: GenerateTemplateResponse): any => ({
-    ...obj,
-    ...(obj.s3Location && {
-      s3Location: S3Location.filterSensitiveLog(obj.s3Location)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GenerateTemplateResponse =>
     __isa(o, "GenerateTemplateResponse");
@@ -723,12 +695,7 @@ export namespace GetAppLaunchConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetAppLaunchConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.serverGroupLaunchConfigurations && {
-      serverGroupLaunchConfigurations: obj.serverGroupLaunchConfigurations.map(
-        item => ServerGroupLaunchConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAppLaunchConfigurationResponse =>
     __isa(o, "GetAppLaunchConfigurationResponse");
@@ -764,12 +731,7 @@ export namespace GetAppReplicationConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetAppReplicationConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.serverGroupReplicationConfigurations && {
-      serverGroupReplicationConfigurations: obj.serverGroupReplicationConfigurations.map(
-        item => ServerGroupReplicationConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAppReplicationConfigurationResponse =>
     __isa(o, "GetAppReplicationConfigurationResponse");
@@ -810,18 +772,7 @@ export interface GetAppResponse {
 
 export namespace GetAppResponse {
   export const filterSensitiveLog = (obj: GetAppResponse): any => ({
-    ...obj,
-    ...(obj.appSummary && {
-      appSummary: AppSummary.filterSensitiveLog(obj.appSummary)
-    }),
-    ...(obj.serverGroups && {
-      serverGroups: obj.serverGroups.map(item =>
-        ServerGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAppResponse =>
     __isa(o, "GetAppResponse");
@@ -866,12 +817,7 @@ export interface GetConnectorsResponse {
 
 export namespace GetConnectorsResponse {
   export const filterSensitiveLog = (obj: GetConnectorsResponse): any => ({
-    ...obj,
-    ...(obj.connectorList && {
-      connectorList: obj.connectorList.map(item =>
-        Connector.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetConnectorsResponse =>
     __isa(o, "GetConnectorsResponse");
@@ -921,12 +867,7 @@ export interface GetReplicationJobsResponse {
 
 export namespace GetReplicationJobsResponse {
   export const filterSensitiveLog = (obj: GetReplicationJobsResponse): any => ({
-    ...obj,
-    ...(obj.replicationJobList && {
-      replicationJobList: obj.replicationJobList.map(item =>
-        ReplicationJob.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetReplicationJobsResponse =>
     __isa(o, "GetReplicationJobsResponse");
@@ -981,15 +922,7 @@ export interface GetReplicationRunsResponse {
 
 export namespace GetReplicationRunsResponse {
   export const filterSensitiveLog = (obj: GetReplicationRunsResponse): any => ({
-    ...obj,
-    ...(obj.replicationJob && {
-      replicationJob: ReplicationJob.filterSensitiveLog(obj.replicationJob)
-    }),
-    ...(obj.replicationRunList && {
-      replicationRunList: obj.replicationRunList.map(item =>
-        ReplicationRun.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetReplicationRunsResponse =>
     __isa(o, "GetReplicationRunsResponse");
@@ -1017,12 +950,7 @@ export interface GetServersRequest {
 
 export namespace GetServersRequest {
   export const filterSensitiveLog = (obj: GetServersRequest): any => ({
-    ...obj,
-    ...(obj.vmServerAddressList && {
-      vmServerAddressList: obj.vmServerAddressList.map(item =>
-        VmServerAddress.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetServersRequest =>
     __isa(o, "GetServersRequest");
@@ -1054,10 +982,7 @@ export interface GetServersResponse {
 
 export namespace GetServersResponse {
   export const filterSensitiveLog = (obj: GetServersResponse): any => ({
-    ...obj,
-    ...(obj.serverList && {
-      serverList: obj.serverList.map(item => Server.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetServersResponse =>
     __isa(o, "GetServersResponse");
@@ -1230,10 +1155,7 @@ export interface ListAppsResponse {
 
 export namespace ListAppsResponse {
   export const filterSensitiveLog = (obj: ListAppsResponse): any => ({
-    ...obj,
-    ...(obj.apps && {
-      apps: obj.apps.map(item => AppSummary.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAppsResponse =>
     __isa(o, "ListAppsResponse");
@@ -1330,12 +1252,7 @@ export namespace PutAppLaunchConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutAppLaunchConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.serverGroupLaunchConfigurations && {
-      serverGroupLaunchConfigurations: obj.serverGroupLaunchConfigurations.map(
-        item => ServerGroupLaunchConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutAppLaunchConfigurationRequest =>
     __isa(o, "PutAppLaunchConfigurationRequest");
@@ -1372,12 +1289,7 @@ export namespace PutAppReplicationConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutAppReplicationConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.serverGroupReplicationConfigurations && {
-      serverGroupReplicationConfigurations: obj.serverGroupReplicationConfigurations.map(
-        item => ServerGroupReplicationConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutAppReplicationConfigurationRequest =>
     __isa(o, "PutAppReplicationConfigurationRequest");
@@ -1515,13 +1427,7 @@ export interface ReplicationJob {
 
 export namespace ReplicationJob {
   export const filterSensitiveLog = (obj: ReplicationJob): any => ({
-    ...obj,
-    ...(obj.replicationRunList && {
-      replicationRunList: obj.replicationRunList.map(item =>
-        ReplicationRun.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.vmServer && { vmServer: VmServer.filterSensitiveLog(obj.vmServer) })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationJob =>
     __isa(o, "ReplicationJob");
@@ -1662,12 +1568,7 @@ export interface ReplicationRun {
 
 export namespace ReplicationRun {
   export const filterSensitiveLog = (obj: ReplicationRun): any => ({
-    ...obj,
-    ...(obj.stageDetails && {
-      stageDetails: ReplicationRunStageDetails.filterSensitiveLog(
-        obj.stageDetails
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationRun =>
     __isa(o, "ReplicationRun");
@@ -1790,8 +1691,7 @@ export interface Server {
 
 export namespace Server {
   export const filterSensitiveLog = (obj: Server): any => ({
-    ...obj,
-    ...(obj.vmServer && { vmServer: VmServer.filterSensitiveLog(obj.vmServer) })
+    ...obj
   });
   export const isa = (o: any): o is Server => __isa(o, "Server");
 }
@@ -1848,10 +1748,7 @@ export interface ServerGroup {
 
 export namespace ServerGroup {
   export const filterSensitiveLog = (obj: ServerGroup): any => ({
-    ...obj,
-    ...(obj.serverList && {
-      serverList: obj.serverList.map(item => Server.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ServerGroup => __isa(o, "ServerGroup");
 }
@@ -1881,12 +1778,7 @@ export namespace ServerGroupLaunchConfiguration {
   export const filterSensitiveLog = (
     obj: ServerGroupLaunchConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.serverLaunchConfigurations && {
-      serverLaunchConfigurations: obj.serverLaunchConfigurations.map(item =>
-        ServerLaunchConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ServerGroupLaunchConfiguration =>
     __isa(o, "ServerGroupLaunchConfiguration");
@@ -1913,12 +1805,7 @@ export namespace ServerGroupReplicationConfiguration {
   export const filterSensitiveLog = (
     obj: ServerGroupReplicationConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.serverReplicationConfigurations && {
-      serverReplicationConfigurations: obj.serverReplicationConfigurations.map(
-        item => ServerReplicationConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ServerGroupReplicationConfiguration =>
     __isa(o, "ServerGroupReplicationConfiguration");
@@ -1977,9 +1864,7 @@ export interface ServerLaunchConfiguration {
 
 export namespace ServerLaunchConfiguration {
   export const filterSensitiveLog = (obj: ServerLaunchConfiguration): any => ({
-    ...obj,
-    ...(obj.server && { server: Server.filterSensitiveLog(obj.server) }),
-    ...(obj.userData && { userData: UserData.filterSensitiveLog(obj.userData) })
+    ...obj
   });
   export const isa = (o: any): o is ServerLaunchConfiguration =>
     __isa(o, "ServerLaunchConfiguration");
@@ -2005,13 +1890,7 @@ export namespace ServerReplicationConfiguration {
   export const filterSensitiveLog = (
     obj: ServerReplicationConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.server && { server: Server.filterSensitiveLog(obj.server) }),
-    ...(obj.serverReplicationParameters && {
-      serverReplicationParameters: ServerReplicationParameters.filterSensitiveLog(
-        obj.serverReplicationParameters
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ServerReplicationConfiguration =>
     __isa(o, "ServerReplicationConfiguration");
@@ -2318,15 +2197,7 @@ export interface UpdateAppRequest {
 
 export namespace UpdateAppRequest {
   export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
-    ...obj,
-    ...(obj.serverGroups && {
-      serverGroups: obj.serverGroups.map(item =>
-        ServerGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAppRequest =>
     __isa(o, "UpdateAppRequest");
@@ -2352,18 +2223,7 @@ export interface UpdateAppResponse {
 
 export namespace UpdateAppResponse {
   export const filterSensitiveLog = (obj: UpdateAppResponse): any => ({
-    ...obj,
-    ...(obj.appSummary && {
-      appSummary: AppSummary.filterSensitiveLog(obj.appSummary)
-    }),
-    ...(obj.serverGroups && {
-      serverGroups: obj.serverGroups.map(item =>
-        ServerGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAppResponse =>
     __isa(o, "UpdateAppResponse");
@@ -2476,10 +2336,7 @@ export interface UserData {
 
 export namespace UserData {
   export const filterSensitiveLog = (obj: UserData): any => ({
-    ...obj,
-    ...(obj.s3Location && {
-      s3Location: S3Location.filterSensitiveLog(obj.s3Location)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UserData => __isa(o, "UserData");
 }
@@ -2523,10 +2380,7 @@ export interface VmServer {
 
 export namespace VmServer {
   export const filterSensitiveLog = (obj: VmServer): any => ({
-    ...obj,
-    ...(obj.vmServerAddress && {
-      vmServerAddress: VmServerAddress.filterSensitiveLog(obj.vmServerAddress)
-    })
+    ...obj
   });
   export const isa = (o: any): o is VmServer => __isa(o, "VmServer");
 }

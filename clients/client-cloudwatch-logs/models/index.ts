@@ -359,12 +359,7 @@ export namespace DescribeDestinationsResponse {
   export const filterSensitiveLog = (
     obj: DescribeDestinationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.destinations && {
-      destinations: obj.destinations.map(item =>
-        Destination.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDestinationsResponse =>
     __isa(o, "DescribeDestinationsResponse");
@@ -418,12 +413,7 @@ export namespace DescribeExportTasksResponse {
   export const filterSensitiveLog = (
     obj: DescribeExportTasksResponse
   ): any => ({
-    ...obj,
-    ...(obj.exportTasks && {
-      exportTasks: obj.exportTasks.map(item =>
-        ExportTask.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeExportTasksResponse =>
     __isa(o, "DescribeExportTasksResponse");
@@ -470,10 +460,7 @@ export interface DescribeLogGroupsResponse {
 
 export namespace DescribeLogGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeLogGroupsResponse): any => ({
-    ...obj,
-    ...(obj.logGroups && {
-      logGroups: obj.logGroups.map(item => LogGroup.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeLogGroupsResponse =>
     __isa(o, "DescribeLogGroupsResponse");
@@ -547,10 +534,7 @@ export interface DescribeLogStreamsResponse {
 
 export namespace DescribeLogStreamsResponse {
   export const filterSensitiveLog = (obj: DescribeLogStreamsResponse): any => ({
-    ...obj,
-    ...(obj.logStreams && {
-      logStreams: obj.logStreams.map(item => LogStream.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeLogStreamsResponse =>
     __isa(o, "DescribeLogStreamsResponse");
@@ -618,12 +602,7 @@ export namespace DescribeMetricFiltersResponse {
   export const filterSensitiveLog = (
     obj: DescribeMetricFiltersResponse
   ): any => ({
-    ...obj,
-    ...(obj.metricFilters && {
-      metricFilters: obj.metricFilters.map(item =>
-        MetricFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeMetricFiltersResponse =>
     __isa(o, "DescribeMetricFiltersResponse");
@@ -676,10 +655,7 @@ export interface DescribeQueriesResponse {
 
 export namespace DescribeQueriesResponse {
   export const filterSensitiveLog = (obj: DescribeQueriesResponse): any => ({
-    ...obj,
-    ...(obj.queries && {
-      queries: obj.queries.map(item => QueryInfo.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeQueriesResponse =>
     __isa(o, "DescribeQueriesResponse");
@@ -725,12 +701,7 @@ export namespace DescribeResourcePoliciesResponse {
   export const filterSensitiveLog = (
     obj: DescribeResourcePoliciesResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourcePolicies && {
-      resourcePolicies: obj.resourcePolicies.map(item =>
-        ResourcePolicy.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeResourcePoliciesResponse =>
     __isa(o, "DescribeResourcePoliciesResponse");
@@ -786,12 +757,7 @@ export namespace DescribeSubscriptionFiltersResponse {
   export const filterSensitiveLog = (
     obj: DescribeSubscriptionFiltersResponse
   ): any => ({
-    ...obj,
-    ...(obj.subscriptionFilters && {
-      subscriptionFilters: obj.subscriptionFilters.map(item =>
-        SubscriptionFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSubscriptionFiltersResponse =>
     __isa(o, "DescribeSubscriptionFiltersResponse");
@@ -919,15 +885,7 @@ export interface ExportTask {
 
 export namespace ExportTask {
   export const filterSensitiveLog = (obj: ExportTask): any => ({
-    ...obj,
-    ...(obj.executionInfo && {
-      executionInfo: ExportTaskExecutionInfo.filterSensitiveLog(
-        obj.executionInfo
-      )
-    }),
-    ...(obj.status && {
-      status: ExportTaskStatus.filterSensitiveLog(obj.status)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExportTask => __isa(o, "ExportTask");
 }
@@ -1082,15 +1040,7 @@ export interface FilterLogEventsResponse {
 
 export namespace FilterLogEventsResponse {
   export const filterSensitiveLog = (obj: FilterLogEventsResponse): any => ({
-    ...obj,
-    ...(obj.events && {
-      events: obj.events.map(item => FilteredLogEvent.filterSensitiveLog(item))
-    }),
-    ...(obj.searchedLogStreams && {
-      searchedLogStreams: obj.searchedLogStreams.map(item =>
-        SearchedLogStream.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is FilterLogEventsResponse =>
     __isa(o, "FilterLogEventsResponse");
@@ -1214,10 +1164,7 @@ export interface GetLogEventsResponse {
 
 export namespace GetLogEventsResponse {
   export const filterSensitiveLog = (obj: GetLogEventsResponse): any => ({
-    ...obj,
-    ...(obj.events && {
-      events: obj.events.map(item => OutputLogEvent.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetLogEventsResponse =>
     __isa(o, "GetLogEventsResponse");
@@ -1259,12 +1206,7 @@ export interface GetLogGroupFieldsResponse {
 
 export namespace GetLogGroupFieldsResponse {
   export const filterSensitiveLog = (obj: GetLogGroupFieldsResponse): any => ({
-    ...obj,
-    ...(obj.logGroupFields && {
-      logGroupFields: obj.logGroupFields.map(item =>
-        LogGroupField.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetLogGroupFieldsResponse =>
     __isa(o, "GetLogGroupFieldsResponse");
@@ -1350,15 +1292,7 @@ export interface GetQueryResultsResponse {
 
 export namespace GetQueryResultsResponse {
   export const filterSensitiveLog = (obj: GetQueryResultsResponse): any => ({
-    ...obj,
-    ...(obj.results && {
-      results: obj.results.map(item =>
-        item.map(item => ResultField.filterSensitiveLog(item))
-      )
-    }),
-    ...(obj.statistics && {
-      statistics: QueryStatistics.filterSensitiveLog(obj.statistics)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetQueryResultsResponse =>
     __isa(o, "GetQueryResultsResponse");
@@ -1662,12 +1596,7 @@ export interface MalformedQueryException
 
 export namespace MalformedQueryException {
   export const filterSensitiveLog = (obj: MalformedQueryException): any => ({
-    ...obj,
-    ...(obj.queryCompileError && {
-      queryCompileError: QueryCompileError.filterSensitiveLog(
-        obj.queryCompileError
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MalformedQueryException =>
     __isa(o, "MalformedQueryException");
@@ -1710,12 +1639,7 @@ export interface MetricFilter {
 
 export namespace MetricFilter {
   export const filterSensitiveLog = (obj: MetricFilter): any => ({
-    ...obj,
-    ...(obj.metricTransformations && {
-      metricTransformations: obj.metricTransformations.map(item =>
-        MetricTransformation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MetricFilter => __isa(o, "MetricFilter");
 }
@@ -1901,10 +1825,7 @@ export interface PutDestinationResponse {
 
 export namespace PutDestinationResponse {
   export const filterSensitiveLog = (obj: PutDestinationResponse): any => ({
-    ...obj,
-    ...(obj.destination && {
-      destination: Destination.filterSensitiveLog(obj.destination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutDestinationResponse =>
     __isa(o, "PutDestinationResponse");
@@ -1939,12 +1860,7 @@ export interface PutLogEventsRequest {
 
 export namespace PutLogEventsRequest {
   export const filterSensitiveLog = (obj: PutLogEventsRequest): any => ({
-    ...obj,
-    ...(obj.logEvents && {
-      logEvents: obj.logEvents.map(item =>
-        InputLogEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutLogEventsRequest =>
     __isa(o, "PutLogEventsRequest");
@@ -1965,12 +1881,7 @@ export interface PutLogEventsResponse {
 
 export namespace PutLogEventsResponse {
   export const filterSensitiveLog = (obj: PutLogEventsResponse): any => ({
-    ...obj,
-    ...(obj.rejectedLogEventsInfo && {
-      rejectedLogEventsInfo: RejectedLogEventsInfo.filterSensitiveLog(
-        obj.rejectedLogEventsInfo
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutLogEventsResponse =>
     __isa(o, "PutLogEventsResponse");
@@ -2001,12 +1912,7 @@ export interface PutMetricFilterRequest {
 
 export namespace PutMetricFilterRequest {
   export const filterSensitiveLog = (obj: PutMetricFilterRequest): any => ({
-    ...obj,
-    ...(obj.metricTransformations && {
-      metricTransformations: obj.metricTransformations.map(item =>
-        MetricTransformation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutMetricFilterRequest =>
     __isa(o, "PutMetricFilterRequest");
@@ -2065,10 +1971,7 @@ export interface PutResourcePolicyResponse {
 
 export namespace PutResourcePolicyResponse {
   export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-    ...obj,
-    ...(obj.resourcePolicy && {
-      resourcePolicy: ResourcePolicy.filterSensitiveLog(obj.resourcePolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutResourcePolicyResponse =>
     __isa(o, "PutResourcePolicyResponse");
@@ -2184,10 +2087,7 @@ export interface QueryCompileError {
 
 export namespace QueryCompileError {
   export const filterSensitiveLog = (obj: QueryCompileError): any => ({
-    ...obj,
-    ...(obj.location && {
-      location: QueryCompileErrorLocation.filterSensitiveLog(obj.location)
-    })
+    ...obj
   });
   export const isa = (o: any): o is QueryCompileError =>
     __isa(o, "QueryCompileError");
@@ -2668,12 +2568,7 @@ export interface TestMetricFilterResponse {
 
 export namespace TestMetricFilterResponse {
   export const filterSensitiveLog = (obj: TestMetricFilterResponse): any => ({
-    ...obj,
-    ...(obj.matches && {
-      matches: obj.matches.map(item =>
-        MetricFilterMatchRecord.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TestMetricFilterResponse =>
     __isa(o, "TestMetricFilterResponse");

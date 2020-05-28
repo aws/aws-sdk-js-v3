@@ -38,8 +38,7 @@ export interface Ami {
 
 export namespace Ami {
   export const filterSensitiveLog = (obj: Ami): any => ({
-    ...obj,
-    ...(obj.state && { state: ImageState.filterSensitiveLog(obj.state) })
+    ...obj
   });
   export const isa = (o: any): o is Ami => __isa(o, "Ami");
 }
@@ -74,12 +73,7 @@ export namespace AmiDistributionConfiguration {
   export const filterSensitiveLog = (
     obj: AmiDistributionConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.launchPermission && {
-      launchPermission: LaunchPermissionConfiguration.filterSensitiveLog(
-        obj.launchPermission
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AmiDistributionConfiguration =>
     __isa(o, "AmiDistributionConfiguration");
@@ -515,12 +509,7 @@ export namespace CreateDistributionConfigurationRequest {
   export const filterSensitiveLog = (
     obj: CreateDistributionConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.distributions && {
-      distributions: obj.distributions.map(item =>
-        Distribution.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDistributionConfigurationRequest =>
     __isa(o, "CreateDistributionConfigurationRequest");
@@ -609,13 +598,7 @@ export interface CreateImagePipelineRequest {
 
 export namespace CreateImagePipelineRequest {
   export const filterSensitiveLog = (obj: CreateImagePipelineRequest): any => ({
-    ...obj,
-    ...(obj.imageTestsConfiguration && {
-      imageTestsConfiguration: ImageTestsConfiguration.filterSensitiveLog(
-        obj.imageTestsConfiguration
-      )
-    }),
-    ...(obj.schedule && { schedule: Schedule.filterSensitiveLog(obj.schedule) })
+    ...obj
   });
   export const isa = (o: any): o is CreateImagePipelineRequest =>
     __isa(o, "CreateImagePipelineRequest");
@@ -694,17 +677,7 @@ export interface CreateImageRecipeRequest {
 
 export namespace CreateImageRecipeRequest {
   export const filterSensitiveLog = (obj: CreateImageRecipeRequest): any => ({
-    ...obj,
-    ...(obj.blockDeviceMappings && {
-      blockDeviceMappings: obj.blockDeviceMappings.map(item =>
-        InstanceBlockDeviceMapping.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.components && {
-      components: obj.components.map(item =>
-        ComponentConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateImageRecipeRequest =>
     __isa(o, "CreateImageRecipeRequest");
@@ -771,12 +744,7 @@ export interface CreateImageRequest {
 
 export namespace CreateImageRequest {
   export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
-    ...obj,
-    ...(obj.imageTestsConfiguration && {
-      imageTestsConfiguration: ImageTestsConfiguration.filterSensitiveLog(
-        obj.imageTestsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateImageRequest =>
     __isa(o, "CreateImageRequest");
@@ -875,8 +843,7 @@ export namespace CreateInfrastructureConfigurationRequest {
   export const filterSensitiveLog = (
     obj: CreateInfrastructureConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) })
+    ...obj
   });
   export const isa = (o: any): o is CreateInfrastructureConfigurationRequest =>
     __isa(o, "CreateInfrastructureConfigurationRequest");
@@ -1165,12 +1132,7 @@ export interface Distribution {
 
 export namespace Distribution {
   export const filterSensitiveLog = (obj: Distribution): any => ({
-    ...obj,
-    ...(obj.amiDistributionConfiguration && {
-      amiDistributionConfiguration: AmiDistributionConfiguration.filterSensitiveLog(
-        obj.amiDistributionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Distribution => __isa(o, "Distribution");
 }
@@ -1223,12 +1185,7 @@ export interface DistributionConfiguration {
 
 export namespace DistributionConfiguration {
   export const filterSensitiveLog = (obj: DistributionConfiguration): any => ({
-    ...obj,
-    ...(obj.distributions && {
-      distributions: obj.distributions.map(item =>
-        Distribution.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DistributionConfiguration =>
     __isa(o, "DistributionConfiguration");
@@ -1447,10 +1404,7 @@ export interface GetComponentResponse {
 
 export namespace GetComponentResponse {
   export const filterSensitiveLog = (obj: GetComponentResponse): any => ({
-    ...obj,
-    ...(obj.component && {
-      component: Component.filterSensitiveLog(obj.component)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetComponentResponse =>
     __isa(o, "GetComponentResponse");
@@ -1491,12 +1445,7 @@ export namespace GetDistributionConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetDistributionConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.distributionConfiguration && {
-      distributionConfiguration: DistributionConfiguration.filterSensitiveLog(
-        obj.distributionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDistributionConfigurationResponse =>
     __isa(o, "GetDistributionConfigurationResponse");
@@ -1533,10 +1482,7 @@ export interface GetImagePipelineResponse {
 
 export namespace GetImagePipelineResponse {
   export const filterSensitiveLog = (obj: GetImagePipelineResponse): any => ({
-    ...obj,
-    ...(obj.imagePipeline && {
-      imagePipeline: ImagePipeline.filterSensitiveLog(obj.imagePipeline)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetImagePipelineResponse =>
     __isa(o, "GetImagePipelineResponse");
@@ -1651,10 +1597,7 @@ export interface GetImageRecipeResponse {
 
 export namespace GetImageRecipeResponse {
   export const filterSensitiveLog = (obj: GetImageRecipeResponse): any => ({
-    ...obj,
-    ...(obj.imageRecipe && {
-      imageRecipe: ImageRecipe.filterSensitiveLog(obj.imageRecipe)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetImageRecipeResponse =>
     __isa(o, "GetImageRecipeResponse");
@@ -1691,8 +1634,7 @@ export interface GetImageResponse {
 
 export namespace GetImageResponse {
   export const filterSensitiveLog = (obj: GetImageResponse): any => ({
-    ...obj,
-    ...(obj.image && { image: Image.filterSensitiveLog(obj.image) })
+    ...obj
   });
   export const isa = (o: any): o is GetImageResponse =>
     __isa(o, "GetImageResponse");
@@ -1739,12 +1681,7 @@ export namespace GetInfrastructureConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetInfrastructureConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.infrastructureConfiguration && {
-      infrastructureConfiguration: InfrastructureConfiguration.filterSensitiveLog(
-        obj.infrastructureConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetInfrastructureConfigurationResponse =>
     __isa(o, "GetInfrastructureConfigurationResponse");
@@ -1849,29 +1786,7 @@ export interface Image {
 
 export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-    ...(obj.distributionConfiguration && {
-      distributionConfiguration: DistributionConfiguration.filterSensitiveLog(
-        obj.distributionConfiguration
-      )
-    }),
-    ...(obj.imageRecipe && {
-      imageRecipe: ImageRecipe.filterSensitiveLog(obj.imageRecipe)
-    }),
-    ...(obj.imageTestsConfiguration && {
-      imageTestsConfiguration: ImageTestsConfiguration.filterSensitiveLog(
-        obj.imageTestsConfiguration
-      )
-    }),
-    ...(obj.infrastructureConfiguration && {
-      infrastructureConfiguration: InfrastructureConfiguration.filterSensitiveLog(
-        obj.infrastructureConfiguration
-      )
-    }),
-    ...(obj.outputResources && {
-      outputResources: OutputResources.filterSensitiveLog(obj.outputResources)
-    }),
-    ...(obj.state && { state: ImageState.filterSensitiveLog(obj.state) })
+    ...obj
   });
   export const isa = (o: any): o is Image => __isa(o, "Image");
 }
@@ -1959,13 +1874,7 @@ export interface ImagePipeline {
 
 export namespace ImagePipeline {
   export const filterSensitiveLog = (obj: ImagePipeline): any => ({
-    ...obj,
-    ...(obj.imageTestsConfiguration && {
-      imageTestsConfiguration: ImageTestsConfiguration.filterSensitiveLog(
-        obj.imageTestsConfiguration
-      )
-    }),
-    ...(obj.schedule && { schedule: Schedule.filterSensitiveLog(obj.schedule) })
+    ...obj
   });
   export const isa = (o: any): o is ImagePipeline => __isa(o, "ImagePipeline");
 }
@@ -2033,17 +1942,7 @@ export interface ImageRecipe {
 
 export namespace ImageRecipe {
   export const filterSensitiveLog = (obj: ImageRecipe): any => ({
-    ...obj,
-    ...(obj.blockDeviceMappings && {
-      blockDeviceMappings: obj.blockDeviceMappings.map(item =>
-        InstanceBlockDeviceMapping.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.components && {
-      components: obj.components.map(item =>
-        ComponentConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ImageRecipe => __isa(o, "ImageRecipe");
 }
@@ -2187,11 +2086,7 @@ export interface ImageSummary {
 
 export namespace ImageSummary {
   export const filterSensitiveLog = (obj: ImageSummary): any => ({
-    ...obj,
-    ...(obj.outputResources && {
-      outputResources: OutputResources.filterSensitiveLog(obj.outputResources)
-    }),
-    ...(obj.state && { state: ImageState.filterSensitiveLog(obj.state) })
+    ...obj
   });
   export const isa = (o: any): o is ImageSummary => __isa(o, "ImageSummary");
 }
@@ -2440,8 +2335,7 @@ export namespace InfrastructureConfiguration {
   export const filterSensitiveLog = (
     obj: InfrastructureConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) })
+    ...obj
   });
   export const isa = (o: any): o is InfrastructureConfiguration =>
     __isa(o, "InfrastructureConfiguration");
@@ -2521,10 +2415,7 @@ export interface InstanceBlockDeviceMapping {
 
 export namespace InstanceBlockDeviceMapping {
   export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
-    ...obj,
-    ...(obj.ebs && {
-      ebs: EbsInstanceBlockDeviceSpecification.filterSensitiveLog(obj.ebs)
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceBlockDeviceMapping =>
     __isa(o, "InstanceBlockDeviceMapping");
@@ -2728,12 +2619,7 @@ export namespace ListComponentBuildVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListComponentBuildVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.componentSummaryList && {
-      componentSummaryList: obj.componentSummaryList.map(item =>
-        ComponentSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListComponentBuildVersionsResponse =>
     __isa(o, "ListComponentBuildVersionsResponse");
@@ -2764,10 +2650,7 @@ export interface ListComponentsRequest {
 
 export namespace ListComponentsRequest {
   export const filterSensitiveLog = (obj: ListComponentsRequest): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListComponentsRequest =>
     __isa(o, "ListComponentsRequest");
@@ -2793,12 +2676,7 @@ export interface ListComponentsResponse {
 
 export namespace ListComponentsResponse {
   export const filterSensitiveLog = (obj: ListComponentsResponse): any => ({
-    ...obj,
-    ...(obj.componentVersionList && {
-      componentVersionList: obj.componentVersionList.map(item =>
-        ComponentVersion.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListComponentsResponse =>
     __isa(o, "ListComponentsResponse");
@@ -2826,10 +2704,7 @@ export namespace ListDistributionConfigurationsRequest {
   export const filterSensitiveLog = (
     obj: ListDistributionConfigurationsRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDistributionConfigurationsRequest =>
     __isa(o, "ListDistributionConfigurationsRequest");
@@ -2857,12 +2732,7 @@ export namespace ListDistributionConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: ListDistributionConfigurationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.distributionConfigurationSummaryList && {
-      distributionConfigurationSummaryList: obj.distributionConfigurationSummaryList.map(
-        item => DistributionConfigurationSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDistributionConfigurationsResponse =>
     __isa(o, "ListDistributionConfigurationsResponse");
@@ -2895,10 +2765,7 @@ export namespace ListImageBuildVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListImageBuildVersionsRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImageBuildVersionsRequest =>
     __isa(o, "ListImageBuildVersionsRequest");
@@ -2926,12 +2793,7 @@ export namespace ListImageBuildVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListImageBuildVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.imageSummaryList && {
-      imageSummaryList: obj.imageSummaryList.map(item =>
-        ImageSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImageBuildVersionsResponse =>
     __isa(o, "ListImageBuildVersionsResponse");
@@ -2964,10 +2826,7 @@ export namespace ListImagePipelineImagesRequest {
   export const filterSensitiveLog = (
     obj: ListImagePipelineImagesRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImagePipelineImagesRequest =>
     __isa(o, "ListImagePipelineImagesRequest");
@@ -2995,12 +2854,7 @@ export namespace ListImagePipelineImagesResponse {
   export const filterSensitiveLog = (
     obj: ListImagePipelineImagesResponse
   ): any => ({
-    ...obj,
-    ...(obj.imageSummaryList && {
-      imageSummaryList: obj.imageSummaryList.map(item =>
-        ImageSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImagePipelineImagesResponse =>
     __isa(o, "ListImagePipelineImagesResponse");
@@ -3026,10 +2880,7 @@ export interface ListImagePipelinesRequest {
 
 export namespace ListImagePipelinesRequest {
   export const filterSensitiveLog = (obj: ListImagePipelinesRequest): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImagePipelinesRequest =>
     __isa(o, "ListImagePipelinesRequest");
@@ -3055,12 +2906,7 @@ export interface ListImagePipelinesResponse {
 
 export namespace ListImagePipelinesResponse {
   export const filterSensitiveLog = (obj: ListImagePipelinesResponse): any => ({
-    ...obj,
-    ...(obj.imagePipelineList && {
-      imagePipelineList: obj.imagePipelineList.map(item =>
-        ImagePipeline.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImagePipelinesResponse =>
     __isa(o, "ListImagePipelinesResponse");
@@ -3091,10 +2937,7 @@ export interface ListImageRecipesRequest {
 
 export namespace ListImageRecipesRequest {
   export const filterSensitiveLog = (obj: ListImageRecipesRequest): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImageRecipesRequest =>
     __isa(o, "ListImageRecipesRequest");
@@ -3120,12 +2963,7 @@ export interface ListImageRecipesResponse {
 
 export namespace ListImageRecipesResponse {
   export const filterSensitiveLog = (obj: ListImageRecipesResponse): any => ({
-    ...obj,
-    ...(obj.imageRecipeSummaryList && {
-      imageRecipeSummaryList: obj.imageRecipeSummaryList.map(item =>
-        ImageRecipeSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImageRecipesResponse =>
     __isa(o, "ListImageRecipesResponse");
@@ -3156,10 +2994,7 @@ export interface ListImagesRequest {
 
 export namespace ListImagesRequest {
   export const filterSensitiveLog = (obj: ListImagesRequest): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImagesRequest =>
     __isa(o, "ListImagesRequest");
@@ -3185,12 +3020,7 @@ export interface ListImagesResponse {
 
 export namespace ListImagesResponse {
   export const filterSensitiveLog = (obj: ListImagesResponse): any => ({
-    ...obj,
-    ...(obj.imageVersionList && {
-      imageVersionList: obj.imageVersionList.map(item =>
-        ImageVersion.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListImagesResponse =>
     __isa(o, "ListImagesResponse");
@@ -3218,10 +3048,7 @@ export namespace ListInfrastructureConfigurationsRequest {
   export const filterSensitiveLog = (
     obj: ListInfrastructureConfigurationsRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListInfrastructureConfigurationsRequest =>
     __isa(o, "ListInfrastructureConfigurationsRequest");
@@ -3249,12 +3076,7 @@ export namespace ListInfrastructureConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: ListInfrastructureConfigurationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.infrastructureConfigurationSummaryList && {
-      infrastructureConfigurationSummaryList: obj.infrastructureConfigurationSummaryList.map(
-        item => InfrastructureConfigurationSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListInfrastructureConfigurationsResponse =>
     __isa(o, "ListInfrastructureConfigurationsResponse");
@@ -3307,8 +3129,7 @@ export interface Logging {
 
 export namespace Logging {
   export const filterSensitiveLog = (obj: Logging): any => ({
-    ...obj,
-    ...(obj.s3Logs && { s3Logs: S3Logs.filterSensitiveLog(obj.s3Logs) })
+    ...obj
   });
   export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
@@ -3326,10 +3147,7 @@ export interface OutputResources {
 
 export namespace OutputResources {
   export const filterSensitiveLog = (obj: OutputResources): any => ({
-    ...obj,
-    ...(obj.amis && {
-      amis: obj.amis.map(item => Ami.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is OutputResources =>
     __isa(o, "OutputResources");
@@ -3794,12 +3612,7 @@ export namespace UpdateDistributionConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateDistributionConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.distributions && {
-      distributions: obj.distributions.map(item =>
-        Distribution.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDistributionConfigurationRequest =>
     __isa(o, "UpdateDistributionConfigurationRequest");
@@ -3883,13 +3696,7 @@ export interface UpdateImagePipelineRequest {
 
 export namespace UpdateImagePipelineRequest {
   export const filterSensitiveLog = (obj: UpdateImagePipelineRequest): any => ({
-    ...obj,
-    ...(obj.imageTestsConfiguration && {
-      imageTestsConfiguration: ImageTestsConfiguration.filterSensitiveLog(
-        obj.imageTestsConfiguration
-      )
-    }),
-    ...(obj.schedule && { schedule: Schedule.filterSensitiveLog(obj.schedule) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateImagePipelineRequest =>
     __isa(o, "UpdateImagePipelineRequest");
@@ -3985,8 +3792,7 @@ export namespace UpdateInfrastructureConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateInfrastructureConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateInfrastructureConfigurationRequest =>
     __isa(o, "UpdateInfrastructureConfigurationRequest");

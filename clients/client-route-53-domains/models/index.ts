@@ -187,12 +187,7 @@ export namespace CheckDomainTransferabilityResponse {
   export const filterSensitiveLog = (
     obj: CheckDomainTransferabilityResponse
   ): any => ({
-    ...obj,
-    ...(obj.Transferability && {
-      Transferability: DomainTransferability.filterSensitiveLog(
-        obj.Transferability
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CheckDomainTransferabilityResponse =>
     __isa(o, "CheckDomainTransferabilityResponse");
@@ -282,12 +277,7 @@ export interface ContactDetail {
 
 export namespace ContactDetail {
   export const filterSensitiveLog = (obj: ContactDetail): any => ({
-    ...obj,
-    ...(obj.ExtraParams && {
-      ExtraParams: obj.ExtraParams.map(item =>
-        ExtraParam.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ContactDetail => __isa(o, "ContactDetail");
 }
@@ -1243,11 +1233,6 @@ export namespace GetDomainDetailResponse {
   export const filterSensitiveLog = (obj: GetDomainDetailResponse): any => ({
     ...obj,
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
-    ...(obj.Nameservers && {
-      Nameservers: obj.Nameservers.map(item =>
-        Nameserver.filterSensitiveLog(item)
-      )
-    }),
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
   });
@@ -1302,12 +1287,7 @@ export namespace GetDomainSuggestionsResponse {
   export const filterSensitiveLog = (
     obj: GetDomainSuggestionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.SuggestionsList && {
-      SuggestionsList: obj.SuggestionsList.map(item =>
-        DomainSuggestion.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDomainSuggestionsResponse =>
     __isa(o, "GetDomainSuggestionsResponse");
@@ -1447,10 +1427,7 @@ export interface ListDomainsResponse {
 
 export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
-    ...obj,
-    ...(obj.Domains && {
-      Domains: obj.Domains.map(item => DomainSummary.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDomainsResponse =>
     __isa(o, "ListDomainsResponse");
@@ -1509,12 +1486,7 @@ export interface ListOperationsResponse {
 
 export namespace ListOperationsResponse {
   export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
-    ...obj,
-    ...(obj.Operations && {
-      Operations: obj.Operations.map(item =>
-        OperationSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListOperationsResponse =>
     __isa(o, "ListOperationsResponse");
@@ -1552,10 +1524,7 @@ export interface ListTagsForDomainResponse {
 
 export namespace ListTagsForDomainResponse {
   export const filterSensitiveLog = (obj: ListTagsForDomainResponse): any => ({
-    ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForDomainResponse =>
     __isa(o, "ListTagsForDomainResponse");
@@ -2066,11 +2035,6 @@ export namespace TransferDomainRequest {
     ...obj,
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
-    ...(obj.Nameservers && {
-      Nameservers: obj.Nameservers.map(item =>
-        Nameserver.filterSensitiveLog(item)
-      )
-    }),
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
   });
@@ -2277,12 +2241,7 @@ export namespace UpdateDomainNameserversRequest {
   export const filterSensitiveLog = (
     obj: UpdateDomainNameserversRequest
   ): any => ({
-    ...obj,
-    ...(obj.Nameservers && {
-      Nameservers: obj.Nameservers.map(item =>
-        Nameserver.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDomainNameserversRequest =>
     __isa(o, "UpdateDomainNameserversRequest");
@@ -2329,10 +2288,7 @@ export interface UpdateTagsForDomainRequest {
 
 export namespace UpdateTagsForDomainRequest {
   export const filterSensitiveLog = (obj: UpdateTagsForDomainRequest): any => ({
-    ...obj,
-    ...(obj.TagsToUpdate && {
-      TagsToUpdate: obj.TagsToUpdate.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateTagsForDomainRequest =>
     __isa(o, "UpdateTagsForDomainRequest");
@@ -2414,12 +2370,7 @@ export interface ViewBillingResponse {
 
 export namespace ViewBillingResponse {
   export const filterSensitiveLog = (obj: ViewBillingResponse): any => ({
-    ...obj,
-    ...(obj.BillingRecords && {
-      BillingRecords: obj.BillingRecords.map(item =>
-        BillingRecord.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ViewBillingResponse =>
     __isa(o, "ViewBillingResponse");

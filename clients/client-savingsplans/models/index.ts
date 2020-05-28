@@ -63,12 +63,7 @@ export namespace DescribeSavingsPlansOfferingRatesRequest {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingRatesRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        SavingsPlanOfferingRateFilterElement.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlansOfferingRatesRequest =>
     __isa(o, "DescribeSavingsPlansOfferingRatesRequest");
@@ -92,12 +87,7 @@ export namespace DescribeSavingsPlansOfferingRatesResponse {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingRatesResponse
   ): any => ({
-    ...obj,
-    ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(item =>
-        SavingsPlanOfferingRate.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlansOfferingRatesResponse =>
     __isa(o, "DescribeSavingsPlansOfferingRatesResponse");
@@ -176,12 +166,7 @@ export namespace DescribeSavingsPlansOfferingsRequest {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingsRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        SavingsPlanOfferingFilterElement.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlansOfferingsRequest =>
     __isa(o, "DescribeSavingsPlansOfferingsRequest");
@@ -205,12 +190,7 @@ export namespace DescribeSavingsPlansOfferingsResponse {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(item =>
-        SavingsPlanOffering.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlansOfferingsResponse =>
     __isa(o, "DescribeSavingsPlansOfferingsResponse");
@@ -323,12 +303,7 @@ export interface SavingsPlanOffering {
 
 export namespace SavingsPlanOffering {
   export const filterSensitiveLog = (obj: SavingsPlanOffering): any => ({
-    ...obj,
-    ...(obj.properties && {
-      properties: obj.properties.map(item =>
-        SavingsPlanOfferingProperty.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlanOffering =>
     __isa(o, "SavingsPlanOffering");
@@ -444,17 +419,7 @@ export interface SavingsPlanOfferingRate {
 
 export namespace SavingsPlanOfferingRate {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingRate): any => ({
-    ...obj,
-    ...(obj.properties && {
-      properties: obj.properties.map(item =>
-        SavingsPlanOfferingRateProperty.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.savingsPlanOffering && {
-      savingsPlanOffering: ParentSavingsPlanOffering.filterSensitiveLog(
-        obj.savingsPlanOffering
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlanOfferingRate =>
     __isa(o, "SavingsPlanOfferingRate");
@@ -662,12 +627,7 @@ export namespace DescribeSavingsPlanRatesRequest {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlanRatesRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        SavingsPlanRateFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlanRatesRequest =>
     __isa(o, "DescribeSavingsPlanRatesRequest");
@@ -696,12 +656,7 @@ export namespace DescribeSavingsPlanRatesResponse {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlanRatesResponse
   ): any => ({
-    ...obj,
-    ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(item =>
-        SavingsPlanRate.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlanRatesResponse =>
     __isa(o, "DescribeSavingsPlanRatesResponse");
@@ -745,12 +700,7 @@ export namespace DescribeSavingsPlansRequest {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        SavingsPlanFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlansRequest =>
     __isa(o, "DescribeSavingsPlansRequest");
@@ -774,12 +724,7 @@ export namespace DescribeSavingsPlansResponse {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansResponse
   ): any => ({
-    ...obj,
-    ...(obj.savingsPlans && {
-      savingsPlans: obj.savingsPlans.map(item =>
-        SavingsPlan.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSavingsPlansResponse =>
     __isa(o, "DescribeSavingsPlansResponse");
@@ -1032,12 +977,7 @@ export interface SavingsPlanRate {
 
 export namespace SavingsPlanRate {
   export const filterSensitiveLog = (obj: SavingsPlanRate): any => ({
-    ...obj,
-    ...(obj.properties && {
-      properties: obj.properties.map(item =>
-        SavingsPlanRateProperty.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlanRate =>
     __isa(o, "SavingsPlanRate");

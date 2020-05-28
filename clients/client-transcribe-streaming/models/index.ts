@@ -23,10 +23,7 @@ export interface Alternative {
 
 export namespace Alternative {
   export const filterSensitiveLog = (obj: Alternative): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Item.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Alternative => __isa(o, "Alternative");
 }
@@ -256,12 +253,7 @@ export interface Result {
 
 export namespace Result {
   export const filterSensitiveLog = (obj: Result): any => ({
-    ...obj,
-    ...(obj.Alternatives && {
-      Alternatives: obj.Alternatives.map(item =>
-        Alternative.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Result => __isa(o, "Result");
 }
@@ -377,10 +369,7 @@ export interface Transcript {
 
 export namespace Transcript {
   export const filterSensitiveLog = (obj: Transcript): any => ({
-    ...obj,
-    ...(obj.Results && {
-      Results: obj.Results.map(item => Result.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Transcript => __isa(o, "Transcript");
 }
@@ -400,10 +389,7 @@ export interface TranscriptEvent {
 
 export namespace TranscriptEvent {
   export const filterSensitiveLog = (obj: TranscriptEvent): any => ({
-    ...obj,
-    ...(obj.Transcript && {
-      Transcript: Transcript.filterSensitiveLog(obj.Transcript)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TranscriptEvent =>
     __isa(o, "TranscriptEvent");

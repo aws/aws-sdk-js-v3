@@ -127,12 +127,7 @@ export interface GetIceServerConfigResponse {
 
 export namespace GetIceServerConfigResponse {
   export const filterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
-    ...obj,
-    ...(obj.IceServerList && {
-      IceServerList: obj.IceServerList.map(item =>
-        IceServer.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetIceServerConfigResponse =>
     __isa(o, "GetIceServerConfigResponse");

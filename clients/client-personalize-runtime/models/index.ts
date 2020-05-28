@@ -56,12 +56,7 @@ export namespace GetPersonalizedRankingResponse {
   export const filterSensitiveLog = (
     obj: GetPersonalizedRankingResponse
   ): any => ({
-    ...obj,
-    ...(obj.personalizedRanking && {
-      personalizedRanking: obj.personalizedRanking.map(item =>
-        PredictedItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPersonalizedRankingResponse =>
     __isa(o, "GetPersonalizedRankingResponse");
@@ -120,10 +115,7 @@ export interface GetRecommendationsResponse {
 
 export namespace GetRecommendationsResponse {
   export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-    ...obj,
-    ...(obj.itemList && {
-      itemList: obj.itemList.map(item => PredictedItem.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRecommendationsResponse =>
     __isa(o, "GetRecommendationsResponse");

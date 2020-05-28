@@ -192,15 +192,7 @@ export interface AssumeRoleRequest {
 
 export namespace AssumeRoleRequest {
   export const filterSensitiveLog = (obj: AssumeRoleRequest): any => ({
-    ...obj,
-    ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        PolicyDescriptorType.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssumeRoleRequest =>
     __isa(o, "AssumeRoleRequest");
@@ -241,13 +233,7 @@ export interface AssumeRoleResponse {
 
 export namespace AssumeRoleResponse {
   export const filterSensitiveLog = (obj: AssumeRoleResponse): any => ({
-    ...obj,
-    ...(obj.AssumedRoleUser && {
-      AssumedRoleUser: AssumedRoleUser.filterSensitiveLog(obj.AssumedRoleUser)
-    }),
-    ...(obj.Credentials && {
-      Credentials: Credentials.filterSensitiveLog(obj.Credentials)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssumeRoleResponse =>
     __isa(o, "AssumeRoleResponse");
@@ -354,12 +340,7 @@ export interface AssumeRoleWithSAMLRequest {
 
 export namespace AssumeRoleWithSAMLRequest {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
-    ...obj,
-    ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        PolicyDescriptorType.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssumeRoleWithSAMLRequest =>
     __isa(o, "AssumeRoleWithSAMLRequest");
@@ -438,13 +419,7 @@ export interface AssumeRoleWithSAMLResponse {
 
 export namespace AssumeRoleWithSAMLResponse {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
-    ...obj,
-    ...(obj.AssumedRoleUser && {
-      AssumedRoleUser: AssumedRoleUser.filterSensitiveLog(obj.AssumedRoleUser)
-    }),
-    ...(obj.Credentials && {
-      Credentials: Credentials.filterSensitiveLog(obj.Credentials)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssumeRoleWithSAMLResponse =>
     __isa(o, "AssumeRoleWithSAMLResponse");
@@ -567,12 +542,7 @@ export namespace AssumeRoleWithWebIdentityRequest {
   export const filterSensitiveLog = (
     obj: AssumeRoleWithWebIdentityRequest
   ): any => ({
-    ...obj,
-    ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        PolicyDescriptorType.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest =>
     __isa(o, "AssumeRoleWithWebIdentityRequest");
@@ -640,13 +610,7 @@ export namespace AssumeRoleWithWebIdentityResponse {
   export const filterSensitiveLog = (
     obj: AssumeRoleWithWebIdentityResponse
   ): any => ({
-    ...obj,
-    ...(obj.AssumedRoleUser && {
-      AssumedRoleUser: AssumedRoleUser.filterSensitiveLog(obj.AssumedRoleUser)
-    }),
-    ...(obj.Credentials && {
-      Credentials: Credentials.filterSensitiveLog(obj.Credentials)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssumeRoleWithWebIdentityResponse =>
     __isa(o, "AssumeRoleWithWebIdentityResponse");
@@ -1004,15 +968,7 @@ export interface GetFederationTokenRequest {
 
 export namespace GetFederationTokenRequest {
   export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
-    ...obj,
-    ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        PolicyDescriptorType.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetFederationTokenRequest =>
     __isa(o, "GetFederationTokenRequest");
@@ -1052,13 +1008,7 @@ export interface GetFederationTokenResponse {
 
 export namespace GetFederationTokenResponse {
   export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
-    ...obj,
-    ...(obj.Credentials && {
-      Credentials: Credentials.filterSensitiveLog(obj.Credentials)
-    }),
-    ...(obj.FederatedUser && {
-      FederatedUser: FederatedUser.filterSensitiveLog(obj.FederatedUser)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetFederationTokenResponse =>
     __isa(o, "GetFederationTokenResponse");
@@ -1128,10 +1078,7 @@ export interface GetSessionTokenResponse {
 
 export namespace GetSessionTokenResponse {
   export const filterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
-    ...obj,
-    ...(obj.Credentials && {
-      Credentials: Credentials.filterSensitiveLog(obj.Credentials)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSessionTokenResponse =>
     __isa(o, "GetSessionTokenResponse");

@@ -233,10 +233,7 @@ export namespace CreateSecretRequest {
   export const filterSensitiveLog = (obj: CreateSecretRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is CreateSecretRequest =>
     __isa(o, "CreateSecretRequest");
@@ -547,13 +544,7 @@ export interface DescribeSecretResponse {
 
 export namespace DescribeSecretResponse {
   export const filterSensitiveLog = (obj: DescribeSecretResponse): any => ({
-    ...obj,
-    ...(obj.RotationRules && {
-      RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSecretResponse =>
     __isa(o, "DescribeSecretResponse");
@@ -1040,12 +1031,7 @@ export namespace ListSecretVersionIdsResponse {
   export const filterSensitiveLog = (
     obj: ListSecretVersionIdsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Versions && {
-      Versions: obj.Versions.map(item =>
-        SecretVersionsListEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSecretVersionIdsResponse =>
     __isa(o, "ListSecretVersionIdsResponse");
@@ -1103,12 +1089,7 @@ export interface ListSecretsResponse {
 
 export namespace ListSecretsResponse {
   export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
-    ...obj,
-    ...(obj.SecretList && {
-      SecretList: obj.SecretList.map(item =>
-        SecretListEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSecretsResponse =>
     __isa(o, "ListSecretsResponse");
@@ -1496,10 +1477,7 @@ export interface RotateSecretRequest {
 
 export namespace RotateSecretRequest {
   export const filterSensitiveLog = (obj: RotateSecretRequest): any => ({
-    ...obj,
-    ...(obj.RotationRules && {
-      RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RotateSecretRequest =>
     __isa(o, "RotateSecretRequest");
@@ -1651,13 +1629,7 @@ export interface SecretListEntry {
 
 export namespace SecretListEntry {
   export const filterSensitiveLog = (obj: SecretListEntry): any => ({
-    ...obj,
-    ...(obj.RotationRules && {
-      RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is SecretListEntry =>
     __isa(o, "SecretListEntry");
@@ -1755,10 +1727,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

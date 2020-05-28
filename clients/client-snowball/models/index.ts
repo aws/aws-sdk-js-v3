@@ -316,13 +316,7 @@ export interface ClusterMetadata {
 
 export namespace ClusterMetadata {
   export const filterSensitiveLog = (obj: ClusterMetadata): any => ({
-    ...obj,
-    ...(obj.Notification && {
-      Notification: Notification.filterSensitiveLog(obj.Notification)
-    }),
-    ...(obj.Resources && {
-      Resources: JobResource.filterSensitiveLog(obj.Resources)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterMetadata =>
     __isa(o, "ClusterMetadata");
@@ -373,8 +367,7 @@ export interface CreateAddressRequest {
 
 export namespace CreateAddressRequest {
   export const filterSensitiveLog = (obj: CreateAddressRequest): any => ({
-    ...obj,
-    ...(obj.Address && { Address: Address.filterSensitiveLog(obj.Address) })
+    ...obj
   });
   export const isa = (o: any): o is CreateAddressRequest =>
     __isa(o, "CreateAddressRequest");
@@ -483,13 +476,7 @@ export interface CreateClusterRequest {
 
 export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-    ...(obj.Notification && {
-      Notification: Notification.filterSensitiveLog(obj.Notification)
-    }),
-    ...(obj.Resources && {
-      Resources: JobResource.filterSensitiveLog(obj.Resources)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterRequest =>
     __isa(o, "CreateClusterRequest");
@@ -619,13 +606,7 @@ export interface CreateJobRequest {
 
 export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj,
-    ...(obj.Notification && {
-      Notification: Notification.filterSensitiveLog(obj.Notification)
-    }),
-    ...(obj.Resources && {
-      Resources: JobResource.filterSensitiveLog(obj.Resources)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateJobRequest =>
     __isa(o, "CreateJobRequest");
@@ -712,8 +693,7 @@ export interface DescribeAddressResult {
 
 export namespace DescribeAddressResult {
   export const filterSensitiveLog = (obj: DescribeAddressResult): any => ({
-    ...obj,
-    ...(obj.Address && { Address: Address.filterSensitiveLog(obj.Address) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAddressResult =>
     __isa(o, "DescribeAddressResult");
@@ -759,10 +739,7 @@ export interface DescribeAddressesResult {
 
 export namespace DescribeAddressesResult {
   export const filterSensitiveLog = (obj: DescribeAddressesResult): any => ({
-    ...obj,
-    ...(obj.Addresses && {
-      Addresses: obj.Addresses.map(item => Address.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAddressesResult =>
     __isa(o, "DescribeAddressesResult");
@@ -795,10 +772,7 @@ export interface DescribeClusterResult {
 
 export namespace DescribeClusterResult {
   export const filterSensitiveLog = (obj: DescribeClusterResult): any => ({
-    ...obj,
-    ...(obj.ClusterMetadata && {
-      ClusterMetadata: ClusterMetadata.filterSensitiveLog(obj.ClusterMetadata)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeClusterResult =>
     __isa(o, "DescribeClusterResult");
@@ -838,15 +812,7 @@ export interface DescribeJobResult {
 
 export namespace DescribeJobResult {
   export const filterSensitiveLog = (obj: DescribeJobResult): any => ({
-    ...obj,
-    ...(obj.JobMetadata && {
-      JobMetadata: JobMetadata.filterSensitiveLog(obj.JobMetadata)
-    }),
-    ...(obj.SubJobMetadata && {
-      SubJobMetadata: obj.SubJobMetadata.map(item =>
-        JobMetadata.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeJobResult =>
     __isa(o, "DescribeJobResult");
@@ -1377,24 +1343,7 @@ export interface JobMetadata {
 
 export namespace JobMetadata {
   export const filterSensitiveLog = (obj: JobMetadata): any => ({
-    ...obj,
-    ...(obj.DataTransferProgress && {
-      DataTransferProgress: DataTransfer.filterSensitiveLog(
-        obj.DataTransferProgress
-      )
-    }),
-    ...(obj.JobLogInfo && {
-      JobLogInfo: JobLogs.filterSensitiveLog(obj.JobLogInfo)
-    }),
-    ...(obj.Notification && {
-      Notification: Notification.filterSensitiveLog(obj.Notification)
-    }),
-    ...(obj.Resources && {
-      Resources: JobResource.filterSensitiveLog(obj.Resources)
-    }),
-    ...(obj.ShippingDetails && {
-      ShippingDetails: ShippingDetails.filterSensitiveLog(obj.ShippingDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is JobMetadata => __isa(o, "JobMetadata");
 }
@@ -1424,22 +1373,7 @@ export interface JobResource {
 
 export namespace JobResource {
   export const filterSensitiveLog = (obj: JobResource): any => ({
-    ...obj,
-    ...(obj.Ec2AmiResources && {
-      Ec2AmiResources: obj.Ec2AmiResources.map(item =>
-        Ec2AmiResource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.LambdaResources && {
-      LambdaResources: obj.LambdaResources.map(item =>
-        LambdaResource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.S3Resources && {
-      S3Resources: obj.S3Resources.map(item =>
-        S3Resource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is JobResource => __isa(o, "JobResource");
 }
@@ -1533,12 +1467,7 @@ export interface LambdaResource {
 
 export namespace LambdaResource {
   export const filterSensitiveLog = (obj: LambdaResource): any => ({
-    ...obj,
-    ...(obj.EventTriggers && {
-      EventTriggers: obj.EventTriggers.map(item =>
-        EventTriggerDefinition.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LambdaResource =>
     __isa(o, "LambdaResource");
@@ -1591,12 +1520,7 @@ export interface ListClusterJobsResult {
 
 export namespace ListClusterJobsResult {
   export const filterSensitiveLog = (obj: ListClusterJobsResult): any => ({
-    ...obj,
-    ...(obj.JobListEntries && {
-      JobListEntries: obj.JobListEntries.map(item =>
-        JobListEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListClusterJobsResult =>
     __isa(o, "ListClusterJobsResult");
@@ -1643,12 +1567,7 @@ export interface ListClustersResult {
 
 export namespace ListClustersResult {
   export const filterSensitiveLog = (obj: ListClustersResult): any => ({
-    ...obj,
-    ...(obj.ClusterListEntries && {
-      ClusterListEntries: obj.ClusterListEntries.map(item =>
-        ClusterListEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListClustersResult =>
     __isa(o, "ListClustersResult");
@@ -1697,12 +1616,7 @@ export interface ListCompatibleImagesResult {
 
 export namespace ListCompatibleImagesResult {
   export const filterSensitiveLog = (obj: ListCompatibleImagesResult): any => ({
-    ...obj,
-    ...(obj.CompatibleImages && {
-      CompatibleImages: obj.CompatibleImages.map(item =>
-        CompatibleImage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListCompatibleImagesResult =>
     __isa(o, "ListCompatibleImagesResult");
@@ -1749,12 +1663,7 @@ export interface ListJobsResult {
 
 export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
-    ...obj,
-    ...(obj.JobListEntries && {
-      JobListEntries: obj.JobListEntries.map(item =>
-        JobListEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListJobsResult =>
     __isa(o, "ListJobsResult");
@@ -1826,8 +1735,7 @@ export interface S3Resource {
 
 export namespace S3Resource {
   export const filterSensitiveLog = (obj: S3Resource): any => ({
-    ...obj,
-    ...(obj.KeyRange && { KeyRange: KeyRange.filterSensitiveLog(obj.KeyRange) })
+    ...obj
   });
   export const isa = (o: any): o is S3Resource => __isa(o, "S3Resource");
 }
@@ -1907,13 +1815,7 @@ export interface ShippingDetails {
 
 export namespace ShippingDetails {
   export const filterSensitiveLog = (obj: ShippingDetails): any => ({
-    ...obj,
-    ...(obj.InboundShipment && {
-      InboundShipment: Shipment.filterSensitiveLog(obj.InboundShipment)
-    }),
-    ...(obj.OutboundShipment && {
-      OutboundShipment: Shipment.filterSensitiveLog(obj.OutboundShipment)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ShippingDetails =>
     __isa(o, "ShippingDetails");
@@ -2015,13 +1917,7 @@ export interface UpdateClusterRequest {
 
 export namespace UpdateClusterRequest {
   export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
-    ...obj,
-    ...(obj.Notification && {
-      Notification: Notification.filterSensitiveLog(obj.Notification)
-    }),
-    ...(obj.Resources && {
-      Resources: JobResource.filterSensitiveLog(obj.Resources)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateClusterRequest =>
     __isa(o, "UpdateClusterRequest");
@@ -2095,13 +1991,7 @@ export interface UpdateJobRequest {
 
 export namespace UpdateJobRequest {
   export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
-    ...obj,
-    ...(obj.Notification && {
-      Notification: Notification.filterSensitiveLog(obj.Notification)
-    }),
-    ...(obj.Resources && {
-      Resources: JobResource.filterSensitiveLog(obj.Resources)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateJobRequest =>
     __isa(o, "UpdateJobRequest");

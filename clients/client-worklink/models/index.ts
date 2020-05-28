@@ -985,10 +985,7 @@ export interface ListDevicesResponse {
 
 export namespace ListDevicesResponse {
   export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-    ...(obj.Devices && {
-      Devices: obj.Devices.map(item => DeviceSummary.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDevicesResponse =>
     __isa(o, "ListDevicesResponse");
@@ -1037,10 +1034,7 @@ export interface ListDomainsResponse {
 
 export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
-    ...obj,
-    ...(obj.Domains && {
-      Domains: obj.Domains.map(item => DomainSummary.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDomainsResponse =>
     __isa(o, "ListDomainsResponse");
@@ -1084,12 +1078,7 @@ export interface ListFleetsResponse {
 
 export namespace ListFleetsResponse {
   export const filterSensitiveLog = (obj: ListFleetsResponse): any => ({
-    ...obj,
-    ...(obj.FleetSummaryList && {
-      FleetSummaryList: obj.FleetSummaryList.map(item =>
-        FleetSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListFleetsResponse =>
     __isa(o, "ListFleetsResponse");
@@ -1140,12 +1129,7 @@ export namespace ListWebsiteAuthorizationProvidersResponse {
   export const filterSensitiveLog = (
     obj: ListWebsiteAuthorizationProvidersResponse
   ): any => ({
-    ...obj,
-    ...(obj.WebsiteAuthorizationProviders && {
-      WebsiteAuthorizationProviders: obj.WebsiteAuthorizationProviders.map(
-        item => WebsiteAuthorizationProviderSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListWebsiteAuthorizationProvidersResponse =>
     __isa(o, "ListWebsiteAuthorizationProvidersResponse");
@@ -1199,12 +1183,7 @@ export namespace ListWebsiteCertificateAuthoritiesResponse {
   export const filterSensitiveLog = (
     obj: ListWebsiteCertificateAuthoritiesResponse
   ): any => ({
-    ...obj,
-    ...(obj.WebsiteCertificateAuthorities && {
-      WebsiteCertificateAuthorities: obj.WebsiteCertificateAuthorities.map(
-        item => WebsiteCaSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListWebsiteCertificateAuthoritiesResponse =>
     __isa(o, "ListWebsiteCertificateAuthoritiesResponse");

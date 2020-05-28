@@ -120,12 +120,7 @@ export interface ChannelInfo {
 
 export namespace ChannelInfo {
   export const filterSensitiveLog = (obj: ChannelInfo): any => ({
-    ...obj,
-    ...(obj.SingleMasterConfiguration && {
-      SingleMasterConfiguration: SingleMasterConfiguration.filterSensitiveLog(
-        obj.SingleMasterConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChannelInfo => __isa(o, "ChannelInfo");
 }
@@ -228,15 +223,7 @@ export namespace CreateSignalingChannelInput {
   export const filterSensitiveLog = (
     obj: CreateSignalingChannelInput
   ): any => ({
-    ...obj,
-    ...(obj.SingleMasterConfiguration && {
-      SingleMasterConfiguration: SingleMasterConfiguration.filterSensitiveLog(
-        obj.SingleMasterConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSignalingChannelInput =>
     __isa(o, "CreateSignalingChannelInput");
@@ -453,10 +440,7 @@ export namespace DescribeSignalingChannelOutput {
   export const filterSensitiveLog = (
     obj: DescribeSignalingChannelOutput
   ): any => ({
-    ...obj,
-    ...(obj.ChannelInfo && {
-      ChannelInfo: ChannelInfo.filterSensitiveLog(obj.ChannelInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSignalingChannelOutput =>
     __isa(o, "DescribeSignalingChannelOutput");
@@ -493,10 +477,7 @@ export interface DescribeStreamOutput {
 
 export namespace DescribeStreamOutput {
   export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
-    ...obj,
-    ...(obj.StreamInfo && {
-      StreamInfo: StreamInfo.filterSensitiveLog(obj.StreamInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStreamOutput =>
     __isa(o, "DescribeStreamOutput");
@@ -588,12 +569,7 @@ export namespace GetSignalingChannelEndpointInput {
   export const filterSensitiveLog = (
     obj: GetSignalingChannelEndpointInput
   ): any => ({
-    ...obj,
-    ...(obj.SingleMasterChannelEndpointConfiguration && {
-      SingleMasterChannelEndpointConfiguration: SingleMasterChannelEndpointConfiguration.filterSensitiveLog(
-        obj.SingleMasterChannelEndpointConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSignalingChannelEndpointInput =>
     __isa(o, "GetSignalingChannelEndpointInput");
@@ -611,12 +587,7 @@ export namespace GetSignalingChannelEndpointOutput {
   export const filterSensitiveLog = (
     obj: GetSignalingChannelEndpointOutput
   ): any => ({
-    ...obj,
-    ...(obj.ResourceEndpointList && {
-      ResourceEndpointList: obj.ResourceEndpointList.map(item =>
-        ResourceEndpointListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSignalingChannelEndpointOutput =>
     __isa(o, "GetSignalingChannelEndpointOutput");
@@ -703,12 +674,7 @@ export interface ListSignalingChannelsInput {
 
 export namespace ListSignalingChannelsInput {
   export const filterSensitiveLog = (obj: ListSignalingChannelsInput): any => ({
-    ...obj,
-    ...(obj.ChannelNameCondition && {
-      ChannelNameCondition: ChannelNameCondition.filterSensitiveLog(
-        obj.ChannelNameCondition
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSignalingChannelsInput =>
     __isa(o, "ListSignalingChannelsInput");
@@ -732,12 +698,7 @@ export namespace ListSignalingChannelsOutput {
   export const filterSensitiveLog = (
     obj: ListSignalingChannelsOutput
   ): any => ({
-    ...obj,
-    ...(obj.ChannelInfoList && {
-      ChannelInfoList: obj.ChannelInfoList.map(item =>
-        ChannelInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSignalingChannelsOutput =>
     __isa(o, "ListSignalingChannelsOutput");
@@ -767,12 +728,7 @@ export interface ListStreamsInput {
 
 export namespace ListStreamsInput {
   export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
-    ...obj,
-    ...(obj.StreamNameCondition && {
-      StreamNameCondition: StreamNameCondition.filterSensitiveLog(
-        obj.StreamNameCondition
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStreamsInput =>
     __isa(o, "ListStreamsInput");
@@ -794,12 +750,7 @@ export interface ListStreamsOutput {
 
 export namespace ListStreamsOutput {
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
-    ...obj,
-    ...(obj.StreamInfoList && {
-      StreamInfoList: obj.StreamInfoList.map(item =>
-        StreamInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStreamsOutput =>
     __isa(o, "ListStreamsOutput");
@@ -1176,10 +1127,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
@@ -1411,12 +1359,7 @@ export namespace UpdateSignalingChannelInput {
   export const filterSensitiveLog = (
     obj: UpdateSignalingChannelInput
   ): any => ({
-    ...obj,
-    ...(obj.SingleMasterConfiguration && {
-      SingleMasterConfiguration: SingleMasterConfiguration.filterSensitiveLog(
-        obj.SingleMasterConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateSignalingChannelInput =>
     __isa(o, "UpdateSignalingChannelInput");

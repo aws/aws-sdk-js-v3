@@ -123,10 +123,7 @@ export interface Api {
 
 export namespace Api {
   export const filterSensitiveLog = (obj: Api): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Api => __isa(o, "Api");
 }
@@ -225,12 +222,7 @@ export interface Authorizer {
 
 export namespace Authorizer {
   export const filterSensitiveLog = (obj: Authorizer): any => ({
-    ...obj,
-    ...(obj.JwtConfiguration && {
-      JwtConfiguration: JWTConfiguration.filterSensitiveLog(
-        obj.JwtConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Authorizer => __isa(o, "Authorizer");
 }
@@ -468,10 +460,7 @@ export interface CreateApiRequest {
 
 export namespace CreateApiRequest {
   export const filterSensitiveLog = (obj: CreateApiRequest): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateApiRequest =>
     __isa(o, "CreateApiRequest");
@@ -552,10 +541,7 @@ export interface CreateApiResponse {
 
 export namespace CreateApiResponse {
   export const filterSensitiveLog = (obj: CreateApiResponse): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateApiResponse =>
     __isa(o, "CreateApiResponse");
@@ -615,12 +601,7 @@ export interface CreateAuthorizerRequest {
 
 export namespace CreateAuthorizerRequest {
   export const filterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
-    ...obj,
-    ...(obj.JwtConfiguration && {
-      JwtConfiguration: JWTConfiguration.filterSensitiveLog(
-        obj.JwtConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAuthorizerRequest =>
     __isa(o, "CreateAuthorizerRequest");
@@ -677,12 +658,7 @@ export interface CreateAuthorizerResponse {
 
 export namespace CreateAuthorizerResponse {
   export const filterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
-    ...obj,
-    ...(obj.JwtConfiguration && {
-      JwtConfiguration: JWTConfiguration.filterSensitiveLog(
-        obj.JwtConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAuthorizerResponse =>
     __isa(o, "CreateAuthorizerResponse");
@@ -781,12 +757,7 @@ export interface CreateDomainNameRequest {
 
 export namespace CreateDomainNameRequest {
   export const filterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
-    ...obj,
-    ...(obj.DomainNameConfigurations && {
-      DomainNameConfigurations: obj.DomainNameConfigurations.map(item =>
-        DomainNameConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDomainNameRequest =>
     __isa(o, "CreateDomainNameRequest");
@@ -817,12 +788,7 @@ export interface CreateDomainNameResponse {
 
 export namespace CreateDomainNameResponse {
   export const filterSensitiveLog = (obj: CreateDomainNameResponse): any => ({
-    ...obj,
-    ...(obj.DomainNameConfigurations && {
-      DomainNameConfigurations: obj.DomainNameConfigurations.map(item =>
-        DomainNameConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDomainNameResponse =>
     __isa(o, "CreateDomainNameResponse");
@@ -1260,16 +1226,7 @@ export interface CreateRouteRequest {
 
 export namespace CreateRouteRequest {
   export const filterSensitiveLog = (obj: CreateRouteRequest): any => ({
-    ...obj,
-    ...(obj.RequestParameters && {
-      RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateRouteRequest =>
     __isa(o, "CreateRouteRequest");
@@ -1313,16 +1270,7 @@ export interface CreateRouteResponseRequest {
 
 export namespace CreateRouteResponseRequest {
   export const filterSensitiveLog = (obj: CreateRouteResponseRequest): any => ({
-    ...obj,
-    ...(obj.ResponseParameters && {
-      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateRouteResponseRequest =>
     __isa(o, "CreateRouteResponseRequest");
@@ -1360,16 +1308,7 @@ export namespace CreateRouteResponseResponse {
   export const filterSensitiveLog = (
     obj: CreateRouteResponseResponse
   ): any => ({
-    ...obj,
-    ...(obj.ResponseParameters && {
-      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateRouteResponseResponse =>
     __isa(o, "CreateRouteResponseResponse");
@@ -1445,16 +1384,7 @@ export interface CreateRouteResult {
 
 export namespace CreateRouteResult {
   export const filterSensitiveLog = (obj: CreateRouteResult): any => ({
-    ...obj,
-    ...(obj.RequestParameters && {
-      RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateRouteResult =>
     __isa(o, "CreateRouteResult");
@@ -1523,26 +1453,7 @@ export interface CreateStageRequest {
 
 export namespace CreateStageRequest {
   export const filterSensitiveLog = (obj: CreateStageRequest): any => ({
-    ...obj,
-    ...(obj.AccessLogSettings && {
-      AccessLogSettings: AccessLogSettings.filterSensitiveLog(
-        obj.AccessLogSettings
-      )
-    }),
-    ...(obj.DefaultRouteSettings && {
-      DefaultRouteSettings: RouteSettings.filterSensitiveLog(
-        obj.DefaultRouteSettings
-      )
-    }),
-    ...(obj.RouteSettings && {
-      RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => ({
-          ...acc,
-          [key]: RouteSettings.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateStageRequest =>
     __isa(o, "CreateStageRequest");
@@ -1623,26 +1534,7 @@ export interface CreateStageResponse {
 
 export namespace CreateStageResponse {
   export const filterSensitiveLog = (obj: CreateStageResponse): any => ({
-    ...obj,
-    ...(obj.AccessLogSettings && {
-      AccessLogSettings: AccessLogSettings.filterSensitiveLog(
-        obj.AccessLogSettings
-      )
-    }),
-    ...(obj.DefaultRouteSettings && {
-      DefaultRouteSettings: RouteSettings.filterSensitiveLog(
-        obj.DefaultRouteSettings
-      )
-    }),
-    ...(obj.RouteSettings && {
-      RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => ({
-          ...acc,
-          [key]: RouteSettings.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateStageResponse =>
     __isa(o, "CreateStageResponse");
@@ -2002,12 +1894,7 @@ export interface DomainName {
 
 export namespace DomainName {
   export const filterSensitiveLog = (obj: DomainName): any => ({
-    ...obj,
-    ...(obj.DomainNameConfigurations && {
-      DomainNameConfigurations: obj.DomainNameConfigurations.map(item =>
-        DomainNameConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DomainName => __isa(o, "DomainName");
 }
@@ -2174,10 +2061,7 @@ export interface GetApiMappingsResponse {
 
 export namespace GetApiMappingsResponse {
   export const filterSensitiveLog = (obj: GetApiMappingsResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => ApiMapping.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApiMappingsResponse =>
     __isa(o, "GetApiMappingsResponse");
@@ -2273,10 +2157,7 @@ export interface GetApiResponse {
 
 export namespace GetApiResponse {
   export const filterSensitiveLog = (obj: GetApiResponse): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApiResponse =>
     __isa(o, "GetApiResponse");
@@ -2318,10 +2199,7 @@ export interface GetApisResponse {
 
 export namespace GetApisResponse {
   export const filterSensitiveLog = (obj: GetApisResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Api.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApisResponse =>
     __isa(o, "GetApisResponse");
@@ -2399,12 +2277,7 @@ export interface GetAuthorizerResponse {
 
 export namespace GetAuthorizerResponse {
   export const filterSensitiveLog = (obj: GetAuthorizerResponse): any => ({
-    ...obj,
-    ...(obj.JwtConfiguration && {
-      JwtConfiguration: JWTConfiguration.filterSensitiveLog(
-        obj.JwtConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAuthorizerResponse =>
     __isa(o, "GetAuthorizerResponse");
@@ -2451,10 +2324,7 @@ export interface GetAuthorizersResponse {
 
 export namespace GetAuthorizersResponse {
   export const filterSensitiveLog = (obj: GetAuthorizersResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Authorizer.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAuthorizersResponse =>
     __isa(o, "GetAuthorizersResponse");
@@ -2563,10 +2433,7 @@ export interface GetDeploymentsResponse {
 
 export namespace GetDeploymentsResponse {
   export const filterSensitiveLog = (obj: GetDeploymentsResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Deployment.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDeploymentsResponse =>
     __isa(o, "GetDeploymentsResponse");
@@ -2613,12 +2480,7 @@ export interface GetDomainNameResponse {
 
 export namespace GetDomainNameResponse {
   export const filterSensitiveLog = (obj: GetDomainNameResponse): any => ({
-    ...obj,
-    ...(obj.DomainNameConfigurations && {
-      DomainNameConfigurations: obj.DomainNameConfigurations.map(item =>
-        DomainNameConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDomainNameResponse =>
     __isa(o, "GetDomainNameResponse");
@@ -2660,10 +2522,7 @@ export interface GetDomainNamesResponse {
 
 export namespace GetDomainNamesResponse {
   export const filterSensitiveLog = (obj: GetDomainNamesResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => DomainName.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDomainNamesResponse =>
     __isa(o, "GetDomainNamesResponse");
@@ -2811,10 +2670,7 @@ export namespace GetIntegrationResponsesResponse {
   export const filterSensitiveLog = (
     obj: GetIntegrationResponsesResponse
   ): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => IntegrationResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetIntegrationResponsesResponse =>
     __isa(o, "GetIntegrationResponsesResponse");
@@ -2962,10 +2818,7 @@ export interface GetIntegrationsResponse {
 
 export namespace GetIntegrationsResponse {
   export const filterSensitiveLog = (obj: GetIntegrationsResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Integration.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetIntegrationsResponse =>
     __isa(o, "GetIntegrationsResponse");
@@ -3106,10 +2959,7 @@ export interface GetModelsResponse {
 
 export namespace GetModelsResponse {
   export const filterSensitiveLog = (obj: GetModelsResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Model.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetModelsResponse =>
     __isa(o, "GetModelsResponse");
@@ -3192,16 +3042,7 @@ export interface GetRouteResponseResponse {
 
 export namespace GetRouteResponseResponse {
   export const filterSensitiveLog = (obj: GetRouteResponseResponse): any => ({
-    ...obj,
-    ...(obj.ResponseParameters && {
-      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRouteResponseResponse =>
     __isa(o, "GetRouteResponseResponse");
@@ -3253,10 +3094,7 @@ export interface GetRouteResponsesResponse {
 
 export namespace GetRouteResponsesResponse {
   export const filterSensitiveLog = (obj: GetRouteResponsesResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => RouteResponse.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRouteResponsesResponse =>
     __isa(o, "GetRouteResponsesResponse");
@@ -3332,16 +3170,7 @@ export interface GetRouteResult {
 
 export namespace GetRouteResult {
   export const filterSensitiveLog = (obj: GetRouteResult): any => ({
-    ...obj,
-    ...(obj.RequestParameters && {
-      RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRouteResult =>
     __isa(o, "GetRouteResult");
@@ -3388,10 +3217,7 @@ export interface GetRoutesResponse {
 
 export namespace GetRoutesResponse {
   export const filterSensitiveLog = (obj: GetRoutesResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Route.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRoutesResponse =>
     __isa(o, "GetRoutesResponse");
@@ -3493,26 +3319,7 @@ export interface GetStageResponse {
 
 export namespace GetStageResponse {
   export const filterSensitiveLog = (obj: GetStageResponse): any => ({
-    ...obj,
-    ...(obj.AccessLogSettings && {
-      AccessLogSettings: AccessLogSettings.filterSensitiveLog(
-        obj.AccessLogSettings
-      )
-    }),
-    ...(obj.DefaultRouteSettings && {
-      DefaultRouteSettings: RouteSettings.filterSensitiveLog(
-        obj.DefaultRouteSettings
-      )
-    }),
-    ...(obj.RouteSettings && {
-      RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => ({
-          ...acc,
-          [key]: RouteSettings.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetStageResponse =>
     __isa(o, "GetStageResponse");
@@ -3559,10 +3366,7 @@ export interface GetStagesResponse {
 
 export namespace GetStagesResponse {
   export const filterSensitiveLog = (obj: GetStagesResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Stage.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetStagesResponse =>
     __isa(o, "GetStagesResponse");
@@ -3704,10 +3508,7 @@ export interface ImportApiResponse {
 
 export namespace ImportApiResponse {
   export const filterSensitiveLog = (obj: ImportApiResponse): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ImportApiResponse =>
     __isa(o, "ImportApiResponse");
@@ -4101,10 +3902,7 @@ export interface ReimportApiResponse {
 
 export namespace ReimportApiResponse {
   export const filterSensitiveLog = (obj: ReimportApiResponse): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReimportApiResponse =>
     __isa(o, "ReimportApiResponse");
@@ -4183,16 +3981,7 @@ export interface Route {
 
 export namespace Route {
   export const filterSensitiveLog = (obj: Route): any => ({
-    ...obj,
-    ...(obj.RequestParameters && {
-      RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Route => __isa(o, "Route");
 }
@@ -4230,16 +4019,7 @@ export interface RouteResponse {
 
 export namespace RouteResponse {
   export const filterSensitiveLog = (obj: RouteResponse): any => ({
-    ...obj,
-    ...(obj.ResponseParameters && {
-      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RouteResponse => __isa(o, "RouteResponse");
 }
@@ -4365,26 +4145,7 @@ export interface Stage {
 
 export namespace Stage {
   export const filterSensitiveLog = (obj: Stage): any => ({
-    ...obj,
-    ...(obj.AccessLogSettings && {
-      AccessLogSettings: AccessLogSettings.filterSensitiveLog(
-        obj.AccessLogSettings
-      )
-    }),
-    ...(obj.DefaultRouteSettings && {
-      DefaultRouteSettings: RouteSettings.filterSensitiveLog(
-        obj.DefaultRouteSettings
-      )
-    }),
-    ...(obj.RouteSettings && {
-      RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => ({
-          ...acc,
-          [key]: RouteSettings.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Stage => __isa(o, "Stage");
 }
@@ -4606,10 +4367,7 @@ export interface UpdateApiRequest {
 
 export namespace UpdateApiRequest {
   export const filterSensitiveLog = (obj: UpdateApiRequest): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApiRequest =>
     __isa(o, "UpdateApiRequest");
@@ -4690,10 +4448,7 @@ export interface UpdateApiResponse {
 
 export namespace UpdateApiResponse {
   export const filterSensitiveLog = (obj: UpdateApiResponse): any => ({
-    ...obj,
-    ...(obj.CorsConfiguration && {
-      CorsConfiguration: Cors.filterSensitiveLog(obj.CorsConfiguration)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApiResponse =>
     __isa(o, "UpdateApiResponse");
@@ -4758,12 +4513,7 @@ export interface UpdateAuthorizerRequest {
 
 export namespace UpdateAuthorizerRequest {
   export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
-    ...obj,
-    ...(obj.JwtConfiguration && {
-      JwtConfiguration: JWTConfiguration.filterSensitiveLog(
-        obj.JwtConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAuthorizerRequest =>
     __isa(o, "UpdateAuthorizerRequest");
@@ -4820,12 +4570,7 @@ export interface UpdateAuthorizerResponse {
 
 export namespace UpdateAuthorizerResponse {
   export const filterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
-    ...obj,
-    ...(obj.JwtConfiguration && {
-      JwtConfiguration: JWTConfiguration.filterSensitiveLog(
-        obj.JwtConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAuthorizerResponse =>
     __isa(o, "UpdateAuthorizerResponse");
@@ -4919,12 +4664,7 @@ export interface UpdateDomainNameRequest {
 
 export namespace UpdateDomainNameRequest {
   export const filterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
-    ...obj,
-    ...(obj.DomainNameConfigurations && {
-      DomainNameConfigurations: obj.DomainNameConfigurations.map(item =>
-        DomainNameConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDomainNameRequest =>
     __isa(o, "UpdateDomainNameRequest");
@@ -4955,12 +4695,7 @@ export interface UpdateDomainNameResponse {
 
 export namespace UpdateDomainNameResponse {
   export const filterSensitiveLog = (obj: UpdateDomainNameResponse): any => ({
-    ...obj,
-    ...(obj.DomainNameConfigurations && {
-      DomainNameConfigurations: obj.DomainNameConfigurations.map(item =>
-        DomainNameConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDomainNameResponse =>
     __isa(o, "UpdateDomainNameResponse");
@@ -5425,16 +5160,7 @@ export interface UpdateRouteRequest {
 
 export namespace UpdateRouteRequest {
   export const filterSensitiveLog = (obj: UpdateRouteRequest): any => ({
-    ...obj,
-    ...(obj.RequestParameters && {
-      RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRouteRequest =>
     __isa(o, "UpdateRouteRequest");
@@ -5483,16 +5209,7 @@ export interface UpdateRouteResponseRequest {
 
 export namespace UpdateRouteResponseRequest {
   export const filterSensitiveLog = (obj: UpdateRouteResponseRequest): any => ({
-    ...obj,
-    ...(obj.ResponseParameters && {
-      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRouteResponseRequest =>
     __isa(o, "UpdateRouteResponseRequest");
@@ -5530,16 +5247,7 @@ export namespace UpdateRouteResponseResponse {
   export const filterSensitiveLog = (
     obj: UpdateRouteResponseResponse
   ): any => ({
-    ...obj,
-    ...(obj.ResponseParameters && {
-      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRouteResponseResponse =>
     __isa(o, "UpdateRouteResponseResponse");
@@ -5615,16 +5323,7 @@ export interface UpdateRouteResult {
 
 export namespace UpdateRouteResult {
   export const filterSensitiveLog = (obj: UpdateRouteResult): any => ({
-    ...obj,
-    ...(obj.RequestParameters && {
-      RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
-          ...acc,
-          [key]: ParameterConstraints.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRouteResult =>
     __isa(o, "UpdateRouteResult");
@@ -5688,26 +5387,7 @@ export interface UpdateStageRequest {
 
 export namespace UpdateStageRequest {
   export const filterSensitiveLog = (obj: UpdateStageRequest): any => ({
-    ...obj,
-    ...(obj.AccessLogSettings && {
-      AccessLogSettings: AccessLogSettings.filterSensitiveLog(
-        obj.AccessLogSettings
-      )
-    }),
-    ...(obj.DefaultRouteSettings && {
-      DefaultRouteSettings: RouteSettings.filterSensitiveLog(
-        obj.DefaultRouteSettings
-      )
-    }),
-    ...(obj.RouteSettings && {
-      RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => ({
-          ...acc,
-          [key]: RouteSettings.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateStageRequest =>
     __isa(o, "UpdateStageRequest");
@@ -5788,26 +5468,7 @@ export interface UpdateStageResponse {
 
 export namespace UpdateStageResponse {
   export const filterSensitiveLog = (obj: UpdateStageResponse): any => ({
-    ...obj,
-    ...(obj.AccessLogSettings && {
-      AccessLogSettings: AccessLogSettings.filterSensitiveLog(
-        obj.AccessLogSettings
-      )
-    }),
-    ...(obj.DefaultRouteSettings && {
-      DefaultRouteSettings: RouteSettings.filterSensitiveLog(
-        obj.DefaultRouteSettings
-      )
-    }),
-    ...(obj.RouteSettings && {
-      RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => ({
-          ...acc,
-          [key]: RouteSettings.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateStageResponse =>
     __isa(o, "UpdateStageResponse");

@@ -27,10 +27,7 @@ export namespace AddTagsToOnPremisesInstancesInput {
   export const filterSensitiveLog = (
     obj: AddTagsToOnPremisesInstancesInput
   ): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AddTagsToOnPremisesInstancesInput =>
     __isa(o, "AddTagsToOnPremisesInstancesInput");
@@ -90,10 +87,7 @@ export interface AlarmConfiguration {
 
 export namespace AlarmConfiguration {
   export const filterSensitiveLog = (obj: AlarmConfiguration): any => ({
-    ...obj,
-    ...(obj.alarms && {
-      alarms: obj.alarms.map(item => Alarm.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AlarmConfiguration =>
     __isa(o, "AlarmConfiguration");
@@ -409,12 +403,7 @@ export namespace BatchGetApplicationRevisionsInput {
   export const filterSensitiveLog = (
     obj: BatchGetApplicationRevisionsInput
   ): any => ({
-    ...obj,
-    ...(obj.revisions && {
-      revisions: obj.revisions.map(item =>
-        RevisionLocation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetApplicationRevisionsInput =>
     __isa(o, "BatchGetApplicationRevisionsInput");
@@ -445,12 +434,7 @@ export namespace BatchGetApplicationRevisionsOutput {
   export const filterSensitiveLog = (
     obj: BatchGetApplicationRevisionsOutput
   ): any => ({
-    ...obj,
-    ...(obj.revisions && {
-      revisions: obj.revisions.map(item =>
-        RevisionInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetApplicationRevisionsOutput =>
     __isa(o, "BatchGetApplicationRevisionsOutput");
@@ -488,12 +472,7 @@ export interface BatchGetApplicationsOutput {
 
 export namespace BatchGetApplicationsOutput {
   export const filterSensitiveLog = (obj: BatchGetApplicationsOutput): any => ({
-    ...obj,
-    ...(obj.applicationsInfo && {
-      applicationsInfo: obj.applicationsInfo.map(item =>
-        ApplicationInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetApplicationsOutput =>
     __isa(o, "BatchGetApplicationsOutput");
@@ -546,12 +525,7 @@ export namespace BatchGetDeploymentGroupsOutput {
   export const filterSensitiveLog = (
     obj: BatchGetDeploymentGroupsOutput
   ): any => ({
-    ...obj,
-    ...(obj.deploymentGroupsInfo && {
-      deploymentGroupsInfo: obj.deploymentGroupsInfo.map(item =>
-        DeploymentGroupInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentGroupsOutput =>
     __isa(o, "BatchGetDeploymentGroupsOutput");
@@ -603,12 +577,7 @@ export namespace BatchGetDeploymentInstancesOutput {
   export const filterSensitiveLog = (
     obj: BatchGetDeploymentInstancesOutput
   ): any => ({
-    ...obj,
-    ...(obj.instancesSummary && {
-      instancesSummary: obj.instancesSummary.map(item =>
-        InstanceSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentInstancesOutput =>
     __isa(o, "BatchGetDeploymentInstancesOutput");
@@ -687,12 +656,7 @@ export namespace BatchGetDeploymentTargetsOutput {
   export const filterSensitiveLog = (
     obj: BatchGetDeploymentTargetsOutput
   ): any => ({
-    ...obj,
-    ...(obj.deploymentTargets && {
-      deploymentTargets: obj.deploymentTargets.map(item =>
-        DeploymentTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentTargetsOutput =>
     __isa(o, "BatchGetDeploymentTargetsOutput");
@@ -730,12 +694,7 @@ export interface BatchGetDeploymentsOutput {
 
 export namespace BatchGetDeploymentsOutput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
-    ...obj,
-    ...(obj.deploymentsInfo && {
-      deploymentsInfo: obj.deploymentsInfo.map(item =>
-        DeploymentInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentsOutput =>
     __isa(o, "BatchGetDeploymentsOutput");
@@ -777,12 +736,7 @@ export namespace BatchGetOnPremisesInstancesOutput {
   export const filterSensitiveLog = (
     obj: BatchGetOnPremisesInstancesOutput
   ): any => ({
-    ...obj,
-    ...(obj.instanceInfos && {
-      instanceInfos: obj.instanceInfos.map(item =>
-        InstanceInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchGetOnPremisesInstancesOutput =>
     __isa(o, "BatchGetOnPremisesInstancesOutput");
@@ -840,22 +794,7 @@ export namespace BlueGreenDeploymentConfiguration {
   export const filterSensitiveLog = (
     obj: BlueGreenDeploymentConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.deploymentReadyOption && {
-      deploymentReadyOption: DeploymentReadyOption.filterSensitiveLog(
-        obj.deploymentReadyOption
-      )
-    }),
-    ...(obj.greenFleetProvisioningOption && {
-      greenFleetProvisioningOption: GreenFleetProvisioningOption.filterSensitiveLog(
-        obj.greenFleetProvisioningOption
-      )
-    }),
-    ...(obj.terminateBlueInstancesOnDeploymentSuccess && {
-      terminateBlueInstancesOnDeploymentSuccess: BlueInstanceTerminationOption.filterSensitiveLog(
-        obj.terminateBlueInstancesOnDeploymentSuccess
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BlueGreenDeploymentConfiguration =>
     __isa(o, "BlueGreenDeploymentConfiguration");
@@ -1000,10 +939,7 @@ export interface CreateApplicationInput {
 
 export namespace CreateApplicationInput {
   export const filterSensitiveLog = (obj: CreateApplicationInput): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateApplicationInput =>
     __isa(o, "CreateApplicationInput");
@@ -1076,17 +1012,7 @@ export namespace CreateDeploymentConfigInput {
   export const filterSensitiveLog = (
     obj: CreateDeploymentConfigInput
   ): any => ({
-    ...obj,
-    ...(obj.minimumHealthyHosts && {
-      minimumHealthyHosts: MinimumHealthyHosts.filterSensitiveLog(
-        obj.minimumHealthyHosts
-      )
-    }),
-    ...(obj.trafficRoutingConfig && {
-      trafficRoutingConfig: TrafficRoutingConfig.filterSensitiveLog(
-        obj.trafficRoutingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDeploymentConfigInput =>
     __isa(o, "CreateDeploymentConfigInput");
@@ -1233,61 +1159,7 @@ export interface CreateDeploymentGroupInput {
 
 export namespace CreateDeploymentGroupInput {
   export const filterSensitiveLog = (obj: CreateDeploymentGroupInput): any => ({
-    ...obj,
-    ...(obj.alarmConfiguration && {
-      alarmConfiguration: AlarmConfiguration.filterSensitiveLog(
-        obj.alarmConfiguration
-      )
-    }),
-    ...(obj.autoRollbackConfiguration && {
-      autoRollbackConfiguration: AutoRollbackConfiguration.filterSensitiveLog(
-        obj.autoRollbackConfiguration
-      )
-    }),
-    ...(obj.blueGreenDeploymentConfiguration && {
-      blueGreenDeploymentConfiguration: BlueGreenDeploymentConfiguration.filterSensitiveLog(
-        obj.blueGreenDeploymentConfiguration
-      )
-    }),
-    ...(obj.deploymentStyle && {
-      deploymentStyle: DeploymentStyle.filterSensitiveLog(obj.deploymentStyle)
-    }),
-    ...(obj.ec2TagFilters && {
-      ec2TagFilters: obj.ec2TagFilters.map(item =>
-        EC2TagFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ec2TagSet && {
-      ec2TagSet: EC2TagSet.filterSensitiveLog(obj.ec2TagSet)
-    }),
-    ...(obj.ecsServices && {
-      ecsServices: obj.ecsServices.map(item =>
-        ECSService.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.loadBalancerInfo && {
-      loadBalancerInfo: LoadBalancerInfo.filterSensitiveLog(
-        obj.loadBalancerInfo
-      )
-    }),
-    ...(obj.onPremisesInstanceTagFilters && {
-      onPremisesInstanceTagFilters: obj.onPremisesInstanceTagFilters.map(item =>
-        TagFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.onPremisesTagSet && {
-      onPremisesTagSet: OnPremisesTagSet.filterSensitiveLog(
-        obj.onPremisesTagSet
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    }),
-    ...(obj.triggerConfigurations && {
-      triggerConfigurations: obj.triggerConfigurations.map(item =>
-        TriggerConfig.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDeploymentGroupInput =>
     __isa(o, "CreateDeploymentGroupInput");
@@ -1420,18 +1292,7 @@ export interface CreateDeploymentInput {
 
 export namespace CreateDeploymentInput {
   export const filterSensitiveLog = (obj: CreateDeploymentInput): any => ({
-    ...obj,
-    ...(obj.autoRollbackConfiguration && {
-      autoRollbackConfiguration: AutoRollbackConfiguration.filterSensitiveLog(
-        obj.autoRollbackConfiguration
-      )
-    }),
-    ...(obj.revision && {
-      revision: RevisionLocation.filterSensitiveLog(obj.revision)
-    }),
-    ...(obj.targetInstances && {
-      targetInstances: TargetInstances.filterSensitiveLog(obj.targetInstances)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDeploymentInput =>
     __isa(o, "CreateDeploymentInput");
@@ -1542,12 +1403,7 @@ export namespace DeleteDeploymentGroupOutput {
   export const filterSensitiveLog = (
     obj: DeleteDeploymentGroupOutput
   ): any => ({
-    ...obj,
-    ...(obj.hooksNotCleanedUp && {
-      hooksNotCleanedUp: obj.hooksNotCleanedUp.map(item =>
-        AutoScalingGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteDeploymentGroupOutput =>
     __isa(o, "DeleteDeploymentGroupOutput");
@@ -1731,17 +1587,7 @@ export interface DeploymentConfigInfo {
 
 export namespace DeploymentConfigInfo {
   export const filterSensitiveLog = (obj: DeploymentConfigInfo): any => ({
-    ...obj,
-    ...(obj.minimumHealthyHosts && {
-      minimumHealthyHosts: MinimumHealthyHosts.filterSensitiveLog(
-        obj.minimumHealthyHosts
-      )
-    }),
-    ...(obj.trafficRoutingConfig && {
-      trafficRoutingConfig: TrafficRoutingConfig.filterSensitiveLog(
-        obj.trafficRoutingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeploymentConfigInfo =>
     __isa(o, "DeploymentConfigInfo");
@@ -2002,76 +1848,7 @@ export interface DeploymentGroupInfo {
 
 export namespace DeploymentGroupInfo {
   export const filterSensitiveLog = (obj: DeploymentGroupInfo): any => ({
-    ...obj,
-    ...(obj.alarmConfiguration && {
-      alarmConfiguration: AlarmConfiguration.filterSensitiveLog(
-        obj.alarmConfiguration
-      )
-    }),
-    ...(obj.autoRollbackConfiguration && {
-      autoRollbackConfiguration: AutoRollbackConfiguration.filterSensitiveLog(
-        obj.autoRollbackConfiguration
-      )
-    }),
-    ...(obj.autoScalingGroups && {
-      autoScalingGroups: obj.autoScalingGroups.map(item =>
-        AutoScalingGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.blueGreenDeploymentConfiguration && {
-      blueGreenDeploymentConfiguration: BlueGreenDeploymentConfiguration.filterSensitiveLog(
-        obj.blueGreenDeploymentConfiguration
-      )
-    }),
-    ...(obj.deploymentStyle && {
-      deploymentStyle: DeploymentStyle.filterSensitiveLog(obj.deploymentStyle)
-    }),
-    ...(obj.ec2TagFilters && {
-      ec2TagFilters: obj.ec2TagFilters.map(item =>
-        EC2TagFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ec2TagSet && {
-      ec2TagSet: EC2TagSet.filterSensitiveLog(obj.ec2TagSet)
-    }),
-    ...(obj.ecsServices && {
-      ecsServices: obj.ecsServices.map(item =>
-        ECSService.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.lastAttemptedDeployment && {
-      lastAttemptedDeployment: LastDeploymentInfo.filterSensitiveLog(
-        obj.lastAttemptedDeployment
-      )
-    }),
-    ...(obj.lastSuccessfulDeployment && {
-      lastSuccessfulDeployment: LastDeploymentInfo.filterSensitiveLog(
-        obj.lastSuccessfulDeployment
-      )
-    }),
-    ...(obj.loadBalancerInfo && {
-      loadBalancerInfo: LoadBalancerInfo.filterSensitiveLog(
-        obj.loadBalancerInfo
-      )
-    }),
-    ...(obj.onPremisesInstanceTagFilters && {
-      onPremisesInstanceTagFilters: obj.onPremisesInstanceTagFilters.map(item =>
-        TagFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.onPremisesTagSet && {
-      onPremisesTagSet: OnPremisesTagSet.filterSensitiveLog(
-        obj.onPremisesTagSet
-      )
-    }),
-    ...(obj.targetRevision && {
-      targetRevision: RevisionLocation.filterSensitiveLog(obj.targetRevision)
-    }),
-    ...(obj.triggerConfigurations && {
-      triggerConfigurations: obj.triggerConfigurations.map(item =>
-        TriggerConfig.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeploymentGroupInfo =>
     __isa(o, "DeploymentGroupInfo");
@@ -2356,49 +2133,7 @@ export interface DeploymentInfo {
 
 export namespace DeploymentInfo {
   export const filterSensitiveLog = (obj: DeploymentInfo): any => ({
-    ...obj,
-    ...(obj.autoRollbackConfiguration && {
-      autoRollbackConfiguration: AutoRollbackConfiguration.filterSensitiveLog(
-        obj.autoRollbackConfiguration
-      )
-    }),
-    ...(obj.blueGreenDeploymentConfiguration && {
-      blueGreenDeploymentConfiguration: BlueGreenDeploymentConfiguration.filterSensitiveLog(
-        obj.blueGreenDeploymentConfiguration
-      )
-    }),
-    ...(obj.deploymentOverview && {
-      deploymentOverview: DeploymentOverview.filterSensitiveLog(
-        obj.deploymentOverview
-      )
-    }),
-    ...(obj.deploymentStyle && {
-      deploymentStyle: DeploymentStyle.filterSensitiveLog(obj.deploymentStyle)
-    }),
-    ...(obj.errorInformation && {
-      errorInformation: ErrorInformation.filterSensitiveLog(
-        obj.errorInformation
-      )
-    }),
-    ...(obj.loadBalancerInfo && {
-      loadBalancerInfo: LoadBalancerInfo.filterSensitiveLog(
-        obj.loadBalancerInfo
-      )
-    }),
-    ...(obj.previousRevision && {
-      previousRevision: RevisionLocation.filterSensitiveLog(
-        obj.previousRevision
-      )
-    }),
-    ...(obj.revision && {
-      revision: RevisionLocation.filterSensitiveLog(obj.revision)
-    }),
-    ...(obj.rollbackInfo && {
-      rollbackInfo: RollbackInfo.filterSensitiveLog(obj.rollbackInfo)
-    }),
-    ...(obj.targetInstances && {
-      targetInstances: TargetInstances.filterSensitiveLog(obj.targetInstances)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeploymentInfo =>
     __isa(o, "DeploymentInfo");
@@ -2639,16 +2374,7 @@ export interface DeploymentTarget {
 
 export namespace DeploymentTarget {
   export const filterSensitiveLog = (obj: DeploymentTarget): any => ({
-    ...obj,
-    ...(obj.ecsTarget && {
-      ecsTarget: ECSTarget.filterSensitiveLog(obj.ecsTarget)
-    }),
-    ...(obj.instanceTarget && {
-      instanceTarget: InstanceTarget.filterSensitiveLog(obj.instanceTarget)
-    }),
-    ...(obj.lambdaTarget && {
-      lambdaTarget: LambdaTarget.filterSensitiveLog(obj.lambdaTarget)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeploymentTarget =>
     __isa(o, "DeploymentTarget");
@@ -2906,12 +2632,7 @@ export interface EC2TagSet {
 
 export namespace EC2TagSet {
   export const filterSensitiveLog = (obj: EC2TagSet): any => ({
-    ...obj,
-    ...(obj.ec2TagSetList && {
-      ec2TagSetList: obj.ec2TagSetList.map(item =>
-        item.map(item => EC2TagFilter.filterSensitiveLog(item))
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EC2TagSet => __isa(o, "EC2TagSet");
 }
@@ -3010,17 +2731,7 @@ export interface ECSTarget {
 
 export namespace ECSTarget {
   export const filterSensitiveLog = (obj: ECSTarget): any => ({
-    ...obj,
-    ...(obj.lifecycleEvents && {
-      lifecycleEvents: obj.lifecycleEvents.map(item =>
-        LifecycleEvent.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.taskSetsInfo && {
-      taskSetsInfo: obj.taskSetsInfo.map(item =>
-        ECSTaskSet.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ECSTarget => __isa(o, "ECSTarget");
 }
@@ -3103,10 +2814,7 @@ export interface ECSTaskSet {
 
 export namespace ECSTaskSet {
   export const filterSensitiveLog = (obj: ECSTaskSet): any => ({
-    ...obj,
-    ...(obj.targetGroup && {
-      targetGroup: TargetGroupInfo.filterSensitiveLog(obj.targetGroup)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ECSTaskSet => __isa(o, "ECSTaskSet");
 }
@@ -3328,10 +3036,7 @@ export interface GetApplicationOutput {
 
 export namespace GetApplicationOutput {
   export const filterSensitiveLog = (obj: GetApplicationOutput): any => ({
-    ...obj,
-    ...(obj.application && {
-      application: ApplicationInfo.filterSensitiveLog(obj.application)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApplicationOutput =>
     __isa(o, "GetApplicationOutput");
@@ -3357,10 +3062,7 @@ export namespace GetApplicationRevisionInput {
   export const filterSensitiveLog = (
     obj: GetApplicationRevisionInput
   ): any => ({
-    ...obj,
-    ...(obj.revision && {
-      revision: RevisionLocation.filterSensitiveLog(obj.revision)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApplicationRevisionInput =>
     __isa(o, "GetApplicationRevisionInput");
@@ -3391,13 +3093,7 @@ export namespace GetApplicationRevisionOutput {
   export const filterSensitiveLog = (
     obj: GetApplicationRevisionOutput
   ): any => ({
-    ...obj,
-    ...(obj.revision && {
-      revision: RevisionLocation.filterSensitiveLog(obj.revision)
-    }),
-    ...(obj.revisionInfo && {
-      revisionInfo: GenericRevisionInfo.filterSensitiveLog(obj.revisionInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetApplicationRevisionOutput =>
     __isa(o, "GetApplicationRevisionOutput");
@@ -3436,12 +3132,7 @@ export interface GetDeploymentConfigOutput {
 
 export namespace GetDeploymentConfigOutput {
   export const filterSensitiveLog = (obj: GetDeploymentConfigOutput): any => ({
-    ...obj,
-    ...(obj.deploymentConfigInfo && {
-      deploymentConfigInfo: DeploymentConfigInfo.filterSensitiveLog(
-        obj.deploymentConfigInfo
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDeploymentConfigOutput =>
     __isa(o, "GetDeploymentConfigOutput");
@@ -3485,12 +3176,7 @@ export interface GetDeploymentGroupOutput {
 
 export namespace GetDeploymentGroupOutput {
   export const filterSensitiveLog = (obj: GetDeploymentGroupOutput): any => ({
-    ...obj,
-    ...(obj.deploymentGroupInfo && {
-      deploymentGroupInfo: DeploymentGroupInfo.filterSensitiveLog(
-        obj.deploymentGroupInfo
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDeploymentGroupOutput =>
     __isa(o, "GetDeploymentGroupOutput");
@@ -3554,10 +3240,7 @@ export namespace GetDeploymentInstanceOutput {
   export const filterSensitiveLog = (
     obj: GetDeploymentInstanceOutput
   ): any => ({
-    ...obj,
-    ...(obj.instanceSummary && {
-      instanceSummary: InstanceSummary.filterSensitiveLog(obj.instanceSummary)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDeploymentInstanceOutput =>
     __isa(o, "GetDeploymentInstanceOutput");
@@ -3576,10 +3259,7 @@ export interface GetDeploymentOutput {
 
 export namespace GetDeploymentOutput {
   export const filterSensitiveLog = (obj: GetDeploymentOutput): any => ({
-    ...obj,
-    ...(obj.deploymentInfo && {
-      deploymentInfo: DeploymentInfo.filterSensitiveLog(obj.deploymentInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDeploymentOutput =>
     __isa(o, "GetDeploymentOutput");
@@ -3620,12 +3300,7 @@ export interface GetDeploymentTargetOutput {
 
 export namespace GetDeploymentTargetOutput {
   export const filterSensitiveLog = (obj: GetDeploymentTargetOutput): any => ({
-    ...obj,
-    ...(obj.deploymentTarget && {
-      deploymentTarget: DeploymentTarget.filterSensitiveLog(
-        obj.deploymentTarget
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDeploymentTargetOutput =>
     __isa(o, "GetDeploymentTargetOutput");
@@ -3665,10 +3340,7 @@ export namespace GetOnPremisesInstanceOutput {
   export const filterSensitiveLog = (
     obj: GetOnPremisesInstanceOutput
   ): any => ({
-    ...obj,
-    ...(obj.instanceInfo && {
-      instanceInfo: InstanceInfo.filterSensitiveLog(obj.instanceInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetOnPremisesInstanceOutput =>
     __isa(o, "GetOnPremisesInstanceOutput");
@@ -3979,10 +3651,7 @@ export interface InstanceInfo {
 
 export namespace InstanceInfo {
   export const filterSensitiveLog = (obj: InstanceInfo): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceInfo => __isa(o, "InstanceInfo");
 }
@@ -4161,12 +3830,7 @@ export interface InstanceSummary {
 
 export namespace InstanceSummary {
   export const filterSensitiveLog = (obj: InstanceSummary): any => ({
-    ...obj,
-    ...(obj.lifecycleEvents && {
-      lifecycleEvents: obj.lifecycleEvents.map(item =>
-        LifecycleEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceSummary =>
     __isa(o, "InstanceSummary");
@@ -4218,12 +3882,7 @@ export interface InstanceTarget {
 
 export namespace InstanceTarget {
   export const filterSensitiveLog = (obj: InstanceTarget): any => ({
-    ...obj,
-    ...(obj.lifecycleEvents && {
-      lifecycleEvents: obj.lifecycleEvents.map(item =>
-        LifecycleEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceTarget =>
     __isa(o, "InstanceTarget");
@@ -5649,17 +5308,7 @@ export interface LambdaTarget {
 
 export namespace LambdaTarget {
   export const filterSensitiveLog = (obj: LambdaTarget): any => ({
-    ...obj,
-    ...(obj.lambdaFunctionInfo && {
-      lambdaFunctionInfo: LambdaFunctionInfo.filterSensitiveLog(
-        obj.lambdaFunctionInfo
-      )
-    }),
-    ...(obj.lifecycleEvents && {
-      lifecycleEvents: obj.lifecycleEvents.map(item =>
-        LifecycleEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LambdaTarget => __isa(o, "LambdaTarget");
 }
@@ -5764,10 +5413,7 @@ export interface LifecycleEvent {
 
 export namespace LifecycleEvent {
   export const filterSensitiveLog = (obj: LifecycleEvent): any => ({
-    ...obj,
-    ...(obj.diagnostics && {
-      diagnostics: Diagnostics.filterSensitiveLog(obj.diagnostics)
-    })
+    ...obj
   });
   export const isa = (o: any): o is LifecycleEvent =>
     __isa(o, "LifecycleEvent");
@@ -5947,12 +5593,7 @@ export namespace ListApplicationRevisionsOutput {
   export const filterSensitiveLog = (
     obj: ListApplicationRevisionsOutput
   ): any => ({
-    ...obj,
-    ...(obj.revisions && {
-      revisions: obj.revisions.map(item =>
-        RevisionLocation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListApplicationRevisionsOutput =>
     __isa(o, "ListApplicationRevisionsOutput");
@@ -6330,10 +5971,7 @@ export interface ListDeploymentsInput {
 
 export namespace ListDeploymentsInput {
   export const filterSensitiveLog = (obj: ListDeploymentsInput): any => ({
-    ...obj,
-    ...(obj.createTimeRange && {
-      createTimeRange: TimeRange.filterSensitiveLog(obj.createTimeRange)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDeploymentsInput =>
     __isa(o, "ListDeploymentsInput");
@@ -6452,10 +6090,7 @@ export namespace ListOnPremisesInstancesInput {
   export const filterSensitiveLog = (
     obj: ListOnPremisesInstancesInput
   ): any => ({
-    ...obj,
-    ...(obj.tagFilters && {
-      tagFilters: obj.tagFilters.map(item => TagFilter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListOnPremisesInstancesInput =>
     __isa(o, "ListOnPremisesInstancesInput");
@@ -6540,10 +6175,7 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -6584,20 +6216,7 @@ export interface LoadBalancerInfo {
 
 export namespace LoadBalancerInfo {
   export const filterSensitiveLog = (obj: LoadBalancerInfo): any => ({
-    ...obj,
-    ...(obj.elbInfoList && {
-      elbInfoList: obj.elbInfoList.map(item => ELBInfo.filterSensitiveLog(item))
-    }),
-    ...(obj.targetGroupInfoList && {
-      targetGroupInfoList: obj.targetGroupInfoList.map(item =>
-        TargetGroupInfo.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.targetGroupPairInfoList && {
-      targetGroupPairInfoList: obj.targetGroupPairInfoList.map(item =>
-        TargetGroupPairInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LoadBalancerInfo =>
     __isa(o, "LoadBalancerInfo");
@@ -6697,12 +6316,7 @@ export interface OnPremisesTagSet {
 
 export namespace OnPremisesTagSet {
   export const filterSensitiveLog = (obj: OnPremisesTagSet): any => ({
-    ...obj,
-    ...(obj.onPremisesTagSetList && {
-      onPremisesTagSetList: obj.onPremisesTagSetList.map(item =>
-        item.map(item => TagFilter.filterSensitiveLog(item))
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is OnPremisesTagSet =>
     __isa(o, "OnPremisesTagSet");
@@ -6837,10 +6451,7 @@ export namespace RegisterApplicationRevisionInput {
   export const filterSensitiveLog = (
     obj: RegisterApplicationRevisionInput
   ): any => ({
-    ...obj,
-    ...(obj.revision && {
-      revision: RevisionLocation.filterSensitiveLog(obj.revision)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RegisterApplicationRevisionInput =>
     __isa(o, "RegisterApplicationRevisionInput");
@@ -6902,10 +6513,7 @@ export namespace RemoveTagsFromOnPremisesInstancesInput {
   export const filterSensitiveLog = (
     obj: RemoveTagsFromOnPremisesInstancesInput
   ): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is RemoveTagsFromOnPremisesInstancesInput =>
     __isa(o, "RemoveTagsFromOnPremisesInstancesInput");
@@ -7004,17 +6612,7 @@ export interface RevisionInfo {
 
 export namespace RevisionInfo {
   export const filterSensitiveLog = (obj: RevisionInfo): any => ({
-    ...obj,
-    ...(obj.genericRevisionInfo && {
-      genericRevisionInfo: GenericRevisionInfo.filterSensitiveLog(
-        obj.genericRevisionInfo
-      )
-    }),
-    ...(obj.revisionLocation && {
-      revisionLocation: RevisionLocation.filterSensitiveLog(
-        obj.revisionLocation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RevisionInfo => __isa(o, "RevisionInfo");
 }
@@ -7067,17 +6665,7 @@ export interface RevisionLocation {
 
 export namespace RevisionLocation {
   export const filterSensitiveLog = (obj: RevisionLocation): any => ({
-    ...obj,
-    ...(obj.appSpecContent && {
-      appSpecContent: AppSpecContent.filterSensitiveLog(obj.appSpecContent)
-    }),
-    ...(obj.gitHubLocation && {
-      gitHubLocation: GitHubLocation.filterSensitiveLog(obj.gitHubLocation)
-    }),
-    ...(obj.s3Location && {
-      s3Location: S3Location.filterSensitiveLog(obj.s3Location)
-    }),
-    ...(obj.string && { string: RawString.filterSensitiveLog(obj.string) })
+    ...obj
   });
   export const isa = (o: any): o is RevisionLocation =>
     __isa(o, "RevisionLocation");
@@ -7437,10 +7025,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
@@ -7540,18 +7125,7 @@ export interface TargetGroupPairInfo {
 
 export namespace TargetGroupPairInfo {
   export const filterSensitiveLog = (obj: TargetGroupPairInfo): any => ({
-    ...obj,
-    ...(obj.prodTrafficRoute && {
-      prodTrafficRoute: TrafficRoute.filterSensitiveLog(obj.prodTrafficRoute)
-    }),
-    ...(obj.targetGroups && {
-      targetGroups: obj.targetGroups.map(item =>
-        TargetGroupInfo.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.testTrafficRoute && {
-      testTrafficRoute: TrafficRoute.filterSensitiveLog(obj.testTrafficRoute)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TargetGroupPairInfo =>
     __isa(o, "TargetGroupPairInfo");
@@ -7586,15 +7160,7 @@ export interface TargetInstances {
 
 export namespace TargetInstances {
   export const filterSensitiveLog = (obj: TargetInstances): any => ({
-    ...obj,
-    ...(obj.ec2TagSet && {
-      ec2TagSet: EC2TagSet.filterSensitiveLog(obj.ec2TagSet)
-    }),
-    ...(obj.tagFilters && {
-      tagFilters: obj.tagFilters.map(item =>
-        EC2TagFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TargetInstances =>
     __isa(o, "TargetInstances");
@@ -7773,13 +7339,7 @@ export interface TrafficRoutingConfig {
 
 export namespace TrafficRoutingConfig {
   export const filterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
-    ...obj,
-    ...(obj.timeBasedCanary && {
-      timeBasedCanary: TimeBasedCanary.filterSensitiveLog(obj.timeBasedCanary)
-    }),
-    ...(obj.timeBasedLinear && {
-      timeBasedLinear: TimeBasedLinear.filterSensitiveLog(obj.timeBasedLinear)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TrafficRoutingConfig =>
     __isa(o, "TrafficRoutingConfig");
@@ -8054,58 +7614,7 @@ export interface UpdateDeploymentGroupInput {
 
 export namespace UpdateDeploymentGroupInput {
   export const filterSensitiveLog = (obj: UpdateDeploymentGroupInput): any => ({
-    ...obj,
-    ...(obj.alarmConfiguration && {
-      alarmConfiguration: AlarmConfiguration.filterSensitiveLog(
-        obj.alarmConfiguration
-      )
-    }),
-    ...(obj.autoRollbackConfiguration && {
-      autoRollbackConfiguration: AutoRollbackConfiguration.filterSensitiveLog(
-        obj.autoRollbackConfiguration
-      )
-    }),
-    ...(obj.blueGreenDeploymentConfiguration && {
-      blueGreenDeploymentConfiguration: BlueGreenDeploymentConfiguration.filterSensitiveLog(
-        obj.blueGreenDeploymentConfiguration
-      )
-    }),
-    ...(obj.deploymentStyle && {
-      deploymentStyle: DeploymentStyle.filterSensitiveLog(obj.deploymentStyle)
-    }),
-    ...(obj.ec2TagFilters && {
-      ec2TagFilters: obj.ec2TagFilters.map(item =>
-        EC2TagFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ec2TagSet && {
-      ec2TagSet: EC2TagSet.filterSensitiveLog(obj.ec2TagSet)
-    }),
-    ...(obj.ecsServices && {
-      ecsServices: obj.ecsServices.map(item =>
-        ECSService.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.loadBalancerInfo && {
-      loadBalancerInfo: LoadBalancerInfo.filterSensitiveLog(
-        obj.loadBalancerInfo
-      )
-    }),
-    ...(obj.onPremisesInstanceTagFilters && {
-      onPremisesInstanceTagFilters: obj.onPremisesInstanceTagFilters.map(item =>
-        TagFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.onPremisesTagSet && {
-      onPremisesTagSet: OnPremisesTagSet.filterSensitiveLog(
-        obj.onPremisesTagSet
-      )
-    }),
-    ...(obj.triggerConfigurations && {
-      triggerConfigurations: obj.triggerConfigurations.map(item =>
-        TriggerConfig.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDeploymentGroupInput =>
     __isa(o, "UpdateDeploymentGroupInput");
@@ -8130,12 +7639,7 @@ export namespace UpdateDeploymentGroupOutput {
   export const filterSensitiveLog = (
     obj: UpdateDeploymentGroupOutput
   ): any => ({
-    ...obj,
-    ...(obj.hooksNotCleanedUp && {
-      hooksNotCleanedUp: obj.hooksNotCleanedUp.map(item =>
-        AutoScalingGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDeploymentGroupOutput =>
     __isa(o, "UpdateDeploymentGroupOutput");

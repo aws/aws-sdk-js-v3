@@ -121,11 +121,7 @@ export interface AccessControlPolicy {
 
 export namespace AccessControlPolicy {
   export const filterSensitiveLog = (obj: AccessControlPolicy): any => ({
-    ...obj,
-    ...(obj.Grants && {
-      Grants: obj.Grants.map(item => Grant.filterSensitiveLog(item))
-    }),
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is AccessControlPolicy =>
     __isa(o, "AccessControlPolicy");
@@ -169,10 +165,7 @@ export interface AnalyticsAndOperator {
 
 export namespace AnalyticsAndOperator {
   export const filterSensitiveLog = (obj: AnalyticsAndOperator): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnalyticsAndOperator =>
     __isa(o, "AnalyticsAndOperator");
@@ -204,15 +197,7 @@ export interface AnalyticsConfiguration {
 
 export namespace AnalyticsConfiguration {
   export const filterSensitiveLog = (obj: AnalyticsConfiguration): any => ({
-    ...obj,
-    ...(obj.Filter && {
-      Filter: AnalyticsFilter.filterSensitiveLog(obj.Filter)
-    }),
-    ...(obj.StorageClassAnalysis && {
-      StorageClassAnalysis: StorageClassAnalysis.filterSensitiveLog(
-        obj.StorageClassAnalysis
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnalyticsConfiguration =>
     __isa(o, "AnalyticsConfiguration");
@@ -231,12 +216,7 @@ export interface AnalyticsExportDestination {
 
 export namespace AnalyticsExportDestination {
   export const filterSensitiveLog = (obj: AnalyticsExportDestination): any => ({
-    ...obj,
-    ...(obj.S3BucketDestination && {
-      S3BucketDestination: AnalyticsS3BucketDestination.filterSensitiveLog(
-        obj.S3BucketDestination
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnalyticsExportDestination =>
     __isa(o, "AnalyticsExportDestination");
@@ -265,9 +245,7 @@ export interface AnalyticsFilter {
 
 export namespace AnalyticsFilter {
   export const filterSensitiveLog = (obj: AnalyticsFilter): any => ({
-    ...obj,
-    ...(obj.And && { And: AnalyticsAndOperator.filterSensitiveLog(obj.And) }),
-    ...(obj.Tag && { Tag: Tag.filterSensitiveLog(obj.Tag) })
+    ...obj
   });
   export const isa = (o: any): o is AnalyticsFilter =>
     __isa(o, "AnalyticsFilter");
@@ -399,10 +377,7 @@ export namespace BucketLifecycleConfiguration {
   export const filterSensitiveLog = (
     obj: BucketLifecycleConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => LifecycleRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BucketLifecycleConfiguration =>
     __isa(o, "BucketLifecycleConfiguration");
@@ -436,10 +411,7 @@ export interface BucketLoggingStatus {
 
 export namespace BucketLoggingStatus {
   export const filterSensitiveLog = (obj: BucketLoggingStatus): any => ({
-    ...obj,
-    ...(obj.LoggingEnabled && {
-      LoggingEnabled: LoggingEnabled.filterSensitiveLog(obj.LoggingEnabled)
-    })
+    ...obj
   });
   export const isa = (o: any): o is BucketLoggingStatus =>
     __isa(o, "BucketLoggingStatus");
@@ -464,10 +436,7 @@ export interface CORSConfiguration {
 
 export namespace CORSConfiguration {
   export const filterSensitiveLog = (obj: CORSConfiguration): any => ({
-    ...obj,
-    ...(obj.CORSRules && {
-      CORSRules: obj.CORSRules.map(item => CORSRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CORSConfiguration =>
     __isa(o, "CORSConfiguration");
@@ -760,12 +729,7 @@ export namespace CompleteMultipartUploadRequest {
   export const filterSensitiveLog = (
     obj: CompleteMultipartUploadRequest
   ): any => ({
-    ...obj,
-    ...(obj.MultipartUpload && {
-      MultipartUpload: CompletedMultipartUpload.filterSensitiveLog(
-        obj.MultipartUpload
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CompleteMultipartUploadRequest =>
     __isa(o, "CompleteMultipartUploadRequest");
@@ -784,10 +748,7 @@ export interface CompletedMultipartUpload {
 
 export namespace CompletedMultipartUpload {
   export const filterSensitiveLog = (obj: CompletedMultipartUpload): any => ({
-    ...obj,
-    ...(obj.Parts && {
-      Parts: obj.Parts.map(item => CompletedPart.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CompletedMultipartUpload =>
     __isa(o, "CompletedMultipartUpload");
@@ -922,11 +883,6 @@ export interface CopyObjectOutput {
 export namespace CopyObjectOutput {
   export const filterSensitiveLog = (obj: CopyObjectOutput): any => ({
     ...obj,
-    ...(obj.CopyObjectResult && {
-      CopyObjectResult: CopyObjectResult.filterSensitiveLog(
-        obj.CopyObjectResult
-      )
-    }),
     ...(obj.SSEKMSEncryptionContext && {
       SSEKMSEncryptionContext: SENSITIVE_STRING
     }),
@@ -1292,12 +1248,7 @@ export interface CreateBucketRequest {
 
 export namespace CreateBucketRequest {
   export const filterSensitiveLog = (obj: CreateBucketRequest): any => ({
-    ...obj,
-    ...(obj.CreateBucketConfiguration && {
-      CreateBucketConfiguration: CreateBucketConfiguration.filterSensitiveLog(
-        obj.CreateBucketConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateBucketRequest =>
     __isa(o, "CreateBucketRequest");
@@ -1598,12 +1549,7 @@ export interface Delete {
 
 export namespace Delete {
   export const filterSensitiveLog = (obj: Delete): any => ({
-    ...obj,
-    ...(obj.Objects && {
-      Objects: obj.Objects.map(item =>
-        ObjectIdentifier.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Delete => __isa(o, "Delete");
 }
@@ -1846,8 +1792,7 @@ export interface DeleteMarkerEntry {
 
 export namespace DeleteMarkerEntry {
   export const filterSensitiveLog = (obj: DeleteMarkerEntry): any => ({
-    ...obj,
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteMarkerEntry =>
     __isa(o, "DeleteMarkerEntry");
@@ -2021,13 +1966,7 @@ export interface DeleteObjectsOutput {
 
 export namespace DeleteObjectsOutput {
   export const filterSensitiveLog = (obj: DeleteObjectsOutput): any => ({
-    ...obj,
-    ...(obj.Deleted && {
-      Deleted: obj.Deleted.map(item => DeletedObject.filterSensitiveLog(item))
-    }),
-    ...(obj.Errors && {
-      Errors: obj.Errors.map(item => _Error.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteObjectsOutput =>
     __isa(o, "DeleteObjectsOutput");
@@ -2069,8 +2008,7 @@ export interface DeleteObjectsRequest {
 
 export namespace DeleteObjectsRequest {
   export const filterSensitiveLog = (obj: DeleteObjectsRequest): any => ({
-    ...obj,
-    ...(obj.Delete && { Delete: Delete.filterSensitiveLog(obj.Delete) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteObjectsRequest =>
     __isa(o, "DeleteObjectsRequest");
@@ -2189,21 +2127,7 @@ export interface Destination {
 
 export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-    ...(obj.AccessControlTranslation && {
-      AccessControlTranslation: AccessControlTranslation.filterSensitiveLog(
-        obj.AccessControlTranslation
-      )
-    }),
-    ...(obj.EncryptionConfiguration && {
-      EncryptionConfiguration: EncryptionConfiguration.filterSensitiveLog(
-        obj.EncryptionConfiguration
-      )
-    }),
-    ...(obj.Metrics && { Metrics: Metrics.filterSensitiveLog(obj.Metrics) }),
-    ...(obj.ReplicationTime && {
-      ReplicationTime: ReplicationTime.filterSensitiveLog(obj.ReplicationTime)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
@@ -4276,11 +4200,7 @@ export interface GetBucketAclOutput {
 
 export namespace GetBucketAclOutput {
   export const filterSensitiveLog = (obj: GetBucketAclOutput): any => ({
-    ...obj,
-    ...(obj.Grants && {
-      Grants: obj.Grants.map(item => Grant.filterSensitiveLog(item))
-    }),
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketAclOutput =>
     __isa(o, "GetBucketAclOutput");
@@ -4314,12 +4234,7 @@ export namespace GetBucketAnalyticsConfigurationOutput {
   export const filterSensitiveLog = (
     obj: GetBucketAnalyticsConfigurationOutput
   ): any => ({
-    ...obj,
-    ...(obj.AnalyticsConfiguration && {
-      AnalyticsConfiguration: AnalyticsConfiguration.filterSensitiveLog(
-        obj.AnalyticsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketAnalyticsConfigurationOutput =>
     __isa(o, "GetBucketAnalyticsConfigurationOutput");
@@ -4358,10 +4273,7 @@ export interface GetBucketCorsOutput {
 
 export namespace GetBucketCorsOutput {
   export const filterSensitiveLog = (obj: GetBucketCorsOutput): any => ({
-    ...obj,
-    ...(obj.CORSRules && {
-      CORSRules: obj.CORSRules.map(item => CORSRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketCorsOutput =>
     __isa(o, "GetBucketCorsOutput");
@@ -4478,10 +4390,7 @@ export namespace GetBucketLifecycleConfigurationOutput {
   export const filterSensitiveLog = (
     obj: GetBucketLifecycleConfigurationOutput
   ): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => LifecycleRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketLifecycleConfigurationOutput =>
     __isa(o, "GetBucketLifecycleConfigurationOutput");
@@ -4551,10 +4460,7 @@ export interface GetBucketLoggingOutput {
 
 export namespace GetBucketLoggingOutput {
   export const filterSensitiveLog = (obj: GetBucketLoggingOutput): any => ({
-    ...obj,
-    ...(obj.LoggingEnabled && {
-      LoggingEnabled: LoggingEnabled.filterSensitiveLog(obj.LoggingEnabled)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketLoggingOutput =>
     __isa(o, "GetBucketLoggingOutput");
@@ -4588,12 +4494,7 @@ export namespace GetBucketMetricsConfigurationOutput {
   export const filterSensitiveLog = (
     obj: GetBucketMetricsConfigurationOutput
   ): any => ({
-    ...obj,
-    ...(obj.MetricsConfiguration && {
-      MetricsConfiguration: MetricsConfiguration.filterSensitiveLog(
-        obj.MetricsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketMetricsConfigurationOutput =>
     __isa(o, "GetBucketMetricsConfigurationOutput");
@@ -4684,10 +4585,7 @@ export namespace GetBucketPolicyStatusOutput {
   export const filterSensitiveLog = (
     obj: GetBucketPolicyStatusOutput
   ): any => ({
-    ...obj,
-    ...(obj.PolicyStatus && {
-      PolicyStatus: PolicyStatus.filterSensitiveLog(obj.PolicyStatus)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketPolicyStatusOutput =>
     __isa(o, "GetBucketPolicyStatusOutput");
@@ -4722,12 +4620,7 @@ export interface GetBucketReplicationOutput {
 
 export namespace GetBucketReplicationOutput {
   export const filterSensitiveLog = (obj: GetBucketReplicationOutput): any => ({
-    ...obj,
-    ...(obj.ReplicationConfiguration && {
-      ReplicationConfiguration: ReplicationConfiguration.filterSensitiveLog(
-        obj.ReplicationConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketReplicationOutput =>
     __isa(o, "GetBucketReplicationOutput");
@@ -4797,10 +4690,7 @@ export interface GetBucketTaggingOutput {
 
 export namespace GetBucketTaggingOutput {
   export const filterSensitiveLog = (obj: GetBucketTaggingOutput): any => ({
-    ...obj,
-    ...(obj.TagSet && {
-      TagSet: obj.TagSet.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketTaggingOutput =>
     __isa(o, "GetBucketTaggingOutput");
@@ -4884,23 +4774,7 @@ export interface GetBucketWebsiteOutput {
 
 export namespace GetBucketWebsiteOutput {
   export const filterSensitiveLog = (obj: GetBucketWebsiteOutput): any => ({
-    ...obj,
-    ...(obj.ErrorDocument && {
-      ErrorDocument: ErrorDocument.filterSensitiveLog(obj.ErrorDocument)
-    }),
-    ...(obj.IndexDocument && {
-      IndexDocument: IndexDocument.filterSensitiveLog(obj.IndexDocument)
-    }),
-    ...(obj.RedirectAllRequestsTo && {
-      RedirectAllRequestsTo: RedirectAllRequestsTo.filterSensitiveLog(
-        obj.RedirectAllRequestsTo
-      )
-    }),
-    ...(obj.RoutingRules && {
-      RoutingRules: obj.RoutingRules.map(item =>
-        RoutingRule.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetBucketWebsiteOutput =>
     __isa(o, "GetBucketWebsiteOutput");
@@ -4943,11 +4817,7 @@ export interface GetObjectAclOutput {
 
 export namespace GetObjectAclOutput {
   export const filterSensitiveLog = (obj: GetObjectAclOutput): any => ({
-    ...obj,
-    ...(obj.Grants && {
-      Grants: obj.Grants.map(item => Grant.filterSensitiveLog(item))
-    }),
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is GetObjectAclOutput =>
     __isa(o, "GetObjectAclOutput");
@@ -4998,10 +4868,7 @@ export interface GetObjectLegalHoldOutput {
 
 export namespace GetObjectLegalHoldOutput {
   export const filterSensitiveLog = (obj: GetObjectLegalHoldOutput): any => ({
-    ...obj,
-    ...(obj.LegalHold && {
-      LegalHold: ObjectLockLegalHold.filterSensitiveLog(obj.LegalHold)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetObjectLegalHoldOutput =>
     __isa(o, "GetObjectLegalHoldOutput");
@@ -5056,12 +4923,7 @@ export namespace GetObjectLockConfigurationOutput {
   export const filterSensitiveLog = (
     obj: GetObjectLockConfigurationOutput
   ): any => ({
-    ...obj,
-    ...(obj.ObjectLockConfiguration && {
-      ObjectLockConfiguration: ObjectLockConfiguration.filterSensitiveLog(
-        obj.ObjectLockConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetObjectLockConfigurationOutput =>
     __isa(o, "GetObjectLockConfigurationOutput");
@@ -5389,10 +5251,7 @@ export interface GetObjectRetentionOutput {
 
 export namespace GetObjectRetentionOutput {
   export const filterSensitiveLog = (obj: GetObjectRetentionOutput): any => ({
-    ...obj,
-    ...(obj.Retention && {
-      Retention: ObjectLockRetention.filterSensitiveLog(obj.Retention)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetObjectRetentionOutput =>
     __isa(o, "GetObjectRetentionOutput");
@@ -5448,10 +5307,7 @@ export interface GetObjectTaggingOutput {
 
 export namespace GetObjectTaggingOutput {
   export const filterSensitiveLog = (obj: GetObjectTaggingOutput): any => ({
-    ...obj,
-    ...(obj.TagSet && {
-      TagSet: obj.TagSet.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetObjectTaggingOutput =>
     __isa(o, "GetObjectTaggingOutput");
@@ -5545,12 +5401,7 @@ export interface GetPublicAccessBlockOutput {
 
 export namespace GetPublicAccessBlockOutput {
   export const filterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
-    ...obj,
-    ...(obj.PublicAccessBlockConfiguration && {
-      PublicAccessBlockConfiguration: PublicAccessBlockConfiguration.filterSensitiveLog(
-        obj.PublicAccessBlockConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPublicAccessBlockOutput =>
     __isa(o, "GetPublicAccessBlockOutput");
@@ -5612,8 +5463,7 @@ export interface Grant {
 
 export namespace Grant {
   export const filterSensitiveLog = (obj: Grant): any => ({
-    ...obj,
-    ...(obj.Grantee && { Grantee: Grantee.filterSensitiveLog(obj.Grantee) })
+    ...obj
   });
   export const isa = (o: any): o is Grant => __isa(o, "Grant");
 }
@@ -6033,12 +5883,7 @@ export interface InputSerialization {
 
 export namespace InputSerialization {
   export const filterSensitiveLog = (obj: InputSerialization): any => ({
-    ...obj,
-    ...(obj.CSV && { CSV: CSVInput.filterSensitiveLog(obj.CSV) }),
-    ...(obj.JSON && { JSON: JSONInput.filterSensitiveLog(obj.JSON) }),
-    ...(obj.Parquet && {
-      Parquet: ParquetInput.filterSensitiveLog(obj.Parquet)
-    })
+    ...obj
   });
   export const isa = (o: any): o is InputSerialization =>
     __isa(o, "InputSerialization");
@@ -6092,12 +5937,6 @@ export namespace InventoryConfiguration {
     ...obj,
     ...(obj.Destination && {
       Destination: InventoryDestination.filterSensitiveLog(obj.Destination)
-    }),
-    ...(obj.Filter && {
-      Filter: InventoryFilter.filterSensitiveLog(obj.Filter)
-    }),
-    ...(obj.Schedule && {
-      Schedule: InventorySchedule.filterSensitiveLog(obj.Schedule)
     })
   });
   export const isa = (o: any): o is InventoryConfiguration =>
@@ -6147,8 +5986,7 @@ export interface InventoryEncryption {
 export namespace InventoryEncryption {
   export const filterSensitiveLog = (obj: InventoryEncryption): any => ({
     ...obj,
-    ...(obj.SSEKMS && { SSEKMS: SSEKMS.filterSensitiveLog(obj.SSEKMS) }),
-    ...(obj.SSES3 && { SSES3: SSES3.filterSensitiveLog(obj.SSES3) })
+    ...(obj.SSEKMS && { SSEKMS: SSEKMS.filterSensitiveLog(obj.SSEKMS) })
   });
   export const isa = (o: any): o is InventoryEncryption =>
     __isa(o, "InventoryEncryption");
@@ -6333,10 +6171,7 @@ export namespace LambdaFunctionConfiguration {
   export const filterSensitiveLog = (
     obj: LambdaFunctionConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.Filter && {
-      Filter: NotificationConfigurationFilter.filterSensitiveLog(obj.Filter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is LambdaFunctionConfiguration =>
     __isa(o, "LambdaFunctionConfiguration");
@@ -6435,33 +6270,7 @@ export interface LifecycleRule {
 
 export namespace LifecycleRule {
   export const filterSensitiveLog = (obj: LifecycleRule): any => ({
-    ...obj,
-    ...(obj.AbortIncompleteMultipartUpload && {
-      AbortIncompleteMultipartUpload: AbortIncompleteMultipartUpload.filterSensitiveLog(
-        obj.AbortIncompleteMultipartUpload
-      )
-    }),
-    ...(obj.Expiration && {
-      Expiration: LifecycleExpiration.filterSensitiveLog(obj.Expiration)
-    }),
-    ...(obj.Filter && {
-      Filter: LifecycleRuleFilter.filterSensitiveLog(obj.Filter)
-    }),
-    ...(obj.NoncurrentVersionExpiration && {
-      NoncurrentVersionExpiration: NoncurrentVersionExpiration.filterSensitiveLog(
-        obj.NoncurrentVersionExpiration
-      )
-    }),
-    ...(obj.NoncurrentVersionTransitions && {
-      NoncurrentVersionTransitions: obj.NoncurrentVersionTransitions.map(item =>
-        NoncurrentVersionTransition.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Transitions && {
-      Transitions: obj.Transitions.map(item =>
-        Transition.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LifecycleRule => __isa(o, "LifecycleRule");
 }
@@ -6484,10 +6293,7 @@ export interface LifecycleRuleAndOperator {
 
 export namespace LifecycleRuleAndOperator {
   export const filterSensitiveLog = (obj: LifecycleRuleAndOperator): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is LifecycleRuleAndOperator =>
     __isa(o, "LifecycleRuleAndOperator");
@@ -6518,11 +6324,7 @@ export interface LifecycleRuleFilter {
 
 export namespace LifecycleRuleFilter {
   export const filterSensitiveLog = (obj: LifecycleRuleFilter): any => ({
-    ...obj,
-    ...(obj.And && {
-      And: LifecycleRuleAndOperator.filterSensitiveLog(obj.And)
-    }),
-    ...(obj.Tag && { Tag: Tag.filterSensitiveLog(obj.Tag) })
+    ...obj
   });
   export const isa = (o: any): o is LifecycleRuleFilter =>
     __isa(o, "LifecycleRuleFilter");
@@ -6559,12 +6361,7 @@ export namespace ListBucketAnalyticsConfigurationsOutput {
   export const filterSensitiveLog = (
     obj: ListBucketAnalyticsConfigurationsOutput
   ): any => ({
-    ...obj,
-    ...(obj.AnalyticsConfigurationList && {
-      AnalyticsConfigurationList: obj.AnalyticsConfigurationList.map(item =>
-        AnalyticsConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListBucketAnalyticsConfigurationsOutput =>
     __isa(o, "ListBucketAnalyticsConfigurationsOutput");
@@ -6686,12 +6483,7 @@ export namespace ListBucketMetricsConfigurationsOutput {
   export const filterSensitiveLog = (
     obj: ListBucketMetricsConfigurationsOutput
   ): any => ({
-    ...obj,
-    ...(obj.MetricsConfigurationList && {
-      MetricsConfigurationList: obj.MetricsConfigurationList.map(item =>
-        MetricsConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListBucketMetricsConfigurationsOutput =>
     __isa(o, "ListBucketMetricsConfigurationsOutput");
@@ -6735,11 +6527,7 @@ export interface ListBucketsOutput {
 
 export namespace ListBucketsOutput {
   export const filterSensitiveLog = (obj: ListBucketsOutput): any => ({
-    ...obj,
-    ...(obj.Buckets && {
-      Buckets: obj.Buckets.map(item => Bucket.filterSensitiveLog(item))
-    }),
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is ListBucketsOutput =>
     __isa(o, "ListBucketsOutput");
@@ -6818,15 +6606,7 @@ export interface ListMultipartUploadsOutput {
 
 export namespace ListMultipartUploadsOutput {
   export const filterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
-    ...obj,
-    ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        CommonPrefix.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Uploads && {
-      Uploads: obj.Uploads.map(item => MultipartUpload.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMultipartUploadsOutput =>
     __isa(o, "ListMultipartUploadsOutput");
@@ -6978,20 +6758,7 @@ export interface ListObjectVersionsOutput {
 
 export namespace ListObjectVersionsOutput {
   export const filterSensitiveLog = (obj: ListObjectVersionsOutput): any => ({
-    ...obj,
-    ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        CommonPrefix.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.DeleteMarkers && {
-      DeleteMarkers: obj.DeleteMarkers.map(item =>
-        DeleteMarkerEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Versions && {
-      Versions: obj.Versions.map(item => ObjectVersion.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListObjectVersionsOutput =>
     __isa(o, "ListObjectVersionsOutput");
@@ -7112,15 +6879,7 @@ export interface ListObjectsOutput {
 
 export namespace ListObjectsOutput {
   export const filterSensitiveLog = (obj: ListObjectsOutput): any => ({
-    ...obj,
-    ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        CommonPrefix.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Contents && {
-      Contents: obj.Contents.map(item => _Object.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListObjectsOutput =>
     __isa(o, "ListObjectsOutput");
@@ -7262,15 +7021,7 @@ export interface ListObjectsV2Output {
 
 export namespace ListObjectsV2Output {
   export const filterSensitiveLog = (obj: ListObjectsV2Output): any => ({
-    ...obj,
-    ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        CommonPrefix.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Contents && {
-      Contents: obj.Contents.map(item => _Object.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListObjectsV2Output =>
     __isa(o, "ListObjectsV2Output");
@@ -7420,14 +7171,7 @@ export interface ListPartsOutput {
 
 export namespace ListPartsOutput {
   export const filterSensitiveLog = (obj: ListPartsOutput): any => ({
-    ...obj,
-    ...(obj.Initiator && {
-      Initiator: Initiator.filterSensitiveLog(obj.Initiator)
-    }),
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) }),
-    ...(obj.Parts && {
-      Parts: obj.Parts.map(item => Part.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPartsOutput =>
     __isa(o, "ListPartsOutput");
@@ -7509,12 +7253,7 @@ export interface LoggingEnabled {
 
 export namespace LoggingEnabled {
   export const filterSensitiveLog = (obj: LoggingEnabled): any => ({
-    ...obj,
-    ...(obj.TargetGrants && {
-      TargetGrants: obj.TargetGrants.map(item =>
-        TargetGrant.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LoggingEnabled =>
     __isa(o, "LoggingEnabled");
@@ -7573,12 +7312,7 @@ export interface Metrics {
 
 export namespace Metrics {
   export const filterSensitiveLog = (obj: Metrics): any => ({
-    ...obj,
-    ...(obj.EventThreshold && {
-      EventThreshold: ReplicationTimeValue.filterSensitiveLog(
-        obj.EventThreshold
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Metrics => __isa(o, "Metrics");
 }
@@ -7603,10 +7337,7 @@ export interface MetricsAndOperator {
 
 export namespace MetricsAndOperator {
   export const filterSensitiveLog = (obj: MetricsAndOperator): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is MetricsAndOperator =>
     __isa(o, "MetricsAndOperator");
@@ -7633,8 +7364,7 @@ export interface MetricsConfiguration {
 
 export namespace MetricsConfiguration {
   export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: MetricsFilter.filterSensitiveLog(obj.Filter) })
+    ...obj
   });
   export const isa = (o: any): o is MetricsConfiguration =>
     __isa(o, "MetricsConfiguration");
@@ -7665,9 +7395,7 @@ export interface MetricsFilter {
 
 export namespace MetricsFilter {
   export const filterSensitiveLog = (obj: MetricsFilter): any => ({
-    ...obj,
-    ...(obj.And && { And: MetricsAndOperator.filterSensitiveLog(obj.And) }),
-    ...(obj.Tag && { Tag: Tag.filterSensitiveLog(obj.Tag) })
+    ...obj
   });
   export const isa = (o: any): o is MetricsFilter => __isa(o, "MetricsFilter");
 }
@@ -7712,11 +7440,7 @@ export interface MultipartUpload {
 
 export namespace MultipartUpload {
   export const filterSensitiveLog = (obj: MultipartUpload): any => ({
-    ...obj,
-    ...(obj.Initiator && {
-      Initiator: Initiator.filterSensitiveLog(obj.Initiator)
-    }),
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is MultipartUpload =>
     __isa(o, "MultipartUpload");
@@ -7845,22 +7569,7 @@ export interface NotificationConfiguration {
 
 export namespace NotificationConfiguration {
   export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-    ...(obj.LambdaFunctionConfigurations && {
-      LambdaFunctionConfigurations: obj.LambdaFunctionConfigurations.map(item =>
-        LambdaFunctionConfiguration.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.QueueConfigurations && {
-      QueueConfigurations: obj.QueueConfigurations.map(item =>
-        QueueConfiguration.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.TopicConfigurations && {
-      TopicConfigurations: obj.TopicConfigurations.map(item =>
-        TopicConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is NotificationConfiguration =>
     __isa(o, "NotificationConfiguration");
@@ -7884,8 +7593,7 @@ export namespace NotificationConfigurationFilter {
   export const filterSensitiveLog = (
     obj: NotificationConfigurationFilter
   ): any => ({
-    ...obj,
-    ...(obj.Key && { Key: S3KeyFilter.filterSensitiveLog(obj.Key) })
+    ...obj
   });
   export const isa = (o: any): o is NotificationConfigurationFilter =>
     __isa(o, "NotificationConfigurationFilter");
@@ -7930,8 +7638,7 @@ export interface _Object {
 
 export namespace _Object {
   export const filterSensitiveLog = (obj: _Object): any => ({
-    ...obj,
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is _Object => __isa(o, "Object");
 }
@@ -8007,8 +7714,7 @@ export interface ObjectLockConfiguration {
 
 export namespace ObjectLockConfiguration {
   export const filterSensitiveLog = (obj: ObjectLockConfiguration): any => ({
-    ...obj,
-    ...(obj.Rule && { Rule: ObjectLockRule.filterSensitiveLog(obj.Rule) })
+    ...obj
   });
   export const isa = (o: any): o is ObjectLockConfiguration =>
     __isa(o, "ObjectLockConfiguration");
@@ -8078,12 +7784,7 @@ export interface ObjectLockRule {
 
 export namespace ObjectLockRule {
   export const filterSensitiveLog = (obj: ObjectLockRule): any => ({
-    ...obj,
-    ...(obj.DefaultRetention && {
-      DefaultRetention: DefaultRetention.filterSensitiveLog(
-        obj.DefaultRetention
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ObjectLockRule =>
     __isa(o, "ObjectLockRule");
@@ -8165,8 +7866,7 @@ export interface ObjectVersion {
 
 export namespace ObjectVersion {
   export const filterSensitiveLog = (obj: ObjectVersion): any => ({
-    ...obj,
-    ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is ObjectVersion => __isa(o, "ObjectVersion");
 }
@@ -8211,9 +7911,7 @@ export interface OutputSerialization {
 
 export namespace OutputSerialization {
   export const filterSensitiveLog = (obj: OutputSerialization): any => ({
-    ...obj,
-    ...(obj.CSV && { CSV: CSVOutput.filterSensitiveLog(obj.CSV) }),
-    ...(obj.JSON && { JSON: JSONOutput.filterSensitiveLog(obj.JSON) })
+    ...obj
   });
   export const isa = (o: any): o is OutputSerialization =>
     __isa(o, "OutputSerialization");
@@ -8360,8 +8058,7 @@ export interface ProgressEvent {
 
 export namespace ProgressEvent {
   export const filterSensitiveLog = (obj: ProgressEvent): any => ({
-    ...obj,
-    ...(obj.Details && { Details: Progress.filterSensitiveLog(obj.Details) })
+    ...obj
   });
   export const isa = (o: any): o is ProgressEvent => __isa(o, "ProgressEvent");
 }
@@ -8449,12 +8146,7 @@ export namespace PutBucketAccelerateConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutBucketAccelerateConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.AccelerateConfiguration && {
-      AccelerateConfiguration: AccelerateConfiguration.filterSensitiveLog(
-        obj.AccelerateConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketAccelerateConfigurationRequest =>
     __isa(o, "PutBucketAccelerateConfigurationRequest");
@@ -8513,12 +8205,7 @@ export interface PutBucketAclRequest {
 
 export namespace PutBucketAclRequest {
   export const filterSensitiveLog = (obj: PutBucketAclRequest): any => ({
-    ...obj,
-    ...(obj.AccessControlPolicy && {
-      AccessControlPolicy: AccessControlPolicy.filterSensitiveLog(
-        obj.AccessControlPolicy
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketAclRequest =>
     __isa(o, "PutBucketAclRequest");
@@ -8546,12 +8233,7 @@ export namespace PutBucketAnalyticsConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutBucketAnalyticsConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.AnalyticsConfiguration && {
-      AnalyticsConfiguration: AnalyticsConfiguration.filterSensitiveLog(
-        obj.AnalyticsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketAnalyticsConfigurationRequest =>
     __isa(o, "PutBucketAnalyticsConfigurationRequest");
@@ -8582,12 +8264,7 @@ export interface PutBucketCorsRequest {
 
 export namespace PutBucketCorsRequest {
   export const filterSensitiveLog = (obj: PutBucketCorsRequest): any => ({
-    ...obj,
-    ...(obj.CORSConfiguration && {
-      CORSConfiguration: CORSConfiguration.filterSensitiveLog(
-        obj.CORSConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketCorsRequest =>
     __isa(o, "PutBucketCorsRequest");
@@ -8677,12 +8354,7 @@ export namespace PutBucketLifecycleConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutBucketLifecycleConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.LifecycleConfiguration && {
-      LifecycleConfiguration: BucketLifecycleConfiguration.filterSensitiveLog(
-        obj.LifecycleConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketLifecycleConfigurationRequest =>
     __isa(o, "PutBucketLifecycleConfigurationRequest");
@@ -8708,12 +8380,7 @@ export interface PutBucketLoggingRequest {
 
 export namespace PutBucketLoggingRequest {
   export const filterSensitiveLog = (obj: PutBucketLoggingRequest): any => ({
-    ...obj,
-    ...(obj.BucketLoggingStatus && {
-      BucketLoggingStatus: BucketLoggingStatus.filterSensitiveLog(
-        obj.BucketLoggingStatus
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketLoggingRequest =>
     __isa(o, "PutBucketLoggingRequest");
@@ -8741,12 +8408,7 @@ export namespace PutBucketMetricsConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutBucketMetricsConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.MetricsConfiguration && {
-      MetricsConfiguration: MetricsConfiguration.filterSensitiveLog(
-        obj.MetricsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketMetricsConfigurationRequest =>
     __isa(o, "PutBucketMetricsConfigurationRequest");
@@ -8770,12 +8432,7 @@ export namespace PutBucketNotificationConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutBucketNotificationConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.NotificationConfiguration && {
-      NotificationConfiguration: NotificationConfiguration.filterSensitiveLog(
-        obj.NotificationConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketNotificationConfigurationRequest =>
     __isa(o, "PutBucketNotificationConfigurationRequest");
@@ -8840,12 +8497,7 @@ export namespace PutBucketReplicationRequest {
   export const filterSensitiveLog = (
     obj: PutBucketReplicationRequest
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationConfiguration && {
-      ReplicationConfiguration: ReplicationConfiguration.filterSensitiveLog(
-        obj.ReplicationConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketReplicationRequest =>
     __isa(o, "PutBucketReplicationRequest");
@@ -8873,12 +8525,7 @@ export namespace PutBucketRequestPaymentRequest {
   export const filterSensitiveLog = (
     obj: PutBucketRequestPaymentRequest
   ): any => ({
-    ...obj,
-    ...(obj.RequestPaymentConfiguration && {
-      RequestPaymentConfiguration: RequestPaymentConfiguration.filterSensitiveLog(
-        obj.RequestPaymentConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketRequestPaymentRequest =>
     __isa(o, "PutBucketRequestPaymentRequest");
@@ -8904,8 +8551,7 @@ export interface PutBucketTaggingRequest {
 
 export namespace PutBucketTaggingRequest {
   export const filterSensitiveLog = (obj: PutBucketTaggingRequest): any => ({
-    ...obj,
-    ...(obj.Tagging && { Tagging: Tagging.filterSensitiveLog(obj.Tagging) })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketTaggingRequest =>
     __isa(o, "PutBucketTaggingRequest");
@@ -8936,12 +8582,7 @@ export interface PutBucketVersioningRequest {
 
 export namespace PutBucketVersioningRequest {
   export const filterSensitiveLog = (obj: PutBucketVersioningRequest): any => ({
-    ...obj,
-    ...(obj.VersioningConfiguration && {
-      VersioningConfiguration: VersioningConfiguration.filterSensitiveLog(
-        obj.VersioningConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketVersioningRequest =>
     __isa(o, "PutBucketVersioningRequest");
@@ -8967,12 +8608,7 @@ export interface PutBucketWebsiteRequest {
 
 export namespace PutBucketWebsiteRequest {
   export const filterSensitiveLog = (obj: PutBucketWebsiteRequest): any => ({
-    ...obj,
-    ...(obj.WebsiteConfiguration && {
-      WebsiteConfiguration: WebsiteConfiguration.filterSensitiveLog(
-        obj.WebsiteConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutBucketWebsiteRequest =>
     __isa(o, "PutBucketWebsiteRequest");
@@ -9067,12 +8703,7 @@ export interface PutObjectAclRequest {
 
 export namespace PutObjectAclRequest {
   export const filterSensitiveLog = (obj: PutObjectAclRequest): any => ({
-    ...obj,
-    ...(obj.AccessControlPolicy && {
-      AccessControlPolicy: AccessControlPolicy.filterSensitiveLog(
-        obj.AccessControlPolicy
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutObjectAclRequest =>
     __isa(o, "PutObjectAclRequest");
@@ -9133,10 +8764,7 @@ export interface PutObjectLegalHoldRequest {
 
 export namespace PutObjectLegalHoldRequest {
   export const filterSensitiveLog = (obj: PutObjectLegalHoldRequest): any => ({
-    ...obj,
-    ...(obj.LegalHold && {
-      LegalHold: ObjectLockLegalHold.filterSensitiveLog(obj.LegalHold)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutObjectLegalHoldRequest =>
     __isa(o, "PutObjectLegalHoldRequest");
@@ -9195,12 +8823,7 @@ export namespace PutObjectLockConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutObjectLockConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.ObjectLockConfiguration && {
-      ObjectLockConfiguration: ObjectLockConfiguration.filterSensitiveLog(
-        obj.ObjectLockConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutObjectLockConfigurationRequest =>
     __isa(o, "PutObjectLockConfigurationRequest");
@@ -9531,10 +9154,7 @@ export interface PutObjectRetentionRequest {
 
 export namespace PutObjectRetentionRequest {
   export const filterSensitiveLog = (obj: PutObjectRetentionRequest): any => ({
-    ...obj,
-    ...(obj.Retention && {
-      Retention: ObjectLockRetention.filterSensitiveLog(obj.Retention)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutObjectRetentionRequest =>
     __isa(o, "PutObjectRetentionRequest");
@@ -9587,8 +9207,7 @@ export interface PutObjectTaggingRequest {
 
 export namespace PutObjectTaggingRequest {
   export const filterSensitiveLog = (obj: PutObjectTaggingRequest): any => ({
-    ...obj,
-    ...(obj.Tagging && { Tagging: Tagging.filterSensitiveLog(obj.Tagging) })
+    ...obj
   });
   export const isa = (o: any): o is PutObjectTaggingRequest =>
     __isa(o, "PutObjectTaggingRequest");
@@ -9620,12 +9239,7 @@ export namespace PutPublicAccessBlockRequest {
   export const filterSensitiveLog = (
     obj: PutPublicAccessBlockRequest
   ): any => ({
-    ...obj,
-    ...(obj.PublicAccessBlockConfiguration && {
-      PublicAccessBlockConfiguration: PublicAccessBlockConfiguration.filterSensitiveLog(
-        obj.PublicAccessBlockConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPublicAccessBlockRequest =>
     __isa(o, "PutPublicAccessBlockRequest");
@@ -9665,10 +9279,7 @@ export interface QueueConfiguration {
 
 export namespace QueueConfiguration {
   export const filterSensitiveLog = (obj: QueueConfiguration): any => ({
-    ...obj,
-    ...(obj.Filter && {
-      Filter: NotificationConfigurationFilter.filterSensitiveLog(obj.Filter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is QueueConfiguration =>
     __isa(o, "QueueConfiguration");
@@ -9780,10 +9391,7 @@ export interface ReplicationConfiguration {
 
 export namespace ReplicationConfiguration {
   export const filterSensitiveLog = (obj: ReplicationConfiguration): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => ReplicationRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationConfiguration =>
     __isa(o, "ReplicationConfiguration");
@@ -9871,28 +9479,7 @@ export interface ReplicationRule {
 
 export namespace ReplicationRule {
   export const filterSensitiveLog = (obj: ReplicationRule): any => ({
-    ...obj,
-    ...(obj.DeleteMarkerReplication && {
-      DeleteMarkerReplication: DeleteMarkerReplication.filterSensitiveLog(
-        obj.DeleteMarkerReplication
-      )
-    }),
-    ...(obj.Destination && {
-      Destination: Destination.filterSensitiveLog(obj.Destination)
-    }),
-    ...(obj.ExistingObjectReplication && {
-      ExistingObjectReplication: ExistingObjectReplication.filterSensitiveLog(
-        obj.ExistingObjectReplication
-      )
-    }),
-    ...(obj.Filter && {
-      Filter: ReplicationRuleFilter.filterSensitiveLog(obj.Filter)
-    }),
-    ...(obj.SourceSelectionCriteria && {
-      SourceSelectionCriteria: SourceSelectionCriteria.filterSensitiveLog(
-        obj.SourceSelectionCriteria
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationRule =>
     __isa(o, "ReplicationRule");
@@ -9929,10 +9516,7 @@ export interface ReplicationRuleAndOperator {
 
 export namespace ReplicationRuleAndOperator {
   export const filterSensitiveLog = (obj: ReplicationRuleAndOperator): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationRuleAndOperator =>
     __isa(o, "ReplicationRuleAndOperator");
@@ -9977,11 +9561,7 @@ export interface ReplicationRuleFilter {
 
 export namespace ReplicationRuleFilter {
   export const filterSensitiveLog = (obj: ReplicationRuleFilter): any => ({
-    ...obj,
-    ...(obj.And && {
-      And: ReplicationRuleAndOperator.filterSensitiveLog(obj.And)
-    }),
-    ...(obj.Tag && { Tag: Tag.filterSensitiveLog(obj.Tag) })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationRuleFilter =>
     __isa(o, "ReplicationRuleFilter");
@@ -10015,8 +9595,7 @@ export interface ReplicationTime {
 
 export namespace ReplicationTime {
   export const filterSensitiveLog = (obj: ReplicationTime): any => ({
-    ...obj,
-    ...(obj.Time && { Time: ReplicationTimeValue.filterSensitiveLog(obj.Time) })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationTime =>
     __isa(o, "ReplicationTime");
@@ -10203,18 +9782,8 @@ export interface RestoreRequest {
 export namespace RestoreRequest {
   export const filterSensitiveLog = (obj: RestoreRequest): any => ({
     ...obj,
-    ...(obj.GlacierJobParameters && {
-      GlacierJobParameters: GlacierJobParameters.filterSensitiveLog(
-        obj.GlacierJobParameters
-      )
-    }),
     ...(obj.OutputLocation && {
       OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation)
-    }),
-    ...(obj.SelectParameters && {
-      SelectParameters: SelectParameters.filterSensitiveLog(
-        obj.SelectParameters
-      )
     })
   });
   export const isa = (o: any): o is RestoreRequest =>
@@ -10245,11 +9814,7 @@ export interface RoutingRule {
 
 export namespace RoutingRule {
   export const filterSensitiveLog = (obj: RoutingRule): any => ({
-    ...obj,
-    ...(obj.Condition && {
-      Condition: Condition.filterSensitiveLog(obj.Condition)
-    }),
-    ...(obj.Redirect && { Redirect: Redirect.filterSensitiveLog(obj.Redirect) })
+    ...obj
   });
   export const isa = (o: any): o is RoutingRule => __isa(o, "RoutingRule");
 }
@@ -10268,12 +9833,7 @@ export interface S3KeyFilter {
 
 export namespace S3KeyFilter {
   export const filterSensitiveLog = (obj: S3KeyFilter): any => ({
-    ...obj,
-    ...(obj.FilterRules && {
-      FilterRules: obj.FilterRules.map(item =>
-        FilterRule.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is S3KeyFilter => __isa(o, "S3KeyFilter");
 }
@@ -10327,19 +9887,8 @@ export interface S3Location {
 export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
-    ...(obj.AccessControlList && {
-      AccessControlList: obj.AccessControlList.map(item =>
-        Grant.filterSensitiveLog(item)
-      )
-    }),
     ...(obj.Encryption && {
       Encryption: Encryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.Tagging && { Tagging: Tagging.filterSensitiveLog(obj.Tagging) }),
-    ...(obj.UserMetadata && {
-      UserMetadata: obj.UserMetadata.map(item =>
-        MetadataEntry.filterSensitiveLog(item)
-      )
     })
   });
   export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
@@ -10611,23 +10160,7 @@ export interface SelectObjectContentRequest {
 export namespace SelectObjectContentRequest {
   export const filterSensitiveLog = (obj: SelectObjectContentRequest): any => ({
     ...obj,
-    ...(obj.InputSerialization && {
-      InputSerialization: InputSerialization.filterSensitiveLog(
-        obj.InputSerialization
-      )
-    }),
-    ...(obj.OutputSerialization && {
-      OutputSerialization: OutputSerialization.filterSensitiveLog(
-        obj.OutputSerialization
-      )
-    }),
-    ...(obj.RequestProgress && {
-      RequestProgress: RequestProgress.filterSensitiveLog(obj.RequestProgress)
-    }),
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.ScanRange && {
-      ScanRange: ScanRange.filterSensitiveLog(obj.ScanRange)
-    })
+    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is SelectObjectContentRequest =>
     __isa(o, "SelectObjectContentRequest");
@@ -10661,17 +10194,7 @@ export interface SelectParameters {
 
 export namespace SelectParameters {
   export const filterSensitiveLog = (obj: SelectParameters): any => ({
-    ...obj,
-    ...(obj.InputSerialization && {
-      InputSerialization: InputSerialization.filterSensitiveLog(
-        obj.InputSerialization
-      )
-    }),
-    ...(obj.OutputSerialization && {
-      OutputSerialization: OutputSerialization.filterSensitiveLog(
-        obj.OutputSerialization
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SelectParameters =>
     __isa(o, "SelectParameters");
@@ -10774,12 +10297,7 @@ export interface SourceSelectionCriteria {
 
 export namespace SourceSelectionCriteria {
   export const filterSensitiveLog = (obj: SourceSelectionCriteria): any => ({
-    ...obj,
-    ...(obj.SseKmsEncryptedObjects && {
-      SseKmsEncryptedObjects: SseKmsEncryptedObjects.filterSensitiveLog(
-        obj.SseKmsEncryptedObjects
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SourceSelectionCriteria =>
     __isa(o, "SourceSelectionCriteria");
@@ -10848,8 +10366,7 @@ export interface StatsEvent {
 
 export namespace StatsEvent {
   export const filterSensitiveLog = (obj: StatsEvent): any => ({
-    ...obj,
-    ...(obj.Details && { Details: Stats.filterSensitiveLog(obj.Details) })
+    ...obj
   });
   export const isa = (o: any): o is StatsEvent => __isa(o, "StatsEvent");
 }
@@ -10876,12 +10393,7 @@ export interface StorageClassAnalysis {
 
 export namespace StorageClassAnalysis {
   export const filterSensitiveLog = (obj: StorageClassAnalysis): any => ({
-    ...obj,
-    ...(obj.DataExport && {
-      DataExport: StorageClassAnalysisDataExport.filterSensitiveLog(
-        obj.DataExport
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StorageClassAnalysis =>
     __isa(o, "StorageClassAnalysis");
@@ -10907,12 +10419,7 @@ export namespace StorageClassAnalysisDataExport {
   export const filterSensitiveLog = (
     obj: StorageClassAnalysisDataExport
   ): any => ({
-    ...obj,
-    ...(obj.Destination && {
-      Destination: AnalyticsExportDestination.filterSensitiveLog(
-        obj.Destination
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StorageClassAnalysisDataExport =>
     __isa(o, "StorageClassAnalysisDataExport");
@@ -10956,10 +10463,7 @@ export interface Tagging {
 
 export namespace Tagging {
   export const filterSensitiveLog = (obj: Tagging): any => ({
-    ...obj,
-    ...(obj.TagSet && {
-      TagSet: obj.TagSet.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Tagging => __isa(o, "Tagging");
 }
@@ -10984,8 +10488,7 @@ export interface TargetGrant {
 
 export namespace TargetGrant {
   export const filterSensitiveLog = (obj: TargetGrant): any => ({
-    ...obj,
-    ...(obj.Grantee && { Grantee: Grantee.filterSensitiveLog(obj.Grantee) })
+    ...obj
   });
   export const isa = (o: any): o is TargetGrant => __isa(o, "TargetGrant");
 }
@@ -11028,10 +10531,7 @@ export interface TopicConfiguration {
 
 export namespace TopicConfiguration {
   export const filterSensitiveLog = (obj: TopicConfiguration): any => ({
-    ...obj,
-    ...(obj.Filter && {
-      Filter: NotificationConfigurationFilter.filterSensitiveLog(obj.Filter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TopicConfiguration =>
     __isa(o, "TopicConfiguration");
@@ -11119,9 +10619,6 @@ export interface UploadPartCopyOutput {
 export namespace UploadPartCopyOutput {
   export const filterSensitiveLog = (obj: UploadPartCopyOutput): any => ({
     ...obj,
-    ...(obj.CopyPartResult && {
-      CopyPartResult: CopyPartResult.filterSensitiveLog(obj.CopyPartResult)
-    }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is UploadPartCopyOutput =>
@@ -11422,23 +10919,7 @@ export interface WebsiteConfiguration {
 
 export namespace WebsiteConfiguration {
   export const filterSensitiveLog = (obj: WebsiteConfiguration): any => ({
-    ...obj,
-    ...(obj.ErrorDocument && {
-      ErrorDocument: ErrorDocument.filterSensitiveLog(obj.ErrorDocument)
-    }),
-    ...(obj.IndexDocument && {
-      IndexDocument: IndexDocument.filterSensitiveLog(obj.IndexDocument)
-    }),
-    ...(obj.RedirectAllRequestsTo && {
-      RedirectAllRequestsTo: RedirectAllRequestsTo.filterSensitiveLog(
-        obj.RedirectAllRequestsTo
-      )
-    }),
-    ...(obj.RoutingRules && {
-      RoutingRules: obj.RoutingRules.map(item =>
-        RoutingRule.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is WebsiteConfiguration =>
     __isa(o, "WebsiteConfiguration");

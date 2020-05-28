@@ -249,8 +249,7 @@ export namespace GetAWSDefaultServiceQuotaResponse {
   export const filterSensitiveLog = (
     obj: GetAWSDefaultServiceQuotaResponse
   ): any => ({
-    ...obj,
-    ...(obj.Quota && { Quota: ServiceQuota.filterSensitiveLog(obj.Quota) })
+    ...obj
   });
   export const isa = (o: any): o is GetAWSDefaultServiceQuotaResponse =>
     __isa(o, "GetAWSDefaultServiceQuotaResponse");
@@ -327,12 +326,7 @@ export namespace GetRequestedServiceQuotaChangeResponse {
   export const filterSensitiveLog = (
     obj: GetRequestedServiceQuotaChangeResponse
   ): any => ({
-    ...obj,
-    ...(obj.RequestedQuota && {
-      RequestedQuota: RequestedServiceQuotaChange.filterSensitiveLog(
-        obj.RequestedQuota
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRequestedServiceQuotaChangeResponse =>
     __isa(o, "GetRequestedServiceQuotaChangeResponse");
@@ -380,12 +374,7 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
   export const filterSensitiveLog = (
     obj: GetServiceQuotaIncreaseRequestFromTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.ServiceQuotaIncreaseRequestInTemplate && {
-      ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplate.filterSensitiveLog(
-        obj.ServiceQuotaIncreaseRequestInTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -425,8 +414,7 @@ export interface GetServiceQuotaResponse {
 
 export namespace GetServiceQuotaResponse {
   export const filterSensitiveLog = (obj: GetServiceQuotaResponse): any => ({
-    ...obj,
-    ...(obj.Quota && { Quota: ServiceQuota.filterSensitiveLog(obj.Quota) })
+    ...obj
   });
   export const isa = (o: any): o is GetServiceQuotaResponse =>
     __isa(o, "GetServiceQuotaResponse");
@@ -554,10 +542,7 @@ export namespace ListAWSDefaultServiceQuotasResponse {
   export const filterSensitiveLog = (
     obj: ListAWSDefaultServiceQuotasResponse
   ): any => ({
-    ...obj,
-    ...(obj.Quotas && {
-      Quotas: obj.Quotas.map(item => ServiceQuota.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAWSDefaultServiceQuotasResponse =>
     __isa(o, "ListAWSDefaultServiceQuotasResponse");
@@ -634,12 +619,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   export const filterSensitiveLog = (
     obj: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
   ): any => ({
-    ...obj,
-    ...(obj.RequestedQuotas && {
-      RequestedQuotas: obj.RequestedQuotas.map(item =>
-        RequestedServiceQuotaChange.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -713,12 +693,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryResponse {
   export const filterSensitiveLog = (
     obj: ListRequestedServiceQuotaChangeHistoryResponse
   ): any => ({
-    ...obj,
-    ...(obj.RequestedQuotas && {
-      RequestedQuotas: obj.RequestedQuotas.map(item =>
-        RequestedServiceQuotaChange.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -793,12 +768,7 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
   export const filterSensitiveLog = (
     obj: ListServiceQuotaIncreaseRequestsInTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.ServiceQuotaIncreaseRequestInTemplateList && {
-      ServiceQuotaIncreaseRequestInTemplateList: obj.ServiceQuotaIncreaseRequestInTemplateList.map(
-        item => ServiceQuotaIncreaseRequestInTemplate.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -863,10 +833,7 @@ export interface ListServiceQuotasResponse {
 
 export namespace ListServiceQuotasResponse {
   export const filterSensitiveLog = (obj: ListServiceQuotasResponse): any => ({
-    ...obj,
-    ...(obj.Quotas && {
-      Quotas: obj.Quotas.map(item => ServiceQuota.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListServiceQuotasResponse =>
     __isa(o, "ListServiceQuotasResponse");
@@ -922,10 +889,7 @@ export interface ListServicesResponse {
 
 export namespace ListServicesResponse {
   export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
-    ...obj,
-    ...(obj.Services && {
-      Services: obj.Services.map(item => ServiceInfo.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListServicesResponse =>
     __isa(o, "ListServicesResponse");
@@ -1090,12 +1054,7 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
   export const filterSensitiveLog = (
     obj: PutServiceQuotaIncreaseRequestIntoTemplateResponse
   ): any => ({
-    ...obj,
-    ...(obj.ServiceQuotaIncreaseRequestInTemplate && {
-      ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplate.filterSensitiveLog(
-        obj.ServiceQuotaIncreaseRequestInTemplate
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -1186,12 +1145,7 @@ export namespace RequestServiceQuotaIncreaseResponse {
   export const filterSensitiveLog = (
     obj: RequestServiceQuotaIncreaseResponse
   ): any => ({
-    ...obj,
-    ...(obj.RequestedQuota && {
-      RequestedQuota: RequestedServiceQuotaChange.filterSensitiveLog(
-        obj.RequestedQuota
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RequestServiceQuotaIncreaseResponse =>
     __isa(o, "RequestServiceQuotaIncreaseResponse");
@@ -1423,14 +1377,7 @@ export interface ServiceQuota {
 
 export namespace ServiceQuota {
   export const filterSensitiveLog = (obj: ServiceQuota): any => ({
-    ...obj,
-    ...(obj.ErrorReason && {
-      ErrorReason: ErrorReason.filterSensitiveLog(obj.ErrorReason)
-    }),
-    ...(obj.Period && { Period: QuotaPeriod.filterSensitiveLog(obj.Period) }),
-    ...(obj.UsageMetric && {
-      UsageMetric: MetricInfo.filterSensitiveLog(obj.UsageMetric)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ServiceQuota => __isa(o, "ServiceQuota");
 }

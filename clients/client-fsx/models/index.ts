@@ -137,23 +137,7 @@ export interface Backup {
 
 export namespace Backup {
   export const filterSensitiveLog = (obj: Backup): any => ({
-    ...obj,
-    ...(obj.DirectoryInformation && {
-      DirectoryInformation: ActiveDirectoryBackupAttributes.filterSensitiveLog(
-        obj.DirectoryInformation
-      )
-    }),
-    ...(obj.FailureDetails && {
-      FailureDetails: BackupFailureDetails.filterSensitiveLog(
-        obj.FailureDetails
-      )
-    }),
-    ...(obj.FileSystem && {
-      FileSystem: FileSystem.filterSensitiveLog(obj.FileSystem)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Backup => __isa(o, "Backup");
 }
@@ -420,10 +404,7 @@ export interface CreateBackupRequest {
 
 export namespace CreateBackupRequest {
   export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateBackupRequest =>
     __isa(o, "CreateBackupRequest");
@@ -442,8 +423,7 @@ export interface CreateBackupResponse {
 
 export namespace CreateBackupResponse {
   export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
-    ...obj,
-    ...(obj.Backup && { Backup: Backup.filterSensitiveLog(obj.Backup) })
+    ...obj
   });
   export const isa = (o: any): o is CreateBackupResponse =>
     __isa(o, "CreateBackupResponse");
@@ -492,13 +472,7 @@ export namespace CreateDataRepositoryTaskRequest {
   export const filterSensitiveLog = (
     obj: CreateDataRepositoryTaskRequest
   ): any => ({
-    ...obj,
-    ...(obj.Report && {
-      Report: CompletionReport.filterSensitiveLog(obj.Report)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataRepositoryTaskRequest =>
     __isa(o, "CreateDataRepositoryTaskRequest");
@@ -516,12 +490,7 @@ export namespace CreateDataRepositoryTaskResponse {
   export const filterSensitiveLog = (
     obj: CreateDataRepositoryTaskResponse
   ): any => ({
-    ...obj,
-    ...(obj.DataRepositoryTask && {
-      DataRepositoryTask: DataRepositoryTask.filterSensitiveLog(
-        obj.DataRepositoryTask
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataRepositoryTaskResponse =>
     __isa(o, "CreateDataRepositoryTaskResponse");
@@ -577,9 +546,6 @@ export namespace CreateFileSystemFromBackupRequest {
     obj: CreateFileSystemFromBackupRequest
   ): any => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    }),
     ...(obj.WindowsConfiguration && {
       WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(
         obj.WindowsConfiguration
@@ -606,10 +572,7 @@ export namespace CreateFileSystemFromBackupResponse {
   export const filterSensitiveLog = (
     obj: CreateFileSystemFromBackupResponse
   ): any => ({
-    ...obj,
-    ...(obj.FileSystem && {
-      FileSystem: FileSystem.filterSensitiveLog(obj.FileSystem)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateFileSystemFromBackupResponse =>
     __isa(o, "CreateFileSystemFromBackupResponse");
@@ -749,14 +712,6 @@ export interface CreateFileSystemRequest {
 export namespace CreateFileSystemRequest {
   export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
     ...obj,
-    ...(obj.LustreConfiguration && {
-      LustreConfiguration: CreateFileSystemLustreConfiguration.filterSensitiveLog(
-        obj.LustreConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    }),
     ...(obj.WindowsConfiguration && {
       WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(
         obj.WindowsConfiguration
@@ -780,10 +735,7 @@ export interface CreateFileSystemResponse {
 
 export namespace CreateFileSystemResponse {
   export const filterSensitiveLog = (obj: CreateFileSystemResponse): any => ({
-    ...obj,
-    ...(obj.FileSystem && {
-      FileSystem: FileSystem.filterSensitiveLog(obj.FileSystem)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateFileSystemResponse =>
     __isa(o, "CreateFileSystemResponse");
@@ -1046,21 +998,7 @@ export interface DataRepositoryTask {
 
 export namespace DataRepositoryTask {
   export const filterSensitiveLog = (obj: DataRepositoryTask): any => ({
-    ...obj,
-    ...(obj.FailureDetails && {
-      FailureDetails: DataRepositoryTaskFailureDetails.filterSensitiveLog(
-        obj.FailureDetails
-      )
-    }),
-    ...(obj.Report && {
-      Report: CompletionReport.filterSensitiveLog(obj.Report)
-    }),
-    ...(obj.Status && {
-      Status: DataRepositoryTaskStatus.filterSensitiveLog(obj.Status)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DataRepositoryTask =>
     __isa(o, "DataRepositoryTask");
@@ -1323,12 +1261,7 @@ export interface DeleteFileSystemRequest {
 
 export namespace DeleteFileSystemRequest {
   export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
-    ...obj,
-    ...(obj.WindowsConfiguration && {
-      WindowsConfiguration: DeleteFileSystemWindowsConfiguration.filterSensitiveLog(
-        obj.WindowsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteFileSystemRequest =>
     __isa(o, "DeleteFileSystemRequest");
@@ -1359,12 +1292,7 @@ export interface DeleteFileSystemResponse {
 
 export namespace DeleteFileSystemResponse {
   export const filterSensitiveLog = (obj: DeleteFileSystemResponse): any => ({
-    ...obj,
-    ...(obj.WindowsResponse && {
-      WindowsResponse: DeleteFileSystemWindowsResponse.filterSensitiveLog(
-        obj.WindowsResponse
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteFileSystemResponse =>
     __isa(o, "DeleteFileSystemResponse");
@@ -1394,12 +1322,7 @@ export namespace DeleteFileSystemWindowsConfiguration {
   export const filterSensitiveLog = (
     obj: DeleteFileSystemWindowsConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.FinalBackupTags && {
-      FinalBackupTags: obj.FinalBackupTags.map(item =>
-        Tag.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteFileSystemWindowsConfiguration =>
     __isa(o, "DeleteFileSystemWindowsConfiguration");
@@ -1426,12 +1349,7 @@ export namespace DeleteFileSystemWindowsResponse {
   export const filterSensitiveLog = (
     obj: DeleteFileSystemWindowsResponse
   ): any => ({
-    ...obj,
-    ...(obj.FinalBackupTags && {
-      FinalBackupTags: obj.FinalBackupTags.map(item =>
-        Tag.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteFileSystemWindowsResponse =>
     __isa(o, "DeleteFileSystemWindowsResponse");
@@ -1472,10 +1390,7 @@ export interface DescribeBackupsRequest {
 
 export namespace DescribeBackupsRequest {
   export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeBackupsRequest =>
     __isa(o, "DescribeBackupsRequest");
@@ -1501,10 +1416,7 @@ export interface DescribeBackupsResponse {
 
 export namespace DescribeBackupsResponse {
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-    ...obj,
-    ...(obj.Backups && {
-      Backups: obj.Backups.map(item => Backup.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeBackupsResponse =>
     __isa(o, "DescribeBackupsResponse");
@@ -1542,12 +1454,7 @@ export namespace DescribeDataRepositoryTasksRequest {
   export const filterSensitiveLog = (
     obj: DescribeDataRepositoryTasksRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        DataRepositoryTaskFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDataRepositoryTasksRequest =>
     __isa(o, "DescribeDataRepositoryTasksRequest");
@@ -1572,12 +1479,7 @@ export namespace DescribeDataRepositoryTasksResponse {
   export const filterSensitiveLog = (
     obj: DescribeDataRepositoryTasksResponse
   ): any => ({
-    ...obj,
-    ...(obj.DataRepositoryTasks && {
-      DataRepositoryTasks: obj.DataRepositoryTasks.map(item =>
-        DataRepositoryTask.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDataRepositoryTasksResponse =>
     __isa(o, "DescribeDataRepositoryTasksResponse");
@@ -1640,12 +1542,7 @@ export namespace DescribeFileSystemsResponse {
   export const filterSensitiveLog = (
     obj: DescribeFileSystemsResponse
   ): any => ({
-    ...obj,
-    ...(obj.FileSystems && {
-      FileSystems: obj.FileSystems.map(item =>
-        FileSystem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeFileSystemsResponse =>
     __isa(o, "DescribeFileSystemsResponse");
@@ -1784,25 +1681,7 @@ export interface FileSystem {
 
 export namespace FileSystem {
   export const filterSensitiveLog = (obj: FileSystem): any => ({
-    ...obj,
-    ...(obj.FailureDetails && {
-      FailureDetails: FileSystemFailureDetails.filterSensitiveLog(
-        obj.FailureDetails
-      )
-    }),
-    ...(obj.LustreConfiguration && {
-      LustreConfiguration: LustreFileSystemConfiguration.filterSensitiveLog(
-        obj.LustreConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    }),
-    ...(obj.WindowsConfiguration && {
-      WindowsConfiguration: WindowsFileSystemConfiguration.filterSensitiveLog(
-        obj.WindowsConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is FileSystem => __isa(o, "FileSystem");
 }
@@ -2087,10 +1966,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -2117,12 +1993,7 @@ export namespace LustreFileSystemConfiguration {
   export const filterSensitiveLog = (
     obj: LustreFileSystemConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.DataRepositoryConfiguration && {
-      DataRepositoryConfiguration: DataRepositoryConfiguration.filterSensitiveLog(
-        obj.DataRepositoryConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LustreFileSystemConfiguration =>
     __isa(o, "LustreFileSystemConfiguration");
@@ -2494,10 +2365,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -2635,11 +2503,6 @@ export interface UpdateFileSystemRequest {
 export namespace UpdateFileSystemRequest {
   export const filterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
     ...obj,
-    ...(obj.LustreConfiguration && {
-      LustreConfiguration: UpdateFileSystemLustreConfiguration.filterSensitiveLog(
-        obj.LustreConfiguration
-      )
-    }),
     ...(obj.WindowsConfiguration && {
       WindowsConfiguration: UpdateFileSystemWindowsConfiguration.filterSensitiveLog(
         obj.WindowsConfiguration
@@ -2663,10 +2526,7 @@ export interface UpdateFileSystemResponse {
 
 export namespace UpdateFileSystemResponse {
   export const filterSensitiveLog = (obj: UpdateFileSystemResponse): any => ({
-    ...obj,
-    ...(obj.FileSystem && {
-      FileSystem: FileSystem.filterSensitiveLog(obj.FileSystem)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateFileSystemResponse =>
     __isa(o, "UpdateFileSystemResponse");
@@ -2827,12 +2687,7 @@ export namespace WindowsFileSystemConfiguration {
   export const filterSensitiveLog = (
     obj: WindowsFileSystemConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.SelfManagedActiveDirectoryConfiguration && {
-      SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryAttributes.filterSensitiveLog(
-        obj.SelfManagedActiveDirectoryConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is WindowsFileSystemConfiguration =>
     __isa(o, "WindowsFileSystemConfiguration");

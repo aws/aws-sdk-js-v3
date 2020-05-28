@@ -162,10 +162,7 @@ export namespace CreateEnvironmentMembershipResult {
   export const filterSensitiveLog = (
     obj: CreateEnvironmentMembershipResult
   ): any => ({
-    ...obj,
-    ...(obj.membership && {
-      membership: EnvironmentMember.filterSensitiveLog(obj.membership)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEnvironmentMembershipResult =>
     __isa(o, "CreateEnvironmentMembershipResult");
@@ -306,12 +303,7 @@ export namespace DescribeEnvironmentMembershipsResult {
   export const filterSensitiveLog = (
     obj: DescribeEnvironmentMembershipsResult
   ): any => ({
-    ...obj,
-    ...(obj.memberships && {
-      memberships: obj.memberships.map(item =>
-        EnvironmentMember.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEnvironmentMembershipsResult =>
     __isa(o, "DescribeEnvironmentMembershipsResult");
@@ -481,10 +473,7 @@ export interface Environment {
 export namespace Environment {
   export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.lifecycle && {
-      lifecycle: EnvironmentLifecycle.filterSensitiveLog(obj.lifecycle)
-    })
+    ...(obj.description && { description: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
@@ -822,10 +811,7 @@ export namespace UpdateEnvironmentMembershipResult {
   export const filterSensitiveLog = (
     obj: UpdateEnvironmentMembershipResult
   ): any => ({
-    ...obj,
-    ...(obj.membership && {
-      membership: EnvironmentMember.filterSensitiveLog(obj.membership)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEnvironmentMembershipResult =>
     __isa(o, "UpdateEnvironmentMembershipResult");

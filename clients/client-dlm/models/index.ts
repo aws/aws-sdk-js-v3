@@ -37,10 +37,7 @@ export namespace CreateLifecyclePolicyRequest {
   export const filterSensitiveLog = (
     obj: CreateLifecyclePolicyRequest
   ): any => ({
-    ...obj,
-    ...(obj.PolicyDetails && {
-      PolicyDetails: PolicyDetails.filterSensitiveLog(obj.PolicyDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateLifecyclePolicyRequest =>
     __isa(o, "CreateLifecyclePolicyRequest");
@@ -149,10 +146,7 @@ export interface CrossRegionCopyRule {
 
 export namespace CrossRegionCopyRule {
   export const filterSensitiveLog = (obj: CrossRegionCopyRule): any => ({
-    ...obj,
-    ...(obj.RetainRule && {
-      RetainRule: CrossRegionCopyRetainRule.filterSensitiveLog(obj.RetainRule)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CrossRegionCopyRule =>
     __isa(o, "CrossRegionCopyRule");
@@ -274,12 +268,7 @@ export namespace GetLifecyclePoliciesResponse {
   export const filterSensitiveLog = (
     obj: GetLifecyclePoliciesResponse
   ): any => ({
-    ...obj,
-    ...(obj.Policies && {
-      Policies: obj.Policies.map(item =>
-        LifecyclePolicySummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetLifecyclePoliciesResponse =>
     __isa(o, "GetLifecyclePoliciesResponse");
@@ -311,10 +300,7 @@ export interface GetLifecyclePolicyResponse {
 
 export namespace GetLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyResponse): any => ({
-    ...obj,
-    ...(obj.Policy && {
-      Policy: LifecyclePolicy.filterSensitiveLog(obj.Policy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetLifecyclePolicyResponse =>
     __isa(o, "GetLifecyclePolicyResponse");
@@ -437,10 +423,7 @@ export interface LifecyclePolicy {
 
 export namespace LifecyclePolicy {
   export const filterSensitiveLog = (obj: LifecyclePolicy): any => ({
-    ...obj,
-    ...(obj.PolicyDetails && {
-      PolicyDetails: PolicyDetails.filterSensitiveLog(obj.PolicyDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is LifecyclePolicy =>
     __isa(o, "LifecyclePolicy");
@@ -589,16 +572,7 @@ export interface PolicyDetails {
 
 export namespace PolicyDetails {
   export const filterSensitiveLog = (obj: PolicyDetails): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: _Parameters.filterSensitiveLog(obj.Parameters)
-    }),
-    ...(obj.Schedules && {
-      Schedules: obj.Schedules.map(item => Schedule.filterSensitiveLog(item))
-    }),
-    ...(obj.TargetTags && {
-      TargetTags: obj.TargetTags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PolicyDetails => __isa(o, "PolicyDetails");
 }
@@ -724,27 +698,7 @@ export interface Schedule {
 
 export namespace Schedule {
   export const filterSensitiveLog = (obj: Schedule): any => ({
-    ...obj,
-    ...(obj.CreateRule && {
-      CreateRule: CreateRule.filterSensitiveLog(obj.CreateRule)
-    }),
-    ...(obj.CrossRegionCopyRules && {
-      CrossRegionCopyRules: obj.CrossRegionCopyRules.map(item =>
-        CrossRegionCopyRule.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.FastRestoreRule && {
-      FastRestoreRule: FastRestoreRule.filterSensitiveLog(obj.FastRestoreRule)
-    }),
-    ...(obj.RetainRule && {
-      RetainRule: RetainRule.filterSensitiveLog(obj.RetainRule)
-    }),
-    ...(obj.TagsToAdd && {
-      TagsToAdd: obj.TagsToAdd.map(item => Tag.filterSensitiveLog(item))
-    }),
-    ...(obj.VariableTags && {
-      VariableTags: obj.VariableTags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
@@ -875,10 +829,7 @@ export namespace UpdateLifecyclePolicyRequest {
   export const filterSensitiveLog = (
     obj: UpdateLifecyclePolicyRequest
   ): any => ({
-    ...obj,
-    ...(obj.PolicyDetails && {
-      PolicyDetails: PolicyDetails.filterSensitiveLog(obj.PolicyDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateLifecyclePolicyRequest =>
     __isa(o, "UpdateLifecyclePolicyRequest");

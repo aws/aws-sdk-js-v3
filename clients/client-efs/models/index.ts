@@ -604,16 +604,7 @@ export interface AccessPointDescription {
 
 export namespace AccessPointDescription {
   export const filterSensitiveLog = (obj: AccessPointDescription): any => ({
-    ...obj,
-    ...(obj.PosixUser && {
-      PosixUser: PosixUser.filterSensitiveLog(obj.PosixUser)
-    }),
-    ...(obj.RootDirectory && {
-      RootDirectory: RootDirectory.filterSensitiveLog(obj.RootDirectory)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AccessPointDescription =>
     __isa(o, "AccessPointDescription");
@@ -656,16 +647,7 @@ export interface CreateAccessPointRequest {
 
 export namespace CreateAccessPointRequest {
   export const filterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
-    ...obj,
-    ...(obj.PosixUser && {
-      PosixUser: PosixUser.filterSensitiveLog(obj.PosixUser)
-    }),
-    ...(obj.RootDirectory && {
-      RootDirectory: RootDirectory.filterSensitiveLog(obj.RootDirectory)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAccessPointRequest =>
     __isa(o, "CreateAccessPointRequest");
@@ -756,10 +738,7 @@ export interface CreateFileSystemRequest {
 
 export namespace CreateFileSystemRequest {
   export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateFileSystemRequest =>
     __isa(o, "CreateFileSystemRequest");
@@ -820,10 +799,7 @@ export interface CreateTagsRequest {
 
 export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateTagsRequest =>
     __isa(o, "CreateTagsRequest");
@@ -1015,12 +991,7 @@ export namespace DescribeAccessPointsResponse {
   export const filterSensitiveLog = (
     obj: DescribeAccessPointsResponse
   ): any => ({
-    ...obj,
-    ...(obj.AccessPoints && {
-      AccessPoints: obj.AccessPoints.map(item =>
-        AccessPointDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAccessPointsResponse =>
     __isa(o, "DescribeAccessPointsResponse");
@@ -1107,12 +1078,7 @@ export namespace DescribeFileSystemsResponse {
   export const filterSensitiveLog = (
     obj: DescribeFileSystemsResponse
   ): any => ({
-    ...obj,
-    ...(obj.FileSystems && {
-      FileSystems: obj.FileSystems.map(item =>
-        FileSystemDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeFileSystemsResponse =>
     __isa(o, "DescribeFileSystemsResponse");
@@ -1253,12 +1219,7 @@ export namespace DescribeMountTargetsResponse {
   export const filterSensitiveLog = (
     obj: DescribeMountTargetsResponse
   ): any => ({
-    ...obj,
-    ...(obj.MountTargets && {
-      MountTargets: obj.MountTargets.map(item =>
-        MountTargetDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeMountTargetsResponse =>
     __isa(o, "DescribeMountTargetsResponse");
@@ -1324,10 +1285,7 @@ export interface DescribeTagsResponse {
 
 export namespace DescribeTagsResponse {
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTagsResponse =>
     __isa(o, "DescribeTagsResponse");
@@ -1435,13 +1393,7 @@ export interface FileSystemDescription {
 
 export namespace FileSystemDescription {
   export const filterSensitiveLog = (obj: FileSystemDescription): any => ({
-    ...obj,
-    ...(obj.SizeInBytes && {
-      SizeInBytes: FileSystemSize.filterSensitiveLog(obj.SizeInBytes)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is FileSystemDescription =>
     __isa(o, "FileSystemDescription");
@@ -1534,12 +1486,7 @@ export namespace LifecycleConfigurationDescription {
   export const filterSensitiveLog = (
     obj: LifecycleConfigurationDescription
   ): any => ({
-    ...obj,
-    ...(obj.LifecyclePolicies && {
-      LifecyclePolicies: obj.LifecyclePolicies.map(item =>
-        LifecyclePolicy.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LifecycleConfigurationDescription =>
     __isa(o, "LifecycleConfigurationDescription");
@@ -1612,10 +1559,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1799,12 +1743,7 @@ export namespace PutLifecycleConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutLifecycleConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.LifecyclePolicies && {
-      LifecyclePolicies: obj.LifecyclePolicies.map(item =>
-        LifecyclePolicy.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutLifecycleConfigurationRequest =>
     __isa(o, "PutLifecycleConfigurationRequest");
@@ -1841,10 +1780,7 @@ export interface RootDirectory {
 
 export namespace RootDirectory {
   export const filterSensitiveLog = (obj: RootDirectory): any => ({
-    ...obj,
-    ...(obj.CreationInfo && {
-      CreationInfo: CreationInfo.filterSensitiveLog(obj.CreationInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RootDirectory => __isa(o, "RootDirectory");
 }
@@ -1889,10 +1825,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

@@ -72,12 +72,7 @@ export interface CmafEncryption {
 
 export namespace CmafEncryption {
   export const filterSensitiveLog = (obj: CmafEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CmafEncryption =>
     __isa(o, "CmafEncryption");
@@ -107,15 +102,7 @@ export interface CmafPackage {
 
 export namespace CmafPackage {
   export const filterSensitiveLog = (obj: CmafPackage): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(item =>
-        HlsManifest.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CmafPackage => __isa(o, "CmafPackage");
 }
@@ -204,12 +191,7 @@ export interface CreateAssetResponse {
 
 export namespace CreateAssetResponse {
   export const filterSensitiveLog = (obj: CreateAssetResponse): any => ({
-    ...obj,
-    ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        EgressEndpoint.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAssetResponse =>
     __isa(o, "CreateAssetResponse");
@@ -255,19 +237,7 @@ export namespace CreatePackagingConfigurationRequest {
   export const filterSensitiveLog = (
     obj: CreatePackagingConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePackagingConfigurationRequest =>
     __isa(o, "CreatePackagingConfigurationRequest");
@@ -315,19 +285,7 @@ export namespace CreatePackagingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: CreatePackagingConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePackagingConfigurationResponse =>
     __isa(o, "CreatePackagingConfigurationResponse");
@@ -395,12 +353,7 @@ export interface DashEncryption {
 
 export namespace DashEncryption {
   export const filterSensitiveLog = (obj: DashEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DashEncryption =>
     __isa(o, "DashEncryption");
@@ -434,10 +387,7 @@ export interface DashManifest {
 
 export namespace DashManifest {
   export const filterSensitiveLog = (obj: DashManifest): any => ({
-    ...obj,
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DashManifest => __isa(o, "DashManifest");
 }
@@ -466,15 +416,7 @@ export interface DashPackage {
 
 export namespace DashPackage {
   export const filterSensitiveLog = (obj: DashPackage): any => ({
-    ...obj,
-    ...(obj.DashManifests && {
-      DashManifests: obj.DashManifests.map(item =>
-        DashManifest.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Encryption && {
-      Encryption: DashEncryption.filterSensitiveLog(obj.Encryption)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DashPackage => __isa(o, "DashPackage");
 }
@@ -632,12 +574,7 @@ export interface DescribeAssetResponse {
 
 export namespace DescribeAssetResponse {
   export const filterSensitiveLog = (obj: DescribeAssetResponse): any => ({
-    ...obj,
-    ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        EgressEndpoint.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAssetResponse =>
     __isa(o, "DescribeAssetResponse");
@@ -703,19 +640,7 @@ export namespace DescribePackagingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DescribePackagingConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribePackagingConfigurationResponse =>
     __isa(o, "DescribePackagingConfigurationResponse");
@@ -837,12 +762,7 @@ export interface HlsEncryption {
 
 export namespace HlsEncryption {
   export const filterSensitiveLog = (obj: HlsEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HlsEncryption => __isa(o, "HlsEncryption");
 }
@@ -898,10 +818,7 @@ export interface HlsManifest {
 
 export namespace HlsManifest {
   export const filterSensitiveLog = (obj: HlsManifest): any => ({
-    ...obj,
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HlsManifest => __isa(o, "HlsManifest");
 }
@@ -935,15 +852,7 @@ export interface HlsPackage {
 
 export namespace HlsPackage {
   export const filterSensitiveLog = (obj: HlsPackage): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: HlsEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(item =>
-        HlsManifest.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HlsPackage => __isa(o, "HlsPackage");
 }
@@ -1010,10 +919,7 @@ export interface ListAssetsResponse {
 
 export namespace ListAssetsResponse {
   export const filterSensitiveLog = (obj: ListAssetsResponse): any => ({
-    ...obj,
-    ...(obj.Assets && {
-      Assets: obj.Assets.map(item => AssetShallow.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAssetsResponse =>
     __isa(o, "ListAssetsResponse");
@@ -1064,12 +970,7 @@ export namespace ListPackagingConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: ListPackagingConfigurationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.PackagingConfigurations && {
-      PackagingConfigurations: obj.PackagingConfigurations.map(item =>
-        PackagingConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPackagingConfigurationsResponse =>
     __isa(o, "ListPackagingConfigurationsResponse");
@@ -1113,12 +1014,7 @@ export namespace ListPackagingGroupsResponse {
   export const filterSensitiveLog = (
     obj: ListPackagingGroupsResponse
   ): any => ({
-    ...obj,
-    ...(obj.PackagingGroups && {
-      PackagingGroups: obj.PackagingGroups.map(item =>
-        PackagingGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPackagingGroupsResponse =>
     __isa(o, "ListPackagingGroupsResponse");
@@ -1137,12 +1033,7 @@ export interface MssEncryption {
 
 export namespace MssEncryption {
   export const filterSensitiveLog = (obj: MssEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MssEncryption => __isa(o, "MssEncryption");
 }
@@ -1165,10 +1056,7 @@ export interface MssManifest {
 
 export namespace MssManifest {
   export const filterSensitiveLog = (obj: MssManifest): any => ({
-    ...obj,
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MssManifest => __isa(o, "MssManifest");
 }
@@ -1196,15 +1084,7 @@ export interface MssPackage {
 
 export namespace MssPackage {
   export const filterSensitiveLog = (obj: MssPackage): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: MssEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.MssManifests && {
-      MssManifests: obj.MssManifests.map(item =>
-        MssManifest.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MssPackage => __isa(o, "MssPackage");
 }
@@ -1269,19 +1149,7 @@ export interface PackagingConfiguration {
 
 export namespace PackagingConfiguration {
   export const filterSensitiveLog = (obj: PackagingConfiguration): any => ({
-    ...obj,
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PackagingConfiguration =>
     __isa(o, "PackagingConfiguration");

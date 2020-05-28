@@ -62,10 +62,7 @@ export interface DASHFragmentSelector {
 
 export namespace DASHFragmentSelector {
   export const filterSensitiveLog = (obj: DASHFragmentSelector): any => ({
-    ...obj,
-    ...(obj.TimestampRange && {
-      TimestampRange: DASHTimestampRange.filterSensitiveLog(obj.TimestampRange)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DASHFragmentSelector =>
     __isa(o, "DASHFragmentSelector");
@@ -213,10 +210,7 @@ export interface FragmentSelector {
 
 export namespace FragmentSelector {
   export const filterSensitiveLog = (obj: FragmentSelector): any => ({
-    ...obj,
-    ...(obj.TimestampRange && {
-      TimestampRange: TimestampRange.filterSensitiveLog(obj.TimestampRange)
-    })
+    ...obj
   });
   export const isa = (o: any): o is FragmentSelector =>
     __isa(o, "FragmentSelector");
@@ -385,12 +379,7 @@ export namespace GetDASHStreamingSessionURLInput {
   export const filterSensitiveLog = (
     obj: GetDASHStreamingSessionURLInput
   ): any => ({
-    ...obj,
-    ...(obj.DASHFragmentSelector && {
-      DASHFragmentSelector: DASHFragmentSelector.filterSensitiveLog(
-        obj.DASHFragmentSelector
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDASHStreamingSessionURLInput =>
     __isa(o, "GetDASHStreamingSessionURLInput");
@@ -614,12 +603,7 @@ export namespace GetHLSStreamingSessionURLInput {
   export const filterSensitiveLog = (
     obj: GetHLSStreamingSessionURLInput
   ): any => ({
-    ...obj,
-    ...(obj.HLSFragmentSelector && {
-      HLSFragmentSelector: HLSFragmentSelector.filterSensitiveLog(
-        obj.HLSFragmentSelector
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetHLSStreamingSessionURLInput =>
     __isa(o, "GetHLSStreamingSessionURLInput");
@@ -775,10 +759,7 @@ export interface HLSFragmentSelector {
 
 export namespace HLSFragmentSelector {
   export const filterSensitiveLog = (obj: HLSFragmentSelector): any => ({
-    ...obj,
-    ...(obj.TimestampRange && {
-      TimestampRange: HLSTimestampRange.filterSensitiveLog(obj.TimestampRange)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HLSFragmentSelector =>
     __isa(o, "HLSFragmentSelector");
@@ -877,12 +858,7 @@ export interface ListFragmentsInput {
 
 export namespace ListFragmentsInput {
   export const filterSensitiveLog = (obj: ListFragmentsInput): any => ({
-    ...obj,
-    ...(obj.FragmentSelector && {
-      FragmentSelector: FragmentSelector.filterSensitiveLog(
-        obj.FragmentSelector
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListFragmentsInput =>
     __isa(o, "ListFragmentsInput");
@@ -906,10 +882,7 @@ export interface ListFragmentsOutput {
 
 export namespace ListFragmentsOutput {
   export const filterSensitiveLog = (obj: ListFragmentsOutput): any => ({
-    ...obj,
-    ...(obj.Fragments && {
-      Fragments: obj.Fragments.map(item => Fragment.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListFragmentsOutput =>
     __isa(o, "ListFragmentsOutput");

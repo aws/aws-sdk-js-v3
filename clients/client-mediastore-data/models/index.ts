@@ -321,10 +321,7 @@ export interface ListItemsResponse {
 
 export namespace ListItemsResponse {
   export const filterSensitiveLog = (obj: ListItemsResponse): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => Item.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListItemsResponse =>
     __isa(o, "ListItemsResponse");

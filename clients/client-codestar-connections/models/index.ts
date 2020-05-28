@@ -156,10 +156,7 @@ export interface GetConnectionOutput {
 
 export namespace GetConnectionOutput {
   export const filterSensitiveLog = (obj: GetConnectionOutput): any => ({
-    ...obj,
-    ...(obj.Connection && {
-      Connection: Connection.filterSensitiveLog(obj.Connection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetConnectionOutput =>
     __isa(o, "GetConnectionOutput");
@@ -231,12 +228,7 @@ export interface ListConnectionsOutput {
 
 export namespace ListConnectionsOutput {
   export const filterSensitiveLog = (obj: ListConnectionsOutput): any => ({
-    ...obj,
-    ...(obj.Connections && {
-      Connections: obj.Connections.map(item =>
-        Connection.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListConnectionsOutput =>
     __isa(o, "ListConnectionsOutput");

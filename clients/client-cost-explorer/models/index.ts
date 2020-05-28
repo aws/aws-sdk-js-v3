@@ -86,10 +86,7 @@ export interface CostCategory {
 
 export namespace CostCategory {
   export const filterSensitiveLog = (obj: CostCategory): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => CostCategoryRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CostCategory => __isa(o, "CostCategory");
 }
@@ -166,8 +163,7 @@ export interface CostCategoryRule {
 
 export namespace CostCategoryRule {
   export const filterSensitiveLog = (obj: CostCategoryRule): any => ({
-    ...obj,
-    ...(obj.Rule && { Rule: Expression.filterSensitiveLog(obj.Rule) })
+    ...obj
   });
   export const isa = (o: any): o is CostCategoryRule =>
     __isa(o, "CostCategoryRule");
@@ -232,18 +228,7 @@ export interface Coverage {
 
 export namespace Coverage {
   export const filterSensitiveLog = (obj: Coverage): any => ({
-    ...obj,
-    ...(obj.CoverageCost && {
-      CoverageCost: CoverageCost.filterSensitiveLog(obj.CoverageCost)
-    }),
-    ...(obj.CoverageHours && {
-      CoverageHours: CoverageHours.filterSensitiveLog(obj.CoverageHours)
-    }),
-    ...(obj.CoverageNormalizedUnits && {
-      CoverageNormalizedUnits: CoverageNormalizedUnits.filterSensitiveLog(
-        obj.CoverageNormalizedUnits
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Coverage => __isa(o, "Coverage");
 }
@@ -273,16 +258,7 @@ export interface CoverageByTime {
 
 export namespace CoverageByTime {
   export const filterSensitiveLog = (obj: CoverageByTime): any => ({
-    ...obj,
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item =>
-        ReservationCoverageGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    }),
-    ...(obj.Total && { Total: Coverage.filterSensitiveLog(obj.Total) })
+    ...obj
   });
   export const isa = (o: any): o is CoverageByTime =>
     __isa(o, "CoverageByTime");
@@ -410,10 +386,7 @@ export namespace CreateCostCategoryDefinitionRequest {
   export const filterSensitiveLog = (
     obj: CreateCostCategoryDefinitionRequest
   ): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => CostCategoryRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateCostCategoryDefinitionRequest =>
     __isa(o, "CreateCostCategoryDefinitionRequest");
@@ -504,18 +477,7 @@ export interface CurrentInstance {
 
 export namespace CurrentInstance {
   export const filterSensitiveLog = (obj: CurrentInstance): any => ({
-    ...obj,
-    ...(obj.ResourceDetails && {
-      ResourceDetails: ResourceDetails.filterSensitiveLog(obj.ResourceDetails)
-    }),
-    ...(obj.ResourceUtilization && {
-      ResourceUtilization: ResourceUtilization.filterSensitiveLog(
-        obj.ResourceUtilization
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => TagValues.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CurrentInstance =>
     __isa(o, "CurrentInstance");
@@ -663,10 +625,7 @@ export namespace DescribeCostCategoryDefinitionResponse {
   export const filterSensitiveLog = (
     obj: DescribeCostCategoryDefinitionResponse
   ): any => ({
-    ...obj,
-    ...(obj.CostCategory && {
-      CostCategory: CostCategory.filterSensitiveLog(obj.CostCategory)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeCostCategoryDefinitionResponse =>
     __isa(o, "DescribeCostCategoryDefinitionResponse");
@@ -1104,21 +1063,7 @@ export interface Expression {
 
 export namespace Expression {
   export const filterSensitiveLog = (obj: Expression): any => ({
-    ...obj,
-    ...(obj.And && {
-      And: obj.And.map(item => Expression.filterSensitiveLog(item))
-    }),
-    ...(obj.CostCategories && {
-      CostCategories: CostCategoryValues.filterSensitiveLog(obj.CostCategories)
-    }),
-    ...(obj.Dimensions && {
-      Dimensions: DimensionValues.filterSensitiveLog(obj.Dimensions)
-    }),
-    ...(obj.Not && { Not: Expression.filterSensitiveLog(obj.Not) }),
-    ...(obj.Or && {
-      Or: obj.Or.map(item => Expression.filterSensitiveLog(item))
-    }),
-    ...(obj.Tags && { Tags: TagValues.filterSensitiveLog(obj.Tags) })
+    ...obj
   });
   export const isa = (o: any): o is Expression => __isa(o, "Expression");
 }
@@ -1151,10 +1096,7 @@ export interface ForecastResult {
 
 export namespace ForecastResult {
   export const filterSensitiveLog = (obj: ForecastResult): any => ({
-    ...obj,
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ForecastResult =>
     __isa(o, "ForecastResult");
@@ -1217,14 +1159,7 @@ export interface GetCostAndUsageRequest {
 
 export namespace GetCostAndUsageRequest {
   export const filterSensitiveLog = (obj: GetCostAndUsageRequest): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item => GroupDefinition.filterSensitiveLog(item))
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCostAndUsageRequest =>
     __isa(o, "GetCostAndUsageRequest");
@@ -1250,17 +1185,7 @@ export interface GetCostAndUsageResponse {
 
 export namespace GetCostAndUsageResponse {
   export const filterSensitiveLog = (obj: GetCostAndUsageResponse): any => ({
-    ...obj,
-    ...(obj.GroupDefinitions && {
-      GroupDefinitions: obj.GroupDefinitions.map(item =>
-        GroupDefinition.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResultsByTime && {
-      ResultsByTime: obj.ResultsByTime.map(item =>
-        ResultByTime.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCostAndUsageResponse =>
     __isa(o, "GetCostAndUsageResponse");
@@ -1328,14 +1253,7 @@ export namespace GetCostAndUsageWithResourcesRequest {
   export const filterSensitiveLog = (
     obj: GetCostAndUsageWithResourcesRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item => GroupDefinition.filterSensitiveLog(item))
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCostAndUsageWithResourcesRequest =>
     __isa(o, "GetCostAndUsageWithResourcesRequest");
@@ -1364,17 +1282,7 @@ export namespace GetCostAndUsageWithResourcesResponse {
   export const filterSensitiveLog = (
     obj: GetCostAndUsageWithResourcesResponse
   ): any => ({
-    ...obj,
-    ...(obj.GroupDefinitions && {
-      GroupDefinitions: obj.GroupDefinitions.map(item =>
-        GroupDefinition.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResultsByTime && {
-      ResultsByTime: obj.ResultsByTime.map(item =>
-        ResultByTime.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCostAndUsageWithResourcesResponse =>
     __isa(o, "GetCostAndUsageWithResourcesResponse");
@@ -1433,11 +1341,7 @@ export interface GetCostForecastRequest {
 
 export namespace GetCostForecastRequest {
   export const filterSensitiveLog = (obj: GetCostForecastRequest): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCostForecastRequest =>
     __isa(o, "GetCostForecastRequest");
@@ -1459,13 +1363,7 @@ export interface GetCostForecastResponse {
 
 export namespace GetCostForecastResponse {
   export const filterSensitiveLog = (obj: GetCostForecastResponse): any => ({
-    ...obj,
-    ...(obj.ForecastResultsByTime && {
-      ForecastResultsByTime: obj.ForecastResultsByTime.map(item =>
-        ForecastResult.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Total && { Total: MetricValue.filterSensitiveLog(obj.Total) })
+    ...obj
   });
   export const isa = (o: any): o is GetCostForecastResponse =>
     __isa(o, "GetCostForecastResponse");
@@ -1615,10 +1513,7 @@ export interface GetDimensionValuesRequest {
 
 export namespace GetDimensionValuesRequest {
   export const filterSensitiveLog = (obj: GetDimensionValuesRequest): any => ({
-    ...obj,
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDimensionValuesRequest =>
     __isa(o, "GetDimensionValuesRequest");
@@ -1756,12 +1651,7 @@ export interface GetDimensionValuesResponse {
 
 export namespace GetDimensionValuesResponse {
   export const filterSensitiveLog = (obj: GetDimensionValuesResponse): any => ({
-    ...obj,
-    ...(obj.DimensionValues && {
-      DimensionValues: obj.DimensionValues.map(item =>
-        DimensionValuesWithAttributes.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDimensionValuesResponse =>
     __isa(o, "GetDimensionValuesResponse");
@@ -1889,14 +1779,7 @@ export namespace GetReservationCoverageRequest {
   export const filterSensitiveLog = (
     obj: GetReservationCoverageRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item => GroupDefinition.filterSensitiveLog(item))
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetReservationCoverageRequest =>
     __isa(o, "GetReservationCoverageRequest");
@@ -1924,13 +1807,7 @@ export namespace GetReservationCoverageResponse {
   export const filterSensitiveLog = (
     obj: GetReservationCoverageResponse
   ): any => ({
-    ...obj,
-    ...(obj.CoveragesByTime && {
-      CoveragesByTime: obj.CoveragesByTime.map(item =>
-        CoverageByTime.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Total && { Total: Coverage.filterSensitiveLog(obj.Total) })
+    ...obj
   });
   export const isa = (o: any): o is GetReservationCoverageResponse =>
     __isa(o, "GetReservationCoverageResponse");
@@ -1991,12 +1868,7 @@ export namespace GetReservationPurchaseRecommendationRequest {
   export const filterSensitiveLog = (
     obj: GetReservationPurchaseRecommendationRequest
   ): any => ({
-    ...obj,
-    ...(obj.ServiceSpecification && {
-      ServiceSpecification: ServiceSpecification.filterSensitiveLog(
-        obj.ServiceSpecification
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2026,17 +1898,7 @@ export namespace GetReservationPurchaseRecommendationResponse {
   export const filterSensitiveLog = (
     obj: GetReservationPurchaseRecommendationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Metadata && {
-      Metadata: ReservationPurchaseRecommendationMetadata.filterSensitiveLog(
-        obj.Metadata
-      )
-    }),
-    ...(obj.Recommendations && {
-      Recommendations: obj.Recommendations.map(item =>
-        ReservationPurchaseRecommendation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2120,14 +1982,7 @@ export namespace GetReservationUtilizationRequest {
   export const filterSensitiveLog = (
     obj: GetReservationUtilizationRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item => GroupDefinition.filterSensitiveLog(item))
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetReservationUtilizationRequest =>
     __isa(o, "GetReservationUtilizationRequest");
@@ -2155,15 +2010,7 @@ export namespace GetReservationUtilizationResponse {
   export const filterSensitiveLog = (
     obj: GetReservationUtilizationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Total && {
-      Total: ReservationAggregates.filterSensitiveLog(obj.Total)
-    }),
-    ...(obj.UtilizationsByTime && {
-      UtilizationsByTime: obj.UtilizationsByTime.map(item =>
-        UtilizationByTime.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetReservationUtilizationResponse =>
     __isa(o, "GetReservationUtilizationResponse");
@@ -2247,8 +2094,7 @@ export namespace GetRightsizingRecommendationRequest {
   export const filterSensitiveLog = (
     obj: GetRightsizingRecommendationRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) })
+    ...obj
   });
   export const isa = (o: any): o is GetRightsizingRecommendationRequest =>
     __isa(o, "GetRightsizingRecommendationRequest");
@@ -2281,20 +2127,7 @@ export namespace GetRightsizingRecommendationResponse {
   export const filterSensitiveLog = (
     obj: GetRightsizingRecommendationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Metadata && {
-      Metadata: RightsizingRecommendationMetadata.filterSensitiveLog(
-        obj.Metadata
-      )
-    }),
-    ...(obj.RightsizingRecommendations && {
-      RightsizingRecommendations: obj.RightsizingRecommendations.map(item =>
-        RightsizingRecommendation.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Summary && {
-      Summary: RightsizingRecommendationSummary.filterSensitiveLog(obj.Summary)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRightsizingRecommendationResponse =>
     __isa(o, "GetRightsizingRecommendationResponse");
@@ -2369,14 +2202,7 @@ export namespace GetSavingsPlansCoverageRequest {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansCoverageRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item => GroupDefinition.filterSensitiveLog(item))
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSavingsPlansCoverageRequest =>
     __isa(o, "GetSavingsPlansCoverageRequest");
@@ -2399,12 +2225,7 @@ export namespace GetSavingsPlansCoverageResponse {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansCoverageResponse
   ): any => ({
-    ...obj,
-    ...(obj.SavingsPlansCoverages && {
-      SavingsPlansCoverages: obj.SavingsPlansCoverages.map(item =>
-        SavingsPlansCoverage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSavingsPlansCoverageResponse =>
     __isa(o, "GetSavingsPlansCoverageResponse");
@@ -2477,17 +2298,7 @@ export namespace GetSavingsPlansPurchaseRecommendationResponse {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansPurchaseRecommendationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Metadata && {
-      Metadata: SavingsPlansPurchaseRecommendationMetadata.filterSensitiveLog(
-        obj.Metadata
-      )
-    }),
-    ...(obj.SavingsPlansPurchaseRecommendation && {
-      SavingsPlansPurchaseRecommendation: SavingsPlansPurchaseRecommendation.filterSensitiveLog(
-        obj.SavingsPlansPurchaseRecommendation
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2553,11 +2364,7 @@ export namespace GetSavingsPlansUtilizationDetailsRequest {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationDetailsRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSavingsPlansUtilizationDetailsRequest =>
     __isa(o, "GetSavingsPlansUtilizationDetailsRequest");
@@ -2591,18 +2398,7 @@ export namespace GetSavingsPlansUtilizationDetailsResponse {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationDetailsResponse
   ): any => ({
-    ...obj,
-    ...(obj.SavingsPlansUtilizationDetails && {
-      SavingsPlansUtilizationDetails: obj.SavingsPlansUtilizationDetails.map(
-        item => SavingsPlansUtilizationDetail.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    }),
-    ...(obj.Total && {
-      Total: SavingsPlansUtilizationAggregates.filterSensitiveLog(obj.Total)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSavingsPlansUtilizationDetailsResponse =>
     __isa(o, "GetSavingsPlansUtilizationDetailsResponse");
@@ -2667,11 +2463,7 @@ export namespace GetSavingsPlansUtilizationRequest {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSavingsPlansUtilizationRequest =>
     __isa(o, "GetSavingsPlansUtilizationRequest");
@@ -2694,15 +2486,7 @@ export namespace GetSavingsPlansUtilizationResponse {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationResponse
   ): any => ({
-    ...obj,
-    ...(obj.SavingsPlansUtilizationsByTime && {
-      SavingsPlansUtilizationsByTime: obj.SavingsPlansUtilizationsByTime.map(
-        item => SavingsPlansUtilizationByTime.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Total && {
-      Total: SavingsPlansUtilizationAggregates.filterSensitiveLog(obj.Total)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetSavingsPlansUtilizationResponse =>
     __isa(o, "GetSavingsPlansUtilizationResponse");
@@ -2734,10 +2518,7 @@ export interface GetTagsRequest {
 
 export namespace GetTagsRequest {
   export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
-    ...obj,
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTagsRequest =>
     __isa(o, "GetTagsRequest");
@@ -2817,11 +2598,7 @@ export interface GetUsageForecastRequest {
 
 export namespace GetUsageForecastRequest {
   export const filterSensitiveLog = (obj: GetUsageForecastRequest): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetUsageForecastRequest =>
     __isa(o, "GetUsageForecastRequest");
@@ -2843,13 +2620,7 @@ export interface GetUsageForecastResponse {
 
 export namespace GetUsageForecastResponse {
   export const filterSensitiveLog = (obj: GetUsageForecastResponse): any => ({
-    ...obj,
-    ...(obj.ForecastResultsByTime && {
-      ForecastResultsByTime: obj.ForecastResultsByTime.map(item =>
-        ForecastResult.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Total && { Total: MetricValue.filterSensitiveLog(obj.Total) })
+    ...obj
   });
   export const isa = (o: any): o is GetUsageForecastResponse =>
     __isa(o, "GetUsageForecastResponse");
@@ -2879,16 +2650,7 @@ export interface Group {
 
 export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-    ...(obj.Metrics && {
-      Metrics: Object.entries(obj.Metrics).reduce(
-        (acc: any, [key, value]: [string, MetricValue]) => ({
-          ...acc,
-          [key]: MetricValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Group => __isa(o, "Group");
 }
@@ -2957,32 +2719,7 @@ export interface InstanceDetails {
 
 export namespace InstanceDetails {
   export const filterSensitiveLog = (obj: InstanceDetails): any => ({
-    ...obj,
-    ...(obj.EC2InstanceDetails && {
-      EC2InstanceDetails: EC2InstanceDetails.filterSensitiveLog(
-        obj.EC2InstanceDetails
-      )
-    }),
-    ...(obj.ESInstanceDetails && {
-      ESInstanceDetails: ESInstanceDetails.filterSensitiveLog(
-        obj.ESInstanceDetails
-      )
-    }),
-    ...(obj.ElastiCacheInstanceDetails && {
-      ElastiCacheInstanceDetails: ElastiCacheInstanceDetails.filterSensitiveLog(
-        obj.ElastiCacheInstanceDetails
-      )
-    }),
-    ...(obj.RDSInstanceDetails && {
-      RDSInstanceDetails: RDSInstanceDetails.filterSensitiveLog(
-        obj.RDSInstanceDetails
-      )
-    }),
-    ...(obj.RedshiftInstanceDetails && {
-      RedshiftInstanceDetails: RedshiftInstanceDetails.filterSensitiveLog(
-        obj.RedshiftInstanceDetails
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceDetails =>
     __isa(o, "InstanceDetails");
@@ -3075,12 +2812,7 @@ export namespace ListCostCategoryDefinitionsResponse {
   export const filterSensitiveLog = (
     obj: ListCostCategoryDefinitionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.CostCategoryReferences && {
-      CostCategoryReferences: obj.CostCategoryReferences.map(item =>
-        CostCategoryReference.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListCostCategoryDefinitionsResponse =>
     __isa(o, "ListCostCategoryDefinitionsResponse");
@@ -3138,12 +2870,7 @@ export interface ModifyRecommendationDetail {
 
 export namespace ModifyRecommendationDetail {
   export const filterSensitiveLog = (obj: ModifyRecommendationDetail): any => ({
-    ...obj,
-    ...(obj.TargetInstances && {
-      TargetInstances: obj.TargetInstances.map(item =>
-        TargetInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyRecommendationDetail =>
     __isa(o, "ModifyRecommendationDetail");
@@ -3399,8 +3126,7 @@ export interface ReservationCoverageGroup {
 
 export namespace ReservationCoverageGroup {
   export const filterSensitiveLog = (obj: ReservationCoverageGroup): any => ({
-    ...obj,
-    ...(obj.Coverage && { Coverage: Coverage.filterSensitiveLog(obj.Coverage) })
+    ...obj
   });
   export const isa = (o: any): o is ReservationCoverageGroup =>
     __isa(o, "ReservationCoverageGroup");
@@ -3456,22 +3182,7 @@ export namespace ReservationPurchaseRecommendation {
   export const filterSensitiveLog = (
     obj: ReservationPurchaseRecommendation
   ): any => ({
-    ...obj,
-    ...(obj.RecommendationDetails && {
-      RecommendationDetails: obj.RecommendationDetails.map(item =>
-        ReservationPurchaseRecommendationDetail.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RecommendationSummary && {
-      RecommendationSummary: ReservationPurchaseRecommendationSummary.filterSensitiveLog(
-        obj.RecommendationSummary
-      )
-    }),
-    ...(obj.ServiceSpecification && {
-      ServiceSpecification: ServiceSpecification.filterSensitiveLog(
-        obj.ServiceSpecification
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservationPurchaseRecommendation =>
     __isa(o, "ReservationPurchaseRecommendation");
@@ -3598,10 +3309,7 @@ export namespace ReservationPurchaseRecommendationDetail {
   export const filterSensitiveLog = (
     obj: ReservationPurchaseRecommendationDetail
   ): any => ({
-    ...obj,
-    ...(obj.InstanceDetails && {
-      InstanceDetails: InstanceDetails.filterSensitiveLog(obj.InstanceDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservationPurchaseRecommendationDetail =>
     __isa(o, "ReservationPurchaseRecommendationDetail");
@@ -3699,10 +3407,7 @@ export namespace ReservationUtilizationGroup {
   export const filterSensitiveLog = (
     obj: ReservationUtilizationGroup
   ): any => ({
-    ...obj,
-    ...(obj.Utilization && {
-      Utilization: ReservationAggregates.filterSensitiveLog(obj.Utilization)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservationUtilizationGroup =>
     __isa(o, "ReservationUtilizationGroup");
@@ -3721,12 +3426,7 @@ export interface ResourceDetails {
 
 export namespace ResourceDetails {
   export const filterSensitiveLog = (obj: ResourceDetails): any => ({
-    ...obj,
-    ...(obj.EC2ResourceDetails && {
-      EC2ResourceDetails: EC2ResourceDetails.filterSensitiveLog(
-        obj.EC2ResourceDetails
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceDetails =>
     __isa(o, "ResourceDetails");
@@ -3766,12 +3466,7 @@ export interface ResourceUtilization {
 
 export namespace ResourceUtilization {
   export const filterSensitiveLog = (obj: ResourceUtilization): any => ({
-    ...obj,
-    ...(obj.EC2ResourceUtilization && {
-      EC2ResourceUtilization: EC2ResourceUtilization.filterSensitiveLog(
-        obj.EC2ResourceUtilization
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceUtilization =>
     __isa(o, "ResourceUtilization");
@@ -3806,22 +3501,7 @@ export interface ResultByTime {
 
 export namespace ResultByTime {
   export const filterSensitiveLog = (obj: ResultByTime): any => ({
-    ...obj,
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    }),
-    ...(obj.Total && {
-      Total: Object.entries(obj.Total).reduce(
-        (acc: any, [key, value]: [string, MetricValue]) => ({
-          ...acc,
-          [key]: MetricValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultByTime => __isa(o, "ResultByTime");
 }
@@ -3859,20 +3539,7 @@ export interface RightsizingRecommendation {
 
 export namespace RightsizingRecommendation {
   export const filterSensitiveLog = (obj: RightsizingRecommendation): any => ({
-    ...obj,
-    ...(obj.CurrentInstance && {
-      CurrentInstance: CurrentInstance.filterSensitiveLog(obj.CurrentInstance)
-    }),
-    ...(obj.ModifyRecommendationDetail && {
-      ModifyRecommendationDetail: ModifyRecommendationDetail.filterSensitiveLog(
-        obj.ModifyRecommendationDetail
-      )
-    }),
-    ...(obj.TerminateRecommendationDetail && {
-      TerminateRecommendationDetail: TerminateRecommendationDetail.filterSensitiveLog(
-        obj.TerminateRecommendationDetail
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RightsizingRecommendation =>
     __isa(o, "RightsizingRecommendation");
@@ -4005,13 +3672,7 @@ export interface SavingsPlansCoverage {
 
 export namespace SavingsPlansCoverage {
   export const filterSensitiveLog = (obj: SavingsPlansCoverage): any => ({
-    ...obj,
-    ...(obj.Coverage && {
-      Coverage: SavingsPlansCoverageData.filterSensitiveLog(obj.Coverage)
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlansCoverage =>
     __isa(o, "SavingsPlansCoverage");
@@ -4120,18 +3781,7 @@ export namespace SavingsPlansPurchaseRecommendation {
   export const filterSensitiveLog = (
     obj: SavingsPlansPurchaseRecommendation
   ): any => ({
-    ...obj,
-    ...(obj.SavingsPlansPurchaseRecommendationDetails && {
-      SavingsPlansPurchaseRecommendationDetails: obj.SavingsPlansPurchaseRecommendationDetails.map(
-        item =>
-          SavingsPlansPurchaseRecommendationDetail.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SavingsPlansPurchaseRecommendationSummary && {
-      SavingsPlansPurchaseRecommendationSummary: SavingsPlansPurchaseRecommendationSummary.filterSensitiveLog(
-        obj.SavingsPlansPurchaseRecommendationSummary
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlansPurchaseRecommendation =>
     __isa(o, "SavingsPlansPurchaseRecommendation");
@@ -4229,12 +3879,7 @@ export namespace SavingsPlansPurchaseRecommendationDetail {
   export const filterSensitiveLog = (
     obj: SavingsPlansPurchaseRecommendationDetail
   ): any => ({
-    ...obj,
-    ...(obj.SavingsPlansDetails && {
-      SavingsPlansDetails: SavingsPlansDetails.filterSensitiveLog(
-        obj.SavingsPlansDetails
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlansPurchaseRecommendationDetail =>
     __isa(o, "SavingsPlansPurchaseRecommendationDetail");
@@ -4426,18 +4071,7 @@ export namespace SavingsPlansUtilizationAggregates {
   export const filterSensitiveLog = (
     obj: SavingsPlansUtilizationAggregates
   ): any => ({
-    ...obj,
-    ...(obj.AmortizedCommitment && {
-      AmortizedCommitment: SavingsPlansAmortizedCommitment.filterSensitiveLog(
-        obj.AmortizedCommitment
-      )
-    }),
-    ...(obj.Savings && {
-      Savings: SavingsPlansSavings.filterSensitiveLog(obj.Savings)
-    }),
-    ...(obj.Utilization && {
-      Utilization: SavingsPlansUtilization.filterSensitiveLog(obj.Utilization)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlansUtilizationAggregates =>
     __isa(o, "SavingsPlansUtilizationAggregates");
@@ -4474,21 +4108,7 @@ export namespace SavingsPlansUtilizationByTime {
   export const filterSensitiveLog = (
     obj: SavingsPlansUtilizationByTime
   ): any => ({
-    ...obj,
-    ...(obj.AmortizedCommitment && {
-      AmortizedCommitment: SavingsPlansAmortizedCommitment.filterSensitiveLog(
-        obj.AmortizedCommitment
-      )
-    }),
-    ...(obj.Savings && {
-      Savings: SavingsPlansSavings.filterSensitiveLog(obj.Savings)
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    }),
-    ...(obj.Utilization && {
-      Utilization: SavingsPlansUtilization.filterSensitiveLog(obj.Utilization)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlansUtilizationByTime =>
     __isa(o, "SavingsPlansUtilizationByTime");
@@ -4529,18 +4149,7 @@ export namespace SavingsPlansUtilizationDetail {
   export const filterSensitiveLog = (
     obj: SavingsPlansUtilizationDetail
   ): any => ({
-    ...obj,
-    ...(obj.AmortizedCommitment && {
-      AmortizedCommitment: SavingsPlansAmortizedCommitment.filterSensitiveLog(
-        obj.AmortizedCommitment
-      )
-    }),
-    ...(obj.Savings && {
-      Savings: SavingsPlansSavings.filterSensitiveLog(obj.Savings)
-    }),
-    ...(obj.Utilization && {
-      Utilization: SavingsPlansUtilization.filterSensitiveLog(obj.Utilization)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SavingsPlansUtilizationDetail =>
     __isa(o, "SavingsPlansUtilizationDetail");
@@ -4584,12 +4193,7 @@ export interface ServiceSpecification {
 
 export namespace ServiceSpecification {
   export const filterSensitiveLog = (obj: ServiceSpecification): any => ({
-    ...obj,
-    ...(obj.EC2Specification && {
-      EC2Specification: EC2Specification.filterSensitiveLog(
-        obj.EC2Specification
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ServiceSpecification =>
     __isa(o, "ServiceSpecification");
@@ -4661,15 +4265,7 @@ export interface TargetInstance {
 
 export namespace TargetInstance {
   export const filterSensitiveLog = (obj: TargetInstance): any => ({
-    ...obj,
-    ...(obj.ExpectedResourceUtilization && {
-      ExpectedResourceUtilization: ResourceUtilization.filterSensitiveLog(
-        obj.ExpectedResourceUtilization
-      )
-    }),
-    ...(obj.ResourceDetails && {
-      ResourceDetails: ResourceDetails.filterSensitiveLog(obj.ResourceDetails)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TargetInstance =>
     __isa(o, "TargetInstance");
@@ -4753,10 +4349,7 @@ export namespace UpdateCostCategoryDefinitionRequest {
   export const filterSensitiveLog = (
     obj: UpdateCostCategoryDefinitionRequest
   ): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => CostCategoryRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateCostCategoryDefinitionRequest =>
     __isa(o, "UpdateCostCategoryDefinitionRequest");
@@ -4812,18 +4405,7 @@ export interface UtilizationByTime {
 
 export namespace UtilizationByTime {
   export const filterSensitiveLog = (obj: UtilizationByTime): any => ({
-    ...obj,
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item =>
-        ReservationUtilizationGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.TimePeriod && {
-      TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
-    }),
-    ...(obj.Total && {
-      Total: ReservationAggregates.filterSensitiveLog(obj.Total)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UtilizationByTime =>
     __isa(o, "UtilizationByTime");

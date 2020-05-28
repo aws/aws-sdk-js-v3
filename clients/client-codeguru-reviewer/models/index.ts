@@ -55,10 +55,7 @@ export interface AssociateRepositoryRequest {
 
 export namespace AssociateRepositoryRequest {
   export const filterSensitiveLog = (obj: AssociateRepositoryRequest): any => ({
-    ...obj,
-    ...(obj.Repository && {
-      Repository: Repository.filterSensitiveLog(obj.Repository)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssociateRepositoryRequest =>
     __isa(o, "AssociateRepositoryRequest");
@@ -76,12 +73,7 @@ export namespace AssociateRepositoryResponse {
   export const filterSensitiveLog = (
     obj: AssociateRepositoryResponse
   ): any => ({
-    ...obj,
-    ...(obj.RepositoryAssociation && {
-      RepositoryAssociation: RepositoryAssociation.filterSensitiveLog(
-        obj.RepositoryAssociation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssociateRepositoryResponse =>
     __isa(o, "AssociateRepositoryResponse");
@@ -156,12 +148,7 @@ export namespace DescribeRepositoryAssociationResponse {
   export const filterSensitiveLog = (
     obj: DescribeRepositoryAssociationResponse
   ): any => ({
-    ...obj,
-    ...(obj.RepositoryAssociation && {
-      RepositoryAssociation: RepositoryAssociation.filterSensitiveLog(
-        obj.RepositoryAssociation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeRepositoryAssociationResponse =>
     __isa(o, "DescribeRepositoryAssociationResponse");
@@ -197,12 +184,7 @@ export namespace DisassociateRepositoryResponse {
   export const filterSensitiveLog = (
     obj: DisassociateRepositoryResponse
   ): any => ({
-    ...obj,
-    ...(obj.RepositoryAssociation && {
-      RepositoryAssociation: RepositoryAssociation.filterSensitiveLog(
-        obj.RepositoryAssociation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DisassociateRepositoryResponse =>
     __isa(o, "DisassociateRepositoryResponse");
@@ -306,12 +288,7 @@ export namespace ListRepositoryAssociationsResponse {
   export const filterSensitiveLog = (
     obj: ListRepositoryAssociationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.RepositoryAssociationSummaries && {
-      RepositoryAssociationSummaries: obj.RepositoryAssociationSummaries.map(
-        item => RepositoryAssociationSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListRepositoryAssociationsResponse =>
     __isa(o, "ListRepositoryAssociationsResponse");
@@ -352,10 +329,7 @@ export interface Repository {
 
 export namespace Repository {
   export const filterSensitiveLog = (obj: Repository): any => ({
-    ...obj,
-    ...(obj.CodeCommit && {
-      CodeCommit: CodeCommitRepository.filterSensitiveLog(obj.CodeCommit)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }

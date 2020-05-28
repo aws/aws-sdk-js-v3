@@ -17,10 +17,7 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
 
 export namespace ComplexError {
   export const filterSensitiveLog = (obj: ComplexError): any => ({
-    ...obj,
-    ...(obj.Nested && {
-      Nested: ComplexNestedErrorData.filterSensitiveLog(obj.Nested)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ComplexError => __isa(o, "ComplexError");
 }
@@ -118,8 +115,7 @@ export interface NestedStructuresInput {
 
 export namespace NestedStructuresInput {
   export const filterSensitiveLog = (obj: NestedStructuresInput): any => ({
-    ...obj,
-    ...(obj.Nested && { Nested: StructArg.filterSensitiveLog(obj.Nested) })
+    ...obj
   });
   export const isa = (o: any): o is NestedStructuresInput =>
     __isa(o, "NestedStructuresInput");
@@ -162,12 +158,7 @@ export interface QueryListsInput {
 
 export namespace QueryListsInput {
   export const filterSensitiveLog = (obj: QueryListsInput): any => ({
-    ...obj,
-    ...(obj.ComplexListArg && {
-      ComplexListArg: obj.ComplexListArg.map(item =>
-        GreetingStruct.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is QueryListsInput =>
     __isa(o, "QueryListsInput");
@@ -195,10 +186,7 @@ export interface RecursiveXmlShapesOutput {
 
 export namespace RecursiveXmlShapesOutput {
   export const filterSensitiveLog = (obj: RecursiveXmlShapesOutput): any => ({
-    ...obj,
-    ...(obj.nested && {
-      nested: RecursiveXmlShapesOutputNested1.filterSensitiveLog(obj.nested)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecursiveXmlShapesOutput =>
     __isa(o, "RecursiveXmlShapesOutput");
@@ -214,10 +202,7 @@ export namespace RecursiveXmlShapesOutputNested1 {
   export const filterSensitiveLog = (
     obj: RecursiveXmlShapesOutputNested1
   ): any => ({
-    ...obj,
-    ...(obj.nested && {
-      nested: RecursiveXmlShapesOutputNested2.filterSensitiveLog(obj.nested)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecursiveXmlShapesOutputNested1 =>
     __isa(o, "RecursiveXmlShapesOutputNested1");
@@ -233,12 +218,7 @@ export namespace RecursiveXmlShapesOutputNested2 {
   export const filterSensitiveLog = (
     obj: RecursiveXmlShapesOutputNested2
   ): any => ({
-    ...obj,
-    ...(obj.recursiveMember && {
-      recursiveMember: RecursiveXmlShapesOutputNested1.filterSensitiveLog(
-        obj.recursiveMember
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecursiveXmlShapesOutputNested2 =>
     __isa(o, "RecursiveXmlShapesOutputNested2");
@@ -299,10 +279,7 @@ export interface StructArg {
 
 export namespace StructArg {
   export const filterSensitiveLog = (obj: StructArg): any => ({
-    ...obj,
-    ...(obj.RecursiveArg && {
-      RecursiveArg: StructArg.filterSensitiveLog(obj.RecursiveArg)
-    })
+    ...obj
   });
   export const isa = (o: any): o is StructArg => __isa(o, "StructArg");
 }
@@ -373,12 +350,7 @@ export interface XmlListsOutput {
 
 export namespace XmlListsOutput {
   export const filterSensitiveLog = (obj: XmlListsOutput): any => ({
-    ...obj,
-    ...(obj.structureList && {
-      structureList: obj.structureList.map(item =>
-        StructureListMember.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is XmlListsOutput =>
     __isa(o, "XmlListsOutput");
@@ -405,10 +377,7 @@ export interface XmlNamespacesOutput {
 
 export namespace XmlNamespacesOutput {
   export const filterSensitiveLog = (obj: XmlNamespacesOutput): any => ({
-    ...obj,
-    ...(obj.nested && {
-      nested: XmlNamespaceNested.filterSensitiveLog(obj.nested)
-    })
+    ...obj
   });
   export const isa = (o: any): o is XmlNamespacesOutput =>
     __isa(o, "XmlNamespacesOutput");

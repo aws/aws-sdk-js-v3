@@ -137,12 +137,7 @@ export namespace ChangeMessageVisibilityBatchRequest {
   export const filterSensitiveLog = (
     obj: ChangeMessageVisibilityBatchRequest
   ): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        ChangeMessageVisibilityBatchRequestEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChangeMessageVisibilityBatchRequest =>
     __isa(o, "ChangeMessageVisibilityBatchRequest");
@@ -224,17 +219,7 @@ export namespace ChangeMessageVisibilityBatchResult {
   export const filterSensitiveLog = (
     obj: ChangeMessageVisibilityBatchResult
   ): any => ({
-    ...obj,
-    ...(obj.Failed && {
-      Failed: obj.Failed.map(item =>
-        BatchResultErrorEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Successful && {
-      Successful: obj.Successful.map(item =>
-        ChangeMessageVisibilityBatchResultEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChangeMessageVisibilityBatchResult =>
     __isa(o, "ChangeMessageVisibilityBatchResult");
@@ -522,12 +507,7 @@ export interface DeleteMessageBatchRequest {
 
 export namespace DeleteMessageBatchRequest {
   export const filterSensitiveLog = (obj: DeleteMessageBatchRequest): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        DeleteMessageBatchRequestEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteMessageBatchRequest =>
     __isa(o, "DeleteMessageBatchRequest");
@@ -588,17 +568,7 @@ export interface DeleteMessageBatchResult {
 
 export namespace DeleteMessageBatchResult {
   export const filterSensitiveLog = (obj: DeleteMessageBatchResult): any => ({
-    ...obj,
-    ...(obj.Failed && {
-      Failed: obj.Failed.map(item =>
-        BatchResultErrorEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Successful && {
-      Successful: obj.Successful.map(item =>
-        DeleteMessageBatchResultEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteMessageBatchResult =>
     __isa(o, "DeleteMessageBatchResult");
@@ -1172,16 +1142,7 @@ export interface Message {
 
 export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Message => __isa(o, "Message");
 }
@@ -1635,10 +1596,7 @@ export interface ReceiveMessageResult {
 
 export namespace ReceiveMessageResult {
   export const filterSensitiveLog = (obj: ReceiveMessageResult): any => ({
-    ...obj,
-    ...(obj.Messages && {
-      Messages: obj.Messages.map(item => Message.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReceiveMessageResult =>
     __isa(o, "ReceiveMessageResult");
@@ -1692,12 +1650,7 @@ export interface SendMessageBatchRequest {
 
 export namespace SendMessageBatchRequest {
   export const filterSensitiveLog = (obj: SendMessageBatchRequest): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        SendMessageBatchRequestEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendMessageBatchRequest =>
     __isa(o, "SendMessageBatchRequest");
@@ -1841,27 +1794,7 @@ export namespace SendMessageBatchRequestEntry {
   export const filterSensitiveLog = (
     obj: SendMessageBatchRequestEntry
   ): any => ({
-    ...obj,
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.MessageSystemAttributes && {
-      MessageSystemAttributes: Object.entries(
-        obj.MessageSystemAttributes
-      ).reduce(
-        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => ({
-          ...acc,
-          [key]: MessageSystemAttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendMessageBatchRequestEntry =>
     __isa(o, "SendMessageBatchRequestEntry");
@@ -1893,17 +1826,7 @@ export interface SendMessageBatchResult {
 
 export namespace SendMessageBatchResult {
   export const filterSensitiveLog = (obj: SendMessageBatchResult): any => ({
-    ...obj,
-    ...(obj.Failed && {
-      Failed: obj.Failed.map(item =>
-        BatchResultErrorEntry.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Successful && {
-      Successful: obj.Successful.map(item =>
-        SendMessageBatchResultEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendMessageBatchResult =>
     __isa(o, "SendMessageBatchResult");
@@ -2099,27 +2022,7 @@ export interface SendMessageRequest {
 
 export namespace SendMessageRequest {
   export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
-    ...obj,
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.MessageSystemAttributes && {
-      MessageSystemAttributes: Object.entries(
-        obj.MessageSystemAttributes
-      ).reduce(
-        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => ({
-          ...acc,
-          [key]: MessageSystemAttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendMessageRequest =>
     __isa(o, "SendMessageRequest");
