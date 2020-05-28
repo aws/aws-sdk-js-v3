@@ -519,25 +519,7 @@ export interface CreateHITRequest {
 
 export namespace CreateHITRequest {
   export const filterSensitiveLog = (obj: CreateHITRequest): any => ({
-    ...obj,
-    ...(obj.AssignmentReviewPolicy && {
-      AssignmentReviewPolicy: ReviewPolicy.filterSensitiveLog(
-        obj.AssignmentReviewPolicy
-      )
-    }),
-    ...(obj.HITLayoutParameters && {
-      HITLayoutParameters: obj.HITLayoutParameters.map(item =>
-        HITLayoutParameter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.HITReviewPolicy && {
-      HITReviewPolicy: ReviewPolicy.filterSensitiveLog(obj.HITReviewPolicy)
-    }),
-    ...(obj.QualificationRequirements && {
-      QualificationRequirements: obj.QualificationRequirements.map(item =>
-        QualificationRequirement.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHITRequest =>
     __isa(o, "CreateHITRequest");
@@ -556,8 +538,7 @@ export interface CreateHITResponse {
 
 export namespace CreateHITResponse {
   export const filterSensitiveLog = (obj: CreateHITResponse): any => ({
-    ...obj,
-    ...(obj.HIT && { HIT: HIT.filterSensitiveLog(obj.HIT) })
+    ...obj
   });
   export const isa = (o: any): o is CreateHITResponse =>
     __isa(o, "CreateHITResponse");
@@ -634,12 +615,7 @@ export interface CreateHITTypeRequest {
 
 export namespace CreateHITTypeRequest {
   export const filterSensitiveLog = (obj: CreateHITTypeRequest): any => ({
-    ...obj,
-    ...(obj.QualificationRequirements && {
-      QualificationRequirements: obj.QualificationRequirements.map(item =>
-        QualificationRequirement.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHITTypeRequest =>
     __isa(o, "CreateHITTypeRequest");
@@ -776,20 +752,7 @@ export namespace CreateHITWithHITTypeRequest {
   export const filterSensitiveLog = (
     obj: CreateHITWithHITTypeRequest
   ): any => ({
-    ...obj,
-    ...(obj.AssignmentReviewPolicy && {
-      AssignmentReviewPolicy: ReviewPolicy.filterSensitiveLog(
-        obj.AssignmentReviewPolicy
-      )
-    }),
-    ...(obj.HITLayoutParameters && {
-      HITLayoutParameters: obj.HITLayoutParameters.map(item =>
-        HITLayoutParameter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.HITReviewPolicy && {
-      HITReviewPolicy: ReviewPolicy.filterSensitiveLog(obj.HITReviewPolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHITWithHITTypeRequest =>
     __isa(o, "CreateHITWithHITTypeRequest");
@@ -810,8 +773,7 @@ export namespace CreateHITWithHITTypeResponse {
   export const filterSensitiveLog = (
     obj: CreateHITWithHITTypeResponse
   ): any => ({
-    ...obj,
-    ...(obj.HIT && { HIT: HIT.filterSensitiveLog(obj.HIT) })
+    ...obj
   });
   export const isa = (o: any): o is CreateHITWithHITTypeResponse =>
     __isa(o, "CreateHITWithHITTypeResponse");
@@ -933,12 +895,7 @@ export namespace CreateQualificationTypeResponse {
   export const filterSensitiveLog = (
     obj: CreateQualificationTypeResponse
   ): any => ({
-    ...obj,
-    ...(obj.QualificationType && {
-      QualificationType: QualificationType.filterSensitiveLog(
-        obj.QualificationType
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateQualificationTypeResponse =>
     __isa(o, "CreateQualificationTypeResponse");
@@ -1198,11 +1155,7 @@ export interface GetAssignmentResponse {
 
 export namespace GetAssignmentResponse {
   export const filterSensitiveLog = (obj: GetAssignmentResponse): any => ({
-    ...obj,
-    ...(obj.Assignment && {
-      Assignment: Assignment.filterSensitiveLog(obj.Assignment)
-    }),
-    ...(obj.HIT && { HIT: HIT.filterSensitiveLog(obj.HIT) })
+    ...obj
   });
   export const isa = (o: any): o is GetAssignmentResponse =>
     __isa(o, "GetAssignmentResponse");
@@ -1274,8 +1227,7 @@ export interface GetHITResponse {
 
 export namespace GetHITResponse {
   export const filterSensitiveLog = (obj: GetHITResponse): any => ({
-    ...obj,
-    ...(obj.HIT && { HIT: HIT.filterSensitiveLog(obj.HIT) })
+    ...obj
   });
   export const isa = (o: any): o is GetHITResponse =>
     __isa(o, "GetHITResponse");
@@ -1319,10 +1271,7 @@ export namespace GetQualificationScoreResponse {
   export const filterSensitiveLog = (
     obj: GetQualificationScoreResponse
   ): any => ({
-    ...obj,
-    ...(obj.Qualification && {
-      Qualification: Qualification.filterSensitiveLog(obj.Qualification)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetQualificationScoreResponse =>
     __isa(o, "GetQualificationScoreResponse");
@@ -1358,12 +1307,7 @@ export namespace GetQualificationTypeResponse {
   export const filterSensitiveLog = (
     obj: GetQualificationTypeResponse
   ): any => ({
-    ...obj,
-    ...(obj.QualificationType && {
-      QualificationType: QualificationType.filterSensitiveLog(
-        obj.QualificationType
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetQualificationTypeResponse =>
     __isa(o, "GetQualificationTypeResponse");
@@ -1512,12 +1456,7 @@ export interface HIT {
 
 export namespace HIT {
   export const filterSensitiveLog = (obj: HIT): any => ({
-    ...obj,
-    ...(obj.QualificationRequirements && {
-      QualificationRequirements: obj.QualificationRequirements.map(item =>
-        QualificationRequirement.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HIT => __isa(o, "HIT");
 }
@@ -1632,12 +1571,7 @@ export namespace ListAssignmentsForHITResponse {
   export const filterSensitiveLog = (
     obj: ListAssignmentsForHITResponse
   ): any => ({
-    ...obj,
-    ...(obj.Assignments && {
-      Assignments: obj.Assignments.map(item =>
-        Assignment.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAssignmentsForHITResponse =>
     __isa(o, "ListAssignmentsForHITResponse");
@@ -1704,12 +1638,7 @@ export interface ListBonusPaymentsResponse {
 
 export namespace ListBonusPaymentsResponse {
   export const filterSensitiveLog = (obj: ListBonusPaymentsResponse): any => ({
-    ...obj,
-    ...(obj.BonusPayments && {
-      BonusPayments: obj.BonusPayments.map(item =>
-        BonusPayment.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListBonusPaymentsResponse =>
     __isa(o, "ListBonusPaymentsResponse");
@@ -1773,10 +1702,7 @@ export namespace ListHITsForQualificationTypeResponse {
   export const filterSensitiveLog = (
     obj: ListHITsForQualificationTypeResponse
   ): any => ({
-    ...obj,
-    ...(obj.HITs && {
-      HITs: obj.HITs.map(item => HIT.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListHITsForQualificationTypeResponse =>
     __isa(o, "ListHITsForQualificationTypeResponse");
@@ -1823,10 +1749,7 @@ export interface ListHITsResponse {
 
 export namespace ListHITsResponse {
   export const filterSensitiveLog = (obj: ListHITsResponse): any => ({
-    ...obj,
-    ...(obj.HITs && {
-      HITs: obj.HITs.map(item => HIT.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListHITsResponse =>
     __isa(o, "ListHITsResponse");
@@ -1893,12 +1816,7 @@ export namespace ListQualificationRequestsResponse {
   export const filterSensitiveLog = (
     obj: ListQualificationRequestsResponse
   ): any => ({
-    ...obj,
-    ...(obj.QualificationRequests && {
-      QualificationRequests: obj.QualificationRequests.map(item =>
-        QualificationRequest.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListQualificationRequestsResponse =>
     __isa(o, "ListQualificationRequestsResponse");
@@ -1988,12 +1906,7 @@ export namespace ListQualificationTypesResponse {
   export const filterSensitiveLog = (
     obj: ListQualificationTypesResponse
   ): any => ({
-    ...obj,
-    ...(obj.QualificationTypes && {
-      QualificationTypes: obj.QualificationTypes.map(item =>
-        QualificationType.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListQualificationTypesResponse =>
     __isa(o, "ListQualificationTypesResponse");
@@ -2097,23 +2010,7 @@ export namespace ListReviewPolicyResultsForHITResponse {
   export const filterSensitiveLog = (
     obj: ListReviewPolicyResultsForHITResponse
   ): any => ({
-    ...obj,
-    ...(obj.AssignmentReviewPolicy && {
-      AssignmentReviewPolicy: ReviewPolicy.filterSensitiveLog(
-        obj.AssignmentReviewPolicy
-      )
-    }),
-    ...(obj.AssignmentReviewReport && {
-      AssignmentReviewReport: ReviewReport.filterSensitiveLog(
-        obj.AssignmentReviewReport
-      )
-    }),
-    ...(obj.HITReviewPolicy && {
-      HITReviewPolicy: ReviewPolicy.filterSensitiveLog(obj.HITReviewPolicy)
-    }),
-    ...(obj.HITReviewReport && {
-      HITReviewReport: ReviewReport.filterSensitiveLog(obj.HITReviewReport)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListReviewPolicyResultsForHITResponse =>
     __isa(o, "ListReviewPolicyResultsForHITResponse");
@@ -2183,10 +2080,7 @@ export interface ListReviewableHITsResponse {
 
 export namespace ListReviewableHITsResponse {
   export const filterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
-    ...obj,
-    ...(obj.HITs && {
-      HITs: obj.HITs.map(item => HIT.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListReviewableHITsResponse =>
     __isa(o, "ListReviewableHITsResponse");
@@ -2235,12 +2129,7 @@ export interface ListWorkerBlocksResponse {
 
 export namespace ListWorkerBlocksResponse {
   export const filterSensitiveLog = (obj: ListWorkerBlocksResponse): any => ({
-    ...obj,
-    ...(obj.WorkerBlocks && {
-      WorkerBlocks: obj.WorkerBlocks.map(item =>
-        WorkerBlock.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListWorkerBlocksResponse =>
     __isa(o, "ListWorkerBlocksResponse");
@@ -2313,12 +2202,7 @@ export namespace ListWorkersWithQualificationTypeResponse {
   export const filterSensitiveLog = (
     obj: ListWorkersWithQualificationTypeResponse
   ): any => ({
-    ...obj,
-    ...(obj.Qualifications && {
-      Qualifications: obj.Qualifications.map(item =>
-        Qualification.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListWorkersWithQualificationTypeResponse =>
     __isa(o, "ListWorkersWithQualificationTypeResponse");
@@ -2497,12 +2381,7 @@ export interface NotifyWorkersResponse {
 
 export namespace NotifyWorkersResponse {
   export const filterSensitiveLog = (obj: NotifyWorkersResponse): any => ({
-    ...obj,
-    ...(obj.NotifyWorkersFailureStatuses && {
-      NotifyWorkersFailureStatuses: obj.NotifyWorkersFailureStatuses.map(item =>
-        NotifyWorkersFailureStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is NotifyWorkersResponse =>
     __isa(o, "NotifyWorkersResponse");
@@ -2566,12 +2445,7 @@ export interface PolicyParameter {
 
 export namespace PolicyParameter {
   export const filterSensitiveLog = (obj: PolicyParameter): any => ({
-    ...obj,
-    ...(obj.MapEntries && {
-      MapEntries: obj.MapEntries.map(item =>
-        ParameterMapEntry.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PolicyParameter =>
     __isa(o, "PolicyParameter");
@@ -2624,10 +2498,7 @@ export interface Qualification {
 
 export namespace Qualification {
   export const filterSensitiveLog = (obj: Qualification): any => ({
-    ...obj,
-    ...(obj.LocaleValue && {
-      LocaleValue: Locale.filterSensitiveLog(obj.LocaleValue)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Qualification => __isa(o, "Qualification");
 }
@@ -2789,12 +2660,7 @@ export interface QualificationRequirement {
 
 export namespace QualificationRequirement {
   export const filterSensitiveLog = (obj: QualificationRequirement): any => ({
-    ...obj,
-    ...(obj.LocaleValues && {
-      LocaleValues: obj.LocaleValues.map(item =>
-        Locale.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is QualificationRequirement =>
     __isa(o, "QualificationRequirement");
@@ -3103,12 +2969,7 @@ export interface ReviewPolicy {
 
 export namespace ReviewPolicy {
   export const filterSensitiveLog = (obj: ReviewPolicy): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        PolicyParameter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReviewPolicy => __isa(o, "ReviewPolicy");
 }
@@ -3142,17 +3003,7 @@ export interface ReviewReport {
 
 export namespace ReviewReport {
   export const filterSensitiveLog = (obj: ReviewReport): any => ({
-    ...obj,
-    ...(obj.ReviewActions && {
-      ReviewActions: obj.ReviewActions.map(item =>
-        ReviewActionDetail.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ReviewResults && {
-      ReviewResults: obj.ReviewResults.map(item =>
-        ReviewResultDetail.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReviewReport => __isa(o, "ReviewReport");
 }
@@ -3308,12 +3159,7 @@ export namespace SendTestEventNotificationRequest {
   export const filterSensitiveLog = (
     obj: SendTestEventNotificationRequest
   ): any => ({
-    ...obj,
-    ...(obj.Notification && {
-      Notification: NotificationSpecification.filterSensitiveLog(
-        obj.Notification
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendTestEventNotificationRequest =>
     __isa(o, "SendTestEventNotificationRequest");
@@ -3491,12 +3337,7 @@ export namespace UpdateNotificationSettingsRequest {
   export const filterSensitiveLog = (
     obj: UpdateNotificationSettingsRequest
   ): any => ({
-    ...obj,
-    ...(obj.Notification && {
-      Notification: NotificationSpecification.filterSensitiveLog(
-        obj.Notification
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateNotificationSettingsRequest =>
     __isa(o, "UpdateNotificationSettingsRequest");
@@ -3596,12 +3437,7 @@ export namespace UpdateQualificationTypeResponse {
   export const filterSensitiveLog = (
     obj: UpdateQualificationTypeResponse
   ): any => ({
-    ...obj,
-    ...(obj.QualificationType && {
-      QualificationType: QualificationType.filterSensitiveLog(
-        obj.QualificationType
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateQualificationTypeResponse =>
     __isa(o, "UpdateQualificationTypeResponse");

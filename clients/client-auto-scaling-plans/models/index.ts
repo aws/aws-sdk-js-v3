@@ -23,10 +23,7 @@ export interface ApplicationSource {
 
 export namespace ApplicationSource {
   export const filterSensitiveLog = (obj: ApplicationSource): any => ({
-    ...obj,
-    ...(obj.TagFilters && {
-      TagFilters: obj.TagFilters.map(item => TagFilter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ApplicationSource =>
     __isa(o, "ApplicationSource");
@@ -74,17 +71,7 @@ export interface CreateScalingPlanRequest {
 
 export namespace CreateScalingPlanRequest {
   export const filterSensitiveLog = (obj: CreateScalingPlanRequest): any => ({
-    ...obj,
-    ...(obj.ApplicationSource && {
-      ApplicationSource: ApplicationSource.filterSensitiveLog(
-        obj.ApplicationSource
-      )
-    }),
-    ...(obj.ScalingInstructions && {
-      ScalingInstructions: obj.ScalingInstructions.map(item =>
-        ScalingInstruction.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateScalingPlanRequest =>
     __isa(o, "CreateScalingPlanRequest");
@@ -161,12 +148,7 @@ export namespace CustomizedLoadMetricSpecification {
   export const filterSensitiveLog = (
     obj: CustomizedLoadMetricSpecification
   ): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        MetricDimension.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CustomizedLoadMetricSpecification =>
     __isa(o, "CustomizedLoadMetricSpecification");
@@ -226,12 +208,7 @@ export namespace CustomizedScalingMetricSpecification {
   export const filterSensitiveLog = (
     obj: CustomizedScalingMetricSpecification
   ): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        MetricDimension.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CustomizedScalingMetricSpecification =>
     __isa(o, "CustomizedScalingMetricSpecification");
@@ -345,12 +322,7 @@ export namespace DescribeScalingPlanResourcesResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalingPlanResourcesResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScalingPlanResources && {
-      ScalingPlanResources: obj.ScalingPlanResources.map(item =>
-        ScalingPlanResource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScalingPlanResourcesResponse =>
     __isa(o, "DescribeScalingPlanResourcesResponse");
@@ -392,12 +364,7 @@ export namespace DescribeScalingPlansRequest {
   export const filterSensitiveLog = (
     obj: DescribeScalingPlansRequest
   ): any => ({
-    ...obj,
-    ...(obj.ApplicationSources && {
-      ApplicationSources: obj.ApplicationSources.map(item =>
-        ApplicationSource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScalingPlansRequest =>
     __isa(o, "DescribeScalingPlansRequest");
@@ -421,12 +388,7 @@ export namespace DescribeScalingPlansResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalingPlansResponse
   ): any => ({
-    ...obj,
-    ...(obj.ScalingPlans && {
-      ScalingPlans: obj.ScalingPlans.map(item =>
-        ScalingPlan.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScalingPlansResponse =>
     __isa(o, "DescribeScalingPlansResponse");
@@ -558,10 +520,7 @@ export namespace GetScalingPlanResourceForecastDataResponse {
   export const filterSensitiveLog = (
     obj: GetScalingPlanResourceForecastDataResponse
   ): any => ({
-    ...obj,
-    ...(obj.Datapoints && {
-      Datapoints: obj.Datapoints.map(item => Datapoint.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -1017,22 +976,7 @@ export interface ScalingInstruction {
 
 export namespace ScalingInstruction {
   export const filterSensitiveLog = (obj: ScalingInstruction): any => ({
-    ...obj,
-    ...(obj.CustomizedLoadMetricSpecification && {
-      CustomizedLoadMetricSpecification: CustomizedLoadMetricSpecification.filterSensitiveLog(
-        obj.CustomizedLoadMetricSpecification
-      )
-    }),
-    ...(obj.PredefinedLoadMetricSpecification && {
-      PredefinedLoadMetricSpecification: PredefinedLoadMetricSpecification.filterSensitiveLog(
-        obj.PredefinedLoadMetricSpecification
-      )
-    }),
-    ...(obj.TargetTrackingConfigurations && {
-      TargetTrackingConfigurations: obj.TargetTrackingConfigurations.map(item =>
-        TargetTrackingConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScalingInstruction =>
     __isa(o, "ScalingInstruction");
@@ -1137,17 +1081,7 @@ export interface ScalingPlan {
 
 export namespace ScalingPlan {
   export const filterSensitiveLog = (obj: ScalingPlan): any => ({
-    ...obj,
-    ...(obj.ApplicationSource && {
-      ApplicationSource: ApplicationSource.filterSensitiveLog(
-        obj.ApplicationSource
-      )
-    }),
-    ...(obj.ScalingInstructions && {
-      ScalingInstructions: obj.ScalingInstructions.map(item =>
-        ScalingInstruction.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScalingPlan => __isa(o, "ScalingPlan");
 }
@@ -1279,12 +1213,7 @@ export interface ScalingPlanResource {
 
 export namespace ScalingPlanResource {
   export const filterSensitiveLog = (obj: ScalingPlanResource): any => ({
-    ...obj,
-    ...(obj.ScalingPolicies && {
-      ScalingPolicies: obj.ScalingPolicies.map(item =>
-        ScalingPolicy.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScalingPlanResource =>
     __isa(o, "ScalingPlanResource");
@@ -1325,12 +1254,7 @@ export interface ScalingPolicy {
 
 export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
-    ...obj,
-    ...(obj.TargetTrackingConfiguration && {
-      TargetTrackingConfiguration: TargetTrackingConfiguration.filterSensitiveLog(
-        obj.TargetTrackingConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
@@ -1442,17 +1366,7 @@ export namespace TargetTrackingConfiguration {
   export const filterSensitiveLog = (
     obj: TargetTrackingConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.CustomizedScalingMetricSpecification && {
-      CustomizedScalingMetricSpecification: CustomizedScalingMetricSpecification.filterSensitiveLog(
-        obj.CustomizedScalingMetricSpecification
-      )
-    }),
-    ...(obj.PredefinedScalingMetricSpecification && {
-      PredefinedScalingMetricSpecification: PredefinedScalingMetricSpecification.filterSensitiveLog(
-        obj.PredefinedScalingMetricSpecification
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TargetTrackingConfiguration =>
     __isa(o, "TargetTrackingConfiguration");
@@ -1483,17 +1397,7 @@ export interface UpdateScalingPlanRequest {
 
 export namespace UpdateScalingPlanRequest {
   export const filterSensitiveLog = (obj: UpdateScalingPlanRequest): any => ({
-    ...obj,
-    ...(obj.ApplicationSource && {
-      ApplicationSource: ApplicationSource.filterSensitiveLog(
-        obj.ApplicationSource
-      )
-    }),
-    ...(obj.ScalingInstructions && {
-      ScalingInstructions: obj.ScalingInstructions.map(item =>
-        ScalingInstruction.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateScalingPlanRequest =>
     __isa(o, "UpdateScalingPlanRequest");

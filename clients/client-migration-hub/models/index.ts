@@ -92,10 +92,7 @@ export namespace AssociateCreatedArtifactRequest {
   export const filterSensitiveLog = (
     obj: AssociateCreatedArtifactRequest
   ): any => ({
-    ...obj,
-    ...(obj.CreatedArtifact && {
-      CreatedArtifact: CreatedArtifact.filterSensitiveLog(obj.CreatedArtifact)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssociateCreatedArtifactRequest =>
     __isa(o, "AssociateCreatedArtifactRequest");
@@ -145,12 +142,7 @@ export namespace AssociateDiscoveredResourceRequest {
   export const filterSensitiveLog = (
     obj: AssociateDiscoveredResourceRequest
   ): any => ({
-    ...obj,
-    ...(obj.DiscoveredResource && {
-      DiscoveredResource: DiscoveredResource.filterSensitiveLog(
-        obj.DiscoveredResource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssociateDiscoveredResourceRequest =>
     __isa(o, "AssociateDiscoveredResourceRequest");
@@ -355,10 +347,7 @@ export namespace DescribeMigrationTaskResult {
   export const filterSensitiveLog = (
     obj: DescribeMigrationTaskResult
   ): any => ({
-    ...obj,
-    ...(obj.MigrationTask && {
-      MigrationTask: MigrationTask.filterSensitiveLog(obj.MigrationTask)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeMigrationTaskResult =>
     __isa(o, "DescribeMigrationTaskResult");
@@ -660,12 +649,7 @@ export namespace ListApplicationStatesResult {
   export const filterSensitiveLog = (
     obj: ListApplicationStatesResult
   ): any => ({
-    ...obj,
-    ...(obj.ApplicationStateList && {
-      ApplicationStateList: obj.ApplicationStateList.map(item =>
-        ApplicationState.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListApplicationStatesResult =>
     __isa(o, "ListApplicationStatesResult");
@@ -725,12 +709,7 @@ export interface ListCreatedArtifactsResult {
 
 export namespace ListCreatedArtifactsResult {
   export const filterSensitiveLog = (obj: ListCreatedArtifactsResult): any => ({
-    ...obj,
-    ...(obj.CreatedArtifactList && {
-      CreatedArtifactList: obj.CreatedArtifactList.map(item =>
-        CreatedArtifact.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListCreatedArtifactsResult =>
     __isa(o, "ListCreatedArtifactsResult");
@@ -791,12 +770,7 @@ export namespace ListDiscoveredResourcesResult {
   export const filterSensitiveLog = (
     obj: ListDiscoveredResourcesResult
   ): any => ({
-    ...obj,
-    ...(obj.DiscoveredResourceList && {
-      DiscoveredResourceList: obj.DiscoveredResourceList.map(item =>
-        DiscoveredResource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDiscoveredResourcesResult =>
     __isa(o, "ListDiscoveredResourcesResult");
@@ -848,12 +822,7 @@ export interface ListMigrationTasksResult {
 
 export namespace ListMigrationTasksResult {
   export const filterSensitiveLog = (obj: ListMigrationTasksResult): any => ({
-    ...obj,
-    ...(obj.MigrationTaskSummaryList && {
-      MigrationTaskSummaryList: obj.MigrationTaskSummaryList.map(item =>
-        MigrationTaskSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMigrationTasksResult =>
     __isa(o, "ListMigrationTasksResult");
@@ -903,12 +872,7 @@ export namespace ListProgressUpdateStreamsResult {
   export const filterSensitiveLog = (
     obj: ListProgressUpdateStreamsResult
   ): any => ({
-    ...obj,
-    ...(obj.ProgressUpdateStreamSummaryList && {
-      ProgressUpdateStreamSummaryList: obj.ProgressUpdateStreamSummaryList.map(
-        item => ProgressUpdateStreamSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProgressUpdateStreamsResult =>
     __isa(o, "ListProgressUpdateStreamsResult");
@@ -950,13 +914,7 @@ export interface MigrationTask {
 
 export namespace MigrationTask {
   export const filterSensitiveLog = (obj: MigrationTask): any => ({
-    ...obj,
-    ...(obj.ResourceAttributeList && {
-      ResourceAttributeList: obj.ResourceAttributeList.map(item =>
-        ResourceAttribute.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Task && { Task: Task.filterSensitiveLog(obj.Task) })
+    ...obj
   });
   export const isa = (o: any): o is MigrationTask => __isa(o, "MigrationTask");
 }
@@ -1101,8 +1059,7 @@ export namespace NotifyMigrationTaskStateRequest {
   export const filterSensitiveLog = (
     obj: NotifyMigrationTaskStateRequest
   ): any => ({
-    ...obj,
-    ...(obj.Task && { Task: Task.filterSensitiveLog(obj.Task) })
+    ...obj
   });
   export const isa = (o: any): o is NotifyMigrationTaskStateRequest =>
     __isa(o, "NotifyMigrationTaskStateRequest");
@@ -1224,12 +1181,7 @@ export namespace PutResourceAttributesRequest {
   export const filterSensitiveLog = (
     obj: PutResourceAttributesRequest
   ): any => ({
-    ...obj,
-    ...(obj.ResourceAttributeList && {
-      ResourceAttributeList: obj.ResourceAttributeList.map(item =>
-        ResourceAttribute.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutResourceAttributesRequest =>
     __isa(o, "PutResourceAttributesRequest");

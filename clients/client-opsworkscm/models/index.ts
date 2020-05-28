@@ -367,10 +367,7 @@ export interface CreateBackupRequest {
 
 export namespace CreateBackupRequest {
   export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateBackupRequest =>
     __isa(o, "CreateBackupRequest");
@@ -386,8 +383,7 @@ export interface CreateBackupResponse {
 
 export namespace CreateBackupResponse {
   export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
-    ...obj,
-    ...(obj.Backup && { Backup: Backup.filterSensitiveLog(obj.Backup) })
+    ...obj
   });
   export const isa = (o: any): o is CreateBackupResponse =>
     __isa(o, "CreateBackupResponse");
@@ -674,9 +670,6 @@ export namespace CreateServerRequest {
       EngineAttributes: obj.EngineAttributes.map(item =>
         EngineAttribute.filterSensitiveLog(item)
       )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateServerRequest =>
@@ -787,12 +780,7 @@ export namespace DescribeAccountAttributesResponse {
   export const filterSensitiveLog = (
     obj: DescribeAccountAttributesResponse
   ): any => ({
-    ...obj,
-    ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        AccountAttribute.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAccountAttributesResponse =>
     __isa(o, "DescribeAccountAttributesResponse");
@@ -847,10 +835,7 @@ export interface DescribeBackupsResponse {
 
 export namespace DescribeBackupsResponse {
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-    ...obj,
-    ...(obj.Backups && {
-      Backups: obj.Backups.map(item => Backup.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeBackupsResponse =>
     __isa(o, "DescribeBackupsResponse");
@@ -916,12 +901,7 @@ export interface DescribeEventsResponse {
 
 export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-    ...obj,
-    ...(obj.ServerEvents && {
-      ServerEvents: obj.ServerEvents.map(item =>
-        ServerEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventsResponse =>
     __isa(o, "DescribeEventsResponse");
@@ -1053,10 +1033,7 @@ export interface DescribeServersResponse {
 
 export namespace DescribeServersResponse {
   export const filterSensitiveLog = (obj: DescribeServersResponse): any => ({
-    ...obj,
-    ...(obj.Servers && {
-      Servers: obj.Servers.map(item => Server.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeServersResponse =>
     __isa(o, "DescribeServersResponse");
@@ -1366,10 +1343,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1857,10 +1831,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

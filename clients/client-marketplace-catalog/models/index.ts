@@ -95,8 +95,7 @@ export interface Change {
 
 export namespace Change {
   export const filterSensitiveLog = (obj: Change): any => ({
-    ...obj,
-    ...(obj.Entity && { Entity: Entity.filterSensitiveLog(obj.Entity) })
+    ...obj
   });
   export const isa = (o: any): o is Change => __isa(o, "Change");
 }
@@ -187,13 +186,7 @@ export interface ChangeSummary {
 
 export namespace ChangeSummary {
   export const filterSensitiveLog = (obj: ChangeSummary): any => ({
-    ...obj,
-    ...(obj.Entity && { Entity: Entity.filterSensitiveLog(obj.Entity) }),
-    ...(obj.ErrorDetailList && {
-      ErrorDetailList: obj.ErrorDetailList.map(item =>
-        ErrorDetail.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChangeSummary => __isa(o, "ChangeSummary");
 }
@@ -273,12 +266,7 @@ export interface DescribeChangeSetResponse {
 
 export namespace DescribeChangeSetResponse {
   export const filterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
-    ...obj,
-    ...(obj.ChangeSet && {
-      ChangeSet: obj.ChangeSet.map(item =>
-        ChangeSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeChangeSetResponse =>
     __isa(o, "DescribeChangeSetResponse");
@@ -566,11 +554,7 @@ export interface ListChangeSetsRequest {
 
 export namespace ListChangeSetsRequest {
   export const filterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
-    ...obj,
-    ...(obj.FilterList && {
-      FilterList: obj.FilterList.map(item => Filter.filterSensitiveLog(item))
-    }),
-    ...(obj.Sort && { Sort: Sort.filterSensitiveLog(obj.Sort) })
+    ...obj
   });
   export const isa = (o: any): o is ListChangeSetsRequest =>
     __isa(o, "ListChangeSetsRequest");
@@ -591,12 +575,7 @@ export interface ListChangeSetsResponse {
 
 export namespace ListChangeSetsResponse {
   export const filterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
-    ...obj,
-    ...(obj.ChangeSetSummaryList && {
-      ChangeSetSummaryList: obj.ChangeSetSummaryList.map(item =>
-        ChangeSetSummaryListItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListChangeSetsResponse =>
     __isa(o, "ListChangeSetsResponse");
@@ -641,11 +620,7 @@ export interface ListEntitiesRequest {
 
 export namespace ListEntitiesRequest {
   export const filterSensitiveLog = (obj: ListEntitiesRequest): any => ({
-    ...obj,
-    ...(obj.FilterList && {
-      FilterList: obj.FilterList.map(item => Filter.filterSensitiveLog(item))
-    }),
-    ...(obj.Sort && { Sort: Sort.filterSensitiveLog(obj.Sort) })
+    ...obj
   });
   export const isa = (o: any): o is ListEntitiesRequest =>
     __isa(o, "ListEntitiesRequest");
@@ -666,12 +641,7 @@ export interface ListEntitiesResponse {
 
 export namespace ListEntitiesResponse {
   export const filterSensitiveLog = (obj: ListEntitiesResponse): any => ({
-    ...obj,
-    ...(obj.EntitySummaryList && {
-      EntitySummaryList: obj.EntitySummaryList.map(item =>
-        EntitySummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListEntitiesResponse =>
     __isa(o, "ListEntitiesResponse");
@@ -819,10 +789,7 @@ export interface StartChangeSetRequest {
 
 export namespace StartChangeSetRequest {
   export const filterSensitiveLog = (obj: StartChangeSetRequest): any => ({
-    ...obj,
-    ...(obj.ChangeSet && {
-      ChangeSet: obj.ChangeSet.map(item => Change.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartChangeSetRequest =>
     __isa(o, "StartChangeSetRequest");

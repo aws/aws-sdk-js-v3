@@ -492,8 +492,7 @@ export namespace AssociateVPCWithHostedZoneRequest {
   export const filterSensitiveLog = (
     obj: AssociateVPCWithHostedZoneRequest
   ): any => ({
-    ...obj,
-    ...(obj.VPC && { VPC: VPC.filterSensitiveLog(obj.VPC) })
+    ...obj
   });
   export const isa = (o: any): o is AssociateVPCWithHostedZoneRequest =>
     __isa(o, "AssociateVPCWithHostedZoneRequest");
@@ -514,10 +513,7 @@ export namespace AssociateVPCWithHostedZoneResponse {
   export const filterSensitiveLog = (
     obj: AssociateVPCWithHostedZoneResponse
   ): any => ({
-    ...obj,
-    ...(obj.ChangeInfo && {
-      ChangeInfo: ChangeInfo.filterSensitiveLog(obj.ChangeInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssociateVPCWithHostedZoneResponse =>
     __isa(o, "AssociateVPCWithHostedZoneResponse");
@@ -563,12 +559,7 @@ export interface Change {
 
 export namespace Change {
   export const filterSensitiveLog = (obj: Change): any => ({
-    ...obj,
-    ...(obj.ResourceRecordSet && {
-      ResourceRecordSet: ResourceRecordSet.filterSensitiveLog(
-        obj.ResourceRecordSet
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Change => __isa(o, "Change");
 }
@@ -595,10 +586,7 @@ export interface ChangeBatch {
 
 export namespace ChangeBatch {
   export const filterSensitiveLog = (obj: ChangeBatch): any => ({
-    ...obj,
-    ...(obj.Changes && {
-      Changes: obj.Changes.map(item => Change.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChangeBatch => __isa(o, "ChangeBatch");
 }
@@ -664,10 +652,7 @@ export namespace ChangeResourceRecordSetsRequest {
   export const filterSensitiveLog = (
     obj: ChangeResourceRecordSetsRequest
   ): any => ({
-    ...obj,
-    ...(obj.ChangeBatch && {
-      ChangeBatch: ChangeBatch.filterSensitiveLog(obj.ChangeBatch)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChangeResourceRecordSetsRequest =>
     __isa(o, "ChangeResourceRecordSetsRequest");
@@ -691,10 +676,7 @@ export namespace ChangeResourceRecordSetsResponse {
   export const filterSensitiveLog = (
     obj: ChangeResourceRecordSetsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ChangeInfo && {
-      ChangeInfo: ChangeInfo.filterSensitiveLog(obj.ChangeInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChangeResourceRecordSetsResponse =>
     __isa(o, "ChangeResourceRecordSetsResponse");
@@ -743,10 +725,7 @@ export namespace ChangeTagsForResourceRequest {
   export const filterSensitiveLog = (
     obj: ChangeTagsForResourceRequest
   ): any => ({
-    ...obj,
-    ...(obj.AddTags && {
-      AddTags: obj.AddTags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ChangeTagsForResourceRequest =>
     __isa(o, "ChangeTagsForResourceRequest");
@@ -823,10 +802,7 @@ export namespace CloudWatchAlarmConfiguration {
   export const filterSensitiveLog = (
     obj: CloudWatchAlarmConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item => Dimension.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CloudWatchAlarmConfiguration =>
     __isa(o, "CloudWatchAlarmConfiguration");
@@ -978,12 +954,7 @@ export interface CreateHealthCheckRequest {
 
 export namespace CreateHealthCheckRequest {
   export const filterSensitiveLog = (obj: CreateHealthCheckRequest): any => ({
-    ...obj,
-    ...(obj.HealthCheckConfig && {
-      HealthCheckConfig: HealthCheckConfig.filterSensitiveLog(
-        obj.HealthCheckConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHealthCheckRequest =>
     __isa(o, "CreateHealthCheckRequest");
@@ -1007,10 +978,7 @@ export interface CreateHealthCheckResponse {
 
 export namespace CreateHealthCheckResponse {
   export const filterSensitiveLog = (obj: CreateHealthCheckResponse): any => ({
-    ...obj,
-    ...(obj.HealthCheck && {
-      HealthCheck: HealthCheck.filterSensitiveLog(obj.HealthCheck)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHealthCheckResponse =>
     __isa(o, "CreateHealthCheckResponse");
@@ -1071,13 +1039,7 @@ export interface CreateHostedZoneRequest {
 
 export namespace CreateHostedZoneRequest {
   export const filterSensitiveLog = (obj: CreateHostedZoneRequest): any => ({
-    ...obj,
-    ...(obj.HostedZoneConfig && {
-      HostedZoneConfig: HostedZoneConfig.filterSensitiveLog(
-        obj.HostedZoneConfig
-      )
-    }),
-    ...(obj.VPC && { VPC: VPC.filterSensitiveLog(obj.VPC) })
+    ...obj
   });
   export const isa = (o: any): o is CreateHostedZoneRequest =>
     __isa(o, "CreateHostedZoneRequest");
@@ -1116,17 +1078,7 @@ export interface CreateHostedZoneResponse {
 
 export namespace CreateHostedZoneResponse {
   export const filterSensitiveLog = (obj: CreateHostedZoneResponse): any => ({
-    ...obj,
-    ...(obj.ChangeInfo && {
-      ChangeInfo: ChangeInfo.filterSensitiveLog(obj.ChangeInfo)
-    }),
-    ...(obj.DelegationSet && {
-      DelegationSet: DelegationSet.filterSensitiveLog(obj.DelegationSet)
-    }),
-    ...(obj.HostedZone && {
-      HostedZone: HostedZone.filterSensitiveLog(obj.HostedZone)
-    }),
-    ...(obj.VPC && { VPC: VPC.filterSensitiveLog(obj.VPC) })
+    ...obj
   });
   export const isa = (o: any): o is CreateHostedZoneResponse =>
     __isa(o, "CreateHostedZoneResponse");
@@ -1182,12 +1134,7 @@ export namespace CreateQueryLoggingConfigResponse {
   export const filterSensitiveLog = (
     obj: CreateQueryLoggingConfigResponse
   ): any => ({
-    ...obj,
-    ...(obj.QueryLoggingConfig && {
-      QueryLoggingConfig: QueryLoggingConfig.filterSensitiveLog(
-        obj.QueryLoggingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateQueryLoggingConfigResponse =>
     __isa(o, "CreateQueryLoggingConfigResponse");
@@ -1238,10 +1185,7 @@ export namespace CreateReusableDelegationSetResponse {
   export const filterSensitiveLog = (
     obj: CreateReusableDelegationSetResponse
   ): any => ({
-    ...obj,
-    ...(obj.DelegationSet && {
-      DelegationSet: DelegationSet.filterSensitiveLog(obj.DelegationSet)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateReusableDelegationSetResponse =>
     __isa(o, "CreateReusableDelegationSetResponse");
@@ -1309,12 +1253,7 @@ export namespace CreateTrafficPolicyInstanceResponse {
   export const filterSensitiveLog = (
     obj: CreateTrafficPolicyInstanceResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicyInstance && {
-      TrafficPolicyInstance: TrafficPolicyInstance.filterSensitiveLog(
-        obj.TrafficPolicyInstance
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateTrafficPolicyInstanceResponse =>
     __isa(o, "CreateTrafficPolicyInstanceResponse");
@@ -1370,10 +1309,7 @@ export namespace CreateTrafficPolicyResponse {
   export const filterSensitiveLog = (
     obj: CreateTrafficPolicyResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicy && {
-      TrafficPolicy: TrafficPolicy.filterSensitiveLog(obj.TrafficPolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateTrafficPolicyResponse =>
     __isa(o, "CreateTrafficPolicyResponse");
@@ -1432,10 +1368,7 @@ export namespace CreateTrafficPolicyVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateTrafficPolicyVersionResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicy && {
-      TrafficPolicy: TrafficPolicy.filterSensitiveLog(obj.TrafficPolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateTrafficPolicyVersionResponse =>
     __isa(o, "CreateTrafficPolicyVersionResponse");
@@ -1463,8 +1396,7 @@ export namespace CreateVPCAssociationAuthorizationRequest {
   export const filterSensitiveLog = (
     obj: CreateVPCAssociationAuthorizationRequest
   ): any => ({
-    ...obj,
-    ...(obj.VPC && { VPC: VPC.filterSensitiveLog(obj.VPC) })
+    ...obj
   });
   export const isa = (o: any): o is CreateVPCAssociationAuthorizationRequest =>
     __isa(o, "CreateVPCAssociationAuthorizationRequest");
@@ -1490,8 +1422,7 @@ export namespace CreateVPCAssociationAuthorizationResponse {
   export const filterSensitiveLog = (
     obj: CreateVPCAssociationAuthorizationResponse
   ): any => ({
-    ...obj,
-    ...(obj.VPC && { VPC: VPC.filterSensitiveLog(obj.VPC) })
+    ...obj
   });
   export const isa = (o: any): o is CreateVPCAssociationAuthorizationResponse =>
     __isa(o, "CreateVPCAssociationAuthorizationResponse");
@@ -1707,10 +1638,7 @@ export interface DeleteHostedZoneResponse {
 
 export namespace DeleteHostedZoneResponse {
   export const filterSensitiveLog = (obj: DeleteHostedZoneResponse): any => ({
-    ...obj,
-    ...(obj.ChangeInfo && {
-      ChangeInfo: ChangeInfo.filterSensitiveLog(obj.ChangeInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteHostedZoneResponse =>
     __isa(o, "DeleteHostedZoneResponse");
@@ -1892,8 +1820,7 @@ export namespace DeleteVPCAssociationAuthorizationRequest {
   export const filterSensitiveLog = (
     obj: DeleteVPCAssociationAuthorizationRequest
   ): any => ({
-    ...obj,
-    ...(obj.VPC && { VPC: VPC.filterSensitiveLog(obj.VPC) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteVPCAssociationAuthorizationRequest =>
     __isa(o, "DeleteVPCAssociationAuthorizationRequest");
@@ -1967,8 +1894,7 @@ export namespace DisassociateVPCFromHostedZoneRequest {
   export const filterSensitiveLog = (
     obj: DisassociateVPCFromHostedZoneRequest
   ): any => ({
-    ...obj,
-    ...(obj.VPC && { VPC: VPC.filterSensitiveLog(obj.VPC) })
+    ...obj
   });
   export const isa = (o: any): o is DisassociateVPCFromHostedZoneRequest =>
     __isa(o, "DisassociateVPCFromHostedZoneRequest");
@@ -1989,10 +1915,7 @@ export namespace DisassociateVPCFromHostedZoneResponse {
   export const filterSensitiveLog = (
     obj: DisassociateVPCFromHostedZoneResponse
   ): any => ({
-    ...obj,
-    ...(obj.ChangeInfo && {
-      ChangeInfo: ChangeInfo.filterSensitiveLog(obj.ChangeInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DisassociateVPCFromHostedZoneResponse =>
     __isa(o, "DisassociateVPCFromHostedZoneResponse");
@@ -2143,8 +2066,7 @@ export interface GetAccountLimitResponse {
 
 export namespace GetAccountLimitResponse {
   export const filterSensitiveLog = (obj: GetAccountLimitResponse): any => ({
-    ...obj,
-    ...(obj.Limit && { Limit: AccountLimit.filterSensitiveLog(obj.Limit) })
+    ...obj
   });
   export const isa = (o: any): o is GetAccountLimitResponse =>
     __isa(o, "GetAccountLimitResponse");
@@ -2183,10 +2105,7 @@ export interface GetChangeResponse {
 
 export namespace GetChangeResponse {
   export const filterSensitiveLog = (obj: GetChangeResponse): any => ({
-    ...obj,
-    ...(obj.ChangeInfo && {
-      ChangeInfo: ChangeInfo.filterSensitiveLog(obj.ChangeInfo)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetChangeResponse =>
     __isa(o, "GetChangeResponse");
@@ -2302,12 +2221,7 @@ export interface GetGeoLocationResponse {
 
 export namespace GetGeoLocationResponse {
   export const filterSensitiveLog = (obj: GetGeoLocationResponse): any => ({
-    ...obj,
-    ...(obj.GeoLocationDetails && {
-      GeoLocationDetails: GeoLocationDetails.filterSensitiveLog(
-        obj.GeoLocationDetails
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetGeoLocationResponse =>
     __isa(o, "GetGeoLocationResponse");
@@ -2390,12 +2304,7 @@ export namespace GetHealthCheckLastFailureReasonResponse {
   export const filterSensitiveLog = (
     obj: GetHealthCheckLastFailureReasonResponse
   ): any => ({
-    ...obj,
-    ...(obj.HealthCheckObservations && {
-      HealthCheckObservations: obj.HealthCheckObservations.map(item =>
-        HealthCheckObservation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetHealthCheckLastFailureReasonResponse =>
     __isa(o, "GetHealthCheckLastFailureReasonResponse");
@@ -2435,10 +2344,7 @@ export interface GetHealthCheckResponse {
 
 export namespace GetHealthCheckResponse {
   export const filterSensitiveLog = (obj: GetHealthCheckResponse): any => ({
-    ...obj,
-    ...(obj.HealthCheck && {
-      HealthCheck: HealthCheck.filterSensitiveLog(obj.HealthCheck)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetHealthCheckResponse =>
     __isa(o, "GetHealthCheckResponse");
@@ -2487,12 +2393,7 @@ export namespace GetHealthCheckStatusResponse {
   export const filterSensitiveLog = (
     obj: GetHealthCheckStatusResponse
   ): any => ({
-    ...obj,
-    ...(obj.HealthCheckObservations && {
-      HealthCheckObservations: obj.HealthCheckObservations.map(item =>
-        HealthCheckObservation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetHealthCheckStatusResponse =>
     __isa(o, "GetHealthCheckStatusResponse");
@@ -2590,8 +2491,7 @@ export interface GetHostedZoneLimitResponse {
 
 export namespace GetHostedZoneLimitResponse {
   export const filterSensitiveLog = (obj: GetHostedZoneLimitResponse): any => ({
-    ...obj,
-    ...(obj.Limit && { Limit: HostedZoneLimit.filterSensitiveLog(obj.Limit) })
+    ...obj
   });
   export const isa = (o: any): o is GetHostedZoneLimitResponse =>
     __isa(o, "GetHostedZoneLimitResponse");
@@ -2639,16 +2539,7 @@ export interface GetHostedZoneResponse {
 
 export namespace GetHostedZoneResponse {
   export const filterSensitiveLog = (obj: GetHostedZoneResponse): any => ({
-    ...obj,
-    ...(obj.DelegationSet && {
-      DelegationSet: DelegationSet.filterSensitiveLog(obj.DelegationSet)
-    }),
-    ...(obj.HostedZone && {
-      HostedZone: HostedZone.filterSensitiveLog(obj.HostedZone)
-    }),
-    ...(obj.VPCs && {
-      VPCs: obj.VPCs.map(item => VPC.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetHostedZoneResponse =>
     __isa(o, "GetHostedZoneResponse");
@@ -2685,12 +2576,7 @@ export namespace GetQueryLoggingConfigResponse {
   export const filterSensitiveLog = (
     obj: GetQueryLoggingConfigResponse
   ): any => ({
-    ...obj,
-    ...(obj.QueryLoggingConfig && {
-      QueryLoggingConfig: QueryLoggingConfig.filterSensitiveLog(
-        obj.QueryLoggingConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetQueryLoggingConfigResponse =>
     __isa(o, "GetQueryLoggingConfigResponse");
@@ -2743,10 +2629,7 @@ export namespace GetReusableDelegationSetLimitResponse {
   export const filterSensitiveLog = (
     obj: GetReusableDelegationSetLimitResponse
   ): any => ({
-    ...obj,
-    ...(obj.Limit && {
-      Limit: ReusableDelegationSetLimit.filterSensitiveLog(obj.Limit)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetReusableDelegationSetLimitResponse =>
     __isa(o, "GetReusableDelegationSetLimitResponse");
@@ -2788,10 +2671,7 @@ export namespace GetReusableDelegationSetResponse {
   export const filterSensitiveLog = (
     obj: GetReusableDelegationSetResponse
   ): any => ({
-    ...obj,
-    ...(obj.DelegationSet && {
-      DelegationSet: DelegationSet.filterSensitiveLog(obj.DelegationSet)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetReusableDelegationSetResponse =>
     __isa(o, "GetReusableDelegationSetResponse");
@@ -2871,12 +2751,7 @@ export namespace GetTrafficPolicyInstanceResponse {
   export const filterSensitiveLog = (
     obj: GetTrafficPolicyInstanceResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicyInstance && {
-      TrafficPolicyInstance: TrafficPolicyInstance.filterSensitiveLog(
-        obj.TrafficPolicyInstance
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTrafficPolicyInstanceResponse =>
     __isa(o, "GetTrafficPolicyInstanceResponse");
@@ -2919,10 +2794,7 @@ export interface GetTrafficPolicyResponse {
 
 export namespace GetTrafficPolicyResponse {
   export const filterSensitiveLog = (obj: GetTrafficPolicyResponse): any => ({
-    ...obj,
-    ...(obj.TrafficPolicy && {
-      TrafficPolicy: TrafficPolicy.filterSensitiveLog(obj.TrafficPolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTrafficPolicyResponse =>
     __isa(o, "GetTrafficPolicyResponse");
@@ -2969,20 +2841,7 @@ export interface HealthCheck {
 
 export namespace HealthCheck {
   export const filterSensitiveLog = (obj: HealthCheck): any => ({
-    ...obj,
-    ...(obj.CloudWatchAlarmConfiguration && {
-      CloudWatchAlarmConfiguration: CloudWatchAlarmConfiguration.filterSensitiveLog(
-        obj.CloudWatchAlarmConfiguration
-      )
-    }),
-    ...(obj.HealthCheckConfig && {
-      HealthCheckConfig: HealthCheckConfig.filterSensitiveLog(
-        obj.HealthCheckConfig
-      )
-    }),
-    ...(obj.LinkedService && {
-      LinkedService: LinkedService.filterSensitiveLog(obj.LinkedService)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HealthCheck => __isa(o, "HealthCheck");
 }
@@ -3346,10 +3205,7 @@ export interface HealthCheckConfig {
 
 export namespace HealthCheckConfig {
   export const filterSensitiveLog = (obj: HealthCheckConfig): any => ({
-    ...obj,
-    ...(obj.AlarmIdentifier && {
-      AlarmIdentifier: AlarmIdentifier.filterSensitiveLog(obj.AlarmIdentifier)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HealthCheckConfig =>
     __isa(o, "HealthCheckConfig");
@@ -3398,10 +3254,7 @@ export interface HealthCheckObservation {
 
 export namespace HealthCheckObservation {
   export const filterSensitiveLog = (obj: HealthCheckObservation): any => ({
-    ...obj,
-    ...(obj.StatusReport && {
-      StatusReport: StatusReport.filterSensitiveLog(obj.StatusReport)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HealthCheckObservation =>
     __isa(o, "HealthCheckObservation");
@@ -3494,13 +3347,7 @@ export interface HostedZone {
 
 export namespace HostedZone {
   export const filterSensitiveLog = (obj: HostedZone): any => ({
-    ...obj,
-    ...(obj.Config && {
-      Config: HostedZoneConfig.filterSensitiveLog(obj.Config)
-    }),
-    ...(obj.LinkedService && {
-      LinkedService: LinkedService.filterSensitiveLog(obj.LinkedService)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HostedZone => __isa(o, "HostedZone");
 }
@@ -4021,12 +3868,7 @@ export interface ListGeoLocationsResponse {
 
 export namespace ListGeoLocationsResponse {
   export const filterSensitiveLog = (obj: ListGeoLocationsResponse): any => ({
-    ...obj,
-    ...(obj.GeoLocationDetailsList && {
-      GeoLocationDetailsList: obj.GeoLocationDetailsList.map(item =>
-        GeoLocationDetails.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGeoLocationsResponse =>
     __isa(o, "ListGeoLocationsResponse");
@@ -4101,12 +3943,7 @@ export interface ListHealthChecksResponse {
 
 export namespace ListHealthChecksResponse {
   export const filterSensitiveLog = (obj: ListHealthChecksResponse): any => ({
-    ...obj,
-    ...(obj.HealthChecks && {
-      HealthChecks: obj.HealthChecks.map(item =>
-        HealthCheck.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListHealthChecksResponse =>
     __isa(o, "ListHealthChecksResponse");
@@ -4208,12 +4045,7 @@ export namespace ListHostedZonesByNameResponse {
   export const filterSensitiveLog = (
     obj: ListHostedZonesByNameResponse
   ): any => ({
-    ...obj,
-    ...(obj.HostedZones && {
-      HostedZones: obj.HostedZones.map(item =>
-        HostedZone.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListHostedZonesByNameResponse =>
     __isa(o, "ListHostedZonesByNameResponse");
@@ -4292,12 +4124,7 @@ export interface ListHostedZonesResponse {
 
 export namespace ListHostedZonesResponse {
   export const filterSensitiveLog = (obj: ListHostedZonesResponse): any => ({
-    ...obj,
-    ...(obj.HostedZones && {
-      HostedZones: obj.HostedZones.map(item =>
-        HostedZone.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListHostedZonesResponse =>
     __isa(o, "ListHostedZonesResponse");
@@ -4366,12 +4193,7 @@ export namespace ListQueryLoggingConfigsResponse {
   export const filterSensitiveLog = (
     obj: ListQueryLoggingConfigsResponse
   ): any => ({
-    ...obj,
-    ...(obj.QueryLoggingConfigs && {
-      QueryLoggingConfigs: obj.QueryLoggingConfigs.map(item =>
-        QueryLoggingConfig.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListQueryLoggingConfigsResponse =>
     __isa(o, "ListQueryLoggingConfigsResponse");
@@ -4511,12 +4333,7 @@ export namespace ListResourceRecordSetsResponse {
   export const filterSensitiveLog = (
     obj: ListResourceRecordSetsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ResourceRecordSets && {
-      ResourceRecordSets: obj.ResourceRecordSets.map(item =>
-        ResourceRecordSet.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResourceRecordSetsResponse =>
     __isa(o, "ListResourceRecordSetsResponse");
@@ -4593,12 +4410,7 @@ export namespace ListReusableDelegationSetsResponse {
   export const filterSensitiveLog = (
     obj: ListReusableDelegationSetsResponse
   ): any => ({
-    ...obj,
-    ...(obj.DelegationSets && {
-      DelegationSets: obj.DelegationSets.map(item =>
-        DelegationSet.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListReusableDelegationSetsResponse =>
     __isa(o, "ListReusableDelegationSetsResponse");
@@ -4651,10 +4463,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.ResourceTagSet && {
-      ResourceTagSet: ResourceTagSet.filterSensitiveLog(obj.ResourceTagSet)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -4709,12 +4518,7 @@ export namespace ListTagsForResourcesResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourcesResponse
   ): any => ({
-    ...obj,
-    ...(obj.ResourceTagSets && {
-      ResourceTagSets: obj.ResourceTagSets.map(item =>
-        ResourceTagSet.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourcesResponse =>
     __isa(o, "ListTagsForResourcesResponse");
@@ -4786,12 +4590,7 @@ export namespace ListTrafficPoliciesResponse {
   export const filterSensitiveLog = (
     obj: ListTrafficPoliciesResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicySummaries && {
-      TrafficPolicySummaries: obj.TrafficPolicySummaries.map(item =>
-        TrafficPolicySummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTrafficPoliciesResponse =>
     __isa(o, "ListTrafficPoliciesResponse");
@@ -4887,12 +4686,7 @@ export namespace ListTrafficPolicyInstancesByHostedZoneResponse {
   export const filterSensitiveLog = (
     obj: ListTrafficPolicyInstancesByHostedZoneResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicyInstances && {
-      TrafficPolicyInstances: obj.TrafficPolicyInstances.map(item =>
-        TrafficPolicyInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -5008,12 +4802,7 @@ export namespace ListTrafficPolicyInstancesByPolicyResponse {
   export const filterSensitiveLog = (
     obj: ListTrafficPolicyInstancesByPolicyResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicyInstances && {
-      TrafficPolicyInstances: obj.TrafficPolicyInstances.map(item =>
-        TrafficPolicyInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -5121,12 +4910,7 @@ export namespace ListTrafficPolicyInstancesResponse {
   export const filterSensitiveLog = (
     obj: ListTrafficPolicyInstancesResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicyInstances && {
-      TrafficPolicyInstances: obj.TrafficPolicyInstances.map(item =>
-        TrafficPolicyInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTrafficPolicyInstancesResponse =>
     __isa(o, "ListTrafficPolicyInstancesResponse");
@@ -5208,12 +4992,7 @@ export namespace ListTrafficPolicyVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListTrafficPolicyVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicies && {
-      TrafficPolicies: obj.TrafficPolicies.map(item =>
-        TrafficPolicy.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTrafficPolicyVersionsResponse =>
     __isa(o, "ListTrafficPolicyVersionsResponse");
@@ -5283,10 +5062,7 @@ export namespace ListVPCAssociationAuthorizationsResponse {
   export const filterSensitiveLog = (
     obj: ListVPCAssociationAuthorizationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.VPCs && {
-      VPCs: obj.VPCs.map(item => VPC.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVPCAssociationAuthorizationsResponse =>
     __isa(o, "ListVPCAssociationAuthorizationsResponse");
@@ -6145,18 +5921,7 @@ export interface ResourceRecordSet {
 
 export namespace ResourceRecordSet {
   export const filterSensitiveLog = (obj: ResourceRecordSet): any => ({
-    ...obj,
-    ...(obj.AliasTarget && {
-      AliasTarget: AliasTarget.filterSensitiveLog(obj.AliasTarget)
-    }),
-    ...(obj.GeoLocation && {
-      GeoLocation: GeoLocation.filterSensitiveLog(obj.GeoLocation)
-    }),
-    ...(obj.ResourceRecords && {
-      ResourceRecords: obj.ResourceRecords.map(item =>
-        ResourceRecord.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceRecordSet =>
     __isa(o, "ResourceRecordSet");
@@ -6218,10 +5983,7 @@ export interface ResourceTagSet {
 
 export namespace ResourceTagSet {
   export const filterSensitiveLog = (obj: ResourceTagSet): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceTagSet =>
     __isa(o, "ResourceTagSet");
@@ -7198,10 +6960,7 @@ export interface UpdateHealthCheckRequest {
 
 export namespace UpdateHealthCheckRequest {
   export const filterSensitiveLog = (obj: UpdateHealthCheckRequest): any => ({
-    ...obj,
-    ...(obj.AlarmIdentifier && {
-      AlarmIdentifier: AlarmIdentifier.filterSensitiveLog(obj.AlarmIdentifier)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateHealthCheckRequest =>
     __isa(o, "UpdateHealthCheckRequest");
@@ -7220,10 +6979,7 @@ export interface UpdateHealthCheckResponse {
 
 export namespace UpdateHealthCheckResponse {
   export const filterSensitiveLog = (obj: UpdateHealthCheckResponse): any => ({
-    ...obj,
-    ...(obj.HealthCheck && {
-      HealthCheck: HealthCheck.filterSensitiveLog(obj.HealthCheck)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateHealthCheckResponse =>
     __isa(o, "UpdateHealthCheckResponse");
@@ -7271,10 +7027,7 @@ export namespace UpdateHostedZoneCommentResponse {
   export const filterSensitiveLog = (
     obj: UpdateHostedZoneCommentResponse
   ): any => ({
-    ...obj,
-    ...(obj.HostedZone && {
-      HostedZone: HostedZone.filterSensitiveLog(obj.HostedZone)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateHostedZoneCommentResponse =>
     __isa(o, "UpdateHostedZoneCommentResponse");
@@ -7326,10 +7079,7 @@ export namespace UpdateTrafficPolicyCommentResponse {
   export const filterSensitiveLog = (
     obj: UpdateTrafficPolicyCommentResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicy && {
-      TrafficPolicy: TrafficPolicy.filterSensitiveLog(obj.TrafficPolicy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateTrafficPolicyCommentResponse =>
     __isa(o, "UpdateTrafficPolicyCommentResponse");
@@ -7387,12 +7137,7 @@ export namespace UpdateTrafficPolicyInstanceResponse {
   export const filterSensitiveLog = (
     obj: UpdateTrafficPolicyInstanceResponse
   ): any => ({
-    ...obj,
-    ...(obj.TrafficPolicyInstance && {
-      TrafficPolicyInstance: TrafficPolicyInstance.filterSensitiveLog(
-        obj.TrafficPolicyInstance
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateTrafficPolicyInstanceResponse =>
     __isa(o, "UpdateTrafficPolicyInstanceResponse");

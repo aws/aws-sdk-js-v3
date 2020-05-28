@@ -29,10 +29,7 @@ export interface AppliedTerminology {
 
 export namespace AppliedTerminology {
   export const filterSensitiveLog = (obj: AppliedTerminology): any => ({
-    ...obj,
-    ...(obj.Terms && {
-      Terms: obj.Terms.map(item => Term.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AppliedTerminology =>
     __isa(o, "AppliedTerminology");
@@ -86,12 +83,7 @@ export namespace DescribeTextTranslationJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeTextTranslationJobResponse
   ): any => ({
-    ...obj,
-    ...(obj.TextTranslationJobProperties && {
-      TextTranslationJobProperties: TextTranslationJobProperties.filterSensitiveLog(
-        obj.TextTranslationJobProperties
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTextTranslationJobResponse =>
     __isa(o, "DescribeTextTranslationJobResponse");
@@ -191,17 +183,7 @@ export interface GetTerminologyResponse {
 
 export namespace GetTerminologyResponse {
   export const filterSensitiveLog = (obj: GetTerminologyResponse): any => ({
-    ...obj,
-    ...(obj.TerminologyDataLocation && {
-      TerminologyDataLocation: TerminologyDataLocation.filterSensitiveLog(
-        obj.TerminologyDataLocation
-      )
-    }),
-    ...(obj.TerminologyProperties && {
-      TerminologyProperties: TerminologyProperties.filterSensitiveLog(
-        obj.TerminologyProperties
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTerminologyResponse =>
     __isa(o, "GetTerminologyResponse");
@@ -240,9 +222,6 @@ export interface ImportTerminologyRequest {
 export namespace ImportTerminologyRequest {
   export const filterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
     ...obj,
-    ...(obj.EncryptionKey && {
-      EncryptionKey: EncryptionKey.filterSensitiveLog(obj.EncryptionKey)
-    }),
     ...(obj.TerminologyData && {
       TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData)
     })
@@ -261,12 +240,7 @@ export interface ImportTerminologyResponse {
 
 export namespace ImportTerminologyResponse {
   export const filterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
-    ...obj,
-    ...(obj.TerminologyProperties && {
-      TerminologyProperties: TerminologyProperties.filterSensitiveLog(
-        obj.TerminologyProperties
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ImportTerminologyResponse =>
     __isa(o, "ImportTerminologyResponse");
@@ -476,12 +450,7 @@ export interface ListTerminologiesResponse {
 
 export namespace ListTerminologiesResponse {
   export const filterSensitiveLog = (obj: ListTerminologiesResponse): any => ({
-    ...obj,
-    ...(obj.TerminologyPropertiesList && {
-      TerminologyPropertiesList: obj.TerminologyPropertiesList.map(item =>
-        TerminologyProperties.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTerminologiesResponse =>
     __isa(o, "ListTerminologiesResponse");
@@ -510,10 +479,7 @@ export namespace ListTextTranslationJobsRequest {
   export const filterSensitiveLog = (
     obj: ListTextTranslationJobsRequest
   ): any => ({
-    ...obj,
-    ...(obj.Filter && {
-      Filter: TextTranslationJobFilter.filterSensitiveLog(obj.Filter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTextTranslationJobsRequest =>
     __isa(o, "ListTextTranslationJobsRequest");
@@ -537,12 +503,7 @@ export namespace ListTextTranslationJobsResponse {
   export const filterSensitiveLog = (
     obj: ListTextTranslationJobsResponse
   ): any => ({
-    ...obj,
-    ...(obj.TextTranslationJobPropertiesList && {
-      TextTranslationJobPropertiesList: obj.TextTranslationJobPropertiesList.map(
-        item => TextTranslationJobProperties.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTextTranslationJobsResponse =>
     __isa(o, "ListTextTranslationJobsResponse");
@@ -671,15 +632,7 @@ export namespace StartTextTranslationJobRequest {
   export const filterSensitiveLog = (
     obj: StartTextTranslationJobRequest
   ): any => ({
-    ...obj,
-    ...(obj.InputDataConfig && {
-      InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
-    }),
-    ...(obj.OutputDataConfig && {
-      OutputDataConfig: OutputDataConfig.filterSensitiveLog(
-        obj.OutputDataConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartTextTranslationJobRequest =>
     __isa(o, "StartTextTranslationJobRequest");
@@ -924,10 +877,7 @@ export interface TerminologyProperties {
 
 export namespace TerminologyProperties {
   export const filterSensitiveLog = (obj: TerminologyProperties): any => ({
-    ...obj,
-    ...(obj.EncryptionKey && {
-      EncryptionKey: EncryptionKey.filterSensitiveLog(obj.EncryptionKey)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TerminologyProperties =>
     __isa(o, "TerminologyProperties");
@@ -1075,18 +1025,7 @@ export namespace TextTranslationJobProperties {
   export const filterSensitiveLog = (
     obj: TextTranslationJobProperties
   ): any => ({
-    ...obj,
-    ...(obj.InputDataConfig && {
-      InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
-    }),
-    ...(obj.JobDetails && {
-      JobDetails: JobDetails.filterSensitiveLog(obj.JobDetails)
-    }),
-    ...(obj.OutputDataConfig && {
-      OutputDataConfig: OutputDataConfig.filterSensitiveLog(
-        obj.OutputDataConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TextTranslationJobProperties =>
     __isa(o, "TextTranslationJobProperties");
@@ -1178,12 +1117,7 @@ export interface TranslateTextResponse {
 
 export namespace TranslateTextResponse {
   export const filterSensitiveLog = (obj: TranslateTextResponse): any => ({
-    ...obj,
-    ...(obj.AppliedTerminologies && {
-      AppliedTerminologies: obj.AppliedTerminologies.map(item =>
-        AppliedTerminology.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TranslateTextResponse =>
     __isa(o, "TranslateTextResponse");

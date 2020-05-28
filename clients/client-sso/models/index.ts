@@ -148,10 +148,7 @@ export interface ListAccountRolesResponse {
 
 export namespace ListAccountRolesResponse {
   export const filterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
-    ...obj,
-    ...(obj.roleList && {
-      roleList: obj.roleList.map(item => RoleInfo.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAccountRolesResponse =>
     __isa(o, "ListAccountRolesResponse");
@@ -200,12 +197,7 @@ export interface ListAccountsResponse {
 
 export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
-    ...obj,
-    ...(obj.accountList && {
-      accountList: obj.accountList.map(item =>
-        AccountInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAccountsResponse =>
     __isa(o, "ListAccountsResponse");

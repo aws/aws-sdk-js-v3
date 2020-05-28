@@ -178,12 +178,7 @@ export namespace BatchExecuteStatementRequest {
   export const filterSensitiveLog = (
     obj: BatchExecuteStatementRequest
   ): any => ({
-    ...obj,
-    ...(obj.parameterSets && {
-      parameterSets: obj.parameterSets.map(item =>
-        item.map(item => SqlParameter.filterSensitiveLog(item))
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchExecuteStatementRequest =>
     __isa(o, "BatchExecuteStatementRequest");
@@ -205,12 +200,7 @@ export namespace BatchExecuteStatementResponse {
   export const filterSensitiveLog = (
     obj: BatchExecuteStatementResponse
   ): any => ({
-    ...obj,
-    ...(obj.updateResults && {
-      updateResults: obj.updateResults.map(item =>
-        UpdateResult.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchExecuteStatementResponse =>
     __isa(o, "BatchExecuteStatementResponse");
@@ -460,12 +450,7 @@ export interface ExecuteSqlResponse {
 
 export namespace ExecuteSqlResponse {
   export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
-    ...obj,
-    ...(obj.sqlStatementResults && {
-      sqlStatementResults: obj.sqlStatementResults.map(item =>
-        SqlStatementResult.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExecuteSqlResponse =>
     __isa(o, "ExecuteSqlResponse");
@@ -535,12 +520,7 @@ export interface ExecuteStatementRequest {
 
 export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj,
-    ...(obj.parameters && {
-      parameters: obj.parameters.map(item =>
-        SqlParameter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExecuteStatementRequest =>
     __isa(o, "ExecuteStatementRequest");
@@ -575,12 +555,7 @@ export interface ExecuteStatementResponse {
 
 export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
-    ...obj,
-    ...(obj.columnMetadata && {
-      columnMetadata: obj.columnMetadata.map(item =>
-        ColumnMetadata.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExecuteStatementResponse =>
     __isa(o, "ExecuteStatementResponse");
@@ -828,15 +803,7 @@ export interface ResultFrame {
 
 export namespace ResultFrame {
   export const filterSensitiveLog = (obj: ResultFrame): any => ({
-    ...obj,
-    ...(obj.records && {
-      records: obj.records.map(item => _Record.filterSensitiveLog(item))
-    }),
-    ...(obj.resultSetMetadata && {
-      resultSetMetadata: ResultSetMetadata.filterSensitiveLog(
-        obj.resultSetMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultFrame => __isa(o, "ResultFrame");
 }
@@ -859,12 +826,7 @@ export interface ResultSetMetadata {
 
 export namespace ResultSetMetadata {
   export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
-    ...obj,
-    ...(obj.columnMetadata && {
-      columnMetadata: obj.columnMetadata.map(item =>
-        ColumnMetadata.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResultSetMetadata =>
     __isa(o, "ResultSetMetadata");
@@ -982,10 +944,7 @@ export interface SqlStatementResult {
 
 export namespace SqlStatementResult {
   export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
-    ...obj,
-    ...(obj.resultFrame && {
-      resultFrame: ResultFrame.filterSensitiveLog(obj.resultFrame)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SqlStatementResult =>
     __isa(o, "SqlStatementResult");

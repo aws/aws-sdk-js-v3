@@ -13,11 +13,8 @@
     "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
     "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
     "test": "jest --coverage --passWithNoTests",
-    "test:integration": "jest --config jest.integ.config.js",
-    "build:cjs": "tsc",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es",
-    "postbuild": "cp test/speech.wav dist/cjs/test"
+    "build": "yarn build:cjs && yarn build:es"
   },
   "main": "./dist/cjs/index.js",
   "types": "./types/index.d.ts",

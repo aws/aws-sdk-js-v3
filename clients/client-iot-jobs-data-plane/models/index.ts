@@ -223,10 +223,7 @@ export namespace DescribeJobExecutionResponse {
   export const filterSensitiveLog = (
     obj: DescribeJobExecutionResponse
   ): any => ({
-    ...obj,
-    ...(obj.execution && {
-      execution: JobExecution.filterSensitiveLog(obj.execution)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeJobExecutionResponse =>
     __isa(o, "DescribeJobExecutionResponse");
@@ -267,17 +264,7 @@ export namespace GetPendingJobExecutionsResponse {
   export const filterSensitiveLog = (
     obj: GetPendingJobExecutionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.inProgressJobs && {
-      inProgressJobs: obj.inProgressJobs.map(item =>
-        JobExecutionSummary.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.queuedJobs && {
-      queuedJobs: obj.queuedJobs.map(item =>
-        JobExecutionSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPendingJobExecutionsResponse =>
     __isa(o, "GetPendingJobExecutionsResponse");
@@ -478,10 +465,7 @@ export namespace StartNextPendingJobExecutionResponse {
   export const filterSensitiveLog = (
     obj: StartNextPendingJobExecutionResponse
   ): any => ({
-    ...obj,
-    ...(obj.execution && {
-      execution: JobExecution.filterSensitiveLog(obj.execution)
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartNextPendingJobExecutionResponse =>
     __isa(o, "StartNextPendingJobExecutionResponse");
@@ -571,10 +555,7 @@ export interface UpdateJobExecutionResponse {
 
 export namespace UpdateJobExecutionResponse {
   export const filterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
-    ...obj,
-    ...(obj.executionState && {
-      executionState: JobExecutionState.filterSensitiveLog(obj.executionState)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateJobExecutionResponse =>
     __isa(o, "UpdateJobExecutionResponse");

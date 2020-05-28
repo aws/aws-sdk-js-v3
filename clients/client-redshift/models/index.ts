@@ -2241,12 +2241,7 @@ export namespace AcceptReservedNodeExchangeOutputMessage {
   export const filterSensitiveLog = (
     obj: AcceptReservedNodeExchangeOutputMessage
   ): any => ({
-    ...obj,
-    ...(obj.ExchangedReservedNode && {
-      ExchangedReservedNode: ReservedNode.filterSensitiveLog(
-        obj.ExchangedReservedNode
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AcceptReservedNodeExchangeOutputMessage =>
     __isa(o, "AcceptReservedNodeExchangeOutputMessage");
@@ -2270,12 +2265,7 @@ export interface AccountAttribute {
 
 export namespace AccountAttribute {
   export const filterSensitiveLog = (obj: AccountAttribute): any => ({
-    ...obj,
-    ...(obj.AttributeValues && {
-      AttributeValues: obj.AttributeValues.map(item =>
-        AttributeValueTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AccountAttribute =>
     __isa(o, "AccountAttribute");
@@ -2291,12 +2281,7 @@ export interface AccountAttributeList {
 
 export namespace AccountAttributeList {
   export const filterSensitiveLog = (obj: AccountAttributeList): any => ({
-    ...obj,
-    ...(obj.AccountAttributes && {
-      AccountAttributes: obj.AccountAttributes.map(item =>
-        AccountAttribute.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AccountAttributeList =>
     __isa(o, "AccountAttributeList");
@@ -2406,12 +2391,7 @@ export namespace AuthorizeClusterSecurityGroupIngressResult {
   export const filterSensitiveLog = (
     obj: AuthorizeClusterSecurityGroupIngressResult
   ): any => ({
-    ...obj,
-    ...(obj.ClusterSecurityGroup && {
-      ClusterSecurityGroup: ClusterSecurityGroup.filterSensitiveLog(
-        obj.ClusterSecurityGroup
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2466,8 +2446,7 @@ export namespace AuthorizeSnapshotAccessResult {
   export const filterSensitiveLog = (
     obj: AuthorizeSnapshotAccessResult
   ): any => ({
-    ...obj,
-    ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
+    ...obj
   });
   export const isa = (o: any): o is AuthorizeSnapshotAccessResult =>
     __isa(o, "AuthorizeSnapshotAccessResult");
@@ -2491,12 +2470,7 @@ export interface AvailabilityZone {
 
 export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-    ...(obj.SupportedPlatforms && {
-      SupportedPlatforms: obj.SupportedPlatforms.map(item =>
-        SupportedPlatform.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AvailabilityZone =>
     __isa(o, "AvailabilityZone");
@@ -2514,12 +2488,7 @@ export namespace BatchDeleteClusterSnapshotsRequest {
   export const filterSensitiveLog = (
     obj: BatchDeleteClusterSnapshotsRequest
   ): any => ({
-    ...obj,
-    ...(obj.Identifiers && {
-      Identifiers: obj.Identifiers.map(item =>
-        DeleteClusterSnapshotMessage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchDeleteClusterSnapshotsRequest =>
     __isa(o, "BatchDeleteClusterSnapshotsRequest");
@@ -2542,12 +2511,7 @@ export namespace BatchDeleteClusterSnapshotsResult {
   export const filterSensitiveLog = (
     obj: BatchDeleteClusterSnapshotsResult
   ): any => ({
-    ...obj,
-    ...(obj.Errors && {
-      Errors: obj.Errors.map(item =>
-        SnapshotErrorMessage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchDeleteClusterSnapshotsResult =>
     __isa(o, "BatchDeleteClusterSnapshotsResult");
@@ -2604,12 +2568,7 @@ export namespace BatchModifyClusterSnapshotsOutputMessage {
   export const filterSensitiveLog = (
     obj: BatchModifyClusterSnapshotsOutputMessage
   ): any => ({
-    ...obj,
-    ...(obj.Errors && {
-      Errors: obj.Errors.map(item =>
-        SnapshotErrorMessage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchModifyClusterSnapshotsOutputMessage =>
     __isa(o, "BatchModifyClusterSnapshotsOutputMessage");
@@ -3036,70 +2995,7 @@ export interface Cluster {
 
 export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj,
-    ...(obj.ClusterNodes && {
-      ClusterNodes: obj.ClusterNodes.map(item =>
-        ClusterNode.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ClusterParameterGroups && {
-      ClusterParameterGroups: obj.ClusterParameterGroups.map(item =>
-        ClusterParameterGroupStatus.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ClusterSecurityGroups && {
-      ClusterSecurityGroups: obj.ClusterSecurityGroups.map(item =>
-        ClusterSecurityGroupMembership.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ClusterSnapshotCopyStatus && {
-      ClusterSnapshotCopyStatus: ClusterSnapshotCopyStatus.filterSensitiveLog(
-        obj.ClusterSnapshotCopyStatus
-      )
-    }),
-    ...(obj.DataTransferProgress && {
-      DataTransferProgress: DataTransferProgress.filterSensitiveLog(
-        obj.DataTransferProgress
-      )
-    }),
-    ...(obj.DeferredMaintenanceWindows && {
-      DeferredMaintenanceWindows: obj.DeferredMaintenanceWindows.map(item =>
-        DeferredMaintenanceWindow.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ElasticIpStatus && {
-      ElasticIpStatus: ElasticIpStatus.filterSensitiveLog(obj.ElasticIpStatus)
-    }),
-    ...(obj.Endpoint && {
-      Endpoint: Endpoint.filterSensitiveLog(obj.Endpoint)
-    }),
-    ...(obj.HsmStatus && {
-      HsmStatus: HsmStatus.filterSensitiveLog(obj.HsmStatus)
-    }),
-    ...(obj.IamRoles && {
-      IamRoles: obj.IamRoles.map(item =>
-        ClusterIamRole.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.PendingModifiedValues && {
-      PendingModifiedValues: PendingModifiedValues.filterSensitiveLog(
-        obj.PendingModifiedValues
-      )
-    }),
-    ...(obj.ResizeInfo && {
-      ResizeInfo: ResizeInfo.filterSensitiveLog(obj.ResizeInfo)
-    }),
-    ...(obj.RestoreStatus && {
-      RestoreStatus: RestoreStatus.filterSensitiveLog(obj.RestoreStatus)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    }),
-    ...(obj.VpcSecurityGroups && {
-      VpcSecurityGroups: obj.VpcSecurityGroups.map(item =>
-        VpcSecurityGroupMembership.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
@@ -3196,12 +3092,7 @@ export interface ClusterDbRevision {
 
 export namespace ClusterDbRevision {
   export const filterSensitiveLog = (obj: ClusterDbRevision): any => ({
-    ...obj,
-    ...(obj.RevisionTargets && {
-      RevisionTargets: obj.RevisionTargets.map(item =>
-        RevisionTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterDbRevision =>
     __isa(o, "ClusterDbRevision");
@@ -3225,12 +3116,7 @@ export interface ClusterDbRevisionsMessage {
 
 export namespace ClusterDbRevisionsMessage {
   export const filterSensitiveLog = (obj: ClusterDbRevisionsMessage): any => ({
-    ...obj,
-    ...(obj.ClusterDbRevisions && {
-      ClusterDbRevisions: obj.ClusterDbRevisions.map(item =>
-        ClusterDbRevision.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterDbRevisionsMessage =>
     __isa(o, "ClusterDbRevisionsMessage");
@@ -3337,10 +3223,7 @@ export interface ClusterParameterGroup {
 
 export namespace ClusterParameterGroup {
   export const filterSensitiveLog = (obj: ClusterParameterGroup): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterParameterGroup =>
     __isa(o, "ClusterParameterGroup");
@@ -3372,10 +3255,7 @@ export namespace ClusterParameterGroupDetails {
   export const filterSensitiveLog = (
     obj: ClusterParameterGroupDetails
   ): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterParameterGroupDetails =>
     __isa(o, "ClusterParameterGroupDetails");
@@ -3438,12 +3318,7 @@ export namespace ClusterParameterGroupStatus {
   export const filterSensitiveLog = (
     obj: ClusterParameterGroupStatus
   ): any => ({
-    ...obj,
-    ...(obj.ClusterParameterStatusList && {
-      ClusterParameterStatusList: obj.ClusterParameterStatusList.map(item =>
-        ClusterParameterStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterParameterGroupStatus =>
     __isa(o, "ClusterParameterGroupStatus");
@@ -3475,12 +3350,7 @@ export namespace ClusterParameterGroupsMessage {
   export const filterSensitiveLog = (
     obj: ClusterParameterGroupsMessage
   ): any => ({
-    ...obj,
-    ...(obj.ParameterGroups && {
-      ParameterGroups: obj.ParameterGroups.map(item =>
-        ClusterParameterGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterParameterGroupsMessage =>
     __isa(o, "ClusterParameterGroupsMessage");
@@ -3592,18 +3462,7 @@ export interface ClusterSecurityGroup {
 
 export namespace ClusterSecurityGroup {
   export const filterSensitiveLog = (obj: ClusterSecurityGroup): any => ({
-    ...obj,
-    ...(obj.EC2SecurityGroups && {
-      EC2SecurityGroups: obj.EC2SecurityGroups.map(item =>
-        EC2SecurityGroup.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.IPRanges && {
-      IPRanges: obj.IPRanges.map(item => IPRange.filterSensitiveLog(item))
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterSecurityGroup =>
     __isa(o, "ClusterSecurityGroup");
@@ -3659,12 +3518,7 @@ export namespace ClusterSecurityGroupMessage {
   export const filterSensitiveLog = (
     obj: ClusterSecurityGroupMessage
   ): any => ({
-    ...obj,
-    ...(obj.ClusterSecurityGroups && {
-      ClusterSecurityGroups: obj.ClusterSecurityGroups.map(item =>
-        ClusterSecurityGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterSecurityGroupMessage =>
     __isa(o, "ClusterSecurityGroupMessage");
@@ -3749,13 +3603,7 @@ export interface ClusterSubnetGroup {
 
 export namespace ClusterSubnetGroup {
   export const filterSensitiveLog = (obj: ClusterSubnetGroup): any => ({
-    ...obj,
-    ...(obj.Subnets && {
-      Subnets: obj.Subnets.map(item => Subnet.filterSensitiveLog(item))
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterSubnetGroup =>
     __isa(o, "ClusterSubnetGroup");
@@ -3784,12 +3632,7 @@ export interface ClusterSubnetGroupMessage {
 
 export namespace ClusterSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ClusterSubnetGroupMessage): any => ({
-    ...obj,
-    ...(obj.ClusterSubnetGroups && {
-      ClusterSubnetGroups: obj.ClusterSubnetGroups.map(item =>
-        ClusterSubnetGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterSubnetGroupMessage =>
     __isa(o, "ClusterSubnetGroupMessage");
@@ -3848,12 +3691,7 @@ export interface ClusterVersionsMessage {
 
 export namespace ClusterVersionsMessage {
   export const filterSensitiveLog = (obj: ClusterVersionsMessage): any => ({
-    ...obj,
-    ...(obj.ClusterVersions && {
-      ClusterVersions: obj.ClusterVersions.map(item =>
-        ClusterVersion.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClusterVersionsMessage =>
     __isa(o, "ClusterVersionsMessage");
@@ -3882,10 +3720,7 @@ export interface ClustersMessage {
 
 export namespace ClustersMessage {
   export const filterSensitiveLog = (obj: ClustersMessage): any => ({
-    ...obj,
-    ...(obj.Clusters && {
-      Clusters: obj.Clusters.map(item => Cluster.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ClustersMessage =>
     __isa(o, "ClustersMessage");
@@ -3971,8 +3806,7 @@ export interface CopyClusterSnapshotResult {
 
 export namespace CopyClusterSnapshotResult {
   export const filterSensitiveLog = (obj: CopyClusterSnapshotResult): any => ({
-    ...obj,
-    ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
+    ...obj
   });
   export const isa = (o: any): o is CopyClusterSnapshotResult =>
     __isa(o, "CopyClusterSnapshotResult");
@@ -4331,10 +4165,7 @@ export interface CreateClusterMessage {
 
 export namespace CreateClusterMessage {
   export const filterSensitiveLog = (obj: CreateClusterMessage): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterMessage =>
     __isa(o, "CreateClusterMessage");
@@ -4394,10 +4225,7 @@ export namespace CreateClusterParameterGroupMessage {
   export const filterSensitiveLog = (
     obj: CreateClusterParameterGroupMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterParameterGroupMessage =>
     __isa(o, "CreateClusterParameterGroupMessage");
@@ -4415,12 +4243,7 @@ export namespace CreateClusterParameterGroupResult {
   export const filterSensitiveLog = (
     obj: CreateClusterParameterGroupResult
   ): any => ({
-    ...obj,
-    ...(obj.ClusterParameterGroup && {
-      ClusterParameterGroup: ClusterParameterGroup.filterSensitiveLog(
-        obj.ClusterParameterGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterParameterGroupResult =>
     __isa(o, "CreateClusterParameterGroupResult");
@@ -4436,8 +4259,7 @@ export interface CreateClusterResult {
 
 export namespace CreateClusterResult {
   export const filterSensitiveLog = (obj: CreateClusterResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterResult =>
     __isa(o, "CreateClusterResult");
@@ -4484,10 +4306,7 @@ export namespace CreateClusterSecurityGroupMessage {
   export const filterSensitiveLog = (
     obj: CreateClusterSecurityGroupMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterSecurityGroupMessage =>
     __isa(o, "CreateClusterSecurityGroupMessage");
@@ -4505,12 +4324,7 @@ export namespace CreateClusterSecurityGroupResult {
   export const filterSensitiveLog = (
     obj: CreateClusterSecurityGroupResult
   ): any => ({
-    ...obj,
-    ...(obj.ClusterSecurityGroup && {
-      ClusterSecurityGroup: ClusterSecurityGroup.filterSensitiveLog(
-        obj.ClusterSecurityGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterSecurityGroupResult =>
     __isa(o, "CreateClusterSecurityGroupResult");
@@ -4569,10 +4383,7 @@ export namespace CreateClusterSnapshotMessage {
   export const filterSensitiveLog = (
     obj: CreateClusterSnapshotMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterSnapshotMessage =>
     __isa(o, "CreateClusterSnapshotMessage");
@@ -4590,8 +4401,7 @@ export namespace CreateClusterSnapshotResult {
   export const filterSensitiveLog = (
     obj: CreateClusterSnapshotResult
   ): any => ({
-    ...obj,
-    ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterSnapshotResult =>
     __isa(o, "CreateClusterSnapshotResult");
@@ -4644,10 +4454,7 @@ export namespace CreateClusterSubnetGroupMessage {
   export const filterSensitiveLog = (
     obj: CreateClusterSubnetGroupMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterSubnetGroupMessage =>
     __isa(o, "CreateClusterSubnetGroupMessage");
@@ -4665,12 +4472,7 @@ export namespace CreateClusterSubnetGroupResult {
   export const filterSensitiveLog = (
     obj: CreateClusterSubnetGroupResult
   ): any => ({
-    ...obj,
-    ...(obj.ClusterSubnetGroup && {
-      ClusterSubnetGroup: ClusterSubnetGroup.filterSensitiveLog(
-        obj.ClusterSubnetGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateClusterSubnetGroupResult =>
     __isa(o, "CreateClusterSubnetGroupResult");
@@ -4758,10 +4560,7 @@ export namespace CreateEventSubscriptionMessage {
   export const filterSensitiveLog = (
     obj: CreateEventSubscriptionMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEventSubscriptionMessage =>
     __isa(o, "CreateEventSubscriptionMessage");
@@ -4779,12 +4578,7 @@ export namespace CreateEventSubscriptionResult {
   export const filterSensitiveLog = (
     obj: CreateEventSubscriptionResult
   ): any => ({
-    ...obj,
-    ...(obj.EventSubscription && {
-      EventSubscription: EventSubscription.filterSensitiveLog(
-        obj.EventSubscription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEventSubscriptionResult =>
     __isa(o, "CreateEventSubscriptionResult");
@@ -4811,10 +4605,7 @@ export namespace CreateHsmClientCertificateMessage {
   export const filterSensitiveLog = (
     obj: CreateHsmClientCertificateMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHsmClientCertificateMessage =>
     __isa(o, "CreateHsmClientCertificateMessage");
@@ -4834,12 +4625,7 @@ export namespace CreateHsmClientCertificateResult {
   export const filterSensitiveLog = (
     obj: CreateHsmClientCertificateResult
   ): any => ({
-    ...obj,
-    ...(obj.HsmClientCertificate && {
-      HsmClientCertificate: HsmClientCertificate.filterSensitiveLog(
-        obj.HsmClientCertificate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHsmClientCertificateResult =>
     __isa(o, "CreateHsmClientCertificateResult");
@@ -4892,10 +4678,7 @@ export namespace CreateHsmConfigurationMessage {
   export const filterSensitiveLog = (
     obj: CreateHsmConfigurationMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHsmConfigurationMessage =>
     __isa(o, "CreateHsmConfigurationMessage");
@@ -4915,12 +4698,7 @@ export namespace CreateHsmConfigurationResult {
   export const filterSensitiveLog = (
     obj: CreateHsmConfigurationResult
   ): any => ({
-    ...obj,
-    ...(obj.HsmConfiguration && {
-      HsmConfiguration: HsmConfiguration.filterSensitiveLog(
-        obj.HsmConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHsmConfigurationResult =>
     __isa(o, "CreateHsmConfigurationResult");
@@ -4982,10 +4760,7 @@ export namespace CreateScheduledActionMessage {
   export const filterSensitiveLog = (
     obj: CreateScheduledActionMessage
   ): any => ({
-    ...obj,
-    ...(obj.TargetAction && {
-      TargetAction: ScheduledActionType.filterSensitiveLog(obj.TargetAction)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateScheduledActionMessage =>
     __isa(o, "CreateScheduledActionMessage");
@@ -5036,10 +4811,7 @@ export namespace CreateSnapshotCopyGrantMessage {
   export const filterSensitiveLog = (
     obj: CreateSnapshotCopyGrantMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSnapshotCopyGrantMessage =>
     __isa(o, "CreateSnapshotCopyGrantMessage");
@@ -5064,12 +4836,7 @@ export namespace CreateSnapshotCopyGrantResult {
   export const filterSensitiveLog = (
     obj: CreateSnapshotCopyGrantResult
   ): any => ({
-    ...obj,
-    ...(obj.SnapshotCopyGrant && {
-      SnapshotCopyGrant: SnapshotCopyGrant.filterSensitiveLog(
-        obj.SnapshotCopyGrant
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSnapshotCopyGrantResult =>
     __isa(o, "CreateSnapshotCopyGrantResult");
@@ -5114,10 +4881,7 @@ export namespace CreateSnapshotScheduleMessage {
   export const filterSensitiveLog = (
     obj: CreateSnapshotScheduleMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSnapshotScheduleMessage =>
     __isa(o, "CreateSnapshotScheduleMessage");
@@ -5147,10 +4911,7 @@ export interface CreateTagsMessage {
 
 export namespace CreateTagsMessage {
   export const filterSensitiveLog = (obj: CreateTagsMessage): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateTagsMessage =>
     __isa(o, "CreateTagsMessage");
@@ -5251,10 +5012,7 @@ export interface DefaultClusterParameters {
 
 export namespace DefaultClusterParameters {
   export const filterSensitiveLog = (obj: DefaultClusterParameters): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefaultClusterParameters =>
     __isa(o, "DefaultClusterParameters");
@@ -5405,8 +5163,7 @@ export interface DeleteClusterResult {
 
 export namespace DeleteClusterResult {
   export const filterSensitiveLog = (obj: DeleteClusterResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteClusterResult =>
     __isa(o, "DeleteClusterResult");
@@ -5477,8 +5234,7 @@ export namespace DeleteClusterSnapshotResult {
   export const filterSensitiveLog = (
     obj: DeleteClusterSnapshotResult
   ): any => ({
-    ...obj,
-    ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteClusterSnapshotResult =>
     __isa(o, "DeleteClusterSnapshotResult");
@@ -6025,12 +5781,7 @@ export namespace DescribeClusterSnapshotsMessage {
   export const filterSensitiveLog = (
     obj: DescribeClusterSnapshotsMessage
   ): any => ({
-    ...obj,
-    ...(obj.SortingEntities && {
-      SortingEntities: obj.SortingEntities.map(item =>
-        SnapshotSortingEntity.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeClusterSnapshotsMessage =>
     __isa(o, "DescribeClusterSnapshotsMessage");
@@ -6309,12 +6060,7 @@ export namespace DescribeDefaultClusterParametersResult {
   export const filterSensitiveLog = (
     obj: DescribeDefaultClusterParametersResult
   ): any => ({
-    ...obj,
-    ...(obj.DefaultClusterParameters && {
-      DefaultClusterParameters: DefaultClusterParameters.filterSensitiveLog(
-        obj.DefaultClusterParameters
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDefaultClusterParametersResult =>
     __isa(o, "DescribeDefaultClusterParametersResult");
@@ -6734,12 +6480,7 @@ export namespace DescribeNodeConfigurationOptionsMessage {
   export const filterSensitiveLog = (
     obj: DescribeNodeConfigurationOptionsMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        NodeConfigurationOptionsFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeNodeConfigurationOptionsMessage =>
     __isa(o, "DescribeNodeConfigurationOptionsMessage");
@@ -6963,12 +6704,7 @@ export namespace DescribeScheduledActionsMessage {
   export const filterSensitiveLog = (
     obj: DescribeScheduledActionsMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        ScheduledActionFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeScheduledActionsMessage =>
     __isa(o, "DescribeScheduledActionsMessage");
@@ -7108,12 +6844,7 @@ export namespace DescribeSnapshotSchedulesOutputMessage {
   export const filterSensitiveLog = (
     obj: DescribeSnapshotSchedulesOutputMessage
   ): any => ({
-    ...obj,
-    ...(obj.SnapshotSchedules && {
-      SnapshotSchedules: obj.SnapshotSchedules.map(item =>
-        SnapshotSchedule.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSnapshotSchedulesOutputMessage =>
     __isa(o, "DescribeSnapshotSchedulesOutputMessage");
@@ -7312,8 +7043,7 @@ export interface DisableSnapshotCopyResult {
 
 export namespace DisableSnapshotCopyResult {
   export const filterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is DisableSnapshotCopyResult =>
     __isa(o, "DisableSnapshotCopyResult");
@@ -7348,10 +7078,7 @@ export interface EC2SecurityGroup {
 
 export namespace EC2SecurityGroup {
   export const filterSensitiveLog = (obj: EC2SecurityGroup): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is EC2SecurityGroup =>
     __isa(o, "EC2SecurityGroup");
@@ -7509,8 +7236,7 @@ export interface EnableSnapshotCopyResult {
 
 export namespace EnableSnapshotCopyResult {
   export const filterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is EnableSnapshotCopyResult =>
     __isa(o, "EnableSnapshotCopyResult");
@@ -7608,10 +7334,7 @@ export interface EventCategoriesMap {
 
 export namespace EventCategoriesMap {
   export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
-    ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => EventInfoMap.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventCategoriesMap =>
     __isa(o, "EventCategoriesMap");
@@ -7630,12 +7353,7 @@ export interface EventCategoriesMessage {
 
 export namespace EventCategoriesMessage {
   export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
-    ...obj,
-    ...(obj.EventCategoriesMapList && {
-      EventCategoriesMapList: obj.EventCategoriesMapList.map(item =>
-        EventCategoriesMap.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventCategoriesMessage =>
     __isa(o, "EventCategoriesMessage");
@@ -7761,10 +7479,7 @@ export interface EventSubscription {
 
 export namespace EventSubscription {
   export const filterSensitiveLog = (obj: EventSubscription): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventSubscription =>
     __isa(o, "EventSubscription");
@@ -7792,12 +7507,7 @@ export interface EventSubscriptionsMessage {
 
 export namespace EventSubscriptionsMessage {
   export const filterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
-    ...obj,
-    ...(obj.EventSubscriptionsList && {
-      EventSubscriptionsList: obj.EventSubscriptionsList.map(item =>
-        EventSubscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventSubscriptionsMessage =>
     __isa(o, "EventSubscriptionsMessage");
@@ -7825,10 +7535,7 @@ export interface EventsMessage {
 
 export namespace EventsMessage {
   export const filterSensitiveLog = (obj: EventsMessage): any => ({
-    ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => Event.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
@@ -8016,12 +7723,7 @@ export namespace GetReservedNodeExchangeOfferingsOutputMessage {
   export const filterSensitiveLog = (
     obj: GetReservedNodeExchangeOfferingsOutputMessage
   ): any => ({
-    ...obj,
-    ...(obj.ReservedNodeOfferings && {
-      ReservedNodeOfferings: obj.ReservedNodeOfferings.map(item =>
-        ReservedNodeOffering.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -8055,10 +7757,7 @@ export interface HsmClientCertificate {
 
 export namespace HsmClientCertificate {
   export const filterSensitiveLog = (obj: HsmClientCertificate): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is HsmClientCertificate =>
     __isa(o, "HsmClientCertificate");
@@ -8089,12 +7788,7 @@ export namespace HsmClientCertificateMessage {
   export const filterSensitiveLog = (
     obj: HsmClientCertificateMessage
   ): any => ({
-    ...obj,
-    ...(obj.HsmClientCertificates && {
-      HsmClientCertificates: obj.HsmClientCertificates.map(item =>
-        HsmClientCertificate.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HsmClientCertificateMessage =>
     __isa(o, "HsmClientCertificateMessage");
@@ -8136,10 +7830,7 @@ export interface HsmConfiguration {
 
 export namespace HsmConfiguration {
   export const filterSensitiveLog = (obj: HsmConfiguration): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is HsmConfiguration =>
     __isa(o, "HsmConfiguration");
@@ -8167,12 +7858,7 @@ export interface HsmConfigurationMessage {
 
 export namespace HsmConfigurationMessage {
   export const filterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
-    ...obj,
-    ...(obj.HsmConfigurations && {
-      HsmConfigurations: obj.HsmConfigurations.map(item =>
-        HsmConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HsmConfigurationMessage =>
     __isa(o, "HsmConfigurationMessage");
@@ -8233,10 +7919,7 @@ export interface IPRange {
 
 export namespace IPRange {
   export const filterSensitiveLog = (obj: IPRange): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is IPRange => __isa(o, "IPRange");
 }
@@ -8314,12 +7997,7 @@ export interface MaintenanceTrack {
 
 export namespace MaintenanceTrack {
   export const filterSensitiveLog = (obj: MaintenanceTrack): any => ({
-    ...obj,
-    ...(obj.UpdateTargets && {
-      UpdateTargets: obj.UpdateTargets.map(item =>
-        UpdateTarget.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MaintenanceTrack =>
     __isa(o, "MaintenanceTrack");
@@ -8368,8 +8046,7 @@ export namespace ModifyClusterDbRevisionResult {
   export const filterSensitiveLog = (
     obj: ModifyClusterDbRevisionResult
   ): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is ModifyClusterDbRevisionResult =>
     __isa(o, "ModifyClusterDbRevisionResult");
@@ -8422,8 +8099,7 @@ export namespace ModifyClusterIamRolesResult {
   export const filterSensitiveLog = (
     obj: ModifyClusterIamRolesResult
   ): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is ModifyClusterIamRolesResult =>
     __isa(o, "ModifyClusterIamRolesResult");
@@ -8486,8 +8162,7 @@ export namespace ModifyClusterMaintenanceResult {
   export const filterSensitiveLog = (
     obj: ModifyClusterMaintenanceResult
   ): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is ModifyClusterMaintenanceResult =>
     __isa(o, "ModifyClusterMaintenanceResult");
@@ -8793,10 +8468,7 @@ export namespace ModifyClusterParameterGroupMessage {
   export const filterSensitiveLog = (
     obj: ModifyClusterParameterGroupMessage
   ): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyClusterParameterGroupMessage =>
     __isa(o, "ModifyClusterParameterGroupMessage");
@@ -8812,8 +8484,7 @@ export interface ModifyClusterResult {
 
 export namespace ModifyClusterResult {
   export const filterSensitiveLog = (obj: ModifyClusterResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is ModifyClusterResult =>
     __isa(o, "ModifyClusterResult");
@@ -8864,8 +8535,7 @@ export namespace ModifyClusterSnapshotResult {
   export const filterSensitiveLog = (
     obj: ModifyClusterSnapshotResult
   ): any => ({
-    ...obj,
-    ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
+    ...obj
   });
   export const isa = (o: any): o is ModifyClusterSnapshotResult =>
     __isa(o, "ModifyClusterSnapshotResult");
@@ -8946,12 +8616,7 @@ export namespace ModifyClusterSubnetGroupResult {
   export const filterSensitiveLog = (
     obj: ModifyClusterSubnetGroupResult
   ): any => ({
-    ...obj,
-    ...(obj.ClusterSubnetGroup && {
-      ClusterSubnetGroup: ClusterSubnetGroup.filterSensitiveLog(
-        obj.ClusterSubnetGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyClusterSubnetGroupResult =>
     __isa(o, "ModifyClusterSubnetGroupResult");
@@ -9036,12 +8701,7 @@ export namespace ModifyEventSubscriptionResult {
   export const filterSensitiveLog = (
     obj: ModifyEventSubscriptionResult
   ): any => ({
-    ...obj,
-    ...(obj.EventSubscription && {
-      EventSubscription: EventSubscription.filterSensitiveLog(
-        obj.EventSubscription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyEventSubscriptionResult =>
     __isa(o, "ModifyEventSubscriptionResult");
@@ -9099,10 +8759,7 @@ export namespace ModifyScheduledActionMessage {
   export const filterSensitiveLog = (
     obj: ModifyScheduledActionMessage
   ): any => ({
-    ...obj,
-    ...(obj.TargetAction && {
-      TargetAction: ScheduledActionType.filterSensitiveLog(obj.TargetAction)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyScheduledActionMessage =>
     __isa(o, "ModifyScheduledActionMessage");
@@ -9169,8 +8826,7 @@ export namespace ModifySnapshotCopyRetentionPeriodResult {
   export const filterSensitiveLog = (
     obj: ModifySnapshotCopyRetentionPeriodResult
   ): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is ModifySnapshotCopyRetentionPeriodResult =>
     __isa(o, "ModifySnapshotCopyRetentionPeriodResult");
@@ -9300,12 +8956,7 @@ export namespace NodeConfigurationOptionsMessage {
   export const filterSensitiveLog = (
     obj: NodeConfigurationOptionsMessage
   ): any => ({
-    ...obj,
-    ...(obj.NodeConfigurationOptionList && {
-      NodeConfigurationOptionList: obj.NodeConfigurationOptionList.map(item =>
-        NodeConfigurationOption.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is NodeConfigurationOptionsMessage =>
     __isa(o, "NodeConfigurationOptionsMessage");
@@ -9349,12 +9000,7 @@ export interface OrderableClusterOption {
 
 export namespace OrderableClusterOption {
   export const filterSensitiveLog = (obj: OrderableClusterOption): any => ({
-    ...obj,
-    ...(obj.AvailabilityZones && {
-      AvailabilityZones: obj.AvailabilityZones.map(item =>
-        AvailabilityZone.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is OrderableClusterOption =>
     __isa(o, "OrderableClusterOption");
@@ -9386,12 +9032,7 @@ export namespace OrderableClusterOptionsMessage {
   export const filterSensitiveLog = (
     obj: OrderableClusterOptionsMessage
   ): any => ({
-    ...obj,
-    ...(obj.OrderableClusterOptions && {
-      OrderableClusterOptions: obj.OrderableClusterOptions.map(item =>
-        OrderableClusterOption.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is OrderableClusterOptionsMessage =>
     __isa(o, "OrderableClusterOptionsMessage");
@@ -9584,10 +9225,7 @@ export namespace PurchaseReservedNodeOfferingResult {
   export const filterSensitiveLog = (
     obj: PurchaseReservedNodeOfferingResult
   ): any => ({
-    ...obj,
-    ...(obj.ReservedNode && {
-      ReservedNode: ReservedNode.filterSensitiveLog(obj.ReservedNode)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PurchaseReservedNodeOfferingResult =>
     __isa(o, "PurchaseReservedNodeOfferingResult");
@@ -9622,8 +9260,7 @@ export interface RebootClusterResult {
 
 export namespace RebootClusterResult {
   export const filterSensitiveLog = (obj: RebootClusterResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is RebootClusterResult =>
     __isa(o, "RebootClusterResult");
@@ -9751,12 +9388,7 @@ export interface ReservedNode {
 
 export namespace ReservedNode {
   export const filterSensitiveLog = (obj: ReservedNode): any => ({
-    ...obj,
-    ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        RecurringCharge.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservedNode => __isa(o, "ReservedNode");
 }
@@ -9819,12 +9451,7 @@ export interface ReservedNodeOffering {
 
 export namespace ReservedNodeOffering {
   export const filterSensitiveLog = (obj: ReservedNodeOffering): any => ({
-    ...obj,
-    ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        RecurringCharge.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservedNodeOffering =>
     __isa(o, "ReservedNodeOffering");
@@ -9856,12 +9483,7 @@ export namespace ReservedNodeOfferingsMessage {
   export const filterSensitiveLog = (
     obj: ReservedNodeOfferingsMessage
   ): any => ({
-    ...obj,
-    ...(obj.ReservedNodeOfferings && {
-      ReservedNodeOfferings: obj.ReservedNodeOfferings.map(item =>
-        ReservedNodeOffering.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservedNodeOfferingsMessage =>
     __isa(o, "ReservedNodeOfferingsMessage");
@@ -9889,12 +9511,7 @@ export interface ReservedNodesMessage {
 
 export namespace ReservedNodesMessage {
   export const filterSensitiveLog = (obj: ReservedNodesMessage): any => ({
-    ...obj,
-    ...(obj.ReservedNodes && {
-      ReservedNodes: obj.ReservedNodes.map(item =>
-        ReservedNode.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservedNodesMessage =>
     __isa(o, "ReservedNodesMessage");
@@ -9931,10 +9548,7 @@ export namespace ResetClusterParameterGroupMessage {
   export const filterSensitiveLog = (
     obj: ResetClusterParameterGroupMessage
   ): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResetClusterParameterGroupMessage =>
     __isa(o, "ResetClusterParameterGroupMessage");
@@ -9988,8 +9602,7 @@ export interface ResizeClusterResult {
 
 export namespace ResizeClusterResult {
   export const filterSensitiveLog = (obj: ResizeClusterResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is ResizeClusterResult =>
     __isa(o, "ResizeClusterResult");
@@ -10393,8 +10006,7 @@ export namespace RestoreFromClusterSnapshotResult {
   export const filterSensitiveLog = (
     obj: RestoreFromClusterSnapshotResult
   ): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is RestoreFromClusterSnapshotResult =>
     __isa(o, "RestoreFromClusterSnapshotResult");
@@ -10526,12 +10138,7 @@ export namespace RestoreTableFromClusterSnapshotResult {
   export const filterSensitiveLog = (
     obj: RestoreTableFromClusterSnapshotResult
   ): any => ({
-    ...obj,
-    ...(obj.TableRestoreStatus && {
-      TableRestoreStatus: TableRestoreStatus.filterSensitiveLog(
-        obj.TableRestoreStatus
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RestoreTableFromClusterSnapshotResult =>
     __isa(o, "RestoreTableFromClusterSnapshotResult");
@@ -10627,12 +10234,7 @@ export namespace RevokeClusterSecurityGroupIngressResult {
   export const filterSensitiveLog = (
     obj: RevokeClusterSecurityGroupIngressResult
   ): any => ({
-    ...obj,
-    ...(obj.ClusterSecurityGroup && {
-      ClusterSecurityGroup: ClusterSecurityGroup.filterSensitiveLog(
-        obj.ClusterSecurityGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RevokeClusterSecurityGroupIngressResult =>
     __isa(o, "RevokeClusterSecurityGroupIngressResult");
@@ -10682,8 +10284,7 @@ export interface RevokeSnapshotAccessResult {
 
 export namespace RevokeSnapshotAccessResult {
   export const filterSensitiveLog = (obj: RevokeSnapshotAccessResult): any => ({
-    ...obj,
-    ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
+    ...obj
   });
   export const isa = (o: any): o is RevokeSnapshotAccessResult =>
     __isa(o, "RevokeSnapshotAccessResult");
@@ -10721,8 +10322,7 @@ export interface RotateEncryptionKeyResult {
 
 export namespace RotateEncryptionKeyResult {
   export const filterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
-    ...obj,
-    ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
+    ...obj
   });
   export const isa = (o: any): o is RotateEncryptionKeyResult =>
     __isa(o, "RotateEncryptionKeyResult");
@@ -10798,10 +10398,7 @@ export interface ScheduledAction {
 
 export namespace ScheduledAction {
   export const filterSensitiveLog = (obj: ScheduledAction): any => ({
-    ...obj,
-    ...(obj.TargetAction && {
-      TargetAction: ScheduledActionType.filterSensitiveLog(obj.TargetAction)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScheduledAction =>
     __isa(o, "ScheduledAction");
@@ -10854,10 +10451,7 @@ export interface ScheduledActionType {
 
 export namespace ScheduledActionType {
   export const filterSensitiveLog = (obj: ScheduledActionType): any => ({
-    ...obj,
-    ...(obj.ResizeCluster && {
-      ResizeCluster: ResizeClusterMessage.filterSensitiveLog(obj.ResizeCluster)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScheduledActionType =>
     __isa(o, "ScheduledActionType");
@@ -10887,12 +10481,7 @@ export interface ScheduledActionsMessage {
 
 export namespace ScheduledActionsMessage {
   export const filterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
-    ...obj,
-    ...(obj.ScheduledActions && {
-      ScheduledActions: obj.ScheduledActions.map(item =>
-        ScheduledAction.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ScheduledActionsMessage =>
     __isa(o, "ScheduledActionsMessage");
@@ -11110,15 +10699,7 @@ export interface Snapshot {
 
 export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj,
-    ...(obj.AccountsWithRestoreAccess && {
-      AccountsWithRestoreAccess: obj.AccountsWithRestoreAccess.map(item =>
-        AccountWithRestoreAccess.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
@@ -11160,10 +10741,7 @@ export interface SnapshotCopyGrant {
 
 export namespace SnapshotCopyGrant {
   export const filterSensitiveLog = (obj: SnapshotCopyGrant): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is SnapshotCopyGrant =>
     __isa(o, "SnapshotCopyGrant");
@@ -11193,12 +10771,7 @@ export interface SnapshotCopyGrantMessage {
 
 export namespace SnapshotCopyGrantMessage {
   export const filterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
-    ...obj,
-    ...(obj.SnapshotCopyGrants && {
-      SnapshotCopyGrants: obj.SnapshotCopyGrants.map(item =>
-        SnapshotCopyGrant.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SnapshotCopyGrantMessage =>
     __isa(o, "SnapshotCopyGrantMessage");
@@ -11261,10 +10834,7 @@ export interface SnapshotMessage {
 
 export namespace SnapshotMessage {
   export const filterSensitiveLog = (obj: SnapshotMessage): any => ({
-    ...obj,
-    ...(obj.Snapshots && {
-      Snapshots: obj.Snapshots.map(item => Snapshot.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is SnapshotMessage =>
     __isa(o, "SnapshotMessage");
@@ -11314,15 +10884,7 @@ export interface SnapshotSchedule {
 
 export namespace SnapshotSchedule {
   export const filterSensitiveLog = (obj: SnapshotSchedule): any => ({
-    ...obj,
-    ...(obj.AssociatedClusters && {
-      AssociatedClusters: obj.AssociatedClusters.map(item =>
-        ClusterAssociatedToSchedule.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is SnapshotSchedule =>
     __isa(o, "SnapshotSchedule");
@@ -11387,12 +10949,7 @@ export interface Subnet {
 
 export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj,
-    ...(obj.SubnetAvailabilityZone && {
-      SubnetAvailabilityZone: AvailabilityZone.filterSensitiveLog(
-        obj.SubnetAvailabilityZone
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
@@ -11545,12 +11102,7 @@ export interface TableRestoreStatusMessage {
 
 export namespace TableRestoreStatusMessage {
   export const filterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
-    ...obj,
-    ...(obj.TableRestoreStatusDetails && {
-      TableRestoreStatusDetails: obj.TableRestoreStatusDetails.map(item =>
-        TableRestoreStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TableRestoreStatusMessage =>
     __isa(o, "TableRestoreStatusMessage");
@@ -11642,8 +11194,7 @@ export interface TaggedResource {
 
 export namespace TaggedResource {
   export const filterSensitiveLog = (obj: TaggedResource): any => ({
-    ...obj,
-    ...(obj.Tag && { Tag: Tag.filterSensitiveLog(obj.Tag) })
+    ...obj
   });
   export const isa = (o: any): o is TaggedResource =>
     __isa(o, "TaggedResource");
@@ -11671,12 +11222,7 @@ export interface TaggedResourceListMessage {
 
 export namespace TaggedResourceListMessage {
   export const filterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
-    ...obj,
-    ...(obj.TaggedResources && {
-      TaggedResources: obj.TaggedResources.map(item =>
-        TaggedResource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TaggedResourceListMessage =>
     __isa(o, "TaggedResourceListMessage");
@@ -11700,12 +11246,7 @@ export interface TrackListMessage {
 
 export namespace TrackListMessage {
   export const filterSensitiveLog = (obj: TrackListMessage): any => ({
-    ...obj,
-    ...(obj.MaintenanceTracks && {
-      MaintenanceTracks: obj.MaintenanceTracks.map(item =>
-        MaintenanceTrack.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TrackListMessage =>
     __isa(o, "TrackListMessage");
@@ -11734,12 +11275,7 @@ export interface UpdateTarget {
 
 export namespace UpdateTarget {
   export const filterSensitiveLog = (obj: UpdateTarget): any => ({
-    ...obj,
-    ...(obj.SupportedOperations && {
-      SupportedOperations: obj.SupportedOperations.map(item =>
-        SupportedOperation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateTarget => __isa(o, "UpdateTarget");
 }

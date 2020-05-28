@@ -364,10 +364,7 @@ export interface CreateTopicInput {
 
 export namespace CreateTopicInput {
   export const filterSensitiveLog = (obj: CreateTopicInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateTopicInput =>
     __isa(o, "CreateTopicInput");
@@ -1133,10 +1130,7 @@ export namespace ListEndpointsByPlatformApplicationResponse {
   export const filterSensitiveLog = (
     obj: ListEndpointsByPlatformApplicationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Endpoints && {
-      Endpoints: obj.Endpoints.map(item => Endpoint.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -1239,12 +1233,7 @@ export namespace ListPlatformApplicationsResponse {
   export const filterSensitiveLog = (
     obj: ListPlatformApplicationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.PlatformApplications && {
-      PlatformApplications: obj.PlatformApplications.map(item =>
-        PlatformApplication.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPlatformApplicationsResponse =>
     __isa(o, "ListPlatformApplicationsResponse");
@@ -1297,12 +1286,7 @@ export namespace ListSubscriptionsByTopicResponse {
   export const filterSensitiveLog = (
     obj: ListSubscriptionsByTopicResponse
   ): any => ({
-    ...obj,
-    ...(obj.Subscriptions && {
-      Subscriptions: obj.Subscriptions.map(item =>
-        Subscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSubscriptionsByTopicResponse =>
     __isa(o, "ListSubscriptionsByTopicResponse");
@@ -1346,12 +1330,7 @@ export interface ListSubscriptionsResponse {
 
 export namespace ListSubscriptionsResponse {
   export const filterSensitiveLog = (obj: ListSubscriptionsResponse): any => ({
-    ...obj,
-    ...(obj.Subscriptions && {
-      Subscriptions: obj.Subscriptions.map(item =>
-        Subscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSubscriptionsResponse =>
     __isa(o, "ListSubscriptionsResponse");
@@ -1385,10 +1364,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1429,10 +1405,7 @@ export interface ListTopicsResponse {
 
 export namespace ListTopicsResponse {
   export const filterSensitiveLog = (obj: ListTopicsResponse): any => ({
-    ...obj,
-    ...(obj.Topics && {
-      Topics: obj.Topics.map(item => Topic.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTopicsResponse =>
     __isa(o, "ListTopicsResponse");
@@ -1709,16 +1682,7 @@ export interface PublishInput {
 
 export namespace PublishInput {
   export const filterSensitiveLog = (obj: PublishInput): any => ({
-    ...obj,
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PublishInput => __isa(o, "PublishInput");
 }
@@ -2485,10 +2449,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

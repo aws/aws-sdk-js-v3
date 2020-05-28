@@ -181,10 +181,7 @@ export interface CreateProjectResult {
 
 export namespace CreateProjectResult {
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj,
-    ...(obj.details && {
-      details: ProjectDetails.filterSensitiveLog(obj.details)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateProjectResult =>
     __isa(o, "CreateProjectResult");
@@ -238,17 +235,7 @@ export interface DeleteProjectResult {
 
 export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj,
-    ...(obj.deletedResources && {
-      deletedResources: obj.deletedResources.map(item =>
-        Resource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.orphanedResources && {
-      orphanedResources: obj.orphanedResources.map(item =>
-        Resource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteProjectResult =>
     __isa(o, "DeleteProjectResult");
@@ -294,10 +281,7 @@ export interface DescribeBundleResult {
 
 export namespace DescribeBundleResult {
   export const filterSensitiveLog = (obj: DescribeBundleResult): any => ({
-    ...obj,
-    ...(obj.details && {
-      details: BundleDetails.filterSensitiveLog(obj.details)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeBundleResult =>
     __isa(o, "DescribeBundleResult");
@@ -350,10 +334,7 @@ export interface DescribeProjectResult {
 
 export namespace DescribeProjectResult {
   export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
-    ...obj,
-    ...(obj.details && {
-      details: ProjectDetails.filterSensitiveLog(obj.details)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeProjectResult =>
     __isa(o, "DescribeProjectResult");
@@ -610,12 +591,7 @@ export interface ListBundlesResult {
 
 export namespace ListBundlesResult {
   export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
-    ...obj,
-    ...(obj.bundleList && {
-      bundleList: obj.bundleList.map(item =>
-        BundleDetails.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListBundlesResult =>
     __isa(o, "ListBundlesResult");
@@ -679,12 +655,7 @@ export interface ListProjectsResult {
 
 export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj,
-    ...(obj.projects && {
-      projects: obj.projects.map(item =>
-        ProjectSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProjectsResult =>
     __isa(o, "ListProjectsResult");
@@ -790,10 +761,7 @@ export interface ProjectDetails {
 
 export namespace ProjectDetails {
   export const filterSensitiveLog = (obj: ProjectDetails): any => ({
-    ...obj,
-    ...(obj.resources && {
-      resources: obj.resources.map(item => Resource.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ProjectDetails =>
     __isa(o, "ProjectDetails");
@@ -1030,10 +998,7 @@ export interface UpdateProjectResult {
 
 export namespace UpdateProjectResult {
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj,
-    ...(obj.details && {
-      details: ProjectDetails.filterSensitiveLog(obj.details)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateProjectResult =>
     __isa(o, "UpdateProjectResult");

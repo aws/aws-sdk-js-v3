@@ -28,12 +28,7 @@ export interface ActivatePipelineInput {
 
 export namespace ActivatePipelineInput {
   export const filterSensitiveLog = (obj: ActivatePipelineInput): any => ({
-    ...obj,
-    ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(item =>
-        ParameterValue.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ActivatePipelineInput =>
     __isa(o, "ActivatePipelineInput");
@@ -72,10 +67,7 @@ export interface AddTagsInput {
 
 export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
@@ -131,10 +123,7 @@ export interface CreatePipelineInput {
 
 export namespace CreatePipelineInput {
   export const filterSensitiveLog = (obj: CreatePipelineInput): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreatePipelineInput =>
     __isa(o, "CreatePipelineInput");
@@ -280,12 +269,7 @@ export interface DescribeObjectsOutput {
 
 export namespace DescribeObjectsOutput {
   export const filterSensitiveLog = (obj: DescribeObjectsOutput): any => ({
-    ...obj,
-    ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(item =>
-        PipelineObject.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeObjectsOutput =>
     __isa(o, "DescribeObjectsOutput");
@@ -324,12 +308,7 @@ export interface DescribePipelinesOutput {
 
 export namespace DescribePipelinesOutput {
   export const filterSensitiveLog = (obj: DescribePipelinesOutput): any => ({
-    ...obj,
-    ...(obj.pipelineDescriptionList && {
-      pipelineDescriptionList: obj.pipelineDescriptionList.map(item =>
-        PipelineDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribePipelinesOutput =>
     __isa(o, "DescribePipelinesOutput");
@@ -462,22 +441,7 @@ export namespace GetPipelineDefinitionOutput {
   export const filterSensitiveLog = (
     obj: GetPipelineDefinitionOutput
   ): any => ({
-    ...obj,
-    ...(obj.parameterObjects && {
-      parameterObjects: obj.parameterObjects.map(item =>
-        ParameterObject.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(item =>
-        ParameterValue.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(item =>
-        PipelineObject.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPipelineDefinitionOutput =>
     __isa(o, "GetPipelineDefinitionOutput");
@@ -599,12 +563,7 @@ export interface ListPipelinesOutput {
 
 export namespace ListPipelinesOutput {
   export const filterSensitiveLog = (obj: ListPipelinesOutput): any => ({
-    ...obj,
-    ...(obj.pipelineIdList && {
-      pipelineIdList: obj.pipelineIdList.map(item =>
-        PipelineIdName.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPipelinesOutput =>
     __isa(o, "ListPipelinesOutput");
@@ -737,12 +696,7 @@ export interface ParameterObject {
 
 export namespace ParameterObject {
   export const filterSensitiveLog = (obj: ParameterObject): any => ({
-    ...obj,
-    ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        ParameterAttribute.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ParameterObject =>
     __isa(o, "ParameterObject");
@@ -828,13 +782,7 @@ export interface PipelineDescription {
 
 export namespace PipelineDescription {
   export const filterSensitiveLog = (obj: PipelineDescription): any => ({
-    ...obj,
-    ...(obj.fields && {
-      fields: obj.fields.map(item => Field.filterSensitiveLog(item))
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PipelineDescription =>
     __isa(o, "PipelineDescription");
@@ -909,10 +857,7 @@ export interface PipelineObject {
 
 export namespace PipelineObject {
   export const filterSensitiveLog = (obj: PipelineObject): any => ({
-    ...obj,
-    ...(obj.fields && {
-      fields: obj.fields.map(item => Field.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PipelineObject =>
     __isa(o, "PipelineObject");
@@ -943,12 +888,7 @@ export interface PollForTaskInput {
 
 export namespace PollForTaskInput {
   export const filterSensitiveLog = (obj: PollForTaskInput): any => ({
-    ...obj,
-    ...(obj.instanceIdentity && {
-      instanceIdentity: InstanceIdentity.filterSensitiveLog(
-        obj.instanceIdentity
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PollForTaskInput =>
     __isa(o, "PollForTaskInput");
@@ -969,10 +909,7 @@ export interface PollForTaskOutput {
 
 export namespace PollForTaskOutput {
   export const filterSensitiveLog = (obj: PollForTaskOutput): any => ({
-    ...obj,
-    ...(obj.taskObject && {
-      taskObject: TaskObject.filterSensitiveLog(obj.taskObject)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PollForTaskOutput =>
     __isa(o, "PollForTaskOutput");
@@ -1006,22 +943,7 @@ export interface PutPipelineDefinitionInput {
 
 export namespace PutPipelineDefinitionInput {
   export const filterSensitiveLog = (obj: PutPipelineDefinitionInput): any => ({
-    ...obj,
-    ...(obj.parameterObjects && {
-      parameterObjects: obj.parameterObjects.map(item =>
-        ParameterObject.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(item =>
-        ParameterValue.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(item =>
-        PipelineObject.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPipelineDefinitionInput =>
     __isa(o, "PutPipelineDefinitionInput");
@@ -1053,17 +975,7 @@ export namespace PutPipelineDefinitionOutput {
   export const filterSensitiveLog = (
     obj: PutPipelineDefinitionOutput
   ): any => ({
-    ...obj,
-    ...(obj.validationErrors && {
-      validationErrors: obj.validationErrors.map(item =>
-        ValidationError.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.validationWarnings && {
-      validationWarnings: obj.validationWarnings.map(item =>
-        ValidationWarning.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutPipelineDefinitionOutput =>
     __isa(o, "PutPipelineDefinitionOutput");
@@ -1082,10 +994,7 @@ export interface Query {
 
 export namespace Query {
   export const filterSensitiveLog = (obj: Query): any => ({
-    ...obj,
-    ...(obj.selectors && {
-      selectors: obj.selectors.map(item => Selector.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Query => __isa(o, "Query");
 }
@@ -1128,8 +1037,7 @@ export interface QueryObjectsInput {
 
 export namespace QueryObjectsInput {
   export const filterSensitiveLog = (obj: QueryObjectsInput): any => ({
-    ...obj,
-    ...(obj.query && { query: Query.filterSensitiveLog(obj.query) })
+    ...obj
   });
   export const isa = (o: any): o is QueryObjectsInput =>
     __isa(o, "QueryObjectsInput");
@@ -1222,10 +1130,7 @@ export interface ReportTaskProgressInput {
 
 export namespace ReportTaskProgressInput {
   export const filterSensitiveLog = (obj: ReportTaskProgressInput): any => ({
-    ...obj,
-    ...(obj.fields && {
-      fields: obj.fields.map(item => Field.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReportTaskProgressInput =>
     __isa(o, "ReportTaskProgressInput");
@@ -1322,8 +1227,7 @@ export interface Selector {
 
 export namespace Selector {
   export const filterSensitiveLog = (obj: Selector): any => ({
-    ...obj,
-    ...(obj.operator && { operator: Operator.filterSensitiveLog(obj.operator) })
+    ...obj
   });
   export const isa = (o: any): o is Selector => __isa(o, "Selector");
 }
@@ -1488,16 +1392,7 @@ export interface TaskObject {
 
 export namespace TaskObject {
   export const filterSensitiveLog = (obj: TaskObject): any => ({
-    ...obj,
-    ...(obj.objects && {
-      objects: Object.entries(obj.objects).reduce(
-        (acc: any, [key, value]: [string, PipelineObject]) => ({
-          ...acc,
-          [key]: PipelineObject.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TaskObject => __isa(o, "TaskObject");
 }
@@ -1538,22 +1433,7 @@ export namespace ValidatePipelineDefinitionInput {
   export const filterSensitiveLog = (
     obj: ValidatePipelineDefinitionInput
   ): any => ({
-    ...obj,
-    ...(obj.parameterObjects && {
-      parameterObjects: obj.parameterObjects.map(item =>
-        ParameterObject.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.parameterValues && {
-      parameterValues: obj.parameterValues.map(item =>
-        ParameterValue.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.pipelineObjects && {
-      pipelineObjects: obj.pipelineObjects.map(item =>
-        PipelineObject.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ValidatePipelineDefinitionInput =>
     __isa(o, "ValidatePipelineDefinitionInput");
@@ -1584,17 +1464,7 @@ export namespace ValidatePipelineDefinitionOutput {
   export const filterSensitiveLog = (
     obj: ValidatePipelineDefinitionOutput
   ): any => ({
-    ...obj,
-    ...(obj.validationErrors && {
-      validationErrors: obj.validationErrors.map(item =>
-        ValidationError.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.validationWarnings && {
-      validationWarnings: obj.validationWarnings.map(item =>
-        ValidationWarning.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ValidatePipelineDefinitionOutput =>
     __isa(o, "ValidatePipelineDefinitionOutput");

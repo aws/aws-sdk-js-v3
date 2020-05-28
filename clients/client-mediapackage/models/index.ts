@@ -74,10 +74,7 @@ export interface Channel {
 
 export namespace Channel {
   export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-    ...(obj.HlsIngest && {
-      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Channel => __isa(o, "Channel");
 }
@@ -100,12 +97,7 @@ export interface CmafEncryption {
 
 export namespace CmafEncryption {
   export const filterSensitiveLog = (obj: CmafEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CmafEncryption =>
     __isa(o, "CmafEncryption");
@@ -145,18 +137,7 @@ export interface CmafPackage {
 
 export namespace CmafPackage {
   export const filterSensitiveLog = (obj: CmafPackage): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(item =>
-        HlsManifest.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CmafPackage => __isa(o, "CmafPackage");
 }
@@ -197,18 +178,7 @@ export namespace CmafPackageCreateOrUpdateParameters {
   export const filterSensitiveLog = (
     obj: CmafPackageCreateOrUpdateParameters
   ): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(item =>
-        HlsManifestCreateOrUpdateParameters.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CmafPackageCreateOrUpdateParameters =>
     __isa(o, "CmafPackageCreateOrUpdateParameters");
@@ -274,10 +244,7 @@ export interface CreateChannelResponse {
 
 export namespace CreateChannelResponse {
   export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
-    ...obj,
-    ...(obj.HlsIngest && {
-      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateChannelResponse =>
     __isa(o, "CreateChannelResponse");
@@ -318,10 +285,7 @@ export interface CreateHarvestJobRequest {
 
 export namespace CreateHarvestJobRequest {
   export const filterSensitiveLog = (obj: CreateHarvestJobRequest): any => ({
-    ...obj,
-    ...(obj.S3Destination && {
-      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHarvestJobRequest =>
     __isa(o, "CreateHarvestJobRequest");
@@ -381,10 +345,7 @@ export interface CreateHarvestJobResponse {
 
 export namespace CreateHarvestJobResponse {
   export const filterSensitiveLog = (obj: CreateHarvestJobResponse): any => ({
-    ...obj,
-    ...(obj.S3Destination && {
-      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHarvestJobResponse =>
     __isa(o, "CreateHarvestJobResponse");
@@ -476,24 +437,7 @@ export namespace CreateOriginEndpointRequest {
   export const filterSensitiveLog = (
     obj: CreateOriginEndpointRequest
   ): any => ({
-    ...obj,
-    ...(obj.Authorization && {
-      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
-    }),
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackageCreateOrUpdateParameters.filterSensitiveLog(
-        obj.CmafPackage
-      )
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateOriginEndpointRequest =>
     __isa(o, "CreateOriginEndpointRequest");
@@ -590,22 +534,7 @@ export namespace CreateOriginEndpointResponse {
   export const filterSensitiveLog = (
     obj: CreateOriginEndpointResponse
   ): any => ({
-    ...obj,
-    ...(obj.Authorization && {
-      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
-    }),
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateOriginEndpointResponse =>
     __isa(o, "CreateOriginEndpointResponse");
@@ -629,12 +558,7 @@ export interface DashEncryption {
 
 export namespace DashEncryption {
   export const filterSensitiveLog = (obj: DashEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DashEncryption =>
     __isa(o, "DashEncryption");
@@ -726,13 +650,7 @@ export interface DashPackage {
 
 export namespace DashPackage {
   export const filterSensitiveLog = (obj: DashPackage): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: DashEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DashPackage => __isa(o, "DashPackage");
 }
@@ -843,10 +761,7 @@ export interface DescribeChannelResponse {
 
 export namespace DescribeChannelResponse {
   export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-    ...obj,
-    ...(obj.HlsIngest && {
-      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeChannelResponse =>
     __isa(o, "DescribeChannelResponse");
@@ -922,10 +837,7 @@ export interface DescribeHarvestJobResponse {
 
 export namespace DescribeHarvestJobResponse {
   export const filterSensitiveLog = (obj: DescribeHarvestJobResponse): any => ({
-    ...obj,
-    ...(obj.S3Destination && {
-      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeHarvestJobResponse =>
     __isa(o, "DescribeHarvestJobResponse");
@@ -1040,22 +952,7 @@ export namespace DescribeOriginEndpointResponse {
   export const filterSensitiveLog = (
     obj: DescribeOriginEndpointResponse
   ): any => ({
-    ...obj,
-    ...(obj.Authorization && {
-      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
-    }),
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeOriginEndpointResponse =>
     __isa(o, "DescribeOriginEndpointResponse");
@@ -1140,10 +1037,7 @@ export interface HarvestJob {
 
 export namespace HarvestJob {
   export const filterSensitiveLog = (obj: HarvestJob): any => ({
-    ...obj,
-    ...(obj.S3Destination && {
-      S3Destination: S3Destination.filterSensitiveLog(obj.S3Destination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HarvestJob => __isa(o, "HarvestJob");
 }
@@ -1182,12 +1076,7 @@ export interface HlsEncryption {
 
 export namespace HlsEncryption {
   export const filterSensitiveLog = (obj: HlsEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HlsEncryption => __isa(o, "HlsEncryption");
 }
@@ -1205,12 +1094,7 @@ export interface HlsIngest {
 
 export namespace HlsIngest {
   export const filterSensitiveLog = (obj: HlsIngest): any => ({
-    ...obj,
-    ...(obj.IngestEndpoints && {
-      IngestEndpoints: obj.IngestEndpoints.map(item =>
-        IngestEndpoint.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HlsIngest => __isa(o, "HlsIngest");
 }
@@ -1456,13 +1340,7 @@ export interface HlsPackage {
 
 export namespace HlsPackage {
   export const filterSensitiveLog = (obj: HlsPackage): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: HlsEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is HlsPackage => __isa(o, "HlsPackage");
 }
@@ -1558,10 +1436,7 @@ export interface ListChannelsResponse {
 
 export namespace ListChannelsResponse {
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
-    ...obj,
-    ...(obj.Channels && {
-      Channels: obj.Channels.map(item => Channel.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListChannelsResponse =>
     __isa(o, "ListChannelsResponse");
@@ -1613,12 +1488,7 @@ export interface ListHarvestJobsResponse {
 
 export namespace ListHarvestJobsResponse {
   export const filterSensitiveLog = (obj: ListHarvestJobsResponse): any => ({
-    ...obj,
-    ...(obj.HarvestJobs && {
-      HarvestJobs: obj.HarvestJobs.map(item =>
-        HarvestJob.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListHarvestJobsResponse =>
     __isa(o, "ListHarvestJobsResponse");
@@ -1667,12 +1537,7 @@ export namespace ListOriginEndpointsResponse {
   export const filterSensitiveLog = (
     obj: ListOriginEndpointsResponse
   ): any => ({
-    ...obj,
-    ...(obj.OriginEndpoints && {
-      OriginEndpoints: obj.OriginEndpoints.map(item =>
-        OriginEndpoint.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListOriginEndpointsResponse =>
     __isa(o, "ListOriginEndpointsResponse");
@@ -1724,12 +1589,7 @@ export interface MssEncryption {
 
 export namespace MssEncryption {
   export const filterSensitiveLog = (obj: MssEncryption): any => ({
-    ...obj,
-    ...(obj.SpekeKeyProvider && {
-      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
-        obj.SpekeKeyProvider
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MssEncryption => __isa(o, "MssEncryption");
 }
@@ -1762,13 +1622,7 @@ export interface MssPackage {
 
 export namespace MssPackage {
   export const filterSensitiveLog = (obj: MssPackage): any => ({
-    ...obj,
-    ...(obj.Encryption && {
-      Encryption: MssEncryption.filterSensitiveLog(obj.Encryption)
-    }),
-    ...(obj.StreamSelection && {
-      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is MssPackage => __isa(o, "MssPackage");
 }
@@ -1882,22 +1736,7 @@ export interface OriginEndpoint {
 
 export namespace OriginEndpoint {
   export const filterSensitiveLog = (obj: OriginEndpoint): any => ({
-    ...obj,
-    ...(obj.Authorization && {
-      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
-    }),
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is OriginEndpoint =>
     __isa(o, "OriginEndpoint");
@@ -1969,10 +1808,7 @@ export namespace RotateChannelCredentialsResponse {
   export const filterSensitiveLog = (
     obj: RotateChannelCredentialsResponse
   ): any => ({
-    ...obj,
-    ...(obj.HlsIngest && {
-      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RotateChannelCredentialsResponse =>
     __isa(o, "RotateChannelCredentialsResponse");
@@ -2033,10 +1869,7 @@ export namespace RotateIngestEndpointCredentialsResponse {
   export const filterSensitiveLog = (
     obj: RotateIngestEndpointCredentialsResponse
   ): any => ({
-    ...obj,
-    ...(obj.HlsIngest && {
-      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RotateIngestEndpointCredentialsResponse =>
     __isa(o, "RotateIngestEndpointCredentialsResponse");
@@ -2305,10 +2138,7 @@ export interface UpdateChannelResponse {
 
 export namespace UpdateChannelResponse {
   export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-    ...obj,
-    ...(obj.HlsIngest && {
-      HlsIngest: HlsIngest.filterSensitiveLog(obj.HlsIngest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateChannelResponse =>
     __isa(o, "UpdateChannelResponse");
@@ -2388,24 +2218,7 @@ export namespace UpdateOriginEndpointRequest {
   export const filterSensitiveLog = (
     obj: UpdateOriginEndpointRequest
   ): any => ({
-    ...obj,
-    ...(obj.Authorization && {
-      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
-    }),
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackageCreateOrUpdateParameters.filterSensitiveLog(
-        obj.CmafPackage
-      )
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateOriginEndpointRequest =>
     __isa(o, "UpdateOriginEndpointRequest");
@@ -2502,22 +2315,7 @@ export namespace UpdateOriginEndpointResponse {
   export const filterSensitiveLog = (
     obj: UpdateOriginEndpointResponse
   ): any => ({
-    ...obj,
-    ...(obj.Authorization && {
-      Authorization: Authorization.filterSensitiveLog(obj.Authorization)
-    }),
-    ...(obj.CmafPackage && {
-      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
-    }),
-    ...(obj.DashPackage && {
-      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
-    }),
-    ...(obj.HlsPackage && {
-      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
-    }),
-    ...(obj.MssPackage && {
-      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateOriginEndpointResponse =>
     __isa(o, "UpdateOriginEndpointResponse");

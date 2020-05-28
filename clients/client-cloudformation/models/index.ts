@@ -139,10 +139,7 @@ export interface Change {
 
 export namespace Change {
   export const filterSensitiveLog = (obj: Change): any => ({
-    ...obj,
-    ...(obj.ResourceChange && {
-      ResourceChange: ResourceChange.filterSensitiveLog(obj.ResourceChange)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Change => __isa(o, "Change");
 }
@@ -606,23 +603,7 @@ export interface CreateChangeSetInput {
 
 export namespace CreateChangeSetInput {
   export const filterSensitiveLog = (obj: CreateChangeSetInput): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.ResourcesToImport && {
-      ResourcesToImport: obj.ResourcesToImport.map(item =>
-        ResourceToImport.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RollbackConfiguration && {
-      RollbackConfiguration: RollbackConfiguration.filterSensitiveLog(
-        obj.RollbackConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateChangeSetInput =>
     __isa(o, "CreateChangeSetInput");
@@ -926,18 +907,7 @@ export interface CreateStackInput {
 
 export namespace CreateStackInput {
   export const filterSensitiveLog = (obj: CreateStackInput): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.RollbackConfiguration && {
-      RollbackConfiguration: RollbackConfiguration.filterSensitiveLog(
-        obj.RollbackConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateStackInput =>
     __isa(o, "CreateStackInput");
@@ -1149,12 +1119,7 @@ export namespace DescribeAccountLimitsOutput {
   export const filterSensitiveLog = (
     obj: DescribeAccountLimitsOutput
   ): any => ({
-    ...obj,
-    ...(obj.AccountLimits && {
-      AccountLimits: obj.AccountLimits.map(item =>
-        AccountLimit.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAccountLimitsOutput =>
     __isa(o, "DescribeAccountLimitsOutput");
@@ -1293,21 +1258,7 @@ export interface DescribeChangeSetOutput {
 
 export namespace DescribeChangeSetOutput {
   export const filterSensitiveLog = (obj: DescribeChangeSetOutput): any => ({
-    ...obj,
-    ...(obj.Changes && {
-      Changes: obj.Changes.map(item => Change.filterSensitiveLog(item))
-    }),
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.RollbackConfiguration && {
-      RollbackConfiguration: RollbackConfiguration.filterSensitiveLog(
-        obj.RollbackConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeChangeSetOutput =>
     __isa(o, "DescribeChangeSetOutput");
@@ -1485,12 +1436,7 @@ export interface DescribeStackEventsOutput {
 
 export namespace DescribeStackEventsOutput {
   export const filterSensitiveLog = (obj: DescribeStackEventsOutput): any => ({
-    ...obj,
-    ...(obj.StackEvents && {
-      StackEvents: obj.StackEvents.map(item =>
-        StackEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackEventsOutput =>
     __isa(o, "DescribeStackEventsOutput");
@@ -1582,12 +1528,7 @@ export namespace DescribeStackResourceDriftsOutput {
   export const filterSensitiveLog = (
     obj: DescribeStackResourceDriftsOutput
   ): any => ({
-    ...obj,
-    ...(obj.StackResourceDrifts && {
-      StackResourceDrifts: obj.StackResourceDrifts.map(item =>
-        StackResourceDrift.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackResourceDriftsOutput =>
     __isa(o, "DescribeStackResourceDriftsOutput");
@@ -1645,12 +1586,7 @@ export namespace DescribeStackResourceOutput {
   export const filterSensitiveLog = (
     obj: DescribeStackResourceOutput
   ): any => ({
-    ...obj,
-    ...(obj.StackResourceDetail && {
-      StackResourceDetail: StackResourceDetail.filterSensitiveLog(
-        obj.StackResourceDetail
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackResourceOutput =>
     __isa(o, "DescribeStackResourceOutput");
@@ -1724,12 +1660,7 @@ export namespace DescribeStackResourcesOutput {
   export const filterSensitiveLog = (
     obj: DescribeStackResourcesOutput
   ): any => ({
-    ...obj,
-    ...(obj.StackResources && {
-      StackResources: obj.StackResources.map(item =>
-        StackResource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackResourcesOutput =>
     __isa(o, "DescribeStackResourcesOutput");
@@ -1789,10 +1720,7 @@ export interface DescribeStacksOutput {
 
 export namespace DescribeStacksOutput {
   export const filterSensitiveLog = (obj: DescribeStacksOutput): any => ({
-    ...obj,
-    ...(obj.Stacks && {
-      Stacks: obj.Stacks.map(item => Stack.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStacksOutput =>
     __isa(o, "DescribeStacksOutput");
@@ -1973,10 +1901,7 @@ export interface DescribeTypeOutput {
 
 export namespace DescribeTypeOutput {
   export const filterSensitiveLog = (obj: DescribeTypeOutput): any => ({
-    ...obj,
-    ...(obj.LoggingConfig && {
-      LoggingConfig: LoggingConfig.filterSensitiveLog(obj.LoggingConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTypeOutput =>
     __isa(o, "DescribeTypeOutput");
@@ -2115,12 +2040,7 @@ export namespace DetectStackResourceDriftOutput {
   export const filterSensitiveLog = (
     obj: DetectStackResourceDriftOutput
   ): any => ({
-    ...obj,
-    ...(obj.StackResourceDrift && {
-      StackResourceDrift: StackResourceDrift.filterSensitiveLog(
-        obj.StackResourceDrift
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DetectStackResourceDriftOutput =>
     __isa(o, "DetectStackResourceDriftOutput");
@@ -2163,10 +2083,7 @@ export interface EstimateTemplateCostInput {
 
 export namespace EstimateTemplateCostInput {
   export const filterSensitiveLog = (obj: EstimateTemplateCostInput): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is EstimateTemplateCostInput =>
     __isa(o, "EstimateTemplateCostInput");
@@ -2527,17 +2444,7 @@ export interface GetTemplateSummaryOutput {
 
 export namespace GetTemplateSummaryOutput {
   export const filterSensitiveLog = (obj: GetTemplateSummaryOutput): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        ParameterDeclaration.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceIdentifierSummaries && {
-      ResourceIdentifierSummaries: obj.ResourceIdentifierSummaries.map(item =>
-        ResourceIdentifierSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetTemplateSummaryOutput =>
     __isa(o, "GetTemplateSummaryOutput");
@@ -2693,12 +2600,7 @@ export interface ListChangeSetsOutput {
 
 export namespace ListChangeSetsOutput {
   export const filterSensitiveLog = (obj: ListChangeSetsOutput): any => ({
-    ...obj,
-    ...(obj.Summaries && {
-      Summaries: obj.Summaries.map(item =>
-        ChangeSetSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListChangeSetsOutput =>
     __isa(o, "ListChangeSetsOutput");
@@ -2737,10 +2639,7 @@ export interface ListExportsOutput {
 
 export namespace ListExportsOutput {
   export const filterSensitiveLog = (obj: ListExportsOutput): any => ({
-    ...obj,
-    ...(obj.Exports && {
-      Exports: obj.Exports.map(item => Export.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListExportsOutput =>
     __isa(o, "ListExportsOutput");
@@ -2848,12 +2747,7 @@ export interface ListStackResourcesOutput {
 
 export namespace ListStackResourcesOutput {
   export const filterSensitiveLog = (obj: ListStackResourcesOutput): any => ({
-    ...obj,
-    ...(obj.StackResourceSummaries && {
-      StackResourceSummaries: obj.StackResourceSummaries.map(item =>
-        StackResourceSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStackResourcesOutput =>
     __isa(o, "ListStackResourcesOutput");
@@ -2905,12 +2799,7 @@ export interface ListStacksOutput {
 
 export namespace ListStacksOutput {
   export const filterSensitiveLog = (obj: ListStacksOutput): any => ({
-    ...obj,
-    ...(obj.StackSummaries && {
-      StackSummaries: obj.StackSummaries.map(item =>
-        StackSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStacksOutput =>
     __isa(o, "ListStacksOutput");
@@ -3056,12 +2945,7 @@ export interface ListTypeVersionsOutput {
 
 export namespace ListTypeVersionsOutput {
   export const filterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
-    ...obj,
-    ...(obj.TypeVersionSummaries && {
-      TypeVersionSummaries: obj.TypeVersionSummaries.map(item =>
-        TypeVersionSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTypeVersionsOutput =>
     __isa(o, "ListTypeVersionsOutput");
@@ -3155,12 +3039,7 @@ export interface ListTypesOutput {
 
 export namespace ListTypesOutput {
   export const filterSensitiveLog = (obj: ListTypesOutput): any => ({
-    ...obj,
-    ...(obj.TypeSummaries && {
-      TypeSummaries: obj.TypeSummaries.map(item =>
-        TypeSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTypesOutput =>
     __isa(o, "ListTypesOutput");
@@ -3355,12 +3234,7 @@ export interface ParameterDeclaration {
 
 export namespace ParameterDeclaration {
   export const filterSensitiveLog = (obj: ParameterDeclaration): any => ({
-    ...obj,
-    ...(obj.ParameterConstraints && {
-      ParameterConstraints: ParameterConstraints.filterSensitiveLog(
-        obj.ParameterConstraints
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ParameterDeclaration =>
     __isa(o, "ParameterDeclaration");
@@ -3597,10 +3471,7 @@ export interface RegisterTypeInput {
 
 export namespace RegisterTypeInput {
   export const filterSensitiveLog = (obj: RegisterTypeInput): any => ({
-    ...obj,
-    ...(obj.LoggingConfig && {
-      LoggingConfig: LoggingConfig.filterSensitiveLog(obj.LoggingConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is RegisterTypeInput =>
     __isa(o, "RegisterTypeInput");
@@ -3714,12 +3585,7 @@ export interface ResourceChange {
 
 export namespace ResourceChange {
   export const filterSensitiveLog = (obj: ResourceChange): any => ({
-    ...obj,
-    ...(obj.Details && {
-      Details: obj.Details.map(item =>
-        ResourceChangeDetail.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceChange =>
     __isa(o, "ResourceChange");
@@ -3810,10 +3676,7 @@ export interface ResourceChangeDetail {
 
 export namespace ResourceChangeDetail {
   export const filterSensitiveLog = (obj: ResourceChangeDetail): any => ({
-    ...obj,
-    ...(obj.Target && {
-      Target: ResourceTargetDefinition.filterSensitiveLog(obj.Target)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceChangeDetail =>
     __isa(o, "ResourceChangeDetail");
@@ -4004,12 +3867,7 @@ export interface RollbackConfiguration {
 
 export namespace RollbackConfiguration {
   export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
-    ...obj,
-    ...(obj.RollbackTriggers && {
-      RollbackTriggers: obj.RollbackTriggers.map(item =>
-        RollbackTrigger.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RollbackConfiguration =>
     __isa(o, "RollbackConfiguration");
@@ -4312,26 +4170,7 @@ export interface Stack {
 
 export namespace Stack {
   export const filterSensitiveLog = (obj: Stack): any => ({
-    ...obj,
-    ...(obj.DriftInformation && {
-      DriftInformation: StackDriftInformation.filterSensitiveLog(
-        obj.DriftInformation
-      )
-    }),
-    ...(obj.Outputs && {
-      Outputs: obj.Outputs.map(item => Output.filterSensitiveLog(item))
-    }),
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.RollbackConfiguration && {
-      RollbackConfiguration: RollbackConfiguration.filterSensitiveLog(
-        obj.RollbackConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Stack => __isa(o, "Stack");
 }
@@ -4597,12 +4436,7 @@ export interface StackResource {
 
 export namespace StackResource {
   export const filterSensitiveLog = (obj: StackResource): any => ({
-    ...obj,
-    ...(obj.DriftInformation && {
-      DriftInformation: StackResourceDriftInformation.filterSensitiveLog(
-        obj.DriftInformation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackResource => __isa(o, "StackResource");
 }
@@ -4677,12 +4511,7 @@ export interface StackResourceDetail {
 
 export namespace StackResourceDetail {
   export const filterSensitiveLog = (obj: StackResourceDetail): any => ({
-    ...obj,
-    ...(obj.DriftInformation && {
-      DriftInformation: StackResourceDriftInformation.filterSensitiveLog(
-        obj.DriftInformation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackResourceDetail =>
     __isa(o, "StackResourceDetail");
@@ -4792,17 +4621,7 @@ export interface StackResourceDrift {
 
 export namespace StackResourceDrift {
   export const filterSensitiveLog = (obj: StackResourceDrift): any => ({
-    ...obj,
-    ...(obj.PhysicalResourceIdContext && {
-      PhysicalResourceIdContext: obj.PhysicalResourceIdContext.map(item =>
-        PhysicalResourceIdContextKeyValuePair.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.PropertyDifferences && {
-      PropertyDifferences: obj.PropertyDifferences.map(item =>
-        PropertyDifference.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackResourceDrift =>
     __isa(o, "StackResourceDrift");
@@ -4971,12 +4790,7 @@ export interface StackResourceSummary {
 
 export namespace StackResourceSummary {
   export const filterSensitiveLog = (obj: StackResourceSummary): any => ({
-    ...obj,
-    ...(obj.DriftInformation && {
-      DriftInformation: StackResourceDriftInformationSummary.filterSensitiveLog(
-        obj.DriftInformation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackResourceSummary =>
     __isa(o, "StackResourceSummary");
@@ -5100,12 +4914,7 @@ export interface StackSummary {
 
 export namespace StackSummary {
   export const filterSensitiveLog = (obj: StackSummary): any => ({
-    ...obj,
-    ...(obj.DriftInformation && {
-      DriftInformation: StackDriftInformationSummary.filterSensitiveLog(
-        obj.DriftInformation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackSummary => __isa(o, "StackSummary");
 }
@@ -5572,18 +5381,7 @@ export interface UpdateStackInput {
 
 export namespace UpdateStackInput {
   export const filterSensitiveLog = (obj: UpdateStackInput): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.RollbackConfiguration && {
-      RollbackConfiguration: RollbackConfiguration.filterSensitiveLog(
-        obj.RollbackConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateStackInput =>
     __isa(o, "UpdateStackInput");
@@ -5721,12 +5519,7 @@ export interface ValidateTemplateOutput {
 
 export namespace ValidateTemplateOutput {
   export const filterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        TemplateParameter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ValidateTemplateOutput =>
     __isa(o, "ValidateTemplateOutput");
@@ -5893,17 +5686,7 @@ export interface CreateStackInstancesInput {
 
 export namespace CreateStackInstancesInput {
   export const filterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
-    ...obj,
-    ...(obj.OperationPreferences && {
-      OperationPreferences: StackSetOperationPreferences.filterSensitiveLog(
-        obj.OperationPreferences
-      )
-    }),
-    ...(obj.ParameterOverrides && {
-      ParameterOverrides: obj.ParameterOverrides.map(item =>
-        Parameter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateStackInstancesInput =>
     __isa(o, "CreateStackInstancesInput");
@@ -6111,13 +5894,7 @@ export interface CreateStackSetInput {
 
 export namespace CreateStackSetInput {
   export const filterSensitiveLog = (obj: CreateStackSetInput): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateStackSetInput =>
     __isa(o, "CreateStackSetInput");
@@ -6206,12 +5983,7 @@ export interface DeleteStackInstancesInput {
 
 export namespace DeleteStackInstancesInput {
   export const filterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
-    ...obj,
-    ...(obj.OperationPreferences && {
-      OperationPreferences: StackSetOperationPreferences.filterSensitiveLog(
-        obj.OperationPreferences
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteStackInstancesInput =>
     __isa(o, "DeleteStackInstancesInput");
@@ -6301,10 +6073,7 @@ export namespace DescribeStackInstanceOutput {
   export const filterSensitiveLog = (
     obj: DescribeStackInstanceOutput
   ): any => ({
-    ...obj,
-    ...(obj.StackInstance && {
-      StackInstance: StackInstance.filterSensitiveLog(obj.StackInstance)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackInstanceOutput =>
     __isa(o, "DescribeStackInstanceOutput");
@@ -6361,12 +6130,7 @@ export namespace DescribeStackSetOperationOutput {
   export const filterSensitiveLog = (
     obj: DescribeStackSetOperationOutput
   ): any => ({
-    ...obj,
-    ...(obj.StackSetOperation && {
-      StackSetOperation: StackSetOperation.filterSensitiveLog(
-        obj.StackSetOperation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackSetOperationOutput =>
     __isa(o, "DescribeStackSetOperationOutput");
@@ -6382,8 +6146,7 @@ export interface DescribeStackSetOutput {
 
 export namespace DescribeStackSetOutput {
   export const filterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
-    ...obj,
-    ...(obj.StackSet && { StackSet: StackSet.filterSensitiveLog(obj.StackSet) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackSetOutput =>
     __isa(o, "DescribeStackSetOutput");
@@ -6413,12 +6176,7 @@ export interface DetectStackSetDriftInput {
 
 export namespace DetectStackSetDriftInput {
   export const filterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
-    ...obj,
-    ...(obj.OperationPreferences && {
-      OperationPreferences: StackSetOperationPreferences.filterSensitiveLog(
-        obj.OperationPreferences
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DetectStackSetDriftInput =>
     __isa(o, "DetectStackSetDriftInput");
@@ -6526,12 +6284,7 @@ export interface ListStackInstancesOutput {
 
 export namespace ListStackInstancesOutput {
   export const filterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
-    ...obj,
-    ...(obj.Summaries && {
-      Summaries: obj.Summaries.map(item =>
-        StackInstanceSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStackInstancesOutput =>
     __isa(o, "ListStackInstancesOutput");
@@ -6601,12 +6354,7 @@ export namespace ListStackSetOperationResultsOutput {
   export const filterSensitiveLog = (
     obj: ListStackSetOperationResultsOutput
   ): any => ({
-    ...obj,
-    ...(obj.Summaries && {
-      Summaries: obj.Summaries.map(item =>
-        StackSetOperationResultSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStackSetOperationResultsOutput =>
     __isa(o, "ListStackSetOperationResultsOutput");
@@ -6670,12 +6418,7 @@ export namespace ListStackSetOperationsOutput {
   export const filterSensitiveLog = (
     obj: ListStackSetOperationsOutput
   ): any => ({
-    ...obj,
-    ...(obj.Summaries && {
-      Summaries: obj.Summaries.map(item =>
-        StackSetOperationSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStackSetOperationsOutput =>
     __isa(o, "ListStackSetOperationsOutput");
@@ -6736,12 +6479,7 @@ export interface ListStackSetsOutput {
 
 export namespace ListStackSetsOutput {
   export const filterSensitiveLog = (obj: ListStackSetsOutput): any => ({
-    ...obj,
-    ...(obj.Summaries && {
-      Summaries: obj.Summaries.map(item =>
-        StackSetSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListStackSetsOutput =>
     __isa(o, "ListStackSetsOutput");
@@ -6948,12 +6686,7 @@ export interface StackInstance {
 
 export namespace StackInstance {
   export const filterSensitiveLog = (obj: StackInstance): any => ({
-    ...obj,
-    ...(obj.ParameterOverrides && {
-      ParameterOverrides: obj.ParameterOverrides.map(item =>
-        Parameter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackInstance => __isa(o, "StackInstance");
 }
@@ -7184,18 +6917,7 @@ export interface StackSet {
 
 export namespace StackSet {
   export const filterSensitiveLog = (obj: StackSet): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.StackSetDriftDetectionDetails && {
-      StackSetDriftDetectionDetails: StackSetDriftDetectionDetails.filterSensitiveLog(
-        obj.StackSetDriftDetectionDetails
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackSet => __isa(o, "StackSet");
 }
@@ -7487,17 +7209,7 @@ export interface StackSetOperation {
 
 export namespace StackSetOperation {
   export const filterSensitiveLog = (obj: StackSetOperation): any => ({
-    ...obj,
-    ...(obj.OperationPreferences && {
-      OperationPreferences: StackSetOperationPreferences.filterSensitiveLog(
-        obj.OperationPreferences
-      )
-    }),
-    ...(obj.StackSetDriftDetectionDetails && {
-      StackSetDriftDetectionDetails: StackSetDriftDetectionDetails.filterSensitiveLog(
-        obj.StackSetDriftDetectionDetails
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackSetOperation =>
     __isa(o, "StackSetOperation");
@@ -7656,12 +7368,7 @@ export namespace StackSetOperationResultSummary {
   export const filterSensitiveLog = (
     obj: StackSetOperationResultSummary
   ): any => ({
-    ...obj,
-    ...(obj.AccountGateResult && {
-      AccountGateResult: AccountGateResult.filterSensitiveLog(
-        obj.AccountGateResult
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackSetOperationResultSummary =>
     __isa(o, "StackSetOperationResultSummary");
@@ -7973,17 +7680,7 @@ export interface UpdateStackInstancesInput {
 
 export namespace UpdateStackInstancesInput {
   export const filterSensitiveLog = (obj: UpdateStackInstancesInput): any => ({
-    ...obj,
-    ...(obj.OperationPreferences && {
-      OperationPreferences: StackSetOperationPreferences.filterSensitiveLog(
-        obj.OperationPreferences
-      )
-    }),
-    ...(obj.ParameterOverrides && {
-      ParameterOverrides: obj.ParameterOverrides.map(item =>
-        Parameter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateStackInstancesInput =>
     __isa(o, "UpdateStackInstancesInput");
@@ -8263,18 +7960,7 @@ export interface UpdateStackSetInput {
 
 export namespace UpdateStackSetInput {
   export const filterSensitiveLog = (obj: UpdateStackSetInput): any => ({
-    ...obj,
-    ...(obj.OperationPreferences && {
-      OperationPreferences: StackSetOperationPreferences.filterSensitiveLog(
-        obj.OperationPreferences
-      )
-    }),
-    ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item => Parameter.filterSensitiveLog(item))
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateStackSetInput =>
     __isa(o, "UpdateStackSetInput");

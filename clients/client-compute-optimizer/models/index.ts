@@ -142,22 +142,7 @@ export namespace AutoScalingGroupRecommendation {
   export const filterSensitiveLog = (
     obj: AutoScalingGroupRecommendation
   ): any => ({
-    ...obj,
-    ...(obj.currentConfiguration && {
-      currentConfiguration: AutoScalingGroupConfiguration.filterSensitiveLog(
-        obj.currentConfiguration
-      )
-    }),
-    ...(obj.recommendationOptions && {
-      recommendationOptions: obj.recommendationOptions.map(item =>
-        AutoScalingGroupRecommendationOption.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.utilizationMetrics && {
-      utilizationMetrics: obj.utilizationMetrics.map(item =>
-        UtilizationMetric.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AutoScalingGroupRecommendation =>
     __isa(o, "AutoScalingGroupRecommendation");
@@ -199,17 +184,7 @@ export namespace AutoScalingGroupRecommendationOption {
   export const filterSensitiveLog = (
     obj: AutoScalingGroupRecommendationOption
   ): any => ({
-    ...obj,
-    ...(obj.configuration && {
-      configuration: AutoScalingGroupConfiguration.filterSensitiveLog(
-        obj.configuration
-      )
-    }),
-    ...(obj.projectedUtilizationMetrics && {
-      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(item =>
-        UtilizationMetric.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AutoScalingGroupRecommendationOption =>
     __isa(o, "AutoScalingGroupRecommendationOption");
@@ -301,10 +276,7 @@ export namespace GetAutoScalingGroupRecommendationsRequest {
   export const filterSensitiveLog = (
     obj: GetAutoScalingGroupRecommendationsRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAutoScalingGroupRecommendationsRequest =>
     __isa(o, "GetAutoScalingGroupRecommendationsRequest");
@@ -336,17 +308,7 @@ export namespace GetAutoScalingGroupRecommendationsResponse {
   export const filterSensitiveLog = (
     obj: GetAutoScalingGroupRecommendationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.autoScalingGroupRecommendations && {
-      autoScalingGroupRecommendations: obj.autoScalingGroupRecommendations.map(
-        item => AutoScalingGroupRecommendation.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        GetRecommendationError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -391,10 +353,7 @@ export namespace GetEC2InstanceRecommendationsRequest {
   export const filterSensitiveLog = (
     obj: GetEC2InstanceRecommendationsRequest
   ): any => ({
-    ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEC2InstanceRecommendationsRequest =>
     __isa(o, "GetEC2InstanceRecommendationsRequest");
@@ -426,17 +385,7 @@ export namespace GetEC2InstanceRecommendationsResponse {
   export const filterSensitiveLog = (
     obj: GetEC2InstanceRecommendationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        GetRecommendationError.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.instanceRecommendations && {
-      instanceRecommendations: obj.instanceRecommendations.map(item =>
-        InstanceRecommendation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetEC2InstanceRecommendationsResponse =>
     __isa(o, "GetEC2InstanceRecommendationsResponse");
@@ -495,12 +444,7 @@ export namespace GetEC2RecommendationProjectedMetricsResponse {
   export const filterSensitiveLog = (
     obj: GetEC2RecommendationProjectedMetricsResponse
   ): any => ({
-    ...obj,
-    ...(obj.recommendedOptionProjectedMetrics && {
-      recommendedOptionProjectedMetrics: obj.recommendedOptionProjectedMetrics.map(
-        item => RecommendedOptionProjectedMetric.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -633,12 +577,7 @@ export namespace GetRecommendationSummariesResponse {
   export const filterSensitiveLog = (
     obj: GetRecommendationSummariesResponse
   ): any => ({
-    ...obj,
-    ...(obj.recommendationSummaries && {
-      recommendationSummaries: obj.recommendationSummaries.map(item =>
-        RecommendationSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRecommendationSummariesResponse =>
     __isa(o, "GetRecommendationSummariesResponse");
@@ -742,22 +681,7 @@ export interface InstanceRecommendation {
 
 export namespace InstanceRecommendation {
   export const filterSensitiveLog = (obj: InstanceRecommendation): any => ({
-    ...obj,
-    ...(obj.recommendationOptions && {
-      recommendationOptions: obj.recommendationOptions.map(item =>
-        InstanceRecommendationOption.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.recommendationSources && {
-      recommendationSources: obj.recommendationSources.map(item =>
-        RecommendationSource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.utilizationMetrics && {
-      utilizationMetrics: obj.utilizationMetrics.map(item =>
-        UtilizationMetric.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceRecommendation =>
     __isa(o, "InstanceRecommendation");
@@ -799,12 +723,7 @@ export namespace InstanceRecommendationOption {
   export const filterSensitiveLog = (
     obj: InstanceRecommendationOption
   ): any => ({
-    ...obj,
-    ...(obj.projectedUtilizationMetrics && {
-      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(item =>
-        UtilizationMetric.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceRecommendationOption =>
     __isa(o, "InstanceRecommendationOption");
@@ -987,10 +906,7 @@ export interface RecommendationSummary {
 
 export namespace RecommendationSummary {
   export const filterSensitiveLog = (obj: RecommendationSummary): any => ({
-    ...obj,
-    ...(obj.summaries && {
-      summaries: obj.summaries.map(item => Summary.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecommendationSummary =>
     __isa(o, "RecommendationSummary");
@@ -1025,12 +941,7 @@ export namespace RecommendedOptionProjectedMetric {
   export const filterSensitiveLog = (
     obj: RecommendedOptionProjectedMetric
   ): any => ({
-    ...obj,
-    ...(obj.projectedMetrics && {
-      projectedMetrics: obj.projectedMetrics.map(item =>
-        ProjectedMetric.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RecommendedOptionProjectedMetric =>
     __isa(o, "RecommendedOptionProjectedMetric");

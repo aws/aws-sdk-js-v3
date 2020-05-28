@@ -24,8 +24,7 @@ export interface AccessPoliciesStatus {
 
 export namespace AccessPoliciesStatus {
   export const filterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
-    ...obj,
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is AccessPoliciesStatus =>
     __isa(o, "AccessPoliciesStatus");
@@ -49,10 +48,7 @@ export interface AddTagsRequest {
 
 export namespace AddTagsRequest {
   export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
-    ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AddTagsRequest =>
     __isa(o, "AddTagsRequest");
@@ -143,8 +139,7 @@ export interface AdvancedOptionsStatus {
 
 export namespace AdvancedOptionsStatus {
   export const filterSensitiveLog = (obj: AdvancedOptionsStatus): any => ({
-    ...obj,
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is AdvancedOptionsStatus =>
     __isa(o, "AdvancedOptionsStatus");
@@ -188,12 +183,7 @@ export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
   export const filterSensitiveLog = (
     obj: CancelElasticsearchServiceSoftwareUpdateResponse
   ): any => ({
-    ...obj,
-    ...(obj.ServiceSoftwareOptions && {
-      ServiceSoftwareOptions: ServiceSoftwareOptions.filterSensitiveLog(
-        obj.ServiceSoftwareOptions
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -253,11 +243,7 @@ export interface CognitoOptionsStatus {
 
 export namespace CognitoOptionsStatus {
   export const filterSensitiveLog = (obj: CognitoOptionsStatus): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: CognitoOptions.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is CognitoOptionsStatus =>
     __isa(o, "CognitoOptionsStatus");
@@ -372,48 +358,7 @@ export namespace CreateElasticsearchDomainRequest {
   export const filterSensitiveLog = (
     obj: CreateElasticsearchDomainRequest
   ): any => ({
-    ...obj,
-    ...(obj.CognitoOptions && {
-      CognitoOptions: CognitoOptions.filterSensitiveLog(obj.CognitoOptions)
-    }),
-    ...(obj.DomainEndpointOptions && {
-      DomainEndpointOptions: DomainEndpointOptions.filterSensitiveLog(
-        obj.DomainEndpointOptions
-      )
-    }),
-    ...(obj.EBSOptions && {
-      EBSOptions: EBSOptions.filterSensitiveLog(obj.EBSOptions)
-    }),
-    ...(obj.ElasticsearchClusterConfig && {
-      ElasticsearchClusterConfig: ElasticsearchClusterConfig.filterSensitiveLog(
-        obj.ElasticsearchClusterConfig
-      )
-    }),
-    ...(obj.EncryptionAtRestOptions && {
-      EncryptionAtRestOptions: EncryptionAtRestOptions.filterSensitiveLog(
-        obj.EncryptionAtRestOptions
-      )
-    }),
-    ...(obj.LogPublishingOptions && {
-      LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
-          ...acc,
-          [key]: LogPublishingOption.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.NodeToNodeEncryptionOptions && {
-      NodeToNodeEncryptionOptions: NodeToNodeEncryptionOptions.filterSensitiveLog(
-        obj.NodeToNodeEncryptionOptions
-      )
-    }),
-    ...(obj.SnapshotOptions && {
-      SnapshotOptions: SnapshotOptions.filterSensitiveLog(obj.SnapshotOptions)
-    }),
-    ...(obj.VPCOptions && {
-      VPCOptions: VPCOptions.filterSensitiveLog(obj.VPCOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateElasticsearchDomainRequest =>
     __isa(o, "CreateElasticsearchDomainRequest");
@@ -434,12 +379,7 @@ export namespace CreateElasticsearchDomainResponse {
   export const filterSensitiveLog = (
     obj: CreateElasticsearchDomainResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainStatus && {
-      DomainStatus: ElasticsearchDomainStatus.filterSensitiveLog(
-        obj.DomainStatus
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateElasticsearchDomainResponse =>
     __isa(o, "CreateElasticsearchDomainResponse");
@@ -481,12 +421,7 @@ export namespace DeleteElasticsearchDomainResponse {
   export const filterSensitiveLog = (
     obj: DeleteElasticsearchDomainResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainStatus && {
-      DomainStatus: ElasticsearchDomainStatus.filterSensitiveLog(
-        obj.DomainStatus
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteElasticsearchDomainResponse =>
     __isa(o, "DeleteElasticsearchDomainResponse");
@@ -535,12 +470,7 @@ export namespace DescribeElasticsearchDomainConfigResponse {
   export const filterSensitiveLog = (
     obj: DescribeElasticsearchDomainConfigResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainConfig && {
-      DomainConfig: ElasticsearchDomainConfig.filterSensitiveLog(
-        obj.DomainConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainConfigResponse =>
     __isa(o, "DescribeElasticsearchDomainConfigResponse");
@@ -582,12 +512,7 @@ export namespace DescribeElasticsearchDomainResponse {
   export const filterSensitiveLog = (
     obj: DescribeElasticsearchDomainResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainStatus && {
-      DomainStatus: ElasticsearchDomainStatus.filterSensitiveLog(
-        obj.DomainStatus
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainResponse =>
     __isa(o, "DescribeElasticsearchDomainResponse");
@@ -629,12 +554,7 @@ export namespace DescribeElasticsearchDomainsResponse {
   export const filterSensitiveLog = (
     obj: DescribeElasticsearchDomainsResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainStatusList && {
-      DomainStatusList: obj.DomainStatusList.map(item =>
-        ElasticsearchDomainStatus.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeElasticsearchDomainsResponse =>
     __isa(o, "DescribeElasticsearchDomainsResponse");
@@ -729,16 +649,7 @@ export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
   export const filterSensitiveLog = (
     obj: DescribeElasticsearchInstanceTypeLimitsResponse
   ): any => ({
-    ...obj,
-    ...(obj.LimitsByRole && {
-      LimitsByRole: Object.entries(obj.LimitsByRole).reduce(
-        (acc: any, [key, value]: [string, Limits]) => ({
-          ...acc,
-          [key]: Limits.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -800,12 +711,7 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
   export const filterSensitiveLog = (
     obj: DescribeReservedElasticsearchInstanceOfferingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReservedElasticsearchInstanceOfferings && {
-      ReservedElasticsearchInstanceOfferings: obj.ReservedElasticsearchInstanceOfferings.map(
-        item => ReservedElasticsearchInstanceOffering.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -867,12 +773,7 @@ export namespace DescribeReservedElasticsearchInstancesResponse {
   export const filterSensitiveLog = (
     obj: DescribeReservedElasticsearchInstancesResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReservedElasticsearchInstances && {
-      ReservedElasticsearchInstances: obj.ReservedElasticsearchInstances.map(
-        item => ReservedElasticsearchInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -930,11 +831,7 @@ export namespace DomainEndpointOptionsStatus {
   export const filterSensitiveLog = (
     obj: DomainEndpointOptionsStatus
   ): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: DomainEndpointOptions.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is DomainEndpointOptionsStatus =>
     __isa(o, "DomainEndpointOptionsStatus");
@@ -1006,9 +903,7 @@ export interface EBSOptionsStatus {
 
 export namespace EBSOptionsStatus {
   export const filterSensitiveLog = (obj: EBSOptionsStatus): any => ({
-    ...obj,
-    ...(obj.Options && { Options: EBSOptions.filterSensitiveLog(obj.Options) }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is EBSOptionsStatus =>
     __isa(o, "EBSOptionsStatus");
@@ -1136,12 +1031,7 @@ export interface ElasticsearchClusterConfig {
 
 export namespace ElasticsearchClusterConfig {
   export const filterSensitiveLog = (obj: ElasticsearchClusterConfig): any => ({
-    ...obj,
-    ...(obj.ZoneAwarenessConfig && {
-      ZoneAwarenessConfig: ZoneAwarenessConfig.filterSensitiveLog(
-        obj.ZoneAwarenessConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ElasticsearchClusterConfig =>
     __isa(o, "ElasticsearchClusterConfig");
@@ -1167,11 +1057,7 @@ export namespace ElasticsearchClusterConfigStatus {
   export const filterSensitiveLog = (
     obj: ElasticsearchClusterConfigStatus
   ): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: ElasticsearchClusterConfig.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is ElasticsearchClusterConfigStatus =>
     __isa(o, "ElasticsearchClusterConfigStatus");
@@ -1245,63 +1131,7 @@ export interface ElasticsearchDomainConfig {
 
 export namespace ElasticsearchDomainConfig {
   export const filterSensitiveLog = (obj: ElasticsearchDomainConfig): any => ({
-    ...obj,
-    ...(obj.AccessPolicies && {
-      AccessPolicies: AccessPoliciesStatus.filterSensitiveLog(
-        obj.AccessPolicies
-      )
-    }),
-    ...(obj.AdvancedOptions && {
-      AdvancedOptions: AdvancedOptionsStatus.filterSensitiveLog(
-        obj.AdvancedOptions
-      )
-    }),
-    ...(obj.CognitoOptions && {
-      CognitoOptions: CognitoOptionsStatus.filterSensitiveLog(
-        obj.CognitoOptions
-      )
-    }),
-    ...(obj.DomainEndpointOptions && {
-      DomainEndpointOptions: DomainEndpointOptionsStatus.filterSensitiveLog(
-        obj.DomainEndpointOptions
-      )
-    }),
-    ...(obj.EBSOptions && {
-      EBSOptions: EBSOptionsStatus.filterSensitiveLog(obj.EBSOptions)
-    }),
-    ...(obj.ElasticsearchClusterConfig && {
-      ElasticsearchClusterConfig: ElasticsearchClusterConfigStatus.filterSensitiveLog(
-        obj.ElasticsearchClusterConfig
-      )
-    }),
-    ...(obj.ElasticsearchVersion && {
-      ElasticsearchVersion: ElasticsearchVersionStatus.filterSensitiveLog(
-        obj.ElasticsearchVersion
-      )
-    }),
-    ...(obj.EncryptionAtRestOptions && {
-      EncryptionAtRestOptions: EncryptionAtRestOptionsStatus.filterSensitiveLog(
-        obj.EncryptionAtRestOptions
-      )
-    }),
-    ...(obj.LogPublishingOptions && {
-      LogPublishingOptions: LogPublishingOptionsStatus.filterSensitiveLog(
-        obj.LogPublishingOptions
-      )
-    }),
-    ...(obj.NodeToNodeEncryptionOptions && {
-      NodeToNodeEncryptionOptions: NodeToNodeEncryptionOptionsStatus.filterSensitiveLog(
-        obj.NodeToNodeEncryptionOptions
-      )
-    }),
-    ...(obj.SnapshotOptions && {
-      SnapshotOptions: SnapshotOptionsStatus.filterSensitiveLog(
-        obj.SnapshotOptions
-      )
-    }),
-    ...(obj.VPCOptions && {
-      VPCOptions: VPCDerivedInfoStatus.filterSensitiveLog(obj.VPCOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ElasticsearchDomainConfig =>
     __isa(o, "ElasticsearchDomainConfig");
@@ -1421,53 +1251,7 @@ export interface ElasticsearchDomainStatus {
 
 export namespace ElasticsearchDomainStatus {
   export const filterSensitiveLog = (obj: ElasticsearchDomainStatus): any => ({
-    ...obj,
-    ...(obj.CognitoOptions && {
-      CognitoOptions: CognitoOptions.filterSensitiveLog(obj.CognitoOptions)
-    }),
-    ...(obj.DomainEndpointOptions && {
-      DomainEndpointOptions: DomainEndpointOptions.filterSensitiveLog(
-        obj.DomainEndpointOptions
-      )
-    }),
-    ...(obj.EBSOptions && {
-      EBSOptions: EBSOptions.filterSensitiveLog(obj.EBSOptions)
-    }),
-    ...(obj.ElasticsearchClusterConfig && {
-      ElasticsearchClusterConfig: ElasticsearchClusterConfig.filterSensitiveLog(
-        obj.ElasticsearchClusterConfig
-      )
-    }),
-    ...(obj.EncryptionAtRestOptions && {
-      EncryptionAtRestOptions: EncryptionAtRestOptions.filterSensitiveLog(
-        obj.EncryptionAtRestOptions
-      )
-    }),
-    ...(obj.LogPublishingOptions && {
-      LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
-          ...acc,
-          [key]: LogPublishingOption.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.NodeToNodeEncryptionOptions && {
-      NodeToNodeEncryptionOptions: NodeToNodeEncryptionOptions.filterSensitiveLog(
-        obj.NodeToNodeEncryptionOptions
-      )
-    }),
-    ...(obj.ServiceSoftwareOptions && {
-      ServiceSoftwareOptions: ServiceSoftwareOptions.filterSensitiveLog(
-        obj.ServiceSoftwareOptions
-      )
-    }),
-    ...(obj.SnapshotOptions && {
-      SnapshotOptions: SnapshotOptions.filterSensitiveLog(obj.SnapshotOptions)
-    }),
-    ...(obj.VPCOptions && {
-      VPCOptions: VPCDerivedInfo.filterSensitiveLog(obj.VPCOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ElasticsearchDomainStatus =>
     __isa(o, "ElasticsearchDomainStatus");
@@ -1491,8 +1275,7 @@ export interface ElasticsearchVersionStatus {
 
 export namespace ElasticsearchVersionStatus {
   export const filterSensitiveLog = (obj: ElasticsearchVersionStatus): any => ({
-    ...obj,
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is ElasticsearchVersionStatus =>
     __isa(o, "ElasticsearchVersionStatus");
@@ -1542,11 +1325,7 @@ export namespace EncryptionAtRestOptionsStatus {
   export const filterSensitiveLog = (
     obj: EncryptionAtRestOptionsStatus
   ): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: EncryptionAtRestOptions.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is EncryptionAtRestOptionsStatus =>
     __isa(o, "EncryptionAtRestOptionsStatus");
@@ -1606,12 +1385,7 @@ export namespace GetCompatibleElasticsearchVersionsResponse {
   export const filterSensitiveLog = (
     obj: GetCompatibleElasticsearchVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.CompatibleElasticsearchVersions && {
-      CompatibleElasticsearchVersions: obj.CompatibleElasticsearchVersions.map(
-        item => CompatibleVersionsMap.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -1693,12 +1467,7 @@ export interface GetUpgradeHistoryResponse {
 
 export namespace GetUpgradeHistoryResponse {
   export const filterSensitiveLog = (obj: GetUpgradeHistoryResponse): any => ({
-    ...obj,
-    ...(obj.UpgradeHistories && {
-      UpgradeHistories: obj.UpgradeHistories.map(item =>
-        UpgradeHistory.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetUpgradeHistoryResponse =>
     __isa(o, "GetUpgradeHistoryResponse");
@@ -1831,12 +1600,7 @@ export interface InstanceLimits {
 
 export namespace InstanceLimits {
   export const filterSensitiveLog = (obj: InstanceLimits): any => ({
-    ...obj,
-    ...(obj.InstanceCountLimits && {
-      InstanceCountLimits: InstanceCountLimits.filterSensitiveLog(
-        obj.InstanceCountLimits
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InstanceLimits =>
     __isa(o, "InstanceLimits");
@@ -1888,20 +1652,7 @@ export interface Limits {
 
 export namespace Limits {
   export const filterSensitiveLog = (obj: Limits): any => ({
-    ...obj,
-    ...(obj.AdditionalLimits && {
-      AdditionalLimits: obj.AdditionalLimits.map(item =>
-        AdditionalLimit.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.InstanceLimits && {
-      InstanceLimits: InstanceLimits.filterSensitiveLog(obj.InstanceLimits)
-    }),
-    ...(obj.StorageTypes && {
-      StorageTypes: obj.StorageTypes.map(item =>
-        StorageType.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Limits => __isa(o, "Limits");
 }
@@ -1919,12 +1670,7 @@ export interface ListDomainNamesResponse {
 
 export namespace ListDomainNamesResponse {
   export const filterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
-    ...obj,
-    ...(obj.DomainNames && {
-      DomainNames: obj.DomainNames.map(item =>
-        DomainInfo.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDomainNamesResponse =>
     __isa(o, "ListDomainNamesResponse");
@@ -2144,10 +1890,7 @@ export interface ListTagsResponse {
 
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsResponse =>
     __isa(o, "ListTagsResponse");
@@ -2201,17 +1944,7 @@ export interface LogPublishingOptionsStatus {
 
 export namespace LogPublishingOptionsStatus {
   export const filterSensitiveLog = (obj: LogPublishingOptionsStatus): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: Object.entries(obj.Options).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
-          ...acc,
-          [key]: LogPublishingOption.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is LogPublishingOptionsStatus =>
     __isa(o, "LogPublishingOptionsStatus");
@@ -2263,11 +1996,7 @@ export namespace NodeToNodeEncryptionOptionsStatus {
   export const filterSensitiveLog = (
     obj: NodeToNodeEncryptionOptionsStatus
   ): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: NodeToNodeEncryptionOptions.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is NodeToNodeEncryptionOptionsStatus =>
     __isa(o, "NodeToNodeEncryptionOptionsStatus");
@@ -2497,12 +2226,7 @@ export namespace ReservedElasticsearchInstance {
   export const filterSensitiveLog = (
     obj: ReservedElasticsearchInstance
   ): any => ({
-    ...obj,
-    ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        RecurringCharge.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservedElasticsearchInstance =>
     __isa(o, "ReservedElasticsearchInstance");
@@ -2558,12 +2282,7 @@ export namespace ReservedElasticsearchInstanceOffering {
   export const filterSensitiveLog = (
     obj: ReservedElasticsearchInstanceOffering
   ): any => ({
-    ...obj,
-    ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        RecurringCharge.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReservedElasticsearchInstanceOffering =>
     __isa(o, "ReservedElasticsearchInstanceOffering");
@@ -2660,11 +2379,7 @@ export interface SnapshotOptionsStatus {
 
 export namespace SnapshotOptionsStatus {
   export const filterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: SnapshotOptions.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is SnapshotOptionsStatus =>
     __isa(o, "SnapshotOptionsStatus");
@@ -2708,12 +2423,7 @@ export namespace StartElasticsearchServiceSoftwareUpdateResponse {
   export const filterSensitiveLog = (
     obj: StartElasticsearchServiceSoftwareUpdateResponse
   ): any => ({
-    ...obj,
-    ...(obj.ServiceSoftwareOptions && {
-      ServiceSoftwareOptions: ServiceSoftwareOptions.filterSensitiveLog(
-        obj.ServiceSoftwareOptions
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2765,12 +2475,7 @@ export interface StorageType {
 
 export namespace StorageType {
   export const filterSensitiveLog = (obj: StorageType): any => ({
-    ...obj,
-    ...(obj.StorageTypeLimits && {
-      StorageTypeLimits: obj.StorageTypeLimits.map(item =>
-        StorageTypeLimit.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StorageType => __isa(o, "StorageType");
 }
@@ -2913,38 +2618,7 @@ export namespace UpdateElasticsearchDomainConfigRequest {
   export const filterSensitiveLog = (
     obj: UpdateElasticsearchDomainConfigRequest
   ): any => ({
-    ...obj,
-    ...(obj.CognitoOptions && {
-      CognitoOptions: CognitoOptions.filterSensitiveLog(obj.CognitoOptions)
-    }),
-    ...(obj.DomainEndpointOptions && {
-      DomainEndpointOptions: DomainEndpointOptions.filterSensitiveLog(
-        obj.DomainEndpointOptions
-      )
-    }),
-    ...(obj.EBSOptions && {
-      EBSOptions: EBSOptions.filterSensitiveLog(obj.EBSOptions)
-    }),
-    ...(obj.ElasticsearchClusterConfig && {
-      ElasticsearchClusterConfig: ElasticsearchClusterConfig.filterSensitiveLog(
-        obj.ElasticsearchClusterConfig
-      )
-    }),
-    ...(obj.LogPublishingOptions && {
-      LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
-          ...acc,
-          [key]: LogPublishingOption.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.SnapshotOptions && {
-      SnapshotOptions: SnapshotOptions.filterSensitiveLog(obj.SnapshotOptions)
-    }),
-    ...(obj.VPCOptions && {
-      VPCOptions: VPCOptions.filterSensitiveLog(obj.VPCOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateElasticsearchDomainConfigRequest =>
     __isa(o, "UpdateElasticsearchDomainConfigRequest");
@@ -2965,12 +2639,7 @@ export namespace UpdateElasticsearchDomainConfigResponse {
   export const filterSensitiveLog = (
     obj: UpdateElasticsearchDomainConfigResponse
   ): any => ({
-    ...obj,
-    ...(obj.DomainConfig && {
-      DomainConfig: ElasticsearchDomainConfig.filterSensitiveLog(
-        obj.DomainConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateElasticsearchDomainConfigResponse =>
     __isa(o, "UpdateElasticsearchDomainConfigResponse");
@@ -3098,12 +2767,7 @@ export interface UpgradeHistory {
 
 export namespace UpgradeHistory {
   export const filterSensitiveLog = (obj: UpgradeHistory): any => ({
-    ...obj,
-    ...(obj.StepsList && {
-      StepsList: obj.StepsList.map(item =>
-        UpgradeStepItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpgradeHistory =>
     __isa(o, "UpgradeHistory");
@@ -3218,11 +2882,7 @@ export interface VPCDerivedInfoStatus {
 
 export namespace VPCDerivedInfoStatus {
   export const filterSensitiveLog = (obj: VPCDerivedInfoStatus): any => ({
-    ...obj,
-    ...(obj.Options && {
-      Options: VPCDerivedInfo.filterSensitiveLog(obj.Options)
-    }),
-    ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
+    ...obj
   });
   export const isa = (o: any): o is VPCDerivedInfoStatus =>
     __isa(o, "VPCDerivedInfoStatus");

@@ -105,10 +105,7 @@ export interface CreateMembersRequest {
 
 export namespace CreateMembersRequest {
   export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
-    ...obj,
-    ...(obj.Accounts && {
-      Accounts: obj.Accounts.map(item => Account.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateMembersRequest =>
     __isa(o, "CreateMembersRequest");
@@ -133,15 +130,7 @@ export interface CreateMembersResponse {
 
 export namespace CreateMembersResponse {
   export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
-    ...obj,
-    ...(obj.Members && {
-      Members: obj.Members.map(item => MemberDetail.filterSensitiveLog(item))
-    }),
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        UnprocessedAccount.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateMembersResponse =>
     __isa(o, "CreateMembersResponse");
@@ -203,12 +192,7 @@ export interface DeleteMembersResponse {
 
 export namespace DeleteMembersResponse {
   export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-    ...obj,
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        UnprocessedAccount.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteMembersResponse =>
     __isa(o, "DeleteMembersResponse");
@@ -275,17 +259,7 @@ export interface GetMembersResponse {
 
 export namespace GetMembersResponse {
   export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
-    ...obj,
-    ...(obj.MemberDetails && {
-      MemberDetails: obj.MemberDetails.map(item =>
-        MemberDetail.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        UnprocessedAccount.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMembersResponse =>
     __isa(o, "GetMembersResponse");
@@ -376,10 +350,7 @@ export interface ListGraphsResponse {
 
 export namespace ListGraphsResponse {
   export const filterSensitiveLog = (obj: ListGraphsResponse): any => ({
-    ...obj,
-    ...(obj.GraphList && {
-      GraphList: obj.GraphList.map(item => Graph.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGraphsResponse =>
     __isa(o, "ListGraphsResponse");
@@ -427,12 +398,7 @@ export interface ListInvitationsResponse {
 
 export namespace ListInvitationsResponse {
   export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-    ...obj,
-    ...(obj.Invitations && {
-      Invitations: obj.Invitations.map(item =>
-        MemberDetail.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListInvitationsResponse =>
     __isa(o, "ListInvitationsResponse");
@@ -486,12 +452,7 @@ export interface ListMembersResponse {
 
 export namespace ListMembersResponse {
   export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
-    ...obj,
-    ...(obj.MemberDetails && {
-      MemberDetails: obj.MemberDetails.map(item =>
-        MemberDetail.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMembersResponse =>
     __isa(o, "ListMembersResponse");

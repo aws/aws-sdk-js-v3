@@ -318,20 +318,7 @@ export interface GlacierJobDescription {
 
 export namespace GlacierJobDescription {
   export const filterSensitiveLog = (obj: GlacierJobDescription): any => ({
-    ...obj,
-    ...(obj.InventoryRetrievalParameters && {
-      InventoryRetrievalParameters: InventoryRetrievalJobDescription.filterSensitiveLog(
-        obj.InventoryRetrievalParameters
-      )
-    }),
-    ...(obj.OutputLocation && {
-      OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation)
-    }),
-    ...(obj.SelectParameters && {
-      SelectParameters: SelectParameters.filterSensitiveLog(
-        obj.SelectParameters
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GlacierJobDescription =>
     __isa(o, "GlacierJobDescription");
@@ -355,8 +342,7 @@ export interface Grant {
 
 export namespace Grant {
   export const filterSensitiveLog = (obj: Grant): any => ({
-    ...obj,
-    ...(obj.Grantee && { Grantee: Grantee.filterSensitiveLog(obj.Grantee) })
+    ...obj
   });
   export const isa = (o: any): o is Grant => __isa(o, "Grant");
 }
@@ -412,8 +398,7 @@ export interface InputSerialization {
 
 export namespace InputSerialization {
   export const filterSensitiveLog = (obj: InputSerialization): any => ({
-    ...obj,
-    ...(obj.csv && { csv: CSVInput.filterSensitiveLog(obj.csv) })
+    ...obj
   });
   export const isa = (o: any): o is InputSerialization =>
     __isa(o, "InputSerialization");
@@ -483,8 +468,7 @@ export interface OutputLocation {
 
 export namespace OutputLocation {
   export const filterSensitiveLog = (obj: OutputLocation): any => ({
-    ...obj,
-    ...(obj.S3 && { S3: S3Location.filterSensitiveLog(obj.S3) })
+    ...obj
   });
   export const isa = (o: any): o is OutputLocation =>
     __isa(o, "OutputLocation");
@@ -503,8 +487,7 @@ export interface OutputSerialization {
 
 export namespace OutputSerialization {
   export const filterSensitiveLog = (obj: OutputSerialization): any => ({
-    ...obj,
-    ...(obj.csv && { csv: CSVOutput.filterSensitiveLog(obj.csv) })
+    ...obj
   });
   export const isa = (o: any): o is OutputSerialization =>
     __isa(o, "OutputSerialization");
@@ -571,15 +554,7 @@ export interface S3Location {
 
 export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-    ...(obj.AccessControlList && {
-      AccessControlList: obj.AccessControlList.map(item =>
-        Grant.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Encryption && {
-      Encryption: Encryption.filterSensitiveLog(obj.Encryption)
-    })
+    ...obj
   });
   export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
@@ -612,17 +587,7 @@ export interface SelectParameters {
 
 export namespace SelectParameters {
   export const filterSensitiveLog = (obj: SelectParameters): any => ({
-    ...obj,
-    ...(obj.InputSerialization && {
-      InputSerialization: InputSerialization.filterSensitiveLog(
-        obj.InputSerialization
-      )
-    }),
-    ...(obj.OutputSerialization && {
-      OutputSerialization: OutputSerialization.filterSensitiveLog(
-        obj.OutputSerialization
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SelectParameters =>
     __isa(o, "SelectParameters");
@@ -923,10 +888,7 @@ export interface DataRetrievalPolicy {
 
 export namespace DataRetrievalPolicy {
   export const filterSensitiveLog = (obj: DataRetrievalPolicy): any => ({
-    ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => DataRetrievalRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DataRetrievalPolicy =>
     __isa(o, "DataRetrievalPolicy");
@@ -1237,10 +1199,7 @@ export namespace GetDataRetrievalPolicyOutput {
   export const filterSensitiveLog = (
     obj: GetDataRetrievalPolicyOutput
   ): any => ({
-    ...obj,
-    ...(obj.Policy && {
-      Policy: DataRetrievalPolicy.filterSensitiveLog(obj.Policy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDataRetrievalPolicyOutput =>
     __isa(o, "GetDataRetrievalPolicyOutput");
@@ -1429,10 +1388,7 @@ export interface GetVaultAccessPolicyOutput {
 
 export namespace GetVaultAccessPolicyOutput {
   export const filterSensitiveLog = (obj: GetVaultAccessPolicyOutput): any => ({
-    ...obj,
-    ...(obj.policy && {
-      policy: VaultAccessPolicy.filterSensitiveLog(obj.policy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetVaultAccessPolicyOutput =>
     __isa(o, "GetVaultAccessPolicyOutput");
@@ -1548,12 +1504,7 @@ export namespace GetVaultNotificationsOutput {
   export const filterSensitiveLog = (
     obj: GetVaultNotificationsOutput
   ): any => ({
-    ...obj,
-    ...(obj.vaultNotificationConfig && {
-      vaultNotificationConfig: VaultNotificationConfig.filterSensitiveLog(
-        obj.vaultNotificationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetVaultNotificationsOutput =>
     __isa(o, "GetVaultNotificationsOutput");
@@ -1586,10 +1537,7 @@ export interface InitiateJobInput {
 
 export namespace InitiateJobInput {
   export const filterSensitiveLog = (obj: InitiateJobInput): any => ({
-    ...obj,
-    ...(obj.jobParameters && {
-      jobParameters: JobParameters.filterSensitiveLog(obj.jobParameters)
-    })
+    ...obj
   });
   export const isa = (o: any): o is InitiateJobInput =>
     __isa(o, "InitiateJobInput");
@@ -1724,10 +1672,7 @@ export interface InitiateVaultLockInput {
 
 export namespace InitiateVaultLockInput {
   export const filterSensitiveLog = (obj: InitiateVaultLockInput): any => ({
-    ...obj,
-    ...(obj.policy && {
-      policy: VaultLockPolicy.filterSensitiveLog(obj.policy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is InitiateVaultLockInput =>
     __isa(o, "InitiateVaultLockInput");
@@ -1933,20 +1878,7 @@ export interface JobParameters {
 
 export namespace JobParameters {
   export const filterSensitiveLog = (obj: JobParameters): any => ({
-    ...obj,
-    ...(obj.InventoryRetrievalParameters && {
-      InventoryRetrievalParameters: InventoryRetrievalJobInput.filterSensitiveLog(
-        obj.InventoryRetrievalParameters
-      )
-    }),
-    ...(obj.OutputLocation && {
-      OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation)
-    }),
-    ...(obj.SelectParameters && {
-      SelectParameters: SelectParameters.filterSensitiveLog(
-        obj.SelectParameters
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is JobParameters => __isa(o, "JobParameters");
 }
@@ -2060,12 +1992,7 @@ export interface ListJobsOutput {
 
 export namespace ListJobsOutput {
   export const filterSensitiveLog = (obj: ListJobsOutput): any => ({
-    ...obj,
-    ...(obj.JobList && {
-      JobList: obj.JobList.map(item =>
-        GlacierJobDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListJobsOutput =>
     __isa(o, "ListJobsOutput");
@@ -2134,12 +2061,7 @@ export interface ListMultipartUploadsOutput {
 
 export namespace ListMultipartUploadsOutput {
   export const filterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
-    ...obj,
-    ...(obj.UploadsList && {
-      UploadsList: obj.UploadsList.map(item =>
-        UploadListElement.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMultipartUploadsOutput =>
     __isa(o, "ListMultipartUploadsOutput");
@@ -2244,10 +2166,7 @@ export interface ListPartsOutput {
 
 export namespace ListPartsOutput {
   export const filterSensitiveLog = (obj: ListPartsOutput): any => ({
-    ...obj,
-    ...(obj.Parts && {
-      Parts: obj.Parts.map(item => PartListElement.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPartsOutput =>
     __isa(o, "ListPartsOutput");
@@ -2286,12 +2205,7 @@ export namespace ListProvisionedCapacityOutput {
   export const filterSensitiveLog = (
     obj: ListProvisionedCapacityOutput
   ): any => ({
-    ...obj,
-    ...(obj.ProvisionedCapacityList && {
-      ProvisionedCapacityList: obj.ProvisionedCapacityList.map(item =>
-        ProvisionedCapacityDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProvisionedCapacityOutput =>
     __isa(o, "ListProvisionedCapacityOutput");
@@ -2400,12 +2314,7 @@ export interface ListVaultsOutput {
 
 export namespace ListVaultsOutput {
   export const filterSensitiveLog = (obj: ListVaultsOutput): any => ({
-    ...obj,
-    ...(obj.VaultList && {
-      VaultList: obj.VaultList.map(item =>
-        DescribeVaultOutput.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVaultsOutput =>
     __isa(o, "ListVaultsOutput");
@@ -2732,10 +2641,7 @@ export namespace SetDataRetrievalPolicyInput {
   export const filterSensitiveLog = (
     obj: SetDataRetrievalPolicyInput
   ): any => ({
-    ...obj,
-    ...(obj.Policy && {
-      Policy: DataRetrievalPolicy.filterSensitiveLog(obj.Policy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SetDataRetrievalPolicyInput =>
     __isa(o, "SetDataRetrievalPolicyInput");
@@ -2768,10 +2674,7 @@ export interface SetVaultAccessPolicyInput {
 
 export namespace SetVaultAccessPolicyInput {
   export const filterSensitiveLog = (obj: SetVaultAccessPolicyInput): any => ({
-    ...obj,
-    ...(obj.policy && {
-      policy: VaultAccessPolicy.filterSensitiveLog(obj.policy)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SetVaultAccessPolicyInput =>
     __isa(o, "SetVaultAccessPolicyInput");
@@ -2805,12 +2708,7 @@ export interface SetVaultNotificationsInput {
 
 export namespace SetVaultNotificationsInput {
   export const filterSensitiveLog = (obj: SetVaultNotificationsInput): any => ({
-    ...obj,
-    ...(obj.vaultNotificationConfig && {
-      vaultNotificationConfig: VaultNotificationConfig.filterSensitiveLog(
-        obj.vaultNotificationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SetVaultNotificationsInput =>
     __isa(o, "SetVaultNotificationsInput");

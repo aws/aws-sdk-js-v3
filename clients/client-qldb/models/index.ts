@@ -137,12 +137,7 @@ export namespace DescribeJournalS3ExportResponse {
   export const filterSensitiveLog = (
     obj: DescribeJournalS3ExportResponse
   ): any => ({
-    ...obj,
-    ...(obj.ExportDescription && {
-      ExportDescription: JournalS3ExportDescription.filterSensitiveLog(
-        obj.ExportDescription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeJournalS3ExportResponse =>
     __isa(o, "DescribeJournalS3ExportResponse");
@@ -263,12 +258,7 @@ export interface ExportJournalToS3Request {
 
 export namespace ExportJournalToS3Request {
   export const filterSensitiveLog = (obj: ExportJournalToS3Request): any => ({
-    ...obj,
-    ...(obj.S3ExportConfiguration && {
-      S3ExportConfiguration: S3ExportConfiguration.filterSensitiveLog(
-        obj.S3ExportConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ExportJournalToS3Request =>
     __isa(o, "ExportJournalToS3Request");
@@ -550,12 +540,7 @@ export interface JournalS3ExportDescription {
 
 export namespace JournalS3ExportDescription {
   export const filterSensitiveLog = (obj: JournalS3ExportDescription): any => ({
-    ...obj,
-    ...(obj.S3ExportConfiguration && {
-      S3ExportConfiguration: S3ExportConfiguration.filterSensitiveLog(
-        obj.S3ExportConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is JournalS3ExportDescription =>
     __isa(o, "JournalS3ExportDescription");
@@ -682,12 +667,7 @@ export namespace ListJournalS3ExportsForLedgerResponse {
   export const filterSensitiveLog = (
     obj: ListJournalS3ExportsForLedgerResponse
   ): any => ({
-    ...obj,
-    ...(obj.JournalS3Exports && {
-      JournalS3Exports: obj.JournalS3Exports.map(item =>
-        JournalS3ExportDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListJournalS3ExportsForLedgerResponse =>
     __isa(o, "ListJournalS3ExportsForLedgerResponse");
@@ -749,12 +729,7 @@ export namespace ListJournalS3ExportsResponse {
   export const filterSensitiveLog = (
     obj: ListJournalS3ExportsResponse
   ): any => ({
-    ...obj,
-    ...(obj.JournalS3Exports && {
-      JournalS3Exports: obj.JournalS3Exports.map(item =>
-        JournalS3ExportDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListJournalS3ExportsResponse =>
     __isa(o, "ListJournalS3ExportsResponse");
@@ -811,10 +786,7 @@ export interface ListLedgersResponse {
 
 export namespace ListLedgersResponse {
   export const filterSensitiveLog = (obj: ListLedgersResponse): any => ({
-    ...obj,
-    ...(obj.Ledgers && {
-      Ledgers: obj.Ledgers.map(item => LedgerSummary.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListLedgersResponse =>
     __isa(o, "ListLedgersResponse");
@@ -1061,12 +1033,7 @@ export interface S3ExportConfiguration {
 
 export namespace S3ExportConfiguration {
   export const filterSensitiveLog = (obj: S3ExportConfiguration): any => ({
-    ...obj,
-    ...(obj.EncryptionConfiguration && {
-      EncryptionConfiguration: S3EncryptionConfiguration.filterSensitiveLog(
-        obj.EncryptionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is S3ExportConfiguration =>
     __isa(o, "S3ExportConfiguration");

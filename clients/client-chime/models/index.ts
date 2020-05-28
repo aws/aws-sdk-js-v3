@@ -76,12 +76,7 @@ export interface Account {
 
 export namespace Account {
   export const filterSensitiveLog = (obj: Account): any => ({
-    ...obj,
-    ...(obj.SigninDelegateGroups && {
-      SigninDelegateGroups: obj.SigninDelegateGroups.map(item =>
-        SigninDelegateGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Account => __isa(o, "Account");
 }
@@ -213,7 +208,8 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (
     obj: AssociatePhoneNumbersWithVoiceConnectorGroupRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -233,12 +229,7 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (
     obj: AssociatePhoneNumbersWithVoiceConnectorGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        PhoneNumberError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -268,7 +259,8 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorRequest {
   export const filterSensitiveLog = (
     obj: AssociatePhoneNumbersWithVoiceConnectorRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -288,12 +280,7 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorResponse {
   export const filterSensitiveLog = (
     obj: AssociatePhoneNumbersWithVoiceConnectorResponse
   ): any => ({
-    ...obj,
-    ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        PhoneNumberError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -318,12 +305,7 @@ export namespace AssociateSigninDelegateGroupsWithAccountRequest {
   export const filterSensitiveLog = (
     obj: AssociateSigninDelegateGroupsWithAccountRequest
   ): any => ({
-    ...obj,
-    ...(obj.SigninDelegateGroups && {
-      SigninDelegateGroups: obj.SigninDelegateGroups.map(item =>
-        SigninDelegateGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -479,12 +461,7 @@ export namespace BatchCreateRoomMembershipRequest {
   export const filterSensitiveLog = (
     obj: BatchCreateRoomMembershipRequest
   ): any => ({
-    ...obj,
-    ...(obj.MembershipItemList && {
-      MembershipItemList: obj.MembershipItemList.map(item =>
-        MembershipItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchCreateRoomMembershipRequest =>
     __isa(o, "BatchCreateRoomMembershipRequest");
@@ -502,10 +479,7 @@ export namespace BatchCreateRoomMembershipResponse {
   export const filterSensitiveLog = (
     obj: BatchCreateRoomMembershipResponse
   ): any => ({
-    ...obj,
-    ...(obj.Errors && {
-      Errors: obj.Errors.map(item => MemberError.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchCreateRoomMembershipResponse =>
     __isa(o, "BatchCreateRoomMembershipResponse");
@@ -541,12 +515,7 @@ export namespace BatchDeletePhoneNumberResponse {
   export const filterSensitiveLog = (
     obj: BatchDeletePhoneNumberResponse
   ): any => ({
-    ...obj,
-    ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        PhoneNumberError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchDeletePhoneNumberResponse =>
     __isa(o, "BatchDeletePhoneNumberResponse");
@@ -585,10 +554,7 @@ export interface BatchSuspendUserResponse {
 
 export namespace BatchSuspendUserResponse {
   export const filterSensitiveLog = (obj: BatchSuspendUserResponse): any => ({
-    ...obj,
-    ...(obj.UserErrors && {
-      UserErrors: obj.UserErrors.map(item => UserError.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchSuspendUserResponse =>
     __isa(o, "BatchSuspendUserResponse");
@@ -627,10 +593,7 @@ export interface BatchUnsuspendUserResponse {
 
 export namespace BatchUnsuspendUserResponse {
   export const filterSensitiveLog = (obj: BatchUnsuspendUserResponse): any => ({
-    ...obj,
-    ...(obj.UserErrors && {
-      UserErrors: obj.UserErrors.map(item => UserError.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchUnsuspendUserResponse =>
     __isa(o, "BatchUnsuspendUserResponse");
@@ -671,12 +634,7 @@ export namespace BatchUpdatePhoneNumberResponse {
   export const filterSensitiveLog = (
     obj: BatchUpdatePhoneNumberResponse
   ): any => ({
-    ...obj,
-    ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        PhoneNumberError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchUpdatePhoneNumberResponse =>
     __isa(o, "BatchUpdatePhoneNumberResponse");
@@ -720,10 +678,7 @@ export interface BatchUpdateUserResponse {
 
 export namespace BatchUpdateUserResponse {
   export const filterSensitiveLog = (obj: BatchUpdateUserResponse): any => ({
-    ...obj,
-    ...(obj.UserErrors && {
-      UserErrors: obj.UserErrors.map(item => UserError.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchUpdateUserResponse =>
     __isa(o, "BatchUpdateUserResponse");
@@ -866,8 +821,7 @@ export interface CreateAccountResponse {
 
 export namespace CreateAccountResponse {
   export const filterSensitiveLog = (obj: CreateAccountResponse): any => ({
-    ...obj,
-    ...(obj.Account && { Account: Account.filterSensitiveLog(obj.Account) })
+    ...obj
   });
   export const isa = (o: any): o is CreateAccountResponse =>
     __isa(o, "CreateAccountResponse");
@@ -1054,8 +1008,7 @@ export interface CreateMeetingResponse {
 
 export namespace CreateMeetingResponse {
   export const filterSensitiveLog = (obj: CreateMeetingResponse): any => ({
-    ...obj,
-    ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) })
+    ...obj
   });
   export const isa = (o: any): o is CreateMeetingResponse =>
     __isa(o, "CreateMeetingResponse");
@@ -1078,7 +1031,8 @@ export namespace CreatePhoneNumberOrderRequest {
   export const filterSensitiveLog = (
     obj: CreatePhoneNumberOrderRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is CreatePhoneNumberOrderRequest =>
     __isa(o, "CreatePhoneNumberOrderRequest");
@@ -1272,12 +1226,7 @@ export namespace CreateVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (
     obj: CreateVoiceConnectorGroupRequest
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnectorItems && {
-      VoiceConnectorItems: obj.VoiceConnectorItems.map(item =>
-        VoiceConnectorItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVoiceConnectorGroupRequest =>
     __isa(o, "CreateVoiceConnectorGroupRequest");
@@ -1295,12 +1244,7 @@ export namespace CreateVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (
     obj: CreateVoiceConnectorGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnectorGroup && {
-      VoiceConnectorGroup: VoiceConnectorGroup.filterSensitiveLog(
-        obj.VoiceConnectorGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVoiceConnectorGroupResponse =>
     __isa(o, "CreateVoiceConnectorGroupResponse");
@@ -1346,10 +1290,7 @@ export namespace CreateVoiceConnectorResponse {
   export const filterSensitiveLog = (
     obj: CreateVoiceConnectorResponse
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnector && {
-      VoiceConnector: VoiceConnector.filterSensitiveLog(obj.VoiceConnector)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateVoiceConnectorResponse =>
     __isa(o, "CreateVoiceConnectorResponse");
@@ -1625,7 +1566,8 @@ export namespace DeleteVoiceConnectorTerminationCredentialsRequest {
   export const filterSensitiveLog = (
     obj: DeleteVoiceConnectorTerminationCredentialsRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Usernames && { Usernames: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -1705,7 +1647,8 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (
     obj: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -1725,12 +1668,7 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (
     obj: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        PhoneNumberError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -1755,7 +1693,8 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorRequest {
   export const filterSensitiveLog = (
     obj: DisassociatePhoneNumbersFromVoiceConnectorRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -1775,12 +1714,7 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
   export const filterSensitiveLog = (
     obj: DisassociatePhoneNumbersFromVoiceConnectorResponse
   ): any => ({
-    ...obj,
-    ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        PhoneNumberError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -1930,8 +1864,7 @@ export interface GetAccountResponse {
 
 export namespace GetAccountResponse {
   export const filterSensitiveLog = (obj: GetAccountResponse): any => ({
-    ...obj,
-    ...(obj.Account && { Account: Account.filterSensitiveLog(obj.Account) })
+    ...obj
   });
   export const isa = (o: any): o is GetAccountResponse =>
     __isa(o, "GetAccountResponse");
@@ -1963,10 +1896,7 @@ export interface GetAccountSettingsResponse {
 
 export namespace GetAccountSettingsResponse {
   export const filterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
-    ...obj,
-    ...(obj.AccountSettings && {
-      AccountSettings: AccountSettings.filterSensitiveLog(obj.AccountSettings)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAccountSettingsResponse =>
     __isa(o, "GetAccountSettingsResponse");
@@ -2108,17 +2038,7 @@ export interface GetGlobalSettingsResponse {
 
 export namespace GetGlobalSettingsResponse {
   export const filterSensitiveLog = (obj: GetGlobalSettingsResponse): any => ({
-    ...obj,
-    ...(obj.BusinessCalling && {
-      BusinessCalling: BusinessCallingSettings.filterSensitiveLog(
-        obj.BusinessCalling
-      )
-    }),
-    ...(obj.VoiceConnector && {
-      VoiceConnector: VoiceConnectorSettings.filterSensitiveLog(
-        obj.VoiceConnector
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetGlobalSettingsResponse =>
     __isa(o, "GetGlobalSettingsResponse");
@@ -2150,8 +2070,7 @@ export interface GetMeetingResponse {
 
 export namespace GetMeetingResponse {
   export const filterSensitiveLog = (obj: GetMeetingResponse): any => ({
-    ...obj,
-    ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) })
+    ...obj
   });
   export const isa = (o: any): o is GetMeetingResponse =>
     __isa(o, "GetMeetingResponse");
@@ -2362,10 +2281,7 @@ export interface GetUserSettingsResponse {
 
 export namespace GetUserSettingsResponse {
   export const filterSensitiveLog = (obj: GetUserSettingsResponse): any => ({
-    ...obj,
-    ...(obj.UserSettings && {
-      UserSettings: UserSettings.filterSensitiveLog(obj.UserSettings)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetUserSettingsResponse =>
     __isa(o, "GetUserSettingsResponse");
@@ -2401,12 +2317,7 @@ export namespace GetVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (
     obj: GetVoiceConnectorGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnectorGroup && {
-      VoiceConnectorGroup: VoiceConnectorGroup.filterSensitiveLog(
-        obj.VoiceConnectorGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetVoiceConnectorGroupResponse =>
     __isa(o, "GetVoiceConnectorGroupResponse");
@@ -2444,12 +2355,7 @@ export namespace GetVoiceConnectorLoggingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetVoiceConnectorLoggingConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.LoggingConfiguration && {
-      LoggingConfiguration: LoggingConfiguration.filterSensitiveLog(
-        obj.LoggingConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2487,10 +2393,7 @@ export namespace GetVoiceConnectorOriginationResponse {
   export const filterSensitiveLog = (
     obj: GetVoiceConnectorOriginationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Origination && {
-      Origination: Origination.filterSensitiveLog(obj.Origination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetVoiceConnectorOriginationResponse =>
     __isa(o, "GetVoiceConnectorOriginationResponse");
@@ -2522,10 +2425,7 @@ export interface GetVoiceConnectorResponse {
 
 export namespace GetVoiceConnectorResponse {
   export const filterSensitiveLog = (obj: GetVoiceConnectorResponse): any => ({
-    ...obj,
-    ...(obj.VoiceConnector && {
-      VoiceConnector: VoiceConnector.filterSensitiveLog(obj.VoiceConnector)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetVoiceConnectorResponse =>
     __isa(o, "GetVoiceConnectorResponse");
@@ -2563,12 +2463,7 @@ export namespace GetVoiceConnectorStreamingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetVoiceConnectorStreamingConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.StreamingConfiguration && {
-      StreamingConfiguration: StreamingConfiguration.filterSensitiveLog(
-        obj.StreamingConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2606,12 +2501,7 @@ export namespace GetVoiceConnectorTerminationHealthResponse {
   export const filterSensitiveLog = (
     obj: GetVoiceConnectorTerminationHealthResponse
   ): any => ({
-    ...obj,
-    ...(obj.TerminationHealth && {
-      TerminationHealth: TerminationHealth.filterSensitiveLog(
-        obj.TerminationHealth
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2719,7 +2609,8 @@ export interface InviteUsersRequest {
 
 export namespace InviteUsersRequest {
   export const filterSensitiveLog = (obj: InviteUsersRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.UserEmailList && { UserEmailList: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is InviteUsersRequest =>
     __isa(o, "InviteUsersRequest");
@@ -2798,10 +2689,7 @@ export interface ListAccountsResponse {
 
 export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
-    ...obj,
-    ...(obj.Accounts && {
-      Accounts: obj.Accounts.map(item => Account.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAccountsResponse =>
     __isa(o, "ListAccountsResponse");
@@ -2943,10 +2831,7 @@ export interface ListMeetingsResponse {
 
 export namespace ListMeetingsResponse {
   export const filterSensitiveLog = (obj: ListMeetingsResponse): any => ({
-    ...obj,
-    ...(obj.Meetings && {
-      Meetings: obj.Meetings.map(item => Meeting.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListMeetingsResponse =>
     __isa(o, "ListMeetingsResponse");
@@ -2992,12 +2877,7 @@ export namespace ListPhoneNumberOrdersResponse {
   export const filterSensitiveLog = (
     obj: ListPhoneNumberOrdersResponse
   ): any => ({
-    ...obj,
-    ...(obj.PhoneNumberOrders && {
-      PhoneNumberOrders: obj.PhoneNumberOrders.map(item =>
-        PhoneNumberOrder.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPhoneNumberOrdersResponse =>
     __isa(o, "ListPhoneNumberOrdersResponse");
@@ -3285,12 +3165,7 @@ export namespace ListVoiceConnectorGroupsResponse {
   export const filterSensitiveLog = (
     obj: ListVoiceConnectorGroupsResponse
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnectorGroups && {
-      VoiceConnectorGroups: obj.VoiceConnectorGroups.map(item =>
-        VoiceConnectorGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVoiceConnectorGroupsResponse =>
     __isa(o, "ListVoiceConnectorGroupsResponse");
@@ -3328,7 +3203,8 @@ export namespace ListVoiceConnectorTerminationCredentialsResponse {
   export const filterSensitiveLog = (
     obj: ListVoiceConnectorTerminationCredentialsResponse
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Usernames && { Usernames: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -3374,12 +3250,7 @@ export namespace ListVoiceConnectorsResponse {
   export const filterSensitiveLog = (
     obj: ListVoiceConnectorsResponse
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnectors && {
-      VoiceConnectors: obj.VoiceConnectors.map(item =>
-        VoiceConnector.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListVoiceConnectorsResponse =>
     __isa(o, "ListVoiceConnectorsResponse");
@@ -3504,10 +3375,7 @@ export interface Meeting {
 
 export namespace Meeting {
   export const filterSensitiveLog = (obj: Meeting): any => ({
-    ...obj,
-    ...(obj.MediaPlacement && {
-      MediaPlacement: MediaPlacement.filterSensitiveLog(obj.MediaPlacement)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Meeting => __isa(o, "Meeting");
 }
@@ -3708,10 +3576,7 @@ export interface Origination {
 
 export namespace Origination {
   export const filterSensitiveLog = (obj: Origination): any => ({
-    ...obj,
-    ...(obj.Routes && {
-      Routes: obj.Routes.map(item => OriginationRoute.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Origination => __isa(o, "Origination");
 }
@@ -3834,15 +3699,7 @@ export interface PhoneNumber {
 export namespace PhoneNumber {
   export const filterSensitiveLog = (obj: PhoneNumber): any => ({
     ...obj,
-    ...(obj.Associations && {
-      Associations: obj.Associations.map(item =>
-        PhoneNumberAssociation.filterSensitiveLog(item)
-      )
-    }),
     ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
-    ...(obj.Capabilities && {
-      Capabilities: PhoneNumberCapabilities.filterSensitiveLog(obj.Capabilities)
-    }),
     ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is PhoneNumber => __isa(o, "PhoneNumber");
@@ -4116,12 +3973,7 @@ export namespace PutVoiceConnectorLoggingConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutVoiceConnectorLoggingConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.LoggingConfiguration && {
-      LoggingConfiguration: LoggingConfiguration.filterSensitiveLog(
-        obj.LoggingConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -4141,12 +3993,7 @@ export namespace PutVoiceConnectorLoggingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: PutVoiceConnectorLoggingConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.LoggingConfiguration && {
-      LoggingConfiguration: LoggingConfiguration.filterSensitiveLog(
-        obj.LoggingConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -4171,10 +4018,7 @@ export namespace PutVoiceConnectorOriginationRequest {
   export const filterSensitiveLog = (
     obj: PutVoiceConnectorOriginationRequest
   ): any => ({
-    ...obj,
-    ...(obj.Origination && {
-      Origination: Origination.filterSensitiveLog(obj.Origination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutVoiceConnectorOriginationRequest =>
     __isa(o, "PutVoiceConnectorOriginationRequest");
@@ -4192,10 +4036,7 @@ export namespace PutVoiceConnectorOriginationResponse {
   export const filterSensitiveLog = (
     obj: PutVoiceConnectorOriginationResponse
   ): any => ({
-    ...obj,
-    ...(obj.Origination && {
-      Origination: Origination.filterSensitiveLog(obj.Origination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutVoiceConnectorOriginationResponse =>
     __isa(o, "PutVoiceConnectorOriginationResponse");
@@ -4218,12 +4059,7 @@ export namespace PutVoiceConnectorStreamingConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutVoiceConnectorStreamingConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.StreamingConfiguration && {
-      StreamingConfiguration: StreamingConfiguration.filterSensitiveLog(
-        obj.StreamingConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -4243,12 +4079,7 @@ export namespace PutVoiceConnectorStreamingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: PutVoiceConnectorStreamingConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.StreamingConfiguration && {
-      StreamingConfiguration: StreamingConfiguration.filterSensitiveLog(
-        obj.StreamingConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -4625,7 +4456,8 @@ export namespace SearchAvailablePhoneNumbersResponse {
   export const filterSensitiveLog = (
     obj: SearchAvailablePhoneNumbersResponse
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is SearchAvailablePhoneNumbersResponse =>
     __isa(o, "SearchAvailablePhoneNumbersResponse");
@@ -4907,8 +4739,7 @@ export interface UpdateAccountResponse {
 
 export namespace UpdateAccountResponse {
   export const filterSensitiveLog = (obj: UpdateAccountResponse): any => ({
-    ...obj,
-    ...(obj.Account && { Account: Account.filterSensitiveLog(obj.Account) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAccountResponse =>
     __isa(o, "UpdateAccountResponse");
@@ -4931,10 +4762,7 @@ export namespace UpdateAccountSettingsRequest {
   export const filterSensitiveLog = (
     obj: UpdateAccountSettingsRequest
   ): any => ({
-    ...obj,
-    ...(obj.AccountSettings && {
-      AccountSettings: AccountSettings.filterSensitiveLog(obj.AccountSettings)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAccountSettingsRequest =>
     __isa(o, "UpdateAccountSettingsRequest");
@@ -5014,17 +4842,7 @@ export namespace UpdateGlobalSettingsRequest {
   export const filterSensitiveLog = (
     obj: UpdateGlobalSettingsRequest
   ): any => ({
-    ...obj,
-    ...(obj.BusinessCalling && {
-      BusinessCalling: BusinessCallingSettings.filterSensitiveLog(
-        obj.BusinessCalling
-      )
-    }),
-    ...(obj.VoiceConnector && {
-      VoiceConnector: VoiceConnectorSettings.filterSensitiveLog(
-        obj.VoiceConnector
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGlobalSettingsRequest =>
     __isa(o, "UpdateGlobalSettingsRequest");
@@ -5343,10 +5161,7 @@ export interface UpdateUserSettingsRequest {
 
 export namespace UpdateUserSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateUserSettingsRequest): any => ({
-    ...obj,
-    ...(obj.UserSettings && {
-      UserSettings: UserSettings.filterSensitiveLog(obj.UserSettings)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateUserSettingsRequest =>
     __isa(o, "UpdateUserSettingsRequest");
@@ -5374,12 +5189,7 @@ export namespace UpdateVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (
     obj: UpdateVoiceConnectorGroupRequest
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnectorItems && {
-      VoiceConnectorItems: obj.VoiceConnectorItems.map(item =>
-        VoiceConnectorItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVoiceConnectorGroupRequest =>
     __isa(o, "UpdateVoiceConnectorGroupRequest");
@@ -5397,12 +5207,7 @@ export namespace UpdateVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (
     obj: UpdateVoiceConnectorGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnectorGroup && {
-      VoiceConnectorGroup: VoiceConnectorGroup.filterSensitiveLog(
-        obj.VoiceConnectorGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVoiceConnectorGroupResponse =>
     __isa(o, "UpdateVoiceConnectorGroupResponse");
@@ -5448,10 +5253,7 @@ export namespace UpdateVoiceConnectorResponse {
   export const filterSensitiveLog = (
     obj: UpdateVoiceConnectorResponse
   ): any => ({
-    ...obj,
-    ...(obj.VoiceConnector && {
-      VoiceConnector: VoiceConnector.filterSensitiveLog(obj.VoiceConnector)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateVoiceConnectorResponse =>
     __isa(o, "UpdateVoiceConnectorResponse");
@@ -5589,10 +5391,7 @@ export interface UserSettings {
 
 export namespace UserSettings {
   export const filterSensitiveLog = (obj: UserSettings): any => ({
-    ...obj,
-    ...(obj.Telephony && {
-      Telephony: TelephonySettings.filterSensitiveLog(obj.Telephony)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UserSettings => __isa(o, "UserSettings");
 }
@@ -5693,12 +5492,7 @@ export interface VoiceConnectorGroup {
 
 export namespace VoiceConnectorGroup {
   export const filterSensitiveLog = (obj: VoiceConnectorGroup): any => ({
-    ...obj,
-    ...(obj.VoiceConnectorItems && {
-      VoiceConnectorItems: obj.VoiceConnectorItems.map(item =>
-        VoiceConnectorItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is VoiceConnectorGroup =>
     __isa(o, "VoiceConnectorGroup");

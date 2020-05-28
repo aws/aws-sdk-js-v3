@@ -47,8 +47,7 @@ export namespace CreateHomeRegionControlRequest {
   export const filterSensitiveLog = (
     obj: CreateHomeRegionControlRequest
   ): any => ({
-    ...obj,
-    ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
+    ...obj
   });
   export const isa = (o: any): o is CreateHomeRegionControlRequest =>
     __isa(o, "CreateHomeRegionControlRequest");
@@ -67,12 +66,7 @@ export namespace CreateHomeRegionControlResult {
   export const filterSensitiveLog = (
     obj: CreateHomeRegionControlResult
   ): any => ({
-    ...obj,
-    ...(obj.HomeRegionControl && {
-      HomeRegionControl: HomeRegionControl.filterSensitiveLog(
-        obj.HomeRegionControl
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateHomeRegionControlResult =>
     __isa(o, "CreateHomeRegionControlResult");
@@ -114,8 +108,7 @@ export namespace DescribeHomeRegionControlsRequest {
   export const filterSensitiveLog = (
     obj: DescribeHomeRegionControlsRequest
   ): any => ({
-    ...obj,
-    ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeHomeRegionControlsRequest =>
     __isa(o, "DescribeHomeRegionControlsRequest");
@@ -140,12 +133,7 @@ export namespace DescribeHomeRegionControlsResult {
   export const filterSensitiveLog = (
     obj: DescribeHomeRegionControlsResult
   ): any => ({
-    ...obj,
-    ...(obj.HomeRegionControls && {
-      HomeRegionControls: obj.HomeRegionControls.map(item =>
-        HomeRegionControl.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeHomeRegionControlsResult =>
     __isa(o, "DescribeHomeRegionControlsResult");
@@ -232,8 +220,7 @@ export interface HomeRegionControl {
 
 export namespace HomeRegionControl {
   export const filterSensitiveLog = (obj: HomeRegionControl): any => ({
-    ...obj,
-    ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
+    ...obj
   });
   export const isa = (o: any): o is HomeRegionControl =>
     __isa(o, "HomeRegionControl");

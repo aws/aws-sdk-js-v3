@@ -473,10 +473,7 @@ export interface AddTagsToResourceMessage {
 
 export namespace AddTagsToResourceMessage {
   export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is AddTagsToResourceMessage =>
     __isa(o, "AddTagsToResourceMessage");
@@ -562,12 +559,7 @@ export namespace ApplyPendingMaintenanceActionResponse {
   export const filterSensitiveLog = (
     obj: ApplyPendingMaintenanceActionResponse
   ): any => ({
-    ...obj,
-    ...(obj.ResourcePendingMaintenanceActions && {
-      ResourcePendingMaintenanceActions: ResourcePendingMaintenanceActions.filterSensitiveLog(
-        obj.ResourcePendingMaintenanceActions
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ApplyPendingMaintenanceActionResponse =>
     __isa(o, "ApplyPendingMaintenanceActionResponse");
@@ -901,24 +893,6 @@ export interface CreateEndpointMessage {
 export namespace CreateEndpointMessage {
   export const filterSensitiveLog = (obj: CreateEndpointMessage): any => ({
     ...obj,
-    ...(obj.DmsTransferSettings && {
-      DmsTransferSettings: DmsTransferSettings.filterSensitiveLog(
-        obj.DmsTransferSettings
-      )
-    }),
-    ...(obj.DynamoDbSettings && {
-      DynamoDbSettings: DynamoDbSettings.filterSensitiveLog(
-        obj.DynamoDbSettings
-      )
-    }),
-    ...(obj.ElasticsearchSettings && {
-      ElasticsearchSettings: ElasticsearchSettings.filterSensitiveLog(
-        obj.ElasticsearchSettings
-      )
-    }),
-    ...(obj.KinesisSettings && {
-      KinesisSettings: KinesisSettings.filterSensitiveLog(obj.KinesisSettings)
-    }),
     ...(obj.MongoDbSettings && {
       MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings)
     }),
@@ -927,12 +901,6 @@ export namespace CreateEndpointMessage {
       RedshiftSettings: RedshiftSettings.filterSensitiveLog(
         obj.RedshiftSettings
       )
-    }),
-    ...(obj.S3Settings && {
-      S3Settings: S3Settings.filterSensitiveLog(obj.S3Settings)
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is CreateEndpointMessage =>
@@ -1019,10 +987,7 @@ export namespace CreateEventSubscriptionMessage {
   export const filterSensitiveLog = (
     obj: CreateEventSubscriptionMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEventSubscriptionMessage =>
     __isa(o, "CreateEventSubscriptionMessage");
@@ -1043,12 +1008,7 @@ export namespace CreateEventSubscriptionResponse {
   export const filterSensitiveLog = (
     obj: CreateEventSubscriptionResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventSubscription && {
-      EventSubscription: EventSubscription.filterSensitiveLog(
-        obj.EventSubscription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateEventSubscriptionResponse =>
     __isa(o, "CreateEventSubscriptionResponse");
@@ -1178,10 +1138,7 @@ export namespace CreateReplicationInstanceMessage {
   export const filterSensitiveLog = (
     obj: CreateReplicationInstanceMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateReplicationInstanceMessage =>
     __isa(o, "CreateReplicationInstanceMessage");
@@ -1202,12 +1159,7 @@ export namespace CreateReplicationInstanceResponse {
   export const filterSensitiveLog = (
     obj: CreateReplicationInstanceResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationInstance && {
-      ReplicationInstance: ReplicationInstance.filterSensitiveLog(
-        obj.ReplicationInstance
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateReplicationInstanceResponse =>
     __isa(o, "CreateReplicationInstanceResponse");
@@ -1248,10 +1200,7 @@ export namespace CreateReplicationSubnetGroupMessage {
   export const filterSensitiveLog = (
     obj: CreateReplicationSubnetGroupMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateReplicationSubnetGroupMessage =>
     __isa(o, "CreateReplicationSubnetGroupMessage");
@@ -1272,12 +1221,7 @@ export namespace CreateReplicationSubnetGroupResponse {
   export const filterSensitiveLog = (
     obj: CreateReplicationSubnetGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationSubnetGroup && {
-      ReplicationSubnetGroup: ReplicationSubnetGroup.filterSensitiveLog(
-        obj.ReplicationSubnetGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateReplicationSubnetGroupResponse =>
     __isa(o, "CreateReplicationSubnetGroupResponse");
@@ -1387,10 +1331,7 @@ export namespace CreateReplicationTaskMessage {
   export const filterSensitiveLog = (
     obj: CreateReplicationTaskMessage
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateReplicationTaskMessage =>
     __isa(o, "CreateReplicationTaskMessage");
@@ -1411,10 +1352,7 @@ export namespace CreateReplicationTaskResponse {
   export const filterSensitiveLog = (
     obj: CreateReplicationTaskResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTask && {
-      ReplicationTask: ReplicationTask.filterSensitiveLog(obj.ReplicationTask)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateReplicationTaskResponse =>
     __isa(o, "CreateReplicationTaskResponse");
@@ -1451,10 +1389,7 @@ export interface DeleteCertificateResponse {
 
 export namespace DeleteCertificateResponse {
   export const filterSensitiveLog = (obj: DeleteCertificateResponse): any => ({
-    ...obj,
-    ...(obj.Certificate && {
-      Certificate: Certificate.filterSensitiveLog(obj.Certificate)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteCertificateResponse =>
     __isa(o, "DeleteCertificateResponse");
@@ -1497,10 +1432,7 @@ export interface DeleteConnectionResponse {
 
 export namespace DeleteConnectionResponse {
   export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
-    ...obj,
-    ...(obj.Connection && {
-      Connection: Connection.filterSensitiveLog(obj.Connection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteConnectionResponse =>
     __isa(o, "DeleteConnectionResponse");
@@ -1581,12 +1513,7 @@ export namespace DeleteEventSubscriptionResponse {
   export const filterSensitiveLog = (
     obj: DeleteEventSubscriptionResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventSubscription && {
-      EventSubscription: EventSubscription.filterSensitiveLog(
-        obj.EventSubscription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteEventSubscriptionResponse =>
     __isa(o, "DeleteEventSubscriptionResponse");
@@ -1628,12 +1555,7 @@ export namespace DeleteReplicationInstanceResponse {
   export const filterSensitiveLog = (
     obj: DeleteReplicationInstanceResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationInstance && {
-      ReplicationInstance: ReplicationInstance.filterSensitiveLog(
-        obj.ReplicationInstance
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteReplicationInstanceResponse =>
     __isa(o, "DeleteReplicationInstanceResponse");
@@ -1713,10 +1635,7 @@ export namespace DeleteReplicationTaskResponse {
   export const filterSensitiveLog = (
     obj: DeleteReplicationTaskResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTask && {
-      ReplicationTask: ReplicationTask.filterSensitiveLog(obj.ReplicationTask)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DeleteReplicationTaskResponse =>
     __isa(o, "DeleteReplicationTaskResponse");
@@ -1770,12 +1689,7 @@ export namespace DescribeAccountAttributesResponse {
   export const filterSensitiveLog = (
     obj: DescribeAccountAttributesResponse
   ): any => ({
-    ...obj,
-    ...(obj.AccountQuotas && {
-      AccountQuotas: obj.AccountQuotas.map(item =>
-        AccountQuota.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAccountAttributesResponse =>
     __isa(o, "DescribeAccountAttributesResponse");
@@ -1808,10 +1722,7 @@ export namespace DescribeCertificatesMessage {
   export const filterSensitiveLog = (
     obj: DescribeCertificatesMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeCertificatesMessage =>
     __isa(o, "DescribeCertificatesMessage");
@@ -1835,12 +1746,7 @@ export namespace DescribeCertificatesResponse {
   export const filterSensitiveLog = (
     obj: DescribeCertificatesResponse
   ): any => ({
-    ...obj,
-    ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        Certificate.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeCertificatesResponse =>
     __isa(o, "DescribeCertificatesResponse");
@@ -1876,10 +1782,7 @@ export interface DescribeConnectionsMessage {
 
 export namespace DescribeConnectionsMessage {
   export const filterSensitiveLog = (obj: DescribeConnectionsMessage): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeConnectionsMessage =>
     __isa(o, "DescribeConnectionsMessage");
@@ -1907,12 +1810,7 @@ export namespace DescribeConnectionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeConnectionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Connections && {
-      Connections: obj.Connections.map(item =>
-        Connection.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeConnectionsResponse =>
     __isa(o, "DescribeConnectionsResponse");
@@ -1950,10 +1848,7 @@ export namespace DescribeEndpointTypesMessage {
   export const filterSensitiveLog = (
     obj: DescribeEndpointTypesMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEndpointTypesMessage =>
     __isa(o, "DescribeEndpointTypesMessage");
@@ -1981,12 +1876,7 @@ export namespace DescribeEndpointTypesResponse {
   export const filterSensitiveLog = (
     obj: DescribeEndpointTypesResponse
   ): any => ({
-    ...obj,
-    ...(obj.SupportedEndpointTypes && {
-      SupportedEndpointTypes: obj.SupportedEndpointTypes.map(item =>
-        SupportedEndpointType.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEndpointTypesResponse =>
     __isa(o, "DescribeEndpointTypesResponse");
@@ -2022,10 +1912,7 @@ export interface DescribeEndpointsMessage {
 
 export namespace DescribeEndpointsMessage {
   export const filterSensitiveLog = (obj: DescribeEndpointsMessage): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEndpointsMessage =>
     __isa(o, "DescribeEndpointsMessage");
@@ -2081,10 +1968,7 @@ export namespace DescribeEventCategoriesMessage {
   export const filterSensitiveLog = (
     obj: DescribeEventCategoriesMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventCategoriesMessage =>
     __isa(o, "DescribeEventCategoriesMessage");
@@ -2105,12 +1989,7 @@ export namespace DescribeEventCategoriesResponse {
   export const filterSensitiveLog = (
     obj: DescribeEventCategoriesResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventCategoryGroupList && {
-      EventCategoryGroupList: obj.EventCategoryGroupList.map(item =>
-        EventCategoryGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventCategoriesResponse =>
     __isa(o, "DescribeEventCategoriesResponse");
@@ -2152,10 +2031,7 @@ export namespace DescribeEventSubscriptionsMessage {
   export const filterSensitiveLog = (
     obj: DescribeEventSubscriptionsMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
     __isa(o, "DescribeEventSubscriptionsMessage");
@@ -2183,12 +2059,7 @@ export namespace DescribeEventSubscriptionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeEventSubscriptionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventSubscriptionsList && {
-      EventSubscriptionsList: obj.EventSubscriptionsList.map(item =>
-        EventSubscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventSubscriptionsResponse =>
     __isa(o, "DescribeEventSubscriptionsResponse");
@@ -2254,10 +2125,7 @@ export interface DescribeEventsMessage {
 
 export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventsMessage =>
     __isa(o, "DescribeEventsMessage");
@@ -2283,10 +2151,7 @@ export interface DescribeEventsResponse {
 
 export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-    ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => Event.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventsResponse =>
     __isa(o, "DescribeEventsResponse");
@@ -2348,12 +2213,7 @@ export namespace DescribeOrderableReplicationInstancesResponse {
   export const filterSensitiveLog = (
     obj: DescribeOrderableReplicationInstancesResponse
   ): any => ({
-    ...obj,
-    ...(obj.OrderableReplicationInstances && {
-      OrderableReplicationInstances: obj.OrderableReplicationInstances.map(
-        item => OrderableReplicationInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2397,10 +2257,7 @@ export namespace DescribePendingMaintenanceActionsMessage {
   export const filterSensitiveLog = (
     obj: DescribePendingMaintenanceActionsMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribePendingMaintenanceActionsMessage =>
     __isa(o, "DescribePendingMaintenanceActionsMessage");
@@ -2428,12 +2285,7 @@ export namespace DescribePendingMaintenanceActionsResponse {
   export const filterSensitiveLog = (
     obj: DescribePendingMaintenanceActionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.PendingMaintenanceActions && {
-      PendingMaintenanceActions: obj.PendingMaintenanceActions.map(item =>
-        ResourcePendingMaintenanceActions.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribePendingMaintenanceActionsResponse =>
     __isa(o, "DescribePendingMaintenanceActionsResponse");
@@ -2475,12 +2327,7 @@ export namespace DescribeRefreshSchemasStatusResponse {
   export const filterSensitiveLog = (
     obj: DescribeRefreshSchemasStatusResponse
   ): any => ({
-    ...obj,
-    ...(obj.RefreshSchemasStatus && {
-      RefreshSchemasStatus: RefreshSchemasStatus.filterSensitiveLog(
-        obj.RefreshSchemasStatus
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeRefreshSchemasStatusResponse =>
     __isa(o, "DescribeRefreshSchemasStatusResponse");
@@ -2547,12 +2394,7 @@ export namespace DescribeReplicationInstanceTaskLogsResponse {
   export const filterSensitiveLog = (
     obj: DescribeReplicationInstanceTaskLogsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationInstanceTaskLogs && {
-      ReplicationInstanceTaskLogs: obj.ReplicationInstanceTaskLogs.map(item =>
-        ReplicationInstanceTaskLog.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2593,10 +2435,7 @@ export namespace DescribeReplicationInstancesMessage {
   export const filterSensitiveLog = (
     obj: DescribeReplicationInstancesMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeReplicationInstancesMessage =>
     __isa(o, "DescribeReplicationInstancesMessage");
@@ -2624,12 +2463,7 @@ export namespace DescribeReplicationInstancesResponse {
   export const filterSensitiveLog = (
     obj: DescribeReplicationInstancesResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationInstances && {
-      ReplicationInstances: obj.ReplicationInstances.map(item =>
-        ReplicationInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeReplicationInstancesResponse =>
     __isa(o, "DescribeReplicationInstancesResponse");
@@ -2666,10 +2500,7 @@ export namespace DescribeReplicationSubnetGroupsMessage {
   export const filterSensitiveLog = (
     obj: DescribeReplicationSubnetGroupsMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeReplicationSubnetGroupsMessage =>
     __isa(o, "DescribeReplicationSubnetGroupsMessage");
@@ -2697,12 +2528,7 @@ export namespace DescribeReplicationSubnetGroupsResponse {
   export const filterSensitiveLog = (
     obj: DescribeReplicationSubnetGroupsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationSubnetGroups && {
-      ReplicationSubnetGroups: obj.ReplicationSubnetGroups.map(item =>
-        ReplicationSubnetGroup.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeReplicationSubnetGroupsResponse =>
     __isa(o, "DescribeReplicationSubnetGroupsResponse");
@@ -2776,12 +2602,7 @@ export namespace DescribeReplicationTaskAssessmentResultsResponse {
   export const filterSensitiveLog = (
     obj: DescribeReplicationTaskAssessmentResultsResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTaskAssessmentResults && {
-      ReplicationTaskAssessmentResults: obj.ReplicationTaskAssessmentResults.map(
-        item => ReplicationTaskAssessmentResult.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -2829,10 +2650,7 @@ export namespace DescribeReplicationTasksMessage {
   export const filterSensitiveLog = (
     obj: DescribeReplicationTasksMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeReplicationTasksMessage =>
     __isa(o, "DescribeReplicationTasksMessage");
@@ -2860,12 +2678,7 @@ export namespace DescribeReplicationTasksResponse {
   export const filterSensitiveLog = (
     obj: DescribeReplicationTasksResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTasks && {
-      ReplicationTasks: obj.ReplicationTasks.map(item =>
-        ReplicationTask.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeReplicationTasksResponse =>
     __isa(o, "DescribeReplicationTasksResponse");
@@ -2971,10 +2784,7 @@ export namespace DescribeTableStatisticsMessage {
   export const filterSensitiveLog = (
     obj: DescribeTableStatisticsMessage
   ): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => Filter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTableStatisticsMessage =>
     __isa(o, "DescribeTableStatisticsMessage");
@@ -3007,12 +2817,7 @@ export namespace DescribeTableStatisticsResponse {
   export const filterSensitiveLog = (
     obj: DescribeTableStatisticsResponse
   ): any => ({
-    ...obj,
-    ...(obj.TableStatistics && {
-      TableStatistics: obj.TableStatistics.map(item =>
-        TableStatistics.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTableStatisticsResponse =>
     __isa(o, "DescribeTableStatisticsResponse");
@@ -3284,24 +3089,6 @@ export interface Endpoint {
 export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
-    ...(obj.DmsTransferSettings && {
-      DmsTransferSettings: DmsTransferSettings.filterSensitiveLog(
-        obj.DmsTransferSettings
-      )
-    }),
-    ...(obj.DynamoDbSettings && {
-      DynamoDbSettings: DynamoDbSettings.filterSensitiveLog(
-        obj.DynamoDbSettings
-      )
-    }),
-    ...(obj.ElasticsearchSettings && {
-      ElasticsearchSettings: ElasticsearchSettings.filterSensitiveLog(
-        obj.ElasticsearchSettings
-      )
-    }),
-    ...(obj.KinesisSettings && {
-      KinesisSettings: KinesisSettings.filterSensitiveLog(obj.KinesisSettings)
-    }),
     ...(obj.MongoDbSettings && {
       MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings)
     }),
@@ -3309,9 +3096,6 @@ export namespace Endpoint {
       RedshiftSettings: RedshiftSettings.filterSensitiveLog(
         obj.RedshiftSettings
       )
-    }),
-    ...(obj.S3Settings && {
-      S3Settings: S3Settings.filterSensitiveLog(obj.S3Settings)
     })
   });
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
@@ -3500,10 +3284,7 @@ export interface ImportCertificateMessage {
 
 export namespace ImportCertificateMessage {
   export const filterSensitiveLog = (obj: ImportCertificateMessage): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ImportCertificateMessage =>
     __isa(o, "ImportCertificateMessage");
@@ -3519,10 +3300,7 @@ export interface ImportCertificateResponse {
 
 export namespace ImportCertificateResponse {
   export const filterSensitiveLog = (obj: ImportCertificateResponse): any => ({
-    ...obj,
-    ...(obj.Certificate && {
-      Certificate: Certificate.filterSensitiveLog(obj.Certificate)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ImportCertificateResponse =>
     __isa(o, "ImportCertificateResponse");
@@ -3594,10 +3372,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -3770,24 +3545,6 @@ export interface ModifyEndpointMessage {
 export namespace ModifyEndpointMessage {
   export const filterSensitiveLog = (obj: ModifyEndpointMessage): any => ({
     ...obj,
-    ...(obj.DmsTransferSettings && {
-      DmsTransferSettings: DmsTransferSettings.filterSensitiveLog(
-        obj.DmsTransferSettings
-      )
-    }),
-    ...(obj.DynamoDbSettings && {
-      DynamoDbSettings: DynamoDbSettings.filterSensitiveLog(
-        obj.DynamoDbSettings
-      )
-    }),
-    ...(obj.ElasticsearchSettings && {
-      ElasticsearchSettings: ElasticsearchSettings.filterSensitiveLog(
-        obj.ElasticsearchSettings
-      )
-    }),
-    ...(obj.KinesisSettings && {
-      KinesisSettings: KinesisSettings.filterSensitiveLog(obj.KinesisSettings)
-    }),
     ...(obj.MongoDbSettings && {
       MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings)
     }),
@@ -3796,9 +3553,6 @@ export namespace ModifyEndpointMessage {
       RedshiftSettings: RedshiftSettings.filterSensitiveLog(
         obj.RedshiftSettings
       )
-    }),
-    ...(obj.S3Settings && {
-      S3Settings: S3Settings.filterSensitiveLog(obj.S3Settings)
     })
   });
   export const isa = (o: any): o is ModifyEndpointMessage =>
@@ -3885,12 +3639,7 @@ export namespace ModifyEventSubscriptionResponse {
   export const filterSensitiveLog = (
     obj: ModifyEventSubscriptionResponse
   ): any => ({
-    ...obj,
-    ...(obj.EventSubscription && {
-      EventSubscription: EventSubscription.filterSensitiveLog(
-        obj.EventSubscription
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyEventSubscriptionResponse =>
     __isa(o, "ModifyEventSubscriptionResponse");
@@ -4008,12 +3757,7 @@ export namespace ModifyReplicationInstanceResponse {
   export const filterSensitiveLog = (
     obj: ModifyReplicationInstanceResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationInstance && {
-      ReplicationInstance: ReplicationInstance.filterSensitiveLog(
-        obj.ReplicationInstance
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyReplicationInstanceResponse =>
     __isa(o, "ModifyReplicationInstanceResponse");
@@ -4065,12 +3809,7 @@ export namespace ModifyReplicationSubnetGroupResponse {
   export const filterSensitiveLog = (
     obj: ModifyReplicationSubnetGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationSubnetGroup && {
-      ReplicationSubnetGroup: ReplicationSubnetGroup.filterSensitiveLog(
-        obj.ReplicationSubnetGroup
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyReplicationSubnetGroupResponse =>
     __isa(o, "ModifyReplicationSubnetGroupResponse");
@@ -4183,10 +3922,7 @@ export namespace ModifyReplicationTaskResponse {
   export const filterSensitiveLog = (
     obj: ModifyReplicationTaskResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTask && {
-      ReplicationTask: ReplicationTask.filterSensitiveLog(obj.ReplicationTask)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ModifyReplicationTaskResponse =>
     __isa(o, "ModifyReplicationTaskResponse");
@@ -4460,12 +4196,7 @@ export namespace RebootReplicationInstanceResponse {
   export const filterSensitiveLog = (
     obj: RebootReplicationInstanceResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationInstance && {
-      ReplicationInstance: ReplicationInstance.filterSensitiveLog(
-        obj.ReplicationInstance
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RebootReplicationInstanceResponse =>
     __isa(o, "RebootReplicationInstanceResponse");
@@ -4694,12 +4425,7 @@ export interface RefreshSchemasResponse {
 
 export namespace RefreshSchemasResponse {
   export const filterSensitiveLog = (obj: RefreshSchemasResponse): any => ({
-    ...obj,
-    ...(obj.RefreshSchemasStatus && {
-      RefreshSchemasStatus: RefreshSchemasStatus.filterSensitiveLog(
-        obj.RefreshSchemasStatus
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RefreshSchemasResponse =>
     __isa(o, "RefreshSchemasResponse");
@@ -4783,12 +4509,7 @@ export interface ReloadTablesMessage {
 
 export namespace ReloadTablesMessage {
   export const filterSensitiveLog = (obj: ReloadTablesMessage): any => ({
-    ...obj,
-    ...(obj.TablesToReload && {
-      TablesToReload: obj.TablesToReload.map(item =>
-        TableToReload.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReloadTablesMessage =>
     __isa(o, "ReloadTablesMessage");
@@ -5013,22 +4734,7 @@ export interface ReplicationInstance {
 
 export namespace ReplicationInstance {
   export const filterSensitiveLog = (obj: ReplicationInstance): any => ({
-    ...obj,
-    ...(obj.PendingModifiedValues && {
-      PendingModifiedValues: ReplicationPendingModifiedValues.filterSensitiveLog(
-        obj.PendingModifiedValues
-      )
-    }),
-    ...(obj.ReplicationSubnetGroup && {
-      ReplicationSubnetGroup: ReplicationSubnetGroup.filterSensitiveLog(
-        obj.ReplicationSubnetGroup
-      )
-    }),
-    ...(obj.VpcSecurityGroups && {
-      VpcSecurityGroups: obj.VpcSecurityGroups.map(item =>
-        VpcSecurityGroupMembership.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationInstance =>
     __isa(o, "ReplicationInstance");
@@ -5138,10 +4844,7 @@ export interface ReplicationSubnetGroup {
 
 export namespace ReplicationSubnetGroup {
   export const filterSensitiveLog = (obj: ReplicationSubnetGroup): any => ({
-    ...obj,
-    ...(obj.Subnets && {
-      Subnets: obj.Subnets.map(item => Subnet.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationSubnetGroup =>
     __isa(o, "ReplicationSubnetGroup");
@@ -5265,12 +4968,7 @@ export interface ReplicationTask {
 
 export namespace ReplicationTask {
   export const filterSensitiveLog = (obj: ReplicationTask): any => ({
-    ...obj,
-    ...(obj.ReplicationTaskStats && {
-      ReplicationTaskStats: ReplicationTaskStats.filterSensitiveLog(
-        obj.ReplicationTaskStats
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ReplicationTask =>
     __isa(o, "ReplicationTask");
@@ -5420,12 +5118,7 @@ export namespace ResourcePendingMaintenanceActions {
   export const filterSensitiveLog = (
     obj: ResourcePendingMaintenanceActions
   ): any => ({
-    ...obj,
-    ...(obj.PendingMaintenanceActionDetails && {
-      PendingMaintenanceActionDetails: obj.PendingMaintenanceActionDetails.map(
-        item => PendingMaintenanceAction.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourcePendingMaintenanceActions =>
     __isa(o, "ResourcePendingMaintenanceActions");
@@ -5784,10 +5477,7 @@ export namespace StartReplicationTaskAssessmentResponse {
   export const filterSensitiveLog = (
     obj: StartReplicationTaskAssessmentResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTask && {
-      ReplicationTask: ReplicationTask.filterSensitiveLog(obj.ReplicationTask)
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartReplicationTaskAssessmentResponse =>
     __isa(o, "StartReplicationTaskAssessmentResponse");
@@ -5869,10 +5559,7 @@ export namespace StartReplicationTaskResponse {
   export const filterSensitiveLog = (
     obj: StartReplicationTaskResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTask && {
-      ReplicationTask: ReplicationTask.filterSensitiveLog(obj.ReplicationTask)
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartReplicationTaskResponse =>
     __isa(o, "StartReplicationTaskResponse");
@@ -5918,10 +5605,7 @@ export namespace StopReplicationTaskResponse {
   export const filterSensitiveLog = (
     obj: StopReplicationTaskResponse
   ): any => ({
-    ...obj,
-    ...(obj.ReplicationTask && {
-      ReplicationTask: ReplicationTask.filterSensitiveLog(obj.ReplicationTask)
-    })
+    ...obj
   });
   export const isa = (o: any): o is StopReplicationTaskResponse =>
     __isa(o, "StopReplicationTaskResponse");
@@ -5950,12 +5634,7 @@ export interface Subnet {
 
 export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj,
-    ...(obj.SubnetAvailabilityZone && {
-      SubnetAvailabilityZone: AvailabilityZone.filterSensitiveLog(
-        obj.SubnetAvailabilityZone
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
@@ -6216,10 +5895,7 @@ export interface TestConnectionResponse {
 
 export namespace TestConnectionResponse {
   export const filterSensitiveLog = (obj: TestConnectionResponse): any => ({
-    ...obj,
-    ...(obj.Connection && {
-      Connection: Connection.filterSensitiveLog(obj.Connection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is TestConnectionResponse =>
     __isa(o, "TestConnectionResponse");

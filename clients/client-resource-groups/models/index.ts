@@ -53,10 +53,7 @@ export interface CreateGroupInput {
 
 export namespace CreateGroupInput {
   export const filterSensitiveLog = (obj: CreateGroupInput): any => ({
-    ...obj,
-    ...(obj.ResourceQuery && {
-      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateGroupInput =>
     __isa(o, "CreateGroupInput");
@@ -82,11 +79,7 @@ export interface CreateGroupOutput {
 
 export namespace CreateGroupOutput {
   export const filterSensitiveLog = (obj: CreateGroupOutput): any => ({
-    ...obj,
-    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) }),
-    ...(obj.ResourceQuery && {
-      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateGroupOutput =>
     __isa(o, "CreateGroupOutput");
@@ -118,8 +111,7 @@ export interface DeleteGroupOutput {
 
 export namespace DeleteGroupOutput {
   export const filterSensitiveLog = (obj: DeleteGroupOutput): any => ({
-    ...obj,
-    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteGroupOutput =>
     __isa(o, "DeleteGroupOutput");
@@ -167,8 +159,7 @@ export interface GetGroupOutput {
 
 export namespace GetGroupOutput {
   export const filterSensitiveLog = (obj: GetGroupOutput): any => ({
-    ...obj,
-    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) })
+    ...obj
   });
   export const isa = (o: any): o is GetGroupOutput =>
     __isa(o, "GetGroupOutput");
@@ -200,10 +191,7 @@ export interface GetGroupQueryOutput {
 
 export namespace GetGroupQueryOutput {
   export const filterSensitiveLog = (obj: GetGroupQueryOutput): any => ({
-    ...obj,
-    ...(obj.GroupQuery && {
-      GroupQuery: GroupQuery.filterSensitiveLog(obj.GroupQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetGroupQueryOutput =>
     __isa(o, "GetGroupQueryOutput");
@@ -341,10 +329,7 @@ export interface GroupQuery {
 
 export namespace GroupQuery {
   export const filterSensitiveLog = (obj: GroupQuery): any => ({
-    ...obj,
-    ...(obj.ResourceQuery && {
-      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GroupQuery => __isa(o, "GroupQuery");
 }
@@ -402,10 +387,7 @@ export interface ListGroupResourcesInput {
 
 export namespace ListGroupResourcesInput {
   export const filterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => ResourceFilter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGroupResourcesInput =>
     __isa(o, "ListGroupResourcesInput");
@@ -433,17 +415,7 @@ export interface ListGroupResourcesOutput {
 
 export namespace ListGroupResourcesOutput {
   export const filterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
-    ...obj,
-    ...(obj.QueryErrors && {
-      QueryErrors: obj.QueryErrors.map(item =>
-        QueryError.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceIdentifiers && {
-      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
-        ResourceIdentifier.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGroupResourcesOutput =>
     __isa(o, "ListGroupResourcesOutput");
@@ -476,10 +448,7 @@ export interface ListGroupsInput {
 
 export namespace ListGroupsInput {
   export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => GroupFilter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGroupsInput =>
     __isa(o, "ListGroupsInput");
@@ -505,15 +474,7 @@ export interface ListGroupsOutput {
 
 export namespace ListGroupsOutput {
   export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
-    ...obj,
-    ...(obj.GroupIdentifiers && {
-      GroupIdentifiers: obj.GroupIdentifiers.map(item =>
-        GroupIdentifier.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item => Group.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGroupsOutput =>
     __isa(o, "ListGroupsOutput");
@@ -726,10 +687,7 @@ export interface SearchResourcesInput {
 
 export namespace SearchResourcesInput {
   export const filterSensitiveLog = (obj: SearchResourcesInput): any => ({
-    ...obj,
-    ...(obj.ResourceQuery && {
-      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SearchResourcesInput =>
     __isa(o, "SearchResourcesInput");
@@ -758,17 +716,7 @@ export interface SearchResourcesOutput {
 
 export namespace SearchResourcesOutput {
   export const filterSensitiveLog = (obj: SearchResourcesOutput): any => ({
-    ...obj,
-    ...(obj.QueryErrors && {
-      QueryErrors: obj.QueryErrors.map(item =>
-        QueryError.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResourceIdentifiers && {
-      ResourceIdentifiers: obj.ResourceIdentifiers.map(item =>
-        ResourceIdentifier.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SearchResourcesOutput =>
     __isa(o, "SearchResourcesOutput");
@@ -925,8 +873,7 @@ export interface UpdateGroupOutput {
 
 export namespace UpdateGroupOutput {
   export const filterSensitiveLog = (obj: UpdateGroupOutput): any => ({
-    ...obj,
-    ...(obj.Group && { Group: Group.filterSensitiveLog(obj.Group) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGroupOutput =>
     __isa(o, "UpdateGroupOutput");
@@ -947,10 +894,7 @@ export interface UpdateGroupQueryInput {
 
 export namespace UpdateGroupQueryInput {
   export const filterSensitiveLog = (obj: UpdateGroupQueryInput): any => ({
-    ...obj,
-    ...(obj.ResourceQuery && {
-      ResourceQuery: ResourceQuery.filterSensitiveLog(obj.ResourceQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGroupQueryInput =>
     __isa(o, "UpdateGroupQueryInput");
@@ -966,10 +910,7 @@ export interface UpdateGroupQueryOutput {
 
 export namespace UpdateGroupQueryOutput {
   export const filterSensitiveLog = (obj: UpdateGroupQueryOutput): any => ({
-    ...obj,
-    ...(obj.GroupQuery && {
-      GroupQuery: GroupQuery.filterSensitiveLog(obj.GroupQuery)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGroupQueryOutput =>
     __isa(o, "UpdateGroupQueryOutput");

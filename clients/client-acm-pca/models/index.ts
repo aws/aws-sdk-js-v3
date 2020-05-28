@@ -204,17 +204,7 @@ export interface CertificateAuthority {
 
 export namespace CertificateAuthority {
   export const filterSensitiveLog = (obj: CertificateAuthority): any => ({
-    ...obj,
-    ...(obj.CertificateAuthorityConfiguration && {
-      CertificateAuthorityConfiguration: CertificateAuthorityConfiguration.filterSensitiveLog(
-        obj.CertificateAuthorityConfiguration
-      )
-    }),
-    ...(obj.RevocationConfiguration && {
-      RevocationConfiguration: RevocationConfiguration.filterSensitiveLog(
-        obj.RevocationConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CertificateAuthority =>
     __isa(o, "CertificateAuthority");
@@ -252,8 +242,7 @@ export namespace CertificateAuthorityConfiguration {
   export const filterSensitiveLog = (
     obj: CertificateAuthorityConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.Subject && { Subject: ASN1Subject.filterSensitiveLog(obj.Subject) })
+    ...obj
   });
   export const isa = (o: any): o is CertificateAuthorityConfiguration =>
     __isa(o, "CertificateAuthorityConfiguration");
@@ -421,20 +410,7 @@ export namespace CreateCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: CreateCertificateAuthorityRequest
   ): any => ({
-    ...obj,
-    ...(obj.CertificateAuthorityConfiguration && {
-      CertificateAuthorityConfiguration: CertificateAuthorityConfiguration.filterSensitiveLog(
-        obj.CertificateAuthorityConfiguration
-      )
-    }),
-    ...(obj.RevocationConfiguration && {
-      RevocationConfiguration: RevocationConfiguration.filterSensitiveLog(
-        obj.RevocationConfiguration
-      )
-    }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateCertificateAuthorityRequest =>
     __isa(o, "CreateCertificateAuthorityRequest");
@@ -810,12 +786,7 @@ export namespace DescribeCertificateAuthorityResponse {
   export const filterSensitiveLog = (
     obj: DescribeCertificateAuthorityResponse
   ): any => ({
-    ...obj,
-    ...(obj.CertificateAuthority && {
-      CertificateAuthority: CertificateAuthority.filterSensitiveLog(
-        obj.CertificateAuthority
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeCertificateAuthorityResponse =>
     __isa(o, "DescribeCertificateAuthorityResponse");
@@ -1232,8 +1203,7 @@ export interface IssueCertificateRequest {
 
 export namespace IssueCertificateRequest {
   export const filterSensitiveLog = (obj: IssueCertificateRequest): any => ({
-    ...obj,
-    ...(obj.Validity && { Validity: Validity.filterSensitiveLog(obj.Validity) })
+    ...obj
   });
   export const isa = (o: any): o is IssueCertificateRequest =>
     __isa(o, "IssueCertificateRequest");
@@ -1334,12 +1304,7 @@ export namespace ListCertificateAuthoritiesResponse {
   export const filterSensitiveLog = (
     obj: ListCertificateAuthoritiesResponse
   ): any => ({
-    ...obj,
-    ...(obj.CertificateAuthorities && {
-      CertificateAuthorities: obj.CertificateAuthorities.map(item =>
-        CertificateAuthority.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListCertificateAuthoritiesResponse =>
     __isa(o, "ListCertificateAuthoritiesResponse");
@@ -1397,12 +1362,7 @@ export interface ListPermissionsResponse {
 
 export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj,
-    ...(obj.Permissions && {
-      Permissions: obj.Permissions.map(item =>
-        Permission.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPermissionsResponse =>
     __isa(o, "ListPermissionsResponse");
@@ -1459,10 +1419,7 @@ export interface ListTagsResponse {
 
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsResponse =>
     __isa(o, "ListTagsResponse");
@@ -1697,12 +1654,7 @@ export interface RevocationConfiguration {
 
 export namespace RevocationConfiguration {
   export const filterSensitiveLog = (obj: RevocationConfiguration): any => ({
-    ...obj,
-    ...(obj.CrlConfiguration && {
-      CrlConfiguration: CrlConfiguration.filterSensitiveLog(
-        obj.CrlConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RevocationConfiguration =>
     __isa(o, "RevocationConfiguration");
@@ -1815,10 +1767,7 @@ export namespace TagCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: TagCertificateAuthorityRequest
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagCertificateAuthorityRequest =>
     __isa(o, "TagCertificateAuthorityRequest");
@@ -1865,10 +1814,7 @@ export namespace UntagCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: UntagCertificateAuthorityRequest
   ): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UntagCertificateAuthorityRequest =>
     __isa(o, "UntagCertificateAuthorityRequest");
@@ -1901,12 +1847,7 @@ export namespace UpdateCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: UpdateCertificateAuthorityRequest
   ): any => ({
-    ...obj,
-    ...(obj.RevocationConfiguration && {
-      RevocationConfiguration: RevocationConfiguration.filterSensitiveLog(
-        obj.RevocationConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateCertificateAuthorityRequest =>
     __isa(o, "UpdateCertificateAuthorityRequest");

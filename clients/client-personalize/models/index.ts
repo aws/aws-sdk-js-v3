@@ -65,15 +65,7 @@ export interface Algorithm {
 
 export namespace Algorithm {
   export const filterSensitiveLog = (obj: Algorithm): any => ({
-    ...obj,
-    ...(obj.algorithmImage && {
-      algorithmImage: AlgorithmImage.filterSensitiveLog(obj.algorithmImage)
-    }),
-    ...(obj.defaultHyperParameterRanges && {
-      defaultHyperParameterRanges: DefaultHyperParameterRanges.filterSensitiveLog(
-        obj.defaultHyperParameterRanges
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Algorithm => __isa(o, "Algorithm");
 }
@@ -228,13 +220,7 @@ export interface BatchInferenceJob {
 
 export namespace BatchInferenceJob {
   export const filterSensitiveLog = (obj: BatchInferenceJob): any => ({
-    ...obj,
-    ...(obj.jobInput && {
-      jobInput: BatchInferenceJobInput.filterSensitiveLog(obj.jobInput)
-    }),
-    ...(obj.jobOutput && {
-      jobOutput: BatchInferenceJobOutput.filterSensitiveLog(obj.jobOutput)
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchInferenceJob =>
     __isa(o, "BatchInferenceJob");
@@ -254,10 +240,7 @@ export interface BatchInferenceJobInput {
 
 export namespace BatchInferenceJobInput {
   export const filterSensitiveLog = (obj: BatchInferenceJobInput): any => ({
-    ...obj,
-    ...(obj.s3DataSource && {
-      s3DataSource: S3DataConfig.filterSensitiveLog(obj.s3DataSource)
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchInferenceJobInput =>
     __isa(o, "BatchInferenceJobInput");
@@ -276,10 +259,7 @@ export interface BatchInferenceJobOutput {
 
 export namespace BatchInferenceJobOutput {
   export const filterSensitiveLog = (obj: BatchInferenceJobOutput): any => ({
-    ...obj,
-    ...(obj.s3DataDestination && {
-      s3DataDestination: S3DataConfig.filterSensitiveLog(obj.s3DataDestination)
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchInferenceJobOutput =>
     __isa(o, "BatchInferenceJobOutput");
@@ -408,12 +388,7 @@ export interface Campaign {
 
 export namespace Campaign {
   export const filterSensitiveLog = (obj: Campaign): any => ({
-    ...obj,
-    ...(obj.latestCampaignUpdate && {
-      latestCampaignUpdate: CampaignUpdateSummary.filterSensitiveLog(
-        obj.latestCampaignUpdate
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Campaign => __isa(o, "Campaign");
 }
@@ -624,13 +599,7 @@ export namespace CreateBatchInferenceJobRequest {
   export const filterSensitiveLog = (
     obj: CreateBatchInferenceJobRequest
   ): any => ({
-    ...obj,
-    ...(obj.jobInput && {
-      jobInput: BatchInferenceJobInput.filterSensitiveLog(obj.jobInput)
-    }),
-    ...(obj.jobOutput && {
-      jobOutput: BatchInferenceJobOutput.filterSensitiveLog(obj.jobOutput)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateBatchInferenceJobRequest =>
     __isa(o, "CreateBatchInferenceJobRequest");
@@ -767,10 +736,7 @@ export namespace CreateDatasetImportJobRequest {
   export const filterSensitiveLog = (
     obj: CreateDatasetImportJobRequest
   ): any => ({
-    ...obj,
-    ...(obj.dataSource && {
-      dataSource: DataSource.filterSensitiveLog(obj.dataSource)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDatasetImportJobRequest =>
     __isa(o, "CreateDatasetImportJobRequest");
@@ -988,10 +954,7 @@ export interface CreateSolutionRequest {
 
 export namespace CreateSolutionRequest {
   export const filterSensitiveLog = (obj: CreateSolutionRequest): any => ({
-    ...obj,
-    ...(obj.solutionConfig && {
-      solutionConfig: SolutionConfig.filterSensitiveLog(obj.solutionConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateSolutionRequest =>
     __isa(o, "CreateSolutionRequest");
@@ -1348,10 +1311,7 @@ export interface DatasetImportJob {
 
 export namespace DatasetImportJob {
   export const filterSensitiveLog = (obj: DatasetImportJob): any => ({
-    ...obj,
-    ...(obj.dataSource && {
-      dataSource: DataSource.filterSensitiveLog(obj.dataSource)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DatasetImportJob =>
     __isa(o, "DatasetImportJob");
@@ -1647,22 +1607,7 @@ export namespace DefaultHyperParameterRanges {
   export const filterSensitiveLog = (
     obj: DefaultHyperParameterRanges
   ): any => ({
-    ...obj,
-    ...(obj.categoricalHyperParameterRanges && {
-      categoricalHyperParameterRanges: obj.categoricalHyperParameterRanges.map(
-        item => DefaultCategoricalHyperParameterRange.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.continuousHyperParameterRanges && {
-      continuousHyperParameterRanges: obj.continuousHyperParameterRanges.map(
-        item => DefaultContinuousHyperParameterRange.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.integerHyperParameterRanges && {
-      integerHyperParameterRanges: obj.integerHyperParameterRanges.map(item =>
-        DefaultIntegerHyperParameterRange.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DefaultHyperParameterRanges =>
     __isa(o, "DefaultHyperParameterRanges");
@@ -1828,10 +1773,7 @@ export interface DescribeAlgorithmResponse {
 
 export namespace DescribeAlgorithmResponse {
   export const filterSensitiveLog = (obj: DescribeAlgorithmResponse): any => ({
-    ...obj,
-    ...(obj.algorithm && {
-      algorithm: Algorithm.filterSensitiveLog(obj.algorithm)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAlgorithmResponse =>
     __isa(o, "DescribeAlgorithmResponse");
@@ -1867,12 +1809,7 @@ export namespace DescribeBatchInferenceJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeBatchInferenceJobResponse
   ): any => ({
-    ...obj,
-    ...(obj.batchInferenceJob && {
-      batchInferenceJob: BatchInferenceJob.filterSensitiveLog(
-        obj.batchInferenceJob
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeBatchInferenceJobResponse =>
     __isa(o, "DescribeBatchInferenceJobResponse");
@@ -1904,8 +1841,7 @@ export interface DescribeCampaignResponse {
 
 export namespace DescribeCampaignResponse {
   export const filterSensitiveLog = (obj: DescribeCampaignResponse): any => ({
-    ...obj,
-    ...(obj.campaign && { campaign: Campaign.filterSensitiveLog(obj.campaign) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeCampaignResponse =>
     __isa(o, "DescribeCampaignResponse");
@@ -1941,10 +1877,7 @@ export namespace DescribeDatasetGroupResponse {
   export const filterSensitiveLog = (
     obj: DescribeDatasetGroupResponse
   ): any => ({
-    ...obj,
-    ...(obj.datasetGroup && {
-      datasetGroup: DatasetGroup.filterSensitiveLog(obj.datasetGroup)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDatasetGroupResponse =>
     __isa(o, "DescribeDatasetGroupResponse");
@@ -1995,12 +1928,7 @@ export namespace DescribeDatasetImportJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeDatasetImportJobResponse
   ): any => ({
-    ...obj,
-    ...(obj.datasetImportJob && {
-      datasetImportJob: DatasetImportJob.filterSensitiveLog(
-        obj.datasetImportJob
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDatasetImportJobResponse =>
     __isa(o, "DescribeDatasetImportJobResponse");
@@ -2032,8 +1960,7 @@ export interface DescribeDatasetResponse {
 
 export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-    ...(obj.dataset && { dataset: Dataset.filterSensitiveLog(obj.dataset) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDatasetResponse =>
     __isa(o, "DescribeDatasetResponse");
@@ -2069,10 +1996,7 @@ export namespace DescribeEventTrackerResponse {
   export const filterSensitiveLog = (
     obj: DescribeEventTrackerResponse
   ): any => ({
-    ...obj,
-    ...(obj.eventTracker && {
-      eventTracker: EventTracker.filterSensitiveLog(obj.eventTracker)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEventTrackerResponse =>
     __isa(o, "DescribeEventTrackerResponse");
@@ -2108,12 +2032,7 @@ export namespace DescribeFeatureTransformationResponse {
   export const filterSensitiveLog = (
     obj: DescribeFeatureTransformationResponse
   ): any => ({
-    ...obj,
-    ...(obj.featureTransformation && {
-      featureTransformation: FeatureTransformation.filterSensitiveLog(
-        obj.featureTransformation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeFeatureTransformationResponse =>
     __isa(o, "DescribeFeatureTransformationResponse");
@@ -2145,8 +2064,7 @@ export interface DescribeRecipeResponse {
 
 export namespace DescribeRecipeResponse {
   export const filterSensitiveLog = (obj: DescribeRecipeResponse): any => ({
-    ...obj,
-    ...(obj.recipe && { recipe: Recipe.filterSensitiveLog(obj.recipe) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeRecipeResponse =>
     __isa(o, "DescribeRecipeResponse");
@@ -2178,8 +2096,7 @@ export interface DescribeSchemaResponse {
 
 export namespace DescribeSchemaResponse {
   export const filterSensitiveLog = (obj: DescribeSchemaResponse): any => ({
-    ...obj,
-    ...(obj.schema && { schema: DatasetSchema.filterSensitiveLog(obj.schema) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSchemaResponse =>
     __isa(o, "DescribeSchemaResponse");
@@ -2211,8 +2128,7 @@ export interface DescribeSolutionResponse {
 
 export namespace DescribeSolutionResponse {
   export const filterSensitiveLog = (obj: DescribeSolutionResponse): any => ({
-    ...obj,
-    ...(obj.solution && { solution: Solution.filterSensitiveLog(obj.solution) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSolutionResponse =>
     __isa(o, "DescribeSolutionResponse");
@@ -2248,10 +2164,7 @@ export namespace DescribeSolutionVersionResponse {
   export const filterSensitiveLog = (
     obj: DescribeSolutionVersionResponse
   ): any => ({
-    ...obj,
-    ...(obj.solutionVersion && {
-      solutionVersion: SolutionVersion.filterSensitiveLog(obj.solutionVersion)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSolutionVersionResponse =>
     __isa(o, "DescribeSolutionVersionResponse");
@@ -2481,20 +2394,7 @@ export interface HPOConfig {
 
 export namespace HPOConfig {
   export const filterSensitiveLog = (obj: HPOConfig): any => ({
-    ...obj,
-    ...(obj.algorithmHyperParameterRanges && {
-      algorithmHyperParameterRanges: HyperParameterRanges.filterSensitiveLog(
-        obj.algorithmHyperParameterRanges
-      )
-    }),
-    ...(obj.hpoObjective && {
-      hpoObjective: HPOObjective.filterSensitiveLog(obj.hpoObjective)
-    }),
-    ...(obj.hpoResourceConfig && {
-      hpoResourceConfig: HPOResourceConfig.filterSensitiveLog(
-        obj.hpoResourceConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HPOConfig => __isa(o, "HPOConfig");
 }
@@ -2585,22 +2485,7 @@ export interface HyperParameterRanges {
 
 export namespace HyperParameterRanges {
   export const filterSensitiveLog = (obj: HyperParameterRanges): any => ({
-    ...obj,
-    ...(obj.categoricalHyperParameterRanges && {
-      categoricalHyperParameterRanges: obj.categoricalHyperParameterRanges.map(
-        item => CategoricalHyperParameterRange.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.continuousHyperParameterRanges && {
-      continuousHyperParameterRanges: obj.continuousHyperParameterRanges.map(
-        item => ContinuousHyperParameterRange.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.integerHyperParameterRanges && {
-      integerHyperParameterRanges: obj.integerHyperParameterRanges.map(item =>
-        IntegerHyperParameterRange.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HyperParameterRanges =>
     __isa(o, "HyperParameterRanges");
@@ -2683,12 +2568,7 @@ export namespace ListBatchInferenceJobsResponse {
   export const filterSensitiveLog = (
     obj: ListBatchInferenceJobsResponse
   ): any => ({
-    ...obj,
-    ...(obj.batchInferenceJobs && {
-      batchInferenceJobs: obj.batchInferenceJobs.map(item =>
-        BatchInferenceJobSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListBatchInferenceJobsResponse =>
     __isa(o, "ListBatchInferenceJobsResponse");
@@ -2737,12 +2617,7 @@ export interface ListCampaignsResponse {
 
 export namespace ListCampaignsResponse {
   export const filterSensitiveLog = (obj: ListCampaignsResponse): any => ({
-    ...obj,
-    ...(obj.campaigns && {
-      campaigns: obj.campaigns.map(item =>
-        CampaignSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListCampaignsResponse =>
     __isa(o, "ListCampaignsResponse");
@@ -2785,12 +2660,7 @@ export interface ListDatasetGroupsResponse {
 
 export namespace ListDatasetGroupsResponse {
   export const filterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
-    ...obj,
-    ...(obj.datasetGroups && {
-      datasetGroups: obj.datasetGroups.map(item =>
-        DatasetGroupSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDatasetGroupsResponse =>
     __isa(o, "ListDatasetGroupsResponse");
@@ -2842,12 +2712,7 @@ export namespace ListDatasetImportJobsResponse {
   export const filterSensitiveLog = (
     obj: ListDatasetImportJobsResponse
   ): any => ({
-    ...obj,
-    ...(obj.datasetImportJobs && {
-      datasetImportJobs: obj.datasetImportJobs.map(item =>
-        DatasetImportJobSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDatasetImportJobsResponse =>
     __isa(o, "ListDatasetImportJobsResponse");
@@ -2896,12 +2761,7 @@ export interface ListDatasetsResponse {
 
 export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj,
-    ...(obj.datasets && {
-      datasets: obj.datasets.map(item =>
-        DatasetSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDatasetsResponse =>
     __isa(o, "ListDatasetsResponse");
@@ -2949,12 +2809,7 @@ export interface ListEventTrackersResponse {
 
 export namespace ListEventTrackersResponse {
   export const filterSensitiveLog = (obj: ListEventTrackersResponse): any => ({
-    ...obj,
-    ...(obj.eventTrackers && {
-      eventTrackers: obj.eventTrackers.map(item =>
-        EventTrackerSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListEventTrackersResponse =>
     __isa(o, "ListEventTrackersResponse");
@@ -3002,10 +2857,7 @@ export interface ListRecipesResponse {
 
 export namespace ListRecipesResponse {
   export const filterSensitiveLog = (obj: ListRecipesResponse): any => ({
-    ...obj,
-    ...(obj.recipes && {
-      recipes: obj.recipes.map(item => RecipeSummary.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListRecipesResponse =>
     __isa(o, "ListRecipesResponse");
@@ -3048,12 +2900,7 @@ export interface ListSchemasResponse {
 
 export namespace ListSchemasResponse {
   export const filterSensitiveLog = (obj: ListSchemasResponse): any => ({
-    ...obj,
-    ...(obj.schemas && {
-      schemas: obj.schemas.map(item =>
-        DatasetSchemaSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSchemasResponse =>
     __isa(o, "ListSchemasResponse");
@@ -3105,12 +2952,7 @@ export namespace ListSolutionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListSolutionVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.solutionVersions && {
-      solutionVersions: obj.solutionVersions.map(item =>
-        SolutionVersionSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSolutionVersionsResponse =>
     __isa(o, "ListSolutionVersionsResponse");
@@ -3158,12 +3000,7 @@ export interface ListSolutionsResponse {
 
 export namespace ListSolutionsResponse {
   export const filterSensitiveLog = (obj: ListSolutionsResponse): any => ({
-    ...obj,
-    ...(obj.solutions && {
-      solutions: obj.solutions.map(item =>
-        SolutionSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListSolutionsResponse =>
     __isa(o, "ListSolutionsResponse");
@@ -3394,18 +3231,7 @@ export interface Solution {
 
 export namespace Solution {
   export const filterSensitiveLog = (obj: Solution): any => ({
-    ...obj,
-    ...(obj.autoMLResult && {
-      autoMLResult: AutoMLResult.filterSensitiveLog(obj.autoMLResult)
-    }),
-    ...(obj.latestSolutionVersion && {
-      latestSolutionVersion: SolutionVersionSummary.filterSensitiveLog(
-        obj.latestSolutionVersion
-      )
-    }),
-    ...(obj.solutionConfig && {
-      solutionConfig: SolutionConfig.filterSensitiveLog(obj.solutionConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Solution => __isa(o, "Solution");
 }
@@ -3445,13 +3271,7 @@ export interface SolutionConfig {
 
 export namespace SolutionConfig {
   export const filterSensitiveLog = (obj: SolutionConfig): any => ({
-    ...obj,
-    ...(obj.autoMLConfig && {
-      autoMLConfig: AutoMLConfig.filterSensitiveLog(obj.autoMLConfig)
-    }),
-    ...(obj.hpoConfig && {
-      hpoConfig: HPOConfig.filterSensitiveLog(obj.hpoConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SolutionConfig =>
     __isa(o, "SolutionConfig");
@@ -3615,10 +3435,7 @@ export interface SolutionVersion {
 
 export namespace SolutionVersion {
   export const filterSensitiveLog = (obj: SolutionVersion): any => ({
-    ...obj,
-    ...(obj.solutionConfig && {
-      solutionConfig: SolutionConfig.filterSensitiveLog(obj.solutionConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SolutionVersion =>
     __isa(o, "SolutionVersion");

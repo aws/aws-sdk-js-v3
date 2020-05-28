@@ -155,27 +155,7 @@ export interface AttackDetail {
 
 export namespace AttackDetail {
   export const filterSensitiveLog = (obj: AttackDetail): any => ({
-    ...obj,
-    ...(obj.AttackCounters && {
-      AttackCounters: obj.AttackCounters.map(item =>
-        SummarizedCounter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.AttackProperties && {
-      AttackProperties: obj.AttackProperties.map(item =>
-        AttackProperty.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Mitigations && {
-      Mitigations: obj.Mitigations.map(item =>
-        Mitigation.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SubResources && {
-      SubResources: obj.SubResources.map(item =>
-        SubResourceSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AttackDetail => __isa(o, "AttackDetail");
 }
@@ -222,12 +202,7 @@ export interface AttackProperty {
 
 export namespace AttackProperty {
   export const filterSensitiveLog = (obj: AttackProperty): any => ({
-    ...obj,
-    ...(obj.TopContributors && {
-      TopContributors: obj.TopContributors.map(item =>
-        Contributor.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AttackProperty =>
     __isa(o, "AttackProperty");
@@ -277,12 +252,7 @@ export interface AttackSummary {
 
 export namespace AttackSummary {
   export const filterSensitiveLog = (obj: AttackSummary): any => ({
-    ...obj,
-    ...(obj.AttackVectors && {
-      AttackVectors: obj.AttackVectors.map(item =>
-        AttackVectorDescription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AttackSummary => __isa(o, "AttackSummary");
 }
@@ -564,8 +534,7 @@ export interface DescribeAttackResponse {
 
 export namespace DescribeAttackResponse {
   export const filterSensitiveLog = (obj: DescribeAttackResponse): any => ({
-    ...obj,
-    ...(obj.Attack && { Attack: AttackDetail.filterSensitiveLog(obj.Attack) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAttackResponse =>
     __isa(o, "DescribeAttackResponse");
@@ -630,12 +599,7 @@ export namespace DescribeEmergencyContactSettingsResponse {
   export const filterSensitiveLog = (
     obj: DescribeEmergencyContactSettingsResponse
   ): any => ({
-    ...obj,
-    ...(obj.EmergencyContactList && {
-      EmergencyContactList: obj.EmergencyContactList.map(item =>
-        EmergencyContact.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEmergencyContactSettingsResponse =>
     __isa(o, "DescribeEmergencyContactSettingsResponse");
@@ -674,10 +638,7 @@ export interface DescribeProtectionResponse {
 
 export namespace DescribeProtectionResponse {
   export const filterSensitiveLog = (obj: DescribeProtectionResponse): any => ({
-    ...obj,
-    ...(obj.Protection && {
-      Protection: Protection.filterSensitiveLog(obj.Protection)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeProtectionResponse =>
     __isa(o, "DescribeProtectionResponse");
@@ -709,10 +670,7 @@ export namespace DescribeSubscriptionResponse {
   export const filterSensitiveLog = (
     obj: DescribeSubscriptionResponse
   ): any => ({
-    ...obj,
-    ...(obj.Subscription && {
-      Subscription: Subscription.filterSensitiveLog(obj.Subscription)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeSubscriptionResponse =>
     __isa(o, "DescribeSubscriptionResponse");
@@ -1005,11 +963,7 @@ export interface ListAttacksRequest {
 
 export namespace ListAttacksRequest {
   export const filterSensitiveLog = (obj: ListAttacksRequest): any => ({
-    ...obj,
-    ...(obj.EndTime && { EndTime: TimeRange.filterSensitiveLog(obj.EndTime) }),
-    ...(obj.StartTime && {
-      StartTime: TimeRange.filterSensitiveLog(obj.StartTime)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAttacksRequest =>
     __isa(o, "ListAttacksRequest");
@@ -1034,12 +988,7 @@ export interface ListAttacksResponse {
 
 export namespace ListAttacksResponse {
   export const filterSensitiveLog = (obj: ListAttacksResponse): any => ({
-    ...obj,
-    ...(obj.AttackSummaries && {
-      AttackSummaries: obj.AttackSummaries.map(item =>
-        AttackSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAttacksResponse =>
     __isa(o, "ListAttacksResponse");
@@ -1084,12 +1033,7 @@ export interface ListProtectionsResponse {
 
 export namespace ListProtectionsResponse {
   export const filterSensitiveLog = (obj: ListProtectionsResponse): any => ({
-    ...obj,
-    ...(obj.Protections && {
-      Protections: obj.Protections.map(item =>
-        Protection.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProtectionsResponse =>
     __isa(o, "ListProtectionsResponse");
@@ -1269,17 +1213,7 @@ export interface SubResourceSummary {
 
 export namespace SubResourceSummary {
   export const filterSensitiveLog = (obj: SubResourceSummary): any => ({
-    ...obj,
-    ...(obj.AttackVectors && {
-      AttackVectors: obj.AttackVectors.map(item =>
-        SummarizedAttackVector.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Counters && {
-      Counters: obj.Counters.map(item =>
-        SummarizedCounter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SubResourceSummary =>
     __isa(o, "SubResourceSummary");
@@ -1324,10 +1258,7 @@ export interface Subscription {
 
 export namespace Subscription {
   export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj,
-    ...(obj.Limits && {
-      Limits: obj.Limits.map(item => Limit.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Subscription => __isa(o, "Subscription");
 }
@@ -1355,12 +1286,7 @@ export interface SummarizedAttackVector {
 
 export namespace SummarizedAttackVector {
   export const filterSensitiveLog = (obj: SummarizedAttackVector): any => ({
-    ...obj,
-    ...(obj.VectorCounters && {
-      VectorCounters: obj.VectorCounters.map(item =>
-        SummarizedCounter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SummarizedAttackVector =>
     __isa(o, "SummarizedAttackVector");
@@ -1452,12 +1378,7 @@ export namespace UpdateEmergencyContactSettingsRequest {
   export const filterSensitiveLog = (
     obj: UpdateEmergencyContactSettingsRequest
   ): any => ({
-    ...obj,
-    ...(obj.EmergencyContactList && {
-      EmergencyContactList: obj.EmergencyContactList.map(item =>
-        EmergencyContact.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateEmergencyContactSettingsRequest =>
     __isa(o, "UpdateEmergencyContactSettingsRequest");

@@ -67,33 +67,7 @@ export interface Action {
 
 export namespace Action {
   export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-    ...(obj.clearTimer && {
-      clearTimer: ClearTimerAction.filterSensitiveLog(obj.clearTimer)
-    }),
-    ...(obj.firehose && {
-      firehose: FirehoseAction.filterSensitiveLog(obj.firehose)
-    }),
-    ...(obj.iotEvents && {
-      iotEvents: IotEventsAction.filterSensitiveLog(obj.iotEvents)
-    }),
-    ...(obj.iotTopicPublish && {
-      iotTopicPublish: IotTopicPublishAction.filterSensitiveLog(
-        obj.iotTopicPublish
-      )
-    }),
-    ...(obj.lambda && { lambda: LambdaAction.filterSensitiveLog(obj.lambda) }),
-    ...(obj.resetTimer && {
-      resetTimer: ResetTimerAction.filterSensitiveLog(obj.resetTimer)
-    }),
-    ...(obj.setTimer && {
-      setTimer: SetTimerAction.filterSensitiveLog(obj.setTimer)
-    }),
-    ...(obj.setVariable && {
-      setVariable: SetVariableAction.filterSensitiveLog(obj.setVariable)
-    }),
-    ...(obj.sns && { sns: SNSTopicPublishAction.filterSensitiveLog(obj.sns) }),
-    ...(obj.sqs && { sqs: SqsAction.filterSensitiveLog(obj.sqs) })
+    ...obj
   });
   export const isa = (o: any): o is Action => __isa(o, "Action");
 }
@@ -187,15 +161,7 @@ export interface CreateDetectorModelRequest {
 
 export namespace CreateDetectorModelRequest {
   export const filterSensitiveLog = (obj: CreateDetectorModelRequest): any => ({
-    ...obj,
-    ...(obj.detectorModelDefinition && {
-      detectorModelDefinition: DetectorModelDefinition.filterSensitiveLog(
-        obj.detectorModelDefinition
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDetectorModelRequest =>
     __isa(o, "CreateDetectorModelRequest");
@@ -213,12 +179,7 @@ export namespace CreateDetectorModelResponse {
   export const filterSensitiveLog = (
     obj: CreateDetectorModelResponse
   ): any => ({
-    ...obj,
-    ...(obj.detectorModelConfiguration && {
-      detectorModelConfiguration: DetectorModelConfiguration.filterSensitiveLog(
-        obj.detectorModelConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDetectorModelResponse =>
     __isa(o, "CreateDetectorModelResponse");
@@ -249,13 +210,7 @@ export interface CreateInputRequest {
 
 export namespace CreateInputRequest {
   export const filterSensitiveLog = (obj: CreateInputRequest): any => ({
-    ...obj,
-    ...(obj.inputDefinition && {
-      inputDefinition: InputDefinition.filterSensitiveLog(obj.inputDefinition)
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateInputRequest =>
     __isa(o, "CreateInputRequest");
@@ -271,12 +226,7 @@ export interface CreateInputResponse {
 
 export namespace CreateInputResponse {
   export const filterSensitiveLog = (obj: CreateInputResponse): any => ({
-    ...obj,
-    ...(obj.inputConfiguration && {
-      inputConfiguration: InputConfiguration.filterSensitiveLog(
-        obj.inputConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateInputResponse =>
     __isa(o, "CreateInputResponse");
@@ -375,10 +325,7 @@ export namespace DescribeDetectorModelResponse {
   export const filterSensitiveLog = (
     obj: DescribeDetectorModelResponse
   ): any => ({
-    ...obj,
-    ...(obj.detectorModel && {
-      detectorModel: DetectorModel.filterSensitiveLog(obj.detectorModel)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDetectorModelResponse =>
     __isa(o, "DescribeDetectorModelResponse");
@@ -410,8 +357,7 @@ export interface DescribeInputResponse {
 
 export namespace DescribeInputResponse {
   export const filterSensitiveLog = (obj: DescribeInputResponse): any => ({
-    ...obj,
-    ...(obj.input && { input: Input.filterSensitiveLog(obj.input) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeInputResponse =>
     __isa(o, "DescribeInputResponse");
@@ -443,10 +389,7 @@ export namespace DescribeLoggingOptionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeLoggingOptionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.loggingOptions && {
-      loggingOptions: LoggingOptions.filterSensitiveLog(obj.loggingOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeLoggingOptionsResponse =>
     __isa(o, "DescribeLoggingOptionsResponse");
@@ -495,17 +438,7 @@ export interface DetectorModel {
 
 export namespace DetectorModel {
   export const filterSensitiveLog = (obj: DetectorModel): any => ({
-    ...obj,
-    ...(obj.detectorModelConfiguration && {
-      detectorModelConfiguration: DetectorModelConfiguration.filterSensitiveLog(
-        obj.detectorModelConfiguration
-      )
-    }),
-    ...(obj.detectorModelDefinition && {
-      detectorModelDefinition: DetectorModelDefinition.filterSensitiveLog(
-        obj.detectorModelDefinition
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DetectorModel => __isa(o, "DetectorModel");
 }
@@ -595,10 +528,7 @@ export interface DetectorModelDefinition {
 
 export namespace DetectorModelDefinition {
   export const filterSensitiveLog = (obj: DetectorModelDefinition): any => ({
-    ...obj,
-    ...(obj.states && {
-      states: obj.states.map(item => State.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DetectorModelDefinition =>
     __isa(o, "DetectorModelDefinition");
@@ -730,10 +660,7 @@ export interface Event {
 
 export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-    ...(obj.actions && {
-      actions: obj.actions.map(item => Action.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
@@ -783,15 +710,7 @@ export interface Input {
 
 export namespace Input {
   export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj,
-    ...(obj.inputConfiguration && {
-      inputConfiguration: InputConfiguration.filterSensitiveLog(
-        obj.inputConfiguration
-      )
-    }),
-    ...(obj.inputDefinition && {
-      inputDefinition: InputDefinition.filterSensitiveLog(obj.inputDefinition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Input => __isa(o, "Input");
 }
@@ -857,10 +776,7 @@ export interface InputDefinition {
 
 export namespace InputDefinition {
   export const filterSensitiveLog = (obj: InputDefinition): any => ({
-    ...obj,
-    ...(obj.attributes && {
-      attributes: obj.attributes.map(item => Attribute.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is InputDefinition =>
     __isa(o, "InputDefinition");
@@ -1020,12 +936,7 @@ export namespace ListDetectorModelVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListDetectorModelVersionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.detectorModelVersionSummaries && {
-      detectorModelVersionSummaries: obj.detectorModelVersionSummaries.map(
-        item => DetectorModelVersionSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDetectorModelVersionsResponse =>
     __isa(o, "ListDetectorModelVersionsResponse");
@@ -1068,12 +979,7 @@ export interface ListDetectorModelsResponse {
 
 export namespace ListDetectorModelsResponse {
   export const filterSensitiveLog = (obj: ListDetectorModelsResponse): any => ({
-    ...obj,
-    ...(obj.detectorModelSummaries && {
-      detectorModelSummaries: obj.detectorModelSummaries.map(item =>
-        DetectorModelSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDetectorModelsResponse =>
     __isa(o, "ListDetectorModelsResponse");
@@ -1116,12 +1022,7 @@ export interface ListInputsResponse {
 
 export namespace ListInputsResponse {
   export const filterSensitiveLog = (obj: ListInputsResponse): any => ({
-    ...obj,
-    ...(obj.inputSummaries && {
-      inputSummaries: obj.inputSummaries.map(item =>
-        InputSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListInputsResponse =>
     __isa(o, "ListInputsResponse");
@@ -1155,10 +1056,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1199,12 +1097,7 @@ export interface LoggingOptions {
 
 export namespace LoggingOptions {
   export const filterSensitiveLog = (obj: LoggingOptions): any => ({
-    ...obj,
-    ...(obj.detectorDebugOptions && {
-      detectorDebugOptions: obj.detectorDebugOptions.map(item =>
-        DetectorDebugOption.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is LoggingOptions =>
     __isa(o, "LoggingOptions");
@@ -1225,10 +1118,7 @@ export interface OnEnterLifecycle {
 
 export namespace OnEnterLifecycle {
   export const filterSensitiveLog = (obj: OnEnterLifecycle): any => ({
-    ...obj,
-    ...(obj.events && {
-      events: obj.events.map(item => Event.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is OnEnterLifecycle =>
     __isa(o, "OnEnterLifecycle");
@@ -1249,10 +1139,7 @@ export interface OnExitLifecycle {
 
 export namespace OnExitLifecycle {
   export const filterSensitiveLog = (obj: OnExitLifecycle): any => ({
-    ...obj,
-    ...(obj.events && {
-      events: obj.events.map(item => Event.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is OnExitLifecycle =>
     __isa(o, "OnExitLifecycle");
@@ -1277,15 +1164,7 @@ export interface OnInputLifecycle {
 
 export namespace OnInputLifecycle {
   export const filterSensitiveLog = (obj: OnInputLifecycle): any => ({
-    ...obj,
-    ...(obj.events && {
-      events: obj.events.map(item => Event.filterSensitiveLog(item))
-    }),
-    ...(obj.transitionEvents && {
-      transitionEvents: obj.transitionEvents.map(item =>
-        TransitionEvent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is OnInputLifecycle =>
     __isa(o, "OnInputLifecycle");
@@ -1301,10 +1180,7 @@ export interface PutLoggingOptionsRequest {
 
 export namespace PutLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
-    ...obj,
-    ...(obj.loggingOptions && {
-      loggingOptions: LoggingOptions.filterSensitiveLog(obj.loggingOptions)
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutLoggingOptionsRequest =>
     __isa(o, "PutLoggingOptionsRequest");
@@ -1452,16 +1328,7 @@ export interface State {
 
 export namespace State {
   export const filterSensitiveLog = (obj: State): any => ({
-    ...obj,
-    ...(obj.onEnter && {
-      onEnter: OnEnterLifecycle.filterSensitiveLog(obj.onEnter)
-    }),
-    ...(obj.onExit && {
-      onExit: OnExitLifecycle.filterSensitiveLog(obj.onExit)
-    }),
-    ...(obj.onInput && {
-      onInput: OnInputLifecycle.filterSensitiveLog(obj.onInput)
-    })
+    ...obj
   });
   export const isa = (o: any): o is State => __isa(o, "State");
 }
@@ -1504,10 +1371,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -1555,10 +1419,7 @@ export interface TransitionEvent {
 
 export namespace TransitionEvent {
   export const filterSensitiveLog = (obj: TransitionEvent): any => ({
-    ...obj,
-    ...(obj.actions && {
-      actions: obj.actions.map(item => Action.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TransitionEvent =>
     __isa(o, "TransitionEvent");
@@ -1628,12 +1489,7 @@ export interface UpdateDetectorModelRequest {
 
 export namespace UpdateDetectorModelRequest {
   export const filterSensitiveLog = (obj: UpdateDetectorModelRequest): any => ({
-    ...obj,
-    ...(obj.detectorModelDefinition && {
-      detectorModelDefinition: DetectorModelDefinition.filterSensitiveLog(
-        obj.detectorModelDefinition
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDetectorModelRequest =>
     __isa(o, "UpdateDetectorModelRequest");
@@ -1651,12 +1507,7 @@ export namespace UpdateDetectorModelResponse {
   export const filterSensitiveLog = (
     obj: UpdateDetectorModelResponse
   ): any => ({
-    ...obj,
-    ...(obj.detectorModelConfiguration && {
-      detectorModelConfiguration: DetectorModelConfiguration.filterSensitiveLog(
-        obj.detectorModelConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDetectorModelResponse =>
     __isa(o, "UpdateDetectorModelResponse");
@@ -1682,10 +1533,7 @@ export interface UpdateInputRequest {
 
 export namespace UpdateInputRequest {
   export const filterSensitiveLog = (obj: UpdateInputRequest): any => ({
-    ...obj,
-    ...(obj.inputDefinition && {
-      inputDefinition: InputDefinition.filterSensitiveLog(obj.inputDefinition)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateInputRequest =>
     __isa(o, "UpdateInputRequest");
@@ -1701,12 +1549,7 @@ export interface UpdateInputResponse {
 
 export namespace UpdateInputResponse {
   export const filterSensitiveLog = (obj: UpdateInputResponse): any => ({
-    ...obj,
-    ...(obj.inputConfiguration && {
-      inputConfiguration: InputConfiguration.filterSensitiveLog(
-        obj.inputConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateInputResponse =>
     __isa(o, "UpdateInputResponse");

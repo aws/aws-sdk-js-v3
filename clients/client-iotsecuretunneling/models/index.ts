@@ -95,8 +95,7 @@ export interface DescribeTunnelResponse {
 
 export namespace DescribeTunnelResponse {
   export const filterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
-    ...obj,
-    ...(obj.tunnel && { tunnel: Tunnel.filterSensitiveLog(obj.tunnel) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTunnelResponse =>
     __isa(o, "DescribeTunnelResponse");
@@ -177,10 +176,7 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListTagsForResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -227,12 +223,7 @@ export interface ListTunnelsResponse {
 
 export namespace ListTunnelsResponse {
   export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
-    ...obj,
-    ...(obj.tunnelSummaries && {
-      tunnelSummaries: obj.tunnelSummaries.map(item =>
-        TunnelSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTunnelsResponse =>
     __isa(o, "ListTunnelsResponse");
@@ -263,18 +254,7 @@ export interface OpenTunnelRequest {
 
 export namespace OpenTunnelRequest {
   export const filterSensitiveLog = (obj: OpenTunnelRequest): any => ({
-    ...obj,
-    ...(obj.destinationConfig && {
-      destinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.destinationConfig
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    }),
-    ...(obj.timeoutConfig && {
-      timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is OpenTunnelRequest =>
     __isa(o, "OpenTunnelRequest");
@@ -377,10 +357,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -485,28 +462,7 @@ export interface Tunnel {
 
 export namespace Tunnel {
   export const filterSensitiveLog = (obj: Tunnel): any => ({
-    ...obj,
-    ...(obj.destinationConfig && {
-      destinationConfig: DestinationConfig.filterSensitiveLog(
-        obj.destinationConfig
-      )
-    }),
-    ...(obj.destinationConnectionState && {
-      destinationConnectionState: ConnectionState.filterSensitiveLog(
-        obj.destinationConnectionState
-      )
-    }),
-    ...(obj.sourceConnectionState && {
-      sourceConnectionState: ConnectionState.filterSensitiveLog(
-        obj.sourceConnectionState
-      )
-    }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    }),
-    ...(obj.timeoutConfig && {
-      timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Tunnel => __isa(o, "Tunnel");
 }

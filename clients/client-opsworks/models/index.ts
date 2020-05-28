@@ -23,12 +23,7 @@ export interface AgentVersion {
 
 export namespace AgentVersion {
   export const filterSensitiveLog = (obj: AgentVersion): any => ({
-    ...obj,
-    ...(obj.ConfigurationManager && {
-      ConfigurationManager: StackConfigurationManager.filterSensitiveLog(
-        obj.ConfigurationManager
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AgentVersion => __isa(o, "AgentVersion");
 }
@@ -118,25 +113,7 @@ export interface App {
 
 export namespace App {
   export const filterSensitiveLog = (obj: App): any => ({
-    ...obj,
-    ...(obj.AppSource && {
-      AppSource: Source.filterSensitiveLog(obj.AppSource)
-    }),
-    ...(obj.DataSources && {
-      DataSources: obj.DataSources.map(item =>
-        DataSource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Environment && {
-      Environment: obj.Environment.map(item =>
-        EnvironmentVariable.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SslConfiguration && {
-      SslConfiguration: SslConfiguration.filterSensitiveLog(
-        obj.SslConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is App => __isa(o, "App");
 }
@@ -338,8 +315,7 @@ export interface BlockDeviceMapping {
 
 export namespace BlockDeviceMapping {
   export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
-    ...obj,
-    ...(obj.Ebs && { Ebs: EbsBlockDevice.filterSensitiveLog(obj.Ebs) })
+    ...obj
   });
   export const isa = (o: any): o is BlockDeviceMapping =>
     __isa(o, "BlockDeviceMapping");
@@ -674,22 +650,7 @@ export interface CloneStackRequest {
 
 export namespace CloneStackRequest {
   export const filterSensitiveLog = (obj: CloneStackRequest): any => ({
-    ...obj,
-    ...(obj.ChefConfiguration && {
-      ChefConfiguration: ChefConfiguration.filterSensitiveLog(
-        obj.ChefConfiguration
-      )
-    }),
-    ...(obj.ConfigurationManager && {
-      ConfigurationManager: StackConfigurationManager.filterSensitiveLog(
-        obj.ConfigurationManager
-      )
-    }),
-    ...(obj.CustomCookbooksSource && {
-      CustomCookbooksSource: Source.filterSensitiveLog(
-        obj.CustomCookbooksSource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CloneStackRequest =>
     __isa(o, "CloneStackRequest");
@@ -734,12 +695,7 @@ export namespace CloudWatchLogsConfiguration {
   export const filterSensitiveLog = (
     obj: CloudWatchLogsConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.LogStreams && {
-      LogStreams: obj.LogStreams.map(item =>
-        CloudWatchLogsLogStream.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CloudWatchLogsConfiguration =>
     __isa(o, "CloudWatchLogsConfiguration");
@@ -1144,25 +1100,7 @@ export interface CreateAppRequest {
 
 export namespace CreateAppRequest {
   export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
-    ...obj,
-    ...(obj.AppSource && {
-      AppSource: Source.filterSensitiveLog(obj.AppSource)
-    }),
-    ...(obj.DataSources && {
-      DataSources: obj.DataSources.map(item =>
-        DataSource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Environment && {
-      Environment: obj.Environment.map(item =>
-        EnvironmentVariable.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SslConfiguration && {
-      SslConfiguration: SslConfiguration.filterSensitiveLog(
-        obj.SslConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAppRequest =>
     __isa(o, "CreateAppRequest");
@@ -1234,10 +1172,7 @@ export interface CreateDeploymentRequest {
 
 export namespace CreateDeploymentRequest {
   export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj,
-    ...(obj.Command && {
-      Command: DeploymentCommand.filterSensitiveLog(obj.Command)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDeploymentRequest =>
     __isa(o, "CreateDeploymentRequest");
@@ -1431,12 +1366,7 @@ export interface CreateInstanceRequest {
 
 export namespace CreateInstanceRequest {
   export const filterSensitiveLog = (obj: CreateInstanceRequest): any => ({
-    ...obj,
-    ...(obj.BlockDeviceMappings && {
-      BlockDeviceMappings: obj.BlockDeviceMappings.map(item =>
-        BlockDeviceMapping.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateInstanceRequest =>
     __isa(o, "CreateInstanceRequest");
@@ -1578,25 +1508,7 @@ export interface CreateLayerRequest {
 
 export namespace CreateLayerRequest {
   export const filterSensitiveLog = (obj: CreateLayerRequest): any => ({
-    ...obj,
-    ...(obj.CloudWatchLogsConfiguration && {
-      CloudWatchLogsConfiguration: CloudWatchLogsConfiguration.filterSensitiveLog(
-        obj.CloudWatchLogsConfiguration
-      )
-    }),
-    ...(obj.CustomRecipes && {
-      CustomRecipes: Recipes.filterSensitiveLog(obj.CustomRecipes)
-    }),
-    ...(obj.LifecycleEventConfiguration && {
-      LifecycleEventConfiguration: LifecycleEventConfiguration.filterSensitiveLog(
-        obj.LifecycleEventConfiguration
-      )
-    }),
-    ...(obj.VolumeConfigurations && {
-      VolumeConfigurations: obj.VolumeConfigurations.map(item =>
-        VolumeConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateLayerRequest =>
     __isa(o, "CreateLayerRequest");
@@ -1923,22 +1835,7 @@ export interface CreateStackRequest {
 
 export namespace CreateStackRequest {
   export const filterSensitiveLog = (obj: CreateStackRequest): any => ({
-    ...obj,
-    ...(obj.ChefConfiguration && {
-      ChefConfiguration: ChefConfiguration.filterSensitiveLog(
-        obj.ChefConfiguration
-      )
-    }),
-    ...(obj.ConfigurationManager && {
-      ConfigurationManager: StackConfigurationManager.filterSensitiveLog(
-        obj.ConfigurationManager
-      )
-    }),
-    ...(obj.CustomCookbooksSource && {
-      CustomCookbooksSource: Source.filterSensitiveLog(
-        obj.CustomCookbooksSource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateStackRequest =>
     __isa(o, "CreateStackRequest");
@@ -2222,10 +2119,7 @@ export interface Deployment {
 
 export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-    ...(obj.Command && {
-      Command: DeploymentCommand.filterSensitiveLog(obj.Command)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
@@ -2449,12 +2343,7 @@ export namespace DescribeAgentVersionsRequest {
   export const filterSensitiveLog = (
     obj: DescribeAgentVersionsRequest
   ): any => ({
-    ...obj,
-    ...(obj.ConfigurationManager && {
-      ConfigurationManager: StackConfigurationManager.filterSensitiveLog(
-        obj.ConfigurationManager
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAgentVersionsRequest =>
     __isa(o, "DescribeAgentVersionsRequest");
@@ -2475,12 +2364,7 @@ export namespace DescribeAgentVersionsResult {
   export const filterSensitiveLog = (
     obj: DescribeAgentVersionsResult
   ): any => ({
-    ...obj,
-    ...(obj.AgentVersions && {
-      AgentVersions: obj.AgentVersions.map(item =>
-        AgentVersion.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAgentVersionsResult =>
     __isa(o, "DescribeAgentVersionsResult");
@@ -2523,10 +2407,7 @@ export interface DescribeAppsResult {
 
 export namespace DescribeAppsResult {
   export const filterSensitiveLog = (obj: DescribeAppsResult): any => ({
-    ...obj,
-    ...(obj.Apps && {
-      Apps: obj.Apps.map(item => App.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeAppsResult =>
     __isa(o, "DescribeAppsResult");
@@ -2575,10 +2456,7 @@ export interface DescribeCommandsResult {
 
 export namespace DescribeCommandsResult {
   export const filterSensitiveLog = (obj: DescribeCommandsResult): any => ({
-    ...obj,
-    ...(obj.Commands && {
-      Commands: obj.Commands.map(item => Command.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeCommandsResult =>
     __isa(o, "DescribeCommandsResult");
@@ -2627,12 +2505,7 @@ export interface DescribeDeploymentsResult {
 
 export namespace DescribeDeploymentsResult {
   export const filterSensitiveLog = (obj: DescribeDeploymentsResult): any => ({
-    ...obj,
-    ...(obj.Deployments && {
-      Deployments: obj.Deployments.map(item =>
-        Deployment.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDeploymentsResult =>
     __isa(o, "DescribeDeploymentsResult");
@@ -2699,12 +2572,7 @@ export interface DescribeEcsClustersResult {
 
 export namespace DescribeEcsClustersResult {
   export const filterSensitiveLog = (obj: DescribeEcsClustersResult): any => ({
-    ...obj,
-    ...(obj.EcsClusters && {
-      EcsClusters: obj.EcsClusters.map(item =>
-        EcsCluster.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeEcsClustersResult =>
     __isa(o, "DescribeEcsClustersResult");
@@ -2753,10 +2621,7 @@ export interface DescribeElasticIpsResult {
 
 export namespace DescribeElasticIpsResult {
   export const filterSensitiveLog = (obj: DescribeElasticIpsResult): any => ({
-    ...obj,
-    ...(obj.ElasticIps && {
-      ElasticIps: obj.ElasticIps.map(item => ElasticIp.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeElasticIpsResult =>
     __isa(o, "DescribeElasticIpsResult");
@@ -2801,12 +2666,7 @@ export namespace DescribeElasticLoadBalancersResult {
   export const filterSensitiveLog = (
     obj: DescribeElasticLoadBalancersResult
   ): any => ({
-    ...obj,
-    ...(obj.ElasticLoadBalancers && {
-      ElasticLoadBalancers: obj.ElasticLoadBalancers.map(item =>
-        ElasticLoadBalancer.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeElasticLoadBalancersResult =>
     __isa(o, "DescribeElasticLoadBalancersResult");
@@ -2855,10 +2715,7 @@ export interface DescribeInstancesResult {
 
 export namespace DescribeInstancesResult {
   export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-    ...obj,
-    ...(obj.Instances && {
-      Instances: obj.Instances.map(item => Instance.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeInstancesResult =>
     __isa(o, "DescribeInstancesResult");
@@ -2899,10 +2756,7 @@ export interface DescribeLayersResult {
 
 export namespace DescribeLayersResult {
   export const filterSensitiveLog = (obj: DescribeLayersResult): any => ({
-    ...obj,
-    ...(obj.Layers && {
-      Layers: obj.Layers.map(item => Layer.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeLayersResult =>
     __isa(o, "DescribeLayersResult");
@@ -2942,12 +2796,7 @@ export namespace DescribeLoadBasedAutoScalingResult {
   export const filterSensitiveLog = (
     obj: DescribeLoadBasedAutoScalingResult
   ): any => ({
-    ...obj,
-    ...(obj.LoadBasedAutoScalingConfigurations && {
-      LoadBasedAutoScalingConfigurations: obj.LoadBasedAutoScalingConfigurations.map(
-        item => LoadBasedAutoScalingConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeLoadBasedAutoScalingResult =>
     __isa(o, "DescribeLoadBasedAutoScalingResult");
@@ -2968,10 +2817,7 @@ export namespace DescribeMyUserProfileResult {
   export const filterSensitiveLog = (
     obj: DescribeMyUserProfileResult
   ): any => ({
-    ...obj,
-    ...(obj.UserProfile && {
-      UserProfile: SelfUserProfile.filterSensitiveLog(obj.UserProfile)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeMyUserProfileResult =>
     __isa(o, "DescribeMyUserProfileResult");
@@ -2992,12 +2838,7 @@ export namespace DescribeOperatingSystemsResponse {
   export const filterSensitiveLog = (
     obj: DescribeOperatingSystemsResponse
   ): any => ({
-    ...obj,
-    ...(obj.OperatingSystems && {
-      OperatingSystems: obj.OperatingSystems.map(item =>
-        OperatingSystem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeOperatingSystemsResponse =>
     __isa(o, "DescribeOperatingSystemsResponse");
@@ -3052,12 +2893,7 @@ export interface DescribePermissionsResult {
 
 export namespace DescribePermissionsResult {
   export const filterSensitiveLog = (obj: DescribePermissionsResult): any => ({
-    ...obj,
-    ...(obj.Permissions && {
-      Permissions: obj.Permissions.map(item =>
-        Permission.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribePermissionsResult =>
     __isa(o, "DescribePermissionsResult");
@@ -3105,10 +2941,7 @@ export interface DescribeRaidArraysResult {
 
 export namespace DescribeRaidArraysResult {
   export const filterSensitiveLog = (obj: DescribeRaidArraysResult): any => ({
-    ...obj,
-    ...(obj.RaidArrays && {
-      RaidArrays: obj.RaidArrays.map(item => RaidArray.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeRaidArraysResult =>
     __isa(o, "DescribeRaidArraysResult");
@@ -3152,12 +2985,7 @@ export namespace DescribeRdsDbInstancesResult {
   export const filterSensitiveLog = (
     obj: DescribeRdsDbInstancesResult
   ): any => ({
-    ...obj,
-    ...(obj.RdsDbInstances && {
-      RdsDbInstances: obj.RdsDbInstances.map(item =>
-        RdsDbInstance.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeRdsDbInstancesResult =>
     __isa(o, "DescribeRdsDbInstancesResult");
@@ -3210,12 +3038,7 @@ export namespace DescribeServiceErrorsResult {
   export const filterSensitiveLog = (
     obj: DescribeServiceErrorsResult
   ): any => ({
-    ...obj,
-    ...(obj.ServiceErrors && {
-      ServiceErrors: obj.ServiceErrors.map(item =>
-        ServiceError.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeServiceErrorsResult =>
     __isa(o, "DescribeServiceErrorsResult");
@@ -3298,10 +3121,7 @@ export interface DescribeStackSummaryResult {
 
 export namespace DescribeStackSummaryResult {
   export const filterSensitiveLog = (obj: DescribeStackSummaryResult): any => ({
-    ...obj,
-    ...(obj.StackSummary && {
-      StackSummary: StackSummary.filterSensitiveLog(obj.StackSummary)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStackSummaryResult =>
     __isa(o, "DescribeStackSummaryResult");
@@ -3337,10 +3157,7 @@ export interface DescribeStacksResult {
 
 export namespace DescribeStacksResult {
   export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
-    ...obj,
-    ...(obj.Stacks && {
-      Stacks: obj.Stacks.map(item => Stack.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeStacksResult =>
     __isa(o, "DescribeStacksResult");
@@ -3380,12 +3197,7 @@ export namespace DescribeTimeBasedAutoScalingResult {
   export const filterSensitiveLog = (
     obj: DescribeTimeBasedAutoScalingResult
   ): any => ({
-    ...obj,
-    ...(obj.TimeBasedAutoScalingConfigurations && {
-      TimeBasedAutoScalingConfigurations: obj.TimeBasedAutoScalingConfigurations.map(
-        item => TimeBasedAutoScalingConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeTimeBasedAutoScalingResult =>
     __isa(o, "DescribeTimeBasedAutoScalingResult");
@@ -3422,12 +3234,7 @@ export interface DescribeUserProfilesResult {
 
 export namespace DescribeUserProfilesResult {
   export const filterSensitiveLog = (obj: DescribeUserProfilesResult): any => ({
-    ...obj,
-    ...(obj.UserProfiles && {
-      UserProfiles: obj.UserProfiles.map(item =>
-        UserProfile.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeUserProfilesResult =>
     __isa(o, "DescribeUserProfilesResult");
@@ -3481,10 +3288,7 @@ export interface DescribeVolumesResult {
 
 export namespace DescribeVolumesResult {
   export const filterSensitiveLog = (obj: DescribeVolumesResult): any => ({
-    ...obj,
-    ...(obj.Volumes && {
-      Volumes: obj.Volumes.map(item => Volume.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeVolumesResult =>
     __isa(o, "DescribeVolumesResult");
@@ -3817,12 +3621,7 @@ export interface GrantAccessResult {
 
 export namespace GrantAccessResult {
   export const filterSensitiveLog = (obj: GrantAccessResult): any => ({
-    ...obj,
-    ...(obj.TemporaryCredential && {
-      TemporaryCredential: TemporaryCredential.filterSensitiveLog(
-        obj.TemporaryCredential
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GrantAccessResult =>
     __isa(o, "GrantAccessResult");
@@ -4135,15 +3934,7 @@ export interface Instance {
 
 export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-    ...(obj.BlockDeviceMappings && {
-      BlockDeviceMappings: obj.BlockDeviceMappings.map(item =>
-        BlockDeviceMapping.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ReportedOs && {
-      ReportedOs: ReportedOs.filterSensitiveLog(obj.ReportedOs)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
@@ -4437,28 +4228,7 @@ export interface Layer {
 
 export namespace Layer {
   export const filterSensitiveLog = (obj: Layer): any => ({
-    ...obj,
-    ...(obj.CloudWatchLogsConfiguration && {
-      CloudWatchLogsConfiguration: CloudWatchLogsConfiguration.filterSensitiveLog(
-        obj.CloudWatchLogsConfiguration
-      )
-    }),
-    ...(obj.CustomRecipes && {
-      CustomRecipes: Recipes.filterSensitiveLog(obj.CustomRecipes)
-    }),
-    ...(obj.DefaultRecipes && {
-      DefaultRecipes: Recipes.filterSensitiveLog(obj.DefaultRecipes)
-    }),
-    ...(obj.LifecycleEventConfiguration && {
-      LifecycleEventConfiguration: LifecycleEventConfiguration.filterSensitiveLog(
-        obj.LifecycleEventConfiguration
-      )
-    }),
-    ...(obj.VolumeConfigurations && {
-      VolumeConfigurations: obj.VolumeConfigurations.map(item =>
-        VolumeConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Layer => __isa(o, "Layer");
 }
@@ -4520,10 +4290,7 @@ export namespace LifecycleEventConfiguration {
   export const filterSensitiveLog = (
     obj: LifecycleEventConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.Shutdown && {
-      Shutdown: ShutdownEventConfiguration.filterSensitiveLog(obj.Shutdown)
-    })
+    ...obj
   });
   export const isa = (o: any): o is LifecycleEventConfiguration =>
     __isa(o, "LifecycleEventConfiguration");
@@ -4617,13 +4384,7 @@ export namespace LoadBasedAutoScalingConfiguration {
   export const filterSensitiveLog = (
     obj: LoadBasedAutoScalingConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.DownScaling && {
-      DownScaling: AutoScalingThresholds.filterSensitiveLog(obj.DownScaling)
-    }),
-    ...(obj.UpScaling && {
-      UpScaling: AutoScalingThresholds.filterSensitiveLog(obj.UpScaling)
-    })
+    ...obj
   });
   export const isa = (o: any): o is LoadBasedAutoScalingConfiguration =>
     __isa(o, "LoadBasedAutoScalingConfiguration");
@@ -4672,12 +4433,7 @@ export interface OperatingSystem {
 
 export namespace OperatingSystem {
   export const filterSensitiveLog = (obj: OperatingSystem): any => ({
-    ...obj,
-    ...(obj.ConfigurationManagers && {
-      ConfigurationManagers: obj.ConfigurationManagers.map(item =>
-        OperatingSystemConfigurationManager.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is OperatingSystem =>
     __isa(o, "OperatingSystem");
@@ -5098,12 +4854,7 @@ export interface RegisterInstanceRequest {
 
 export namespace RegisterInstanceRequest {
   export const filterSensitiveLog = (obj: RegisterInstanceRequest): any => ({
-    ...obj,
-    ...(obj.InstanceIdentity && {
-      InstanceIdentity: InstanceIdentity.filterSensitiveLog(
-        obj.InstanceIdentity
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RegisterInstanceRequest =>
     __isa(o, "RegisterInstanceRequest");
@@ -5361,13 +5112,7 @@ export namespace SetLoadBasedAutoScalingRequest {
   export const filterSensitiveLog = (
     obj: SetLoadBasedAutoScalingRequest
   ): any => ({
-    ...obj,
-    ...(obj.DownScaling && {
-      DownScaling: AutoScalingThresholds.filterSensitiveLog(obj.DownScaling)
-    }),
-    ...(obj.UpScaling && {
-      UpScaling: AutoScalingThresholds.filterSensitiveLog(obj.UpScaling)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SetLoadBasedAutoScalingRequest =>
     __isa(o, "SetLoadBasedAutoScalingRequest");
@@ -5454,12 +5199,7 @@ export namespace SetTimeBasedAutoScalingRequest {
   export const filterSensitiveLog = (
     obj: SetTimeBasedAutoScalingRequest
   ): any => ({
-    ...obj,
-    ...(obj.AutoScalingSchedule && {
-      AutoScalingSchedule: WeeklyAutoScalingSchedule.filterSensitiveLog(
-        obj.AutoScalingSchedule
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SetTimeBasedAutoScalingRequest =>
     __isa(o, "SetTimeBasedAutoScalingRequest");
@@ -5719,22 +5459,7 @@ export interface Stack {
 
 export namespace Stack {
   export const filterSensitiveLog = (obj: Stack): any => ({
-    ...obj,
-    ...(obj.ChefConfiguration && {
-      ChefConfiguration: ChefConfiguration.filterSensitiveLog(
-        obj.ChefConfiguration
-      )
-    }),
-    ...(obj.ConfigurationManager && {
-      ConfigurationManager: StackConfigurationManager.filterSensitiveLog(
-        obj.ConfigurationManager
-      )
-    }),
-    ...(obj.CustomCookbooksSource && {
-      CustomCookbooksSource: Source.filterSensitiveLog(
-        obj.CustomCookbooksSource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Stack => __isa(o, "Stack");
 }
@@ -5803,10 +5528,7 @@ export interface StackSummary {
 
 export namespace StackSummary {
   export const filterSensitiveLog = (obj: StackSummary): any => ({
-    ...obj,
-    ...(obj.InstancesCount && {
-      InstancesCount: InstancesCount.filterSensitiveLog(obj.InstancesCount)
-    })
+    ...obj
   });
   export const isa = (o: any): o is StackSummary => __isa(o, "StackSummary");
 }
@@ -5976,12 +5698,7 @@ export namespace TimeBasedAutoScalingConfiguration {
   export const filterSensitiveLog = (
     obj: TimeBasedAutoScalingConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.AutoScalingSchedule && {
-      AutoScalingSchedule: WeeklyAutoScalingSchedule.filterSensitiveLog(
-        obj.AutoScalingSchedule
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is TimeBasedAutoScalingConfiguration =>
     __isa(o, "TimeBasedAutoScalingConfiguration");
@@ -6108,25 +5825,7 @@ export interface UpdateAppRequest {
 
 export namespace UpdateAppRequest {
   export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
-    ...obj,
-    ...(obj.AppSource && {
-      AppSource: Source.filterSensitiveLog(obj.AppSource)
-    }),
-    ...(obj.DataSources && {
-      DataSources: obj.DataSources.map(item =>
-        DataSource.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Environment && {
-      Environment: obj.Environment.map(item =>
-        EnvironmentVariable.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.SslConfiguration && {
-      SslConfiguration: SslConfiguration.filterSensitiveLog(
-        obj.SslConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateAppRequest =>
     __isa(o, "UpdateAppRequest");
@@ -6403,25 +6102,7 @@ export interface UpdateLayerRequest {
 
 export namespace UpdateLayerRequest {
   export const filterSensitiveLog = (obj: UpdateLayerRequest): any => ({
-    ...obj,
-    ...(obj.CloudWatchLogsConfiguration && {
-      CloudWatchLogsConfiguration: CloudWatchLogsConfiguration.filterSensitiveLog(
-        obj.CloudWatchLogsConfiguration
-      )
-    }),
-    ...(obj.CustomRecipes && {
-      CustomRecipes: Recipes.filterSensitiveLog(obj.CustomRecipes)
-    }),
-    ...(obj.LifecycleEventConfiguration && {
-      LifecycleEventConfiguration: LifecycleEventConfiguration.filterSensitiveLog(
-        obj.LifecycleEventConfiguration
-      )
-    }),
-    ...(obj.VolumeConfigurations && {
-      VolumeConfigurations: obj.VolumeConfigurations.map(item =>
-        VolumeConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateLayerRequest =>
     __isa(o, "UpdateLayerRequest");
@@ -6715,22 +6396,7 @@ export interface UpdateStackRequest {
 
 export namespace UpdateStackRequest {
   export const filterSensitiveLog = (obj: UpdateStackRequest): any => ({
-    ...obj,
-    ...(obj.ChefConfiguration && {
-      ChefConfiguration: ChefConfiguration.filterSensitiveLog(
-        obj.ChefConfiguration
-      )
-    }),
-    ...(obj.ConfigurationManager && {
-      ConfigurationManager: StackConfigurationManager.filterSensitiveLog(
-        obj.ConfigurationManager
-      )
-    }),
-    ...(obj.CustomCookbooksSource && {
-      CustomCookbooksSource: Source.filterSensitiveLog(
-        obj.CustomCookbooksSource
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateStackRequest =>
     __isa(o, "UpdateStackRequest");

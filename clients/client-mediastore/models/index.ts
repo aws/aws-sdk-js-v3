@@ -200,10 +200,7 @@ export interface CreateContainerInput {
 
 export namespace CreateContainerInput {
   export const filterSensitiveLog = (obj: CreateContainerInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateContainerInput =>
     __isa(o, "CreateContainerInput");
@@ -230,10 +227,7 @@ export interface CreateContainerOutput {
 
 export namespace CreateContainerOutput {
   export const filterSensitiveLog = (obj: CreateContainerOutput): any => ({
-    ...obj,
-    ...(obj.Container && {
-      Container: Container.filterSensitiveLog(obj.Container)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateContainerOutput =>
     __isa(o, "CreateContainerOutput");
@@ -381,10 +375,7 @@ export interface DescribeContainerOutput {
 
 export namespace DescribeContainerOutput {
   export const filterSensitiveLog = (obj: DescribeContainerOutput): any => ({
-    ...obj,
-    ...(obj.Container && {
-      Container: Container.filterSensitiveLog(obj.Container)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeContainerOutput =>
     __isa(o, "DescribeContainerOutput");
@@ -448,10 +439,7 @@ export interface GetCorsPolicyOutput {
 
 export namespace GetCorsPolicyOutput {
   export const filterSensitiveLog = (obj: GetCorsPolicyOutput): any => ({
-    ...obj,
-    ...(obj.CorsPolicy && {
-      CorsPolicy: obj.CorsPolicy.map(item => CorsRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetCorsPolicyOutput =>
     __isa(o, "GetCorsPolicyOutput");
@@ -569,10 +557,7 @@ export interface ListContainersOutput {
 
 export namespace ListContainersOutput {
   export const filterSensitiveLog = (obj: ListContainersOutput): any => ({
-    ...obj,
-    ...(obj.Containers && {
-      Containers: obj.Containers.map(item => Container.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListContainersOutput =>
     __isa(o, "ListContainersOutput");
@@ -604,10 +589,7 @@ export interface ListTagsForResourceOutput {
 
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -696,10 +678,7 @@ export interface PutCorsPolicyInput {
 
 export namespace PutCorsPolicyInput {
   export const filterSensitiveLog = (obj: PutCorsPolicyInput): any => ({
-    ...obj,
-    ...(obj.CorsPolicy && {
-      CorsPolicy: obj.CorsPolicy.map(item => CorsRule.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is PutCorsPolicyInput =>
     __isa(o, "PutCorsPolicyInput");
@@ -852,10 +831,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");

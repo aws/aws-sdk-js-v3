@@ -37,7 +37,8 @@ export namespace GetPersonalizedRankingRequest {
   export const filterSensitiveLog = (
     obj: GetPersonalizedRankingRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.context && { context: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is GetPersonalizedRankingRequest =>
     __isa(o, "GetPersonalizedRankingRequest");
@@ -55,12 +56,7 @@ export namespace GetPersonalizedRankingResponse {
   export const filterSensitiveLog = (
     obj: GetPersonalizedRankingResponse
   ): any => ({
-    ...obj,
-    ...(obj.personalizedRanking && {
-      personalizedRanking: obj.personalizedRanking.map(item =>
-        PredictedItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPersonalizedRankingResponse =>
     __isa(o, "GetPersonalizedRankingResponse");
@@ -101,7 +97,8 @@ export interface GetRecommendationsRequest {
 
 export namespace GetRecommendationsRequest {
   export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.context && { context: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is GetRecommendationsRequest =>
     __isa(o, "GetRecommendationsRequest");
@@ -118,10 +115,7 @@ export interface GetRecommendationsResponse {
 
 export namespace GetRecommendationsResponse {
   export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-    ...obj,
-    ...(obj.itemList && {
-      itemList: obj.itemList.map(item => PredictedItem.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetRecommendationsResponse =>
     __isa(o, "GetRecommendationsResponse");

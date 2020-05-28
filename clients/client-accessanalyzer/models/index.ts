@@ -192,16 +192,7 @@ export interface ArchiveRuleSummary {
 
 export namespace ArchiveRuleSummary {
   export const filterSensitiveLog = (obj: ArchiveRuleSummary): any => ({
-    ...obj,
-    ...(obj.filter && {
-      filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => ({
-          ...acc,
-          [key]: Criterion.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ArchiveRuleSummary =>
     __isa(o, "ArchiveRuleSummary");
@@ -267,12 +258,7 @@ export interface CreateAnalyzerRequest {
 
 export namespace CreateAnalyzerRequest {
   export const filterSensitiveLog = (obj: CreateAnalyzerRequest): any => ({
-    ...obj,
-    ...(obj.archiveRules && {
-      archiveRules: obj.archiveRules.map(item =>
-        InlineArchiveRule.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateAnalyzerRequest =>
     __isa(o, "CreateAnalyzerRequest");
@@ -325,16 +311,7 @@ export interface CreateArchiveRuleRequest {
 
 export namespace CreateArchiveRuleRequest {
   export const filterSensitiveLog = (obj: CreateArchiveRuleRequest): any => ({
-    ...obj,
-    ...(obj.filter && {
-      filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => ({
-          ...acc,
-          [key]: Criterion.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateArchiveRuleRequest =>
     __isa(o, "CreateArchiveRuleRequest");
@@ -622,10 +599,7 @@ export namespace GetAnalyzedResourceResponse {
   export const filterSensitiveLog = (
     obj: GetAnalyzedResourceResponse
   ): any => ({
-    ...obj,
-    ...(obj.resource && {
-      resource: AnalyzedResource.filterSensitiveLog(obj.resource)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAnalyzedResourceResponse =>
     __isa(o, "GetAnalyzedResourceResponse");
@@ -664,10 +638,7 @@ export interface GetAnalyzerResponse {
 
 export namespace GetAnalyzerResponse {
   export const filterSensitiveLog = (obj: GetAnalyzerResponse): any => ({
-    ...obj,
-    ...(obj.analyzer && {
-      analyzer: AnalyzerSummary.filterSensitiveLog(obj.analyzer)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetAnalyzerResponse =>
     __isa(o, "GetAnalyzerResponse");
@@ -710,10 +681,7 @@ export interface GetArchiveRuleResponse {
 
 export namespace GetArchiveRuleResponse {
   export const filterSensitiveLog = (obj: GetArchiveRuleResponse): any => ({
-    ...obj,
-    ...(obj.archiveRule && {
-      archiveRule: ArchiveRuleSummary.filterSensitiveLog(obj.archiveRule)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetArchiveRuleResponse =>
     __isa(o, "GetArchiveRuleResponse");
@@ -756,8 +724,7 @@ export interface GetFindingResponse {
 
 export namespace GetFindingResponse {
   export const filterSensitiveLog = (obj: GetFindingResponse): any => ({
-    ...obj,
-    ...(obj.finding && { finding: Finding.filterSensitiveLog(obj.finding) })
+    ...obj
   });
   export const isa = (o: any): o is GetFindingResponse =>
     __isa(o, "GetFindingResponse");
@@ -782,16 +749,7 @@ export interface InlineArchiveRule {
 
 export namespace InlineArchiveRule {
   export const filterSensitiveLog = (obj: InlineArchiveRule): any => ({
-    ...obj,
-    ...(obj.filter && {
-      filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => ({
-          ...acc,
-          [key]: Criterion.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is InlineArchiveRule =>
     __isa(o, "InlineArchiveRule");
@@ -876,12 +834,7 @@ export namespace ListAnalyzedResourcesResponse {
   export const filterSensitiveLog = (
     obj: ListAnalyzedResourcesResponse
   ): any => ({
-    ...obj,
-    ...(obj.analyzedResources && {
-      analyzedResources: obj.analyzedResources.map(item =>
-        AnalyzedResourceSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAnalyzedResourcesResponse =>
     __isa(o, "ListAnalyzedResourcesResponse");
@@ -934,12 +887,7 @@ export interface ListAnalyzersResponse {
 
 export namespace ListAnalyzersResponse {
   export const filterSensitiveLog = (obj: ListAnalyzersResponse): any => ({
-    ...obj,
-    ...(obj.analyzers && {
-      analyzers: obj.analyzers.map(item =>
-        AnalyzerSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListAnalyzersResponse =>
     __isa(o, "ListAnalyzersResponse");
@@ -992,12 +940,7 @@ export interface ListArchiveRulesResponse {
 
 export namespace ListArchiveRulesResponse {
   export const filterSensitiveLog = (obj: ListArchiveRulesResponse): any => ({
-    ...obj,
-    ...(obj.archiveRules && {
-      archiveRules: obj.archiveRules.map(item =>
-        ArchiveRuleSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListArchiveRulesResponse =>
     __isa(o, "ListArchiveRulesResponse");
@@ -1036,17 +979,7 @@ export interface ListFindingsRequest {
 
 export namespace ListFindingsRequest {
   export const filterSensitiveLog = (obj: ListFindingsRequest): any => ({
-    ...obj,
-    ...(obj.filter && {
-      filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => ({
-          ...acc,
-          [key]: Criterion.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.sort && { sort: SortCriteria.filterSensitiveLog(obj.sort) })
+    ...obj
   });
   export const isa = (o: any): o is ListFindingsRequest =>
     __isa(o, "ListFindingsRequest");
@@ -1071,12 +1004,7 @@ export interface ListFindingsResponse {
 
 export namespace ListFindingsResponse {
   export const filterSensitiveLog = (obj: ListFindingsResponse): any => ({
-    ...obj,
-    ...(obj.findings && {
-      findings: obj.findings.map(item =>
-        FindingSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListFindingsResponse =>
     __isa(o, "ListFindingsResponse");
@@ -1370,16 +1298,7 @@ export interface UpdateArchiveRuleRequest {
 
 export namespace UpdateArchiveRuleRequest {
   export const filterSensitiveLog = (obj: UpdateArchiveRuleRequest): any => ({
-    ...obj,
-    ...(obj.filter && {
-      filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => ({
-          ...acc,
-          [key]: Criterion.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateArchiveRuleRequest =>
     __isa(o, "UpdateArchiveRuleRequest");
@@ -1448,12 +1367,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-    ...(obj.fieldList && {
-      fieldList: obj.fieldList.map(item =>
-        ValidationExceptionField.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");

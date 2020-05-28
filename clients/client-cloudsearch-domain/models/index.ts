@@ -42,10 +42,7 @@ export interface BucketInfo {
 
 export namespace BucketInfo {
   export const filterSensitiveLog = (obj: BucketInfo): any => ({
-    ...obj,
-    ...(obj.buckets && {
-      buckets: obj.buckets.map(item => Bucket.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BucketInfo => __isa(o, "BucketInfo");
 }
@@ -215,8 +212,7 @@ export interface Hits {
 
 export namespace Hits {
   export const filterSensitiveLog = (obj: Hits): any => ({
-    ...obj,
-    ...(obj.hit && { hit: obj.hit.map(item => Hit.filterSensitiveLog(item)) })
+    ...obj
   });
   export const isa = (o: any): o is Hits => __isa(o, "Hits");
 }
@@ -564,27 +560,7 @@ export interface SearchResponse {
 
 export namespace SearchResponse {
   export const filterSensitiveLog = (obj: SearchResponse): any => ({
-    ...obj,
-    ...(obj.facets && {
-      facets: Object.entries(obj.facets).reduce(
-        (acc: any, [key, value]: [string, BucketInfo]) => ({
-          ...acc,
-          [key]: BucketInfo.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.hits && { hits: Hits.filterSensitiveLog(obj.hits) }),
-    ...(obj.stats && {
-      stats: Object.entries(obj.stats).reduce(
-        (acc: any, [key, value]: [string, FieldStats]) => ({
-          ...acc,
-          [key]: FieldStats.filterSensitiveLog(value)
-        }),
-        {}
-      )
-    }),
-    ...(obj.status && { status: SearchStatus.filterSensitiveLog(obj.status) })
+    ...obj
   });
   export const isa = (o: any): o is SearchResponse =>
     __isa(o, "SearchResponse");
@@ -636,12 +612,7 @@ export interface SuggestModel {
 
 export namespace SuggestModel {
   export const filterSensitiveLog = (obj: SuggestModel): any => ({
-    ...obj,
-    ...(obj.suggestions && {
-      suggestions: obj.suggestions.map(item =>
-        SuggestionMatch.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SuggestModel => __isa(o, "SuggestModel");
 }
@@ -693,11 +664,7 @@ export interface SuggestResponse {
 
 export namespace SuggestResponse {
   export const filterSensitiveLog = (obj: SuggestResponse): any => ({
-    ...obj,
-    ...(obj.status && { status: SuggestStatus.filterSensitiveLog(obj.status) }),
-    ...(obj.suggest && {
-      suggest: SuggestModel.filterSensitiveLog(obj.suggest)
-    })
+    ...obj
   });
   export const isa = (o: any): o is SuggestResponse =>
     __isa(o, "SuggestResponse");
@@ -811,12 +778,7 @@ export interface UploadDocumentsResponse {
 
 export namespace UploadDocumentsResponse {
   export const filterSensitiveLog = (obj: UploadDocumentsResponse): any => ({
-    ...obj,
-    ...(obj.warnings && {
-      warnings: obj.warnings.map(item =>
-        DocumentServiceWarning.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UploadDocumentsResponse =>
     __isa(o, "UploadDocumentsResponse");

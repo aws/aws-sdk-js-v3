@@ -238,8 +238,7 @@ export interface DeleteDatasetResponse {
 
 export namespace DeleteDatasetResponse {
   export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-    ...obj,
-    ...(obj.Dataset && { Dataset: Dataset.filterSensitiveLog(obj.Dataset) })
+    ...obj
   });
   export const isa = (o: any): o is DeleteDatasetResponse =>
     __isa(o, "DeleteDatasetResponse");
@@ -294,8 +293,7 @@ export interface DescribeDatasetResponse {
 
 export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-    ...(obj.Dataset && { Dataset: Dataset.filterSensitiveLog(obj.Dataset) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDatasetResponse =>
     __isa(o, "DescribeDatasetResponse");
@@ -338,12 +336,7 @@ export namespace DescribeIdentityPoolUsageResponse {
   export const filterSensitiveLog = (
     obj: DescribeIdentityPoolUsageResponse
   ): any => ({
-    ...obj,
-    ...(obj.IdentityPoolUsage && {
-      IdentityPoolUsage: IdentityPoolUsage.filterSensitiveLog(
-        obj.IdentityPoolUsage
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeIdentityPoolUsageResponse =>
     __isa(o, "DescribeIdentityPoolUsageResponse");
@@ -392,10 +385,7 @@ export namespace DescribeIdentityUsageResponse {
   export const filterSensitiveLog = (
     obj: DescribeIdentityUsageResponse
   ): any => ({
-    ...obj,
-    ...(obj.IdentityUsage && {
-      IdentityUsage: IdentityUsage.filterSensitiveLog(obj.IdentityUsage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeIdentityUsageResponse =>
     __isa(o, "DescribeIdentityUsageResponse");
@@ -583,11 +573,7 @@ export namespace GetIdentityPoolConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetIdentityPoolConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.CognitoStreams && {
-      CognitoStreams: CognitoStreams.filterSensitiveLog(obj.CognitoStreams)
-    }),
-    ...(obj.PushSync && { PushSync: PushSync.filterSensitiveLog(obj.PushSync) })
+    ...obj
   });
   export const isa = (o: any): o is GetIdentityPoolConfigurationResponse =>
     __isa(o, "GetIdentityPoolConfigurationResponse");
@@ -884,10 +870,7 @@ export interface ListDatasetsResponse {
 
 export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj,
-    ...(obj.Datasets && {
-      Datasets: obj.Datasets.map(item => Dataset.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDatasetsResponse =>
     __isa(o, "ListDatasetsResponse");
@@ -949,12 +932,7 @@ export namespace ListIdentityPoolUsageResponse {
   export const filterSensitiveLog = (
     obj: ListIdentityPoolUsageResponse
   ): any => ({
-    ...obj,
-    ...(obj.IdentityPoolUsages && {
-      IdentityPoolUsages: obj.IdentityPoolUsages.map(item =>
-        IdentityPoolUsage.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListIdentityPoolUsageResponse =>
     __isa(o, "ListIdentityPoolUsageResponse");
@@ -1062,10 +1040,7 @@ export interface ListRecordsResponse {
 
 export namespace ListRecordsResponse {
   export const filterSensitiveLog = (obj: ListRecordsResponse): any => ({
-    ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => _Record.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListRecordsResponse =>
     __isa(o, "ListRecordsResponse");
@@ -1347,11 +1322,7 @@ export namespace SetIdentityPoolConfigurationRequest {
   export const filterSensitiveLog = (
     obj: SetIdentityPoolConfigurationRequest
   ): any => ({
-    ...obj,
-    ...(obj.CognitoStreams && {
-      CognitoStreams: CognitoStreams.filterSensitiveLog(obj.CognitoStreams)
-    }),
-    ...(obj.PushSync && { PushSync: PushSync.filterSensitiveLog(obj.PushSync) })
+    ...obj
   });
   export const isa = (o: any): o is SetIdentityPoolConfigurationRequest =>
     __isa(o, "SetIdentityPoolConfigurationRequest");
@@ -1382,11 +1353,7 @@ export namespace SetIdentityPoolConfigurationResponse {
   export const filterSensitiveLog = (
     obj: SetIdentityPoolConfigurationResponse
   ): any => ({
-    ...obj,
-    ...(obj.CognitoStreams && {
-      CognitoStreams: CognitoStreams.filterSensitiveLog(obj.CognitoStreams)
-    }),
-    ...(obj.PushSync && { PushSync: PushSync.filterSensitiveLog(obj.PushSync) })
+    ...obj
   });
   export const isa = (o: any): o is SetIdentityPoolConfigurationResponse =>
     __isa(o, "SetIdentityPoolConfigurationResponse");
@@ -1561,12 +1528,7 @@ export interface UpdateRecordsRequest {
 
 export namespace UpdateRecordsRequest {
   export const filterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
-    ...obj,
-    ...(obj.RecordPatches && {
-      RecordPatches: obj.RecordPatches.map(item =>
-        RecordPatch.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRecordsRequest =>
     __isa(o, "UpdateRecordsRequest");
@@ -1585,10 +1547,7 @@ export interface UpdateRecordsResponse {
 
 export namespace UpdateRecordsResponse {
   export const filterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
-    ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => _Record.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateRecordsResponse =>
     __isa(o, "UpdateRecordsResponse");

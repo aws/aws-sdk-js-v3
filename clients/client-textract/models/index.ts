@@ -54,13 +54,7 @@ export interface AnalyzeDocumentRequest {
 
 export namespace AnalyzeDocumentRequest {
   export const filterSensitiveLog = (obj: AnalyzeDocumentRequest): any => ({
-    ...obj,
-    ...(obj.Document && {
-      Document: Document.filterSensitiveLog(obj.Document)
-    }),
-    ...(obj.HumanLoopConfig && {
-      HumanLoopConfig: HumanLoopConfig.filterSensitiveLog(obj.HumanLoopConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnalyzeDocumentRequest =>
     __isa(o, "AnalyzeDocumentRequest");
@@ -91,20 +85,7 @@ export interface AnalyzeDocumentResponse {
 
 export namespace AnalyzeDocumentResponse {
   export const filterSensitiveLog = (obj: AnalyzeDocumentResponse): any => ({
-    ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => Block.filterSensitiveLog(item))
-    }),
-    ...(obj.DocumentMetadata && {
-      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
-        obj.DocumentMetadata
-      )
-    }),
-    ...(obj.HumanLoopActivationOutput && {
-      HumanLoopActivationOutput: HumanLoopActivationOutput.filterSensitiveLog(
-        obj.HumanLoopActivationOutput
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AnalyzeDocumentResponse =>
     __isa(o, "AnalyzeDocumentResponse");
@@ -316,15 +297,7 @@ export interface Block {
 
 export namespace Block {
   export const filterSensitiveLog = (obj: Block): any => ({
-    ...obj,
-    ...(obj.Geometry && {
-      Geometry: Geometry.filterSensitiveLog(obj.Geometry)
-    }),
-    ...(obj.Relationships && {
-      Relationships: obj.Relationships.map(item =>
-        Relationship.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Block => __isa(o, "Block");
 }
@@ -406,8 +379,7 @@ export interface DetectDocumentTextRequest {
 
 export namespace DetectDocumentTextRequest {
   export const filterSensitiveLog = (obj: DetectDocumentTextRequest): any => ({
-    ...obj,
-    ...(obj.Document && { Document: Document.filterSensitiveLog(obj.Document) })
+    ...obj
   });
   export const isa = (o: any): o is DetectDocumentTextRequest =>
     __isa(o, "DetectDocumentTextRequest");
@@ -435,15 +407,7 @@ export interface DetectDocumentTextResponse {
 
 export namespace DetectDocumentTextResponse {
   export const filterSensitiveLog = (obj: DetectDocumentTextResponse): any => ({
-    ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => Block.filterSensitiveLog(item))
-    }),
-    ...(obj.DocumentMetadata && {
-      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
-        obj.DocumentMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DetectDocumentTextResponse =>
     __isa(o, "DetectDocumentTextResponse");
@@ -487,8 +451,7 @@ export interface Document {
 
 export namespace Document {
   export const filterSensitiveLog = (obj: Document): any => ({
-    ...obj,
-    ...(obj.S3Object && { S3Object: S3Object.filterSensitiveLog(obj.S3Object) })
+    ...obj
   });
   export const isa = (o: any): o is Document => __isa(o, "Document");
 }
@@ -509,8 +472,7 @@ export interface DocumentLocation {
 
 export namespace DocumentLocation {
   export const filterSensitiveLog = (obj: DocumentLocation): any => ({
-    ...obj,
-    ...(obj.S3Object && { S3Object: S3Object.filterSensitiveLog(obj.S3Object) })
+    ...obj
   });
   export const isa = (o: any): o is DocumentLocation =>
     __isa(o, "DocumentLocation");
@@ -587,13 +549,7 @@ export interface Geometry {
 
 export namespace Geometry {
   export const filterSensitiveLog = (obj: Geometry): any => ({
-    ...obj,
-    ...(obj.BoundingBox && {
-      BoundingBox: BoundingBox.filterSensitiveLog(obj.BoundingBox)
-    }),
-    ...(obj.Polygon && {
-      Polygon: obj.Polygon.map(item => Point.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Geometry => __isa(o, "Geometry");
 }
@@ -672,18 +628,7 @@ export namespace GetDocumentAnalysisResponse {
   export const filterSensitiveLog = (
     obj: GetDocumentAnalysisResponse
   ): any => ({
-    ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => Block.filterSensitiveLog(item))
-    }),
-    ...(obj.DocumentMetadata && {
-      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
-        obj.DocumentMetadata
-      )
-    }),
-    ...(obj.Warnings && {
-      Warnings: obj.Warnings.map(item => Warning.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDocumentAnalysisResponse =>
     __isa(o, "GetDocumentAnalysisResponse");
@@ -766,18 +711,7 @@ export namespace GetDocumentTextDetectionResponse {
   export const filterSensitiveLog = (
     obj: GetDocumentTextDetectionResponse
   ): any => ({
-    ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => Block.filterSensitiveLog(item))
-    }),
-    ...(obj.DocumentMetadata && {
-      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
-        obj.DocumentMetadata
-      )
-    }),
-    ...(obj.Warnings && {
-      Warnings: obj.Warnings.map(item => Warning.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDocumentTextDetectionResponse =>
     __isa(o, "GetDocumentTextDetectionResponse");
@@ -837,12 +771,7 @@ export interface HumanLoopConfig {
 
 export namespace HumanLoopConfig {
   export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
-    ...obj,
-    ...(obj.DataAttributes && {
-      DataAttributes: HumanLoopDataAttributes.filterSensitiveLog(
-        obj.DataAttributes
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HumanLoopConfig =>
     __isa(o, "HumanLoopConfig");
@@ -1235,17 +1164,7 @@ export namespace StartDocumentAnalysisRequest {
   export const filterSensitiveLog = (
     obj: StartDocumentAnalysisRequest
   ): any => ({
-    ...obj,
-    ...(obj.DocumentLocation && {
-      DocumentLocation: DocumentLocation.filterSensitiveLog(
-        obj.DocumentLocation
-      )
-    }),
-    ...(obj.NotificationChannel && {
-      NotificationChannel: NotificationChannel.filterSensitiveLog(
-        obj.NotificationChannel
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartDocumentAnalysisRequest =>
     __isa(o, "StartDocumentAnalysisRequest");
@@ -1306,17 +1225,7 @@ export namespace StartDocumentTextDetectionRequest {
   export const filterSensitiveLog = (
     obj: StartDocumentTextDetectionRequest
   ): any => ({
-    ...obj,
-    ...(obj.DocumentLocation && {
-      DocumentLocation: DocumentLocation.filterSensitiveLog(
-        obj.DocumentLocation
-      )
-    }),
-    ...(obj.NotificationChannel && {
-      NotificationChannel: NotificationChannel.filterSensitiveLog(
-        obj.NotificationChannel
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartDocumentTextDetectionRequest =>
     __isa(o, "StartDocumentTextDetectionRequest");

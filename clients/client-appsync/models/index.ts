@@ -49,17 +49,7 @@ export namespace AdditionalAuthenticationProvider {
   export const filterSensitiveLog = (
     obj: AdditionalAuthenticationProvider
   ): any => ({
-    ...obj,
-    ...(obj.openIDConnectConfig && {
-      openIDConnectConfig: OpenIDConnectConfig.filterSensitiveLog(
-        obj.openIDConnectConfig
-      )
-    }),
-    ...(obj.userPoolConfig && {
-      userPoolConfig: CognitoUserPoolConfig.filterSensitiveLog(
-        obj.userPoolConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AdditionalAuthenticationProvider =>
     __isa(o, "AdditionalAuthenticationProvider");
@@ -373,10 +363,7 @@ export interface AuthorizationConfig {
 
 export namespace AuthorizationConfig {
   export const filterSensitiveLog = (obj: AuthorizationConfig): any => ({
-    ...obj,
-    ...(obj.awsIamConfig && {
-      awsIamConfig: AwsIamConfig.filterSensitiveLog(obj.awsIamConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AuthorizationConfig =>
     __isa(o, "AuthorizationConfig");
@@ -616,8 +603,7 @@ export interface CreateApiCacheResponse {
 
 export namespace CreateApiCacheResponse {
   export const filterSensitiveLog = (obj: CreateApiCacheResponse): any => ({
-    ...obj,
-    ...(obj.apiCache && { apiCache: ApiCache.filterSensitiveLog(obj.apiCache) })
+    ...obj
   });
   export const isa = (o: any): o is CreateApiCacheResponse =>
     __isa(o, "CreateApiCacheResponse");
@@ -661,8 +647,7 @@ export interface CreateApiKeyResponse {
 
 export namespace CreateApiKeyResponse {
   export const filterSensitiveLog = (obj: CreateApiKeyResponse): any => ({
-    ...obj,
-    ...(obj.apiKey && { apiKey: ApiKey.filterSensitiveLog(obj.apiKey) })
+    ...obj
   });
   export const isa = (o: any): o is CreateApiKeyResponse =>
     __isa(o, "CreateApiKeyResponse");
@@ -724,28 +709,7 @@ export interface CreateDataSourceRequest {
 
 export namespace CreateDataSourceRequest {
   export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
-    ...obj,
-    ...(obj.dynamodbConfig && {
-      dynamodbConfig: DynamodbDataSourceConfig.filterSensitiveLog(
-        obj.dynamodbConfig
-      )
-    }),
-    ...(obj.elasticsearchConfig && {
-      elasticsearchConfig: ElasticsearchDataSourceConfig.filterSensitiveLog(
-        obj.elasticsearchConfig
-      )
-    }),
-    ...(obj.httpConfig && {
-      httpConfig: HttpDataSourceConfig.filterSensitiveLog(obj.httpConfig)
-    }),
-    ...(obj.lambdaConfig && {
-      lambdaConfig: LambdaDataSourceConfig.filterSensitiveLog(obj.lambdaConfig)
-    }),
-    ...(obj.relationalDatabaseConfig && {
-      relationalDatabaseConfig: RelationalDatabaseDataSourceConfig.filterSensitiveLog(
-        obj.relationalDatabaseConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataSourceRequest =>
     __isa(o, "CreateDataSourceRequest");
@@ -761,10 +725,7 @@ export interface CreateDataSourceResponse {
 
 export namespace CreateDataSourceResponse {
   export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
-    ...obj,
-    ...(obj.dataSource && {
-      dataSource: DataSource.filterSensitiveLog(obj.dataSource)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataSourceResponse =>
     __isa(o, "CreateDataSourceResponse");
@@ -827,12 +788,7 @@ export interface CreateFunctionResponse {
 
 export namespace CreateFunctionResponse {
   export const filterSensitiveLog = (obj: CreateFunctionResponse): any => ({
-    ...obj,
-    ...(obj.functionConfiguration && {
-      functionConfiguration: FunctionConfiguration.filterSensitiveLog(
-        obj.functionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateFunctionResponse =>
     __isa(o, "CreateFunctionResponse");
@@ -878,23 +834,7 @@ export interface CreateGraphqlApiRequest {
 
 export namespace CreateGraphqlApiRequest {
   export const filterSensitiveLog = (obj: CreateGraphqlApiRequest): any => ({
-    ...obj,
-    ...(obj.additionalAuthenticationProviders && {
-      additionalAuthenticationProviders: obj.additionalAuthenticationProviders.map(
-        item => AdditionalAuthenticationProvider.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.logConfig && {
-      logConfig: LogConfig.filterSensitiveLog(obj.logConfig)
-    }),
-    ...(obj.openIDConnectConfig && {
-      openIDConnectConfig: OpenIDConnectConfig.filterSensitiveLog(
-        obj.openIDConnectConfig
-      )
-    }),
-    ...(obj.userPoolConfig && {
-      userPoolConfig: UserPoolConfig.filterSensitiveLog(obj.userPoolConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateGraphqlApiRequest =>
     __isa(o, "CreateGraphqlApiRequest");
@@ -910,10 +850,7 @@ export interface CreateGraphqlApiResponse {
 
 export namespace CreateGraphqlApiResponse {
   export const filterSensitiveLog = (obj: CreateGraphqlApiResponse): any => ({
-    ...obj,
-    ...(obj.graphqlApi && {
-      graphqlApi: GraphqlApi.filterSensitiveLog(obj.graphqlApi)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateGraphqlApiResponse =>
     __isa(o, "CreateGraphqlApiResponse");
@@ -991,16 +928,7 @@ export interface CreateResolverRequest {
 
 export namespace CreateResolverRequest {
   export const filterSensitiveLog = (obj: CreateResolverRequest): any => ({
-    ...obj,
-    ...(obj.cachingConfig && {
-      cachingConfig: CachingConfig.filterSensitiveLog(obj.cachingConfig)
-    }),
-    ...(obj.pipelineConfig && {
-      pipelineConfig: PipelineConfig.filterSensitiveLog(obj.pipelineConfig)
-    }),
-    ...(obj.syncConfig && {
-      syncConfig: SyncConfig.filterSensitiveLog(obj.syncConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateResolverRequest =>
     __isa(o, "CreateResolverRequest");
@@ -1016,8 +944,7 @@ export interface CreateResolverResponse {
 
 export namespace CreateResolverResponse {
   export const filterSensitiveLog = (obj: CreateResolverResponse): any => ({
-    ...obj,
-    ...(obj.resolver && { resolver: Resolver.filterSensitiveLog(obj.resolver) })
+    ...obj
   });
   export const isa = (o: any): o is CreateResolverResponse =>
     __isa(o, "CreateResolverResponse");
@@ -1061,8 +988,7 @@ export interface CreateTypeResponse {
 
 export namespace CreateTypeResponse {
   export const filterSensitiveLog = (obj: CreateTypeResponse): any => ({
-    ...obj,
-    ...(obj.type && { type: Type.filterSensitiveLog(obj.type) })
+    ...obj
   });
   export const isa = (o: any): o is CreateTypeResponse =>
     __isa(o, "CreateTypeResponse");
@@ -1160,28 +1086,7 @@ export interface DataSource {
 
 export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj,
-    ...(obj.dynamodbConfig && {
-      dynamodbConfig: DynamodbDataSourceConfig.filterSensitiveLog(
-        obj.dynamodbConfig
-      )
-    }),
-    ...(obj.elasticsearchConfig && {
-      elasticsearchConfig: ElasticsearchDataSourceConfig.filterSensitiveLog(
-        obj.elasticsearchConfig
-      )
-    }),
-    ...(obj.httpConfig && {
-      httpConfig: HttpDataSourceConfig.filterSensitiveLog(obj.httpConfig)
-    }),
-    ...(obj.lambdaConfig && {
-      lambdaConfig: LambdaDataSourceConfig.filterSensitiveLog(obj.lambdaConfig)
-    }),
-    ...(obj.relationalDatabaseConfig && {
-      relationalDatabaseConfig: RelationalDatabaseDataSourceConfig.filterSensitiveLog(
-        obj.relationalDatabaseConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
@@ -1494,10 +1399,7 @@ export interface DynamodbDataSourceConfig {
 
 export namespace DynamodbDataSourceConfig {
   export const filterSensitiveLog = (obj: DynamodbDataSourceConfig): any => ({
-    ...obj,
-    ...(obj.deltaSyncConfig && {
-      deltaSyncConfig: DeltaSyncConfig.filterSensitiveLog(obj.deltaSyncConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DynamodbDataSourceConfig =>
     __isa(o, "DynamodbDataSourceConfig");
@@ -1652,8 +1554,7 @@ export interface GetApiCacheResponse {
 
 export namespace GetApiCacheResponse {
   export const filterSensitiveLog = (obj: GetApiCacheResponse): any => ({
-    ...obj,
-    ...(obj.apiCache && { apiCache: ApiCache.filterSensitiveLog(obj.apiCache) })
+    ...obj
   });
   export const isa = (o: any): o is GetApiCacheResponse =>
     __isa(o, "GetApiCacheResponse");
@@ -1690,10 +1591,7 @@ export interface GetDataSourceResponse {
 
 export namespace GetDataSourceResponse {
   export const filterSensitiveLog = (obj: GetDataSourceResponse): any => ({
-    ...obj,
-    ...(obj.dataSource && {
-      dataSource: DataSource.filterSensitiveLog(obj.dataSource)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetDataSourceResponse =>
     __isa(o, "GetDataSourceResponse");
@@ -1730,12 +1628,7 @@ export interface GetFunctionResponse {
 
 export namespace GetFunctionResponse {
   export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
-    ...obj,
-    ...(obj.functionConfiguration && {
-      functionConfiguration: FunctionConfiguration.filterSensitiveLog(
-        obj.functionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetFunctionResponse =>
     __isa(o, "GetFunctionResponse");
@@ -1767,10 +1660,7 @@ export interface GetGraphqlApiResponse {
 
 export namespace GetGraphqlApiResponse {
   export const filterSensitiveLog = (obj: GetGraphqlApiResponse): any => ({
-    ...obj,
-    ...(obj.graphqlApi && {
-      graphqlApi: GraphqlApi.filterSensitiveLog(obj.graphqlApi)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetGraphqlApiResponse =>
     __isa(o, "GetGraphqlApiResponse");
@@ -1860,8 +1750,7 @@ export interface GetResolverResponse {
 
 export namespace GetResolverResponse {
   export const filterSensitiveLog = (obj: GetResolverResponse): any => ({
-    ...obj,
-    ...(obj.resolver && { resolver: Resolver.filterSensitiveLog(obj.resolver) })
+    ...obj
   });
   export const isa = (o: any): o is GetResolverResponse =>
     __isa(o, "GetResolverResponse");
@@ -1945,8 +1834,7 @@ export interface GetTypeResponse {
 
 export namespace GetTypeResponse {
   export const filterSensitiveLog = (obj: GetTypeResponse): any => ({
-    ...obj,
-    ...(obj.type && { type: Type.filterSensitiveLog(obj.type) })
+    ...obj
   });
   export const isa = (o: any): o is GetTypeResponse =>
     __isa(o, "GetTypeResponse");
@@ -2029,23 +1917,7 @@ export interface GraphqlApi {
 
 export namespace GraphqlApi {
   export const filterSensitiveLog = (obj: GraphqlApi): any => ({
-    ...obj,
-    ...(obj.additionalAuthenticationProviders && {
-      additionalAuthenticationProviders: obj.additionalAuthenticationProviders.map(
-        item => AdditionalAuthenticationProvider.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.logConfig && {
-      logConfig: LogConfig.filterSensitiveLog(obj.logConfig)
-    }),
-    ...(obj.openIDConnectConfig && {
-      openIDConnectConfig: OpenIDConnectConfig.filterSensitiveLog(
-        obj.openIDConnectConfig
-      )
-    }),
-    ...(obj.userPoolConfig && {
-      userPoolConfig: UserPoolConfig.filterSensitiveLog(obj.userPoolConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GraphqlApi => __isa(o, "GraphqlApi");
 }
@@ -2068,12 +1940,7 @@ export interface HttpDataSourceConfig {
 
 export namespace HttpDataSourceConfig {
   export const filterSensitiveLog = (obj: HttpDataSourceConfig): any => ({
-    ...obj,
-    ...(obj.authorizationConfig && {
-      authorizationConfig: AuthorizationConfig.filterSensitiveLog(
-        obj.authorizationConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is HttpDataSourceConfig =>
     __isa(o, "HttpDataSourceConfig");
@@ -2197,10 +2064,7 @@ export interface ListApiKeysResponse {
 
 export namespace ListApiKeysResponse {
   export const filterSensitiveLog = (obj: ListApiKeysResponse): any => ({
-    ...obj,
-    ...(obj.apiKeys && {
-      apiKeys: obj.apiKeys.map(item => ApiKey.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListApiKeysResponse =>
     __isa(o, "ListApiKeysResponse");
@@ -2249,12 +2113,7 @@ export interface ListDataSourcesResponse {
 
 export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj,
-    ...(obj.dataSources && {
-      dataSources: obj.dataSources.map(item =>
-        DataSource.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDataSourcesResponse =>
     __isa(o, "ListDataSourcesResponse");
@@ -2303,12 +2162,7 @@ export interface ListFunctionsResponse {
 
 export namespace ListFunctionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
-    ...obj,
-    ...(obj.functions && {
-      functions: obj.functions.map(item =>
-        FunctionConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListFunctionsResponse =>
     __isa(o, "ListFunctionsResponse");
@@ -2352,12 +2206,7 @@ export interface ListGraphqlApisResponse {
 
 export namespace ListGraphqlApisResponse {
   export const filterSensitiveLog = (obj: ListGraphqlApisResponse): any => ({
-    ...obj,
-    ...(obj.graphqlApis && {
-      graphqlApis: obj.graphqlApis.map(item =>
-        GraphqlApi.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListGraphqlApisResponse =>
     __isa(o, "ListGraphqlApisResponse");
@@ -2413,10 +2262,7 @@ export namespace ListResolversByFunctionResponse {
   export const filterSensitiveLog = (
     obj: ListResolversByFunctionResponse
   ): any => ({
-    ...obj,
-    ...(obj.resolvers && {
-      resolvers: obj.resolvers.map(item => Resolver.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResolversByFunctionResponse =>
     __isa(o, "ListResolversByFunctionResponse");
@@ -2470,10 +2316,7 @@ export interface ListResolversResponse {
 
 export namespace ListResolversResponse {
   export const filterSensitiveLog = (obj: ListResolversResponse): any => ({
-    ...obj,
-    ...(obj.resolvers && {
-      resolvers: obj.resolvers.map(item => Resolver.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResolversResponse =>
     __isa(o, "ListResolversResponse");
@@ -2561,10 +2404,7 @@ export interface ListTypesResponse {
 
 export namespace ListTypesResponse {
   export const filterSensitiveLog = (obj: ListTypesResponse): any => ({
-    ...obj,
-    ...(obj.types && {
-      types: obj.types.map(item => Type.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTypesResponse =>
     __isa(o, "ListTypesResponse");
@@ -2776,12 +2616,7 @@ export namespace RelationalDatabaseDataSourceConfig {
   export const filterSensitiveLog = (
     obj: RelationalDatabaseDataSourceConfig
   ): any => ({
-    ...obj,
-    ...(obj.rdsHttpEndpointConfig && {
-      rdsHttpEndpointConfig: RdsHttpEndpointConfig.filterSensitiveLog(
-        obj.rdsHttpEndpointConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RelationalDatabaseDataSourceConfig =>
     __isa(o, "RelationalDatabaseDataSourceConfig");
@@ -2863,16 +2698,7 @@ export interface Resolver {
 
 export namespace Resolver {
   export const filterSensitiveLog = (obj: Resolver): any => ({
-    ...obj,
-    ...(obj.cachingConfig && {
-      cachingConfig: CachingConfig.filterSensitiveLog(obj.cachingConfig)
-    }),
-    ...(obj.pipelineConfig && {
-      pipelineConfig: PipelineConfig.filterSensitiveLog(obj.pipelineConfig)
-    }),
-    ...(obj.syncConfig && {
-      syncConfig: SyncConfig.filterSensitiveLog(obj.syncConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is Resolver => __isa(o, "Resolver");
 }
@@ -2979,12 +2805,7 @@ export interface SyncConfig {
 
 export namespace SyncConfig {
   export const filterSensitiveLog = (obj: SyncConfig): any => ({
-    ...obj,
-    ...(obj.lambdaConflictHandlerConfig && {
-      lambdaConflictHandlerConfig: LambdaConflictHandlerConfig.filterSensitiveLog(
-        obj.lambdaConflictHandlerConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SyncConfig => __isa(o, "SyncConfig");
 }
@@ -3205,8 +3026,7 @@ export interface UpdateApiCacheResponse {
 
 export namespace UpdateApiCacheResponse {
   export const filterSensitiveLog = (obj: UpdateApiCacheResponse): any => ({
-    ...obj,
-    ...(obj.apiCache && { apiCache: ApiCache.filterSensitiveLog(obj.apiCache) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApiCacheResponse =>
     __isa(o, "UpdateApiCacheResponse");
@@ -3254,8 +3074,7 @@ export interface UpdateApiKeyResponse {
 
 export namespace UpdateApiKeyResponse {
   export const filterSensitiveLog = (obj: UpdateApiKeyResponse): any => ({
-    ...obj,
-    ...(obj.apiKey && { apiKey: ApiKey.filterSensitiveLog(obj.apiKey) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateApiKeyResponse =>
     __isa(o, "UpdateApiKeyResponse");
@@ -3316,28 +3135,7 @@ export interface UpdateDataSourceRequest {
 
 export namespace UpdateDataSourceRequest {
   export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
-    ...obj,
-    ...(obj.dynamodbConfig && {
-      dynamodbConfig: DynamodbDataSourceConfig.filterSensitiveLog(
-        obj.dynamodbConfig
-      )
-    }),
-    ...(obj.elasticsearchConfig && {
-      elasticsearchConfig: ElasticsearchDataSourceConfig.filterSensitiveLog(
-        obj.elasticsearchConfig
-      )
-    }),
-    ...(obj.httpConfig && {
-      httpConfig: HttpDataSourceConfig.filterSensitiveLog(obj.httpConfig)
-    }),
-    ...(obj.lambdaConfig && {
-      lambdaConfig: LambdaDataSourceConfig.filterSensitiveLog(obj.lambdaConfig)
-    }),
-    ...(obj.relationalDatabaseConfig && {
-      relationalDatabaseConfig: RelationalDatabaseDataSourceConfig.filterSensitiveLog(
-        obj.relationalDatabaseConfig
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDataSourceRequest =>
     __isa(o, "UpdateDataSourceRequest");
@@ -3353,10 +3151,7 @@ export interface UpdateDataSourceResponse {
 
 export namespace UpdateDataSourceResponse {
   export const filterSensitiveLog = (obj: UpdateDataSourceResponse): any => ({
-    ...obj,
-    ...(obj.dataSource && {
-      dataSource: DataSource.filterSensitiveLog(obj.dataSource)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDataSourceResponse =>
     __isa(o, "UpdateDataSourceResponse");
@@ -3424,12 +3219,7 @@ export interface UpdateFunctionResponse {
 
 export namespace UpdateFunctionResponse {
   export const filterSensitiveLog = (obj: UpdateFunctionResponse): any => ({
-    ...obj,
-    ...(obj.functionConfiguration && {
-      functionConfiguration: FunctionConfiguration.filterSensitiveLog(
-        obj.functionConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateFunctionResponse =>
     __isa(o, "UpdateFunctionResponse");
@@ -3478,23 +3268,7 @@ export interface UpdateGraphqlApiRequest {
 
 export namespace UpdateGraphqlApiRequest {
   export const filterSensitiveLog = (obj: UpdateGraphqlApiRequest): any => ({
-    ...obj,
-    ...(obj.additionalAuthenticationProviders && {
-      additionalAuthenticationProviders: obj.additionalAuthenticationProviders.map(
-        item => AdditionalAuthenticationProvider.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.logConfig && {
-      logConfig: LogConfig.filterSensitiveLog(obj.logConfig)
-    }),
-    ...(obj.openIDConnectConfig && {
-      openIDConnectConfig: OpenIDConnectConfig.filterSensitiveLog(
-        obj.openIDConnectConfig
-      )
-    }),
-    ...(obj.userPoolConfig && {
-      userPoolConfig: UserPoolConfig.filterSensitiveLog(obj.userPoolConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGraphqlApiRequest =>
     __isa(o, "UpdateGraphqlApiRequest");
@@ -3510,10 +3284,7 @@ export interface UpdateGraphqlApiResponse {
 
 export namespace UpdateGraphqlApiResponse {
   export const filterSensitiveLog = (obj: UpdateGraphqlApiResponse): any => ({
-    ...obj,
-    ...(obj.graphqlApi && {
-      graphqlApi: GraphqlApi.filterSensitiveLog(obj.graphqlApi)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateGraphqlApiResponse =>
     __isa(o, "UpdateGraphqlApiResponse");
@@ -3588,16 +3359,7 @@ export interface UpdateResolverRequest {
 
 export namespace UpdateResolverRequest {
   export const filterSensitiveLog = (obj: UpdateResolverRequest): any => ({
-    ...obj,
-    ...(obj.cachingConfig && {
-      cachingConfig: CachingConfig.filterSensitiveLog(obj.cachingConfig)
-    }),
-    ...(obj.pipelineConfig && {
-      pipelineConfig: PipelineConfig.filterSensitiveLog(obj.pipelineConfig)
-    }),
-    ...(obj.syncConfig && {
-      syncConfig: SyncConfig.filterSensitiveLog(obj.syncConfig)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateResolverRequest =>
     __isa(o, "UpdateResolverRequest");
@@ -3613,8 +3375,7 @@ export interface UpdateResolverResponse {
 
 export namespace UpdateResolverResponse {
   export const filterSensitiveLog = (obj: UpdateResolverResponse): any => ({
-    ...obj,
-    ...(obj.resolver && { resolver: Resolver.filterSensitiveLog(obj.resolver) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateResolverResponse =>
     __isa(o, "UpdateResolverResponse");
@@ -3661,8 +3422,7 @@ export interface UpdateTypeResponse {
 
 export namespace UpdateTypeResponse {
   export const filterSensitiveLog = (obj: UpdateTypeResponse): any => ({
-    ...obj,
-    ...(obj.type && { type: Type.filterSensitiveLog(obj.type) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateTypeResponse =>
     __isa(o, "UpdateTypeResponse");

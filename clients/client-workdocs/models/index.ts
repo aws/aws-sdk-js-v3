@@ -68,8 +68,7 @@ export interface ActivateUserResponse {
 
 export namespace ActivateUserResponse {
   export const filterSensitiveLog = (obj: ActivateUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: User.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is ActivateUserResponse =>
     __isa(o, "ActivateUserResponse");
@@ -135,24 +134,7 @@ export interface Activity {
 
 export namespace Activity {
   export const filterSensitiveLog = (obj: Activity): any => ({
-    ...obj,
-    ...(obj.CommentMetadata && {
-      CommentMetadata: CommentMetadata.filterSensitiveLog(obj.CommentMetadata)
-    }),
-    ...(obj.Initiator && {
-      Initiator: UserMetadata.filterSensitiveLog(obj.Initiator)
-    }),
-    ...(obj.OriginalParent && {
-      OriginalParent: ResourceMetadata.filterSensitiveLog(obj.OriginalParent)
-    }),
-    ...(obj.Participants && {
-      Participants: Participants.filterSensitiveLog(obj.Participants)
-    }),
-    ...(obj.ResourceMetadata && {
-      ResourceMetadata: ResourceMetadata.filterSensitiveLog(
-        obj.ResourceMetadata
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is Activity => __isa(o, "Activity");
 }
@@ -226,11 +208,6 @@ export namespace AddResourcePermissionsRequest {
     ...(obj.NotificationOptions && {
       NotificationOptions: NotificationOptions.filterSensitiveLog(
         obj.NotificationOptions
-      )
-    }),
-    ...(obj.Principals && {
-      Principals: obj.Principals.map(item =>
-        SharePrincipal.filterSensitiveLog(item)
       )
     })
   });
@@ -323,9 +300,6 @@ export interface Comment {
 export namespace Comment {
   export const filterSensitiveLog = (obj: Comment): any => ({
     ...obj,
-    ...(obj.Contributor && {
-      Contributor: User.filterSensitiveLog(obj.Contributor)
-    }),
     ...(obj.Text && { Text: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is Comment => __isa(o, "Comment");
@@ -364,10 +338,7 @@ export interface CommentMetadata {
 
 export namespace CommentMetadata {
   export const filterSensitiveLog = (obj: CommentMetadata): any => ({
-    ...obj,
-    ...(obj.Contributor && {
-      Contributor: User.filterSensitiveLog(obj.Contributor)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CommentMetadata =>
     __isa(o, "CommentMetadata");
@@ -588,10 +559,7 @@ export interface CreateFolderResponse {
 
 export namespace CreateFolderResponse {
   export const filterSensitiveLog = (obj: CreateFolderResponse): any => ({
-    ...obj,
-    ...(obj.Metadata && {
-      Metadata: FolderMetadata.filterSensitiveLog(obj.Metadata)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateFolderResponse =>
     __isa(o, "CreateFolderResponse");
@@ -684,10 +652,7 @@ export namespace CreateNotificationSubscriptionResponse {
   export const filterSensitiveLog = (
     obj: CreateNotificationSubscriptionResponse
   ): any => ({
-    ...obj,
-    ...(obj.Subscription && {
-      Subscription: Subscription.filterSensitiveLog(obj.Subscription)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateNotificationSubscriptionResponse =>
     __isa(o, "CreateNotificationSubscriptionResponse");
@@ -746,10 +711,7 @@ export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
     ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.StorageRule && {
-      StorageRule: StorageRuleType.filterSensitiveLog(obj.StorageRule)
-    })
+    ...(obj.Password && { Password: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is CreateUserRequest =>
     __isa(o, "CreateUserRequest");
@@ -765,8 +727,7 @@ export interface CreateUserResponse {
 
 export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: User.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is CreateUserResponse =>
     __isa(o, "CreateUserResponse");
@@ -1177,12 +1138,7 @@ export interface DescribeActivitiesResponse {
 
 export namespace DescribeActivitiesResponse {
   export const filterSensitiveLog = (obj: DescribeActivitiesResponse): any => ({
-    ...obj,
-    ...(obj.UserActivities && {
-      UserActivities: obj.UserActivities.map(item =>
-        Activity.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeActivitiesResponse =>
     __isa(o, "DescribeActivitiesResponse");
@@ -1414,9 +1370,6 @@ export namespace DescribeFolderContentsResponse {
       Documents: obj.Documents.map(item =>
         DocumentMetadata.filterSensitiveLog(item)
       )
-    }),
-    ...(obj.Folders && {
-      Folders: obj.Folders.map(item => FolderMetadata.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is DescribeFolderContentsResponse =>
@@ -1479,10 +1432,7 @@ export interface DescribeGroupsResponse {
 
 export namespace DescribeGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeGroupsResponse): any => ({
-    ...obj,
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item => GroupMetadata.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeGroupsResponse =>
     __isa(o, "DescribeGroupsResponse");
@@ -1535,12 +1485,7 @@ export namespace DescribeNotificationSubscriptionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeNotificationSubscriptionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Subscriptions && {
-      Subscriptions: obj.Subscriptions.map(item =>
-        Subscription.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeNotificationSubscriptionsResponse =>
     __isa(o, "DescribeNotificationSubscriptionsResponse");
@@ -1605,10 +1550,7 @@ export namespace DescribeResourcePermissionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeResourcePermissionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.Principals && {
-      Principals: obj.Principals.map(item => Principal.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeResourcePermissionsResponse =>
     __isa(o, "DescribeResourcePermissionsResponse");
@@ -1660,10 +1602,7 @@ export namespace DescribeRootFoldersResponse {
   export const filterSensitiveLog = (
     obj: DescribeRootFoldersResponse
   ): any => ({
-    ...obj,
-    ...(obj.Folders && {
-      Folders: obj.Folders.map(item => FolderMetadata.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeRootFoldersResponse =>
     __isa(o, "DescribeRootFoldersResponse");
@@ -1756,10 +1695,7 @@ export interface DescribeUsersResponse {
 
 export namespace DescribeUsersResponse {
   export const filterSensitiveLog = (obj: DescribeUsersResponse): any => ({
-    ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map(item => User.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeUsersResponse =>
     __isa(o, "DescribeUsersResponse");
@@ -1935,7 +1871,9 @@ export interface DocumentVersionMetadata {
 
 export namespace DocumentVersionMetadata {
   export const filterSensitiveLog = (obj: DocumentVersionMetadata): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Source && { Source: SENSITIVE_STRING }),
+    ...(obj.Thumbnail && { Thumbnail: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is DocumentVersionMetadata =>
     __isa(o, "DocumentVersionMetadata");
@@ -2133,8 +2071,7 @@ export interface GetCurrentUserResponse {
 
 export namespace GetCurrentUserResponse {
   export const filterSensitiveLog = (obj: GetCurrentUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: User.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is GetCurrentUserResponse =>
     __isa(o, "GetCurrentUserResponse");
@@ -2189,8 +2126,7 @@ export interface GetDocumentPathResponse {
 
 export namespace GetDocumentPathResponse {
   export const filterSensitiveLog = (obj: GetDocumentPathResponse): any => ({
-    ...obj,
-    ...(obj.Path && { Path: ResourcePath.filterSensitiveLog(obj.Path) })
+    ...obj
   });
   export const isa = (o: any): o is GetDocumentPathResponse =>
     __isa(o, "GetDocumentPathResponse");
@@ -2360,8 +2296,7 @@ export interface GetFolderPathResponse {
 
 export namespace GetFolderPathResponse {
   export const filterSensitiveLog = (obj: GetFolderPathResponse): any => ({
-    ...obj,
-    ...(obj.Path && { Path: ResourcePath.filterSensitiveLog(obj.Path) })
+    ...obj
   });
   export const isa = (o: any): o is GetFolderPathResponse =>
     __isa(o, "GetFolderPathResponse");
@@ -2410,10 +2345,7 @@ export interface GetFolderResponse {
 
 export namespace GetFolderResponse {
   export const filterSensitiveLog = (obj: GetFolderResponse): any => ({
-    ...obj,
-    ...(obj.Metadata && {
-      Metadata: FolderMetadata.filterSensitiveLog(obj.Metadata)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetFolderResponse =>
     __isa(o, "GetFolderResponse");
@@ -2484,9 +2416,6 @@ export namespace GetResourcesResponse {
       Documents: obj.Documents.map(item =>
         DocumentMetadata.filterSensitiveLog(item)
       )
-    }),
-    ...(obj.Folders && {
-      Folders: obj.Folders.map(item => FolderMetadata.filterSensitiveLog(item))
     })
   });
   export const isa = (o: any): o is GetResourcesResponse =>
@@ -2779,13 +2708,7 @@ export interface Participants {
 
 export namespace Participants {
   export const filterSensitiveLog = (obj: Participants): any => ({
-    ...obj,
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item => GroupMetadata.filterSensitiveLog(item))
-    }),
-    ...(obj.Users && {
-      Users: obj.Users.map(item => UserMetadata.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Participants => __isa(o, "Participants");
 }
@@ -2837,10 +2760,7 @@ export interface Principal {
 
 export namespace Principal {
   export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-    ...(obj.Roles && {
-      Roles: obj.Roles.map(item => PermissionInfo.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is Principal => __isa(o, "Principal");
 }
@@ -3022,8 +2942,7 @@ export interface ResourceMetadata {
 
 export namespace ResourceMetadata {
   export const filterSensitiveLog = (obj: ResourceMetadata): any => ({
-    ...obj,
-    ...(obj.Owner && { Owner: UserMetadata.filterSensitiveLog(obj.Owner) })
+    ...obj
   });
   export const isa = (o: any): o is ResourceMetadata =>
     __isa(o, "ResourceMetadata");
@@ -3042,12 +2961,7 @@ export interface ResourcePath {
 
 export namespace ResourcePath {
   export const filterSensitiveLog = (obj: ResourcePath): any => ({
-    ...obj,
-    ...(obj.Components && {
-      Components: obj.Components.map(item =>
-        ResourcePathComponent.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourcePath => __isa(o, "ResourcePath");
 }
@@ -3561,10 +3475,7 @@ export interface UpdateUserRequest {
 export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
     ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-    ...(obj.StorageRule && {
-      StorageRule: StorageRuleType.filterSensitiveLog(obj.StorageRule)
-    })
+    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is UpdateUserRequest =>
     __isa(o, "UpdateUserRequest");
@@ -3580,8 +3491,7 @@ export interface UpdateUserResponse {
 
 export namespace UpdateUserResponse {
   export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: User.filterSensitiveLog(obj.User) })
+    ...obj
   });
   export const isa = (o: any): o is UpdateUserResponse =>
     __isa(o, "UpdateUserResponse");
@@ -3695,10 +3605,7 @@ export interface User {
 
 export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-    ...(obj.Storage && {
-      Storage: UserStorageMetadata.filterSensitiveLog(obj.Storage)
-    })
+    ...obj
   });
   export const isa = (o: any): o is User => __isa(o, "User");
 }
@@ -3778,10 +3685,7 @@ export interface UserStorageMetadata {
 
 export namespace UserStorageMetadata {
   export const filterSensitiveLog = (obj: UserStorageMetadata): any => ({
-    ...obj,
-    ...(obj.StorageRule && {
-      StorageRule: StorageRuleType.filterSensitiveLog(obj.StorageRule)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UserStorageMetadata =>
     __isa(o, "UserStorageMetadata");

@@ -29,10 +29,7 @@ export interface GetMediaInput {
 
 export namespace GetMediaInput {
   export const filterSensitiveLog = (obj: GetMediaInput): any => ({
-    ...obj,
-    ...(obj.StartSelector && {
-      StartSelector: StartSelector.filterSensitiveLog(obj.StartSelector)
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetMediaInput => __isa(o, "GetMediaInput");
 }

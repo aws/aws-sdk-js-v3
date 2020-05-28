@@ -27,12 +27,7 @@ export interface BatchMeterUsageRequest {
 
 export namespace BatchMeterUsageRequest {
   export const filterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
-    ...obj,
-    ...(obj.UsageRecords && {
-      UsageRecords: obj.UsageRecords.map(item =>
-        UsageRecord.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchMeterUsageRequest =>
     __isa(o, "BatchMeterUsageRequest");
@@ -60,17 +55,7 @@ export interface BatchMeterUsageResult {
 
 export namespace BatchMeterUsageResult {
   export const filterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
-    ...obj,
-    ...(obj.Results && {
-      Results: obj.Results.map(item =>
-        UsageRecordResult.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.UnprocessedRecords && {
-      UnprocessedRecords: obj.UnprocessedRecords.map(item =>
-        UsageRecord.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchMeterUsageResult =>
     __isa(o, "BatchMeterUsageResult");
@@ -642,10 +627,7 @@ export interface UsageRecordResult {
 
 export namespace UsageRecordResult {
   export const filterSensitiveLog = (obj: UsageRecordResult): any => ({
-    ...obj,
-    ...(obj.UsageRecord && {
-      UsageRecord: UsageRecord.filterSensitiveLog(obj.UsageRecord)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UsageRecordResult =>
     __isa(o, "UsageRecordResult");

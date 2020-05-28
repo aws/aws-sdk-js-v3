@@ -45,12 +45,7 @@ export namespace AcceptResourceShareInvitationResponse {
   export const filterSensitiveLog = (
     obj: AcceptResourceShareInvitationResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShareInvitation && {
-      resourceShareInvitation: ResourceShareInvitation.filterSensitiveLog(
-        obj.resourceShareInvitation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AcceptResourceShareInvitationResponse =>
     __isa(o, "AcceptResourceShareInvitationResponse");
@@ -164,12 +159,7 @@ export namespace AssociateResourceShareResponse {
   export const filterSensitiveLog = (
     obj: AssociateResourceShareResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShareAssociations && {
-      resourceShareAssociations: obj.resourceShareAssociations.map(item =>
-        ResourceShareAssociation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AssociateResourceShareResponse =>
     __isa(o, "AssociateResourceShareResponse");
@@ -218,10 +208,7 @@ export interface CreateResourceShareRequest {
 
 export namespace CreateResourceShareRequest {
   export const filterSensitiveLog = (obj: CreateResourceShareRequest): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateResourceShareRequest =>
     __isa(o, "CreateResourceShareRequest");
@@ -244,10 +231,7 @@ export namespace CreateResourceShareResponse {
   export const filterSensitiveLog = (
     obj: CreateResourceShareResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShare && {
-      resourceShare: ResourceShare.filterSensitiveLog(obj.resourceShare)
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateResourceShareResponse =>
     __isa(o, "CreateResourceShareResponse");
@@ -402,12 +386,7 @@ export namespace DisassociateResourceShareResponse {
   export const filterSensitiveLog = (
     obj: DisassociateResourceShareResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShareAssociations && {
-      resourceShareAssociations: obj.resourceShareAssociations.map(item =>
-        ResourceShareAssociation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DisassociateResourceShareResponse =>
     __isa(o, "DisassociateResourceShareResponse");
@@ -476,12 +455,7 @@ export interface GetPermissionResponse {
 
 export namespace GetPermissionResponse {
   export const filterSensitiveLog = (obj: GetPermissionResponse): any => ({
-    ...obj,
-    ...(obj.permission && {
-      permission: ResourceSharePermissionDetail.filterSensitiveLog(
-        obj.permission
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetPermissionResponse =>
     __isa(o, "GetPermissionResponse");
@@ -612,12 +586,7 @@ export namespace GetResourceShareAssociationsResponse {
   export const filterSensitiveLog = (
     obj: GetResourceShareAssociationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShareAssociations && {
-      resourceShareAssociations: obj.resourceShareAssociations.map(item =>
-        ResourceShareAssociation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetResourceShareAssociationsResponse =>
     __isa(o, "GetResourceShareAssociationsResponse");
@@ -674,12 +643,7 @@ export namespace GetResourceShareInvitationsResponse {
   export const filterSensitiveLog = (
     obj: GetResourceShareInvitationsResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShareInvitations && {
-      resourceShareInvitations: obj.resourceShareInvitations.map(item =>
-        ResourceShareInvitation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetResourceShareInvitationsResponse =>
     __isa(o, "GetResourceShareInvitationsResponse");
@@ -726,10 +690,7 @@ export interface GetResourceSharesRequest {
 
 export namespace GetResourceSharesRequest {
   export const filterSensitiveLog = (obj: GetResourceSharesRequest): any => ({
-    ...obj,
-    ...(obj.tagFilters && {
-      tagFilters: obj.tagFilters.map(item => TagFilter.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetResourceSharesRequest =>
     __isa(o, "GetResourceSharesRequest");
@@ -750,12 +711,7 @@ export interface GetResourceSharesResponse {
 
 export namespace GetResourceSharesResponse {
   export const filterSensitiveLog = (obj: GetResourceSharesResponse): any => ({
-    ...obj,
-    ...(obj.resourceShares && {
-      resourceShares: obj.resourceShares.map(item =>
-        ResourceShare.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is GetResourceSharesResponse =>
     __isa(o, "GetResourceSharesResponse");
@@ -949,10 +905,7 @@ export namespace ListPendingInvitationResourcesResponse {
   export const filterSensitiveLog = (
     obj: ListPendingInvitationResourcesResponse
   ): any => ({
-    ...obj,
-    ...(obj.resources && {
-      resources: obj.resources.map(item => Resource.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPendingInvitationResourcesResponse =>
     __isa(o, "ListPendingInvitationResourcesResponse");
@@ -1001,12 +954,7 @@ export interface ListPermissionsResponse {
 
 export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj,
-    ...(obj.permissions && {
-      permissions: obj.permissions.map(item =>
-        ResourceSharePermissionSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPermissionsResponse =>
     __isa(o, "ListPermissionsResponse");
@@ -1080,10 +1028,7 @@ export interface ListPrincipalsResponse {
 
 export namespace ListPrincipalsResponse {
   export const filterSensitiveLog = (obj: ListPrincipalsResponse): any => ({
-    ...obj,
-    ...(obj.principals && {
-      principals: obj.principals.map(item => Principal.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListPrincipalsResponse =>
     __isa(o, "ListPrincipalsResponse");
@@ -1135,12 +1080,7 @@ export namespace ListResourceSharePermissionsResponse {
   export const filterSensitiveLog = (
     obj: ListResourceSharePermissionsResponse
   ): any => ({
-    ...obj,
-    ...(obj.permissions && {
-      permissions: obj.permissions.map(item =>
-        ResourceSharePermissionSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResourceSharePermissionsResponse =>
     __isa(o, "ListResourceSharePermissionsResponse");
@@ -1214,10 +1154,7 @@ export interface ListResourcesResponse {
 
 export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
-    ...obj,
-    ...(obj.resources && {
-      resources: obj.resources.map(item => Resource.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResourcesResponse =>
     __isa(o, "ListResourcesResponse");
@@ -1402,12 +1339,7 @@ export namespace RejectResourceShareInvitationResponse {
   export const filterSensitiveLog = (
     obj: RejectResourceShareInvitationResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShareInvitation && {
-      resourceShareInvitation: ResourceShareInvitation.filterSensitiveLog(
-        obj.resourceShareInvitation
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is RejectResourceShareInvitationResponse =>
     __isa(o, "RejectResourceShareInvitationResponse");
@@ -1572,10 +1504,7 @@ export interface ResourceShare {
 
 export namespace ResourceShare {
   export const filterSensitiveLog = (obj: ResourceShare): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceShare => __isa(o, "ResourceShare");
 }
@@ -1705,12 +1634,7 @@ export interface ResourceShareInvitation {
 
 export namespace ResourceShareInvitation {
   export const filterSensitiveLog = (obj: ResourceShareInvitation): any => ({
-    ...obj,
-    ...(obj.resourceShareAssociations && {
-      resourceShareAssociations: obj.resourceShareAssociations.map(item =>
-        ResourceShareAssociation.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ResourceShareInvitation =>
     __isa(o, "ResourceShareInvitation");
@@ -2103,10 +2027,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => Tag.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -2224,10 +2145,7 @@ export namespace UpdateResourceShareResponse {
   export const filterSensitiveLog = (
     obj: UpdateResourceShareResponse
   ): any => ({
-    ...obj,
-    ...(obj.resourceShare && {
-      resourceShare: ResourceShare.filterSensitiveLog(obj.resourceShare)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateResourceShareResponse =>
     __isa(o, "UpdateResourceShareResponse");

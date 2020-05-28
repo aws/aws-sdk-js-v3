@@ -87,8 +87,7 @@ export namespace Code {
     ...obj,
     ...(obj.destination && {
       destination: CodeDestination.filterSensitiveLog(obj.destination)
-    }),
-    ...(obj.source && { source: CodeSource.filterSensitiveLog(obj.source) })
+    })
   });
   export const isa = (o: any): o is Code => __isa(o, "Code");
 }
@@ -135,9 +134,6 @@ export interface CodeDestination {
 export namespace CodeDestination {
   export const filterSensitiveLog = (obj: CodeDestination): any => ({
     ...obj,
-    ...(obj.codeCommit && {
-      codeCommit: CodeCommitCodeDestination.filterSensitiveLog(obj.codeCommit)
-    }),
     ...(obj.gitHub && {
       gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub)
     })
@@ -161,8 +157,7 @@ export interface CodeSource {
 
 export namespace CodeSource {
   export const filterSensitiveLog = (obj: CodeSource): any => ({
-    ...obj,
-    ...(obj.s3 && { s3: S3Location.filterSensitiveLog(obj.s3) })
+    ...obj
   });
   export const isa = (o: any): o is CodeSource => __isa(o, "CodeSource");
 }
@@ -513,8 +508,7 @@ export namespace DescribeProjectResult {
   export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.status && { status: ProjectStatus.filterSensitiveLog(obj.status) })
+    ...(obj.name && { name: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is DescribeProjectResult =>
     __isa(o, "DescribeProjectResult");
@@ -779,12 +773,7 @@ export interface ListProjectsResult {
 
 export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj,
-    ...(obj.projects && {
-      projects: obj.projects.map(item =>
-        ProjectSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListProjectsResult =>
     __isa(o, "ListProjectsResult");
@@ -833,10 +822,7 @@ export interface ListResourcesResult {
 
 export namespace ListResourcesResult {
   export const filterSensitiveLog = (obj: ListResourcesResult): any => ({
-    ...obj,
-    ...(obj.resources && {
-      resources: obj.resources.map(item => Resource.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListResourcesResult =>
     __isa(o, "ListResourcesResult");
@@ -932,12 +918,7 @@ export interface ListTeamMembersResult {
 
 export namespace ListTeamMembersResult {
   export const filterSensitiveLog = (obj: ListTeamMembersResult): any => ({
-    ...obj,
-    ...(obj.teamMembers && {
-      teamMembers: obj.teamMembers.map(item =>
-        TeamMember.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListTeamMembersResult =>
     __isa(o, "ListTeamMembersResult");
@@ -1307,9 +1288,7 @@ export interface Toolchain {
 export namespace Toolchain {
   export const filterSensitiveLog = (obj: Toolchain): any => ({
     ...obj,
-    ...(obj.source && {
-      source: ToolchainSource.filterSensitiveLog(obj.source)
-    })
+    ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is Toolchain => __isa(o, "Toolchain");
 }
@@ -1329,8 +1308,7 @@ export interface ToolchainSource {
 
 export namespace ToolchainSource {
   export const filterSensitiveLog = (obj: ToolchainSource): any => ({
-    ...obj,
-    ...(obj.s3 && { s3: S3Location.filterSensitiveLog(obj.s3) })
+    ...obj
   });
   export const isa = (o: any): o is ToolchainSource =>
     __isa(o, "ToolchainSource");

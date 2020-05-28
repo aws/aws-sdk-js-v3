@@ -91,10 +91,7 @@ export interface AdditionalResultAttribute {
 
 export namespace AdditionalResultAttribute {
   export const filterSensitiveLog = (obj: AdditionalResultAttribute): any => ({
-    ...obj,
-    ...(obj.Value && {
-      Value: AdditionalResultAttributeValue.filterSensitiveLog(obj.Value)
-    })
+    ...obj
   });
   export const isa = (o: any): o is AdditionalResultAttribute =>
     __isa(o, "AdditionalResultAttribute");
@@ -116,12 +113,7 @@ export namespace AdditionalResultAttributeValue {
   export const filterSensitiveLog = (
     obj: AdditionalResultAttributeValue
   ): any => ({
-    ...obj,
-    ...(obj.TextWithHighlightsValue && {
-      TextWithHighlightsValue: TextWithHighlights.filterSensitiveLog(
-        obj.TextWithHighlightsValue
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AdditionalResultAttributeValue =>
     __isa(o, "AdditionalResultAttributeValue");
@@ -193,45 +185,7 @@ export interface AttributeFilter {
 
 export namespace AttributeFilter {
   export const filterSensitiveLog = (obj: AttributeFilter): any => ({
-    ...obj,
-    ...(obj.AndAllFilters && {
-      AndAllFilters: obj.AndAllFilters.map(item =>
-        AttributeFilter.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ContainsAll && {
-      ContainsAll: DocumentAttribute.filterSensitiveLog(obj.ContainsAll)
-    }),
-    ...(obj.ContainsAny && {
-      ContainsAny: DocumentAttribute.filterSensitiveLog(obj.ContainsAny)
-    }),
-    ...(obj.EqualsTo && {
-      EqualsTo: DocumentAttribute.filterSensitiveLog(obj.EqualsTo)
-    }),
-    ...(obj.GreaterThan && {
-      GreaterThan: DocumentAttribute.filterSensitiveLog(obj.GreaterThan)
-    }),
-    ...(obj.GreaterThanOrEquals && {
-      GreaterThanOrEquals: DocumentAttribute.filterSensitiveLog(
-        obj.GreaterThanOrEquals
-      )
-    }),
-    ...(obj.LessThan && {
-      LessThan: DocumentAttribute.filterSensitiveLog(obj.LessThan)
-    }),
-    ...(obj.LessThanOrEquals && {
-      LessThanOrEquals: DocumentAttribute.filterSensitiveLog(
-        obj.LessThanOrEquals
-      )
-    }),
-    ...(obj.NotFilter && {
-      NotFilter: AttributeFilter.filterSensitiveLog(obj.NotFilter)
-    }),
-    ...(obj.OrAllFilters && {
-      OrAllFilters: obj.OrAllFilters.map(item =>
-        AttributeFilter.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is AttributeFilter =>
     __isa(o, "AttributeFilter");
@@ -271,12 +225,7 @@ export namespace BatchDeleteDocumentResponse {
   export const filterSensitiveLog = (
     obj: BatchDeleteDocumentResponse
   ): any => ({
-    ...obj,
-    ...(obj.FailedDocuments && {
-      FailedDocuments: obj.FailedDocuments.map(item =>
-        BatchDeleteDocumentResponseFailedDocument.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchDeleteDocumentResponse =>
     __isa(o, "BatchDeleteDocumentResponse");
@@ -338,10 +287,7 @@ export interface BatchPutDocumentRequest {
 
 export namespace BatchPutDocumentRequest {
   export const filterSensitiveLog = (obj: BatchPutDocumentRequest): any => ({
-    ...obj,
-    ...(obj.Documents && {
-      Documents: obj.Documents.map(item => Document.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchPutDocumentRequest =>
     __isa(o, "BatchPutDocumentRequest");
@@ -361,12 +307,7 @@ export interface BatchPutDocumentResponse {
 
 export namespace BatchPutDocumentResponse {
   export const filterSensitiveLog = (obj: BatchPutDocumentResponse): any => ({
-    ...obj,
-    ...(obj.FailedDocuments && {
-      FailedDocuments: obj.FailedDocuments.map(item =>
-        BatchPutDocumentResponseFailedDocument.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is BatchPutDocumentResponse =>
     __isa(o, "BatchPutDocumentResponse");
@@ -463,12 +404,7 @@ export interface ColumnConfiguration {
 
 export namespace ColumnConfiguration {
   export const filterSensitiveLog = (obj: ColumnConfiguration): any => ({
-    ...obj,
-    ...(obj.FieldMappings && {
-      FieldMappings: obj.FieldMappings.map(item =>
-        DataSourceToIndexFieldMapping.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ColumnConfiguration =>
     __isa(o, "ColumnConfiguration");
@@ -590,12 +526,7 @@ export interface CreateDataSourceRequest {
 
 export namespace CreateDataSourceRequest {
   export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
-    ...obj,
-    ...(obj.Configuration && {
-      Configuration: DataSourceConfiguration.filterSensitiveLog(
-        obj.Configuration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateDataSourceRequest =>
     __isa(o, "CreateDataSourceRequest");
@@ -649,8 +580,7 @@ export interface CreateFaqRequest {
 
 export namespace CreateFaqRequest {
   export const filterSensitiveLog = (obj: CreateFaqRequest): any => ({
-    ...obj,
-    ...(obj.S3Path && { S3Path: S3Path.filterSensitiveLog(obj.S3Path) })
+    ...obj
   });
   export const isa = (o: any): o is CreateFaqRequest =>
     __isa(o, "CreateFaqRequest");
@@ -753,22 +683,7 @@ export interface DataSourceConfiguration {
 
 export namespace DataSourceConfiguration {
   export const filterSensitiveLog = (obj: DataSourceConfiguration): any => ({
-    ...obj,
-    ...(obj.DatabaseConfiguration && {
-      DatabaseConfiguration: DatabaseConfiguration.filterSensitiveLog(
-        obj.DatabaseConfiguration
-      )
-    }),
-    ...(obj.S3Configuration && {
-      S3Configuration: S3DataSourceConfiguration.filterSensitiveLog(
-        obj.S3Configuration
-      )
-    }),
-    ...(obj.SharePointConfiguration && {
-      SharePointConfiguration: SharePointConfiguration.filterSensitiveLog(
-        obj.SharePointConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DataSourceConfiguration =>
     __isa(o, "DataSourceConfiguration");
@@ -993,27 +908,7 @@ export interface DatabaseConfiguration {
 
 export namespace DatabaseConfiguration {
   export const filterSensitiveLog = (obj: DatabaseConfiguration): any => ({
-    ...obj,
-    ...(obj.AclConfiguration && {
-      AclConfiguration: AclConfiguration.filterSensitiveLog(
-        obj.AclConfiguration
-      )
-    }),
-    ...(obj.ColumnConfiguration && {
-      ColumnConfiguration: ColumnConfiguration.filterSensitiveLog(
-        obj.ColumnConfiguration
-      )
-    }),
-    ...(obj.ConnectionConfiguration && {
-      ConnectionConfiguration: ConnectionConfiguration.filterSensitiveLog(
-        obj.ConnectionConfiguration
-      )
-    }),
-    ...(obj.VpcConfiguration && {
-      VpcConfiguration: DataSourceVpcConfiguration.filterSensitiveLog(
-        obj.VpcConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DatabaseConfiguration =>
     __isa(o, "DatabaseConfiguration");
@@ -1156,12 +1051,7 @@ export interface DescribeDataSourceResponse {
 
 export namespace DescribeDataSourceResponse {
   export const filterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
-    ...obj,
-    ...(obj.Configuration && {
-      Configuration: DataSourceConfiguration.filterSensitiveLog(
-        obj.Configuration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeDataSourceResponse =>
     __isa(o, "DescribeDataSourceResponse");
@@ -1246,8 +1136,7 @@ export interface DescribeFaqResponse {
 
 export namespace DescribeFaqResponse {
   export const filterSensitiveLog = (obj: DescribeFaqResponse): any => ({
-    ...obj,
-    ...(obj.S3Path && { S3Path: S3Path.filterSensitiveLog(obj.S3Path) })
+    ...obj
   });
   export const isa = (o: any): o is DescribeFaqResponse =>
     __isa(o, "DescribeFaqResponse");
@@ -1336,14 +1225,6 @@ export interface DescribeIndexResponse {
 export namespace DescribeIndexResponse {
   export const filterSensitiveLog = (obj: DescribeIndexResponse): any => ({
     ...obj,
-    ...(obj.DocumentMetadataConfigurations && {
-      DocumentMetadataConfigurations: obj.DocumentMetadataConfigurations.map(
-        item => DocumentMetadataConfiguration.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.IndexStatistics && {
-      IndexStatistics: IndexStatistics.filterSensitiveLog(obj.IndexStatistics)
-    }),
     ...(obj.ServerSideEncryptionConfiguration && {
       ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration.filterSensitiveLog(
         obj.ServerSideEncryptionConfiguration
@@ -1399,18 +1280,7 @@ export interface Document {
 
 export namespace Document {
   export const filterSensitiveLog = (obj: Document): any => ({
-    ...obj,
-    ...(obj.AccessControlList && {
-      AccessControlList: obj.AccessControlList.map(item =>
-        Principal.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        DocumentAttribute.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.S3Path && { S3Path: S3Path.filterSensitiveLog(obj.S3Path) })
+    ...obj
   });
   export const isa = (o: any): o is Document => __isa(o, "Document");
 }
@@ -1433,10 +1303,7 @@ export interface DocumentAttribute {
 
 export namespace DocumentAttribute {
   export const filterSensitiveLog = (obj: DocumentAttribute): any => ({
-    ...obj,
-    ...(obj.Value && {
-      Value: DocumentAttributeValue.filterSensitiveLog(obj.Value)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DocumentAttribute =>
     __isa(o, "DocumentAttribute");
@@ -1499,12 +1366,7 @@ export namespace DocumentAttributeValueCountPair {
   export const filterSensitiveLog = (
     obj: DocumentAttributeValueCountPair
   ): any => ({
-    ...obj,
-    ...(obj.DocumentAttributeValue && {
-      DocumentAttributeValue: DocumentAttributeValue.filterSensitiveLog(
-        obj.DocumentAttributeValue
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is DocumentAttributeValueCountPair =>
     __isa(o, "DocumentAttributeValueCountPair");
@@ -1548,11 +1410,7 @@ export namespace DocumentMetadataConfiguration {
   export const filterSensitiveLog = (
     obj: DocumentMetadataConfiguration
   ): any => ({
-    ...obj,
-    ...(obj.Relevance && {
-      Relevance: Relevance.filterSensitiveLog(obj.Relevance)
-    }),
-    ...(obj.Search && { Search: Search.filterSensitiveLog(obj.Search) })
+    ...obj
   });
   export const isa = (o: any): o is DocumentMetadataConfiguration =>
     __isa(o, "DocumentMetadataConfiguration");
@@ -1626,12 +1484,7 @@ export interface FacetResult {
 
 export namespace FacetResult {
   export const filterSensitiveLog = (obj: FacetResult): any => ({
-    ...obj,
-    ...(obj.DocumentAttributeValueCountPairs && {
-      DocumentAttributeValueCountPairs: obj.DocumentAttributeValueCountPairs.map(
-        item => DocumentAttributeValueCountPair.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is FacetResult => __isa(o, "FacetResult");
 }
@@ -1795,15 +1648,7 @@ export interface IndexStatistics {
 
 export namespace IndexStatistics {
   export const filterSensitiveLog = (obj: IndexStatistics): any => ({
-    ...obj,
-    ...(obj.FaqStatistics && {
-      FaqStatistics: FaqStatistics.filterSensitiveLog(obj.FaqStatistics)
-    }),
-    ...(obj.TextDocumentStatistics && {
-      TextDocumentStatistics: TextDocumentStatistics.filterSensitiveLog(
-        obj.TextDocumentStatistics
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is IndexStatistics =>
     __isa(o, "IndexStatistics");
@@ -1877,10 +1722,7 @@ export namespace ListDataSourceSyncJobsRequest {
   export const filterSensitiveLog = (
     obj: ListDataSourceSyncJobsRequest
   ): any => ({
-    ...obj,
-    ...(obj.StartTimeFilter && {
-      StartTimeFilter: TimeRange.filterSensitiveLog(obj.StartTimeFilter)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDataSourceSyncJobsRequest =>
     __isa(o, "ListDataSourceSyncJobsRequest");
@@ -1907,12 +1749,7 @@ export namespace ListDataSourceSyncJobsResponse {
   export const filterSensitiveLog = (
     obj: ListDataSourceSyncJobsResponse
   ): any => ({
-    ...obj,
-    ...(obj.History && {
-      History: obj.History.map(item =>
-        DataSourceSyncJob.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDataSourceSyncJobsResponse =>
     __isa(o, "ListDataSourceSyncJobsResponse");
@@ -1962,12 +1799,7 @@ export interface ListDataSourcesResponse {
 
 export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj,
-    ...(obj.SummaryItems && {
-      SummaryItems: obj.SummaryItems.map(item =>
-        DataSourceSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDataSourcesResponse =>
     __isa(o, "ListDataSourcesResponse");
@@ -2020,12 +1852,7 @@ export interface ListFaqsResponse {
 
 export namespace ListFaqsResponse {
   export const filterSensitiveLog = (obj: ListFaqsResponse): any => ({
-    ...obj,
-    ...(obj.FaqSummaryItems && {
-      FaqSummaryItems: obj.FaqSummaryItems.map(item =>
-        FaqSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListFaqsResponse =>
     __isa(o, "ListFaqsResponse");
@@ -2070,12 +1897,7 @@ export interface ListIndicesResponse {
 
 export namespace ListIndicesResponse {
   export const filterSensitiveLog = (obj: ListIndicesResponse): any => ({
-    ...obj,
-    ...(obj.IndexConfigurationSummaryItems && {
-      IndexConfigurationSummaryItems: obj.IndexConfigurationSummaryItems.map(
-        item => IndexConfigurationSummary.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListIndicesResponse =>
     __isa(o, "ListIndicesResponse");
@@ -2175,13 +1997,7 @@ export interface QueryRequest {
 
 export namespace QueryRequest {
   export const filterSensitiveLog = (obj: QueryRequest): any => ({
-    ...obj,
-    ...(obj.AttributeFilter && {
-      AttributeFilter: AttributeFilter.filterSensitiveLog(obj.AttributeFilter)
-    }),
-    ...(obj.Facets && {
-      Facets: obj.Facets.map(item => Facet.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is QueryRequest => __isa(o, "QueryRequest");
 }
@@ -2214,17 +2030,7 @@ export interface QueryResult {
 
 export namespace QueryResult {
   export const filterSensitiveLog = (obj: QueryResult): any => ({
-    ...obj,
-    ...(obj.FacetResults && {
-      FacetResults: obj.FacetResults.map(item =>
-        FacetResult.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.ResultItems && {
-      ResultItems: obj.ResultItems.map(item =>
-        QueryResultItem.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is QueryResult => __isa(o, "QueryResult");
 }
@@ -2283,25 +2089,7 @@ export interface QueryResultItem {
 
 export namespace QueryResultItem {
   export const filterSensitiveLog = (obj: QueryResultItem): any => ({
-    ...obj,
-    ...(obj.AdditionalAttributes && {
-      AdditionalAttributes: obj.AdditionalAttributes.map(item =>
-        AdditionalResultAttribute.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.DocumentAttributes && {
-      DocumentAttributes: obj.DocumentAttributes.map(item =>
-        DocumentAttribute.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.DocumentExcerpt && {
-      DocumentExcerpt: TextWithHighlights.filterSensitiveLog(
-        obj.DocumentExcerpt
-      )
-    }),
-    ...(obj.DocumentTitle && {
-      DocumentTitle: TextWithHighlights.filterSensitiveLog(obj.DocumentTitle)
-    })
+    ...obj
   });
   export const isa = (o: any): o is QueryResultItem =>
     __isa(o, "QueryResultItem");
@@ -2534,17 +2322,7 @@ export interface S3DataSourceConfiguration {
 
 export namespace S3DataSourceConfiguration {
   export const filterSensitiveLog = (obj: S3DataSourceConfiguration): any => ({
-    ...obj,
-    ...(obj.AccessControlListConfiguration && {
-      AccessControlListConfiguration: AccessControlListConfiguration.filterSensitiveLog(
-        obj.AccessControlListConfiguration
-      )
-    }),
-    ...(obj.DocumentsMetadataConfiguration && {
-      DocumentsMetadataConfiguration: DocumentsMetadataConfiguration.filterSensitiveLog(
-        obj.DocumentsMetadataConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is S3DataSourceConfiguration =>
     __isa(o, "S3DataSourceConfiguration");
@@ -2706,17 +2484,7 @@ export interface SharePointConfiguration {
 
 export namespace SharePointConfiguration {
   export const filterSensitiveLog = (obj: SharePointConfiguration): any => ({
-    ...obj,
-    ...(obj.FieldMappings && {
-      FieldMappings: obj.FieldMappings.map(item =>
-        DataSourceToIndexFieldMapping.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.VpcConfiguration && {
-      VpcConfiguration: DataSourceVpcConfiguration.filterSensitiveLog(
-        obj.VpcConfiguration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SharePointConfiguration =>
     __isa(o, "SharePointConfiguration");
@@ -2818,17 +2586,7 @@ export interface SubmitFeedbackRequest {
 
 export namespace SubmitFeedbackRequest {
   export const filterSensitiveLog = (obj: SubmitFeedbackRequest): any => ({
-    ...obj,
-    ...(obj.ClickFeedbackItems && {
-      ClickFeedbackItems: obj.ClickFeedbackItems.map(item =>
-        ClickFeedback.filterSensitiveLog(item)
-      )
-    }),
-    ...(obj.RelevanceFeedbackItems && {
-      RelevanceFeedbackItems: obj.RelevanceFeedbackItems.map(item =>
-        RelevanceFeedback.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SubmitFeedbackRequest =>
     __isa(o, "SubmitFeedbackRequest");
@@ -2871,10 +2629,7 @@ export interface TextWithHighlights {
 
 export namespace TextWithHighlights {
   export const filterSensitiveLog = (obj: TextWithHighlights): any => ({
-    ...obj,
-    ...(obj.Highlights && {
-      Highlights: obj.Highlights.map(item => Highlight.filterSensitiveLog(item))
-    })
+    ...obj
   });
   export const isa = (o: any): o is TextWithHighlights =>
     __isa(o, "TextWithHighlights");
@@ -2964,12 +2719,7 @@ export interface UpdateDataSourceRequest {
 
 export namespace UpdateDataSourceRequest {
   export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
-    ...obj,
-    ...(obj.Configuration && {
-      Configuration: DataSourceConfiguration.filterSensitiveLog(
-        obj.Configuration
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateDataSourceRequest =>
     __isa(o, "UpdateDataSourceRequest");
@@ -3005,12 +2755,7 @@ export interface UpdateIndexRequest {
 
 export namespace UpdateIndexRequest {
   export const filterSensitiveLog = (obj: UpdateIndexRequest): any => ({
-    ...obj,
-    ...(obj.DocumentMetadataConfigurationUpdates && {
-      DocumentMetadataConfigurationUpdates: obj.DocumentMetadataConfigurationUpdates.map(
-        item => DocumentMetadataConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateIndexRequest =>
     __isa(o, "UpdateIndexRequest");
