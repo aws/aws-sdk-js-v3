@@ -1116,6 +1116,7 @@ export interface GetPredictionRequest {
 export namespace GetPredictionRequest {
   export const filterSensitiveLog = (obj: GetPredictionRequest): any => ({
     ...obj,
+    ...(obj.eventAttributes && { eventAttributes: SENSITIVE_STRING }),
     ...(obj.externalModelEndpointDataBlobs && {
       externalModelEndpointDataBlobs: SENSITIVE_STRING
     })

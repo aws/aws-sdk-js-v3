@@ -37,7 +37,8 @@ export namespace GetPersonalizedRankingRequest {
   export const filterSensitiveLog = (
     obj: GetPersonalizedRankingRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.context && { context: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is GetPersonalizedRankingRequest =>
     __isa(o, "GetPersonalizedRankingRequest");
@@ -101,7 +102,8 @@ export interface GetRecommendationsRequest {
 
 export namespace GetRecommendationsRequest {
   export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.context && { context: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is GetRecommendationsRequest =>
     __isa(o, "GetRecommendationsRequest");

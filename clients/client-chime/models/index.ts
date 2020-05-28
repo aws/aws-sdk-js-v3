@@ -213,7 +213,8 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (
     obj: AssociatePhoneNumbersWithVoiceConnectorGroupRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -268,7 +269,8 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorRequest {
   export const filterSensitiveLog = (
     obj: AssociatePhoneNumbersWithVoiceConnectorRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -1078,7 +1080,8 @@ export namespace CreatePhoneNumberOrderRequest {
   export const filterSensitiveLog = (
     obj: CreatePhoneNumberOrderRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is CreatePhoneNumberOrderRequest =>
     __isa(o, "CreatePhoneNumberOrderRequest");
@@ -1625,7 +1628,8 @@ export namespace DeleteVoiceConnectorTerminationCredentialsRequest {
   export const filterSensitiveLog = (
     obj: DeleteVoiceConnectorTerminationCredentialsRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Usernames && { Usernames: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -1705,7 +1709,8 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (
     obj: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -1755,7 +1760,8 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorRequest {
   export const filterSensitiveLog = (
     obj: DisassociatePhoneNumbersFromVoiceConnectorRequest
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -2719,7 +2725,8 @@ export interface InviteUsersRequest {
 
 export namespace InviteUsersRequest {
   export const filterSensitiveLog = (obj: InviteUsersRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.UserEmailList && { UserEmailList: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is InviteUsersRequest =>
     __isa(o, "InviteUsersRequest");
@@ -3328,7 +3335,8 @@ export namespace ListVoiceConnectorTerminationCredentialsResponse {
   export const filterSensitiveLog = (
     obj: ListVoiceConnectorTerminationCredentialsResponse
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Usernames && { Usernames: SENSITIVE_STRING })
   });
   export const isa = (
     o: any
@@ -4625,7 +4633,8 @@ export namespace SearchAvailablePhoneNumbersResponse {
   export const filterSensitiveLog = (
     obj: SearchAvailablePhoneNumbersResponse
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is SearchAvailablePhoneNumbersResponse =>
     __isa(o, "SearchAvailablePhoneNumbersResponse");

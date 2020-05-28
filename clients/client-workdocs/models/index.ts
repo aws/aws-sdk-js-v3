@@ -1935,7 +1935,9 @@ export interface DocumentVersionMetadata {
 
 export namespace DocumentVersionMetadata {
   export const filterSensitiveLog = (obj: DocumentVersionMetadata): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Source && { Source: SENSITIVE_STRING }),
+    ...(obj.Thumbnail && { Thumbnail: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is DocumentVersionMetadata =>
     __isa(o, "DocumentVersionMetadata");

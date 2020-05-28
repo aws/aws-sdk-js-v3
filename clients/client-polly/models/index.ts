@@ -915,7 +915,8 @@ export namespace StartSpeechSynthesisTaskInput {
   export const filterSensitiveLog = (
     obj: StartSpeechSynthesisTaskInput
   ): any => ({
-    ...obj
+    ...obj,
+    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is StartSpeechSynthesisTaskInput =>
     __isa(o, "StartSpeechSynthesisTaskInput");
@@ -1039,7 +1040,8 @@ export interface SynthesisTask {
 
 export namespace SynthesisTask {
   export const filterSensitiveLog = (obj: SynthesisTask): any => ({
-    ...obj
+    ...obj,
+    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is SynthesisTask => __isa(o, "SynthesisTask");
 }
@@ -1139,7 +1141,8 @@ export interface SynthesizeSpeechInput {
 
 export namespace SynthesizeSpeechInput {
   export const filterSensitiveLog = (obj: SynthesizeSpeechInput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is SynthesizeSpeechInput =>
     __isa(o, "SynthesizeSpeechInput");

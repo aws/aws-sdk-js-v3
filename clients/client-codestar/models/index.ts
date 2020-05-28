@@ -1309,7 +1309,8 @@ export namespace Toolchain {
     ...obj,
     ...(obj.source && {
       source: ToolchainSource.filterSensitiveLog(obj.source)
-    })
+    }),
+    ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is Toolchain => __isa(o, "Toolchain");
 }
