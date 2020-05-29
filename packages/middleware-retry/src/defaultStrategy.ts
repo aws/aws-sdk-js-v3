@@ -6,11 +6,11 @@ import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import {
-  SdkError,
   FinalizeHandler,
   MetadataBearer,
   FinalizeHandlerArguments,
-  RetryStrategy
+  RetryStrategy,
+  SdkError
 } from "@aws-sdk/types";
 
 /**

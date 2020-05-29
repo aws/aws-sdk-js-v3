@@ -1,13 +1,16 @@
 import { CLOCK_SKEW_ERROR_CODES, THROTTLING_ERROR_CODES } from "./constants";
 import { isClockSkewError, isThrottlingError } from "./index";
+import { SdkError } from "@aws-sdk/types";
 
 const checkForErrorType = (
-  isErrorTypeFunc: (error: Error) => boolean,
+  isErrorTypeFunc: (error: SdkError) => boolean,
   errorName: string,
   errorTypeResult: boolean
 ) => {
-  const error = new Error();
-  error.name = errorName;
+  const error = Object.assign(new Error(), {
+    name: errorName,
+    $metadata: {}
+  });
   expect(isErrorTypeFunc(error)).toBe(errorTypeResult);
 };
 

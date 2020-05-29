@@ -54,7 +54,7 @@ export interface BodyLengthCalculator {
 }
 
 // TODO Unify with the types created for the error parsers
-export type SdkError = Error & { connectionError?: boolean };
+export type SdkError = Error & MetadataBearer;
 
 /**
  * Interface that specifies the retry behavior

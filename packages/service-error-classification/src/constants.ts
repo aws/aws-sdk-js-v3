@@ -35,3 +35,18 @@ export const THROTTLING_ERROR_CODES = [
   "PriorRequestNotComplete",
   "EC2ThrottledException"
 ];
+
+/**
+ * Error codes that indicate transient issues
+ */
+export const TRANSIENT_ERROR_CODES = [
+  "AbortError",
+  "TimeoutError",
+  "RequestTimeout",
+  "RequestTimeoutException"
+];
+
+/**
+ * Error codes that indicate transient issues
+ */
+export const TRANSIENT_ERROR_STATUS_CODES = [500, 502, 503, 504];
