@@ -16,7 +16,7 @@ type WithSession = {
  * Middleware that inject default sessionId for operations, and inject
  * the parameters from request to the response metadata. This is
  * necessary because the SDK cannot access any parameters other than
- * the result stream. So it copy the parameters from input to the same
+ * the result stream. So it copies the parameters from input to the same
  * parameters in the output.
  */
 export const injectSessionIdMiddleware = (config: {
@@ -40,9 +40,9 @@ export const injectSessionIdMiddleware = (config: {
   return response;
 };
 
-function isWebSocket(config: { requestHandler: RequestHandler<any, any> }) {
+const isWebSocket = (config: { requestHandler: RequestHandler<any, any> }) => {
   return config.requestHandler.metadata?.handlerProtocol === "websocket";
-}
+};
 
 export const injectSessionIdMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",

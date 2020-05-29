@@ -6,7 +6,7 @@ import {
   Message,
   EventStreamMarshaller as IEventStreamMarshaller
 } from "@aws-sdk/types";
-import { ReadableStreamtoIterable, iterableToReadableStream } from "./utils";
+import { readableStreamtoIterable, iterableToReadableStream } from "./utils";
 
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 
@@ -47,7 +47,7 @@ export class EventStreamMarshaller {
     deserializer: (input: { [event: string]: Message }) => Promise<T>
   ): AsyncIterable<T> {
     const bodyIterable = isReadableStream(body)
-      ? ReadableStreamtoIterable(body)
+      ? readableStreamtoIterable(body)
       : body;
     return this.universalMarshaller.deserialize(bodyIterable, deserializer);
   }

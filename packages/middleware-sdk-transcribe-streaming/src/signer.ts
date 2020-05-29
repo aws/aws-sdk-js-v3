@@ -28,13 +28,13 @@ export class SignatureV4 implements RequestSigner, RequestPresigner {
     if (HttpRequest.isInstance(toSign)) {
       // Presign the endpoint url with empty body, otherwise
       // the payload hash would be UNSINGED_PAYLOAD
-      const originalBody = toSign.body;
-      toSign.body = "";
-      const signedRequest = await this.signer.presign(toSign, {
+      const signedRequest = await this.signer.presign({ ...toSign, body: "" }, {
         expiresIn: 5 * 60 // presigned url must be expired within 5 mins
       } as any);
-      signedRequest.body = originalBody;
-      return signedRequest;
+      return {
+        ...signedRequest,
+        body: toSign.body
+      };
     } else {
       return this.signer.sign(toSign, options);
     }

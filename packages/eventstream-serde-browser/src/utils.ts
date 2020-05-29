@@ -1,37 +1,38 @@
 /**
- * Convert ReadableStream into an async iterable.
+ * A util function converting ReadableStream into an async iterable.
  * Reference: https://jakearchibald.com/2017/async-iterators-and-generators/#making-streams-iterate
  */
-export async function* ReadableStreamtoIterable<T>(
+export const readableStreamtoIterable = <T>(
   readableStream: ReadableStream<T>
-): AsyncIterable<T> {
-  const reader = readableStream.getReader();
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) return;
-      yield value as T;
+): AsyncIterable<T> => ({
+  [Symbol.asyncIterator]: async function* () {
+    const reader = readableStream.getReader();
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) return;
+        yield value as T;
+      }
+    } finally {
+      reader.releaseLock();
     }
-  } finally {
-    reader.releaseLock();
   }
-}
+});
 
 /**
- * Convert async iterable to a ReadableStream.
+ * A util function converting async iterable to a ReadableStream.
  */
-export function iterableToReadableStream<T>(
+export const iterableToReadableStream = <T>(
   asyncIterable: AsyncIterable<T>
-): ReadableStream<T> {
+): ReadableStream<T> => {
   const iterator = asyncIterable[Symbol.asyncIterator]();
   return new ReadableStream({
-    pull(constroller) {
-      return iterator.next().then(({ done, value }) => {
-        if (done) {
-          return constroller.close();
-        }
-        constroller.enqueue(value);
-      });
+    async pull(controller) {
+      const { done, value } = await iterator.next();
+      if (done) {
+        return controller.close();
+      }
+      controller.enqueue(value);
     }
   });
-}
+};

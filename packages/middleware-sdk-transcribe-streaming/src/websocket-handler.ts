@@ -1,12 +1,10 @@
 import { HttpHandlerOptions, RequestHandlerMetadata } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { formatUrl } from "@aws-sdk/util-format-url";
-/**
- * Base handler for websocket requests. By default, the request input and output
- * body will be in a ReadableStream, because of interface consistency among middleware.
- * If ReadableStream is not available, like in React-Native, the response body
- * will be an async iterable.
- */
+import {
+  iterableToReadableStream,
+  readableStreamtoIterable
+} from "@aws-sdk/eventstream-serde-browser";
 
 export interface WebSocketHandlerOptions {
   /**
@@ -16,6 +14,12 @@ export interface WebSocketHandlerOptions {
   connectionTimeout?: number;
 }
 
+/**
+ * Base handler for websocket requests. By default, the request input and output
+ * body will be in a ReadableStream, because of interface consistency among middleware.
+ * If ReadableStream is not available, like in React-Native, the response body
+ * will be an async iterable.
+ */
 export class WebSocketHandler implements HttpHandler {
   public readonly metadata: RequestHandlerMetadata = {
     handlerProtocol: "websocket"
@@ -27,26 +31,24 @@ export class WebSocketHandler implements HttpHandler {
 
   destroy(): void {}
 
-  handle(
+  async handle(
     request: HttpRequest,
     options: HttpHandlerOptions = {}
   ): Promise<{ response: HttpResponse }> {
     const url = formatUrl(request);
     const socket: WebSocket = new WebSocket(url);
     socket.binaryType = "arraybuffer";
-    return waitForReady(socket, this.connectionTimeout)
-      .then(() => {
-        const { body } = request;
-        const bodyStream = getIterator(body);
-        return connect(socket, bodyStream);
+    await waitForReady(socket, this.connectionTimeout);
+    const { body } = request;
+    const bodyStream = getIterator(body);
+    const asyncIterable = connect(socket, bodyStream);
+    const outputPayload = toReadableStream(asyncIterable);
+    return {
+      response: new HttpResponse({
+        statusCode: 200, // indicates connection success
+        body: outputPayload
       })
-      .then(iterableToReadableStream)
-      .then(bodyStream => ({
-        response: new HttpResponse({
-          statusCode: 200, // indicates connection success
-          body: bodyStream
-        })
-      }));
+    };
   }
 }
 
@@ -128,29 +130,12 @@ const connect = (
  * the request body is ReadableStream, so we need to transfer it to AsyncIterable
  * to make the stream consumable by WebSocket.
  */
-function getIterator(stream: any): AsyncIterable<any> {
+const getIterator = (stream: any): AsyncIterable<any> => {
   // Noop if stream is already an async iterable
   if (stream[Symbol.asyncIterator]) return stream;
   else if (isReadableStream(stream)) {
     //If stream is a ReadableStream, transfer the ReadableStream to async iterable.
-    //Reference: https://jakearchibald.com/2017/async-iterators-and-generators/#making-streams-iterate
-    const reader = stream.getReader();
-    return {
-      [Symbol.asyncIterator]: async function* () {
-        try {
-          while (true) {
-            // Read from the stream
-            const { done, value } = await reader.read();
-            // Exit if we're done
-            if (done) return;
-            // Else yield the chunk
-            yield value;
-          }
-        } finally {
-          reader.releaseLock();
-        }
-      }
-    };
+    return readableStreamtoIterable(stream);
   } else {
     //For other types, just wrap them with an async iterable.
     return {
@@ -159,30 +144,16 @@ function getIterator(stream: any): AsyncIterable<any> {
       }
     };
   }
-}
+};
 
 /**
  * Convert async iterable to a ReadableStream when ReadableStream API
  * is available(browsers). Otherwise, leave as it is(ReactNative).
  */
-function iterableToReadableStream<T>(
-  asyncIterable: AsyncIterable<T>
-): ReadableStream<T> | AsyncIterable<T> {
-  if (typeof ReadableStream !== "function") {
-    return asyncIterable;
-  }
-  const iterator = asyncIterable[Symbol.asyncIterator]();
-  return new ReadableStream({
-    pull(controller) {
-      return iterator.next().then(({ done, value }) => {
-        if (done) {
-          return controller.close();
-        }
-        controller.enqueue(value);
-      });
-    }
-  });
-}
+const toReadableStream = <T>(asyncIterable: AsyncIterable<T>) =>
+  typeof ReadableStream === "function"
+    ? iterableToReadableStream(asyncIterable)
+    : asyncIterable;
 
 const isReadableStream = (payload: any): payload is ReadableStream =>
   typeof ReadableStream === "function" && payload instanceof ReadableStream;
