@@ -40,9 +40,8 @@ export const injectSessionIdMiddleware = (config: {
   return response;
 };
 
-const isWebSocket = (config: { requestHandler: RequestHandler<any, any> }) => {
-  return config.requestHandler.metadata?.handlerProtocol === "websocket";
-};
+const isWebSocket = (config: { requestHandler: RequestHandler<any, any> }) =>
+  config.requestHandler.metadata?.handlerProtocol === "websocket";
 
 export const injectSessionIdMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
