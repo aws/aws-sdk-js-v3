@@ -7,6 +7,7 @@ import { resolveRetryConfig } from "./configurations";
 import * as delayDeciderModule from "./delayDecider";
 import { ExponentialBackOffStrategy, RetryDecider } from "./defaultStrategy";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { SdkError } from "@aws-sdk/types";
 
 describe("retryMiddleware", () => {
   it("should not retry when the handler completes successfully", async () => {
@@ -73,7 +74,7 @@ describe("retryMiddleware", () => {
       delayDeciderModule,
       "defaultDelayDecider"
     );
-    const retryDecider: RetryDecider = (error: Error) => true;
+    const retryDecider: RetryDecider = (error: SdkError) => true;
     const strategy = new ExponentialBackOffStrategy(maxRetries, retryDecider);
     const retryHandler = retryMiddleware({
       maxRetries,
