@@ -5163,8 +5163,10 @@ const serializeAws_restJson1_1AccessLog = (
   context: __SerdeContext
 ): any => {
   return AccessLog.visit(input, {
-    file: value => serializeAws_restJson1_1FileAccessLog(value, context),
-    _: value => value
+    file: value => ({
+      file: serializeAws_restJson1_1FileAccessLog(value, context)
+    }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
@@ -5210,9 +5212,13 @@ const serializeAws_restJson1_1Backend = (
   context: __SerdeContext
 ): any => {
   return Backend.visit(input, {
-    virtualService: value =>
-      serializeAws_restJson1_1VirtualServiceBackend(value, context),
-    _: value => value
+    virtualService: value => ({
+      virtualService: serializeAws_restJson1_1VirtualServiceBackend(
+        value,
+        context
+      )
+    }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
@@ -5380,12 +5386,14 @@ const serializeAws_restJson1_1GrpcRouteMetadataMatchMethod = (
   context: __SerdeContext
 ): any => {
   return GrpcRouteMetadataMatchMethod.visit(input, {
-    exact: value => value,
-    prefix: value => value,
-    range: value => serializeAws_restJson1_1MatchRange(value, context),
-    regex: value => value,
-    suffix: value => value,
-    _: value => value
+    exact: value => ({ exact: value }),
+    prefix: value => ({ prefix: value }),
+    range: value => ({
+      range: serializeAws_restJson1_1MatchRange(value, context)
+    }),
+    regex: value => ({ regex: value }),
+    suffix: value => ({ suffix: value }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
@@ -5394,12 +5402,14 @@ const serializeAws_restJson1_1HeaderMatchMethod = (
   context: __SerdeContext
 ): any => {
   return HeaderMatchMethod.visit(input, {
-    exact: value => value,
-    prefix: value => value,
-    range: value => serializeAws_restJson1_1MatchRange(value, context),
-    regex: value => value,
-    suffix: value => value,
-    _: value => value
+    exact: value => ({ exact: value }),
+    prefix: value => ({ prefix: value }),
+    range: value => ({
+      range: serializeAws_restJson1_1MatchRange(value, context)
+    }),
+    regex: value => ({ regex: value }),
+    suffix: value => ({ suffix: value }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
@@ -5628,10 +5638,16 @@ const serializeAws_restJson1_1ServiceDiscovery = (
   context: __SerdeContext
 ): any => {
   return ServiceDiscovery.visit(input, {
-    awsCloudMap: value =>
-      serializeAws_restJson1_1AwsCloudMapServiceDiscovery(value, context),
-    dns: value => serializeAws_restJson1_1DnsServiceDiscovery(value, context),
-    _: value => value
+    awsCloudMap: value => ({
+      awsCloudMap: serializeAws_restJson1_1AwsCloudMapServiceDiscovery(
+        value,
+        context
+      )
+    }),
+    dns: value => ({
+      dns: serializeAws_restJson1_1DnsServiceDiscovery(value, context)
+    }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
@@ -5789,11 +5805,19 @@ const serializeAws_restJson1_1VirtualServiceProvider = (
   context: __SerdeContext
 ): any => {
   return VirtualServiceProvider.visit(input, {
-    virtualNode: value =>
-      serializeAws_restJson1_1VirtualNodeServiceProvider(value, context),
-    virtualRouter: value =>
-      serializeAws_restJson1_1VirtualRouterServiceProvider(value, context),
-    _: value => value
+    virtualNode: value => ({
+      virtualNode: serializeAws_restJson1_1VirtualNodeServiceProvider(
+        value,
+        context
+      )
+    }),
+    virtualRouter: value => ({
+      virtualRouter: serializeAws_restJson1_1VirtualRouterServiceProvider(
+        value,
+        context
+      )
+    }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 

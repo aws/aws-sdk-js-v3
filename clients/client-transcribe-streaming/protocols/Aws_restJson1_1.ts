@@ -435,8 +435,10 @@ const serializeAws_restJson1_1AudioStream = (
   context: __SerdeContext
 ): any => {
   return AudioStream.visit(input, {
-    AudioEvent: value => serializeAws_restJson1_1AudioEvent(value, context),
-    _: value => value
+    AudioEvent: value => ({
+      AudioEvent: serializeAws_restJson1_1AudioEvent(value, context)
+    }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
