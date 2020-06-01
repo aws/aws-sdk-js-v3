@@ -39,7 +39,7 @@ describe("EventStreamPayloadHandler", () => {
     ).rejects.toThrow("Eventstream payload must be a Readable stream.");
   });
 
-  it("should close the request payload if downstream middleware throws", async () => {
+  it("should close the request payload if downstream middleware throws", async done => {
     expect.assertions(2);
     (mockNextHandler as any).mockImplementationOnce(() =>
       Promise.reject(new Error())
@@ -64,6 +64,7 @@ describe("EventStreamPayloadHandler", () => {
     //Ref: should use writableEnded when bumped to Node 13+
     (mockRequest.body as PassThrough).on("error", err => {
       expect(err.message).toEqual("write after end");
+      done();
     });
     mockRequest.body.write("This should be allowed to write.");
   });
