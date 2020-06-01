@@ -35,6 +35,12 @@ import {
   resolveRetryConfig
 } from "@aws-sdk/middleware-retry";
 import {
+  WebSocketInputConfig,
+  WebSocketResolvedConfig,
+  getWebSocketPlugin,
+  resolveWebSocketConfig
+} from "@aws-sdk/middleware-sdk-transcribe-streaming";
+import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
@@ -176,6 +182,7 @@ export type TranscribeStreamingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig &
   EventStreamInputConfig &
+  WebSocketInputConfig &
   EventStreamSerdeInputConfig;
 
 export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfiguration<
@@ -189,6 +196,7 @@ export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfigurat
   UserAgentResolvedConfig &
   HostHeaderResolvedConfig &
   EventStreamResolvedConfig &
+  WebSocketResolvedConfig &
   EventStreamSerdeResolvedConfig;
 
 /**
@@ -214,14 +222,16 @@ export class TranscribeStreamingClient extends __Client<
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
     let _config_7 = resolveEventStreamConfig(_config_6);
-    let _config_8 = resolveEventStreamSerdeConfig(_config_7);
-    super(_config_8);
-    this.config = _config_8;
+    let _config_8 = resolveWebSocketConfig(_config_7);
+    let _config_9 = resolveEventStreamSerdeConfig(_config_8);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getWebSocketPlugin(this.config));
   }
 
   destroy(): void {

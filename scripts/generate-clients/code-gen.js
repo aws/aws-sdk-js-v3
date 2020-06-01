@@ -41,9 +41,7 @@ const generateClients = async models => {
         if (!lstatSync(file).isFile()) return;
         const name = path.basename(file);
         console.log(`copying model ${name}...`);
-        copyFileSync(file, path.join(TEMP_CODE_GEN_INPUT_DIR, name), {
-          overwrite: true
-        });
+        copyFileSync(file, path.join(TEMP_CODE_GEN_INPUT_DIR, name));
       });
     });
   } else {

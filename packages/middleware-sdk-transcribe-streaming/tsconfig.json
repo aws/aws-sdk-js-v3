@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "declaration": true,
+    "lib": ["DOM"],
+    "sourceMap": true,
+    "strict": true,
+    "stripInternal": true,
+    "rootDir": "./src",
+    "outDir": "./dist/cjs",
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "incremental": true
+  }
+}
