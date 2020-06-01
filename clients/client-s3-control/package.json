@@ -63,7 +63,7 @@
     "uuid": "^8.1.0"
   },
   "devDependencies": {
-    "@types/node": "^12.7.5",
+    "@types/node": "^14.0.8",
     "@types/uuid": "^7.0.0",
     "jest": "^25.1.0",
     "rimraf": "^3.0.0",
