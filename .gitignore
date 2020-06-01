@@ -27,6 +27,10 @@ package-lock.json
 !serviceModels/logs
 build
 
+.idea/
+*.iml
+*.iws
+
 codegen/build
 codegen/sdk-codegen/smithy-build.json
 .gradle
