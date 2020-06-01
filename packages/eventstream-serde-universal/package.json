@@ -14,7 +14,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-marshaller": "1.0.0-gamma.1",
     "@aws-sdk/types": "1.0.0-gamma.1",
     "tslib": "^1.8.0"
   },
