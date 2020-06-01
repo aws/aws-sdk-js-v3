@@ -1015,13 +1015,22 @@ const serializeAws_restJson1_1ArrayValue = (
   context: __SerdeContext
 ): any => {
   return ArrayValue.visit(input, {
-    arrayValues: value => serializeAws_restJson1_1ArrayOfArray(value, context),
-    booleanValues: value =>
-      serializeAws_restJson1_1BooleanArray(value, context),
-    doubleValues: value => serializeAws_restJson1_1DoubleArray(value, context),
-    longValues: value => serializeAws_restJson1_1LongArray(value, context),
-    stringValues: value => serializeAws_restJson1_1StringArray(value, context),
-    _: value => value
+    arrayValues: value => ({
+      arrayValues: serializeAws_restJson1_1ArrayOfArray(value, context)
+    }),
+    booleanValues: value => ({
+      booleanValues: serializeAws_restJson1_1BooleanArray(value, context)
+    }),
+    doubleValues: value => ({
+      doubleValues: serializeAws_restJson1_1DoubleArray(value, context)
+    }),
+    longValues: value => ({
+      longValues: serializeAws_restJson1_1LongArray(value, context)
+    }),
+    stringValues: value => ({
+      stringValues: serializeAws_restJson1_1StringArray(value, context)
+    }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
@@ -1044,14 +1053,16 @@ const serializeAws_restJson1_1Field = (
   context: __SerdeContext
 ): any => {
   return Field.visit(input, {
-    arrayValue: value => serializeAws_restJson1_1ArrayValue(value, context),
-    blobValue: value => context.base64Encoder(value),
-    booleanValue: value => value,
-    doubleValue: value => value,
-    isNull: value => value,
-    longValue: value => value,
-    stringValue: value => value,
-    _: value => value
+    arrayValue: value => ({
+      arrayValue: serializeAws_restJson1_1ArrayValue(value, context)
+    }),
+    blobValue: value => ({ blobValue: context.base64Encoder(value) }),
+    booleanValue: value => ({ booleanValue: value }),
+    doubleValue: value => ({ doubleValue: value }),
+    isNull: value => ({ isNull: value }),
+    longValue: value => ({ longValue: value }),
+    stringValue: value => ({ stringValue: value }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 

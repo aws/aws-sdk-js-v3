@@ -3529,19 +3529,37 @@ const serializeAws_restJson1_1ConfigTypeData = (
   context: __SerdeContext
 ): any => {
   return ConfigTypeData.visit(input, {
-    antennaDownlinkConfig: value =>
-      serializeAws_restJson1_1AntennaDownlinkConfig(value, context),
-    antennaDownlinkDemodDecodeConfig: value =>
-      serializeAws_restJson1_1AntennaDownlinkDemodDecodeConfig(value, context),
-    antennaUplinkConfig: value =>
-      serializeAws_restJson1_1AntennaUplinkConfig(value, context),
-    dataflowEndpointConfig: value =>
-      serializeAws_restJson1_1DataflowEndpointConfig(value, context),
-    trackingConfig: value =>
-      serializeAws_restJson1_1TrackingConfig(value, context),
-    uplinkEchoConfig: value =>
-      serializeAws_restJson1_1UplinkEchoConfig(value, context),
-    _: value => value
+    antennaDownlinkConfig: value => ({
+      antennaDownlinkConfig: serializeAws_restJson1_1AntennaDownlinkConfig(
+        value,
+        context
+      )
+    }),
+    antennaDownlinkDemodDecodeConfig: value => ({
+      antennaDownlinkDemodDecodeConfig: serializeAws_restJson1_1AntennaDownlinkDemodDecodeConfig(
+        value,
+        context
+      )
+    }),
+    antennaUplinkConfig: value => ({
+      antennaUplinkConfig: serializeAws_restJson1_1AntennaUplinkConfig(
+        value,
+        context
+      )
+    }),
+    dataflowEndpointConfig: value => ({
+      dataflowEndpointConfig: serializeAws_restJson1_1DataflowEndpointConfig(
+        value,
+        context
+      )
+    }),
+    trackingConfig: value => ({
+      trackingConfig: serializeAws_restJson1_1TrackingConfig(value, context)
+    }),
+    uplinkEchoConfig: value => ({
+      uplinkEchoConfig: serializeAws_restJson1_1UplinkEchoConfig(value, context)
+    }),
+    _: (name, value) => ({ name: value } as any)
   });
 };
 
