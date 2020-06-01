@@ -116,7 +116,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                 if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
                     writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
                 } else {
-                    writer.write("...($L !== undefined && { '$L': $L }),", inputLocation, locationName, valueProvider);
+                    writer.write("...($L !== undefined && { $S: $L }),", inputLocation, locationName, valueProvider);
                 }
             });
 
@@ -133,11 +133,16 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
+                    // Use the jsonName trait value if present, otherwise use the member name.
+                    String locationName = memberShape.getTrait(JsonNameTrait.class)
+                            .map(JsonNameTrait::getValue)
+                            .orElse(memberName);
                     Shape target = model.expectShape(memberShape.getTarget());
                     // Dispatch to the input value provider for any additional handling.
-                    writer.write("$L: value => $L,", memberName, target.accept(getMemberVisitor("value")));
+                    writer.write("$L: value => ({ $S: $L }),", memberName, locationName,
+                            target.accept(getMemberVisitor("value")));
                 });
-            writer.write("_: value => value");
+            writer.write("_: (name, value) => ({ name: value } as any)");
         });
     }
 }
