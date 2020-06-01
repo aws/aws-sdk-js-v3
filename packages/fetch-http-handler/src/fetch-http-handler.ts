@@ -53,7 +53,8 @@ export class FetchHttpHandler implements HttpHandler {
     const requestOptions: RequestInit = {
       body: request.body,
       headers: new Headers(request.headers),
-      method: request.method
+      method: request.method,
+      mode: "cors"
     };
 
     // some browsers support abort signal
