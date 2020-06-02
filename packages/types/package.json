@@ -4,6 +4,9 @@
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "description": "Types for the AWS SDK",
+  "dependencies": {
+    "@aws-sdk/smithy-client": "1.0.0-gamma.1"
+  },
   "devDependencies": {
     "typescript": "~3.8.3"
   },
