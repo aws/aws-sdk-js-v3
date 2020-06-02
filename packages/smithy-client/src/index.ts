@@ -10,3 +10,4 @@ export * from "./lazy-json";
 export * from "./date-utils";
 export * from "./split-every";
 export * from "./constants";
+export * from "./retryable-trait";
