@@ -18,6 +18,7 @@
     "@aws-sdk/protocol-http": "1.0.0-gamma.1",
     "@aws-sdk/querystring-builder": "1.0.0-gamma.1",
     "@aws-sdk/types": "1.0.0-gamma.1",
+    "@aws-sdk/util-base64-browser": "1.0.0-gamma.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
