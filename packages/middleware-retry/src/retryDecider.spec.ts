@@ -1,37 +1,58 @@
+import {
+  isClockSkewError,
+  isThrottlingError,
+  isTransientError
+} from "@aws-sdk/service-error-classification";
 import { defaultRetryDecider } from "./retryDecider";
 
+jest.mock("@aws-sdk/service-error-classification", () => ({
+  isClockSkewError: jest.fn().mockReturnValue(false),
+  isThrottlingError: jest.fn().mockReturnValue(false),
+  isTransientError: jest.fn().mockReturnValue(false)
+}));
+
 describe("defaultRetryDecider", () => {
+  const createMockError = () => Object.assign(new Error(), { $metadata: {} });
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should return false when the provided error is falsy", () => {
     expect(defaultRetryDecider(null as any)).toBe(false);
+    expect((isClockSkewError as jest.Mock).mock.calls.length).toBe(0);
+    expect((isThrottlingError as jest.Mock).mock.calls.length).toBe(0);
+    expect((isTransientError as jest.Mock).mock.calls.length).toBe(0);
   });
 
-  it("should return true if the error was tagged as a connection error", () => {
-    const err: Error & { connectionError?: boolean } = new Error();
-    err.connectionError = true;
-    expect(defaultRetryDecider(err)).toBe(true);
+  it("should return true for ClockSkewError", () => {
+    (isClockSkewError as jest.Mock).mockReturnValueOnce(true);
+    expect(defaultRetryDecider(createMockError())).toBe(true);
+    expect((isClockSkewError as jest.Mock).mock.calls.length).toBe(1);
+    expect((isThrottlingError as jest.Mock).mock.calls.length).toBe(0);
+    expect((isTransientError as jest.Mock).mock.calls.length).toBe(0);
   });
 
-  for (const httpStatusCode of [429, 500, 502, 503, 504, 509]) {
-    it(`should return true if the error represents a service response with an HTTP status code of ${httpStatusCode}`, () => {
-      const err: any = new Error();
-      err.$metadata = { httpStatusCode };
-      expect(defaultRetryDecider(err)).toBe(true);
-    });
-  }
-
-  it('should return true if the response represents a "still processing" error', () => {
-    const err = new Error();
-    err.name = "PriorRequestNotComplete";
-    expect(defaultRetryDecider(err)).toBe(true);
+  it("should return true for ThrottlingError", () => {
+    (isThrottlingError as jest.Mock).mockReturnValueOnce(true);
+    expect(defaultRetryDecider(createMockError())).toBe(true);
+    expect((isClockSkewError as jest.Mock).mock.calls.length).toBe(1);
+    expect((isThrottlingError as jest.Mock).mock.calls.length).toBe(1);
+    expect((isTransientError as jest.Mock).mock.calls.length).toBe(0);
   });
 
-  it("should return true if the response represents a throttling error", () => {
-    const err = new Error();
-    err.name = "TooManyRequestsException";
-    expect(defaultRetryDecider(err)).toBe(true);
+  it("should return true for TransientError", () => {
+    (isTransientError as jest.Mock).mockReturnValueOnce(true);
+    expect(defaultRetryDecider(createMockError())).toBe(true);
+    expect((isClockSkewError as jest.Mock).mock.calls.length).toBe(1);
+    expect((isThrottlingError as jest.Mock).mock.calls.length).toBe(1);
+    expect((isTransientError as jest.Mock).mock.calls.length).toBe(1);
   });
 
   it("should return false for other errors", () => {
-    expect(defaultRetryDecider(new Error())).toBe(false);
+    expect(defaultRetryDecider(createMockError())).toBe(false);
+    expect((isClockSkewError as jest.Mock).mock.calls.length).toBe(1);
+    expect((isThrottlingError as jest.Mock).mock.calls.length).toBe(1);
+    expect((isTransientError as jest.Mock).mock.calls.length).toBe(1);
   });
 });

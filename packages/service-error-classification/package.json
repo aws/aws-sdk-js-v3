@@ -13,6 +13,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/types": "1.0.0-gamma.1"
+  },
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "jest": "^25.1.0",

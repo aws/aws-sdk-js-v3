@@ -1,30 +1,18 @@
-import { RETRYABLE_STATUS_CODES } from "./constants";
 import {
   isClockSkewError,
-  isThrottlingError
+  isThrottlingError,
+  isTransientError
 } from "@aws-sdk/service-error-classification";
-import { MetadataBearer, SdkError } from "@aws-sdk/types";
+import { SdkError } from "@aws-sdk/types";
 
 export const defaultRetryDecider = (error: SdkError) => {
   if (!error) {
     return false;
   }
 
-  if (error.connectionError) {
-    return true;
-  }
-
-  if (
-    hasMetadata(error) &&
-    error.$metadata.httpStatusCode &&
-    RETRYABLE_STATUS_CODES.has(error.$metadata.httpStatusCode)
-  ) {
-    return true;
-  }
-
-  return isThrottlingError(error) || isClockSkewError(error);
+  return (
+    isClockSkewError(error) ||
+    isThrottlingError(error) ||
+    isTransientError(error)
+  );
 };
-
-function hasMetadata(error: any): error is MetadataBearer {
-  return error?.$metadata;
-}
