@@ -5046,6 +5046,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
     $fault: "server",
+    $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
@@ -5114,6 +5115,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
+    $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
