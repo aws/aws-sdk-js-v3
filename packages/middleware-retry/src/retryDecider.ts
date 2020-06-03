@@ -3,7 +3,7 @@ import {
   isThrottlingError,
   isTransientError
 } from "@aws-sdk/service-error-classification";
-import { SdkError } from "@aws-sdk/types";
+import { SdkError } from "@aws-sdk/smithy-client";
 
 export const defaultRetryDecider = (error: SdkError) => {
   if (!error) {

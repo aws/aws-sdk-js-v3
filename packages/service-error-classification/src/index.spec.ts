@@ -5,7 +5,7 @@ import {
   TRANSIENT_ERROR_STATUS_CODES
 } from "./constants";
 import { isClockSkewError, isThrottlingError, isTransientError } from "./index";
-import { SdkError } from "@aws-sdk/types";
+import { SdkError } from "@aws-sdk/smithy-client";
 
 const checkForErrorType = (
   isErrorTypeFunc: (error: SdkError) => boolean,
@@ -17,7 +17,7 @@ const checkForErrorType = (
     name,
     $metadata: { httpStatusCode }
   });
-  expect(isErrorTypeFunc(error)).toBe(errorTypeResult);
+  expect(isErrorTypeFunc(error as SdkError)).toBe(errorTypeResult);
 };
 
 describe("isClockSkewError", () => {

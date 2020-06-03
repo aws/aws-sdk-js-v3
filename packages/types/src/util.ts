@@ -5,7 +5,6 @@ import {
   FinalizeHandlerOutput
 } from "./middleware";
 import { MetadataBearer } from "./response";
-import { SmithyException } from "@aws-sdk/smithy-client";
 
 /**
  * A function that, given a TypedArray of bytes, can produce a string
@@ -53,9 +52,6 @@ export interface Provider<T> {
 export interface BodyLengthCalculator {
   (body: any): number | undefined;
 }
-
-// TODO Unify with the types created for the error parsers
-export type SdkError = Error & SmithyException & MetadataBearer;
 
 /**
  * Interface that specifies the retry behavior
