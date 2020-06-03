@@ -6,6 +6,9 @@ import {
 } from "./constants";
 import { SdkError } from "@aws-sdk/smithy-client";
 
+export const isRetryableByTrait = (error: SdkError) =>
+  error.$retryable !== undefined;
+
 export const isClockSkewError = (error: SdkError) =>
   CLOCK_SKEW_ERROR_CODES.includes(error.name);
 

@@ -4,7 +4,12 @@ import {
   TRANSIENT_ERROR_CODES,
   TRANSIENT_ERROR_STATUS_CODES
 } from "./constants";
-import { isClockSkewError, isThrottlingError, isTransientError } from "./index";
+import {
+  isRetryableByTrait,
+  isClockSkewError,
+  isThrottlingError,
+  isTransientError
+} from "./index";
 import { SdkError, RetryableTrait } from "@aws-sdk/smithy-client";
 
 const checkForErrorType = (
@@ -24,6 +29,17 @@ const checkForErrorType = (
   });
   expect(isErrorTypeFunc(error as SdkError)).toBe(errorTypeResult);
 };
+
+describe("isRetryableByTrait", () => {
+  it("should declare error with $retryable set to be a Retryable by trait", () => {
+    const $retryable = {};
+    checkForErrorType(isRetryableByTrait, { $retryable }, true);
+  });
+
+  it("should not declare error with $retryable not set to be a Retryable by trait", () => {
+    checkForErrorType(isRetryableByTrait, {}, false);
+  });
+});
 
 describe("isClockSkewError", () => {
   CLOCK_SKEW_ERROR_CODES.forEach(name => {
