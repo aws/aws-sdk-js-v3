@@ -1346,7 +1346,6 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
-    $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
@@ -1381,7 +1380,6 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
   const contents: ServiceQuotaExceededException = {
     name: "ServiceQuotaExceededException",
     $fault: "client",
-    $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
@@ -1399,7 +1397,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
-    $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
