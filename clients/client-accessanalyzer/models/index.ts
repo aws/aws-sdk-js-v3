@@ -763,6 +763,7 @@ export interface InternalServerException
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
+  $retryable: {};
   message: string | undefined;
   /**
    * <p>The seconds to wait to retry.</p>
@@ -1213,6 +1214,7 @@ export interface ThrottlingException
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
+  $retryable: {};
   message: string | undefined;
   /**
    * <p>The seconds to wait to retry.</p>

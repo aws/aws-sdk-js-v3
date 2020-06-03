@@ -69,6 +69,7 @@ export interface InternalServerException
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
+  $retryable: {};
   message: string | undefined;
 }
 
@@ -118,6 +119,7 @@ export interface ServiceQuotaExceededException
     $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
+  $retryable: {};
   message: string | undefined;
 }
 
@@ -139,6 +141,7 @@ export interface ThrottlingException
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
+  $retryable: {};
   message: string | undefined;
 }
 
