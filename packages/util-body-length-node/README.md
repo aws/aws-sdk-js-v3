@@ -5,6 +5,8 @@
 
 Determines the length of a request body in node.js
 
+> An internal package
+
 ## Usage
 
 This package is not supposed to be used directly.

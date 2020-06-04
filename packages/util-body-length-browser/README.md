@@ -5,6 +5,8 @@
 
 Determines the length of a request body in browsers
 
+> An internal package
+
 ## Usage
 
 This package is not supposed to be used directly.

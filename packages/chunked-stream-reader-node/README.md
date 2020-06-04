@@ -7,6 +7,8 @@ Exports a streamReader function that accepts a readable stream, a function to ca
 
 This package is meant for the AWS SDK for JavaScript to enable reading a stream with consistent chunk sizes.
 
+> An internal package
+
 ## Usage
 
 This package is not supposed to be used directly.
