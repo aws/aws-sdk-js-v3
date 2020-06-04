@@ -11,4 +11,4 @@ This package is meant for the AWS SDK for JavaScript to enable reading a stream 
 
 ## Usage
 
-This package is not supposed to be used directly.
+You probably shouldn't, at least directly.

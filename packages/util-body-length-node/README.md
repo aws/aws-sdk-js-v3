@@ -9,4 +9,4 @@ Determines the length of a request body in node.js
 
 ## Usage
 
-This package is not supposed to be used directly.
+You probably shouldn't, at least directly.

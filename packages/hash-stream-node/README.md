@@ -11,4 +11,4 @@ replayed.
 
 ## Usage
 
-This package is not supposed to be used directly.
+You probably shouldn't, at least directly.
