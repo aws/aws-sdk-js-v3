@@ -14,7 +14,8 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/util-base64-universal": "1.0.0-gamma.1",
+    "@aws-sdk/util-base64-node": "1.0.0-gamma.1",
+    "@aws-sdk/util-base64-browser": "1.0.0-gamma.1",
     "@aws-sdk/util-hex-encoding": "1.0.0-gamma.1",
     "@types/jest": "^25.1.4",
     "@types/node": "^10.0.0",
@@ -26,5 +27,11 @@
     "@aws-sdk/types": "1.0.0-gamma.1",
     "@aws-sdk/util-utf8-browser": "1.0.0-gamma.1",
     "tslib": "^1.8.0"
+  },
+  "browser": {
+    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser"
+  },
+  "react-native": {
+    "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser"
   }
 }
