@@ -2,3 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-hex-encoding/beta.svg)](https://www.npmjs.com/package/@aws-sdk/util-hex-encoding)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-hex-encoding.svg)](https://www.npmjs.com/package/@aws-sdk/util-hex-encoding)
+
+## Usage
+
+This package is not supposed to be used directly.

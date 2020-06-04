@@ -4,3 +4,7 @@
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-body-length-browser.svg)](https://www.npmjs.com/package/@aws-sdk/util-body-length-browser)
 
 Determines the length of a request body in browsers
+
+## Usage
+
+This package is not supposed to be used directly.
