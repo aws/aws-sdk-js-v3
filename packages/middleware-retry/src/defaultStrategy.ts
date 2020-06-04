@@ -5,8 +5,8 @@ import {
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
+import { SdkError } from "@aws-sdk/smithy-client";
 import {
-  SdkError,
   FinalizeHandler,
   MetadataBearer,
   FinalizeHandlerArguments,

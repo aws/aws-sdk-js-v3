@@ -4,21 +4,42 @@ import {
   TRANSIENT_ERROR_CODES,
   TRANSIENT_ERROR_STATUS_CODES
 } from "./constants";
-import { isClockSkewError, isThrottlingError, isTransientError } from "./index";
-import { SdkError } from "@aws-sdk/types";
+import {
+  isRetryableByTrait,
+  isClockSkewError,
+  isThrottlingError,
+  isTransientError
+} from "./index";
+import { SdkError, RetryableTrait } from "@aws-sdk/smithy-client";
 
 const checkForErrorType = (
   isErrorTypeFunc: (error: SdkError) => boolean,
-  options: { name?: string; httpStatusCode?: number },
+  options: {
+    name?: string;
+    httpStatusCode?: number;
+    $retryable?: RetryableTrait;
+  },
   errorTypeResult: boolean
 ) => {
-  const { name, httpStatusCode } = options;
+  const { name, httpStatusCode, $retryable } = options;
   const error = Object.assign(new Error(), {
     name,
-    $metadata: { httpStatusCode }
+    $metadata: { httpStatusCode },
+    $retryable
   });
-  expect(isErrorTypeFunc(error)).toBe(errorTypeResult);
+  expect(isErrorTypeFunc(error as SdkError)).toBe(errorTypeResult);
 };
+
+describe("isRetryableByTrait", () => {
+  it("should declare error with $retryable set to be a Retryable by trait", () => {
+    const $retryable = {};
+    checkForErrorType(isRetryableByTrait, { $retryable }, true);
+  });
+
+  it("should not declare error with $retryable not set to be a Retryable by trait", () => {
+    checkForErrorType(isRetryableByTrait, {}, false);
+  });
+});
 
 describe("isClockSkewError", () => {
   CLOCK_SKEW_ERROR_CODES.forEach(name => {
@@ -54,6 +75,21 @@ describe("isThrottlingError", () => {
       break;
     }
   }
+
+  it("should declare error with $retryable.throttling set to true to be a Throttling error", () => {
+    const $retryable = { throttling: true };
+    checkForErrorType(isThrottlingError, { $retryable }, true);
+  });
+
+  it("should not declare error with $retryable.throttling set to false to be a Throttling error", () => {
+    const $retryable = { throttling: false };
+    checkForErrorType(isThrottlingError, { $retryable }, false);
+  });
+
+  it("should not declare error with $retryable.throttling not set to be a Throttling error", () => {
+    const $retryable = {};
+    checkForErrorType(isThrottlingError, { $retryable }, false);
+  });
 });
 
 describe("isTransientError", () => {

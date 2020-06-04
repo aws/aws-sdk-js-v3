@@ -7,7 +7,7 @@ import { resolveRetryConfig } from "./configurations";
 import * as delayDeciderModule from "./delayDecider";
 import { ExponentialBackOffStrategy, RetryDecider } from "./defaultStrategy";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { SdkError } from "@aws-sdk/types";
+import { SdkError } from "@aws-sdk/smithy-client";
 
 describe("retryMiddleware", () => {
   it("should not retry when the handler completes successfully", async () => {

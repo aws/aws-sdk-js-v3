@@ -1,9 +1,10 @@
 import {
   isClockSkewError,
+  isRetryableByTrait,
   isThrottlingError,
   isTransientError
 } from "@aws-sdk/service-error-classification";
-import { SdkError } from "@aws-sdk/types";
+import { SdkError } from "@aws-sdk/smithy-client";
 
 export const defaultRetryDecider = (error: SdkError) => {
   if (!error) {
@@ -11,6 +12,7 @@ export const defaultRetryDecider = (error: SdkError) => {
   }
 
   return (
+    isRetryableByTrait(error) ||
     isClockSkewError(error) ||
     isThrottlingError(error) ||
     isTransientError(error)

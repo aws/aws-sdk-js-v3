@@ -1,3 +1,5 @@
+import { RetryableTrait } from "./retryable-trait";
+
 /**
  * Type that is implemented by all Smithy shapes marked with the
  * error trait.
@@ -17,4 +19,9 @@ export interface SmithyException {
    * The service that encountered the exception.
    */
   readonly $service?: string;
+
+  /**
+   * Indicates that an error MAY be retried by the client.
+   */
+  readonly $retryable?: RetryableTrait;
 }
