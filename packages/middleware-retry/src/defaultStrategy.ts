@@ -35,12 +35,12 @@ export interface DelayDecider {
 
 export class ExponentialBackOffStrategy implements RetryStrategy {
   constructor(
-    public readonly maxRetries: number,
+    public readonly maxAttempts: number,
     private retryDecider: RetryDecider = defaultRetryDecider,
     private delayDecider: DelayDecider = defaultDelayDecider
   ) {}
   private shouldRetry(error: SdkError, retryAttempted: number) {
-    return retryAttempted < this.maxRetries && this.retryDecider(error);
+    return retryAttempted < this.maxAttempts && this.retryDecider(error);
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(

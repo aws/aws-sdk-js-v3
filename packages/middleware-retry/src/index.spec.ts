@@ -12,9 +12,9 @@ import { SdkError } from "@aws-sdk/smithy-client";
 describe("retryMiddleware", () => {
   it("should not retry when the handler completes successfully", async () => {
     const next = jest.fn().mockResolvedValue({ output: { $metadata: {} } });
-    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries: 0 }))(
-      next
-    );
+    const retryHandler = retryMiddleware(
+      resolveRetryConfig({ maxAttempts: 0 })
+    )(next);
 
     const {
       output: { $metadata }
@@ -26,11 +26,11 @@ describe("retryMiddleware", () => {
   });
 
   it("should stop retrying when the the maximum number of retries is reached", async () => {
-    const maxRetries = 3;
+    const maxAttempts = 3;
     const error = new Error();
     error.name = "ProvisionedThroughputExceededException";
     const next = jest.fn().mockRejectedValue(error);
-    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries }))(
+    const retryHandler = retryMiddleware(resolveRetryConfig({ maxAttempts }))(
       next
     );
 
@@ -38,16 +38,16 @@ describe("retryMiddleware", () => {
       retryHandler({ input: {}, request: new HttpRequest({}) })
     ).rejects.toMatchObject(error);
 
-    expect(next.mock.calls.length).toBe(maxRetries + 1);
+    expect(next.mock.calls.length).toBe(maxAttempts + 1);
   });
 
   it("should not retry if the error is not transient", async () => {
     const error = new Error();
     error.name = "ValidationException";
     const next = jest.fn().mockRejectedValue(error);
-    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries: 3 }))(
-      next
-    );
+    const retryHandler = retryMiddleware(
+      resolveRetryConfig({ maxAttempts: 3 })
+    )(next);
 
     await expect(
       retryHandler({ input: {}, request: new HttpRequest({}) })
@@ -69,15 +69,15 @@ describe("retryMiddleware", () => {
 
     jest.mock("./delayDecider");
 
-    const maxRetries = 3;
+    const maxAttempts = 3;
     const delayDeciderMock = jest.spyOn(
       delayDeciderModule,
       "defaultDelayDecider"
     );
     const retryDecider: RetryDecider = (error: SdkError) => true;
-    const strategy = new ExponentialBackOffStrategy(maxRetries, retryDecider);
+    const strategy = new ExponentialBackOffStrategy(maxAttempts, retryDecider);
     const retryHandler = retryMiddleware({
-      maxRetries,
+      maxAttempts,
       retryStrategy: strategy
     })(next);
 
